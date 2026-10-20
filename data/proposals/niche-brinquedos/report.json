@@ -1,0 +1,259 @@
+{
+  "theme": "brinquedos",
+  "searches": [
+    {
+      "q": "INMETRO certificação compulsória brinquedos requisitos de avaliação da conformidade",
+      "looking_for": "regulator"
+    },
+    {
+      "q": "ABNT NBR NM 300 segurança de brinquedos norma técnica",
+      "looking_for": "standard_body"
+    },
+    {
+      "q": "INMETRO portaria brinquedos site oficial consulta certificado",
+      "looking_for": "regulator"
+    },
+    {
+      "q": "ANVISA mordedores bebês contato com alimentos regulamentação",
+      "looking_for": "regulator"
+    },
+    {
+      "q": "CONMETRO estrutura regulamentação metrologia brinquedos",
+      "looking_for": "regulator"
+    },
+    {
+      "q": "fabricante brinquedos Brasil manual instruções selo INMETRO página oficial",
+      "looking_for": "manufacturer"
+    }
+  ],
+  "accepted": [
+    {
+      "host": "inmetro.gov.br",
+      "publisher": "Instituto Nacional de Metrologia, Qualidade e Tecnologia (Inmetro)",
+      "source_class": "regulator",
+      "reason": "Domínio oficial do Inmetro, órgão público federal responsável pela regulamentação e avaliação da conformidade."
+    },
+    {
+      "host": "institutofalcaobauer.com.br",
+      "publisher": "Instituto Falcão Bauer da Qualidade",
+      "source_class": "independent_test",
+      "reason": "Site oficial de instituto independente que realiza ensaios, inspeções e avaliação da conformidade."
+    },
+    {
+      "host": "gov.br/inmetro",
+      "publisher": "Instituto Nacional de Metrologia, Qualidade e Tecnologia (Inmetro)",
+      "source_class": "regulator",
+      "reason": "As URLs estão no portal oficial gov.br e contêm o órgão regulador Inmetro no caminho. (restrito a /inmetro)"
+    },
+    {
+      "host": "estrela.com.br",
+      "publisher": "Estrela",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido (Jogos e Bonecas na Estrela Brinquedos | Loja Ofici)"
+    },
+    {
+      "host": "grow.com.br",
+      "publisher": "Grow",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido ()"
+    },
+    {
+      "host": "sambatoys.com.br",
+      "publisher": "Samba Toys",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido (Samba Toys | Nós criamos os brinquedos. As criança)"
+    },
+    {
+      "host": "usualbrinquedos.com.br",
+      "publisher": "Usual Brinquedos",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido (Home - Usual Brinquedos)"
+    },
+    {
+      "host": "xalingo.com.br",
+      "publisher": "Xalingo",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido (Xalingo &#8211; Trabalhe Conosco &#8211; Xalingo)"
+    },
+    {
+      "host": "shop.mattel.com",
+      "publisher": "Mattel",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido (Mattel Brasil | Shop)"
+    },
+    {
+      "host": "consumercare.hasbro.com",
+      "publisher": "Hasbro",
+      "source_class": "manufacturer",
+      "reason": "site oficial conferido (worldwide)"
+    }
+  ],
+  "maker_checks": [
+    {
+      "brand": "Estrela",
+      "domain": "estrela.com.br",
+      "ok": true,
+      "why": "título: Jogos e Bonecas na Estrela Brinquedos | Loja Oficial"
+    },
+    {
+      "brand": "Grow",
+      "domain": "grow.com.br",
+      "ok": true,
+      "why": "título: "
+    },
+    {
+      "brand": "Elka",
+      "domain": "elka.com.br",
+      "ok": false,
+      "why": "fetch failed"
+    },
+    {
+      "brand": "Cardoso Toys",
+      "domain": "cardosotoys.com.br",
+      "ok": false,
+      "why": "HTTP 403, título sem a marca: 403 Forbidden"
+    },
+    {
+      "brand": "Samba Toys",
+      "domain": "sambatoys.com.br",
+      "ok": true,
+      "why": "título: Samba Toys | Nós criamos os brinquedos. As crianças, as hist"
+    },
+    {
+      "brand": "Usual Brinquedos",
+      "domain": "usualbrinquedos.com.br",
+      "ok": true,
+      "why": "título: Home - Usual Brinquedos"
+    },
+    {
+      "brand": "Xalingo",
+      "domain": "xalingo.com.br",
+      "ok": true,
+      "why": "título: Xalingo &#8211; Trabalhe Conosco &#8211; Xalingo"
+    },
+    {
+      "brand": "Mattel",
+      "domain": "shop.mattel.com",
+      "ok": true,
+      "why": "título: Mattel Brasil | Shop"
+    },
+    {
+      "brand": "Hasbro",
+      "domain": "consumercare.hasbro.com",
+      "ok": true,
+      "why": "título: worldwide"
+    },
+    {
+      "brand": "Lego",
+      "domain": "lego.com",
+      "ok": false,
+      "why": "HTTP 403, título sem a marca: Just a moment..."
+    },
+    {
+      "brand": "Multikids",
+      "domain": "multikids.com.br",
+      "ok": false,
+      "why": "fetch failed"
+    },
+    {
+      "brand": "Polly Brinquedos",
+      "domain": "pollybrinquedos.com.br",
+      "ok": false,
+      "why": "fetch failed"
+    },
+    {
+      "brand": "Bandeirante",
+      "domain": "bandeirante.com.br",
+      "ok": false,
+      "why": "fetch failed"
+    },
+    {
+      "brand": "Yes Toys",
+      "domain": "yestoys.com.br",
+      "ok": false,
+      "why": "HTTP 403, título sem a marca: Azion - Default error page"
+    },
+    {
+      "brand": "DTC",
+      "domain": "legendarynames.com",
+      "ok": false,
+      "why": "HTTP 200, título sem a marca: Landing - legendarynames.com"
+    }
+  ],
+  "rejected": [
+    {
+      "host": "abcpcertificacao.com.br",
+      "reason": "Organismo privado de certificação; não é regulador, organismo de normas, fabricante ou entidade claramente identificada como laboratório de testes independente."
+    },
+    {
+      "host": "ts4.com.br",
+      "reason": "Organismo privado de certificação; a página sobre requisitos do Inmetro não constitui fonte regulatória primária."
+    },
+    {
+      "host": "saroncertificacoes.com.br",
+      "reason": "OCP privado que descreve serviços de certificação, não órgão regulador nem organismo de normas."
+    },
+    {
+      "host": "brics-ocp.com.br",
+      "reason": "Organismo privado de certificação; não é a fonte oficial da regulamentação citada nem entidade de normas."
+    },
+    {
+      "host": "pt.scribd.com",
+      "reason": "Plataforma de documentos enviados por usuários, não site oficial do organismo de normas."
+    },
+    {
+      "host": "infoconsult.com.br",
+      "reason": "Base privada que reproduz legislação; não é o órgão regulador nem a fonte oficial do ato."
+    },
+    {
+      "host": "cronos-media.sesisenaisp.org.br",
+      "reason": "Repositório institucional de conteúdo educacional; não é organismo de normas nem fonte regulatória primária."
+    },
+    {
+      "host": "target.com.br",
+      "reason": "Página comercial de consulta ou venda de norma técnica, não site oficial da ABNT."
+    },
+    {
+      "host": "sabercertificacoes.com.br",
+      "reason": "Empresa privada de certificação com conteúdo explicativo; não é regulador ou organismo de normas."
+    },
+    {
+      "host": "normas.com.br",
+      "reason": "Portal comercial de normas técnicas, não publicação oficial do organismo de normalização."
+    },
+    {
+      "host": "yescert.com.br",
+      "reason": "Empresa privada de serviços de certificação e conteúdo informativo, não fonte regulatória primária."
+    },
+    {
+      "host": "brqualityconsultoria.com.br",
+      "reason": "Consultoria privada que comenta regras da Anvisa; não é o órgão regulador."
+    },
+    {
+      "host": "formulajr.com.br",
+      "reason": "Site de consultoria com artigo informativo, não fonte oficial de regulamentação."
+    },
+    {
+      "host": "itaguaru.go.gov.br",
+      "reason": "Site de prefeitura, expressamente excluído, e não portal do órgão regulador federal citado."
+    },
+    {
+      "host": "globoplay.globo.com",
+      "reason": "Plataforma de mídia jornalística, não fonte regulatória primária."
+    },
+    {
+      "host": "conjur.com.br",
+      "reason": "Veículo de mídia e análise jurídica, não órgão regulador ou organismo de normas."
+    },
+    {
+      "host": "licempre.com.br",
+      "reason": "Site privado com conteúdo explicativo sobre certificação, não fonte oficial do Inmetro."
+    },
+    {
+      "host": "legisweb.com.br",
+      "reason": "Agregador privado de legislação que reproduz portarias; não é o domínio oficial do regulador."
+    }
+  ],
+  "llm_credits": 8.6796,
+  "tavily_credits_month": 27
+}

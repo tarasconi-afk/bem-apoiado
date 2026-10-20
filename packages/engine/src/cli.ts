@@ -7,6 +7,8 @@ import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
 import { discoverSources } from './stages/discover.ts';
 import { improveTopic } from './stages/improve.ts';
+import { planTopic } from './stages/plan.ts';
+import { bootstrapNiche } from './stages/bootstrap.ts';
 import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
 import { reviewPage } from './stages/review.ts';
@@ -209,6 +211,37 @@ async function main(): Promise<number> {
       for (const d of [...l.domains.values()].sort((a, b) => b.claims - a.claims))
         console.log(`${d.host.padEnd(22)} lidas ${String(d.researched).padStart(2)}  úteis ${String(d.productive).padStart(2)}  evidências ${String(d.claims).padStart(3)}  em aprovadas ${String(d.cited_in_approved).padStart(3)}  rendimento ${Math.round(d.yield * 100)}%`);
       console.log('\n--- dicas para o planejador ---\n' + plannerHints(l));
+      return 0;
+    }
+    case 'plan': {
+      const q = rest.join(' ').trim();
+      if (!q) {
+        console.error('uso: plan "<dúvida principal>"');
+        return 2;
+      }
+      setRunBudget(10);
+      const { topic, created } = await planTopic(q);
+      console.log(`${created ? 'NOVA' : 'JÁ EXISTE'} pauta ${topic.slug} (${topic.page_type}), produtos: ${topic.product_kinds.join(', ') || '-'}`);
+      for (const x of topic.questions) console.log(`  ${x.id}: ${x.text}`);
+      console.log(`  termos de foco: ${topic.focus_terms.join(', ')}  ~${creditsSpent().toFixed(1)} créditos`);
+      return 0;
+    }
+    case 'niche-bootstrap': {
+      const theme = rest.join(' ').trim();
+      if (!theme) {
+        console.error('uso: niche-bootstrap "<tema>"');
+        return 2;
+      }
+      setRunBudget(30);
+      const { dir, report, profile } = await bootstrapNiche(theme);
+      console.log(`proposta em ${dir} (NÃO ativada)`);
+      console.log(`marca: ${profile.brand} | escopo: ${profile.scope}`);
+      console.log(`segurança: ${profile.safety_rule}`);
+      console.log(`reguladores: ${profile.regulator_hints.join(' | ')}`);
+      console.log(`tipos: ${profile.product_kinds.map((k) => k.id).join(', ')}`);
+      for (const a of report.accepted) console.log(`  ACEITO  ${a.source_class.padEnd(16)} ${a.host}  (${a.reason.slice(0, 80)})`);
+      for (const m of report.maker_checks.filter((x) => !x.ok)) console.log(`  fabricante não conferido: ${m.brand} ${m.domain} (${m.why})`);
+      console.log(`  ${report.rejected.length} domínios rejeitados; ~${report.llm_credits.toFixed(1)} créditos; Tavily no mês: ${report.tavily_credits_month}`);
       return 0;
     }
     case 'status': {

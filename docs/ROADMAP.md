@@ -47,8 +47,10 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] aprendizado acumulado (`engine learning`): rendimento por domínio, páginas inúteis, lacunas recorrentes, de
       TODAS as pautas; usado no planejador de buscas e no ranking; tabela no painel
 - [x] motor agnóstico de nicho: tudo que é do tema saiu do código para `data/niche.json` (ver docs/NICHO.md)
-- [ ] `niche bootstrap "<tema>"`: motor propõe perfil de nicho + cadastro de domínios para aprovação
-- [ ] perguntas da pauta geradas automaticamente a partir da dúvida principal
+- [x] `niche-bootstrap "<tema>"`: motor propõe perfil + cadastro de domínios em data/proposals/ (gov.br só com caminho
+      do órgão; fabricantes conferidos acessando o site). Testado com "brinquedos": Inmetro, Falcão Bauer, 7 fabricantes
+- [x] `plan "<dúvida>"`: pauta gerada pelo motor (perguntas respondíveis por fonte primária, termos de foco, tipos de
+      produto do nicho), evitando lacunas que o histórico mostrou sem resposta. Testado: "travesseiro alto ou baixo"
 - [ ] agendamento na VPS + envio da página como PR
 - [ ] gerar as perguntas da pauta automaticamente a partir da dúvida principal
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.

@@ -113,3 +113,9 @@ data/niche.json. O aprendizado não fica em memória de sessão: é recalculado 
 (rendimento por domínio, páginas inúteis, lacunas recorrentes). Erro pego nos dados reais: gov.br saiu
 como "raramente rende" porque a 1ª pauta é anterior à memória de fontes lidas; fonte com evidência
 agora sempre conta como lida.
+
+## 2026-10-20 — Nicho novo e pauta nova saem do motor, aprovação é humana
+`plan` cria a pauta a partir da dúvida; `niche-bootstrap` pesquisa um tema e propõe perfil + domínios em
+data/proposals/ sem ativar nada. Duas correções vistas no teste com "brinquedos": portal compartilhado
+(gov.br) nunca entra inteiro, só com o caminho do órgão; fabricante não vem de busca genérica, vem de
+lista do modelo CONFERIDA acessando o site (título/domínio com a marca), e domínio estacionado é recusado.

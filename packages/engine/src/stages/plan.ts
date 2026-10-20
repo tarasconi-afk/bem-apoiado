@@ -1,0 +1,61 @@
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { z } from 'zod';
+import { Slug, TopicBrief } from '@bem-apoiado/core';
+import { callJson, type FetchLike } from '../llm.ts';
+import { computeLearning } from '../learning.ts';
+import { loadNiche } from '../niche.ts';
+import { TOPICS_DIR, writeJson } from '../store.ts';
+
+// Planeja uma pauta a partir só da dúvida principal: perguntas que fontes primárias conseguem
+// responder, termos de foco para a triagem e tipos de produto do perfil de nicho.
+
+const slugify = (s: string) =>
+  s
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 60);
+
+export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Promise<{ topic: TopicBrief; created: boolean }> {
+  const slug = Slug.parse(slugify(primaryQuery));
+  const path = join(TOPICS_DIR, `${slug}.json`);
+  if (existsSync(path)) return { topic: TopicBrief.parse(JSON.parse(readFileSync(path, 'utf8'))), created: false };
+
+  const niche = loadNiche();
+  const kinds = niche.product_kinds.map((k) => k.id) as [string, ...string[]];
+  const gaps = computeLearning().recurringGaps.map((g) => g.gap).slice(0, 8);
+  const Out = z.object({
+    page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
+    questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15) })).min(4).max(7),
+    focus_terms: z.array(z.string().min(2)).min(2).max(8),
+    product_kinds: z.array(z.enum(kinds)).max(4),
+    editorial_notes: z.array(z.string()).max(4),
+  });
+  const r = await callJson(
+    {
+      role: 'writer',
+      system:
+        `Você planeja pautas para o site ${niche.brand} (${niche.scope}), que só escreve o que fontes primárias dizem ` +
+        `(reguladores, normas, páginas oficiais de fabricantes). Reguladores típicos: ${niche.regulator_hints.join('; ')}.\n` +
+        `Regra de segurança do site: ${niche.safety_rule}\n\n` +
+        `Para a dúvida dada, gere de 4 a 7 perguntas que, respondidas, permitem ao leitor DECIDIR. Prefira perguntas que um ` +
+        `fabricante, uma norma ou um regulador costumam responder por escrito (definições, requisitos, especificações, ` +
+        `o que a etiqueta deve informar). Evite perguntas que dependem de teste prático, preço ou opinião.\n` +
+        `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
+        `"product_kinds": só os tipos do vocabulário que a página vai explicar.`,
+      user:
+        `Dúvida principal: "${primaryQuery}"\n` +
+        (gaps.length ? `\nEm pautas anteriores, estas informações NÃO foram encontradas em texto de fonte primária; não dependa delas para a decisão:\n${gaps.map((g) => `- ${g}`).join('\n')}\n` : ''),
+      schema: Out,
+      schemaName: 'topic_plan',
+      maxTokens: 2500,
+    },
+    fetchImpl,
+  );
+  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, source_ids: [] });
+  writeJson(path, topic);
+  return { topic, created: true };
+}
