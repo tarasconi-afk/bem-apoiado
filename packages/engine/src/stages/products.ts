@@ -148,7 +148,7 @@ function kindConflict(name: string, kind: string): string | null {
 }
 
 // Captura do anúncio via Tavily; falha de UM anúncio vira motivo de pulo, nunca derruba a execução.
-async function captureListing(asin: string): Promise<Source | string> {
+export async function captureListing(asin: string): Promise<Source | string> {
   try {
     return (await snapshot({ url: `https://www.amazon.com.br/dp/${asin}`, publisher: 'Amazon.com.br', sourceClass: 'retailer_listing', via: 'tavily' })).source;
   } catch (e) {

@@ -67,11 +67,16 @@ async function main(): Promise<number> {
       for (const page of pages) {
         violations.push(...checkPage(page, idx).map((v) => ({ ...v, where: `${page.slug}:${v.where}` })));
       }
-      for (const v of violations) console.error(`✗ ${v.code} ${v.where} ${v.detail}`);
+      // Disponibilidade vencida é questão de tempo, não de integridade: o site esconde o cartão
+      // (productsFor) e a manutenção do ciclo renova ou retira o produto. Avisa, mas não trava o deploy.
+      const warnings = violations.filter((v) => v.code === 'PRODUCT_AVAILABILITY_STALE');
+      const blocking = violations.filter((v) => v.code !== 'PRODUCT_AVAILABILITY_STALE');
+      for (const v of warnings) console.warn(`! ${v.code} ${v.where} ${v.detail} (cartão oculto)`);
+      for (const v of blocking) console.error(`✗ ${v.code} ${v.where} ${v.detail}`);
       console.log(
-        `validate: ${idx.sources.size} fontes, ${idx.claims.size} evidências, ${products.length} produtos, ${pages.length} páginas, ${violations.length} violações`,
+        `validate: ${idx.sources.size} fontes, ${idx.claims.size} evidências, ${products.length} produtos, ${pages.length} páginas, ${blocking.length} violações${warnings.length ? `, ${warnings.length} produto(s) com disponibilidade vencida` : ''}`,
       );
-      return violations.length === 0 ? 0 : 1;
+      return blocking.length === 0 ? 0 : 1;
     }
     case 'reextract': {
       for (const s of loadSources()) {
@@ -290,7 +295,7 @@ async function main(): Promise<number> {
       const r = await runCycle(runId);
       console.log(JSON.stringify({ status: r.status, slug: r.slug, credits: Number(r.credits.toFixed(1)), steps: r.steps }));
       // 0 = há algo para virar PR; 3 = nada a fazer (o script não abre PR)
-      return r.status === 'PAGE_APPROVED' || r.status === 'PAGE_DRAFT' || r.status === 'STOPPED' ? 0 : 3;
+      return r.status === 'PAGE_APPROVED' || r.status === 'PAGE_DRAFT' || r.status === 'STOPPED' || r.status === 'MAINTENANCE' ? 0 : 3;
     }
     case 'products': {
       const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { max: { type: 'string', default: '4' }, budget: { type: 'string', default: '20' }, from: { type: 'string', default: 'amazon' } } });
@@ -304,6 +309,18 @@ async function main(): Promise<number> {
       for (const a of r.added) console.log(`+ ${a.asin}  ${a.kind.padEnd(16)} ${a.label}`);
       for (const k of r.skipped) console.log(`  pulado: ${k.reason}  (${k.url.slice(0, 90)})`);
       console.log(`run ${runId}: ${r.candidates} fichas candidatas, ${r.added.length} produtos; ~${creditsSpent().toFixed(1)} créditos`);
+      return 0;
+    }
+    case 'refresh-products': {
+      // Recaptura os anúncios com prova de disponibilidade mais velha que N dias (só Tavily, sem LLM).
+      const { values } = parseArgs({ args: rest, options: { 'max-age-days': { type: 'string', default: '7' } } });
+      const { refreshProducts } = await import('./stages/refresh.ts');
+      const runId = newRunId('refresh-products');
+      const r = await refreshProducts(runId, { maxAgeDays: Number(values['max-age-days']) });
+      for (const x of r.refreshed) console.log(`✓ ${x.asin} renovado (${x.claim_id})`);
+      for (const x of r.retired) console.log(`✗ ${x.asin} retirado: ${x.reason}`);
+      for (const x of r.kept) console.log(`· ${x.asin} mantido: ${x.reason}`);
+      console.log(`run ${runId}: ${r.refreshed.length} renovados, ${r.retired.length} retirados, ${r.kept.length} mantidos`);
       return 0;
     }
     case 'admin': {

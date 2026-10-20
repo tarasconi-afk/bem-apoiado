@@ -16,6 +16,16 @@ function findRoot(start: string): string {
 
 // Tudo que é editorial ou evidência vive em data/, versionado no git. Nada em /tmp.
 export const ROOT = process.env.BEM_ROOT ?? findRoot(process.cwd());
+// Estado operacional fora do git (contadores, tentativas): na VPS em /var/lib/bem-apoiado.
+export const STATE_DIR = process.env.BEM_STATE_DIR ?? (existsSync('/var/lib/bem-apoiado') ? '/var/lib/bem-apoiado' : join(ROOT, '.state'));
+export function readState<T>(name: string, fallback: T): T {
+  const f = join(STATE_DIR, name);
+  return existsSync(f) ? (JSON.parse(readFileSync(f, 'utf8')) as T) : fallback;
+}
+export function writeState(name: string, value: unknown): void {
+  mkdirSync(STATE_DIR, { recursive: true });
+  writeFileSync(join(STATE_DIR, name), JSON.stringify(value, null, 2));
+}
 export const DATA = join(ROOT, 'data');
 export const SOURCES_DIR = join(DATA, 'sources');
 export const CLAIMS_DIR = join(DATA, 'claims');

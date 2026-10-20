@@ -2,9 +2,12 @@ import { applyCalibration, calibrate, loadVerdicts } from '../feedback.ts';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { creditsSpent } from '../llm.ts';
+import { creditsLeft, creditsSpent } from '../llm.ts';
 import { creditsThisMonth } from '../search.ts';
-import { DATA, loadPages, loadTopics, ROOT } from '../store.ts';
+import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, writeState } from '../store.ts';
+import type { PageSpec, Product, TopicBrief } from '@bem-apoiado/core';
+import { findProductsFromAmazon } from './products.ts';
+import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources } from './discover.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
@@ -37,7 +40,6 @@ export function editQueue(op: 'add' | 'remove', query: string, now = new Date())
 
 // Teto diário de créditos de IA, somado entre ciclos (contador fora do git).
 export const DAILY_CREDIT_CAP = Number(process.env.BEM_DAILY_CREDIT_CAP ?? 150);
-const STATE_DIR = process.env.BEM_STATE_DIR ?? (existsSync('/var/lib/bem-apoiado') ? '/var/lib/bem-apoiado' : join(ROOT, '.state'));
 const LEDGER = join(STATE_DIR, 'llm-usage.json');
 const today = () => new Date().toISOString().slice(0, 10);
 export function creditsToday(): number {
@@ -51,7 +53,8 @@ function recordCredits(c: number): void {
 }
 
 export interface CycleResult {
-  status: 'PAGE_APPROVED' | 'PAGE_DRAFT' | 'NOTHING_TO_DO' | 'DAILY_CAP' | 'STOPPED';
+  // MAINTENANCE: nenhuma pauta nova, mas o catálogo de produtos mudou (renovação ou produtos novos).
+  status: 'PAGE_APPROVED' | 'PAGE_DRAFT' | 'NOTHING_TO_DO' | 'DAILY_CAP' | 'STOPPED' | 'MAINTENANCE';
   slug?: string;
   query?: string;
   steps: string[];
@@ -81,6 +84,59 @@ export function nextQuery(): string | null {
   return null;
 }
 
+// Produtos para páginas no ar: página aprovada (pelo motor ou pelo editor no painel) cuja pauta tem
+// tipos de produto mas nenhum produto desses tipos no catálogo. Uma tentativa por página por semana.
+export const PRODUCTS_RETRY_DAYS = 7;
+export const PRODUCTS_MIN_CREDITS = 20;
+
+export function pagesNeedingProducts(pages: PageSpec[], topics: TopicBrief[], products: Product[], attempts: Record<string, string>, now = new Date()): string[] {
+  const kindsOf = new Map(topics.map((t) => [t.slug, t.product_kinds]));
+  return pages
+    .filter((p) => p.status !== 'draft')
+    .filter((p) => {
+      const kinds = kindsOf.get(p.slug) ?? [];
+      if (kinds.length === 0 || products.some((x) => kinds.includes(x.kind))) return false;
+      const last = attempts[p.slug];
+      return !last || now.getTime() - new Date(last).getTime() >= PRODUCTS_RETRY_DAYS * 86_400_000;
+    })
+    .map((p) => p.slug);
+}
+
+// Manutenção do catálogo dentro do ciclo (e não num timer separado): as mudanças saem no mesmo ramo
+// e passam pelo mesmo gate/aceite; se um ciclo falha, o próximo retoma sozinho, sem depender de dia da semana.
+async function maintainProducts(runId: string, steps: string[], only?: string): Promise<boolean> {
+  let changed = false;
+  if (!only) {
+    try {
+      const r = await refreshProducts(runId);
+      if (r.refreshed.length || r.retired.length) {
+        changed = true;
+        steps.push(`produtos: ${r.refreshed.length} disponibilidade(s) renovada(s), ${r.retired.length} retirado(s)${r.retired.length ? ` (${r.retired.map((x) => `${x.asin}: ${x.reason}`).join('; ')})` : ''}`);
+      }
+    } catch (e) {
+      steps.push(`produtos: renovação falhou (${(e as Error).message.slice(0, 80)})`);
+    }
+  }
+  const attempts = readState<Record<string, string>>('products-attempts.json', {});
+  const needy = pagesNeedingProducts(loadPages(), loadTopics(), loadProducts(), attempts).filter((s) => !only || s === only);
+  for (const slug of needy.slice(0, 1)) {
+    if (creditsLeft() < PRODUCTS_MIN_CREDITS) {
+      steps.push(`produtos para ${slug}: adiado (orçamento do ciclo)`);
+      break;
+    }
+    attempts[slug] = new Date().toISOString();
+    writeState('products-attempts.json', attempts);
+    try {
+      const r = await findProductsFromAmazon(slug, runId);
+      if (r.added.length) changed = true;
+      steps.push(`produtos para ${slug}: ${r.added.length} adicionado(s)${r.added.length ? ` (${r.added.map((a) => a.label).join('; ')})` : ''}`);
+    } catch (e) {
+      steps.push(`produtos para ${slug}: falhou (${(e as Error).message.slice(0, 80)})`);
+    }
+  }
+  return changed;
+}
+
 export async function runCycle(runId: string): Promise<CycleResult> {
   const steps: string[] = [];
   const done = (r: Omit<CycleResult, 'credits'>): CycleResult => {
@@ -96,8 +152,14 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const cal = calibrate(loadVerdicts());
   if (applyCalibration(cal)) steps.push(`revisão recalibrada: enchimento ≤ ${cal.best.max_filler_ratio}, critérios ≥ ${cal.best.min_criteria} (${cal.best.agree}/${cal.labels} vereditos)`);
 
+  const maintained = await maintainProducts(runId, steps);
+
   const query = nextQuery();
-  if (!query) return { status: 'NOTHING_TO_DO', steps: ['fila vazia ou todas as pautas resolvidas/esgotadas'], credits: 0 };
+  if (!query) {
+    if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao-produtos', steps: [...steps, 'fila sem pauta pendente'] });
+    recordCredits(creditsSpent()); // tentativa de produtos sem resultado também gasta
+    return { status: 'NOTHING_TO_DO', steps: [...steps, 'fila vazia ou todas as pautas resolvidas/esgotadas'], credits: creditsSpent() };
+  }
 
   const { topic, created } = await planTopic(query);
   steps.push(created ? `pauta planejada (${topic.questions.length} perguntas)` : 'pauta já existia');
@@ -121,6 +183,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   }
   const page = loadPages().find((p) => p.slug === topic.slug);
   const status = page && page.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT';
+  // Página aprovada neste ciclo já sai com exemplos à venda, se sobrar orçamento.
+  if (status === 'PAGE_APPROVED') await maintainProducts(runId, steps, topic.slug);
   return done({ status, slug: topic.slug, query, steps });
 }
 
@@ -128,10 +192,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
 function writePrSummary(r: CycleResult, runId: string): void {
   const dir = join(ROOT, '.pr');
   mkdirSync(dir, { recursive: true });
-  const title = r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : `Tentativa (rascunho): ${r.query}`;
+  const title = r.status === 'MAINTENANCE' ? 'Manutenção do catálogo de produtos' : r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : `Tentativa (rascunho): ${r.query}`;
   const body = [
-    `**Pauta:** ${r.query}`,
-    `**Resultado:** ${r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não será publicada; o merge só guarda o aprendizado (fontes, evidências, lacunas)'}`,
+    `**Pauta:** ${r.query ?? '— (manutenção)'}`,
+    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 só produtos: disponibilidade renovada/retirada ou exemplos novos para páginas no ar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não será publicada; o merge só guarda o aprendizado (fontes, evidências, lacunas)'}`,
     '',
     '**Etapas:**',
     ...r.steps.map((s) => `- ${s}`),

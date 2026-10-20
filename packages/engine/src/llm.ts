@@ -39,6 +39,7 @@ export function setRunBudget(limitCredits: number): void {
   budget.spent = 0;
 }
 export const creditsSpent = (): number => budget.spent;
+export const creditsLeft = (): number => budget.limit - budget.spent;
 // Gasto de chamadas fora do chat (ex.: Jev) também conta no teto da execução.
 export function addSpend(credits: number): void {
   budget.spent += credits;

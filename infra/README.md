@@ -18,4 +18,9 @@
 - `bem-apoiado-cycle.{service,timer}` → piloto automático diário às 04:00 (America/Sao_Paulo): roda
   `scripts/cycle.sh` em `/opt/bem-apoiado/repo` (clone pela chave de deploy `/opt/bem-apoiado/.ssh/github_deploy`).
   Rodar um ciclo agora: `systemctl start bem-apoiado-cycle.service`; log: `journalctl -u bem-apoiado-cycle -o cat`.
+- Cada ciclo começa pela manutenção do catálogo: recaptura anúncios com prova de disponibilidade com 7+ dias
+  (só Tavily; retira o produto se o trecho sumiu, se não há oferta ou se a prova venceu) e busca exemplos para
+  página aprovada sem produto (uma tentativa por página por semana, se sobrarem 20+ créditos). Sem pauta na
+  fila, só a manutenção vira ramo `pagina/manutencao-produtos-*`. Tentativas ficam em
+  `/var/lib/bem-apoiado/products-{refresh,attempts}.json`.
 - Tetos: 120 créditos/ciclo, 150/dia (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
