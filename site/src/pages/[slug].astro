@@ -13,6 +13,9 @@ const fn = footnotesFor(page);
 const products = productsFor(page);
 const n = fn.numberFor;
 const isDecision = (id: string, heading: string) => /decidir|escolher/i.test(id + ' ' + heading);
+// Exemplos no meio da página: depois que os tipos e as diferenças foram explicados, antes dos detalhes
+// de etiqueta e da seção de decisão (no fim, quase ninguém chega até eles).
+const examplesAfter = products.length > 0 ? Math.max(0, Math.floor(page.sections.length / 2) - 1) : -1;
 const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page.page_type === 'buying_guide' ? 'Guia de compra' : 'Explicação';
 ---
 <Base title={page.title} description={page.description} noindex={page.status !== 'published'}>
@@ -32,10 +35,11 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
 
     <nav class="toc" aria-label="Nesta página">
       <p class="toc-label">Nesta página</p>
-      <ol>{page.sections.map((s) => <li><a href={`#${s.id}`}>{s.heading}</a></li>)}</ol>
+      <ol>{page.sections.map((s, i) => <><li><a href={`#${s.id}`}>{s.heading}</a></li>{i === examplesAfter && <li><a href="#exemplos">Exemplos à venda</a></li>}</>)}</ol>
     </nav>
 
-    {page.sections.map((s) => (
+    {page.sections.map((s, i) => (
+      <>
       <section id={s.id} class={isDecision(s.id, s.heading) ? 'decide' : undefined}>
         <h2>{s.heading}</h2>
         {s.blocks.map((b) =>
@@ -66,35 +70,35 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
           ),
         )}
       </section>
+      {i === examplesAfter && (
+          <section id="exemplos" class="examples">
+            <h2>Exemplos à venda</h2>
+            <p class="examples-note">
+              Exemplos dos tipos explicados acima, sem ordem de preferência. Antes de comprar, veja mais abaixo o que conferir na etiqueta e como decidir.{' '}
+              {products.some((c) => !c.listingQuote) && 'Quando há ficha oficial, as características vêm do fabricante. '}
+              {products.some((c) => c.listingQuote) && 'Quando não há, mostramos só como o vendedor descreve o produto na Amazon. '}
+            </p>
+            <ul class="product-list">
+              {products.map((card) => (
+                <li class="product">
+                  <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
+                  <span class="product-name">{card.product.label}</span>
+                  {card.listingQuote ? (
+                    <p class="product-listing">Anunciado como: <q>{card.listingQuote}</q></p>
+                  ) : (
+                    <ul class="product-specs">
+                      {card.specs.map((sp) => <li><q>{sp.statement}</q> <a href={sp.sourceUrl} rel="nofollow noopener" target="_blank">ficha {sp.publisher}</a></li>)}
+                    </ul>
+                  )}
+                  <a class="product-cta" href={card.url} rel="sponsored nofollow noopener" target="_blank">Ver na Amazon</a>
+                  <span class="product-checked">Disponibilidade conferida em {fmtDate(card.checkedAt)}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+      )}
+      </>
     ))}
-
-    {products.length > 0 && (
-      <section id="exemplos" class="examples">
-        <h2>Exemplos à venda</h2>
-        <p class="examples-note">
-          Exemplos dos tipos explicados acima, sem ordem de preferência.{' '}
-          {products.some((c) => !c.listingQuote) && 'Quando há ficha oficial, as características vêm do fabricante. '}
-          {products.some((c) => c.listingQuote) && 'Quando não há, mostramos só como o vendedor descreve o produto na Amazon. '}
-        </p>
-        <ul class="product-list">
-          {products.map((card) => (
-            <li class="product">
-              <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
-              <span class="product-name">{card.product.label}</span>
-              {card.listingQuote ? (
-                <p class="product-listing">Anunciado como: <q>{card.listingQuote}</q></p>
-              ) : (
-                <ul class="product-specs">
-                  {card.specs.map((sp) => <li><q>{sp.statement}</q> <a href={sp.sourceUrl} rel="nofollow noopener" target="_blank">ficha {sp.publisher}</a></li>)}
-                </ul>
-              )}
-              <a class="product-cta" href={card.url} rel="sponsored nofollow noopener" target="_blank">Ver na Amazon</a>
-              <span class="product-checked">Disponibilidade conferida em {fmtDate(card.checkedAt)}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
 
     <details id="fontes" class="sources">
       <summary>Fontes consultadas ({fn.notes.length}) e trechos citados</summary>
