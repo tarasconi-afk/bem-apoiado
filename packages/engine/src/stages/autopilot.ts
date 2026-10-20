@@ -51,9 +51,12 @@ export function nextQuery(): string | null {
   const q = Queue.parse(JSON.parse(readFileSync(path, 'utf8')));
   const topics = new Map(loadTopics().map((t) => [t.slug, t]));
   const approved = new Set(loadPages().filter((p) => p.status !== 'draft').map((p) => p.slug));
+  // Pauta com ramo pagina/* ainda não mesclado: o aprendizado dela ainda não está no main.
+  // Esperar o merge em vez de refazer (e pagar de novo) o mesmo trabalho.
+  const pending = new Set((process.env.BEM_PENDING_SLUGS ?? '').split(',').filter(Boolean));
   for (const item of q.items) {
     const slug = slugOf(item.query);
-    if (approved.has(slug)) continue;
+    if (approved.has(slug) || pending.has(slug)) continue;
     const t = topics.get(slug);
     if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) continue;
     return item.query;

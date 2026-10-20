@@ -53,8 +53,9 @@ const draft = (verdictText: string) => ({
 });
 
 // Simula o roteador: responde conforme o modelo pedido no corpo da requisição.
-function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean }) {
+function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean }) {
   let writerCalls = 0;
+  let reviews = 0;
   return async (_url: string, init: RequestInit) => {
     const body = JSON.parse(String(init.body));
     let content: unknown;
@@ -66,6 +67,12 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean }) 
           ? { patches: [{ ref: 'verdict', action: 'replace', text: 'Depende do uso, segundo as fontes citadas.', basis: 'reasoning', claim_ids: [IDS[0]] }] }
           : draft('Colchão de espuma sempre dura mais em qualquer caso.');
     } else if (body.response_format.json_schema.name === 'editorial_review') {
+      reviews++;
+      if (opts.nearMiss && reviews === 1) {
+        // 1ª revisão: quase lá, com 1 bloco de enchimento apontado
+        content = { answers_primary_query: 'partial', concrete_guidance: true, filler_refs: ['tipos#0'], decision_criteria: ['a', 'b'], missing: [], publishable: false, summary: 'quase' };
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 10, completion_tokens: 5 } }));
+      }
       const ok = opts.publishable ?? true;
       content = { answers_primary_query: ok ? 'yes' : 'partial', concrete_guidance: ok, filler_refs: [], decision_criteria: ok ? ['a', 'b'] : [], missing: ok ? [] : ['tabela do fabricante'], publishable: ok, summary: ok ? 'ok' : 'fina' };
     } else {
@@ -104,6 +111,15 @@ describe('buildPage', () => {
       expect(r.page.status).toBe('draft');
       expect(r.review.missing).toContain('tabela do fabricante');
     }
+  });
+
+  it('página quase aprovada: corta o enchimento apontado e passa na 2ª revisão', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_trim', router({ auditorRejectsAlways: false, nearMiss: true }));
+    expect(r.status).toBe('PASS');
+    // O corte foi tentado e registrado; seção com um bloco só nunca é esvaziada.
+    expect(existsSync(join(root, 'data/runs/run_trim/trim.json'))).toBe(true);
+    if (r.status === 'PASS') expect(r.page.sections.some((s) => s.id === 'tipos')).toBe(true);
   });
 
   it('para em SAFE_STOP quando a auditoria não converge, sem gravar página', async () => {

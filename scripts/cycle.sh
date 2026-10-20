@@ -17,6 +17,12 @@ if ! cmp -s package-lock.json .state/last-lock 2>/dev/null; then
   mkdir -p .state && cp package-lock.json .state/last-lock
 fi
 
+# Pautas com PR do motor ainda não mesclado ficam de fora deste ciclo (ramo pagina/<slug>-AAAAMMDD-HHMM).
+git fetch -q --prune origin '+refs/heads/pagina/*:refs/remotes/origin/pagina/*' || true
+export BEM_PENDING_SLUGS=$(git branch -r --no-merged origin/main --list 'origin/pagina/*' \
+  | sed -E 's#^ *origin/pagina/##; s#-[0-9]{8}-[0-9]{4}$##' | sort -u | paste -sd, -)
+[ -n "$BEM_PENDING_SLUGS" ] && echo "aguardando merge: $BEM_PENDING_SLUGS"
+
 set +e
 OUT=$(npm run -s engine -- autopilot 2>&1)
 CODE=$?
