@@ -1,10 +1,7 @@
-import { existsSync } from 'node:fs';
 import { z } from 'zod';
+import { ENV_FILE_PATH as ENV_FILE } from './env.ts';
 import { creditsFor, MODELS, type Role } from './models.ts';
 
-// Credenciais: variáveis de ambiente, com fallback para o arquivo da VPS. Nunca no repositório.
-const ENV_FILE = '/etc/bem-apoiado/env';
-if (!process.env.NEXOS_API_KEY && existsSync(ENV_FILE)) process.loadEnvFile(ENV_FILE);
 
 export interface LlmCall<T> {
   role: Role;
@@ -85,7 +82,7 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
 
     const parsed = safeParse(content, call.schema);
     if (parsed.ok) return { data: parsed.data, model: model.id, modelName: model.name, usage, attempts: attempt };
-    lastProblem = `${parsed.error.slice(0, 400)} | início da saída: ${content.slice(0, 200).replace(/\s+/g, ' ')}`;
+    lastProblem = `${parsed.error.slice(0, 400)} | ${content.length} chars | início: ${content.slice(0, 120).replace(/\s+/g, ' ')} | fim: ${content.slice(-200).replace(/\s+/g, ' ')}`;
 
     messages.push(
       { role: 'assistant', content },

@@ -1,0 +1,59 @@
+{
+  "edits": [
+    {
+      "ref": "diferencas-que-importam#1",
+      "action": "rewrite",
+      "text": "A Simmons afirma que os níveis de conforto não são definidos pelo elemento principal do colchão, mas por toda a composição: a quantidade de materiais e a forma como são montados determinam o resultado. Essa fabricante trabalha com cinco níveis, do extra firme ao ultra macio. A Probel acrescenta que colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza. Por isso, o rótulo do tipo não basta: vale comparar modelo a modelo.",
+      "claim_ids": [
+        "clm_96e33c071559",
+        "clm_6b31ea67e2ea",
+        "clm_38dd22b16ba1",
+        "clm_4eb3cc64856d"
+      ],
+      "absorbs": [
+        "diferencas-que-importam#2"
+      ],
+      "reason": "Os dois blocos repetiam a mesma ideia (conforto depende da composição, não do tipo de mola); unidos em um só parágrafo mais curto."
+    },
+    {
+      "ref": "diferencas-que-importam#2",
+      "action": "remove",
+      "reason": "Conteúdo absorvido pelo bloco diferencas-que-importam#1 reescrito."
+    },
+    {
+      "ref": "diferencas-que-importam#3",
+      "action": "rewrite",
+      "text": "Na durabilidade, só há declarações dos próprios fabricantes: a Probel afirma que um colchão de mola bem cuidado pode durar anos sem se deformar, e descreve esse tipo como mais resistente que o de espuma; a Ortobom diz que seus modelos de molas superpocket oferecem durabilidade. Já o Inmetro regula o desempenho dos colchões por certificação compulsória, avaliada por organismo acreditado, sem medir durabilidade de forma independente.",
+      "claim_ids": [
+        "clm_cdb4ca8202db",
+        "clm_8da961e49556",
+        "clm_cb33a03f402a",
+        "clm_3a2242197a7b"
+      ],
+      "absorbs": [
+        "diferencas-que-importam#4"
+      ],
+      "reason": "O bloco #4 apenas repetia que as informações vêm dos fabricantes, ideia já presente no #3; mesclados para evitar redundância."
+    },
+    {
+      "ref": "diferencas-que-importam#4",
+      "action": "remove",
+      "reason": "Conteúdo absorvido pelo bloco diferencas-que-importam#3 reescrito."
+    },
+    {
+      "ref": "etiqueta-e-selo-do-inmetro#7",
+      "action": "rewrite",
+      "text": "Colchões com indicação de uso para prevenção, tratamento ou reabilitação em seres humanos ficam sob a regulamentação da Anvisa, não do Inmetro.",
+      "claim_ids": [
+        "clm_5ecd83851e80",
+        "clm_930a12d2a849"
+      ],
+      "reason": "A segunda frase repetia a informação sobre propriedades terapêuticas já dada no bloco #6; removida para evitar repetição."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 15800,
+    "output_tokens": 5950
+  }
+}

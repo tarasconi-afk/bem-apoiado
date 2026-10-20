@@ -5,7 +5,9 @@ import { callJson, creditsSpent, setRunBudget } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
 import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
+import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
+import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from './search.ts';
 import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
 import { buildIndex, loadPages, loadProducts, loadSources } from './store.ts';
@@ -109,6 +111,30 @@ async function main(): Promise<number> {
         return 1;
       }
       console.log(`página gravada: data/pages/${slug}.json (${r.page.sections.length} seções)`);
+      return 0;
+    }
+    case 'edit': {
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '30' } } });
+      const page = loadPages().find((p) => p.slug === positionals[0]);
+      if (!page) {
+        console.error('uso: edit <slug-de-página-existente> [--budget créditos]');
+        return 2;
+      }
+      setRunBudget(Number(values.budget));
+      const runId = newRunId(`${page.slug}-edit`);
+      const r = await editPage(page, runId);
+      console.log(`run ${runId}: ${JSON.stringify(r)} ~${creditsSpent().toFixed(1)} créditos`);
+      return r.status === 'REVERTED' ? 1 : 0;
+    }
+    case 'search': {
+      const q = rest.join(' ').trim();
+      if (!q) {
+        console.error('uso: search <consulta>');
+        return 2;
+      }
+      const results = await webSearch(q);
+      for (const r of results) console.log(`${r.score.toFixed(2)}  ${r.url}\n      ${r.title}`);
+      console.log(`Tavily este mês: ${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP} créditos`);
       return 0;
     }
     case 'status': {

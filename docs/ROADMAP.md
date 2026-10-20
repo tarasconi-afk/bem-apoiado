@@ -23,11 +23,13 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] teto de gasto por execução e custo gravado no run
 - [x] infraestrutura do catálogo de afiliados: schema Product, gate (ficha do fabricante + anúncio do
       mesmo ASIN com menos de 30 dias + sem nome promocional), seção "Exemplos à venda" com rel=sponsored
-- [ ] popular o catálogo: depende de achar a ficha oficial de cada produto (bloqueio: precisa de API de
-      busca; sites de fabricante variam — Emma recusa conexão, Ortobom carrega produtos por JS)
+- [ ] popular o catálogo: busca já existe; falta a etapa que acha a ficha OFICIAL (a busca devolve
+      Instagram/YouTube/Buscapé antes do fabricante; Emma recusa conexão; Ortobom carrega produtos por JS)
 - [x] hospedagem Hostinger (Business u226814741): https://darkslategrey-rail-669974.hostingersite.com via GitHub Action → ramo deploy (plano B manual: `npm run deploy:hostinger`)
 - [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
-- [ ] etapa "editor" (só corta/funde blocos aprovados)
+- [x] etapa "editor": só corta/encurta/junta blocos aprovados; reescrita só cita evidência que já estava no
+      bloco; blocos reescritos voltam ao auditor e só a edição reprovada é descartada (1ª página: −2 blocos, ~11 créditos)
+- [x] busca na web (Tavily, plano grátis) com teto mensal duro de 1.400 créditos e contador na VPS
 - [ ] domínio definitivo bemapoiado.com.br (compra = ação humana) e hospedagem final
 
 ## Fase 3 — Autonomia

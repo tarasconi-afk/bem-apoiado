@@ -86,3 +86,8 @@ pasta pública (aconteceu: código e data/ ficaram acessíveis e o site saiu do 
 repo). Correção: site temporário apagado e recriado (darkslategrey-rail-669974.hostingersite.com); um
 GitHub Action testa, roda o gate, monta o site e publica só `site/dist` no ramo `deploy`; a Hostinger
 acompanha o ramo `deploy`. A integração só pode ser ligada com a pasta pública vazia.
+
+## 2026-10-20 — Busca: Tavily com teto mensal, chamada direta pela VPS
+Dono não quer pagar busca: plano grátis com teto duro de 1.400 créditos/mês (margem sob 1.500),
+contador em /var/lib/bem-apoiado/tavily-usage.json, checado antes de cada chamada; só busca básica
+(1 crédito). Não instalamos a CLI/skill da Tavily: o motor chama a API REST, sem depender do Claude.

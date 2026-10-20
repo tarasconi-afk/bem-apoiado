@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
 import { MODELS } from './models.ts';
+import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
 import { rawIntact } from './snapshot.ts';
 import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR } from './store.ts';
 
@@ -109,6 +110,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <div class="card"><div class="v">${cr(sum(since(24 * 7)))}</div><div class="l">créditos em 7 dias</div></div>
 <div class="card"><div class="v">${idx.sources.size} / ${idx.claims.size}</div><div class="l">fontes / evidências</div></div>
 <div class="card"><div class="v">${products.length}</div><div class="l">produtos no catálogo</div></div>
+<div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
 ${unknownCost ? `<p class="muted">${unknownCost} execução(ões) anteriores ao registro de custo aparecem sem créditos; o extrato do hPanel é a referência final.</p>` : ''}

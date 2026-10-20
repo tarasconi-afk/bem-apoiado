@@ -47,10 +47,12 @@ export async function auditDraft(
   sources: Map<string, Source>,
   fetchImpl?: FetchLike,
   cache: AuditCache = new Map(),
+  onlyRefs?: Set<string>,
 ): Promise<{ findings: AuditFinding[]; usage: { input_tokens: number; output_tokens: number; calls: number }; model: string }> {
   const findings: AuditFinding[] = [];
   // Bloco idêntico já julgado mantém o veredito: economiza chamada e evita oscilação do auditor.
   const units = blockRefs(draft).filter((u) => {
+    if (onlyRefs && !onlyRefs.has(u.ref)) return false;
     const hit = cache.get(auditKey(u));
     if (hit) findings.push({ ref: u.ref, ...hit });
     return !hit;
