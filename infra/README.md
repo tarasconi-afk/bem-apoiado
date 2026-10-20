@@ -1,10 +1,17 @@
 # Infraestrutura (VPS srv2079501)
 
-- `Caddyfile` → `/etc/caddy/Caddyfile`. Site estático em `/var/www/bem-apoiado`, painel em `/var/www/painel`
-  protegido por senha (`basic_auth`). Gerar o hash com `caddy hash-password`; a senha fica em
-  `/etc/bem-apoiado/painel-senha` (root, 600) e nunca entra no git.
-- `bem-apoiado-status.{service,timer}` → `/etc/systemd/system/`. Regenera o painel a cada 5 min como
-  usuário `bemapoiado` (sem privilégio).
+- `Caddyfile` → `/etc/caddy/Caddyfile`. Prévia em `/var/www/bem-apoiado` (com rascunhos); `/painel/` é
+  proxy para o painel admin.
+- `bem-apoiado-admin.service`: painel admin (`npm run engine -- admin`, 127.0.0.1:8787, usuário `bemapoiado`).
+  A senha é conferida pelo painel (hash scrypt em `/var/lib/bem-apoiado/painel-auth.json`, 600) e trocada
+  pela própria tela. Definir sem a tela: `npm run -s engine -- admin-senha` lendo a senha da entrada padrão.
+  10 erros seguidos bloqueiam o IP por 15 min. POST só com Origin do próprio painel (CSRF).
+  Sai sozinho quando o main traz código novo; o `Restart=always` sobe a versão nova.
+- Ações do painel → `scripts/painel-acao.sh` (veredito, fila, aceitar/descartar resultado do motor), com o
+  mesmo lock do ciclo; cada uma vira commit no main pela chave de deploy.
+- `bem-apoiado-sync.{service,timer}`: a cada 5 min alinha a cópia com o GitHub e refaz a prévia se o main mudou.
+- `bem-apoiado-cycle-now.path`: o botão "Rodar um ciclo agora" cria `/var/lib/bem-apoiado/run-now`, que dispara
+  `bem-apoiado-cycle.service` (o `cycle.sh` apaga o arquivo).
 - Credenciais do motor: `/etc/bem-apoiado/env` (root:bemapoiado 640) com `NEXOS_API_KEY` e `NEXOS_BASE_URL`.
 - Código do motor: `/opt/bem-apoiado/app` (dono `bemapoiado`).
 - Firewall: só 22, 80 e 443.

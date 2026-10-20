@@ -1,0 +1,8 @@
+[Unit]
+Description=Bem Apoiado: alinha a cópia da VPS com o GitHub e refaz a prévia
+[Service]
+Type=oneshot
+User=bemapoiado
+WorkingDirectory=/opt/bem-apoiado/repo
+Environment=HOME=/opt/bem-apoiado
+ExecStart=/bin/bash /opt/bem-apoiado/repo/scripts/painel-acao.sh sync

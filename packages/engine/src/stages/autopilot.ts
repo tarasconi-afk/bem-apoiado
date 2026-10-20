@@ -19,6 +19,22 @@ const Queue = z.object({
   items: z.array(z.object({ query: z.string().min(3), added_at: z.string(), origin: z.string().default('manual') })),
 });
 
+// Fila editada pelo painel: adiciona no fim (sem duplicar) ou remove pela consulta exata.
+export function editQueue(op: 'add' | 'remove', query: string, now = new Date()): boolean {
+  const path = join(DATA, 'queue.json');
+  const raw = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : { items: [] };
+  const q = Queue.parse(raw);
+  const key = slugOf(query);
+  const has = q.items.some((i) => slugOf(i.query) === key);
+  if (op === 'add' && (has || query.trim().length < 3)) return false;
+  if (op === 'remove' && !has) return false;
+  const items = op === 'add'
+    ? [...q.items, { query: query.trim(), added_at: now.toISOString().slice(0, 10), origin: 'painel' }]
+    : q.items.filter((i) => slugOf(i.query) !== key);
+  writeFileSync(path, JSON.stringify({ ...raw, items }, null, 2) + '\n');
+  return true;
+}
+
 // Teto diário de créditos de IA, somado entre ciclos (contador fora do git).
 export const DAILY_CREDIT_CAP = Number(process.env.BEM_DAILY_CREDIT_CAP ?? 150);
 const STATE_DIR = process.env.BEM_STATE_DIR ?? (existsSync('/var/lib/bem-apoiado') ? '/var/lib/bem-apoiado' : join(ROOT, '.state'));

@@ -212,6 +212,17 @@ async function main(): Promise<number> {
       console.log(`${h.slug}: ${h.verdict} registrado${h.review ? ` (regra dizia ${h.review.rule_publishable ? 'publicar' : 'não publicar'})` : ' (sem métricas de revisão)'}`);
       return 0;
     }
+    case 'queue': {
+      const [op, ...words] = rest;
+      const query = words.join(' ');
+      if ((op !== 'add' && op !== 'remove') || !query) {
+        console.error('uso: queue add|remove <consulta>');
+        return 2;
+      }
+      const { editQueue } = await import('./stages/autopilot.ts');
+      console.log(editQueue(op, query) ? `fila: ${op} "${query}"` : `fila sem mudança ("${query}" ${op === 'add' ? 'já está na fila' : 'não está na fila'})`);
+      return 0;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());
@@ -293,6 +304,19 @@ async function main(): Promise<number> {
       for (const a of r.added) console.log(`+ ${a.asin}  ${a.kind.padEnd(16)} ${a.label}`);
       for (const k of r.skipped) console.log(`  pulado: ${k.reason}  (${k.url.slice(0, 90)})`);
       console.log(`run ${runId}: ${r.candidates} fichas candidatas, ${r.added.length} produtos; ~${creditsSpent().toFixed(1)} créditos`);
+      return 0;
+    }
+    case 'admin': {
+      const { startAdmin } = await import('./admin.ts');
+      startAdmin();
+      return await new Promise<number>(() => {});
+    }
+    case 'admin-senha': {
+      // Define a senha do painel lendo uma linha da entrada padrão (nunca por argumento: ficaria no histórico).
+      const { setPassword } = await import('./admin.ts');
+      const line = (await new Promise<string>((r) => { let s = ''; process.stdin.on('data', (c) => (s += c)).on('end', () => r(s)); })).replace(/\r?\n$/, '');
+      setPassword(line);
+      console.log('senha do painel definida');
       return 0;
     }
     case 'status': {

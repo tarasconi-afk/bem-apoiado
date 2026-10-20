@@ -147,3 +147,15 @@ mínimos) que mais concordam com o editor; só aplica com 8+ vereditos e ganho r
 data/calibration.json (versionado, auditável). O autopilot recalibra no início de cada ciclo.
 Afiliado: tag bemapoiado-20 (sem sobrenome); a divulgação da Amazon fica no rodapé de todas as páginas,
 não repetida em cada seção, e o cartão "só anúncio" se atribui pelo próprio "Anunciado como".
+
+## 2026-10-20 — Painel admin com escrita, sem token do GitHub
+Cada clique vira um job de `scripts/painel-acao.sh` com o lock do ciclo: parte do main do GitHub, aplica a
+mudança pelo CLI do motor, passa no gate e faz commit direto no main pela chave de deploy. O clique é a
+aprovação humana, então não há PR intermediário. "Aceitar" o resultado de um ciclo faz o merge do ramo
+`pagina/*` localmente depois de testes + typecheck + build, como o check do PR; o GitHub marca o PR como
+mesclado sozinho. Isso dispensa token do GitHub. A senha saiu do `basic_auth` do Caddy e foi para o painel
+(scrypt, fora do git), para poder ser trocada pela tela sem root. A prévia da VPS passa a mostrar rascunhos:
+é onde o editor lê a página antes do veredito.
+Recusa devolve uma tentativa de melhoria e usa o motivo como lacuna, se a pauta não tiver outra; sem isso
+o piloto automático considerava a pauta resolvida e nunca voltava a ela.
+Exemplos à venda no meio da página (depois de tipos e diferenças), não no fim: no fim quase ninguém chega.

@@ -72,4 +72,5 @@ discover automático (autocomplete + Planner exportado, depois Search Console), 
 atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pelo hash).
 
 - [x] veredito humano + calibração da revisão (CLI; painel mostra concordância e divergências)
-- [ ] painel admin com escrita: botões aprovar/recusar (chamam `verdict`), fila, orçamento, merge de PR
+- [x] painel admin com escrita: veredito, fila, aceitar/descartar resultado do motor, rodar ciclo, trocar senha
+- [ ] painel: orçamentos editáveis, aprovação de proposta de nicho

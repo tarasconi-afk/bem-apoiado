@@ -7,6 +7,7 @@ export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHost
 exec 9>/var/lib/bem-apoiado/cycle.lock
 flock -n 9 || { echo "outro ciclo em andamento; saindo"; exit 0; }
 
+rm -f /var/lib/bem-apoiado/run-now   # pedido do painel atendido
 cd "$REPO"
 git fetch -q origin main
 git checkout -q main

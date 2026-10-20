@@ -8,7 +8,8 @@ import { computeLearning } from './learning.ts';
 import { rawIntact } from './snapshot.ts';
 import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR } from './store.ts';
 
-// Painel só-leitura: tudo vem de data/ (o mesmo estado que o motor usa). Nenhuma ação é possível daqui.
+// Painel de status: tudo vem de data/ (o mesmo estado que o motor usa). As ações (admin.ts) entram
+// como um bloco extra; sem ele, a página é só leitura.
 
 interface RunRow {
   id: string;
@@ -62,7 +63,7 @@ const esc = (s: unknown) =>
 const fmt = (d: Date) => d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', dateStyle: 'short', timeStyle: 'short' });
 const cr = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 0 });
 
-export function renderStatus(now = new Date()): string {
+export function renderStatus(now = new Date(), opts: { adminHtml?: string; refresh?: number } = {}): string {
   const runs = collectRuns();
   const idx = buildIndex();
   const pages = loadPages();
@@ -90,7 +91,7 @@ export function renderStatus(now = new Date()): string {
 
   return `<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta http-equiv="refresh" content="300">
+<meta name="robots" content="noindex,nofollow"><meta http-equiv="refresh" content="${opts.refresh ?? 300}">
 <title>Painel do motor</title>
 <style>
 :root{--bg:#f6f5f1;--card:#fff;--ink:#1f2421;--muted:#626862;--line:#e3ded4;--ok:#2d6a4f;--okbg:#e5f2ea;--bad:#a23b2a;--badbg:#fbe9e5;--n:#5d5a52;--nbg:#efede7}
@@ -105,7 +106,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 .num{text-align:right;font-variant-numeric:tabular-nums}code{font-size:.82rem}
 </style></head><body><main>
 <h1>Painel do motor · Bem Apoiado</h1>
-<p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · atualiza a cada 5 min · somente leitura</p>
+<p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}</p>
 <div class="grid">
 <div class="card"><div class="v">${pages.filter((p) => p.status !== 'draft').length}</div><div class="l">páginas aprovadas</div></div>
 <div class="card"><div class="v">${topics.length}</div><div class="l">pautas cadastradas</div></div>
@@ -116,6 +117,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
+${opts.adminHtml ?? ''}
 ${unknownCost ? `<p class="muted">${unknownCost} execução(ões) anteriores ao registro de custo aparecem sem créditos; o extrato do hPanel é a referência final.</p>` : ''}
 
 <h2>Pautas</h2>

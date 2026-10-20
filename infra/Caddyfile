@@ -5,13 +5,10 @@ srv2079501.hstgr.cloud {
 	header -Server
 
 	redir /painel /painel/
+	# Senha conferida pelo próprio painel (admin.ts), que permite trocá-la pela tela.
 	handle_path /painel/* {
-		basic_auth {
-			admin <HASH: caddy hash-password>
-		}
 		header Cache-Control "no-store"
-		root * /var/www/painel
-		file_server
+		reverse_proxy 127.0.0.1:8787
 	}
 
 	handle {

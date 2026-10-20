@@ -58,12 +58,18 @@ export function recordVerdict(slug: string, verdict: 'approve' | 'reject', reaso
   if (verdict === 'approve' && page.status === 'draft') writeJson(pageFile, { ...page, status: 'approved' });
   if (verdict === 'reject') {
     if (page.status !== 'draft') writeJson(pageFile, { ...page, status: 'draft' });
-    // O motivo vira nota editorial: a próxima tentativa do redator já o recebe.
+    // O motivo vira nota editorial (o redator o recebe) e lacuna (a pesquisa dirigida o persegue);
+    // a recusa devolve uma tentativa de melhoria, para o piloto automático voltar à pauta.
     const topicFile = join(TOPICS_DIR, `${slug}.json`);
     if (existsSync(topicFile)) {
       const t = TopicBrief.parse(JSON.parse(readFileSync(topicFile, 'utf8')));
       const note = `Editor recusou: ${reason}`;
-      if (!t.editorial_notes.includes(note)) writeJson(topicFile, { ...t, editorial_notes: [...t.editorial_notes, note] });
+      writeJson(topicFile, {
+        ...t,
+        editorial_notes: t.editorial_notes.includes(note) ? t.editorial_notes : [...t.editorial_notes, note],
+        evidence_gaps: t.evidence_gaps.length ? t.evidence_gaps : [reason],
+        improve_attempts: Math.max(0, t.improve_attempts - 1),
+      });
     }
   }
   return h;

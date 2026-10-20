@@ -1,0 +1,7 @@
+[Unit]
+Description=Bem Apoiado: ciclo pedido pelo painel (arquivo run-now)
+[Path]
+PathExists=/var/lib/bem-apoiado/run-now
+Unit=bem-apoiado-cycle.service
+[Install]
+WantedBy=multi-user.target

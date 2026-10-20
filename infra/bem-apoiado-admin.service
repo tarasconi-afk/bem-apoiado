@@ -1,0 +1,14 @@
+[Unit]
+Description=Bem Apoiado: painel admin (127.0.0.1:8787, senha no Caddy)
+After=network-online.target
+[Service]
+User=bemapoiado
+WorkingDirectory=/opt/bem-apoiado/repo
+Environment=HOME=/opt/bem-apoiado
+EnvironmentFile=/etc/bem-apoiado/env
+ExecStart=/usr/bin/npm run -s engine -- admin
+# Sai sozinho quando o main traz código novo; o systemd sobe de novo com ele.
+Restart=always
+RestartSec=3
+[Install]
+WantedBy=multi-user.target
