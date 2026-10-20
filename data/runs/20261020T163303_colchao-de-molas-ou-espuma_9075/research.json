@@ -1,0 +1,37 @@
+{
+  "run_id": "20261020T163303_colchao-de-molas-ou-espuma_9075",
+  "topic": "colchao-de-molas-ou-espuma",
+  "accepted": [],
+  "rejected": [],
+  "coverage": {
+    "q_tipos": 0,
+    "q_movimento": 0,
+    "q_densidade": 0,
+    "q_firmeza": 0,
+    "q_durabilidade": 0,
+    "q_certificacao": 0,
+    "q_etiqueta": 0,
+    "q_terapeutico": 0
+  },
+  "unanswered": [
+    "q_tipos",
+    "q_movimento",
+    "q_densidade",
+    "q_firmeza",
+    "q_durabilidade",
+    "q_certificacao",
+    "q_etiqueta",
+    "q_terapeutico"
+  ],
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "calls": 0
+  },
+  "errors": [
+    {
+      "source_id": "src_0a4e79ef52c7",
+      "error": "Claude Haiku 4.5 devolveu saída inválida duas vezes (evidence_candidates): ✖ Invalid option: expected one of \"q_tipos\"|\"q_movimento\"|\"q_densidade\"|\"q_firmeza\"|\"q_durabilidade\"|\"q_certificacao\"|\"q_etiqueta\"|\"q_terapeutico\"\n  → at candidates[0].question_id\n✖ Invalid option: expected one of \"q_tipos\"|\"q_movimento\"|\"q_densidade\"|\"q_firmeza\"|\"q_durabilidade\"|\"q_certificacao\"|\"q_etiqueta\"|\"q_terapeutico\"\n  → at candidates[1].question_id\n✖ Invalid option: expected one of \"q_tip | início da saída: ```json { \"candidates\": [ { \"question\": \"q_tipos\", \"quote\": \"Os colchões de molas superpocket com molas ensacadas individualmente diminuem as vibrações e evitam que os movimentos de "
+    }
+  ]
+}

@@ -44,11 +44,17 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
 
   const model = MODELS[call.role];
   const jsonSchema = z.toJSONSchema(call.schema, { target: 'draft-7' });
+  // O roteador não impõe response_format para todos os fornecedores (o Claude trocou question_id por
+  // question). Por isso o schema também vai no prompt, com os nomes exatos dos campos.
+  const contract =
+    `\n\nFormato de resposta: apenas um objeto JSON válido, sem texto antes ou depois, que siga exatamente ` +
+    `este JSON Schema (use os nomes de campo exatamente como estão):\n${JSON.stringify(jsonSchema)}`;
   const messages: { role: string; content: string }[] = [
-    { role: 'system', content: call.system },
+    { role: 'system', content: call.system + contract },
     { role: 'user', content: call.user },
   ];
   const usage = { input_tokens: 0, output_tokens: 0 };
+  let lastProblem = '';
 
   for (let attempt = 1; attempt <= 2; attempt++) {
     const res = await fetchImpl(`${base}/chat/completions`, {
@@ -73,13 +79,14 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
 
     const parsed = safeParse(content, call.schema);
     if (parsed.ok) return { data: parsed.data, model: model.id, modelName: model.name, usage, attempts: attempt };
+    lastProblem = `${parsed.error.slice(0, 400)} | início da saída: ${content.slice(0, 200).replace(/\s+/g, ' ')}`;
 
     messages.push(
       { role: 'assistant', content },
       { role: 'user', content: `A saída não passou na validação: ${parsed.error}\nDevolva apenas o JSON corrigido.` },
     );
   }
-  throw new LlmError(`${model.name} devolveu saída inválida duas vezes (${call.schemaName})`, 'INVALID_OUTPUT');
+  throw new LlmError(`${model.name} devolveu saída inválida duas vezes (${call.schemaName}): ${lastProblem}`, 'INVALID_OUTPUT');
 }
 
 function safeParse<T>(content: string, schema: z.ZodType<T>): { ok: true; data: T } | { ok: false; error: string } {

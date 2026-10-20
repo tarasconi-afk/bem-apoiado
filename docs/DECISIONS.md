@@ -38,3 +38,8 @@ O catálogo da chave (`GET /models`) é menor que a lista do painel e usa ids te
 não os UUIDs mostrados no painel. Papéis atuais: extrator `claude-haiku-4.5`, redator `claude-opus-5`,
 auditor `gpt-5.6-sol`. O modelo se autodeclara com nome errado na resposta; isso é normal e irrelevante.
 Credencial em `/etc/bem-apoiado/env` (root:bemapoiado 640) na VPS; o motor roda como usuário `bemapoiado`.
+
+## 2026-10-20 — Schema de saída vai também no prompt
+O roteador não impõe `response_format` para o Claude: o extrator trocou `question_id` por `question`
+e 7 de 15 chamadas falharam. Com o JSON Schema anexado ao prompt de sistema, 0 falhas de formato.
+O verificador literal rejeitou 6 de 100 trechos propostos (citações que não existiam na fonte).

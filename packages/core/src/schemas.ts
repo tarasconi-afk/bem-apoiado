@@ -46,6 +46,20 @@ export const ClaimType = z.enum([
   'availability', // produto listado em loja numa data (não é especificação)
 ]);
 
+// Pauta: o que a página precisa responder e de onde pode tirar a resposta.
+// Hoje escrita pelo PM; na Fase 3 gerada pelo estágio discover.
+export const TopicBrief = z.object({
+  slug: Slug,
+  primary_query: z.string().min(3),
+  page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
+  questions: z
+    .array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(10) }))
+    .min(1),
+  source_ids: z.array(SourceId).min(1),
+  editorial_notes: z.array(z.string()).default([]),
+});
+export type TopicBrief = z.infer<typeof TopicBrief>;
+
 // Uma evidência é um trecho literal de um snapshot. A paráfrase é opcional e não é a prova.
 export const Claim = z.object({
   id: ClaimId,
@@ -54,6 +68,9 @@ export const Claim = z.object({
   claim_type: ClaimType,
   statement: z.string().min(8).max(400),
   captured_at: z.iso.datetime(),
+  // Pergunta da pauta que este trecho responde; um claim pode servir a mais de uma página.
+  question_ids: z.array(z.string()).default([]),
+  run_id: z.string().optional(),
 });
 export type Claim = z.infer<typeof Claim>;
 

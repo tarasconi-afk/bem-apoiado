@@ -28,6 +28,7 @@ const claim = (over: Partial<Claim> = {}): Claim => ({
   claim_type: 'spec',
   statement: 'O modelo X usa espuma D33 indicada até 100 kg.',
   captured_at: '2026-10-20T12:00:00.000Z',
+  question_ids: [],
   ...over,
 });
 
