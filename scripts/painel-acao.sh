@@ -67,7 +67,8 @@ case "$action" in
     ;;
   fila-adicionar|fila-remover)
     fresh
-    npm run -s engine -- queue "${action#fila-}" "$2"
+    op=add; [ "$action" = fila-remover ] && op=remove
+    npm run -s engine -- queue "$op" "$2"
     publish "Painel: fila ${action#fila-} \"$2\""
     ;;
   mesclar)

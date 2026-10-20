@@ -15,6 +15,7 @@ import { DATA, loadPages, ROOT } from './store.ts';
 
 const PORT = Number(process.env.BEM_PANEL_PORT ?? 8787);
 const ORIGIN = process.env.BEM_PANEL_ORIGIN ?? 'https://srv2079501.hstgr.cloud';
+const BASE = process.env.BEM_PANEL_BASE ?? '/painel/';
 const PREVIEW = process.env.BEM_PREVIEW_URL ?? 'https://srv2079501.hstgr.cloud';
 const STATE = process.env.BEM_STATE_DIR ?? '/var/lib/bem-apoiado';
 const JOBS_FILE = join(STATE, 'painel-jobs.json');
@@ -242,7 +243,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       const j = toJob(f);
       msg = typeof j === 'string' ? j : (startJob(j.label, j.args) ?? `iniciado: ${j.label}`);
     }
-    res.writeHead(303, { location: `./?msg=${encodeURIComponent(msg)}` });
+    res.writeHead(303, { location: `${BASE}?msg=${encodeURIComponent(msg)}` });
     return res.end();
   }
   res.writeHead(404);
