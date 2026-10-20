@@ -75,7 +75,6 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
           Exemplos dos tipos explicados acima, sem ordem de preferência.{' '}
           {products.some((c) => !c.listingQuote) && 'Quando há ficha oficial, as características vêm do fabricante. '}
           {products.some((c) => c.listingQuote) && 'Quando não há, mostramos só como o vendedor descreve o produto na Amazon. '}
-          Links para a Amazon: podemos receber comissão se você comprar, sem custo extra.
         </p>
         <ul class="product-list">
           {products.map((card) => (
@@ -83,7 +82,7 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
               <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
               <span class="product-name">{card.product.label}</span>
               {card.listingQuote ? (
-                <p class="product-listing">Anunciado como: <q>{card.listingQuote}</q> <span>(descrição do vendedor na Amazon; não encontramos ficha oficial do fabricante)</span></p>
+                <p class="product-listing">Anunciado como: <q>{card.listingQuote}</q></p>
               ) : (
                 <ul class="product-specs">
                   {card.specs.map((sp) => <li><q>{sp.statement}</q> <a href={sp.sourceUrl} rel="nofollow noopener" target="_blank">ficha {sp.publisher}</a></li>)}
@@ -168,7 +167,6 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
   .product-specs { margin: 0 0 0.8rem; padding-left: 1.1rem; font-size: 0.92rem; }
   .product-specs a { font-size: 0.8rem; color: var(--muted); }
   .product-listing { font-size: 0.9rem; margin: 0 0 0.8rem; }
-  .product-listing span { display: block; color: var(--muted); font-size: 0.78rem; }
   .product-cta { display: inline-block; padding: 0.55rem 1rem; border-radius: 8px; background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
   .product-cta:hover { filter: brightness(1.1); }
   .product-checked { display: block; margin-top: 0.5rem; color: var(--muted); font-size: 0.78rem; }

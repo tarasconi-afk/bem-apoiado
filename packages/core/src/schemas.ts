@@ -17,7 +17,7 @@ export const SourceClass = z.enum([
 export type SourceClass = z.infer<typeof SourceClass>;
 
 // Tag de afiliado da conta Amazon Associados (StoreID).
-export const AFFILIATE_TAG = 'tarasconi-20';
+export const AFFILIATE_TAG = 'bemapoiado-20';
 export const affiliateUrl = (asin: string) => `https://www.amazon.com.br/dp/${asin}?tag=${AFFILIATE_TAG}`;
 
 export const PRIMARY_CLASSES: readonly SourceClass[] = ['manufacturer', 'regulator', 'standard_body'];
