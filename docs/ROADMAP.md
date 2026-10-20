@@ -44,7 +44,12 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [ ] 2ª página "colchão D28 ou D33": 1ª tentativa de improve achou 4 fichas Probel D28/D33 (+25 evidências) mas
       segue NÃO PUBLICÁVEL (43% enchimento). A tabela peso × densidade dos fabricantes não está em texto
       (provável imagem) → capacidade futura: ler tabela em imagem (modelo com visão), com o mesmo rigor literal
-- [ ] qualidade por domínio aprendida dos runs (evidências aprovadas por domínio → prioridade na busca)
+- [x] aprendizado acumulado (`engine learning`): rendimento por domínio, páginas inúteis, lacunas recorrentes, de
+      TODAS as pautas; usado no planejador de buscas e no ranking; tabela no painel
+- [x] motor agnóstico de nicho: tudo que é do tema saiu do código para `data/niche.json` (ver docs/NICHO.md)
+- [ ] `niche bootstrap "<tema>"`: motor propõe perfil de nicho + cadastro de domínios para aprovação
+- [ ] perguntas da pauta geradas automaticamente a partir da dúvida principal
+- [ ] agendamento na VPS + envio da página como PR
 - [ ] gerar as perguntas da pauta automaticamente a partir da dúvida principal
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,

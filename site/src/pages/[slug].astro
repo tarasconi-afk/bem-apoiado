@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cite from '../components/Cite.astro';
-import { fmtDate, footnotesFor, KIND_LABEL, productsFor, publicPages, readingMinutes } from '../lib/content';
+import { fmtDate, footnotesFor, KIND_LABEL, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -18,7 +18,7 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
 <Base title={page.title} description={page.description} noindex={page.status !== 'published'}>
   <article class="article">
     <header class="article-head">
-      <p class="kicker">{kicker} · Colchões</p>
+      <p class="kicker">{kicker} · {NICHE.category_label}</p>
       <h1>{page.title}</h1>
       <p class="meta">
         Atualizado em {fmtDate(page.updated_at)} · {fn.notes.length} fontes consultadas · {readingMinutes(page)} min de leitura
@@ -78,7 +78,7 @@ const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page
         <ul class="product-list">
           {products.map((card) => (
             <li class="product">
-              <span class="product-kind">{KIND_LABEL[card.product.kind]}</span>
+              <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
               <span class="product-name">{card.product.label}</span>
               <ul class="product-specs">
                 {card.specs.map((sp) => <li>{sp.statement} <a href={sp.sourceUrl} rel="nofollow noopener" target="_blank">ficha {sp.publisher}</a></li>)}

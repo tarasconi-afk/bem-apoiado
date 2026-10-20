@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import { BRAND, publicPages } from '../lib/content';
+import { BRAND, NICHE, publicPages } from '../lib/content';
 const pages = publicPages();
 ---
-<Base title={`${BRAND}: colchão, travesseiro e cadeira explicados com fonte`} description="Decisões de compra sobre sono e home office, explicadas com o que fabricantes, normas técnicas e órgãos reguladores publicam.">
+<Base title={`${BRAND}: ${NICHE.category_label.toLowerCase()} explicado com fonte`} description={`Decisões de ${NICHE.scope}, explicadas com o que fabricantes, normas técnicas e órgãos reguladores publicam.`.slice(0, 158)}>
   <section class="hero">
-    <h1>Escolha com o que está escrito, não com o que é prometido.</h1>
-    <p>Guias sobre colchão, travesseiro e cadeira feitos a partir de normas técnicas, órgãos reguladores e fichas de fabricantes. Cada afirmação aponta para o trecho exato da fonte.</p>
+    <h1>{NICHE.site_tagline}</h1>
+    <p>{NICHE.site_intro}</p>
   </section>
   <section>
     <h2>Guias</h2>

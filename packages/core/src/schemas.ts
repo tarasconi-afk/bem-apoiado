@@ -50,7 +50,23 @@ export const ClaimType = z.enum([
   'availability', // produto listado em loja numa data (não é especificação)
 ]);
 
-export const ProductKind = z.enum(['espuma', 'molas_ensacadas', 'molas_interligadas', 'misto', 'travesseiro', 'cadeira', 'outro']);
+// Tipo de produto: vocabulário definido pelo perfil de nicho (data/niche.json), não pelo código.
+export const ProductKind = z.string().regex(/^[a-z0-9_]+$/);
+
+// Tudo que é específico do nicho mora aqui. Trocar de nicho = trocar este perfil e o cadastro de domínios.
+export const NicheProfile = z.object({
+  brand: z.string().min(2),
+  site_tagline: z.string(),
+  site_intro: z.string(),
+  scope: z.string().min(10),
+  audience: z.string().min(5),
+  category_label: z.string(),
+  regulator_hints: z.array(z.string()).min(1),
+  safety_rule: z.string().min(20),
+  decision_outline: z.array(z.string()).min(2),
+  product_kinds: z.array(z.object({ id: ProductKind, label: z.string() })).min(1),
+});
+export type NicheProfile = z.infer<typeof NicheProfile>;
 
 // Pauta: o que a página precisa responder e de onde pode tirar a resposta.
 // Hoje escrita pelo PM; na Fase 3 gerada pelo estágio discover.

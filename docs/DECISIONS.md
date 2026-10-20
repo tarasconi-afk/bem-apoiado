@@ -105,3 +105,11 @@ filtro antes das etapas caras (resultados de busca e trechos de fonte); se falha
 termos. Na 2ª página, a pesquisa caiu de 40 créditos/29 chamadas para 2,9/4.
 A pauta guarda lacunas apontadas pela revisão e fontes já lidas; `improve` usa isso para uma busca
 direcionada sem reler o que já foi lido, com limite de tentativas.
+
+## 2026-10-20 — Motor agnóstico de nicho e aprendizado recalculado do histórico
+Meta do dono: dizer "vamos trocar para brinquedos" e o motor saber o que fazer. Tudo que era do tema
+(prompts com "colchão/sono", regra de saúde, Inmetro fixo, tipos de produto, textos do site) foi para
+data/niche.json. O aprendizado não fica em memória de sessão: é recalculado de data/ a cada uso
+(rendimento por domínio, páginas inúteis, lacunas recorrentes). Erro pego nos dados reais: gov.br saiu
+como "raramente rende" porque a 1ª pauta é anterior à memória de fontes lidas; fonte com evidência
+agora sempre conta como lida.

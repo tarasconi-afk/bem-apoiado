@@ -1,10 +1,12 @@
 import { affiliateUrl, checkProduct, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
-import { buildIndex, loadClaims, loadPages, loadProducts, loadSources, loadTopics } from '@bem-apoiado/engine';
+import { buildIndex, loadClaims, loadNiche, loadPages, loadProducts, loadSources, loadTopics } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
 
-export const BRAND = 'Bem Apoiado';
+// Marca, textos e vocabulário de produtos vêm do perfil de nicho (data/niche.json).
+export const NICHE = loadNiche();
+export const BRAND = NICHE.brand;
 
 // Só páginas aprovadas e auditadas vão ao ar. Rascunhos aparecem apenas com SITE_SHOW_DRAFTS=true (preview).
 export function publicPages(): PageSpec[] {
@@ -56,15 +58,7 @@ export function readingMinutes(page: PageSpec): number {
 export const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('pt-BR', { timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' });
 
-export const KIND_LABEL: Record<Product['kind'], string> = {
-  espuma: 'Colchão de espuma',
-  molas_ensacadas: 'Colchão de molas ensacadas',
-  molas_interligadas: 'Colchão de molas interligadas',
-  misto: 'Colchão misto',
-  travesseiro: 'Travesseiro',
-  cadeira: 'Cadeira',
-  outro: 'Outro',
-};
+export const KIND_LABEL: Record<string, string> = Object.fromEntries(NICHE.product_kinds.map((k) => [k.id, k.label]));
 
 export interface ProductCard {
   product: Product;

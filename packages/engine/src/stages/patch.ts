@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { Basis, type Claim, type Source, type TopicBrief } from '@bem-apoiado/core';
 import { callJson, type FetchLike } from '../llm.ts';
 import type { Draft } from './draft-schema.ts';
-import { formatClaims, WRITER_SYSTEM } from './write.ts';
+import { formatClaims, writerSystem } from './write.ts';
 
 export interface Issue {
   ref: string | null; // null = problema da página inteira (exige reescrita completa)
@@ -91,5 +91,5 @@ export async function writePatches(
     `Corrija apenas estes blocos. Para cada ref, devolva um remendo: "replace" com o novo texto, basis e claim_ids ` +
     `(ou "cells" para linha de tabela), ou "remove" se o bloco não se sustenta nem estreitado.\n` +
     issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}`).join('\n');
-  return callJson({ role: 'writer', system: WRITER_SYSTEM, user, schema, schemaName: 'page_patches', maxTokens: 8000 }, fetchImpl);
+  return callJson({ role: 'writer', system: writerSystem(), user, schema, schemaName: 'page_patches', maxTokens: 8000 }, fetchImpl);
 }

@@ -1,17 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
-import { BRAND } from '../lib/content';
+import { BRAND, NICHE } from '../lib/content';
 ---
-<Base title={`Como trabalhamos | ${BRAND}`} description="Como o Bem Apoiado escolhe fontes, verifica cada afirmação e lida com links de afiliado.">
+<Base title={`Como trabalhamos | ${BRAND}`} description={`Como o ${BRAND} escolhe fontes, verifica cada afirmação e lida com links de afiliado.`}>
   <article class="page">
     <h1>Como trabalhamos</h1>
-    <p>O {BRAND} explica decisões de compra de sono e home office usando apenas o que fabricantes, normas técnicas e órgãos reguladores publicam.</p>
+    <p>O {BRAND} explica decisões de {NICHE.scope} usando apenas o que fabricantes, normas técnicas e órgãos reguladores publicam.</p>
     <h2>O que fazemos</h2>
     <p>Arquivamos uma cópia de cada documento consultado e só escrevemos o que esses documentos dizem. Cada afirmação no texto aponta para a fonte e para o trecho exato usado.</p>
     <p>Antes de ir ao ar, cada texto passa por uma revisão que confere, bloco por bloco, se o que escrevemos é sustentado pelos trechos citados. O que não se sustenta é corrigido ou removido.</p>
     <h2>O que não fazemos</h2>
     <p>Não testamos produtos fisicamente, não damos notas e não montamos rankings. Quando um fabricante afirma algo sobre os próprios produtos, dizemos que é a posição daquele fabricante.</p>
-    <p>Não fazemos afirmações sobre saúde. Questões de dor, coluna ou postura devem ser levadas a um profissional.</p>
+    <p>Seguimos uma regra de segurança própria do tema: {NICHE.safety_rule.split(':')[0].toLowerCase()} fica fora do que afirmamos, e orientamos procurar um profissional quando for o caso.</p>
     <h2>Links de afiliado</h2>
     <p>Alguns links levam à Amazon. Como participante do Programa de Associados da Amazon, recebemos uma comissão quando há compra qualificada, sem custo extra para você. A comissão não influencia o conteúdo: o texto é escrito antes da escolha de qualquer link.</p>
   </article>

@@ -57,7 +57,7 @@ const SYSTEM = `Você extrai evidências LITERAIS de um documento para responder
 Regras obrigatórias:
 1. "quote" é uma cópia EXATA, caractere por caractere, de um trecho contíguo do documento: uma ou duas frases, entre 30 e 500 caracteres. Não corrija, não resuma, não junte trechos de lugares diferentes, não traduza. Um programa vai procurar o trecho no documento e descartar o que não encontrar.
 2. Só inclua trechos que respondem diretamente a uma das perguntas. Prefira trechos com informação concreta (definição, requisito, número, condição).
-3. "statement" é uma paráfrase fiel e curta, em português, do que o trecho afirma. Não acrescente nada que o trecho não diga. Se a fonte é um fabricante falando de colchões em geral (e não da ficha do próprio produto), comece com "Segundo <fabricante>,".
+3. "statement" é uma paráfrase fiel e curta, em português, do que o trecho afirma. Não acrescente nada que o trecho não diga. Se a fonte é um fabricante falando dos produtos em geral (e não da ficha do próprio produto), comece com "Segundo <fabricante>,".
 4. "claim_type": spec = dado técnico declarado; certification = certificação de produto; regulation = o que norma ou portaria exige; definition = definição de termo; availability = produto à venda numa data.
 5. Se nada no trecho responde às perguntas, devolva "candidates": [].
 6. No máximo 10 candidatos, sem repetir a mesma informação.`;

@@ -1,6 +1,7 @@
 import { join } from 'node:path';
 import { z } from 'zod';
 import { checkPage, type PageSpec } from '@bem-apoiado/core';
+import { loadNiche } from '../niche.ts';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { writeStage } from '../runs.ts';
 import { buildIndex, PAGES_DIR, writeJson } from '../store.ts';
@@ -12,7 +13,7 @@ import { styleIssues } from './page.ts';
 // Editor: só corta, encurta ou junta blocos de uma página JÁ aprovada. Nunca acrescenta fato:
 // o texto reescrito só pode citar evidências que já estavam nos blocos que ele substitui.
 
-const SYSTEM = `Você é o editor do site Bem Apoiado. A página abaixo já foi aprovada pela auditoria de evidências.
+const system = () => `Você é o editor do site ${loadNiche().brand}. A página abaixo já foi aprovada pela auditoria de evidências.
 Seu trabalho é deixá-la mais enxuta para um leitor leigo, sem acrescentar nenhuma informação.
 
 Operações permitidas, por ref de bloco:
@@ -114,7 +115,7 @@ export async function editPage(page: PageSpec, runId: string, fetchImpl?: FetchL
   const r = await callJson(
     {
       role: 'writer',
-      system: SYSTEM,
+      system: system(),
       user: `Evidências citadas na página:\n${formatClaims(claims, idx.sources)}\n\nPágina (refs dos blocos entre colchetes):\n` +
         blockRefs(draft).map((u) => `[${u.ref}] (${u.basis}) ${u.text}`).join('\n'),
       schema: makeEditSchema(refs, cited),

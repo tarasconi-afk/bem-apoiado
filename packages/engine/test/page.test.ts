@@ -12,6 +12,12 @@ const IDS = SENTENCES.map((_, i) => `clm_teste_${i}`);
 
 beforeAll(() => {
   writeFileSync(join(root, 'package.json'), JSON.stringify({ name: 'bem-apoiado' }));
+  mkdirSync(join(root, 'data'), { recursive: true });
+  writeFileSync(join(root, 'data/niche.json'), JSON.stringify({
+    brand: 'Site Teste', site_tagline: 't', site_intro: 'i', scope: 'compras de teste para o motor', audience: 'leitores',
+    category_label: 'Teste', regulator_hints: ['Regulador X'], safety_rule: 'Segurança: nunca prometa efeito de saúde.',
+    decision_outline: ['como funciona', 'Como decidir'], product_kinds: [{ id: 'outro', label: 'Outro' }],
+  }));
   const src = join(root, 'data/sources/src_bbbbbbbbbbbb');
   mkdirSync(src, { recursive: true });
   writeFileSync(join(src, 'text.txt'), SENTENCES.join('\n'));

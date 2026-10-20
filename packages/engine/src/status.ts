@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
 import { MODELS } from './models.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
+import { computeLearning } from './learning.ts';
 import { rawIntact } from './snapshot.ts';
 import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR } from './store.ts';
 
@@ -130,6 +131,12 @@ ${runs.slice(0, 40).map((r) => `<tr><td>${esc(fmt(r.when))}</td><td><code>${esc(
 </tbody></table></div>
 
 ${violations.length ? `<h2>Violações no gate</h2><div class="tw"><table><thead><tr><th>Código</th><th>Onde</th><th>Detalhe</th></tr></thead><tbody>${violations.slice(0, 50).map((v) => `<tr><td>${esc(v.code)}</td><td><code>${esc(v.where)}</code></td><td class="muted">${esc(v.detail)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+
+<h2>Aprendizado: o que cada domínio rendeu</h2>
+<p class="muted">Calculado de todo o histórico. A busca prioriza domínios com rendimento alto e evita páginas que já se mostraram inúteis.</p>
+<div class="tw"><table><thead><tr><th>Domínio</th><th class="num">Fontes lidas</th><th class="num">Com evidência</th><th class="num">Evidências</th><th class="num">Em página aprovada</th><th class="num">Citações inventadas barradas</th><th class="num">Rendimento</th></tr></thead><tbody>
+${[...computeLearning().domains.values()].sort((a, b) => b.claims - a.claims).map((d) => `<tr><td><code>${esc(d.host)}</code></td><td class="num">${d.researched}</td><td class="num">${d.productive}</td><td class="num">${d.claims}</td><td class="num">${d.cited_in_approved}</td><td class="num">${d.rejected_quotes}</td><td class="num">${Math.round(d.yield * 100)}%</td></tr>`).join('')}
+</tbody></table></div>
 
 <h2>Modelos em uso</h2>
 <div class="tw"><table><thead><tr><th>Papel</th><th>Modelo</th><th class="num">Créditos / 1M entrada</th><th class="num">Créditos / 1M saída</th></tr></thead><tbody>

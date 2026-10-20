@@ -14,7 +14,8 @@ import { loadTopic } from './stages/research.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from './search.ts';
 import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
-import { buildIndex, loadPages, loadProducts, loadSources, PAGES_DIR, TOPICS_DIR, writeJson } from './store.ts';
+import { buildIndex, loadPages, loadProducts, loadSources, loadTopics, PAGES_DIR, TOPICS_DIR, writeJson } from './store.ts';
+import { loadNiche } from './niche.ts';
 import { join } from 'node:path';
 
 const [command, ...rest] = process.argv.slice(2);
@@ -51,6 +52,10 @@ async function main(): Promise<number> {
       for (const claim of idx.claims.values()) violations.push(...checkClaim(claim, idx));
       const products = loadProducts();
       for (const p of products) violations.push(...checkProduct(p, idx));
+      // Vocabulário de tipos de produto pertence ao perfil de nicho.
+      const kinds = new Set(loadNiche().product_kinds.map((k) => k.id));
+      for (const p of products) if (!kinds.has(p.kind)) violations.push({ code: 'PRODUCT_KIND_NOT_IN_NICHE', where: `product:${p.asin}`, detail: p.kind });
+      for (const t of loadTopics()) for (const k of t.product_kinds) if (!kinds.has(k)) violations.push({ code: 'TOPIC_KIND_NOT_IN_NICHE', where: `topic:${t.slug}`, detail: k });
       const pages = loadPages();
       for (const page of pages) {
         violations.push(...checkPage(page, idx).map((v) => ({ ...v, where: `${page.slug}:${v.where}` })));
@@ -197,6 +202,14 @@ async function main(): Promise<number> {
       const r = await improveTopic(positionals[0], runId);
       console.log(`run ${runId}: ${JSON.stringify(r)}`);
       return r.status === 'DONE' && r.page === 'PASS' ? 0 : 1;
+    }
+    case 'learning': {
+      const { computeLearning, plannerHints } = await import('./learning.ts');
+      const l = computeLearning();
+      for (const d of [...l.domains.values()].sort((a, b) => b.claims - a.claims))
+        console.log(`${d.host.padEnd(22)} lidas ${String(d.researched).padStart(2)}  úteis ${String(d.productive).padStart(2)}  evidências ${String(d.claims).padStart(3)}  em aprovadas ${String(d.cited_in_approved).padStart(3)}  rendimento ${Math.round(d.yield * 100)}%`);
+      console.log('\n--- dicas para o planejador ---\n' + plannerHints(l));
+      return 0;
     }
     case 'status': {
       const { values } = parseArgs({ args: rest, options: { out: { type: 'string' } } });

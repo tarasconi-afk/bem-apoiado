@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import type { Claim, Source } from '@bem-apoiado/core';
 import { callJson, type FetchLike } from '../llm.ts';
+import { loadNiche } from '../niche.ts';
 import { blockRefs, type Draft } from './draft-schema.ts';
 
 export const AuditVerdict = z.enum([
@@ -9,11 +10,11 @@ export const AuditVerdict = z.enum([
   'OVERSTATED', // a ideia está nas fontes, mas o bloco afirma mais (generaliza, intensifica, quantifica)
   'UNSUPPORTED', // afirma algo que os trechos citados não dizem
   'MISATTRIBUTED', // posição de fabricante apresentada como fato geral, ou fonte errada
-  'HEALTH_CLAIM', // promete ou sugere efeito sobre saúde
+  'SAFETY_CLAIM', // viola a regra de segurança do nicho (data/niche.json)
   'FACT_IN_FRAMING', // bloco marcado como framing traz fato
 ]);
 
-const SYSTEM = `Você é o auditor de evidências do site Bem Apoiado. Seu trabalho é desconfiar.
+const auditorSystem = () => `Você é o auditor de evidências do site ${loadNiche().brand}. Seu trabalho é desconfiar.
 
 Para cada bloco você recebe o texto publicado e os trechos LITERAIS das evidências que ele cita (com a fonte e a classe da fonte). Julgue cada bloco sozinho, só contra os trechos citados nele, sem usar conhecimento próprio:
 
@@ -21,7 +22,7 @@ Para cada bloco você recebe o texto publicado e os trechos LITERAIS das evidên
 - OVERSTATED: a ideia existe nos trechos, mas o bloco afirma mais (generaliza "sempre/todos", intensifica, acrescenta número ou condição).
 - UNSUPPORTED: o bloco afirma algo que nenhum trecho citado diz.
 - MISATTRIBUTED: afirmação que nos trechos é posição de um fabricante (classe manufacturer) aparece como fato geral, sem "segundo a <marca>"; ou o bloco atribui a uma fonte o que ela não disse.
-- HEALTH_CLAIM: o bloco diz ou sugere efeito de um colchão sobre dor, coluna, postura ou outra condição de saúde, MESMO quando atribuído a um fabricante (\"segundo a marca X, causa desalinhamento\" também é HEALTH_CLAIM). Dizer que o Inmetro não avalia propriedades terapêuticas não é HEALTH_CLAIM.
+- SAFETY_CLAIM: o bloco viola esta regra do site, MESMO quando atribui a afirmação a um fabricante: ${loadNiche().safety_rule}
 - FACT_IN_FRAMING: bloco com basis "framing" que afirma algum fato.
 
 Blocos "reasoning" podem tirar conclusões práticas, desde que a conclusão decorra diretamente dos trechos citados.
@@ -86,7 +87,7 @@ export async function auditDraft(
     const r = await callJson(
       {
         role: 'auditor',
-        system: SYSTEM,
+        system: auditorSystem(),
         user: `Audite cada bloco abaixo e devolva exatamente um veredito por bloco (refs: ${refs.join(', ')}).\n\n${body}`,
         schema: Out,
         schemaName: 'audit',

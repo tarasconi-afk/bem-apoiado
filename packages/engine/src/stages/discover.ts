@@ -3,6 +3,8 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { SourceClass, TopicBrief } from '@bem-apoiado/core';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
+import { loadNiche } from '../niche.ts';
+import { computeLearning, plannerHints } from '../learning.ts';
 import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
 import { writeStage } from '../runs.ts';
 import { creditsThisMonth, webSearch, type SearchResult } from '../search.ts';
@@ -40,9 +42,11 @@ export function classify(url: string, reg: Registry): { publisher: string; sourc
   return 'unknown';
 }
 
-const PLAN_SYSTEM = `Você planeja buscas na web para uma pauta de um site que só usa fontes primárias: órgãos reguladores (Inmetro, Anvisa, Diário Oficial), normas técnicas (ABNT) e páginas oficiais de fabricantes.
+const planSystem = () => `Você planeja buscas na web para uma pauta de um site sobre ${loadNiche().scope} que só usa fontes primárias: órgãos reguladores, normas técnicas e páginas oficiais de fabricantes.
+Reguladores e normas típicos deste tema:
+${loadNiche().regulator_hints.map((h) => `- ${h}`).join('\n')}
 Gere consultas em português do Brasil que tendem a trazer ESSAS fontes, não lojas, blogs ou vídeos.
-Use "include_domains" quando a consulta mira um domínio específico (ex.: ["gov.br"] para Inmetro, ["probel.com.br","simmons.com.br"] para fabricantes).
+Use "include_domains" quando a consulta mira um domínio específico (ex.: ["gov.br"] para um órgão federal, ou os domínios de fabricantes).
 Cubra as perguntas da pauta. No máximo o número de consultas pedido.`;
 
 export interface DiscoverReport {
@@ -51,6 +55,7 @@ export interface DiscoverReport {
   queries: { q: string; include_domains?: string[]; results: number }[];
   added: { source_id: string; url: string; publisher: string; source_class: string; created: boolean }[];
   skipped_blocked: number;
+  skipped_learned: number;
   suggestions: { host: string; url: string; title: string }[];
   snapshot_errors: { url: string; error: string }[];
   tavily_credits_month: number;
@@ -66,6 +71,9 @@ export async function discoverSources(
 ): Promise<DiscoverReport> {
   const topic = loadTopic(slug);
   const reg = loadRegistry();
+  // Aprendizado de TODAS as pautas anteriores: orienta o planejador e o ranking.
+  const learning = computeLearning();
+  const hints = plannerHints(learning);
   const maxSearches = opts.maxSearches ?? 8;
   const maxSources = opts.maxSources ?? 14;
 
@@ -75,12 +83,13 @@ export async function discoverSources(
   const plan = await callJson(
     {
       role: 'extractor',
-      system: PLAN_SYSTEM,
+      system: planSystem(),
       user:
         `Pauta: "${topic.primary_query}"\nPerguntas:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n` +
         (topic.evidence_gaps.length
           ? `\nPRIORIDADE: uma tentativa anterior não achou fonte para estas lacunas. Concentre as consultas nelas:\n${topic.evidence_gaps.map((g) => `- ${g}`).join('\n')}\n`
           : '') +
+        (hints ? `\nAprendizado de buscas anteriores deste site:\n${hints}\n` : '') +
         `\nGere até ${maxSearches} consultas.`,
       schema: Plan,
       schemaName: 'search_plan',
@@ -90,7 +99,7 @@ export async function discoverSources(
   );
 
   const report: DiscoverReport = {
-    run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0, triage: [],
+    run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, skipped_learned: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0, triage: [],
   };
   const candidates = new Map<string, SearchResult & { publisher: string; source_class: SourceClass }>();
   for (const q of plan.data.queries.slice(0, maxSearches)) {
@@ -102,6 +111,8 @@ export async function discoverSources(
       else if (c === 'unknown') {
         const host = new URL(r.url).hostname;
         if (!report.suggestions.some((s) => s.host === host)) report.suggestions.push({ host, url: r.url, title: r.title });
+      } else if (learning.unproductiveUrls.has(r.url)) {
+        report.skipped_learned++;
       } else {
         const prev = candidates.get(r.url);
         if (!prev || prev.score < r.score) candidates.set(r.url, { ...r, ...c });
@@ -125,9 +136,12 @@ export async function discoverSources(
 
   // Ranking: regulador e norma primeiro, depois score; no máximo 4 páginas por publicador.
   const weight: Record<string, number> = { regulator: 3, standard_body: 3, independent_test: 2, manufacturer: 1, retailer_listing: 0, other: 0 };
+  const yieldOf = (url: string) => learning.domains.get(new URL(url).hostname.replace(/^www\./, ''))?.yield ?? 0.5;
+  const rank = (c: { url: string; score: number }) => c.score * (0.5 + yieldOf(c.url));
   const perPublisher = new Map<string, number>();
   const chosen = [...candidates.values()]
-    .sort((a, b) => weight[b.source_class]! - weight[a.source_class]! || b.score - a.score)
+    // Classe da fonte primeiro; dentro dela, o que o histórico mostrou que rende (yield) pesa junto do score da busca.
+    .sort((a, b) => weight[b.source_class]! - weight[a.source_class]! || rank(b) - rank(a))
     .filter((c) => {
       const n = perPublisher.get(c.publisher) ?? 0;
       if (n >= 4) return false;

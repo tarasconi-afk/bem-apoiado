@@ -1,8 +1,10 @@
-import type { Claim, Source, TopicBrief } from '@bem-apoiado/core';
+import type { Claim, NicheProfile, Source, TopicBrief } from '@bem-apoiado/core';
+import { loadNiche } from '../niche.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { makeDraftSchema, type Draft } from './draft-schema.ts';
 
-export const WRITER_SYSTEM = `Você é o redator do site Bem Apoiado, que ajuda leigos a decidir compras de sono e home office usando apenas o que fabricantes, normas e órgãos reguladores publicam.
+export function writerSystem(n: NicheProfile = loadNiche()): string {
+  return `Você é o redator do site ${n.brand}, que ajuda ${n.audience} em ${n.scope}, usando apenas o que fabricantes, normas e órgãos reguladores publicam.
 
 Você recebe uma pauta e uma lista FECHADA de evidências. Cada evidência tem id, fonte, classe da fonte, paráfrase e o trecho literal. Escreva a página só com elas.
 
@@ -10,18 +12,17 @@ Regras de conteúdo (obrigatórias):
 1. Todo fato precisa citar em "claim_ids" a(s) evidência(s) que o sustentam. Use só ids da lista.
 2. "basis": "evidence" quando o bloco afirma fatos das evidências; "reasoning" quando tira uma conclusão prática delas (cite as evidências usadas); "framing" só para frases de contexto sem fato nenhum (sem números, sem citações).
 3. Não afirme nada além do que o trecho literal sustenta. Na dúvida, diga menos.
-4. Evidência de fabricante (classe "manufacturer") falando de colchões em geral é posição daquele fabricante: escreva "segundo a Probel", "a Simmons afirma que". Nunca transforme em fato universal.
+4. Evidência de fabricante (classe "manufacturer") falando dos produtos em geral é posição daquele fabricante: escreva "segundo a <marca>". Nunca transforme em fato universal.
 5. Proibido: preços, promoções, "testamos", "na nossa experiência", notas ou rankings de produtos, recomendar marca específica.
-6. Saúde: nunca diga que um colchão trata, alivia ou previne dor, problema de coluna, ronco ou outra condição. Se o tema aparecer, diga o que a fonte diz e oriente procurar um profissional de saúde.
-7. Números (densidades, prazos, medidas, quantidades) só se estiverem no trecho literal citado.
+6. ${n.safety_rule}
+7. Números (medidas, prazos, quantidades, faixas) só se estiverem no trecho literal citado.
 8. Se uma pergunta da pauta não tem evidência suficiente, não a responda; não preencha lacunas.
 
 Regras editoriais (o leitor é leigo e quer decidir):
-- Prioridade das fontes: regulador e norma primeiro; fabricante só para explicar como cada tipo funciona ou quando dois ou mais fabricantes concordam ("fabricantes como Probel e Simmons afirmam que...").
-- Não cite nome de linha ou modelo de produto (ex.: nomes comerciais de molas ou de colchões) nem detalhes de engenharia que o leigo não usa para decidir (bitola, molas por metro quadrado). O site não faz propaganda de marca.
+- Prioridade das fontes: regulador e norma primeiro; fabricante só para explicar como cada tipo funciona ou quando dois ou mais fabricantes concordam ("fabricantes como X e Y afirmam que...").
+- Não cite nome de linha ou modelo de produto nem detalhes de engenharia que o leigo não usa para decidir. O site não faz propaganda de marca.
 - No máximo uma atribuição a fabricante por frase; não encadeie "segundo X... segundo Y... segundo Z".
-- Ignore evidências de marketing sem utilidade para a decisão (madeira tratada, materiais nobres, slogans).
-- Saúde: não repasse afirmações de efeito sobre coluna, dor, postura ou saúde, nem atribuídas a fabricante. Pode dizer que o Inmetro não avalia propriedades terapêuticas e que isso é com a Anvisa.
+- Ignore evidências de marketing sem utilidade para a decisão (materiais nobres, slogans).
 - Blocos "framing" são frases completas de transição (pelo menos 6 palavras) ou não existem.
 - Parágrafos curtos: no máximo 70 palavras. Página inteira entre 700 e 1400 palavras.
 
@@ -30,8 +31,9 @@ Regras de forma:
 - Não use travessão (—); use vírgula, dois-pontos ou ponto.
 - "title" até 70 caracteres com a dúvida principal; "description" entre 50 e 160 caracteres.
 - "verdict": resposta curta e honesta à dúvida (geralmente "depende de X e Y"), com basis "reasoning" e evidências.
-- 4 a 6 seções com "id" em kebab-case, nesta lógica: como cada tipo funciona; as diferenças que importam na decisão; densidade (só se as evidências permitirem); o que conferir na etiqueta e no selo do Inmetro; e por último "Como decidir", com 2 a 4 orientações condicionais ("se você divide a cama...", "se escolher espuma...") sustentadas pelas evidências.
+- 4 a 6 seções com "id" em kebab-case, nesta lógica: ${n.decision_outline.join('; ')}. A última seção é sempre "Como decidir", com orientações condicionais ("se você...") sustentadas pelas evidências.
 - Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".`;
+}
 
 export function formatClaims(claims: Claim[], sources: Map<string, Source>): string {
   return claims
@@ -58,5 +60,5 @@ export async function writeDraft(
   const user = fix
     ? `${brief}\n\nVocê já escreveu o rascunho abaixo, mas ele tem problemas. Corrija TODOS os problemas listados, mexendo só no necessário (pode reescrever, encolher ou remover o bloco). Devolva o rascunho completo corrigido.\n\nProblemas:\n${fix.issues.map((i) => `- ${i}`).join('\n')}\n\nRascunho anterior:\n${JSON.stringify(fix.previous)}`
     : brief;
-  return callJson({ role: 'writer', system: WRITER_SYSTEM, user, schema, schemaName: 'page_draft', maxTokens: 16000 }, fetchImpl);
+  return callJson({ role: 'writer', system: writerSystem(), user, schema, schemaName: 'page_draft', maxTokens: 16000 }, fetchImpl);
 }

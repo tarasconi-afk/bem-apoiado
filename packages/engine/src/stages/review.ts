@@ -1,12 +1,13 @@
 import { z } from 'zod';
 import type { PageSpec, TopicBrief } from '@bem-apoiado/core';
+import { loadNiche } from '../niche.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { blockRefs } from './draft-schema.ts';
 
 // Revisão editorial: a auditoria garante que cada frase tem prova; esta etapa julga se a página
 // SERVE para quem buscou. Página correta mas inútil (não responde, não orienta) não vai ao ar.
 
-const SYSTEM = `Você é o editor-chefe do site Bem Apoiado. Avalie se a página abaixo merece ser publicada para quem pesquisou a dúvida principal no Google.
+const system = () => `Você é o editor-chefe do site ${loadNiche().brand}. Avalie se a página abaixo merece ser publicada para quem pesquisou a dúvida principal no Google.
 Não julgue a veracidade (isso já foi auditado). Julgue a utilidade:
 - "answers_primary_query": a página responde à dúvida principal de forma direta? "yes", "partial" ou "no".
 - "concrete_guidance": o leitor sai sabendo o que fazer ou conferir na prática? (true/false)
@@ -46,7 +47,7 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
   const r = await callJson(
     {
       role: 'auditor',
-      system: SYSTEM,
+      system: system(),
       user:
         `Dúvida principal: "${topic.primary_query}"\nPerguntas da pauta:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n\n` +
         `Página: ${page.title}\n` +
