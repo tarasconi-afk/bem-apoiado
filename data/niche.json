@@ -20,12 +20,56 @@
     "Como decidir (2 a 4 orientações condicionais sustentadas pelas evidências)"
   ],
   "product_kinds": [
-    { "id": "espuma", "label": "Colchão de espuma" },
-    { "id": "molas_ensacadas", "label": "Colchão de molas ensacadas" },
-    { "id": "molas_interligadas", "label": "Colchão de molas interligadas" },
-    { "id": "misto", "label": "Colchão misto" },
-    { "id": "travesseiro", "label": "Travesseiro" },
-    { "id": "cadeira", "label": "Cadeira" },
-    { "id": "outro", "label": "Outro" }
+    {
+      "id": "espuma",
+      "label": "Colchão de espuma"
+    },
+    {
+      "id": "molas_ensacadas",
+      "label": "Colchão de molas ensacadas"
+    },
+    {
+      "id": "molas_interligadas",
+      "label": "Colchão de molas interligadas"
+    },
+    {
+      "id": "misto",
+      "label": "Colchão misto"
+    },
+    {
+      "id": "travesseiro",
+      "label": "Travesseiro"
+    },
+    {
+      "id": "cadeira",
+      "label": "Cadeira"
+    },
+    {
+      "id": "outro",
+      "label": "Outro"
+    }
+  ],
+  "forbidden_terms": [
+    "coluna",
+    "dor",
+    "postura",
+    "ortopéd",
+    "ortoped",
+    "terapêut",
+    "terapeut",
+    "saúde",
+    "alivia",
+    "alívio",
+    "ronco",
+    "cervical",
+    "lombar",
+    "anatômic",
+    "anatomic",
+    "antialérg",
+    "antialerg",
+    "hipoalergên",
+    "hipoalergen",
+    "antiácaro",
+    "antiacaro"
   ]
 }

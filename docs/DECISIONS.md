@@ -125,3 +125,14 @@ O dono pediu imagem do produto na página e no botão. O contrato de Associados 
 página do produto (baixar ou hotlink); a imagem do SiteStripe foi descontinuada; o caminho permitido é a
 PA-API (liberada após 10 vendas), com URL oficial atualizada a cada 24 h. Até lá, cartão só com texto;
 risco de usar antes = encerramento da conta e perda de comissões.
+
+## 2026-10-20 — Produtos em dois níveis (decisão do dono: híbrido)
+"manufacturer": especificações da ficha oficial (trecho literal), identidade conferida (marca/modelo
+literais, mesma densidade, Jev). "listing": sem ficha oficial; o cartão mostra só "anunciado como" com um
+trecho literal do anúncio e o aviso de que é a descrição do vendedor; nenhuma especificação.
+Travas que só apareceram ao LER o cartão gerado (testes não pegavam): linha de imagem do anúncio virando
+trecho (URL de foto da Amazon), "Suporte para Coluna" do vendedor (termos proibidos do nicho agora valem
+também para anúncio e ficha, com palavra inteira para termos curtos: "dor" ≠ "vendedor"), modelo trocado
+(Herval Lucca × Alba: rótulo tem de estar no trecho), bolsa de colchão como "colchão de espuma" (Jev
+confirma que o anúncio vende o próprio item; marca começando com artigo é recusada), nome "MISTO" num
+produto classificado como espuma (conflito de tipo recusa). Lição: inspecionar a SAÍDA renderizada antes de publicar.

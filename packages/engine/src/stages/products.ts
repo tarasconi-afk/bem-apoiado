@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import { z } from 'zod';
-import { Claim, checkClaim, checkProduct, normalizeForMatch, Product, type Source } from '@bem-apoiado/core';
+import { Claim, checkClaim, checkProduct, firstForbidden, normalizeForMatch, Product, type Source } from '@bem-apoiado/core';
 import { jevDecide, type Decider } from '../jev.ts';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
@@ -132,6 +132,21 @@ export async function findProducts(slug: string, runId: string, opts: { max?: nu
 
 const loose = (t: string) => normalizeForMatch(t).replace(/-/g, ' ');
 
+// Palavra que identifica OUTRO tipo do vocabulário aparecendo no nome do produto (ex.: "MISTO" num
+// produto classificado como espuma) → conflito: o leitor veria um nome que contradiz o tipo.
+function kindConflict(name: string, kind: string): string | null {
+  const kinds = loadNiche().product_kinds;
+  const mine = new Set(normalizeForMatch(kinds.find((k) => k.id === kind)?.label ?? '').split(/\s+/));
+  const n = loose(name);
+  for (const k of kinds) {
+    if (k.id === kind) continue;
+    for (const w of normalizeForMatch(k.label).split(/\s+/)) {
+      if (w.length >= 5 && !mine.has(w) && n.includes(w.slice(0, -1))) return w;
+    }
+  }
+  return null;
+}
+
 // Captura do anúncio via Tavily; falha de UM anúncio vira motivo de pulo, nunca derruba a execução.
 async function captureListing(asin: string): Promise<Source | string> {
   try {
@@ -157,6 +172,8 @@ async function confirmAndRegister(
   if (densities.some((d) => !new RegExp(`\\b${d}\\b`, 'i').test(ltext.replace(/D\s(\d{2})/gi, 'D$1')))) {
     return { ok: false, reason: `densidade da ficha (${densities.join('/')}) não está no anúncio` };
   }
+  const conflict = kindConflict(`${a.brand} ${a.model}`, a.kind);
+  if (conflict) return { ok: false, reason: `nome indica outro tipo ("${conflict}")` };
   const same = await decide(`FICHA: ${a.brand} ${a.model}\n${a.specClaims.map((c) => c.quote).join(' | ')}\n\nANÚNCIO:\n${ltext.slice(0, 4000)}`, {
     mesmo: {
       type: 'choice',
@@ -174,7 +191,7 @@ async function confirmAndRegister(
   for (const c of [...a.specClaims, avail]) idx.claims.set(c.id, c);
   idx.sources.set(a.listing.id, a.listing);
   const product = Product.parse({
-    asin: a.asin, label: `${a.brand} ${a.model}`.slice(0, 80), brand: a.brand, kind: a.kind,
+    asin: a.asin, label: `${a.brand} ${a.model}`.slice(0, 80), brand: a.brand, kind: a.kind, evidence: 'manufacturer',
     spec_claim_ids: a.specClaims.map((c) => c.id), availability_claim_id: avail.id, added_at: new Date().toISOString().slice(0, 10),
   });
   const problems = checkProduct(product, idx);
@@ -199,6 +216,7 @@ async function sheetSpecs(s: Source, kinds: string[], runId: string, idx: Return
       system:
         'Extraia da ficha de produto: marca, modelo (nome comercial curto), o tipo (do vocabulário dado) e até 5 trechos LITERAIS ' +
         'com especificações objetivas (densidade, altura, material, firmeza declarada, peso suportado). "quote" é cópia exata do texto. Sem preço. ' +
+        '"statement" é uma frase curta e completa com o dado (ex.: "Espuma D33 aditivada"), nunca só um rótulo. ' +
         '"depends_on_size": true se o dado muda conforme o tamanho do produto (altura, dimensões, peso, carga total); false se vale para o modelo em qualquer tamanho (densidade, material, firmeza).',
       user: `Tipos possíveis: ${kinds.join(', ')}\n\nFicha (${s.final_url}):\n"""\n${(sourceText(s.id) ?? '').slice(0, 12_000)}\n"""`,
       schema: Spec,
@@ -208,7 +226,8 @@ async function sheetSpecs(s: Source, kinds: string[], runId: string, idx: Return
     fetchImpl,
   );
   const specClaims: Claim[] = [];
-  for (const q of r.data.spec_quotes.filter((x) => !x.depends_on_size)) {
+  const forbidden = loadNiche().forbidden_terms;
+  for (const q of r.data.spec_quotes.filter((x) => !x.depends_on_size && !firstForbidden(x.quote, forbidden))) {
     const c = Claim.safeParse({
       id: claimIdFor(s.id, q.quote), source_id: s.id, quote: q.quote.trim(), claim_type: 'spec', statement: q.statement.trim(),
       captured_at: new Date().toISOString(), question_ids: [], run_id: runId,
@@ -266,9 +285,32 @@ export async function findProductsFromAmazon(
         report.skipped.push({ url: h.url, reason: 'kit/conjunto/acessório' });
         continue;
       }
-      const maker = makers.filter((m) => loose(m.publisher) === loose(l.data.brand));
+      // Marca plausível: sem artigo no início e no máximo 3 palavras ("O armazenamento do colchão" não é marca).
+      if (/^(o|a|os|as|um|uma)\s/i.test(l.data.brand.trim()) || l.data.brand.trim().split(/\s+/).length > 3) {
+        report.skipped.push({ url: h.url, reason: `marca implausível: "${l.data.brand}"` });
+        continue;
+      }
+      // O anúncio vende o PRÓPRIO produto do tipo, e não capa, bolsa, protetor, base ou acessório?
+      const kindLabel = labels.get(kind) ?? kind;
+      const isItem = await decide((sourceText(listing.id) ?? '').slice(0, 4000), {
+        item: {
+          type: 'choice',
+          instructions: `Este anúncio vende um(a) ${kindLabel.toLowerCase()} propriamente dito(a)?`,
+          criteria: { sim: `o produto vendido é um(a) ${kindLabel.toLowerCase()}`, nao: 'capa, bolsa, protetor, base, cama, kit, peça ou acessório' },
+        },
+      });
+      if ((isItem.item?.probabilities?.sim ?? 0) < 0.85) {
+        report.skipped.push({ url: h.url, reason: `triagem: não vende o próprio ${kindLabel.toLowerCase()}` });
+        continue;
+      }
+      const maker = makers.filter((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)));
       if (!maker.length) {
-        report.skipped.push({ url: h.url, reason: `fabricante "${l.data.brand}" fora do cadastro de fontes` });
+        const r = await registerListingOnly({ brand: l.data.brand, model: l.data.model, kind, asin, listing, runId }, idx, labels.get(kind) ?? kind);
+        if (r.ok) {
+          known.add(asin);
+          report.added.push({ asin, label: `${r.product.label} [só anúncio]`, kind });
+          added++;
+        } else report.skipped.push({ url: h.url, reason: `fabricante "${l.data.brand}" fora do cadastro; nível anúncio: ${r.reason}` });
         continue;
       }
       // Ficha oficial no site do fabricante.
@@ -299,9 +341,71 @@ export async function findProductsFromAmazon(
         ok = true;
         break;
       }
-      if (!ok && sheetsFound.length === 0) report.skipped.push({ url: h.url, reason: `ficha de ${l.data.brand} ${l.data.model} não achada no site do fabricante` });
+      if (!ok) {
+        // Sem ficha oficial conferida: tenta o nível "só anúncio" (sem especificação, tipo atribuído ao vendedor).
+        const r = await registerListingOnly({ brand: l.data.brand, model: l.data.model, kind, asin, listing, runId }, idx, labels.get(kind) ?? kind);
+        if (r.ok) {
+          known.add(asin);
+          report.added.push({ asin, label: `${r.product.label} [só anúncio]`, kind });
+          added++;
+        } else report.skipped.push({ url: h.url, reason: `sem ficha oficial; nível anúncio: ${r.reason}` });
+      }
     }
   }
   writeStage(runId, 'products-amazon', { ...report, credits: creditsSpent() });
   return report;
+}
+
+// Nível "só anúncio": sem ficha oficial. O cartão mostra apenas o tipo "anunciado como", com a linha
+// literal do anúncio que contém as palavras do tipo. Nenhuma especificação.
+async function registerListingOnly(
+  a: { brand: string; model: string; kind: string; asin: string; listing: Source; runId: string },
+  idx: ReturnType<typeof buildIndex>,
+  kindLabel: string,
+): Promise<{ ok: true; product: Product } | { ok: false; reason: string }> {
+  const ltext = sourceText(a.listing.id) ?? '';
+  const words = normalizeForMatch(kindLabel).split(/\s+/).filter((w) => w.length >= 5).map((w) => w.slice(0, -1));
+  const forbidden = loadNiche().forbidden_terms;
+  const nameWords = [a.brand, ...a.model.split(/[\s-]+/)].map(loose).filter((w) => w.length >= 3);
+  // Trecho = PREFIXO literal de uma linha de texto (nunca imagem/link), cortado antes do primeiro termo
+  // proibido, que contenha marca, modelo e as palavras do tipo.
+  let line: string | undefined;
+  for (const raw of ltext.split('\n')) {
+    // Espaços colapsados: o índice do termo proibido (calculado no texto normalizado) bate com esta linha.
+    const l = raw.replace(/^[#>*\s]+/, '').replace(/\s+/g, ' ').trim();
+    if (l.length < 15 || l.length > 400 || /!\[|\]\(|https?:\/\//.test(l)) continue;
+    // Índice no texto normalizado; NFC preserva o comprimento em português, então o corte bate no original.
+    const cutAt = firstForbidden(l, forbidden)?.index;
+    let cand = l;
+    if (cutAt !== undefined) {
+      const head = l.slice(0, cutAt);
+      const cut = Math.max(head.lastIndexOf(','), head.lastIndexOf(' - '), head.lastIndexOf(';'));
+      cand = (cut > 0 ? head.slice(0, cut) : head).replace(/[\s,;:\-–—(]+$/, '').trim();
+    }
+    const c = loose(cand);
+    if (cand.length >= 15 && nameWords.every((w) => c.includes(w)) && words.every((w) => c.includes(w))) {
+      line = cand;
+      break;
+    }
+  }
+  if (!line) return { ok: false, reason: `nenhum trecho do anúncio traz marca + modelo + "${kindLabel}" sem termo proibido` };
+  const conflict = kindConflict(`${a.brand} ${a.model}`, a.kind);
+  if (conflict) return { ok: false, reason: `nome indica outro tipo ("${conflict}")` };
+
+  const avail = Claim.parse({
+    id: claimIdFor(a.listing.id, line), source_id: a.listing.id, quote: line.trim(), claim_type: 'availability',
+    statement: `Anúncio de ${a.brand} ${a.model} na Amazon.com.br, que o descreve como ${kindLabel.toLowerCase()}.`,
+    captured_at: new Date().toISOString(), question_ids: [], run_id: a.runId,
+  });
+  idx.claims.set(avail.id, avail);
+  idx.sources.set(a.listing.id, a.listing);
+  const product = Product.parse({
+    asin: a.asin, label: `${a.brand} ${a.model}`.slice(0, 80), brand: a.brand, kind: a.kind, evidence: 'listing',
+    spec_claim_ids: [], availability_claim_id: avail.id, added_at: new Date().toISOString().slice(0, 10),
+  });
+  const problems = checkProduct(product, idx, new Date(), kindLabel, loadNiche().forbidden_terms);
+  if (problems.length) return { ok: false, reason: problems.map((x) => x.code).join(',') };
+  writeJson(join(CLAIMS_DIR, `${avail.id}.json`), avail);
+  writeJson(join(PRODUCTS_DIR, `${a.asin}.json`), product);
+  return { ok: true, product };
 }

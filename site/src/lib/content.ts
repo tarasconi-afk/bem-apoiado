@@ -64,6 +64,8 @@ export interface ProductCard {
   product: Product;
   url: string;
   specs: { statement: string; sourceUrl: string; publisher: string }[];
+  // Nível "só anúncio": trecho literal do anúncio que descreve o tipo (quem afirma é o vendedor).
+  listingQuote: string | null;
   checkedAt: string;
 }
 
@@ -74,7 +76,9 @@ export function productsFor(page: PageSpec): ProductCard[] {
   if (!topic || topic.product_kinds.length === 0) return [];
   const idx = buildIndex();
   return loadProducts()
-    .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx).length === 0)
+    .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0)
+    // Com ficha oficial antes de "só anúncio".
+    .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : 1))
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))
     .map((p) => ({
       product: p,
@@ -82,8 +86,9 @@ export function productsFor(page: PageSpec): ProductCard[] {
       specs: p.spec_claim_ids.map((id) => {
         const c = idx.claims.get(id)!;
         const s = idx.sources.get(c.source_id)!;
-        return { statement: c.statement, sourceUrl: s.final_url, publisher: s.publisher };
+        return { statement: c.quote, sourceUrl: s.final_url, publisher: s.publisher };
       }),
+      listingQuote: p.evidence === 'listing' ? idx.claims.get(p.availability_claim_id)!.quote : null,
       checkedAt: idx.claims.get(p.availability_claim_id)!.captured_at,
     }));
 }

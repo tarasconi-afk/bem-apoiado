@@ -32,7 +32,9 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
       no site do fabricante → mesmas travas (função única confirmAndRegister). 1º teste (15 anúncios): 0 produtos;
       gargalo é COBERTURA de fontes (marcas fora do cadastro, apelidos como Lucas Home=Ortobom, sites de fabricante
       que bloqueiam ou que a busca não alcança), não erro de identidade
-- [ ] (antigo) popular o catálogo: busca já existe; falta a etapa que acha a ficha OFICIAL (a busca devolve
+- [x] catálogo híbrido: 3 produtos na página de molas ou espuma (Emma Original, Herval Alba, Ortobom Misto ISO 100),
+      todos nível "só anúncio"; cadastro com apelidos de marca (Lucas Home = Ortobom) e Gazin Colchões
+- [ ] produtos no piloto automático (etapa após página aprovada) e renovação da disponibilidade (< 30 dias) (a busca devolve
       Instagram/YouTube/Buscapé antes do fabricante; Emma recusa conexão; Ortobom carrega produtos por JS)
 - [x] hospedagem Hostinger (Business u226814741): https://darkslategrey-rail-669974.hostingersite.com via GitHub Action → ramo deploy (plano B manual: `npm run deploy:hostinger`)
 - [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)

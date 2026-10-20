@@ -56,7 +56,8 @@ async function main(): Promise<number> {
       }
       for (const claim of idx.claims.values()) violations.push(...checkClaim(claim, idx));
       const products = loadProducts();
-      for (const p of products) violations.push(...checkProduct(p, idx));
+      const kindLabels = new Map(loadNiche().product_kinds.map((k) => [k.id, k.label]));
+      for (const p of products) violations.push(...checkProduct(p, idx, new Date(), kindLabels.get(p.kind), loadNiche().forbidden_terms));
       // Vocabulário de tipos de produto pertence ao perfil de nicho.
       const kinds = new Set(loadNiche().product_kinds.map((k) => k.id));
       for (const p of products) if (!kinds.has(p.kind)) violations.push({ code: 'PRODUCT_KIND_NOT_IN_NICHE', where: `product:${p.asin}`, detail: p.kind });

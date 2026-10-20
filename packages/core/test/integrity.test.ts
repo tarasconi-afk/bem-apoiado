@@ -122,7 +122,7 @@ describe('checkProduct', () => {
     ...index(claims),
     sources: new Map([SRC, { ...RETAIL, final_url: 'https://www.amazon.com.br/dp/B000000001' }].map((s) => [s.id, s])),
   });
-  const prod = { asin: 'B000000001', label: 'Modelo X casal', brand: 'Fabricante', kind: 'espuma' as const, spec_claim_ids: ['clm_x_densidade'], availability_claim_id: 'clm_disp', added_at: '2026-10-20' };
+  const prod = { asin: 'B000000001', label: 'Modelo X casal', brand: 'Fabricante', kind: 'espuma' as const, evidence: 'manufacturer' as const, spec_claim_ids: ['clm_x_densidade'], availability_claim_id: 'clm_disp', added_at: '2026-10-20' };
 
   it('produto com ficha do fabricante e anúncio do mesmo ASIN passa', () => {
     expect(checkProduct(prod, retailIdx([claim(), avail]))).toEqual([]);
@@ -135,5 +135,45 @@ describe('checkProduct', () => {
   it('disponibilidade velha precisa de nova captura', () => {
     const old = { ...avail, captured_at: '2026-01-01T00:00:00.000Z' };
     expect(checkProduct(prod, retailIdx([claim(), old]), new Date('2026-10-20')).map((v) => v.code)).toContain('PRODUCT_AVAILABILITY_STALE');
+  });
+});
+
+describe('checkProduct nível listing', () => {
+  const quote = (q: string): Claim => ({ id: 'clm_anuncio', source_id: 'src_bbbbbbbbbbbb', quote: q, claim_type: 'availability', statement: 'Anúncio na data.', captured_at: new Date().toISOString(), question_ids: [] });
+  const idxWith = (c: Claim): EvidenceIndex => ({
+    ...index([c]),
+    sources: new Map([SRC, { ...RETAIL, final_url: 'https://www.amazon.com.br/dp/B000000002' }].map((s) => [s.id, s])),
+  });
+  const p = { asin: 'B000000002', label: 'Marca Modelo', brand: 'Marca', kind: 'molas_ensacadas', evidence: 'listing' as const, spec_claim_ids: [], availability_claim_id: 'clm_anuncio', added_at: '2026-10-20' };
+  it('aceita quando o anúncio diz literalmente o tipo', () => {
+    expect(checkProduct(p, idxWith(quote('Colchão Casal Marca Modelo Molas Ensacadas 138x188')), new Date(), 'Colchão de molas ensacadas')).toEqual([]);
+  });
+  it('recusa quando o anúncio não diz o tipo', () => {
+    expect(checkProduct(p, idxWith(quote('Colchão Casal Marca Modelo Espuma D33 138x188')), new Date(), 'Colchão de molas ensacadas').map((v) => v.code)).toContain('PRODUCT_KIND_NOT_IN_LISTING');
+  });
+  it('nível listing não pode carregar especificação', () => {
+    expect(checkProduct({ ...p, spec_claim_ids: ['clm_x'] }, idxWith(quote('Colchão Molas Ensacadas Marca Modelo')), new Date(), 'Colchão de molas ensacadas').map((v) => v.code)).toContain('PRODUCT_LISTING_WITH_SPECS');
+  });
+});
+
+describe('checkProduct: trecho de anúncio', () => {
+  const mk = (q: string): EvidenceIndex => ({
+    ...index([{ id: 'clm_anuncio', source_id: 'src_bbbbbbbbbbbb', quote: q, claim_type: 'availability', statement: 'Anúncio na data.', captured_at: new Date().toISOString(), question_ids: [] }]),
+    sources: new Map([SRC, { ...RETAIL, final_url: 'https://www.amazon.com.br/dp/B000000003' }].map((s) => [s.id, s])),
+  });
+  const p = { asin: 'B000000003', label: 'Herval Alba', brand: 'Herval', kind: 'molas_ensacadas', evidence: 'listing' as const, spec_claim_ids: [], availability_claim_id: 'clm_anuncio', added_at: '2026-10-20' };
+  const codes = (q: string) => checkProduct(p, mk(q), new Date(), 'Colchão de molas ensacadas', ['coluna']).map((v) => v.code);
+  it('modelo do rótulo precisa estar no anúncio', () => expect(codes('Colchão de Molas Ensacadas Casal Herval Lucca')).toContain('PRODUCT_LABEL_NOT_IN_LISTING'));
+  it('linha de imagem/link é recusada', () => expect(codes('![Colchão Molas Ensacadas Herval Alba](https://m.media-amazon.com/x.jpg)')).toContain('PRODUCT_LISTING_QUOTE_HAS_LINK'));
+  it('termo proibido do nicho é recusado', () => expect(codes('Colchão Molas Ensacadas Herval Alba, Suporte para Coluna')).toContain('PRODUCT_LISTING_FORBIDDEN_TERM'));
+  it('trecho limpo passa', () => expect(codes('Colchão de Molas Ensacadas Casal Herval Alba 138x188')).toEqual([]));
+});
+
+describe('firstForbidden', () => {
+  it('termo curto só como palavra inteira', async () => {
+    const { firstForbidden } = await import('../src/index.ts');
+    expect(firstForbidden('Vendedor oficial, edredom incluso', ['dor'])).toBeNull();
+    expect(firstForbidden('Alivia a dor nas costas', ['dor'])?.term).toBe('dor');
+    expect(firstForbidden('Suporte Ortopédico', ['ortopéd'])?.term).toBe('ortopéd');
   });
 });

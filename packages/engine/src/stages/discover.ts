@@ -16,7 +16,7 @@ import { loadTopic } from './research.ts';
 // snapshot. Domínio fora do cadastro vira SUGESTÃO no relatório, nunca fonte automática.
 
 const Registry = z.object({
-  allow: z.array(z.object({ host: z.string(), path: z.string().optional(), publisher: z.string(), source_class: SourceClass })),
+  allow: z.array(z.object({ host: z.string(), path: z.string().optional(), publisher: z.string(), source_class: SourceClass, aliases: z.array(z.string()).optional() })),
   block: z.array(z.string()),
 });
 type Registry = z.infer<typeof Registry>;

@@ -1,5 +1,5 @@
 import { PRIMARY_CLASSES, type Claim, type PageSpec, type Product, type Source, type SourceClass } from './schemas.ts';
-import { quoteAppearsIn } from './text.ts';
+import { firstForbidden, normalizeForMatch, quoteAppearsIn } from './text.ts';
 
 export interface Violation {
   code: string;
@@ -97,10 +97,28 @@ const PROMO = /\b(melhor|top|imbatível|perfeito|campeão|número 1|nº 1|n°1|r
 // Disponibilidade mais velha que isso precisa de nova captura antes de exibir o produto.
 export const AVAILABILITY_MAX_AGE_DAYS = 30;
 
-export function checkProduct(p: Product, idx: EvidenceIndex, now = new Date()): Violation[] {
+export function checkProduct(p: Product, idx: EvidenceIndex, now = new Date(), kindLabel?: string, forbidden: string[] = []): Violation[] {
   const out: Violation[] = [];
   const where = `product:${p.asin}`;
   if (PROMO.test(p.label)) out.push({ code: 'PRODUCT_PROMO_LABEL', where, detail: p.label });
+  if (p.evidence === 'manufacturer' && p.spec_claim_ids.length === 0) out.push({ code: 'PRODUCT_SPEC_MISSING', where, detail: 'nível manufacturer sem especificação' });
+  if (p.evidence === 'listing' && p.spec_claim_ids.length > 0) out.push({ code: 'PRODUCT_LISTING_WITH_SPECS', where, detail: 'nível listing não pode exibir especificação' });
+  // Nível listing: o trecho do anúncio tem de conter literalmente as palavras do tipo (ex.: "molas ensacadas").
+  if (p.evidence === 'listing' && kindLabel) {
+    const quote = normalizeForMatch(idx.claims.get(p.availability_claim_id)?.quote ?? '').replace(/-/g, ' ');
+    const words = normalizeForMatch(kindLabel).split(/\s+/).filter((w) => w.length >= 5);
+    const miss = words.filter((w) => !quote.includes(w.slice(0, -1)));
+    if (miss.length) out.push({ code: 'PRODUCT_KIND_NOT_IN_LISTING', where, detail: miss.join(',') });
+  }
+  if (p.evidence === 'listing') {
+    const raw = idx.claims.get(p.availability_claim_id)?.quote ?? '';
+    const q = normalizeForMatch(raw).replace(/-/g, ' ');
+    if (/!\[|\]\(|https?:\/\//.test(raw)) out.push({ code: 'PRODUCT_LISTING_QUOTE_HAS_LINK', where, detail: raw.slice(0, 60) });
+    const nameMiss = normalizeForMatch(p.label).replace(/-/g, ' ').split(/\s+/).filter((w) => w.length >= 3 && !q.includes(w));
+    if (nameMiss.length) out.push({ code: 'PRODUCT_LABEL_NOT_IN_LISTING', where, detail: nameMiss.join(',') });
+    const bad = firstForbidden(raw, forbidden);
+    if (bad) out.push({ code: 'PRODUCT_LISTING_FORBIDDEN_TERM', where, detail: bad.term });
+  }
   for (const id of p.spec_claim_ids) {
     const c = idx.claims.get(id);
     const src = c ? idx.sources.get(c.source_id) : undefined;

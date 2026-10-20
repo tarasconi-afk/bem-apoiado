@@ -65,6 +65,8 @@ export const NicheProfile = z.object({
   safety_rule: z.string().min(20),
   decision_outline: z.array(z.string()).min(2),
   product_kinds: z.array(z.object({ id: ProductKind, label: z.string() })).min(1),
+  // Termos que o site nunca exibe, nem citando vendedor (aplicado a trechos de anúncio).
+  forbidden_terms: z.array(z.string()).default([]),
 });
 export type NicheProfile = z.infer<typeof NicheProfile>;
 
@@ -162,7 +164,10 @@ export const Product = z.object({
   label: z.string().min(5).max(80),
   brand: z.string().min(2),
   kind: ProductKind,
-  spec_claim_ids: z.array(ClaimId).min(1),
+  // "manufacturer": especificações da ficha oficial. "listing": sem ficha oficial; o cartão só mostra o
+  // tipo como "anunciado como", citando o anúncio (quem afirma é o vendedor), e nenhuma especificação.
+  evidence: z.enum(['manufacturer', 'listing']).default('manufacturer'),
+  spec_claim_ids: z.array(ClaimId),
   availability_claim_id: ClaimId,
   added_at: z.iso.date(),
 });
