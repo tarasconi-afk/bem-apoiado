@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { BRAND, publicPages } from '../lib/content';
+const pages = publicPages();
+---
+<Base title={`${BRAND}: colchão, travesseiro e cadeira explicados com fonte`} description="Decisões de compra sobre sono e home office, explicadas com especificações de fabricantes, normas técnicas e órgãos reguladores.">
+  <h1>{BRAND}</h1>
+  <p>Escolher colchão, travesseiro ou cadeira com base no que fabricantes, normas e órgãos reguladores realmente publicam.</p>
+  {pages.length === 0 ? (
+    <p class="muted">Primeiros guias em preparação.</p>
+  ) : (
+    <ul>{pages.map((p) => <li><a href={`/${p.slug}/`}>{p.title}</a></li>)}</ul>
+  )}
+</Base>

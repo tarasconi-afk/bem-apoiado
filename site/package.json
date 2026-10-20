@@ -1,0 +1,15 @@
+{
+  "name": "@bem-apoiado/site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@bem-apoiado/core": "*",
+    "@bem-apoiado/engine": "*",
+    "astro": "^7.4.1"
+  }
+}

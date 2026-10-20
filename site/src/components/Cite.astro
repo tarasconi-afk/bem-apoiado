@@ -1,0 +1,9 @@
+---
+interface Props {
+  ids: string[];
+  order: string[];
+}
+const { ids, order } = Astro.props;
+const nums = ids.map((id) => order.indexOf(id) + 1).filter((n) => n > 0);
+---
+{nums.map((n) => <sup><a href={`#fonte-${n}`}>[{n}]</a></sup>)}

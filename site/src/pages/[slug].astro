@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import Cite from '../components/Cite.astro';
+import { footnotesFor, publicPages } from '../lib/content';
+import type { PageSpec } from '@bem-apoiado/core';
+
+export function getStaticPaths() {
+  return publicPages().map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props as { page: PageSpec };
+const notes = footnotesFor(page);
+const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+---
+<Base title={page.title} description={page.description} noindex={page.status !== 'published'}>
+  <article>
+    <h1>{page.title}</h1>
+    <p class="muted">Atualizado em {fmtDate(page.updated_at)}</p>
+    <div class="verdict"><strong>Resposta curta:</strong> {page.verdict.text}<Cite ids={page.verdict.claim_ids} order={notes.order} /></div>
+
+    {page.sections.map((s) => (
+      <section id={s.id}>
+        <h2>{s.heading}</h2>
+        {s.blocks.map((b) =>
+          b.kind === 'table' ? (
+            <table>
+              <caption class="muted">{b.caption}</caption>
+              <thead><tr>{b.columns.map((c) => <th>{c}</th>)}</tr></thead>
+              <tbody>
+                {b.rows.map((r) => (
+                  <tr>{r.cells.map((c) => <td>{c.text}<Cite ids={c.claim_ids} order={notes.order} /></td>)}</tr>
+                ))}
+              </tbody>
+            </table>
+          ) : b.kind === 'callout' ? (
+            <p class={`callout ${b.tone}`}>{b.text}<Cite ids={b.claim_ids} order={notes.order} /></p>
+          ) : (
+            <p>{b.text}<Cite ids={b.claim_ids} order={notes.order} /></p>
+          ),
+        )}
+      </section>
+    ))}
+
+    <section id="fontes">
+      <h2>Fontes</h2>
+      <ol>
+        {notes.order.map((id, i) => {
+          const c = notes.claims.get(id);
+          const s = c ? notes.sources.get(c.source_id) : undefined;
+          return (
+            <li id={`fonte-${i + 1}`}>
+              {s ? <a href={s.final_url} rel="nofollow noopener">{s.publisher}{s.title ? ` — ${s.title}` : ''}</a> : id}
+              {c && <span class="muted"> · trecho: “{c.quote}” · consultado em {fmtDate(c.captured_at)}</span>}
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  </article>
+</Base>

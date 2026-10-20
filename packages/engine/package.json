@@ -1,0 +1,13 @@
+{
+  "name": "@bem-apoiado/engine",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@bem-apoiado/core": "*",
+    "cheerio": "^1.2.0",
+    "pdf-parse": "^2.4.5"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "bem-apoiado",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "packages/engine",
+    "site"
+  ],
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "engine": "tsx packages/engine/src/cli.ts",
+    "validate": "tsx packages/engine/src/cli.ts validate",
+    "build": "npm run validate && npm run build -w site",
+    "dev": "npm run dev -w site"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

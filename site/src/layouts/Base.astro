@@ -1,0 +1,50 @@
+---
+import { BRAND, INDEXABLE } from '../lib/content';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+const { title, description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const robots = INDEXABLE && !noindex ? 'index,follow' : 'noindex,nofollow';
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical.href} />
+    <style is:global>
+      :root { --ink: #1d1f1e; --muted: #5d625f; --line: #d9dcd8; --bg: #fbfbf9; --accent: #2f5d50; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.65 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+      main, header, footer { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+      header { padding-block: 20px; border-bottom: 1px solid var(--line); }
+      header a { color: var(--ink); text-decoration: none; font-weight: 700; }
+      h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.5rem 0 0.5rem; }
+      h2 { font-size: 1.3rem; margin-top: 2rem; }
+      a { color: var(--accent); }
+      sup a { text-decoration: none; font-size: 0.75em; }
+      table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+      th, td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
+      .verdict { border-left: 4px solid var(--accent); padding: 4px 0 4px 14px; margin: 1.2rem 0; }
+      .callout { padding: 10px 14px; border: 1px solid var(--line); border-radius: 6px; }
+      .callout.warning { border-color: #c9a227; }
+      .muted { color: var(--muted); font-size: 0.9rem; }
+      footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; }
+    </style>
+  </head>
+  <body>
+    <header><a href="/">{BRAND}</a></header>
+    <main><slot /></main>
+    <footer>
+      <p>Comparamos especificações publicadas por fabricantes, normas e órgãos reguladores. Não testamos os produtos fisicamente; quando um dado não tem fonte, ele não entra.</p>
+      <p>Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas feitas por meio dos nossos links.</p>
+    </footer>
+  </body>
+</html>
