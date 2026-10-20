@@ -1,5 +1,5 @@
-import { referencedClaimIds, type Claim, type PageSpec, type Source } from '@bem-apoiado/core';
-import { loadClaims, loadPages, loadSources } from '@bem-apoiado/engine';
+import { affiliateUrl, checkProduct, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
+import { buildIndex, loadClaims, loadPages, loadProducts, loadSources, loadTopics } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
@@ -55,3 +55,41 @@ export function readingMinutes(page: PageSpec): number {
 
 export const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('pt-BR', { timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' });
+
+export const KIND_LABEL: Record<Product['kind'], string> = {
+  espuma: 'Colchão de espuma',
+  molas_ensacadas: 'Colchão de molas ensacadas',
+  molas_interligadas: 'Colchão de molas interligadas',
+  misto: 'Colchão misto',
+  travesseiro: 'Travesseiro',
+  cadeira: 'Cadeira',
+  outro: 'Outro',
+};
+
+export interface ProductCard {
+  product: Product;
+  url: string;
+  specs: { statement: string; sourceUrl: string; publisher: string }[];
+  checkedAt: string;
+}
+
+// Exemplos à venda: só tipos que a pauta explica, só produtos que passam no gate agora (ficha do
+// fabricante + anúncio do mesmo ASIN capturado há menos de 30 dias). Sem ordem de preferência.
+export function productsFor(page: PageSpec): ProductCard[] {
+  const topic = loadTopics().find((t) => t.slug === page.slug);
+  if (!topic || topic.product_kinds.length === 0) return [];
+  const idx = buildIndex();
+  return loadProducts()
+    .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx).length === 0)
+    .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))
+    .map((p) => ({
+      product: p,
+      url: affiliateUrl(p.asin),
+      specs: p.spec_claim_ids.map((id) => {
+        const c = idx.claims.get(id)!;
+        const s = idx.sources.get(c.source_id)!;
+        return { statement: c.statement, sourceUrl: s.final_url, publisher: s.publisher };
+      }),
+      checkedAt: idx.claims.get(p.availability_claim_id)!.captured_at,
+    }));
+}

@@ -16,6 +16,10 @@ export const SourceClass = z.enum([
 ]);
 export type SourceClass = z.infer<typeof SourceClass>;
 
+// Tag de afiliado da conta Amazon Associados (StoreID).
+export const AFFILIATE_TAG = 'tarasconi-20';
+export const affiliateUrl = (asin: string) => `https://www.amazon.com.br/dp/${asin}?tag=${AFFILIATE_TAG}`;
+
 export const PRIMARY_CLASSES: readonly SourceClass[] = ['manufacturer', 'regulator', 'standard_body'];
 
 // Snapshot imutável de uma fonte. O texto extraído fica em disco ao lado do bruto.
@@ -46,6 +50,8 @@ export const ClaimType = z.enum([
   'availability', // produto listado em loja numa data (não é especificação)
 ]);
 
+export const ProductKind = z.enum(['espuma', 'molas_ensacadas', 'molas_interligadas', 'misto', 'travesseiro', 'cadeira', 'outro']);
+
 // Pauta: o que a página precisa responder e de onde pode tirar a resposta.
 // Hoje escrita pelo PM; na Fase 3 gerada pelo estágio discover.
 export const TopicBrief = z.object({
@@ -57,6 +63,8 @@ export const TopicBrief = z.object({
     .min(1),
   source_ids: z.array(SourceId).min(1),
   editorial_notes: z.array(z.string()).default([]),
+  // Tipos de produto que a página explica; só esses podem aparecer como exemplos à venda.
+  product_kinds: z.array(ProductKind).default([]),
 });
 export type TopicBrief = z.infer<typeof TopicBrief>;
 
@@ -120,6 +128,20 @@ export const ProductRef = z.object({
   // Por que este produto aparece: precisa estar sustentado por evidência (ex.: spec do fabricante).
   claim_ids: ClaimRefs.min(1),
 });
+
+// Catálogo de afiliados. Um produto só entra com duas provas: especificação em página do fabricante
+// (claim spec/certification de fonte manufacturer) e disponibilidade em anúncio capturado (availability).
+export const Product = z.object({
+  asin: z.string().regex(/^[A-Z0-9]{10}$/),
+  // Nome neutro (marca + modelo + tamanho). Sem adjetivo promocional: o gate barra "melhor", "top" etc.
+  label: z.string().min(5).max(80),
+  brand: z.string().min(2),
+  kind: ProductKind,
+  spec_claim_ids: z.array(ClaimId).min(1),
+  availability_claim_id: ClaimId,
+  added_at: z.iso.date(),
+});
+export type Product = z.infer<typeof Product>;
 
 export const PageStatus = z.enum(['draft', 'approved', 'published']);
 

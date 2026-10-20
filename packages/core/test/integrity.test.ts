@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkClaim, checkPage, PageSpec, quoteAppearsIn, type Claim, type EvidenceIndex, type Source } from '../src/index.ts';
+import { checkClaim, checkPage, checkProduct, PageSpec, quoteAppearsIn, type Claim, type EvidenceIndex, type Source } from '../src/index.ts';
 
 // Fixtures sintéticas de teste. Não são conteúdo editorial e nunca vão para data/.
 const SRC: Source = {
@@ -110,5 +110,30 @@ describe('checkPage', () => {
     const p = basePage();
     p.status = 'approved';
     expect(checkPage(p, index([claim()])).map((v) => v.code)).toContain('UNAUDITED_NOT_DRAFT');
+  });
+});
+
+describe('checkProduct', () => {
+  const avail: Claim = {
+    id: 'clm_disp', source_id: 'src_bbbbbbbbbbbb', quote: 'Colchão modelo X.', claim_type: 'availability',
+    statement: 'Produto à venda na data.', captured_at: new Date().toISOString(), question_ids: [],
+  };
+  const retailIdx = (claims: Claim[]): EvidenceIndex => ({
+    ...index(claims),
+    sources: new Map([SRC, { ...RETAIL, final_url: 'https://www.amazon.com.br/dp/B000000001' }].map((s) => [s.id, s])),
+  });
+  const prod = { asin: 'B000000001', label: 'Modelo X casal', brand: 'Fabricante', kind: 'espuma' as const, spec_claim_ids: ['clm_x_densidade'], availability_claim_id: 'clm_disp', added_at: '2026-10-20' };
+
+  it('produto com ficha do fabricante e anúncio do mesmo ASIN passa', () => {
+    expect(checkProduct(prod, retailIdx([claim(), avail]))).toEqual([]);
+  });
+  it('nome promocional e anúncio de outro ASIN são barrados', () => {
+    const codes = checkProduct({ ...prod, label: 'O melhor colchão', asin: 'B000000009' }, retailIdx([claim(), avail])).map((v) => v.code);
+    expect(codes).toContain('PRODUCT_PROMO_LABEL');
+    expect(codes).toContain('PRODUCT_AVAILABILITY_OTHER_ASIN');
+  });
+  it('disponibilidade velha precisa de nova captura', () => {
+    const old = { ...avail, captured_at: '2026-01-01T00:00:00.000Z' };
+    expect(checkProduct(prod, retailIdx([claim(), old]), new Date('2026-10-20')).map((v) => v.code)).toContain('PRODUCT_AVAILABILITY_STALE');
   });
 });

@@ -1,5 +1,5 @@
 import { parseArgs } from 'node:util';
-import { checkClaim, checkPage, SourceClass, type Violation } from '@bem-apoiado/core';
+import { checkClaim, checkPage, checkProduct, SourceClass, type Violation } from '@bem-apoiado/core';
 import { z } from 'zod';
 import { callJson, creditsSpent, setRunBudget } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
@@ -8,7 +8,7 @@ import { rawIntact, reextract, snapshot } from './snapshot.ts';
 import { buildPage } from './stages/page.ts';
 import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
-import { buildIndex, loadPages, loadSources } from './store.ts';
+import { buildIndex, loadPages, loadProducts, loadSources } from './store.ts';
 
 const [command, ...rest] = process.argv.slice(2);
 
@@ -42,13 +42,15 @@ async function main(): Promise<number> {
         if (!rawIntact(s)) violations.push({ code: 'SOURCE_RAW_CORRUPT', where: `source:${s.id}`, detail: s.raw_file });
       }
       for (const claim of idx.claims.values()) violations.push(...checkClaim(claim, idx));
+      const products = loadProducts();
+      for (const p of products) violations.push(...checkProduct(p, idx));
       const pages = loadPages();
       for (const page of pages) {
         violations.push(...checkPage(page, idx).map((v) => ({ ...v, where: `${page.slug}:${v.where}` })));
       }
       for (const v of violations) console.error(`✗ ${v.code} ${v.where} ${v.detail}`);
       console.log(
-        `validate: ${idx.sources.size} fontes, ${idx.claims.size} evidências, ${pages.length} páginas, ${violations.length} violações`,
+        `validate: ${idx.sources.size} fontes, ${idx.claims.size} evidências, ${products.length} produtos, ${pages.length} páginas, ${violations.length} violações`,
       );
       return violations.length === 0 ? 0 : 1;
     }

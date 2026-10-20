@@ -73,3 +73,9 @@ TUS → deploy do zip. O pedido Business 1008020760 devolve 404 para criar site 
 Em domínio temporário `*.hostingersite.com` a Hostinger serve o próprio robots.txt; o noindex fica
 garantido pela meta robots e pelo cabeçalho X-Robots-Tag do `.htaccess`.
 A VPS (Caddy) segue como segundo ambiente de preview e hospeda o painel e o motor.
+
+## 2026-10-20 — Produto só com duas provas, exibido sem ranking
+Especificação do produto vem da ficha do fabricante (anúncio de loja não prova especificação);
+disponibilidade vem do anúncio da Amazon capturado do Mac (a Amazon bloqueia a VPS) até a PA-API.
+A página mostra "Exemplos à venda" só dos tipos que a pauta explica, sem ordem de preferência, com
+rel="sponsored". O gate barra nome promocional, anúncio de outro ASIN e disponibilidade com mais de 30 dias.

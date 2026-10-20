@@ -21,8 +21,10 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] design editorial; fontes agrupadas em bloco expansível; página "Como trabalhamos"
 - [x] preview no ar: https://srv2079501.hstgr.cloud (Caddy na VPS, noindex em 3 camadas) — `npm run deploy:preview`
 - [x] teto de gasto por execução e custo gravado no run
-- [ ] catálogo curado de produtos com links de afiliado (tarasconi-20), cada produto ligado a evidência
-      de especificação do fabricante
+- [x] infraestrutura do catálogo de afiliados: schema Product, gate (ficha do fabricante + anúncio do
+      mesmo ASIN com menos de 30 dias + sem nome promocional), seção "Exemplos à venda" com rel=sponsored
+- [ ] popular o catálogo: depende de achar a ficha oficial de cada produto (bloqueio: precisa de API de
+      busca; sites de fabricante variam — Emma recusa conexão, Ortobom carrega produtos por JS)
 - [x] hospedagem Hostinger (Business u226814741): https://silver-ibis-943605.hostingersite.com — `npm run deploy:hostinger`
 - [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
 - [ ] etapa "editor" (só corta/funde blocos aprovados)

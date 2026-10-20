@@ -3,14 +3,38 @@
   "primary_query": "colchão de molas ou espuma",
   "page_type": "decision_compare",
   "questions": [
-    { "id": "q_tipos", "text": "Quais são os tipos de colchão (espuma, molas Bonnel ou conectadas, molas ensacadas ou pocket, misto ou híbrido) e como cada um é construído?" },
-    { "id": "q_movimento", "text": "Como cada tipo lida com a transferência de movimento entre duas pessoas na mesma cama?" },
-    { "id": "q_densidade", "text": "O que significa a densidade (D) da espuma, como ela se relaciona com peso e biotipo, e se essa escolha por densidade vale para colchões de molas." },
-    { "id": "q_firmeza", "text": "A firmeza e o conforto dependem do tipo (molas ou espuma) ou da composição completa do colchão?" },
-    { "id": "q_durabilidade", "text": "O que os fabricantes declaram sobre a durabilidade de cada tipo de colchão?" },
-    { "id": "q_certificacao", "text": "O que a certificação obrigatória do Inmetro avalia em colchões de espuma e em colchões de molas, e o que o selo não cobre?" },
-    { "id": "q_etiqueta", "text": "Quais informações obrigatórias a etiqueta e a embalagem do colchão devem trazer?" },
-    { "id": "q_terapeutico", "text": "Qual a posição do Inmetro sobre colchões vendidos como terapêuticos ou ortopédicos?" }
+    {
+      "id": "q_tipos",
+      "text": "Quais são os tipos de colchão (espuma, molas Bonnel ou conectadas, molas ensacadas ou pocket, misto ou híbrido) e como cada um é construído?"
+    },
+    {
+      "id": "q_movimento",
+      "text": "Como cada tipo lida com a transferência de movimento entre duas pessoas na mesma cama?"
+    },
+    {
+      "id": "q_densidade",
+      "text": "O que significa a densidade (D) da espuma, como ela se relaciona com peso e biotipo, e se essa escolha por densidade vale para colchões de molas."
+    },
+    {
+      "id": "q_firmeza",
+      "text": "A firmeza e o conforto dependem do tipo (molas ou espuma) ou da composição completa do colchão?"
+    },
+    {
+      "id": "q_durabilidade",
+      "text": "O que os fabricantes declaram sobre a durabilidade de cada tipo de colchão?"
+    },
+    {
+      "id": "q_certificacao",
+      "text": "O que a certificação obrigatória do Inmetro avalia em colchões de espuma e em colchões de molas, e o que o selo não cobre?"
+    },
+    {
+      "id": "q_etiqueta",
+      "text": "Quais informações obrigatórias a etiqueta e a embalagem do colchão devem trazer?"
+    },
+    {
+      "id": "q_terapeutico",
+      "text": "Qual a posição do Inmetro sobre colchões vendidos como terapêuticos ou ortopédicos?"
+    }
   ],
   "source_ids": [
     "src_16e776a30832",
@@ -28,5 +52,11 @@
   "editorial_notes": [
     "Afirmações gerais vindas de blog de fabricante são posição do fabricante: atribuir ('segundo a Probel').",
     "Não comparar preços (não há fonte de preço confiável); não afirmar efeito sobre dor ou coluna."
+  ],
+  "product_kinds": [
+    "espuma",
+    "molas_ensacadas",
+    "molas_interligadas",
+    "misto"
   ]
 }

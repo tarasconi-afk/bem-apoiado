@@ -1,4 +1,4 @@
-import { PRIMARY_CLASSES, type Claim, type PageSpec, type Source, type SourceClass } from './schemas.ts';
+import { PRIMARY_CLASSES, type Claim, type PageSpec, type Product, type Source, type SourceClass } from './schemas.ts';
 import { quoteAppearsIn } from './text.ts';
 
 export interface Violation {
@@ -89,6 +89,36 @@ export function checkPage(page: PageSpec, idx: EvidenceIndex): Violation[] {
 
   if (page.status !== 'draft' && page.provenance.audit_verdict !== 'pass') {
     out.push({ code: 'UNAUDITED_NOT_DRAFT', where: 'status', detail: page.status });
+  }
+  return out;
+}
+
+const PROMO = /\b(melhor|top|imbatível|perfeito|campeão|número 1|nº 1|n°1|recomendado|oferta|promoção|barato)\b/i;
+// Disponibilidade mais velha que isso precisa de nova captura antes de exibir o produto.
+export const AVAILABILITY_MAX_AGE_DAYS = 30;
+
+export function checkProduct(p: Product, idx: EvidenceIndex, now = new Date()): Violation[] {
+  const out: Violation[] = [];
+  const where = `product:${p.asin}`;
+  if (PROMO.test(p.label)) out.push({ code: 'PRODUCT_PROMO_LABEL', where, detail: p.label });
+  for (const id of p.spec_claim_ids) {
+    const c = idx.claims.get(id);
+    const src = c ? idx.sources.get(c.source_id) : undefined;
+    if (!c) out.push({ code: 'PRODUCT_SPEC_MISSING', where, detail: id });
+    else if (src?.source_class !== 'manufacturer' || !['spec', 'certification'].includes(c.claim_type)) {
+      out.push({ code: 'PRODUCT_SPEC_NOT_FROM_MANUFACTURER', where, detail: id });
+    }
+  }
+  const a = idx.claims.get(p.availability_claim_id);
+  if (!a || a.claim_type !== 'availability') {
+    out.push({ code: 'PRODUCT_AVAILABILITY_MISSING', where, detail: p.availability_claim_id });
+  } else {
+    const ageDays = (now.getTime() - new Date(a.captured_at).getTime()) / 86_400_000;
+    if (ageDays > AVAILABILITY_MAX_AGE_DAYS) out.push({ code: 'PRODUCT_AVAILABILITY_STALE', where, detail: `${Math.round(ageDays)} dias` });
+    const src = idx.sources.get(a.source_id);
+    if (src && !new RegExp(`/(dp|gp/product)/${p.asin}`).test(src.final_url)) {
+      out.push({ code: 'PRODUCT_AVAILABILITY_OTHER_ASIN', where, detail: src.final_url });
+    }
   }
   return out;
 }

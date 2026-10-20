@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { Claim, PageSpec, Source, type EvidenceIndex } from '@bem-apoiado/core';
+import { Claim, PageSpec, Product, Source, TopicBrief, type EvidenceIndex } from '@bem-apoiado/core';
 
 // Raiz achada subindo a partir do cwd: import.meta.url não serve quando o Astro empacota este módulo.
 function findRoot(start: string): string {
@@ -21,6 +21,8 @@ export const SOURCES_DIR = join(DATA, 'sources');
 export const CLAIMS_DIR = join(DATA, 'claims');
 export const PAGES_DIR = join(DATA, 'pages');
 export const RUNS_DIR = join(DATA, 'runs');
+export const PRODUCTS_DIR = join(DATA, 'products');
+export const TOPICS_DIR = join(DATA, 'topics');
 
 export function writeJson(path: string, value: unknown): void {
   mkdirSync(dirname(path), { recursive: true });
@@ -52,6 +54,8 @@ export function loadSources(): Source[] {
 
 export const loadClaims = () => readJsonDir(CLAIMS_DIR, (v) => Claim.parse(v));
 export const loadPages = () => readJsonDir(PAGES_DIR, (v) => PageSpec.parse(v));
+export const loadProducts = () => readJsonDir(PRODUCTS_DIR, (v) => Product.parse(v));
+export const loadTopics = () => readJsonDir(TOPICS_DIR, (v) => TopicBrief.parse(v));
 
 export function sourceText(sourceId: string): string | undefined {
   const p = join(SOURCES_DIR, sourceId, 'text.txt');

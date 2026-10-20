@@ -1,9 +1,9 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { checkClaim, checkPage, type Violation } from '@bem-apoiado/core';
+import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
 import { MODELS } from './models.ts';
 import { rawIntact } from './snapshot.ts';
-import { buildIndex, DATA, loadPages, RUNS_DIR } from './store.ts';
+import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR } from './store.ts';
 
 // Painel só-leitura: tudo vem de data/ (o mesmo estado que o motor usa). Nenhuma ação é possível daqui.
 
@@ -67,6 +67,8 @@ export function renderStatus(now = new Date()): string {
   for (const s of idx.sources.values()) if (!rawIntact(s)) violations.push({ code: 'SOURCE_RAW_CORRUPT', where: s.id, detail: '' });
   for (const c of idx.claims.values()) violations.push(...checkClaim(c, idx));
   for (const p of pages) violations.push(...checkPage(p, idx));
+  const products = loadProducts();
+  for (const p of products) violations.push(...checkProduct(p, idx, now));
 
   const since = (h: number) => runs.filter((r) => now.getTime() - r.when.getTime() < h * 3600_000);
   const sum = (rs: RunRow[]) => rs.reduce((t, r) => t + (r.credits ?? 0), 0);
@@ -106,6 +108,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <div class="card"><div class="v">${cr(sum(since(24)))}</div><div class="l">créditos nas últimas 24 h</div></div>
 <div class="card"><div class="v">${cr(sum(since(24 * 7)))}</div><div class="l">créditos em 7 dias</div></div>
 <div class="card"><div class="v">${idx.sources.size} / ${idx.claims.size}</div><div class="l">fontes / evidências</div></div>
+<div class="card"><div class="v">${products.length}</div><div class="l">produtos no catálogo</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
 ${unknownCost ? `<p class="muted">${unknownCost} execução(ões) anteriores ao registro de custo aparecem sem créditos; o extrato do hPanel é a referência final.</p>` : ''}
