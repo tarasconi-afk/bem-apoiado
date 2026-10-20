@@ -32,7 +32,16 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] busca na web (Tavily, plano grátis) com teto mensal duro de 1.400 créditos e contador na VPS
 - [ ] domínio definitivo bemapoiado.com.br (compra = ação humana) e hospedagem final
 
-## Fase 3 — Autonomia
+## Fase 3 — Autonomia  ← atual
+- [x] discover: LLM planeja buscas → Tavily → só domínios do cadastro (data/registry/domains.json) → snapshot;
+      domínio desconhecido vira sugestão, nunca fonte automática
+- [x] revisão editorial (GPT): página correta mas inútil fica como rascunho. Regra do código: orienta,
+      não "no", enchimento ≤ 25%, ≥ 2 critérios concretos (calibrada em 2 páginas; reavaliar)
+- [x] pesquisa lê só trechos com os termos da pauta (máx. 3 por fonte)
+- [ ] 2ª página "colchão D28 ou D33": motor fez sozinho (discover→research→page, ~32 créditos na redação),
+      revisão reprovou (45% enchimento: faltou tabela de densidade × peso). Próximo: usar a lista "missing"
+      da revisão para uma 2ª rodada de discover direcionada (ex.: tabela de densidade da Probel/Ortobom)
+- [ ] gerar as perguntas da pauta automaticamente a partir da dúvida principal
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,
 atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pelo hash).

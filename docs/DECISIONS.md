@@ -91,3 +91,10 @@ acompanha o ramo `deploy`. A integração só pode ser ligada com a pasta públi
 Dono não quer pagar busca: plano grátis com teto duro de 1.400 créditos/mês (margem sob 1.500),
 contador em /var/lib/bem-apoiado/tavily-usage.json, checado antes de cada chamada; só busca básica
 (1 crédito). Não instalamos a CLI/skill da Tavily: o motor chama a API REST, sem depender do Claude.
+
+## 2026-10-20 — Correto não basta: revisão editorial antes de publicar
+A 2ª página (D28 ou D33) passou na auditoria de evidência mas não respondia à dúvida (sem tabela
+densidade × peso nas fontes achadas). Publicar página fina prejudica o site. Nova etapa: o GPT descreve
+utilidade (responde? orienta? quais blocos são enchimento? que critérios concretos dá?) e o CÓDIGO decide.
+1ª calibragem ("responde totalmente" obrigatório) reprovou as duas páginas: exigente demais para um site
+que não inventa. Regra final separa as duas pelo enchimento (14% vs 45%) e pelos critérios concretos.

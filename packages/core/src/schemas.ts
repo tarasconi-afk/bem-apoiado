@@ -61,8 +61,12 @@ export const TopicBrief = z.object({
   questions: z
     .array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(10) }))
     .min(1),
-  source_ids: z.array(SourceId).min(1),
+  // Pode nascer vazia: o estágio discover preenche.
+  source_ids: z.array(SourceId).default([]),
   editorial_notes: z.array(z.string()).default([]),
+  // Termos que um trecho de fonte precisa conter para valer a leitura pelo extrator (economia).
+  // Vazio = palavras da dúvida principal.
+  focus_terms: z.array(z.string()).default([]),
   // Tipos de produto que a página explica; só esses podem aparecer como exemplos à venda.
   product_kinds: z.array(ProductKind).default([]),
 });

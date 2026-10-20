@@ -8,13 +8,15 @@ import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, type Draft } from './draft-schema.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
+import { reviewPage, type ReviewResult } from './review.ts';
 import { writeDraft } from './write.ts';
 
 const MAX_FIX_ROUNDS = 3;
 const MIN_CLAIMS = 8;
 
 export type PageOutcome =
-  | { status: 'PASS'; rounds: number; page: PageSpec; usage: Usage }
+  | { status: 'PASS'; rounds: number; page: PageSpec; usage: Usage; review: ReviewResult }
+  | { status: 'NOT_PUBLISHABLE'; rounds: number; page: PageSpec; usage: Usage; review: ReviewResult }
   | { status: 'SAFE_STOP'; reason: string; rounds: number; open_issues: string[]; usage: Usage };
 
 interface Usage {
@@ -129,10 +131,15 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     writeStage(runId, `audit-r${round}`, { findings, open_issues: issues });
 
     if (issues.length === 0) {
-      const page = toPageSpec(draft, topic, runId, 'pass');
+      // 3) Revisão editorial: correta não basta, tem de servir. Reprovada fica como rascunho.
+      const passed = toPageSpec(draft, topic, runId, 'pass');
+      const rv = await reviewPage(passed, topic, fetchImpl);
+      add(rv.usage);
+      const page: PageSpec = rv.review.publishable ? passed : { ...passed, status: 'draft' };
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
-      writeStage(runId, 'page', { status: 'PASS', rounds: round + 1, usage, credits: creditsSpent() });
-      return { status: 'PASS', rounds: round + 1, page, usage };
+      const status = rv.review.publishable ? 'PASS' : 'NOT_PUBLISHABLE';
+      writeStage(runId, 'page', { status, rounds: round + 1, usage, credits: creditsSpent(), review: rv.review });
+      return { status, rounds: round + 1, page, usage, review: rv.review };
     }
   }
   // Não convergiu: nada vai para data/pages. O rascunho e os problemas ficam no run para análise.

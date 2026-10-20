@@ -1,0 +1,418 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Ortobom, a escolha de um colchão de espuma deve considerar a densidade, o peso e a altura de quem vai usá-lo. A Probel também informa limites de suporte de peso por pessoa para seus produtos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6a5fe535ce38",
+        "clm_795c4d8bb735",
+        "clm_04e2adda967a",
+        "clm_4887da74d8ef"
+      ]
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "action": "replace",
+      "text": "Segundo a Ortobom, a densidade do colchão é a quantidade de quilos de espuma por metro cúbico de cada modelo, e essa classificação é representada pela letra D. No exemplo da marca, em um colchão D33, 1 m³ da espuma utilizada tem 33 quilos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_834ae54f95d5"
+      ]
+    },
+    {
+      "ref": "o-que-e-densidade#2",
+      "action": "replace",
+      "text": "A seguir, veja outros aspectos a considerar na escolha de um colchão.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "peso-altura-por-fabricante#1",
+      "action": "replace",
+      "text": "A Ortobom disponibiliza uma tabela para indicar o colchão de espuma recomendado e informa que a escolha da densidade se aplica apenas a colchões de espuma simples.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6a3c8fe5f464"
+      ]
+    },
+    {
+      "ref": "peso-altura-por-fabricante#2",
+      "action": "replace",
+      "text": "A Probel apresenta categorias de suporte de peso por pessoa entre 50 kg e 150 kg.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04e2adda967a",
+        "clm_4887da74d8ef",
+        "clm_a201dbe76222"
+      ]
+    },
+    {
+      "ref": "peso-altura-por-fabricante#3",
+      "action": "replace",
+      "text": "A Probel apresenta indicação para casais com biotipos diferentes; em alguns dos trechos, \"Altura\" aparece junto de \"Indicação Biotipos Casais\".",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dd99da85d604",
+        "clm_08a7ab697ef1",
+        "clm_6c1806546719",
+        "clm_6ffc4df8ae65"
+      ]
+    },
+    {
+      "ref": "peso-altura-por-fabricante#4",
+      "action": "replace",
+      "text": "A Probel apresenta diferentes categorias de suporte de peso por pessoa, enquanto a Ortobom orienta considerar o peso e a altura de quem usará o colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04e2adda967a",
+        "clm_4887da74d8ef",
+        "clm_a201dbe76222",
+        "clm_795c4d8bb735",
+        "clm_6a5fe535ce38"
+      ]
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "action": "replace",
+      "text": "Segundo a Ortobom, densidade é a quantidade de quilos de espuma por metro cúbico. Separadamente, a Probel informa níveis de firmeza, como \"intermediário\".",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_834ae54f95d5",
+        "clm_abfb8b608bab"
+      ]
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "action": "replace",
+      "text": "A Probel afirma que colchões de espuma em densidades como D28, D33 e D45 se adaptam a variados perfis de uso e atendem a diferentes estilos de sono.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6d9e7abc7e98",
+        "clm_c185bd80edca",
+        "clm_f54f9427f1f0"
+      ]
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#4",
+      "action": "replace",
+      "text": "Como exemplo, a Probel lista números de certificação do Inmetro por fábrica para seus colchões.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a8832f958cd5"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Para conferir a densidade nominal das lâminas de espuma, procure a informação expressa em kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_23c3ec49c618",
+        "clm_a1f44696e40e"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Ao escolher, consulte as informações do fabricante: a Probel apresenta valores de suporte de peso por pessoa, e a Ortobom recomenda considerar densidade, altura e peso.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04e2adda967a",
+        "clm_4887da74d8ef",
+        "clm_a201dbe76222",
+        "clm_6a5fe535ce38",
+        "clm_795c4d8bb735"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Quando disponível, confira a informação de nível de firmeza do colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_abfb8b608bab"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão D28 ou D33: o que muda na densidade da espuma?",
+    "description": "Entenda o que significa densidade D28 e D33, como ela é medida, declarada na etiqueta e usada por fabricantes.",
+    "verdict": {
+      "text": "Segundo a Ortobom, a escolha de um colchão de espuma deve considerar a densidade, o peso e a altura de quem vai usá-lo. A Probel também informa limites de suporte de peso por pessoa para seus produtos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6a5fe535ce38",
+        "clm_795c4d8bb735",
+        "clm_04e2adda967a",
+        "clm_4887da74d8ef"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-e-densidade",
+        "heading": "O que significa D28 ou D33",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, a densidade do colchão é a quantidade de quilos de espuma por metro cúbico de cada modelo, e essa classificação é representada pela letra D. No exemplo da marca, em um colchão D33, 1 m³ da espuma utilizada tem 33 quilos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_834ae54f95d5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Pelas normas que o Inmetro aplica, essa densidade precisa ser declarada em kg/m³ na etiqueta, como densidade nominal da lâmina de espuma utilizada. Quando o colchão é composto ou misto, a etiqueta também deve trazer a espessura de cada lâmina.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_23c3ec49c618",
+              "clm_a1f44696e40e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A seguir, veja outros aspectos a considerar na escolha de um colchão.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "peso-altura-por-fabricante",
+        "heading": "Como peso e altura entram na escolha da densidade",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, para escolher um colchão de espuma é preciso considerar densidade, altura e peso de quem vai usá-lo. A fabricante afirma que essa relação deve ser levada em conta antes de decidir o modelo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6a5fe535ce38",
+              "clm_795c4d8bb735"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom disponibiliza uma tabela para indicar o colchão de espuma recomendado e informa que a escolha da densidade se aplica apenas a colchões de espuma simples.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6a3c8fe5f464"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel apresenta categorias de suporte de peso por pessoa entre 50 kg e 150 kg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04e2adda967a",
+              "clm_4887da74d8ef",
+              "clm_a201dbe76222"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel apresenta indicação para casais com biotipos diferentes; em alguns dos trechos, \"Altura\" aparece junto de \"Indicação Biotipos Casais\".",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_dd99da85d604",
+              "clm_08a7ab697ef1",
+              "clm_6c1806546719",
+              "clm_6ffc4df8ae65"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel apresenta diferentes categorias de suporte de peso por pessoa, enquanto a Ortobom orienta considerar o peso e a altura de quem usará o colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04e2adda967a",
+              "clm_4887da74d8ef",
+              "clm_a201dbe76222",
+              "clm_795c4d8bb735",
+              "clm_6a5fe535ce38"
+            ],
+            "kind": "callout",
+            "tone": "warning"
+          }
+        ]
+      },
+      {
+        "id": "densidade-e-firmeza",
+        "heading": "Densidade é o mesmo que firmeza?",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, densidade é a quantidade de quilos de espuma por metro cúbico. Separadamente, a Probel informa níveis de firmeza, como \"intermediário\".",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_834ae54f95d5",
+              "clm_abfb8b608bab"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel afirma que colchões de espuma em densidades como D28, D33 e D45 se adaptam a variados perfis de uso e atendem a diferentes estilos de sono.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6d9e7abc7e98",
+              "clm_c185bd80edca",
+              "clm_f54f9427f1f0"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-e-selo-inmetro",
+        "heading": "O que a etiqueta e o selo do Inmetro mostram",
+        "blocks": [
+          {
+            "text": "Pelas regras do Inmetro, a etiqueta deve informar o tipo de colchão (espuma tradicional, box conjugado, auxiliar, misto ou colchonete), se é simples ou composto, o uso (geral, infantil ou hospitalar) e a composição dos componentes internos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03f4e6488b5d",
+              "clm_e982860c6405"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta também precisa trazer a densidade nominal das lâminas de espuma em kg/m³ e, no caso de colchões compostos ou mistos, a espessura de cada lâmina usada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29c33cfe9a2e",
+              "clm_a1f44696e40e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Além disso, deve constar nome, razão social e CNPJ do fabricante ou importador, marca, modelo, dimensões, data de fabricação, país de fabricação e cuidados mínimos de conservação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6f3a4f0d8702",
+              "clm_dba7c5a4745c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta precisa ter no mínimo 150 cm², ser de material durável e indelével, ficar fixada permanentemente no revestimento, fora da face inferior, e continuar visível mesmo com o colchão embalado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8505069935d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Como exemplo, a Probel lista números de certificação do Inmetro por fábrica para seus colchões.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a8832f958cd5"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre D28 e D33",
+        "blocks": [
+          {
+            "text": "Para conferir a densidade nominal das lâminas de espuma, procure a informação expressa em kg/m³.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_23c3ec49c618",
+              "clm_a1f44696e40e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ao escolher, consulte as informações do fabricante: a Probel apresenta valores de suporte de peso por pessoa, e a Ortobom recomenda considerar densidade, altura e peso.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_04e2adda967a",
+              "clm_4887da74d8ef",
+              "clm_a201dbe76222",
+              "clm_6a5fe535ce38",
+              "clm_795c4d8bb735"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você divide a cama com alguém de peso ou altura bem diferente, verifique se o fabricante oferece alguma indicação voltada a casais com biotipos distintos.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_dd99da85d604",
+              "clm_08a7ab697ef1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quando disponível, confira a informação de nível de firmeza do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abfb8b608bab"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que peso e altura do usuário devem ser considerados e mostram diferentes limites de suporte de peso em produtos da Probel. Porém, não associam faixas de peso a cada densidade, não demonstram que essas faixas variam entre marcas e não dizem que outros fatores além da densidade definem a sensação de maciez ou firmeza. Versão sustentável: Segundo a Ortobom, a escolha de um colchão de espuma deve considerar a densidade, o peso e a altura de quem vai usá-lo. A Probel também informa limites de suporte de peso para seus produtos."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "MISATTRIBUTED. A definição geral de densidade e a interpretação do número após o D aparecem apenas em trecho de fabricante, mas parte delas é apresentada como fato geral, sem atribuição à Ortobom. Versão sustentável: Segundo a Ortobom, a densidade do colchão é a quantidade de quilos de espuma por metro cúbico de cada modelo, e a classificação é representada pela letra D. No exemplo da marca, em um colchão D33, 1 m³ da espuma utilizada tem 33 quilos."
+    },
+    {
+      "ref": "o-que-e-densidade#2",
+      "msg": "FACT_IN_FRAMING. O bloco com basis \"framing\" afirma como fato que conhecer apenas a densidade não basta para escolher o colchão ideal, sem apresentar evidências. Versão sustentável: A seguir, veja outros aspectos a considerar na escolha de um colchão."
+    },
+    {
+      "ref": "peso-altura-por-fabricante#1",
+      "msg": "UNSUPPORTED. O trecho diz que a escolha da densidade se aplica apenas a colchões de espuma simples e menciona uma tabela de recomendação, mas não afirma que essa tabela cruza peso e altura do usuário. Versão sustentável: A Ortobom disponibiliza uma tabela para indicar o colchão de espuma recomendado e informa que a escolha da densidade se aplica apenas a colchões de espuma simples."
+    },
+    {
+      "ref": "peso-altura-por-fabricante#2",
+      "msg": "OVERSTATED. Os trechos mostram categorias de suporte de 50 kg a 150 kg por pessoa, mas não dizem que elas variam conforme a linha nem que aparecem nas especificações de cada produto. Também não identificam explicitamente esses itens como filtros de busca. Versão sustentável: A Probel apresenta categorias de suporte de peso por pessoa entre 50 kg e 150 kg."
+    },
+    {
+      "ref": "peso-altura-por-fabricante#3",
+      "msg": "OVERSTATED. Os trechos sustentam a indicação para casais com biotipos diferentes e mostram “Altura” junto de “Indicação Biotipos Casais”, mas não definem biotipos diferentes como diferenças de peso ou altura nem identificam explicitamente esses campos como filtros de seleção. Versão sustentável: A Probel apresenta indicação para casais com biotipos diferentes; em alguns dos trechos, “Altura” aparece junto de “Indicação Biotipos Casais”."
+    },
+    {
+      "ref": "peso-altura-por-fabricante#4",
+      "msg": "UNSUPPORTED. Os trechos não apresentam faixas de peso por densidade de fabricantes diferentes nem demonstram que essas faixas mudam entre marcas. A recomendação de consultar a tabela específica da marca, em vez de usar uma densidade genérica, não decorre diretamente das evidências citadas. Versão sustentável: A Probel apresenta diferentes categorias de suporte de peso por pessoa, enquanto a Ortobom orienta considerar o peso e a altura de quem usará o colchão."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "msg": "MISATTRIBUTED. A definição de densidade vem da Ortobom, mas é apresentada como fato geral sem atribuição. Além disso, os trechos não dizem explicitamente que a densidade não determina a sensação ao deitar; apenas definem densidade e mostram a Probel informando um nível de firmeza. Versão sustentável: Segundo a Ortobom, densidade é a quantidade de quilos de espuma por metro cúbico. Separadamente, a Probel informa níveis de firmeza, como “intermediário”."
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Probel oferece densidades como D28, D33 e D45 para variados perfis de uso e estilos de sono. Porém, não afirmam que densidade seja apenas um entre vários critérios nem que ela não seja uma medida única de firmeza; os trechos sequer fazem essa comparação com firmeza. Versão sustentável: A Probel afirma que colchões de espuma em densidades como D28, D33 e D45 se adaptam a variados perfis de uso e atendem a diferentes estilos de sono."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#4",
+      "msg": "OVERSTATED. O trecho confirma que a Probel lista números sob o título “Certificação Inmetro”, mas não diz que cada produto passou pela avaliação exigida pelo órgão regulador. Versão sustentável: Como exemplo, a Probel lista números de certificação do Inmetro por fábrica para seus colchões."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos mencionam a densidade nominal em kg/m³, mas não dizem que ela consta na etiqueta, que essa informação é obrigatória nem fazem contraste com o nome comercial. Versão sustentável: Para conferir a densidade nominal das lâminas de espuma, procure a informação expressa em kg/m³."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos da Probel mostram diferentes valores de suporte de peso, e o da Ortobom recomenda considerar densidade, altura e peso. Porém, não mostram tabelas de peso e altura de ambas as fabricantes nem sustentam que Probel e Ortobom adotam faixas e critérios próprios. Versão sustentável: Ao escolher, consulte as informações do fabricante: a Probel apresenta valores de suporte de peso por pessoa, e a Ortobom recomenda considerar densidade, altura e peso."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. O trecho apenas informa um nível de firmeza classificado como intermediário. Ele não menciona densidade nem afirma que densidade e firmeza são características distintas. Versão sustentável: Quando disponível, confira a informação de nível de firmeza do colchão."
+    }
+  ],
+  "usage": {
+    "input_tokens": 12186,
+    "output_tokens": 2718
+  }
+}

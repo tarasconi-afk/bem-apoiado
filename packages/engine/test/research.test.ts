@@ -28,7 +28,7 @@ beforeAll(() => {
   writeFileSync(
     join(root, 'data/topics/teste.json'),
     JSON.stringify({
-      slug: 'teste', primary_query: 'teste', page_type: 'explainer',
+      slug: 'teste', primary_query: 'molas ensacadas ou espuma', page_type: 'explainer',
       questions: [{ id: 'q_tipos', text: 'Como é construído o colchão de molas ensacadas?' }],
       source_ids: ['src_aaaaaaaaaaaa'],
     }),
@@ -58,5 +58,14 @@ describe('research', () => {
     ]));
     expect(r.accepted).toHaveLength(0);
     expect(r.errors[0]?.error).toContain('saída inválida');
+  });
+});
+
+describe('relevantChunks', () => {
+  it('ignora trecho sem os termos da pauta e limita trechos por fonte', async () => {
+    const { relevantChunks } = await import('../src/stages/research.ts');
+    expect(relevantChunks('Política de garantia e troca de produtos.', ['densidade'])).toEqual([]);
+    const big = ('densidade D33 explicada. ' + 'x'.repeat(14_000)).repeat(6);
+    expect(relevantChunks(big, ['densidade']).length).toBeLessThanOrEqual(3);
   });
 });

@@ -47,7 +47,7 @@ const draft = (verdictText: string) => ({
 });
 
 // Simula o roteador: responde conforme o modelo pedido no corpo da requisição.
-function router(opts: { auditorRejectsAlways: boolean }) {
+function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean }) {
   let writerCalls = 0;
   return async (_url: string, init: RequestInit) => {
     const body = JSON.parse(String(init.body));
@@ -59,6 +59,9 @@ function router(opts: { auditorRejectsAlways: boolean }) {
         body.response_format.json_schema.name === 'page_patches'
           ? { patches: [{ ref: 'verdict', action: 'replace', text: 'Depende do uso, segundo as fontes citadas.', basis: 'reasoning', claim_ids: [IDS[0]] }] }
           : draft('Colchão de espuma sempre dura mais em qualquer caso.');
+    } else if (body.response_format.json_schema.name === 'editorial_review') {
+      const ok = opts.publishable ?? true;
+      content = { answers_primary_query: ok ? 'yes' : 'partial', concrete_guidance: ok, filler_refs: [], decision_criteria: ok ? ['a', 'b'] : [], missing: ok ? [] : ['tabela do fabricante'], publishable: ok, summary: ok ? 'ok' : 'fina' };
     } else {
       const refs = [...String(body.messages[1].content).matchAll(/BLOCO (\S+)/g)].map((m) => m[1]);
       content = {
@@ -85,6 +88,16 @@ describe('buildPage', () => {
       expect(r.page.provenance.audit_verdict).toBe('pass');
     }
     expect(existsSync(join(root, 'data/pages/pagina-teste.json'))).toBe(true);
+  });
+
+  it('página correta mas inútil fica como rascunho (revisão editorial)', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_c', router({ auditorRejectsAlways: false, publishable: false }));
+    expect(r.status).toBe('NOT_PUBLISHABLE');
+    if (r.status === 'NOT_PUBLISHABLE') {
+      expect(r.page.status).toBe('draft');
+      expect(r.review.missing).toContain('tabela do fabricante');
+    }
   });
 
   it('para em SAFE_STOP quando a auditoria não converge, sem gravar página', async () => {

@@ -9,6 +9,25 @@ import { writeStage } from '../runs.ts';
 
 const CHUNK = 14_000;
 const OVERLAP = 600;
+const MAX_CHUNKS_PER_SOURCE = 3;
+const STOP = new Set(['ou', 'de', 'do', 'da', 'e', 'o', 'a', 'para', 'com', 'qual', 'como', 'que', 'melhor', 'vale', 'pena']);
+
+// Só trechos que mencionam os termos da pauta vão ao extrator, no máximo 3 por fonte (os com mais menções).
+export function relevantChunks(text: string, terms: string[]): string[] {
+  const norm = (t: string) => normalizeForMatch(t);
+  const ts = terms.map(norm).filter((t) => t.length >= 2);
+  return chunkText(text)
+    .map((c) => ({ c, hits: ts.reduce((n, t) => n + (norm(c).split(t).length - 1), 0) }))
+    .filter((x) => x.hits > 0)
+    .sort((a, b) => b.hits - a.hits)
+    .slice(0, MAX_CHUNKS_PER_SOURCE)
+    .map((x) => x.c);
+}
+
+export function topicTerms(topic: TopicBrief): string[] {
+  if (topic.focus_terms.length) return topic.focus_terms;
+  return topic.primary_query.split(/\s+/).filter((w) => !STOP.has(w.toLowerCase()));
+}
 
 export function loadTopic(slug: string): TopicBrief {
   const p = join(DATA, 'topics', `${slug}.json`);
@@ -50,10 +69,12 @@ export interface ResearchReport {
   unanswered: string[];
   usage: { input_tokens: number; output_tokens: number; calls: number };
   errors: { source_id: string; error: string }[];
+  skipped_sources: string[];
 }
 
 export async function research(slug: string, runId: string, fetchImpl?: FetchLike, only?: string[]): Promise<ResearchReport> {
   const topic = loadTopic(slug);
+  if (topic.source_ids.length === 0) throw new Error(`pauta ${slug} sem fontes: rode discover antes`);
   const idx = buildIndex();
   const qIds = topic.questions.map((q) => q.id) as [string, ...string[]];
   // Enum fechado: o modelo só pode apontar para perguntas que existem na pauta.
@@ -72,6 +93,7 @@ export async function research(slug: string, runId: string, fetchImpl?: FetchLik
     unanswered: [],
     usage: { input_tokens: 0, output_tokens: 0, calls: 0 },
     errors: [],
+    skipped_sources: [],
   };
   const questionsText = topic.questions.map((q) => `- ${q.id}: ${q.text}`).join('\n');
 
@@ -82,7 +104,9 @@ export async function research(slug: string, runId: string, fetchImpl?: FetchLik
       report.errors.push({ source_id: sourceId, error: 'fonte ou texto ausente' });
       continue;
     }
-    for (const [ci, chunk] of chunkText(text).entries()) {
+    const chunks = relevantChunks(text, topicTerms(topic));
+    if (chunks.length === 0) report.skipped_sources.push(sourceId);
+    for (const [ci, chunk] of chunks.entries()) {
       try {
         const r = await callJson(
           {

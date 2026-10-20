@@ -5,8 +5,11 @@ import { callJson, creditsSpent, setRunBudget } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
 import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
+import { discoverSources } from './stages/discover.ts';
 import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
+import { reviewPage } from './stages/review.ts';
+import { loadTopic } from './stages/research.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from './search.ts';
 import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
@@ -110,7 +113,12 @@ async function main(): Promise<number> {
         for (const i of r.open_issues) console.error(`  · ${i}`);
         return 1;
       }
-      console.log(`página gravada: data/pages/${slug}.json (${r.page.sections.length} seções)`);
+      console.log(`página gravada: data/pages/${slug}.json (${r.page.sections.length} seções, status ${r.page.status})`);
+      if (r.status === 'NOT_PUBLISHABLE') {
+        console.error(`revisão editorial reprovou: ${r.review.summary}`);
+        for (const m of r.review.missing) console.error(`  falta: ${m}`);
+        return 1;
+      }
       return 0;
     }
     case 'edit': {
@@ -126,6 +134,25 @@ async function main(): Promise<number> {
       console.log(`run ${runId}: ${JSON.stringify(r)} ~${creditsSpent().toFixed(1)} créditos`);
       return r.status === 'REVERTED' ? 1 : 0;
     }
+    case 'discover': {
+      const { positionals, values } = parseArgs({
+        args: rest,
+        allowPositionals: true,
+        options: { searches: { type: 'string', default: '8' }, sources: { type: 'string', default: '14' }, budget: { type: 'string', default: '5' } },
+      });
+      if (!positionals[0]) {
+        console.error('uso: discover <slug> [--searches 8] [--sources 14]');
+        return 2;
+      }
+      setRunBudget(Number(values.budget));
+      const runId = newRunId(`${positionals[0]}-discover`);
+      const r = await discoverSources(positionals[0], runId, { maxSearches: Number(values.searches), maxSources: Number(values.sources) });
+      for (const a of r.added) console.log(`${a.created ? 'NOVA ' : 'JÁ   '} ${a.source_class.padEnd(16)} ${a.publisher.padEnd(14)} ${a.url}`);
+      for (const e of r.snapshot_errors) console.error(`✗ ${e.url}: ${e.error}`);
+      console.log(`run ${runId}: ${r.queries.length} buscas, ${r.added.length} fontes, ${r.skipped_blocked} bloqueadas, ${r.suggestions.length} domínios sugeridos; Tavily no mês: ${r.tavily_credits_month}`);
+      for (const s of r.suggestions.slice(0, 12)) console.log(`  sugestão: ${s.host}  (${s.title.slice(0, 60)})`);
+      return 0;
+    }
     case 'search': {
       const q = rest.join(' ').trim();
       if (!q) {
@@ -136,6 +163,20 @@ async function main(): Promise<number> {
       for (const r of results) console.log(`${r.score.toFixed(2)}  ${r.url}\n      ${r.title}`);
       console.log(`Tavily este mês: ${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP} créditos`);
       return 0;
+    }
+    case 'review': {
+      // Reavalia uma página existente: reprovada vira rascunho; aprovada só sobe se a auditoria passou.
+      const { positionals } = parseArgs({ args: rest, allowPositionals: true });
+      const page = loadPages().find((p) => p.slug === positionals[0]);
+      if (!page) {
+        console.error('uso: review <slug>');
+        return 2;
+      }
+      setRunBudget(10);
+      const { review } = await reviewPage(page, loadTopic(page.slug));
+      console.log(JSON.stringify(review, null, 2));
+      console.log(`~${creditsSpent().toFixed(1)} créditos`);
+      return review.publishable ? 0 : 1;
     }
     case 'status': {
       const { values } = parseArgs({ args: rest, options: { out: { type: 'string' } } });

@@ -1,0 +1,40 @@
+{
+  "_comment": "Domínios aceitos como fonte. Só o que está aqui entra numa página. Novos domínios: aprovar e adicionar (futuro admin). Ordem importa: o primeiro que casar vale.",
+  "allow": [
+    { "host": "gov.br", "path": "/inmetro", "publisher": "Inmetro", "source_class": "regulator" },
+    { "host": "inmetro.gov.br", "publisher": "Inmetro", "source_class": "regulator" },
+    { "host": "in.gov.br", "publisher": "Diário Oficial da União", "source_class": "regulator" },
+    { "host": "gov.br", "path": "/anvisa", "publisher": "Anvisa", "source_class": "regulator" },
+    { "host": "gov.br", "path": "/trabalho-e-emprego", "publisher": "Ministério do Trabalho e Emprego", "source_class": "regulator" },
+    { "host": "abnt.org.br", "publisher": "ABNT", "source_class": "standard_body" },
+    { "host": "abntcatalogo.com.br", "publisher": "ABNT", "source_class": "standard_body" },
+    { "host": "proteste.org.br", "publisher": "Proteste", "source_class": "independent_test" },
+    { "host": "probel.com.br", "publisher": "Probel", "source_class": "manufacturer" },
+    { "host": "simmons.com.br", "publisher": "Simmons", "source_class": "manufacturer" },
+    { "host": "ortobom.com.br", "publisher": "Ortobom", "source_class": "manufacturer" },
+    { "host": "castor.ind.br", "publisher": "Castor", "source_class": "manufacturer" },
+    { "host": "colchoescastor.com.br", "publisher": "Castor", "source_class": "manufacturer" },
+    { "host": "herval.com.br", "publisher": "Herval", "source_class": "manufacturer" },
+    { "host": "luuna.com.br", "publisher": "Luuna", "source_class": "manufacturer" },
+    { "host": "emma-colchao.com.br", "publisher": "Emma", "source_class": "manufacturer" },
+    { "host": "americanflex.com.br", "publisher": "Americanflex", "source_class": "manufacturer" },
+    { "host": "colchoesanjos.com.br", "publisher": "Anjos", "source_class": "manufacturer" },
+    { "host": "anjos.com.br", "publisher": "Anjos", "source_class": "manufacturer" },
+    { "host": "plumatex.com.br", "publisher": "Plumatex", "source_class": "manufacturer" },
+    { "host": "gazinatacado.com.br", "publisher": "Gazin", "source_class": "manufacturer" },
+    { "host": "kingkoil.com.br", "publisher": "King Koil", "source_class": "manufacturer" },
+    { "host": "altenburg.com.br", "publisher": "Altenburg", "source_class": "manufacturer" },
+    { "host": "duoflex.com.br", "publisher": "Duoflex", "source_class": "manufacturer" },
+    { "host": "fibrasca.com.br", "publisher": "Fibrasca", "source_class": "manufacturer" },
+    { "host": "nasa.com.br", "publisher": "Nasa Travesseiros", "source_class": "manufacturer" },
+    { "host": "flexform.com.br", "publisher": "Flexform", "source_class": "manufacturer" },
+    { "host": "cavaletti.com.br", "publisher": "Cavaletti", "source_class": "manufacturer" },
+    { "host": "frisokar.com.br", "publisher": "Frisokar", "source_class": "manufacturer" }
+  ],
+  "block": [
+    "instagram.com", "facebook.com", "tiktok.com", "youtube.com", "x.com", "twitter.com", "pinterest.com", "reddit.com",
+    "buscape.com.br", "zoom.com.br", "mercadolivre.com.br", "shopee.com.br", "magazineluiza.com.br", "casasbahia.com.br",
+    "pontofrio.com.br", "extra.com.br", "madeiramadeira.com.br", "americanas.com.br", "submarino.com.br", "kabum.com.br",
+    "my-best.com", "buscamelhores.com.br", "amazon.com.br", "amazon.com"
+  ]
+}
