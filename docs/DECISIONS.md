@@ -98,3 +98,10 @@ densidade × peso nas fontes achadas). Publicar página fina prejudica o site. N
 utilidade (responde? orienta? quais blocos são enchimento? que critérios concretos dá?) e o CÓDIGO decide.
 1ª calibragem ("responde totalmente" obrigatório) reprovou as duas páginas: exigente demais para um site
 que não inventa. Regra final separa as duas pelo enchimento (14% vs 45%) e pelos critérios concretos.
+
+## 2026-10-20 — Jev como triagem; memória da pauta para tentar de novo sozinho
+Jev (TypeSafe) não escreve: responde perguntas tipadas com probabilidade, só cobra entrada. Usado SÓ como
+filtro antes das etapas caras (resultados de busca e trechos de fonte); se falhar, volta ao filtro por
+termos. Na 2ª página, a pesquisa caiu de 40 créditos/29 chamadas para 2,9/4.
+A pauta guarda lacunas apontadas pela revisão e fontes já lidas; `improve` usa isso para uma busca
+direcionada sem reler o que já foi lido, com limite de tentativas.

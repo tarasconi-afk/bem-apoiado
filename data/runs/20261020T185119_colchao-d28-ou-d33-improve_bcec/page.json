@@ -1,0 +1,51 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 66289,
+    "output_tokens": 29966,
+    "calls": 20
+  },
+  "credits": 59.486609800000004,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "filler_refs": [
+      "o-que-e-densidade#0",
+      "densidade-e-firmeza#0",
+      "densidade-e-firmeza#3",
+      "peso-e-altura#0",
+      "peso-e-altura#2",
+      "peso-e-altura#3",
+      "peso-e-altura#4",
+      "etiqueta-e-inmetro#0",
+      "etiqueta-e-inmetro#3",
+      "etiqueta-e-inmetro#4",
+      "durabilidade#0",
+      "durabilidade#2",
+      "como-decidir#4"
+    ],
+    "decision_criteria": [
+      "D28 e D33 indicam, respectivamente, densidades nominais de 28 kg/m³ e 33 kg/m³ de espuma.",
+      "Para escolher a densidade, deve-se cruzar o peso e a altura do usuário na tabela do fabricante.",
+      "A capacidade de suporte deve ser conferida por pessoa, especialmente quando o colchão será usado por um casal.",
+      "Se a preferência for por sensação intermediária, a Probel classifica sua espuma D28 dessa forma; para maior firmeza, deve-se procurar um modelo explicitamente classificado pelo fabricante como firme.",
+      "Densidade e nível de firmeza aparecem como especificações distintas, portanto não se deve deduzir a sensação do colchão apenas pelo número D28 ou D33.",
+      "Para casais com biotipos diferentes, deve-se verificar se o modelo é indicado pelo fabricante para essa condição.",
+      "Na etiqueta, deve-se conferir a densidade nominal em kg/m³, o tipo de colchão e, nos modelos compostos, a composição das camadas.",
+      "A afirmação de maior durabilidade e manutenção da forma da D33 apresentada na página vale para os produtos descritos pela Probel, não como regra para toda espuma D33."
+    ],
+    "missing": [
+      "A tabela primária completa que cruze peso e altura e mostre objetivamente quando o fabricante recomenda D28 ou D33.",
+      "Uma conclusão operacional para os principais perfis de usuário, com os limites de peso e altura aplicáveis a cada densidade.",
+      "Especificações comparáveis de modelos D28 e D33 que separem o efeito da densidade de fatores como tipo de espuma, espessura das camadas e construção do colchão.",
+      "Informação de fonte primária sobre quais outros fatores determinam a firmeza e como eles alteram a sensação do colchão.",
+      "Descrição do método e das tolerâncias usados pelo Inmetro para verificar se a densidade real corresponde à densidade nominal declarada.",
+      "Dados primários quantificados sobre durabilidade, perda de espessura ou deformação de espumas D28 e D33 em condições comparáveis."
+    ],
+    "publishable": false,
+    "summary": "A página explica o significado de D28 e D33 e oferece verificações úteis de etiqueta, suporte e firmeza declarada, mas não entrega a informação decisiva para a busca: quais faixas de peso e altura levam à escolha de D28 ou D33. Também não explica concretamente os demais fatores que influenciam a firmeza. Sem a tabela do fabricante ou critérios equivalentes, a resposta fica excessivamente dependente de orientações genéricas para conferir especificações.",
+    "filler_ratio": 0.43333333333333335,
+    "model_opinion": false
+  }
+}

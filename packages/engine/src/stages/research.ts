@@ -4,23 +4,25 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { Claim, ClaimType, checkClaim, normalizeForMatch, TopicBrief, type Source } from '@bem-apoiado/core';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
-import { buildIndex, CLAIMS_DIR, DATA, sourceText, writeJson } from '../store.ts';
+import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
+import { buildIndex, CLAIMS_DIR, DATA, sourceText, TOPICS_DIR, writeJson } from '../store.ts';
 import { writeStage } from '../runs.ts';
 
 const CHUNK = 14_000;
 const OVERLAP = 600;
 const MAX_CHUNKS_PER_SOURCE = 3;
+const TRIAGE_CANDIDATES = 6;
 const STOP = new Set(['ou', 'de', 'do', 'da', 'e', 'o', 'a', 'para', 'com', 'qual', 'como', 'que', 'melhor', 'vale', 'pena']);
 
 // Só trechos que mencionam os termos da pauta vão ao extrator, no máximo 3 por fonte (os com mais menções).
-export function relevantChunks(text: string, terms: string[]): string[] {
+export function relevantChunks(text: string, terms: string[], limit = MAX_CHUNKS_PER_SOURCE): string[] {
   const norm = (t: string) => normalizeForMatch(t);
   const ts = terms.map(norm).filter((t) => t.length >= 2);
   return chunkText(text)
     .map((c) => ({ c, hits: ts.reduce((n, t) => n + (norm(c).split(t).length - 1), 0) }))
     .filter((x) => x.hits > 0)
     .sort((a, b) => b.hits - a.hits)
-    .slice(0, MAX_CHUNKS_PER_SOURCE)
+    .slice(0, limit)
     .map((x) => x.c);
 }
 
@@ -70,9 +72,16 @@ export interface ResearchReport {
   usage: { input_tokens: number; output_tokens: number; calls: number };
   errors: { source_id: string; error: string }[];
   skipped_sources: string[];
+  triage: { source_id: string; chunk: number; keep: boolean; p_useful: number }[];
 }
 
-export async function research(slug: string, runId: string, fetchImpl?: FetchLike, only?: string[]): Promise<ResearchReport> {
+export async function research(
+  slug: string,
+  runId: string,
+  fetchImpl?: FetchLike,
+  only?: string[],
+  decide: Decider | null = jevDecide,
+): Promise<ResearchReport> {
   const topic = loadTopic(slug);
   if (topic.source_ids.length === 0) throw new Error(`pauta ${slug} sem fontes: rode discover antes`);
   const idx = buildIndex();
@@ -94,17 +103,37 @@ export async function research(slug: string, runId: string, fetchImpl?: FetchLik
     usage: { input_tokens: 0, output_tokens: 0, calls: 0 },
     errors: [],
     skipped_sources: [],
+    triage: [],
   };
   const questionsText = topic.questions.map((q) => `- ${q.id}: ${q.text}`).join('\n');
 
-  for (const sourceId of topic.source_ids.filter((s) => !only?.length || only.includes(s))) {
+  // Sem --only, lê só fontes que a pesquisa ainda não leu para esta pauta.
+  const pending = topic.source_ids.filter((s) => (only?.length ? only.includes(s) : !topic.researched_source_ids.includes(s)));
+  for (const sourceId of pending) {
     const source = idx.sources.get(sourceId);
     const text = sourceText(sourceId);
     if (!source || !text) {
       report.errors.push({ source_id: sourceId, error: 'fonte ou texto ausente' });
       continue;
     }
-    const chunks = relevantChunks(text, topicTerms(topic));
+    // 1) filtro grátis por termos; 2) triagem Jev (centavos) decide quais trechos o extrator lê.
+    let chunks = relevantChunks(text, topicTerms(topic), decide ? TRIAGE_CANDIDATES : MAX_CHUNKS_PER_SOURCE);
+    if (decide && chunks.length > 0) {
+      try {
+        const q = usefulnessQuestion(topic.primary_query, topic.questions.map((x) => x.text));
+        const kept: string[] = [];
+        for (const [i, c] of chunks.entries()) {
+          const a = (await decide(c, q)).util;
+          const p = a?.probabilities?.sim ?? 0;
+          report.triage.push({ source_id: sourceId, chunk: i, keep: p >= 0.5, p_useful: p });
+          if (p >= 0.5) kept.push(c);
+        }
+        chunks = kept.slice(0, MAX_CHUNKS_PER_SOURCE);
+      } catch (e) {
+        report.errors.push({ source_id: sourceId, error: `triagem indisponível, usando filtro por termos: ${(e as Error).message.slice(0, 120)}` });
+        chunks = chunks.slice(0, MAX_CHUNKS_PER_SOURCE);
+      }
+    }
     if (chunks.length === 0) report.skipped_sources.push(sourceId);
     for (const [ci, chunk] of chunks.entries()) {
       try {
@@ -129,6 +158,9 @@ export async function research(slug: string, runId: string, fetchImpl?: FetchLik
     }
   }
   report.unanswered = qIds.filter((q) => report.coverage[q] === 0);
+  const failed = new Set(report.errors.filter((e) => !e.error.startsWith('triagem')).map((e) => e.source_id));
+  const done = pending.filter((s) => !failed.has(s));
+  writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...topic, researched_source_ids: [...new Set([...topic.researched_source_ids, ...done])] }));
   writeStage(runId, 'research', { ...report, credits: creditsSpent() });
   return report;
 }

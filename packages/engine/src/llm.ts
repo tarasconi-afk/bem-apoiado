@@ -39,6 +39,10 @@ export function setRunBudget(limitCredits: number): void {
   budget.spent = 0;
 }
 export const creditsSpent = (): number => budget.spent;
+// Gasto de chamadas fora do chat (ex.: Jev) também conta no teto da execução.
+export function addSpend(credits: number): void {
+  budget.spent += credits;
+}
 
 // Chamada única, JSON-in/JSON-out. Saída inválida ganha uma nova tentativa com o erro de validação;
 // se falhar de novo, o estágio para (SAFE_STOP) em vez de seguir com dado ruim.

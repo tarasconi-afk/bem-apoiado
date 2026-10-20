@@ -44,7 +44,7 @@ describe('research', () => {
     const r = await research('teste', 'run_test', reply([
       { question_id: 'q_tipos', quote: 'Colchões de molas ensacadas têm cada mola dentro de um saco de tecido próprio.', claim_type: 'definition', statement: 'Segundo o fabricante, cada mola fica em um saco próprio.' },
       { question_id: 'q_tipos', quote: 'Molas ensacadas duram vinte anos sem perder firmeza.', claim_type: 'spec', statement: 'Duram vinte anos.' },
-    ]));
+    ]), ['src_aaaaaaaaaaaa'], null);
     expect(r.accepted).toHaveLength(1);
     expect(r.rejected.map((x) => x.reason)).toEqual(['QUOTE_NOT_IN_SOURCE']);
     expect(r.coverage.q_tipos).toBe(1);
@@ -55,7 +55,7 @@ describe('research', () => {
     const { research } = await import('../src/stages/research.ts');
     const r = await research('teste', 'run_test2', reply([
       { question_id: 'q_inexistente', quote: 'A densidade indica quantos quilos de espuma há em um metro cúbico.', claim_type: 'definition', statement: 'Densidade é kg/m³.' },
-    ]));
+    ]), ['src_aaaaaaaaaaaa'], null);
     expect(r.accepted).toHaveLength(0);
     expect(r.errors[0]?.error).toContain('saída inválida');
   });
@@ -67,5 +67,36 @@ describe('relevantChunks', () => {
     expect(relevantChunks('Política de garantia e troca de produtos.', ['densidade'])).toEqual([]);
     const big = ('densidade D33 explicada. ' + 'x'.repeat(14_000)).repeat(6);
     expect(relevantChunks(big, ['densidade']).length).toBeLessThanOrEqual(3);
+  });
+});
+
+describe('triagem Jev na pesquisa', () => {
+  it('trecho marcado como inútil não vai ao extrator', async () => {
+    const { research } = await import('../src/stages/research.ts');
+    let extractorCalls = 0;
+    const f = async () => {
+      extractorCalls++;
+      return new Response(JSON.stringify({ choices: [{ message: { content: '{"candidates":[]}' } }] }));
+    };
+    const never = async () => ({ util: { choice: 'nao', probabilities: { sim: 0.02, nao: 0.98 }, confidence: 0.98 } });
+    const r = await research('teste', 'run_triage', f, ['src_aaaaaaaaaaaa'], never);
+    expect(extractorCalls).toBe(0);
+    expect(r.triage.every((t) => !t.keep)).toBe(true);
+    expect(r.skipped_sources).toContain('src_aaaaaaaaaaaa');
+  });
+});
+
+describe('memória da pauta', () => {
+  it('sem --only, não relê fonte já pesquisada', async () => {
+    const { research } = await import('../src/stages/research.ts');
+    let calls = 0;
+    const f = async () => {
+      calls++;
+      return new Response(JSON.stringify({ choices: [{ message: { content: '{"candidates":[]}' } }] }));
+    };
+    await research('teste', 'run_mem1', f, undefined, null);
+    const before = calls;
+    await research('teste', 'run_mem2', f, undefined, null);
+    expect(calls).toBe(before);
   });
 });

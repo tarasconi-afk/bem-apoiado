@@ -1,9 +1,9 @@
 import { join } from 'node:path';
-import { checkPage, PageSpec, type TopicBrief } from '@bem-apoiado/core';
+import { checkPage, PageSpec, TopicBrief } from '@bem-apoiado/core';
 import { creditsSpent, LlmError, type FetchLike } from '../llm.ts';
 import { MODELS } from '../models.ts';
 import { writeStage } from '../runs.ts';
-import { buildIndex, PAGES_DIR, writeJson } from '../store.ts';
+import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, type Draft } from './draft-schema.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
@@ -137,6 +137,8 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       add(rv.usage);
       const page: PageSpec = rv.review.publishable ? passed : { ...passed, status: 'draft' };
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
+      // A pauta guarda o que faltou: é a entrada da próxima tentativa (improve).
+      writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: rv.review.publishable ? [] : rv.review.missing }));
       const status = rv.review.publishable ? 'PASS' : 'NOT_PUBLISHABLE';
       writeStage(runId, 'page', { status, rounds: round + 1, usage, credits: creditsSpent(), review: rv.review });
       return { status, rounds: round + 1, page, usage, review: rv.review };

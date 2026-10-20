@@ -1,0 +1,186 @@
+{
+  "run_id": "20261020T185119_colchao-d28-ou-d33-improve_bcec",
+  "topic": "colchao-d28-ou-d33",
+  "queries": [
+    {
+      "q": "NBR colchão densidade D28 D33 medição método ABNT espuma poliuretano",
+      "include_domains": [
+        "abnt.org.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "Inmetro colchão densidade declaração requisitos tolerância verificação regulamento técnico",
+      "include_domains": [
+        "gov.br",
+        "inmetro.gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "site:probel.com.br OR site:simmons.com.br OR site:aumar.com.br densidade D28 D33 peso altura recomendação especificação",
+      "include_domains": [
+        "probel.com.br",
+        "simmons.com.br",
+        "aumar.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "densidade colchão espuma D28 D33 durabilidade deformação fadiga declaração fabricante ensaio",
+      "include_domains": [
+        "probel.com.br",
+        "simmons.com.br",
+        "ortobom.com.br",
+        "sealy.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão espuma densidade firmeza diferença regulação química formulação camadas construção",
+      "include_domains": [
+        "abnt.org.br",
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "NBR colchão etiqueta rotulagem informação densidade requisitos obrigatórios consumidor",
+      "include_domains": [
+        "abnt.org.br",
+        "inmetro.gov.br"
+      ],
+      "results": 8
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_f5af72a0cc9d",
+      "url": "https://www.probel.com.br/colchao-solteiro-espuma-d33-prointense-probel-28cm-begem-marrom/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_180c9aa321bb",
+      "url": "https://www.probel.com.br/colchao-casal-espuma-d33-prointense-probel-24cm-bege-marrom/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_058095e164d7",
+      "url": "https://www.probel.com.br/colchao-casal-espuma-d33-guarda-costas-probel-14cm-bege-marrom/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_4093e45fa2ac",
+      "url": "https://www.probel.com.br/colchao-solteiro-espuma-d28-guarda-costas-probel-14cm-branco-marrom/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "suggestions": [],
+  "snapshot_errors": [
+    {
+      "url": "http://ftp.inmetro.gov.br/Consumidor/produtos/colchao.asp",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=008334%2F2014",
+      "error": "Texto extraído curto demais (59): página dinâmica ou bloqueio em https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=008334%2F2014"
+    }
+  ],
+  "tavily_credits_month": 15,
+  "triage": [
+    {
+      "url": "https://www.probel.com.br/colchao-solteiro-espuma-d33-prointense-probel-28cm-begem-marrom/p",
+      "p_useful": 0.84,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma/queen?page=2",
+      "p_useful": 0.01,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma/casal",
+      "p_useful": 0.04,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/colchao-casal-espuma-d33-prointense-probel-24cm-bege-marrom/p",
+      "p_useful": 0.75,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao-casal-espuma-d33-guarda-costas-probel-14cm-bege-marrom/p",
+      "p_useful": 0.77,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao-solteiro-espuma-d28-guarda-costas-probel-14cm-branco-marrom/p",
+      "p_useful": 0.79,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao-queen-espuma-d28-guarda-costas-probel-14cm-branco-marrom/p",
+      "p_useful": 0.73,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao-solteiro-espuma-d28-promiddle-probel-24cm-branco-preto/p",
+      "p_useful": 0.69,
+      "keep": true
+    },
+    {
+      "url": "http://ftp.inmetro.gov.br/Consumidor/produtos/colchao.asp",
+      "p_useful": 1,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=010030%2F2013",
+      "p_useful": 0.23,
+      "keep": false
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=007042%2F2014",
+      "p_useful": 0.47,
+      "keep": false
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=008334%2F2014",
+      "p_useful": 0.75,
+      "keep": true
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=006729%2F2014",
+      "p_useful": 0.32,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002801.pdf?initialSessionID=140-0664326-8795234&ld=ASXXSCTBRDirect",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=000293%2F2015",
+      "p_useful": 0.38,
+      "keep": false
+    }
+  ],
+  "llm_credits": 0.33747240000000006
+}

@@ -1,11 +1,12 @@
 import { parseArgs } from 'node:util';
-import { checkClaim, checkPage, checkProduct, SourceClass, type Violation } from '@bem-apoiado/core';
+import { checkClaim, checkPage, checkProduct, SourceClass, TopicBrief, type Violation } from '@bem-apoiado/core';
 import { z } from 'zod';
 import { callJson, creditsSpent, setRunBudget } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
 import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
 import { discoverSources } from './stages/discover.ts';
+import { improveTopic } from './stages/improve.ts';
 import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
 import { reviewPage } from './stages/review.ts';
@@ -13,7 +14,8 @@ import { loadTopic } from './stages/research.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from './search.ts';
 import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
-import { buildIndex, loadPages, loadProducts, loadSources } from './store.ts';
+import { buildIndex, loadPages, loadProducts, loadSources, PAGES_DIR, TOPICS_DIR, writeJson } from './store.ts';
+import { join } from 'node:path';
 
 const [command, ...rest] = process.argv.slice(2);
 
@@ -173,10 +175,28 @@ async function main(): Promise<number> {
         return 2;
       }
       setRunBudget(10);
-      const { review } = await reviewPage(page, loadTopic(page.slug));
+      const topic = loadTopic(page.slug);
+      const { review } = await reviewPage(page, topic);
+      // Grava o resultado: lacunas na pauta; página reprovada vira rascunho, aprovada só volta a valer
+      // se já tinha passado na auditoria de evidências.
+      writeJson(join(TOPICS_DIR, `${page.slug}.json`), TopicBrief.parse({ ...topic, evidence_gaps: review.publishable ? [] : review.missing }));
+      const status = review.publishable && page.provenance.audit_verdict === 'pass' ? 'approved' : 'draft';
+      if (status !== page.status && page.status !== 'published') writeJson(join(PAGES_DIR, `${page.slug}.json`), { ...page, status });
       console.log(JSON.stringify(review, null, 2));
       console.log(`~${creditsSpent().toFixed(1)} créditos`);
       return review.publishable ? 0 : 1;
+    }
+    case 'improve': {
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '90' } } });
+      if (!positionals[0]) {
+        console.error('uso: improve <slug> [--budget créditos]');
+        return 2;
+      }
+      setRunBudget(Number(values.budget));
+      const runId = newRunId(`${positionals[0]}-improve`);
+      const r = await improveTopic(positionals[0], runId);
+      console.log(`run ${runId}: ${JSON.stringify(r)}`);
+      return r.status === 'DONE' && r.page === 'PASS' ? 0 : 1;
     }
     case 'status': {
       const { values } = parseArgs({ args: rest, options: { out: { type: 'string' } } });

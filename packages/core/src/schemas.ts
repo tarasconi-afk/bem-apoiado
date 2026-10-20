@@ -67,6 +67,11 @@ export const TopicBrief = z.object({
   // Termos que um trecho de fonte precisa conter para valer a leitura pelo extrator (economia).
   // Vazio = palavras da dúvida principal.
   focus_terms: z.array(z.string()).default([]),
+  // Memória da pauta, escrita pelo motor: o que a revisão disse que faltou, fontes já lidas pela
+  // pesquisa (não reler) e tentativas de melhoria (limite para não gastar sem fim).
+  evidence_gaps: z.array(z.string()).default([]),
+  researched_source_ids: z.array(SourceId).default([]),
+  improve_attempts: z.number().int().nonnegative().default(0),
   // Tipos de produto que a página explica; só esses podem aparecer como exemplos à venda.
   product_kinds: z.array(ProductKind).default([]),
 });

@@ -38,9 +38,13 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] revisão editorial (GPT): página correta mas inútil fica como rascunho. Regra do código: orienta,
       não "no", enchimento ≤ 25%, ≥ 2 critérios concretos (calibrada em 2 páginas; reavaliar)
 - [x] pesquisa lê só trechos com os termos da pauta (máx. 3 por fonte)
-- [ ] 2ª página "colchão D28 ou D33": motor fez sozinho (discover→research→page, ~32 créditos na redação),
-      revisão reprovou (45% enchimento: faltou tabela de densidade × peso). Próximo: usar a lista "missing"
-      da revisão para uma 2ª rodada de discover direcionada (ex.: tabela de densidade da Probel/Ortobom)
+- [x] triagem Jev (decisão tipada, ~0,0016 crédito) antes da busca e do extrator: pesquisa caiu de 40 para 2,9 créditos
+- [x] memória da pauta (lacunas da revisão, fontes já lidas, tentativas) + comando `improve` (busca direcionada às
+      lacunas → pesquisa só fontes novas → refaz e revisa; para cedo sem ganho; máx. 2 tentativas)
+- [ ] 2ª página "colchão D28 ou D33": 1ª tentativa de improve achou 4 fichas Probel D28/D33 (+25 evidências) mas
+      segue NÃO PUBLICÁVEL (43% enchimento). A tabela peso × densidade dos fabricantes não está em texto
+      (provável imagem) → capacidade futura: ler tabela em imagem (modelo com visão), com o mesmo rigor literal
+- [ ] qualidade por domínio aprendida dos runs (evidências aprovadas por domínio → prioridade na busca)
 - [ ] gerar as perguntas da pauta automaticamente a partir da dúvida principal
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,

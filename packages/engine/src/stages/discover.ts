@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { SourceClass, TopicBrief } from '@bem-apoiado/core';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
+import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
 import { writeStage } from '../runs.ts';
 import { creditsThisMonth, webSearch, type SearchResult } from '../search.ts';
 import { snapshot } from '../snapshot.ts';
@@ -53,6 +54,7 @@ export interface DiscoverReport {
   suggestions: { host: string; url: string; title: string }[];
   snapshot_errors: { url: string; error: string }[];
   tavily_credits_month: number;
+  triage: { url: string; p_useful: number; keep: boolean }[];
 }
 
 export async function discoverSources(
@@ -60,6 +62,7 @@ export async function discoverSources(
   runId: string,
   opts: { maxSearches?: number; maxSources?: number } = {},
   fetchImpl?: FetchLike,
+  decide: Decider | null = jevDecide,
 ): Promise<DiscoverReport> {
   const topic = loadTopic(slug);
   const reg = loadRegistry();
@@ -73,7 +76,12 @@ export async function discoverSources(
     {
       role: 'extractor',
       system: PLAN_SYSTEM,
-      user: `Pauta: "${topic.primary_query}"\nPerguntas:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n\nGere até ${maxSearches} consultas.`,
+      user:
+        `Pauta: "${topic.primary_query}"\nPerguntas:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n` +
+        (topic.evidence_gaps.length
+          ? `\nPRIORIDADE: uma tentativa anterior não achou fonte para estas lacunas. Concentre as consultas nelas:\n${topic.evidence_gaps.map((g) => `- ${g}`).join('\n')}\n`
+          : '') +
+        `\nGere até ${maxSearches} consultas.`,
       schema: Plan,
       schemaName: 'search_plan',
       maxTokens: 1500,
@@ -82,7 +90,7 @@ export async function discoverSources(
   );
 
   const report: DiscoverReport = {
-    run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0,
+    run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0, triage: [],
   };
   const candidates = new Map<string, SearchResult & { publisher: string; source_class: SourceClass }>();
   for (const q of plan.data.queries.slice(0, maxSearches)) {
@@ -97,6 +105,20 @@ export async function discoverSources(
       } else {
         const prev = candidates.get(r.url);
         if (!prev || prev.score < r.score) candidates.set(r.url, { ...r, ...c });
+      }
+    }
+  }
+
+  // Triagem Jev pelo título + resumo da busca: não captura página que não vai responder nada.
+  if (decide) {
+    const q = usefulnessQuestion(topic.primary_query, topic.questions.map((x) => x.text));
+    for (const [url, c] of [...candidates]) {
+      try {
+        const p = (await decide(`${c.title}\n${c.url}\n${c.content}`, q)).util?.probabilities?.sim ?? 0;
+        report.triage.push({ url, p_useful: p, keep: p >= 0.5 });
+        if (p < 0.5) candidates.delete(url);
+      } catch {
+        break; // triagem indisponível: segue sem ela (o extrator ainda filtra depois)
       }
     }
   }
