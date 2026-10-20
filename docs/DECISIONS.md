@@ -119,3 +119,9 @@ agora sempre conta como lida.
 data/proposals/ sem ativar nada. Duas correções vistas no teste com "brinquedos": portal compartilhado
 (gov.br) nunca entra inteiro, só com o caminho do órgão; fabricante não vem de busca genérica, vem de
 lista do modelo CONFERIDA acessando o site (título/domínio com a marca), e domínio estacionado é recusado.
+
+## 2026-10-20 — Sem imagem da Amazon até a PA-API
+O dono pediu imagem do produto na página e no botão. O contrato de Associados proíbe copiar foto da
+página do produto (baixar ou hotlink); a imagem do SiteStripe foi descontinuada; o caminho permitido é a
+PA-API (liberada após 10 vendas), com URL oficial atualizada a cada 24 h. Até lá, cartão só com texto;
+risco de usar antes = encerramento da conta e perda de comissões.

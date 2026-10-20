@@ -10,6 +10,7 @@ import { improveTopic } from './stages/improve.ts';
 import { planTopic } from './stages/plan.ts';
 import { bootstrapNiche } from './stages/bootstrap.ts';
 import { runCycle } from './stages/autopilot.ts';
+import { findProducts } from './stages/products.ts';
 import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
 import { reviewPage } from './stages/review.ts';
@@ -254,6 +255,20 @@ async function main(): Promise<number> {
       console.log(JSON.stringify({ status: r.status, slug: r.slug, credits: Number(r.credits.toFixed(1)), steps: r.steps }));
       // 0 = há algo para virar PR; 3 = nada a fazer (o script não abre PR)
       return r.status === 'PAGE_APPROVED' || r.status === 'PAGE_DRAFT' || r.status === 'STOPPED' ? 0 : 3;
+    }
+    case 'products': {
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { max: { type: 'string', default: '4' }, budget: { type: 'string', default: '20' } } });
+      if (!positionals[0]) {
+        console.error('uso: products <slug> [--max 4]');
+        return 2;
+      }
+      setRunBudget(Number(values.budget));
+      const runId = newRunId(`${positionals[0]}-products`);
+      const r = await findProducts(positionals[0], runId, { max: Number(values.max) });
+      for (const a of r.added) console.log(`+ ${a.asin}  ${a.kind.padEnd(16)} ${a.label}`);
+      for (const k of r.skipped) console.log(`  pulado: ${k.reason}  (${k.url.slice(0, 90)})`);
+      console.log(`run ${runId}: ${r.candidates} fichas candidatas, ${r.added.length} produtos; ~${creditsSpent().toFixed(1)} créditos`);
+      return 0;
     }
     case 'status': {
       const { values } = parseArgs({ args: rest, options: { out: { type: 'string' } } });

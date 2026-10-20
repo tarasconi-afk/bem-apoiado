@@ -25,7 +25,11 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
       mesmo ASIN com menos de 30 dias + sem nome promocional), seção "Exemplos à venda" com rel=sponsored
 - [x] captura via Tavily extract (`snapshot --via tavily`): lê anúncio da Amazon a partir da VPS (bloqueada no acesso direto)
 - [x] corte de enchimento antes de reprovar (página "quase lá" passa por nova revisão) e ciclo espera merge de PR pendente
-- [ ] popular o catálogo: busca já existe; falta a etapa que acha a ficha OFICIAL (a busca devolve
+- [x] etapa `products` (ficha do fabricante → mesmo modelo na Amazon via Tavily → identidade conferida: marca/modelo
+      literais + mesma densidade + Jev; só especificação que não depende do tamanho). 1º teste: 0 produtos, recusas
+      corretas (anúncios Probel na Amazon são outras versões: D20 vs D28/D33, linhas com outro nome)
+- [ ] estratégia inversa: partir dos anúncios da Amazon de um tipo e achar a ficha oficial de cada um
+- [ ] (antigo) popular o catálogo: busca já existe; falta a etapa que acha a ficha OFICIAL (a busca devolve
       Instagram/YouTube/Buscapé antes do fabricante; Emma recusa conexão; Ortobom carrega produtos por JS)
 - [x] hospedagem Hostinger (Business u226814741): https://darkslategrey-rail-669974.hostingersite.com via GitHub Action → ramo deploy (plano B manual: `npm run deploy:hostinger`)
 - [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
