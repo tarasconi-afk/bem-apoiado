@@ -1,0 +1,8 @@
+[Unit]
+Description=Bem Apoiado: piloto automático diário
+[Timer]
+OnCalendar=*-*-* 04:00:00 America/Sao_Paulo
+Persistent=true
+RandomizedDelaySec=15min
+[Install]
+WantedBy=timers.target

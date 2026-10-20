@@ -1,0 +1,10 @@
+[Unit]
+Description=Bem Apoiado: um ciclo do piloto automático
+After=network-online.target
+[Service]
+Type=oneshot
+User=bemapoiado
+WorkingDirectory=/opt/bem-apoiado/repo
+Environment=HOME=/opt/bem-apoiado
+ExecStart=/opt/bem-apoiado/repo/scripts/cycle.sh
+TimeoutStartSec=3h

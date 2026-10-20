@@ -3,5 +3,5 @@ Description=Bem Apoiado: regenera o painel do motor
 [Service]
 Type=oneshot
 User=bemapoiado
-WorkingDirectory=/opt/bem-apoiado/app
+WorkingDirectory=/opt/bem-apoiado/repo
 ExecStart=/usr/bin/npm run -s engine -- status --out /var/www/painel/index.html

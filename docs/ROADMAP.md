@@ -54,7 +54,7 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] piloto automático: fila (data/queue.json) → `autopilot` (plan→discover→research→page→improve/edit) →
       scripts/cycle.sh na VPS (git por código, ramo pagina/*) → Action testa + gate + abre PR. Tetos: ciclo 120,
       dia 150 créditos, Tavily 1.400/mês; trava contra ciclos simultâneos
-- [ ] timer diário ligado após o 1º ciclo manual validado
+- [x] 1º ciclo manual validado ("travesseiro alto ou baixo" → rascunho, 30% enchimento, 50 créditos) e timer diário ligado
 - [ ] gerar as perguntas da pauta automaticamente a partir da dúvida principal
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,
