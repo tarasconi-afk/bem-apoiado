@@ -48,7 +48,10 @@ const draft = (verdictText: string) => ({
   verdict: { text: verdictText, basis: 'reasoning', claim_ids: [IDS[0]] },
   sections: ['tipos', 'etiqueta', 'como-decidir'].map((id, i) => ({
     id, heading: `Seção ${id}`,
-    blocks: [{ kind: 'paragraph', text: `Texto sustentado ${i}.`, basis: 'evidence', claim_ids: [IDS[i + 1]] }],
+    blocks: [
+      { kind: 'paragraph', text: `Texto sustentado ${i}.`, basis: 'evidence', claim_ids: [IDS[i + 1]] },
+      ...(id === 'tipos' ? [{ kind: 'paragraph', text: 'Outro texto sustentado.', basis: 'evidence', claim_ids: [IDS[5]] }] : []),
+    ],
   })),
 });
 
@@ -70,7 +73,7 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
       reviews++;
       if (opts.nearMiss && reviews === 1) {
         // 1ª revisão: quase lá, com 1 bloco de enchimento apontado
-        content = { answers_primary_query: 'partial', concrete_guidance: true, filler_refs: ['tipos#0'], decision_criteria: ['a', 'b'], missing: [], publishable: false, summary: 'quase' };
+        content = { answers_primary_query: 'partial', concrete_guidance: true, filler_refs: ['tipos#0', 'etiqueta#0'], decision_criteria: ['a', 'b'], missing: [], publishable: false, summary: 'quase' };
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 10, completion_tokens: 5 } }));
       }
       const ok = opts.publishable ?? true;
@@ -117,9 +120,13 @@ describe('buildPage', () => {
     const { buildPage } = await import('../src/stages/page.ts');
     const r = await buildPage('pagina-teste', 'run_trim', router({ auditorRejectsAlways: false, nearMiss: true }));
     expect(r.status).toBe('PASS');
-    // O corte foi tentado e registrado; seção com um bloco só nunca é esvaziada.
+    // 2 de 5 blocos eram enchimento (40%): o corte roda e fica registrado. tipos#0 sai; etiqueta#0 fica,
+    // porque era o único bloco da seção e o corte nunca esvazia seção.
     expect(existsSync(join(root, 'data/runs/run_trim/trim.json'))).toBe(true);
-    if (r.status === 'PASS') expect(r.page.sections.some((s) => s.id === 'tipos')).toBe(true);
+    if (r.status === 'PASS') {
+      expect(r.page.sections.find((s) => s.id === 'tipos')!.blocks).toHaveLength(1);
+      expect(r.page.sections.find((s) => s.id === 'etiqueta')!.blocks).toHaveLength(1);
+    }
   });
 
   it('para em SAFE_STOP quando a auditoria não converge, sem gravar página', async () => {
