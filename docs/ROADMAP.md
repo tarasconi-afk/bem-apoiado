@@ -18,8 +18,13 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 "editor" que só corta/funde blocos já aprovados (nunca acrescenta fato).
 
 ## Fase 2 — No ar  ← atual
-Deploy estático na Hostinger (domínio temporário, noindex), runner na VPS, catálogo curado de produtos
-com links de afiliado (tarasconi-20) ligados a evidência de especificação do fabricante.
+- [x] design editorial; fontes agrupadas em bloco expansível; página "Como trabalhamos"
+- [x] preview no ar: https://srv2079501.hstgr.cloud (Caddy na VPS, noindex em 3 camadas) — `npm run deploy:preview`
+- [x] teto de gasto por execução e custo gravado no run
+- [ ] catálogo curado de produtos com links de afiliado (tarasconi-20), cada produto ligado a evidência
+      de especificação do fabricante
+- [ ] etapa "editor" (só corta/funde blocos aprovados)
+- [ ] domínio definitivo bemapoiado.com.br (compra = ação humana) e hospedagem final
 
 ## Fase 3 — Autonomia
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,
