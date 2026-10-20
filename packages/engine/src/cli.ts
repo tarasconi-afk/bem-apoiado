@@ -29,7 +29,7 @@ async function main(): Promise<number> {
       const { values, positionals } = parseArgs({
         args: rest,
         allowPositionals: true,
-        options: { publisher: { type: 'string' }, class: { type: 'string' }, note: { type: 'string' } },
+        options: { publisher: { type: 'string' }, class: { type: 'string' }, note: { type: 'string' }, via: { type: 'string', default: 'direct' } },
       });
       const url = positionals[0];
       if (!url || !values.publisher || !values.class) {
@@ -40,6 +40,7 @@ async function main(): Promise<number> {
         url,
         publisher: values.publisher,
         sourceClass: SourceClass.parse(values.class),
+        via: values.via === 'tavily' ? 'tavily' : 'direct',
         ...(values.note ? { note: values.note } : {}),
       });
       console.log(`${created ? 'NOVO' : 'JA_EXISTE'} ${source.id} ${source.text_chars} chars ${source.final_url}`);
