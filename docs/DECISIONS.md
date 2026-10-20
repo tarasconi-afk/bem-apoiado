@@ -59,3 +59,9 @@ chamada do redator Opus 5 custava ~40–50 créditos Hostinger e a depuração d
 Medidas: redator passou a ser Sonnet 5 (2,5x mais barato), `price` em créditos Hostinger em
 `models.ts`, custo gravado em cada run e teto por execução (`--budget`, padrão 80 por página e 40 por
 pesquisa) que para em SAFE_STOP antes de estourar.
+
+## 2026-10-20 — O motor não pode depender do Claude
+Diretriz do dono: o controle da criação de páginas tem de ficar na VPS, sem depender do Claude Code.
+O motor já é uma CLI comum (`npm run engine -- research|page|status`) que roda sozinha na VPS.
+Agora: painel só-leitura em /painel/ (senha). Depois que o motor rodar sozinho: um admin pequeno na
+VPS para cadastrar pautas, disparar/pausar execuções, ajustar teto de gasto e aprovar páginas.

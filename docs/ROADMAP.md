@@ -23,9 +23,11 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] teto de gasto por execução e custo gravado no run
 - [ ] catálogo curado de produtos com links de afiliado (tarasconi-20), cada produto ligado a evidência
       de especificação do fabricante
+- [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
 - [ ] etapa "editor" (só corta/funde blocos aprovados)
 - [ ] domínio definitivo bemapoiado.com.br (compra = ação humana) e hospedagem final
 
 ## Fase 3 — Autonomia
+Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,
 atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pelo hash).

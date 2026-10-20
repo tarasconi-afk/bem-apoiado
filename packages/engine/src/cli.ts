@@ -6,6 +6,7 @@ import { MODELS, type Role } from './models.ts';
 import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
 import { buildPage } from './stages/page.ts';
+import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
 import { buildIndex, loadPages, loadSources } from './store.ts';
 
@@ -106,6 +107,19 @@ async function main(): Promise<number> {
         return 1;
       }
       console.log(`página gravada: data/pages/${slug}.json (${r.page.sections.length} seções)`);
+      return 0;
+    }
+    case 'status': {
+      const { values } = parseArgs({ args: rest, options: { out: { type: 'string' } } });
+      const html = renderStatus();
+      if (values.out) {
+        const { writeFileSync, renameSync } = await import('node:fs');
+        // Grava em arquivo temporário e renomeia: o Caddy nunca serve um HTML pela metade.
+        writeFileSync(`${values.out}.tmp`, html);
+        renameSync(`${values.out}.tmp`, values.out);
+      } else {
+        process.stdout.write(html);
+      }
       return 0;
     }
     case 'ping': {
