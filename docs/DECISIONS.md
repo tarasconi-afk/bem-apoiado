@@ -31,3 +31,10 @@ Em vez de um painel Admin próprio, o PR no GitHub mostra a página e o relatór
 ## 2026-10-20 — Raspagem de buscadores e Amazon a partir da VPS não funciona
 Bing devolve resultados degradados e a Amazon responde 503 para IP de data center. Dados de produto
 virão do catálogo curado (SiteStripe) e, após 10 vendas, da PA-API.
+
+## 2026-10-20 — LLM via Hostinger AI Router, não api.nexos.ai
+Chaves novas `sk-hstgr-` só funcionam em `https://router.hostinger.com/v1` (api.nexos.ai devolve 401).
+O catálogo da chave (`GET /models`) é menor que a lista do painel e usa ids textuais (`claude-opus-5`),
+não os UUIDs mostrados no painel. Papéis atuais: extrator `claude-haiku-4.5`, redator `claude-opus-5`,
+auditor `gpt-5.6-sol`. O modelo se autodeclara com nome errado na resposta; isso é normal e irrelevante.
+Credencial em `/etc/bem-apoiado/env` (root:bemapoiado 640) na VPS; o motor roda como usuário `bemapoiado`.

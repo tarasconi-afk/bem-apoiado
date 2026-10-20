@@ -38,7 +38,8 @@ export class LlmError extends Error {
 // se falhar de novo, o estágio para (SAFE_STOP) em vez de seguir com dado ruim.
 export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch): Promise<LlmResult<T>> {
   const key = process.env.NEXOS_API_KEY;
-  const base = (process.env.NEXOS_BASE_URL ?? 'https://api.nexos.ai/v1').replace(/\/$/, '');
+  // Hostinger AI Router (sucessor do nexos.ai para contas Hostinger; chaves sk-hstgr-).
+  const base = (process.env.NEXOS_BASE_URL ?? 'https://router.hostinger.com/v1').replace(/\/$/, '');
   if (!key) throw new LlmError(`NEXOS_API_KEY ausente (ambiente ou ${ENV_FILE})`, 'NO_CREDENTIALS');
 
   const model = MODELS[call.role];

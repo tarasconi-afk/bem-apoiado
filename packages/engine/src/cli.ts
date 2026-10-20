@@ -1,5 +1,8 @@
 import { parseArgs } from 'node:util';
 import { checkClaim, checkPage, SourceClass, type Violation } from '@bem-apoiado/core';
+import { z } from 'zod';
+import { callJson } from './llm.ts';
+import { MODELS, type Role } from './models.ts';
 import { snapshot } from './snapshot.ts';
 import { buildIndex, loadPages } from './store.ts';
 
@@ -42,8 +45,30 @@ async function main(): Promise<number> {
       );
       return violations.length === 0 ? 0 : 1;
     }
+    case 'ping': {
+      // Uma chamada mínima por papel: confirma credencial, id do modelo e suporte a saída estruturada.
+      const Pong = z.object({ ok: z.boolean(), modelo: z.string() });
+      let failures = 0;
+      for (const role of Object.keys(MODELS) as Role[]) {
+        try {
+          const r = await callJson({
+            role,
+            system: 'Responda só com JSON.',
+            user: 'Devolva {"ok": true, "modelo": "<seu nome de modelo>"}.',
+            schema: Pong,
+            schemaName: 'pong',
+            maxTokens: 200,
+          });
+          console.log(`✓ ${role} ${r.modelName} → ${JSON.stringify(r.data)} tokens=${r.usage.input_tokens}/${r.usage.output_tokens}`);
+        } catch (e) {
+          failures++;
+          console.error(`✗ ${role} ${MODELS[role].name}: ${(e as Error).message}`);
+        }
+      }
+      return failures === 0 ? 0 : 1;
+    }
     default:
-      console.error('comandos: snapshot | validate');
+      console.error('comandos: snapshot | validate | ping');
       return 2;
   }
 }
