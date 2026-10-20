@@ -43,3 +43,11 @@ Credencial em `/etc/bem-apoiado/env` (root:bemapoiado 640) na VPS; o motor roda 
 O roteador não impõe `response_format` para o Claude: o extrator trocou `question_id` por `question`
 e 7 de 15 chamadas falharam. Com o JSON Schema anexado ao prompt de sistema, 0 falhas de formato.
 O verificador literal rejeitou 6 de 100 trechos propostos (citações que não existiam na fonte).
+
+## 2026-10-20 — Correção por remendo, não por reescrita
+Reescrever a página inteira a cada volta não convergia (11→5→1 e depois 12→…→1 de novo): o redator
+consertava um bloco e quebrava outro. Com remendos só nos blocos apontados e cache de auditoria por
+conteúdo, convergiu 12→1→2→0. Reescrita completa só para problema de página inteira.
+
+## 2026-10-20 — Streaming obrigatório
+O redator passa de 100 s e a Cloudflare do roteador devolve 524. Com `stream: true` o problema some.

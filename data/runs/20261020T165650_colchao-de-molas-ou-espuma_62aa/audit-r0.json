@@ -1,0 +1,229 @@
+{
+  "gate": [],
+  "style": [],
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-de-colchao#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco tem basis \"framing\", mas pressupõe como fato que há diferentes estruturas no mercado cuja fabricação pode ser explicada.",
+      "fix": "Antes de comparar, veja os critérios usados a seguir."
+    },
+    {
+      "ref": "tipos-de-colchao#1",
+      "verdict": "SUPPORTED",
+      "problem": "As duas classificações são atribuídas à Simmons e correspondem literalmente aos trechos citados.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "tipos-de-colchao#2",
+      "verdict": "OVERSTATED",
+      "problem": "A frase inicial afirma sem ressalva que a mola ensacada fica em um saco de tecido. A Probel diz apenas que as molas são muitas vezes envoltas em TNT ou outros tecidos; portanto, o material do invólucro não é apresentado como universal. As demais características e medidas estão sustentadas.",
+      "fix": "Segundo a Probel, cada mola é ensacada individualmente e opera de forma independente. As molas são normalmente feitas de aço endurecido e muitas vezes envoltas em TNT ou outros tecidos. A marca informa ainda que, no molejo pocket pró, são 196 molas por metro quadrado, cada uma em aço carbono temperado com bitola de 2 mm e 23 cm de altura."
+    },
+    {
+      "ref": "tipos-de-colchao#3",
+      "verdict": "SUPPORTED",
+      "problem": "As descrições das molas Nanolastic, do duplo molejo e dos sistemas Prolastic são atribuídas aos respectivos fabricantes e reproduzem fielmente os trechos.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "tipos-de-colchao#4",
+      "verdict": "SUPPORTED",
+      "problem": "A composição dos colchões de molas e as características atribuídas aos colchões de espuma correspondem aos trechos e estão vinculadas aos respectivos fabricantes.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "tipos-de-colchao#5.r0",
+      "verdict": "SUPPORTED",
+      "problem": "As características da espuma são atribuídas à Probel e à Ortobom, e nenhum dos trechos informa transferência de movimento para esse tipo.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "tipos-de-colchao#5.r1",
+      "verdict": "OVERSTATED",
+      "problem": "A construção é apresentada sem as ressalvas da Probel: as molas são \"normalmente\" feitas de aço endurecido e \"muitas vezes\" envoltas em TNT ou outros tecidos. A afirmação sobre redução ou prevenção da transferência de movimento está corretamente atribuída e sustentada.",
+      "fix": "Tipo: Molas ensacadas (pocket) | Como é construído (segundo o fabricante): Segundo a Probel, molas normalmente feitas de aço endurecido, muitas vezes envoltas em TNT ou outros tecidos e independentes entre si | Transferência de movimento entre duas pessoas: Probel, Simmons e Ortobom afirmam que reduzem ou evitam a transferência de movimento"
+    },
+    {
+      "ref": "tipos-de-colchao#5.r2",
+      "verdict": "SUPPORTED",
+      "problem": "A produção das molas de fio contínuo LFK 2.2, denominadas Posturest pela Simmons, está expressamente informada, e não há dado citado sobre transferência de movimento.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "tipos-de-colchao#5.r3",
+      "verdict": "SUPPORTED",
+      "problem": "A construção com molas ligadas e organizadas como dois cones opostos corresponde ao trecho da Ortobom, e a fonte não informa transferência de movimento.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "tipos-de-colchao#5.r4",
+      "verdict": "SUPPORTED",
+      "problem": "A combinação de molas ensacadas e prolastic para oferecer resistência progressiva está expressamente descrita pela Probel, e não há informação citada sobre transferência de movimento.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "transferencia-de-movimento#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" apresenta como fato uma definição de transferência de movimento, embora não cite evidência.",
+      "fix": "Remover a afirmação factual do framing ou sustentá-la com uma fonte que defina transferência de movimento como a sensação percebida quando outra pessoa se mexe ou se levanta."
+    },
+    {
+      "ref": "transferencia-de-movimento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "transferencia-de-movimento#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados incluem somente Probel e Simmons, mas o texto atribui a conclusão a três marcas. Além disso, apenas a Probel relaciona explicitamente a redução da transferência à operação independente e ao fato de as molas não estarem interligadas; o trecho da Simmons não apresenta essa explicação causal.",
+      "fix": "A Probel afirma que molas ensacadas individualmente operam de forma independente e, por não estarem interligadas, reduzem a transferência de movimento. A Simmons também afirma que colchões com molas ensacadas individualmente evitam essa transferência. Os trechos citados não permitem comparar esse desempenho com o de colchões de espuma, de fio contínuo ou de molas ligadas entre si."
+    },
+    {
+      "ref": "densidade-da-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a Simmons considera a composição completa determinante e que colchões com molas Posturest não são necessariamente os mais firmes. Porém, não dizem que as molas Posturest são de fio contínuo nem identificam, nos excertos fornecidos, os materiais como “espumas, visco dry gel e látex”.",
+      "fix": "A Simmons afirma que os níveis de conforto não são determinados pelo elemento principal do colchão, mas por toda a sua composição, e dá como exemplo que os modelos com molas Posturest não serão necessariamente os mais firmes. Segundo a marca, a quantidade e a forma como os materiais são montados determinam o nível de conforto."
+    },
+    {
+      "ref": "firmeza-e-conforto#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "As afirmações sobre firmeza são sustentadas e atribuídas à Probel, mas os trechos não demonstram que sejam posições “de cada fabricante” nem afirmam que não constituem uma regra geral do mercado.",
+      "fix": "A Probel afirma que os colchões de espuma geralmente são mais firmes que os de mola, o que pode ser preferível para quem busca suporte mais firme. A marca também afirma que colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza e suportar diferentes tipos de corpos."
+    },
+    {
+      "ref": "firmeza-e-conforto#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O bloco transforma em orientação geral uma posição apresentada apenas pela Simmons, sem indicar que a conclusão parte da fabricante. Além disso, os trechos não mencionam expressamente consultar o nível de firmeza declarado para cada modelo.",
+      "fix": "Segundo a Simmons, comparar um colchão apenas por seu elemento principal diz pouco sobre o nível de conforto; por isso, dentro da abordagem da marca, vale considerar a composição completa do modelo."
+    },
+    {
+      "ref": "durabilidade-declarada#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-declarada#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "A afirmação genérica de que “colchão é produto com certificação obrigatória no Brasil” excede os trechos, que tratam especificamente de colchões e colchonetes de espuma flexível de poliuretano e de colchões de molas, não de todo tipo de colchão.",
+      "fix": "Colchões e colchonetes de espuma flexível de poliuretano e colchões de molas estão sujeitos a certificação obrigatória no Brasil. O Inmetro mantém dois programas de avaliação da conformidade distintos para essas categorias, regidos, respectivamente, pelas Portarias Inmetro nº 35/2021 e nº 75/2021. Em ambos, o foco é o desempenho, por meio de certificação compulsória realizada por Organismo de Certificação de Produto acreditado pelo Inmetro."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeuticos-e-ortopedicos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeuticos-e-ortopedicos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeuticos-e-ortopedicos#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeuticos-e-ortopedicos#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Simmons sustenta apenas a afirmação sobre a composição dos modelos mais firmes. Ele não diz que marcas internacionais não vendem colchões chamados de ortopédicos, embora o bloco atribua essa afirmação à Simmons.",
+      "fix": "A Simmons afirma que os colchões mais firmes oferecidos por essas marcas são fabricados com uma composição que inclui espumas de alta densidade e molas especiais."
+    },
+    {
+      "ref": "terapeuticos-e-ortopedicos#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "A recomendação de procurar um profissional de saúde não decorre diretamente dos trechos citados. Eles apenas delimitam o que a certificação do Inmetro não avalia e informam que produtos com indicação de prevenção, tratamento ou reabilitação estão no âmbito da Anvisa.",
+      "fix": "As fontes citadas não permitem afirmar que um colchão trata, alivia ou previne qualquer problema. O Inmetro informa que possíveis propriedades terapêuticas e funcionalidades declaradas não são avaliadas na certificação, e que colchões com indicação de prevenção, tratamento ou reabilitação em seres humanos estão sob regulamentação da Anvisa."
+    }
+  ],
+  "open_issues": [
+    "tipos-de-colchao#0: FACT_IN_FRAMING. O bloco tem basis \"framing\", mas pressupõe como fato que há diferentes estruturas no mercado cuja fabricação pode ser explicada. Versão sustentável: Antes de comparar, veja os critérios usados a seguir.",
+    "tipos-de-colchao#2: OVERSTATED. A frase inicial afirma sem ressalva que a mola ensacada fica em um saco de tecido. A Probel diz apenas que as molas são muitas vezes envoltas em TNT ou outros tecidos; portanto, o material do invólucro não é apresentado como universal. As demais características e medidas estão sustentadas. Versão sustentável: Segundo a Probel, cada mola é ensacada individualmente e opera de forma independente. As molas são normalmente feitas de aço endurecido e muitas vezes envoltas em TNT ou outros tecidos. A marca informa ainda que, no molejo pocket pró, são 196 molas por metro quadrado, cada uma em aço carbono temperado com bitola de 2 mm e 23 cm de altura.",
+    "tipos-de-colchao#5.r1: OVERSTATED. A construção é apresentada sem as ressalvas da Probel: as molas são \"normalmente\" feitas de aço endurecido e \"muitas vezes\" envoltas em TNT ou outros tecidos. A afirmação sobre redução ou prevenção da transferência de movimento está corretamente atribuída e sustentada. Versão sustentável: Tipo: Molas ensacadas (pocket) | Como é construído (segundo o fabricante): Segundo a Probel, molas normalmente feitas de aço endurecido, muitas vezes envoltas em TNT ou outros tecidos e independentes entre si | Transferência de movimento entre duas pessoas: Probel, Simmons e Ortobom afirmam que reduzem ou evitam a transferência de movimento",
+    "transferencia-de-movimento#0: FACT_IN_FRAMING. O bloco com basis \"framing\" apresenta como fato uma definição de transferência de movimento, embora não cite evidência. Versão sustentável: Remover a afirmação factual do framing ou sustentá-la com uma fonte que defina transferência de movimento como a sensação percebida quando outra pessoa se mexe ou se levanta.",
+    "transferencia-de-movimento#2: MISATTRIBUTED. Os trechos citados incluem somente Probel e Simmons, mas o texto atribui a conclusão a três marcas. Além disso, apenas a Probel relaciona explicitamente a redução da transferência à operação independente e ao fato de as molas não estarem interligadas; o trecho da Simmons não apresenta essa explicação causal. Versão sustentável: A Probel afirma que molas ensacadas individualmente operam de forma independente e, por não estarem interligadas, reduzem a transferência de movimento. A Simmons também afirma que colchões com molas ensacadas individualmente evitam essa transferência. Os trechos citados não permitem comparar esse desempenho com o de colchões de espuma, de fio contínuo ou de molas ligadas entre si.",
+    "firmeza-e-conforto#0: UNSUPPORTED. Os trechos sustentam que a Simmons considera a composição completa determinante e que colchões com molas Posturest não são necessariamente os mais firmes. Porém, não dizem que as molas Posturest são de fio contínuo nem identificam, nos excertos fornecidos, os materiais como “espumas, visco dry gel e látex”. Versão sustentável: A Simmons afirma que os níveis de conforto não são determinados pelo elemento principal do colchão, mas por toda a sua composição, e dá como exemplo que os modelos com molas Posturest não serão necessariamente os mais firmes. Segundo a marca, a quantidade e a forma como os materiais são montados determinam o nível de conforto.",
+    "firmeza-e-conforto#2: UNSUPPORTED. As afirmações sobre firmeza são sustentadas e atribuídas à Probel, mas os trechos não demonstram que sejam posições “de cada fabricante” nem afirmam que não constituem uma regra geral do mercado. Versão sustentável: A Probel afirma que os colchões de espuma geralmente são mais firmes que os de mola, o que pode ser preferível para quem busca suporte mais firme. A marca também afirma que colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza e suportar diferentes tipos de corpos.",
+    "firmeza-e-conforto#3: MISATTRIBUTED. O bloco transforma em orientação geral uma posição apresentada apenas pela Simmons, sem indicar que a conclusão parte da fabricante. Além disso, os trechos não mencionam expressamente consultar o nível de firmeza declarado para cada modelo. Versão sustentável: Segundo a Simmons, comparar um colchão apenas por seu elemento principal diz pouco sobre o nível de conforto; por isso, dentro da abordagem da marca, vale considerar a composição completa do modelo.",
+    "etiqueta-e-selo-inmetro#0: OVERSTATED. A afirmação genérica de que “colchão é produto com certificação obrigatória no Brasil” excede os trechos, que tratam especificamente de colchões e colchonetes de espuma flexível de poliuretano e de colchões de molas, não de todo tipo de colchão. Versão sustentável: Colchões e colchonetes de espuma flexível de poliuretano e colchões de molas estão sujeitos a certificação obrigatória no Brasil. O Inmetro mantém dois programas de avaliação da conformidade distintos para essas categorias, regidos, respectivamente, pelas Portarias Inmetro nº 35/2021 e nº 75/2021. Em ambos, o foco é o desempenho, por meio de certificação compulsória realizada por Organismo de Certificação de Produto acreditado pelo Inmetro.",
+    "terapeuticos-e-ortopedicos#3: MISATTRIBUTED. O trecho da Simmons sustenta apenas a afirmação sobre a composição dos modelos mais firmes. Ele não diz que marcas internacionais não vendem colchões chamados de ortopédicos, embora o bloco atribua essa afirmação à Simmons. Versão sustentável: A Simmons afirma que os colchões mais firmes oferecidos por essas marcas são fabricados com uma composição que inclui espumas de alta densidade e molas especiais.",
+    "terapeuticos-e-ortopedicos#4: UNSUPPORTED. A recomendação de procurar um profissional de saúde não decorre diretamente dos trechos citados. Eles apenas delimitam o que a certificação do Inmetro não avalia e informam que produtos com indicação de prevenção, tratamento ou reabilitação estão no âmbito da Anvisa. Versão sustentável: As fontes citadas não permitem afirmar que um colchão trata, alivia ou previne qualquer problema. O Inmetro informa que possíveis propriedades terapêuticas e funcionalidades declaradas não são avaliadas na certificação, e que colchões com indicação de prevenção, tratamento ou reabilitação em seres humanos estão sob regulamentação da Anvisa."
+  ]
+}

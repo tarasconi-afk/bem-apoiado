@@ -1,0 +1,196 @@
+{
+  "gate": [],
+  "style": [],
+  "findings": [
+    {
+      "ref": "como-cada-tipo-funciona#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-cada-tipo-funciona#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-cada-tipo-funciona#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-cada-tipo-funciona#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#3.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#3.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "selo-e-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "selo-e-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "selo-e-etiqueta#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-cada-tipo-funciona#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferencas-que-importam#3.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "selo-e-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "selo-e-etiqueta#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "selo-e-etiqueta#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A orientação sobre considerar peso e altura vem da Ortobom, e a afirmação sobre níveis de firmeza vem da Probel, mas ambas aparecem como recomendações ou fatos gerais. Além disso, o trecho da Probel não sustenta explicitamente a generalização para “outros modelos”.",
+      "fix": "Segundo a Ortobom, para colchões de espuma simples, a escolha da densidade deve considerar o peso e a altura de quem vai usá-los. A Probel informa que oferece diversos níveis de firmeza."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "O bloco generaliza a exigência do aviso no manual para qualquer colchão anunciado como terapêutico ou ortopédico, enquanto o trecho limita essa regra às declarações voluntárias sobre funcionalidades de colchões mistos. Os trechos também descrevem avisos distintos no manual e na embalagem, não uma única exigência geral aplicável indistintamente.",
+      "fix": "Se um colchão for anunciado como terapêutico ou ortopédico, trate isso como declaração do fornecedor, pois o Inmetro não avalia as possíveis propriedades terapêuticas anunciadas. No caso de colchões mistos com funcionalidades declaradas voluntariamente, o manual deve informar que elas não foram avaliadas pela certificação. O Inmetro também exige, na embalagem dos produtos abrangidos pela regra citada, marcação sobre quais aspectos foram avaliados. Antes de pagar, confirme o selo do Inmetro e verifique as informações sobre data e país de fabricação e cuidados de conservação."
+    }
+  ],
+  "open_issues": [
+    "como-decidir#1: MISATTRIBUTED. A orientação sobre considerar peso e altura vem da Ortobom, e a afirmação sobre níveis de firmeza vem da Probel, mas ambas aparecem como recomendações ou fatos gerais. Além disso, o trecho da Probel não sustenta explicitamente a generalização para “outros modelos”. Versão sustentável: Segundo a Ortobom, para colchões de espuma simples, a escolha da densidade deve considerar o peso e a altura de quem vai usá-los. A Probel informa que oferece diversos níveis de firmeza.",
+    "como-decidir#3: OVERSTATED. O bloco generaliza a exigência do aviso no manual para qualquer colchão anunciado como terapêutico ou ortopédico, enquanto o trecho limita essa regra às declarações voluntárias sobre funcionalidades de colchões mistos. Os trechos também descrevem avisos distintos no manual e na embalagem, não uma única exigência geral aplicável indistintamente. Versão sustentável: Se um colchão for anunciado como terapêutico ou ortopédico, trate isso como declaração do fornecedor, pois o Inmetro não avalia as possíveis propriedades terapêuticas anunciadas. No caso de colchões mistos com funcionalidades declaradas voluntariamente, o manual deve informar que elas não foram avaliadas pela certificação. O Inmetro também exige, na embalagem dos produtos abrangidos pela regra citada, marcação sobre quais aspectos foram avaliados. Antes de pagar, confirme o selo do Inmetro e verifique as informações sobre data e país de fabricação e cuidados de conservação."
+  ]
+}

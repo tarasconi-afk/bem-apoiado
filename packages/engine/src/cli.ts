@@ -5,6 +5,7 @@ import { callJson } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
 import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
+import { buildPage } from './stages/page.ts';
 import { research } from './stages/research.ts';
 import { buildIndex, loadPages, loadSources } from './store.ts';
 
@@ -80,6 +81,25 @@ async function main(): Promise<number> {
       );
       for (const e of r.errors) console.error(`✗ ${e.source_id}: ${e.error}`);
       return r.errors.length === 0 ? 0 : 1;
+    }
+    case 'page': {
+      const slug = rest[0];
+      if (!slug) {
+        console.error('uso: page <slug-da-pauta>');
+        return 2;
+      }
+      const runId = newRunId(slug);
+      const r = await buildPage(slug, runId);
+      console.log(
+        `run ${runId}: ${r.status} em ${r.rounds} rodada(s), ${r.usage.calls} chamadas, tokens ${r.usage.input_tokens}/${r.usage.output_tokens}`,
+      );
+      if (r.status === 'SAFE_STOP') {
+        console.error(`SAFE_STOP ${r.reason}`);
+        for (const i of r.open_issues) console.error(`  · ${i}`);
+        return 1;
+      }
+      console.log(`página gravada: data/pages/${slug}.json (${r.page.sections.length} seções)`);
+      return 0;
     }
     case 'ping': {
       // Uma chamada mínima por papel: confirma credencial, id do modelo e suporte a saída estruturada.

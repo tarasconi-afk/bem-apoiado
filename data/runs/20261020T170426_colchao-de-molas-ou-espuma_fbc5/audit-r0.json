@@ -1,0 +1,231 @@
+{
+  "gate": [],
+  "style": [],
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-de-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: o bloco apenas introduz o assunto, sem afirmar um fato verificável.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#1",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: todas as classificações e informações sobre os formatos produzidos estão explicitamente atribuídas à Simmons e constam nos trechos.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#2",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: a construção das molas ensacadas e as especificações do molejo pocket pró correspondem aos trechos da Probel.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#3",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: a descrição das molas Nanolastic bicônicas corresponde literalmente ao trecho atribuído à Ortobom.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#4",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: as características estão corretamente atribuídas à Probel e à Ortobom e reproduzem os trechos citados.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#5",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: a combinação dos molejos, as camadas sobre as molas e a categoria de colchão misto constam nas respectivas fontes e estão corretamente atribuídas.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#6.r0",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: as características da espuma e a comparação de resistência entre colchões de molas e de espuma estão atribuídas aos fabricantes que as afirmam.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "tipos-de-colchao#6.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel sobre durar anos sem deformação refere-se genericamente a um colchão de mola, não especificamente às molas ensacadas. Além disso, o trecho literal da Ortobom diz apenas que algo oferece durabilidade, sem identificar nesse recorte o superpocket como sujeito.",
+      "fix": "Tipo: Molas ensacadas (pocket) | Como é construído: Segundo a Probel, cada mola é ensacada individualmente, normalmente é fabricada em aço endurecido, muitas vezes é envolta em TNT e opera de forma independente | Movimento de quem dorme ao lado: Probel, Simmons e Ortobom afirmam que esse sistema reduz a transferência de movimento entre as duas pessoas | Durabilidade segundo fabricantes: Segundo a Probel, colchões de mola bem cuidados podem durar anos sem se deformar."
+    },
+    {
+      "ref": "tipos-de-colchao#6.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O título agrupa as molas de fio contínuo entre as molas ligadas umas às outras, mas os trechos somente dizem que as Nanolastic bicônicas são interligadas. A Simmons cita as molas de fio contínuo, sem afirmar que elas são ligadas entre si.",
+      "fix": "Tipo: Molas de fio contínuo ou Nanolastic bicônicas | Como é construído: Segundo a Ortobom, as molas Nanolastic bicônicas são ligadas umas às outras em forma de dois cones opostos; a Simmons cita suas molas de fio contínuo Posturest LFK 2.2 | Movimento de quem dorme ao lado: Segundo a Probel, um colchão sem molas independentes pode apresentar efeito de ondulação quando alguém se movimenta | Durabilidade segundo fabricantes: não informado nas fontes."
+    },
+    {
+      "ref": "tipos-de-colchao#6.r3",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum problema: o Inmetro lista a categoria colchão misto, e as construções descritas pela Probel e pela Simmons correspondem aos trechos citados.",
+      "fix": "Sem alteração."
+    },
+    {
+      "ref": "transferencia-de-movimento#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" apresenta como fato uma definição de transferência de movimento, sem citar evidência.",
+      "fix": "Remova a definição factual ou acrescente uma fonte que a sustente. Como formulação não factual: \"Transferência de movimento\"."
+    },
+    {
+      "ref": "transferencia-de-movimento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "transferencia-de-movimento#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "transferencia-de-movimento#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-conforto#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel sobre firmeza diz apenas que «geralmente, são mais firmes que os colchões de mola», sem identificar literalmente o sujeito como colchões de espuma. Assim, o bloco atribui à Probel uma especificação que não aparece nos trechos citados.",
+      "fix": "Sobre a relação com o corpo, a Simmons afirma que alguém muito leve tende a se sentir mais confortável em um colchão macio, enquanto alguém mais pesado pode se sentir confortável em um colchão mais firme. A Probel afirma que certos colchões são geralmente mais firmes que os de mola, o que pode ser preferível para quem busca suporte mais firme. Sobre molas ensacadas, a Probel diz que elas podem ser encontradas em diversos níveis de firmeza e suportar diversos tipos de corpos."
+    },
+    {
+      "ref": "firmeza-e-conforto#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O bloco apresenta como fato geral que fabricantes de colchões de molas usam espumas, látex e viscoelástico sobre o molejo, mas essa afirmação aparece apenas como posição da Simmons, uma fonte classificada como fabricante.",
+      "fix": "Na prática, as afirmações da Simmons indicam que, em seus colchões, escolher apenas pelo elemento principal diz pouco sobre o conforto. Segundo a fabricante, vale considerar o nível de firmeza e a composição, pois colchões de molas também podem receber camadas de espumas, látex e viscoelástico."
+    },
+    {
+      "ref": "durabilidade-segundo-fabricantes#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" afirma como fato que as fontes disponíveis são declarações de fabricantes e que não há medições independentes, sem citar evidências.",
+      "fix": "Durabilidade segundo fabricantes."
+    },
+    {
+      "ref": "durabilidade-segundo-fabricantes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-segundo-fabricantes#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum; todas as afirmações constam dos trechos citados.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum; as normas aplicáveis, seus objetos, as exigências de etiquetagem e a regra de avaliação das lâminas estão expressamente citados.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum; todos os dados que o texto afirma serem obrigatórios na etiqueta aparecem nos trechos citados.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#3",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum; os trechos sustentam a inspeção visual pelo fabricante, a aplicação do selo no produto e na embalagem primária, sua permanência sem o número de registro e a certificação compulsória para comercialização nacional.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#4",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum; tanto os limites das avaliações representadas pelo selo quanto as exclusões dos dois regulamentos estão expressamente descritos.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "etiqueta-e-selo-inmetro#5",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum; datas, etapas de implementação, motivações regulatórias e percentuais de irregularidades correspondem aos trechos citados.",
+      "fix": "Nenhuma alteração necessária."
+    },
+    {
+      "ref": "terapeutico-ou-ortopedico#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeutico-ou-ortopedico#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeutico-ou-ortopedico#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "terapeutico-ou-ortopedico#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam, como posição da Simmons, as afirmações sobre a construção e os possíveis efeitos do colchão chamado ortopédico. Porém, não dizem literalmente que marcas internacionais não vendem colchões ortopédicos, pois o segundo trecho apenas menciona os modelos mais firmes oferecidos por “elas”, sem identificar o antecedente. Também não sustentam a recomendação de levar qualquer dúvida sobre dor, coluna ou sono a um profissional de saúde.",
+      "fix": "Segundo a Simmons, um subtipo de colchão de espuma conhecido como ortopédico oferece suporte de extrema firmeza por possuir uma camada rígida de madeira. A fabricante afirma que o uso contínuo desse colchão causa desconfortos e pode provocar desalinhamento da coluna ao longo do tempo. Também diz que os colchões mais firmes mencionados por ela são fabricados com materiais que incluem espumas de alta densidade e molas especiais."
+    }
+  ],
+  "open_issues": [
+    "tipos-de-colchao#6.r1: MISATTRIBUTED. O trecho da Probel sobre durar anos sem deformação refere-se genericamente a um colchão de mola, não especificamente às molas ensacadas. Além disso, o trecho literal da Ortobom diz apenas que algo oferece durabilidade, sem identificar nesse recorte o superpocket como sujeito. Versão sustentável: Tipo: Molas ensacadas (pocket) | Como é construído: Segundo a Probel, cada mola é ensacada individualmente, normalmente é fabricada em aço endurecido, muitas vezes é envolta em TNT e opera de forma independente | Movimento de quem dorme ao lado: Probel, Simmons e Ortobom afirmam que esse sistema reduz a transferência de movimento entre as duas pessoas | Durabilidade segundo fabricantes: Segundo a Probel, colchões de mola bem cuidados podem durar anos sem se deformar.",
+    "tipos-de-colchao#6.r2: UNSUPPORTED. O título agrupa as molas de fio contínuo entre as molas ligadas umas às outras, mas os trechos somente dizem que as Nanolastic bicônicas são interligadas. A Simmons cita as molas de fio contínuo, sem afirmar que elas são ligadas entre si. Versão sustentável: Tipo: Molas de fio contínuo ou Nanolastic bicônicas | Como é construído: Segundo a Ortobom, as molas Nanolastic bicônicas são ligadas umas às outras em forma de dois cones opostos; a Simmons cita suas molas de fio contínuo Posturest LFK 2.2 | Movimento de quem dorme ao lado: Segundo a Probel, um colchão sem molas independentes pode apresentar efeito de ondulação quando alguém se movimenta | Durabilidade segundo fabricantes: não informado nas fontes.",
+    "transferencia-de-movimento#0: FACT_IN_FRAMING. O bloco com basis \"framing\" apresenta como fato uma definição de transferência de movimento, sem citar evidência. Versão sustentável: Remova a definição factual ou acrescente uma fonte que a sustente. Como formulação não factual: \"Transferência de movimento\".",
+    "firmeza-e-conforto#2: MISATTRIBUTED. O trecho da Probel sobre firmeza diz apenas que «geralmente, são mais firmes que os colchões de mola», sem identificar literalmente o sujeito como colchões de espuma. Assim, o bloco atribui à Probel uma especificação que não aparece nos trechos citados. Versão sustentável: Sobre a relação com o corpo, a Simmons afirma que alguém muito leve tende a se sentir mais confortável em um colchão macio, enquanto alguém mais pesado pode se sentir confortável em um colchão mais firme. A Probel afirma que certos colchões são geralmente mais firmes que os de mola, o que pode ser preferível para quem busca suporte mais firme. Sobre molas ensacadas, a Probel diz que elas podem ser encontradas em diversos níveis de firmeza e suportar diversos tipos de corpos.",
+    "firmeza-e-conforto#3: MISATTRIBUTED. O bloco apresenta como fato geral que fabricantes de colchões de molas usam espumas, látex e viscoelástico sobre o molejo, mas essa afirmação aparece apenas como posição da Simmons, uma fonte classificada como fabricante. Versão sustentável: Na prática, as afirmações da Simmons indicam que, em seus colchões, escolher apenas pelo elemento principal diz pouco sobre o conforto. Segundo a fabricante, vale considerar o nível de firmeza e a composição, pois colchões de molas também podem receber camadas de espumas, látex e viscoelástico.",
+    "durabilidade-segundo-fabricantes#0: FACT_IN_FRAMING. O bloco com basis \"framing\" afirma como fato que as fontes disponíveis são declarações de fabricantes e que não há medições independentes, sem citar evidências. Versão sustentável: Durabilidade segundo fabricantes.",
+    "terapeutico-ou-ortopedico#3: UNSUPPORTED. Os trechos sustentam, como posição da Simmons, as afirmações sobre a construção e os possíveis efeitos do colchão chamado ortopédico. Porém, não dizem literalmente que marcas internacionais não vendem colchões ortopédicos, pois o segundo trecho apenas menciona os modelos mais firmes oferecidos por “elas”, sem identificar o antecedente. Também não sustentam a recomendação de levar qualquer dúvida sobre dor, coluna ou sono a um profissional de saúde. Versão sustentável: Segundo a Simmons, um subtipo de colchão de espuma conhecido como ortopédico oferece suporte de extrema firmeza por possuir uma camada rígida de madeira. A fabricante afirma que o uso contínuo desse colchão causa desconfortos e pode provocar desalinhamento da coluna ao longo do tempo. Também diz que os colchões mais firmes mencionados por ela são fabricados com materiais que incluem espumas de alta densidade e molas especiais."
+  ]
+}

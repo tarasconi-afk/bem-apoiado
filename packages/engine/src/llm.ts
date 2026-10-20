@@ -57,25 +57,18 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
   let lastProblem = '';
 
   for (let attempt = 1; attempt <= 2; attempt++) {
-    const res = await fetchImpl(`${base}/chat/completions`, {
-      method: 'POST',
-      headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-      body: JSON.stringify({
-        model: model.id,
-        messages,
-        max_tokens: call.maxTokens ?? 8000,
-        response_format: { type: 'json_schema', json_schema: { name: call.schemaName, schema: jsonSchema, strict: false } },
-      }),
-      signal: AbortSignal.timeout(180_000),
+    const { content, usage: u } = await postWithRetry(fetchImpl, `${base}/chat/completions`, key, {
+      model: model.id,
+      messages,
+      max_tokens: call.maxTokens ?? 8000,
+      // Streaming: respostas longas (redator) passam de 100 s, e a Cloudflare na frente do roteador
+      // derruba conexão ociosa com 524. Com stream, os tokens chegam continuamente.
+      stream: true,
+      stream_options: { include_usage: true },
+      response_format: { type: 'json_schema', json_schema: { name: call.schemaName, schema: jsonSchema, strict: false } },
     });
-    if (!res.ok) throw new LlmError(`HTTP ${res.status} ${(await res.text()).slice(0, 300)}`, 'HTTP');
-    const body = (await res.json()) as {
-      choices?: { message?: { content?: string } }[];
-      usage?: { prompt_tokens?: number; completion_tokens?: number };
-    };
-    usage.input_tokens += body.usage?.prompt_tokens ?? 0;
-    usage.output_tokens += body.usage?.completion_tokens ?? 0;
-    const content = body.choices?.[0]?.message?.content ?? '';
+    usage.input_tokens += u.input_tokens;
+    usage.output_tokens += u.output_tokens;
 
     const parsed = safeParse(content, call.schema);
     if (parsed.ok) return { data: parsed.data, model: model.id, modelName: model.name, usage, attempts: attempt };
@@ -87,6 +80,61 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
     );
   }
   throw new LlmError(`${model.name} devolveu saída inválida duas vezes (${call.schemaName}): ${lastProblem}`, 'INVALID_OUTPUT');
+}
+
+const TRANSIENT = new Set([429, 500, 502, 503, 504, 520, 522, 524, 529]);
+
+// Uma nova tentativa para erro transitório do roteador/Cloudflare; erro de crédito ou de chave não se repete.
+async function postWithRetry(fetchImpl: FetchLike, url: string, key: string, payload: unknown) {
+  for (let i = 0; ; i++) {
+    const res = await fetchImpl(url, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(600_000),
+    });
+    if (res.ok) return readCompletion(res);
+    const detail = (await res.text()).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200);
+    if (i === 0 && TRANSIENT.has(res.status)) {
+      await new Promise((r) => setTimeout(r, 5_000));
+      continue;
+    }
+    throw new LlmError(`HTTP ${res.status} ${detail}`, 'HTTP');
+  }
+}
+
+// Aceita tanto SSE (stream) quanto JSON comum (os testes e alguns fornecedores devolvem JSON).
+async function readCompletion(res: Response): Promise<{ content: string; usage: { input_tokens: number; output_tokens: number } }> {
+  const usage = { input_tokens: 0, output_tokens: 0 };
+  const take = (u?: { prompt_tokens?: number; completion_tokens?: number }) => {
+    if (u?.prompt_tokens) usage.input_tokens = u.prompt_tokens;
+    if (u?.completion_tokens) usage.output_tokens = u.completion_tokens;
+  };
+  if (!(res.headers.get('content-type') ?? '').includes('text/event-stream')) {
+    const body = (await res.json()) as {
+      choices?: { message?: { content?: string } }[];
+      usage?: { prompt_tokens?: number; completion_tokens?: number };
+    };
+    take(body.usage);
+    return { content: body.choices?.[0]?.message?.content ?? '', usage };
+  }
+  let content = '';
+  for (const line of (await res.text()).split('\n')) {
+    if (!line.startsWith('data:')) continue;
+    const data = line.slice(5).trim();
+    if (!data || data === '[DONE]') continue;
+    try {
+      const evt = JSON.parse(data) as {
+        choices?: { delta?: { content?: string } }[];
+        usage?: { prompt_tokens?: number; completion_tokens?: number };
+      };
+      content += evt.choices?.[0]?.delta?.content ?? '';
+      take(evt.usage);
+    } catch {
+      // linha de keep-alive ou fragmento não-JSON: ignorar
+    }
+  }
+  return { content, usage };
 }
 
 function safeParse<T>(content: string, schema: z.ZodType<T>): { ok: true; data: T } | { ok: false; error: string } {
