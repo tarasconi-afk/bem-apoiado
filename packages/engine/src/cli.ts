@@ -13,7 +13,8 @@ import { runCycle } from './stages/autopilot.ts';
 import { findProducts, findProductsFromAmazon } from './stages/products.ts';
 import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
-import { reviewPage } from './stages/review.ts';
+import { reviewMetrics, reviewPage } from './stages/review.ts';
+import { applyCalibration, calibrate, loadVerdicts, recordVerdict } from './feedback.ts';
 import { loadTopic } from './stages/research.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from './search.ts';
 import { renderStatus } from './status.ts';
@@ -192,10 +193,33 @@ async function main(): Promise<number> {
       // se já tinha passado na auditoria de evidências.
       writeJson(join(TOPICS_DIR, `${page.slug}.json`), TopicBrief.parse({ ...topic, evidence_gaps: review.publishable ? [] : review.missing }));
       const status = review.publishable && page.provenance.audit_verdict === 'pass' ? 'approved' : 'draft';
-      if (status !== page.status && page.status !== 'published') writeJson(join(PAGES_DIR, `${page.slug}.json`), { ...page, status });
+      const provenance = { ...page.provenance, review: reviewMetrics(review) };
+      writeJson(join(PAGES_DIR, `${page.slug}.json`), { ...page, provenance, status: page.status === 'published' ? page.status : status });
       console.log(JSON.stringify(review, null, 2));
       console.log(`~${creditsSpent().toFixed(1)} créditos`);
       return review.publishable ? 0 : 1;
+    }
+    case 'verdict': {
+      // Veredito do editor humano: aprova (vai ao ar no próximo deploy) ou recusa com motivo
+      // (o motivo vira nota editorial da pauta). Alimenta a calibração da revisão.
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { reason: { type: 'string' } } });
+      const [slug, verdict] = positionals;
+      if (!slug || (verdict !== 'approve' && verdict !== 'reject') || !values.reason) {
+        console.error('uso: verdict <slug> approve|reject --reason "motivo"');
+        return 2;
+      }
+      const h = recordVerdict(slug, verdict, values.reason);
+      console.log(`${h.slug}: ${h.verdict} registrado${h.review ? ` (regra dizia ${h.review.rule_publishable ? 'publicar' : 'não publicar'})` : ' (sem métricas de revisão)'}`);
+      return 0;
+    }
+    case 'calibrate': {
+      const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
+      const r = calibrate(loadVerdicts());
+      console.log(`${r.labels} vereditos com métricas; regra atual (enchimento ≤ ${r.current.max_filler_ratio}, critérios ≥ ${r.current.min_criteria}) concorda em ${r.current.agree}`);
+      console.log(`melhor: enchimento ≤ ${r.best.max_filler_ratio}, critérios ≥ ${r.best.min_criteria} concorda em ${r.best.agree}`);
+      for (const d of r.disagreements) console.log(`  discorda: ${d.slug} (editor ${d.human}, regra ${d.rule ? 'publicar' : 'não publicar'})`);
+      if (values.apply) console.log(applyCalibration(r) ? 'limites atualizados em data/calibration.json' : r.labels < 8 ? 'amostra pequena: limites mantidos' : 'sem ganho: limites mantidos');
+      return 0;
     }
     case 'improve': {
       const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '90' } } });

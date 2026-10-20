@@ -70,3 +70,6 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,
 atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pelo hash).
+
+- [x] veredito humano + calibração da revisão (CLI; painel mostra concordância e divergências)
+- [ ] painel admin com escrita: botões aprovar/recusar (chamam `verdict`), fila, orçamento, merge de PR

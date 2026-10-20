@@ -8,7 +8,8 @@ import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, type Draft } from './draft-schema.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
-import { MIN_CRITERIA, reviewPage, type ReviewResult } from './review.ts';
+import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
+import { loadThresholds } from '../feedback.ts';
 import { applyEdits } from './edit.ts';
 import { writeDraft } from './write.ts';
 
@@ -139,7 +140,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       // Quase lá (orienta, tem critérios, enchimento até 45%): corta os blocos que a própria revisão
       // apontou como enchimento e revisa de novo. Remover nunca acrescenta fato; uma vez só.
       const r0 = rv.review;
-      if (!r0.publishable && r0.concrete_guidance && r0.answers_primary_query !== 'no' && r0.decision_criteria.length >= MIN_CRITERIA && r0.filler_ratio <= 0.45 && r0.filler_refs.length > 0) {
+      if (!r0.publishable && r0.concrete_guidance && r0.answers_primary_query !== 'no' && r0.decision_criteria.length >= loadThresholds().min_criteria && r0.filler_ratio <= 0.45 && r0.filler_refs.length > 0) {
         const trimmed = applyEdits(draft, r0.filler_refs.map((ref) => ({ ref, action: 'remove' as const, reason: 'enchimento apontado pela revisão' }))).draft;
         const candidate = toPageSpec(trimmed, topic, runId, 'pass');
         if (checkPage(candidate, idx).length === 0 && styleIssues(trimmed).length === 0) {
@@ -151,7 +152,8 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
           rv = rv2;
         }
       }
-      const page: PageSpec = rv.review.publishable ? passed : { ...passed, status: 'draft' };
+      const reviewed: PageSpec = { ...passed, provenance: { ...passed.provenance, review: reviewMetrics(rv.review) } };
+      const page: PageSpec = rv.review.publishable ? reviewed : { ...reviewed, status: 'draft' };
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
       // A pauta guarda o que faltou: é a entrada da próxima tentativa (improve).
       writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: rv.review.publishable ? [] : rv.review.missing }));

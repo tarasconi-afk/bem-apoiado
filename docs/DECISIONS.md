@@ -136,3 +136,14 @@ também para anúncio e ficha, com palavra inteira para termos curtos: "dor" ≠
 (Herval Lucca × Alba: rótulo tem de estar no trecho), bolsa de colchão como "colchão de espuma" (Jev
 confirma que o anúncio vende o próprio item; marca começando com artigo é recusada), nome "MISTO" num
 produto classificado como espuma (conflito de tipo recusa). Lição: inspecionar a SAÍDA renderizada antes de publicar.
+
+## 2026-10-20 — Calibração da revisão por veredito humano, não por merge de PR
+O merge de um PR do motor não é aprovação: o PR do travesseiro levou um rascunho ao repositório e ele
+continuou fora do ar. O sinal humano passa a ser explícito: `verdict <slug> approve|reject --reason`,
+gravado em data/feedback/ com as métricas que a revisão automática tinha medido. Aprovar exige auditoria
+`pass` e gate limpo; recusar volta a página a rascunho e o motivo vira nota editorial da pauta (o redator
+o recebe na próxima tentativa). `calibrate` busca em grade os limites (enchimento máximo, critérios
+mínimos) que mais concordam com o editor; só aplica com 8+ vereditos e ganho real, gravando
+data/calibration.json (versionado, auditável). O autopilot recalibra no início de cada ciclo.
+Afiliado: tag bemapoiado-20 (sem sobrenome); a divulgação da Amazon fica no rodapé de todas as páginas,
+não repetida em cada seção, e o cartão "só anúncio" se atribui pelo próprio "Anunciado como".

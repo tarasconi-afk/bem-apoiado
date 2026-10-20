@@ -175,6 +175,27 @@ export type Product = z.infer<typeof Product>;
 
 export const PageStatus = z.enum(['draft', 'approved', 'published']);
 
+// O que a revisão editorial mediu numa página. Guardado junto da página e de cada veredito humano,
+// para comparar a regra automática com a decisão do editor (calibração).
+export const ReviewMetrics = z.object({
+  answers_primary_query: z.enum(['yes', 'partial', 'no']),
+  concrete_guidance: z.boolean(),
+  filler_ratio: z.number().min(0).max(1),
+  criteria: z.number().int().min(0),
+  rule_publishable: z.boolean(),
+});
+export type ReviewMetrics = z.infer<typeof ReviewMetrics>;
+
+export const HumanVerdict = z.object({
+  slug: Slug,
+  verdict: z.enum(['approve', 'reject']),
+  reason: z.string().min(3),
+  at: z.iso.datetime(),
+  run_id: z.string(),
+  review: ReviewMetrics.nullable(),
+});
+export type HumanVerdict = z.infer<typeof HumanVerdict>;
+
 export const PageSpec = z.object({
   slug: Slug,
   page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
@@ -192,6 +213,7 @@ export const PageSpec = z.object({
     writer_model: z.string(),
     auditor_model: z.string().nullable(),
     audit_verdict: z.enum(['pass', 'fail', 'pending']),
+    review: ReviewMetrics.optional(),
   }),
 });
 export type PageSpec = z.infer<typeof PageSpec>;

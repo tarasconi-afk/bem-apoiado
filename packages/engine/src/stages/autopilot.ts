@@ -1,3 +1,4 @@
+import { applyCalibration, calibrate, loadVerdicts } from '../feedback.ts';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -74,6 +75,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     return result;
   };
   if (creditsToday() >= DAILY_CREDIT_CAP) return { status: 'DAILY_CAP', steps: [`teto diário de ${DAILY_CREDIT_CAP} créditos já atingido`], credits: 0 };
+
+  // Antes de produzir: se os vereditos do editor mostram limites melhores, a revisão passa a usá-los.
+  const cal = calibrate(loadVerdicts());
+  if (applyCalibration(cal)) steps.push(`revisão recalibrada: enchimento ≤ ${cal.best.max_filler_ratio}, critérios ≥ ${cal.best.min_criteria} (${cal.best.agree}/${cal.labels} vereditos)`);
 
   const query = nextQuery();
   if (!query) return { status: 'NOTHING_TO_DO', steps: ['fila vazia ou todas as pautas resolvidas/esgotadas'], credits: 0 };

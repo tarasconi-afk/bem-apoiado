@@ -29,7 +29,7 @@ export function writeJson(path: string, value: unknown): void {
   writeFileSync(path, JSON.stringify(value, null, 2) + '\n');
 }
 
-function readJsonDir<T>(dir: string, parse: (v: unknown) => T): T[] {
+export function readJsonDir<T>(dir: string, parse: (v: unknown) => T): T[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
     .filter((f) => f.endsWith('.json'))

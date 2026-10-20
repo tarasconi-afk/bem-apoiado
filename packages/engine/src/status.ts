@@ -1,3 +1,4 @@
+import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
@@ -70,6 +71,7 @@ export function renderStatus(now = new Date()): string {
   for (const c of idx.claims.values()) violations.push(...checkClaim(c, idx));
   for (const p of pages) violations.push(...checkPage(p, idx));
   const products = loadProducts();
+  const cal = calibrate(loadVerdicts());
   for (const p of products) violations.push(...checkProduct(p, idx, now));
 
   const since = (h: number) => runs.filter((r) => now.getTime() - r.when.getTime() < h * 3600_000);
@@ -131,6 +133,15 @@ ${runs.slice(0, 40).map((r) => `<tr><td>${esc(fmt(r.when))}</td><td><code>${esc(
 </tbody></table></div>
 
 ${violations.length ? `<h2>Violações no gate</h2><div class="tw"><table><thead><tr><th>Código</th><th>Onde</th><th>Detalhe</th></tr></thead><tbody>${violations.slice(0, 50).map((v) => `<tr><td>${esc(v.code)}</td><td><code>${esc(v.where)}</code></td><td class="muted">${esc(v.detail)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+
+<h2>Calibração da revisão</h2>
+<p class="muted">Vereditos do editor (<code>verdict &lt;slug&gt; approve|reject --reason "…"</code>) contra a regra automática. Os limites só mudam com ${MIN_LABELS} ou mais vereditos e ganho real de concordância.</p>
+<div class="grid">
+<div class="card"><div class="v">${cal.labels}</div><div class="l">vereditos do editor</div></div>
+<div class="card"><div class="v">${cal.labels ? `${cal.current.agree}/${cal.labels}` : '—'}</div><div class="l">regra concorda com o editor</div></div>
+<div class="card"><div class="v">≤ ${Math.round(cal.current.max_filler_ratio * 100)}% · ≥ ${cal.current.min_criteria}</div><div class="l">limites atuais (enchimento · critérios)</div></div>
+</div>
+${cal.disagreements.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Pauta</th><th>Editor</th><th>Regra</th><th>Quando</th></tr></thead><tbody>${cal.disagreements.map((d) => `<tr><td><code>${esc(d.slug)}</code></td><td>${badge(d.human === 'approve' ? 'approved' : 'recusada')}</td><td>${esc(d.rule ? 'publicar' : 'não publicar')}</td><td class="muted">${esc(fmt(new Date(d.at)))}</td></tr>`).join('')}</tbody></table></div>` : ''}
 
 <h2>Aprendizado: o que cada domínio rendeu</h2>
 <p class="muted">Calculado de todo o histórico. A busca prioriza domínios com rendimento alto e evita páginas que já se mostraram inúteis.</p>

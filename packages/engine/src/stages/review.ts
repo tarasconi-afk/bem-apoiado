@@ -1,8 +1,9 @@
 import { z } from 'zod';
-import type { PageSpec, TopicBrief } from '@bem-apoiado/core';
+import type { PageSpec, ReviewMetrics, TopicBrief } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { blockRefs } from './draft-schema.ts';
+import { loadThresholds, ruleDecides } from '../feedback.ts';
 
 // Revisão editorial: a auditoria garante que cada frase tem prova; esta etapa julga se a página
 // SERVE para quem buscou. Página correta mas inútil (não responde, não orienta) não vai ao ar.
@@ -16,9 +17,6 @@ Não julgue a veracidade (isso já foi auditado). Julgue a utilidade:
 - "missing": que tipo de informação, se encontrada em fonte primária, faria a página responder bem (ex.: "tabela do fabricante relacionando densidade e peso").
 - "publishable": sua opinião geral.
 O site só usa fontes primárias e não inventa: uma página pode responder parcialmente porque as fontes não dizem mais. Isso é aceitável se ela dá critérios concretos; não é aceitável se ela é só "depende" e enchimento.`;
-
-export const MAX_FILLER_RATIO = 0.25;
-export const MIN_CRITERIA = 2;
 
 export interface ReviewResult {
   model_opinion?: boolean;
@@ -58,11 +56,18 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
     },
     fetchImpl,
   );
-  // Decisão determinística (calibrada nas duas primeiras páginas): o modelo descreve, a regra decide.
+  // Decisão determinística: o modelo descreve, a regra decide. Os limites vêm da calibração contra os
+  // vereditos do editor (data/calibration.json; sem ela, 25% de enchimento e 2 critérios).
   // A opinião "publishable" do modelo é só registrada. Partial é aceito: fonte primária tem limite.
   const d = r.data;
   const filler_ratio = new Set(d.filler_refs).size / units.length;
-  const publishable =
-    d.answers_primary_query !== 'no' && d.concrete_guidance && filler_ratio <= MAX_FILLER_RATIO && d.decision_criteria.length >= MIN_CRITERIA;
+  const publishable = ruleDecides(
+    { answers_primary_query: d.answers_primary_query, concrete_guidance: d.concrete_guidance, filler_ratio, criteria: d.decision_criteria.length, rule_publishable: false },
+    loadThresholds(),
+  );
   return { review: { ...d, filler_ratio, model_opinion: d.publishable, publishable } as ReviewResult, usage: r.usage };
+}
+
+export function reviewMetrics(r: ReviewResult): ReviewMetrics {
+  return { answers_primary_query: r.answers_primary_query, concrete_guidance: r.concrete_guidance, filler_ratio: r.filler_ratio, criteria: r.decision_criteria.length, rule_publishable: r.publishable };
 }
