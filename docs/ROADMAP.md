@@ -74,3 +74,8 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] veredito humano + calibração da revisão (CLI; painel mostra concordância e divergências)
 - [x] painel admin com escrita: veredito, fila, aceitar/descartar resultado do motor, rodar ciclo, trocar senha
 - [ ] painel: orçamentos editáveis, aprovação de proposta de nicho
+- [x] manutenção do catálogo no ciclo (renovar ≥7 dias, retirar sem oferta/trecho mudado) e produtos para página aprovada
+- [x] identidade visual nova, ilustrações próprias por tipo, SEO técnico (JSON-LD, sitemap, OG)
+- [ ] domínio + indexação + GSC (aguardando o dono)
+- [ ] Google Ads: teste de R$ 50–100 com ID próprio, só depois do domínio e ~10 páginas
+- [ ] ilustrações para tipos de nicho novo (hoje cai no genérico)

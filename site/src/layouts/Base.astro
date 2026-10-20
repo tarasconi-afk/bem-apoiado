@@ -1,14 +1,21 @@
 ---
-import { BRAND, INDEXABLE } from '../lib/content';
+import '@fontsource/fraunces/latin-600.css';
+import Logo from '../components/Logo.astro';
+import { BRAND, INDEXABLE, NICHE } from '../lib/content';
 
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  jsonLd?: object[];
 }
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, ogType = 'website', ogImage = '/og/default.png', jsonLd = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const robots = INDEXABLE && !noindex ? 'index,follow' : 'noindex,nofollow';
+const image = new URL(ogImage, Astro.site).href;
+const path = Astro.url.pathname;
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -19,64 +26,112 @@ const robots = INDEXABLE && !noindex ? 'index,follow' : 'noindex,nofollow';
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical.href} />
+    <meta name="theme-color" content="#1E5B4C" />
+    <meta property="og:site_name" content={BRAND} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_BR" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='17' width='26' height='9' rx='4' fill='%232d5b4f'/%3E%3Crect x='6' y='8' width='20' height='7' rx='3.5' fill='%2390b3a6'/%3E%3C/svg%3E" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
     <style is:global>
       :root {
-        --paper: #faf8f4;
-        --card: #ffffff;
-        --ink: #1f2421;
-        --muted: #5f665f;
-        --line: #e4ded3;
-        --accent: #2d5b4f;
-        --accent-soft: #e9f1ed;
-        --warn: #9a6514;
-        --warn-soft: #fbf3e2;
-        --serif: 'Iowan Old Style', 'Charter', 'Palatino Linotype', Georgia, serif;
-        --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-        --measure: 42rem;
+        --bg: #fbfaf7;
+        --surface: #ffffff;
+        --sand: #f4efe6;
+        --ink: #15241f;
+        --muted: #55635c;
+        --line: #e7e2d8;
+        --brand: #1e5b4c;
+        --brand-ink: #123d33;
+        --brand-soft: #e6f2ec;
+        --amber: #f0b252;
+        --amber-soft: #fdf3e1;
+        --warn: #8a5a12;
+        --radius: 16px;
+        --shadow: 0 1px 2px rgba(21, 36, 31, 0.05), 0 10px 30px -18px rgba(21, 36, 31, 0.25);
+        --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+        --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        --measure: 44rem;
+        --wide: 74rem;
       }
       * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
-      body { margin: 0; background: var(--paper); color: var(--ink); font: 1.0625rem/1.7 var(--sans); }
-      a { color: var(--accent); text-underline-offset: 2px; }
-      .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 1rem; }
+      html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 1.0625rem/1.72 var(--sans); -webkit-font-smoothing: antialiased; }
+      a { color: var(--brand); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+      a:hover { color: var(--brand-ink); }
+      :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 4px; }
+      img, svg { max-width: 100%; }
+      .wrap { max-width: var(--wide); margin: 0 auto; padding: 0 1.25rem; }
+      .narrow { max-width: var(--measure); }
 
-      .site-header { border-bottom: 1px solid var(--line); background: var(--paper); }
-      .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.9rem; }
-      .brand { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--ink); text-decoration: none; font: 700 1.15rem/1 var(--serif); letter-spacing: -0.01em; }
-      .brand svg { flex: none; }
-      .site-nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; margin-left: 1.1rem; }
-      .site-nav a:hover { color: var(--accent); }
+      h1, h2, h3 { font-family: var(--display); font-weight: 600; color: var(--ink); letter-spacing: -0.015em; }
+      h1 { font-size: clamp(2rem, 5.2vw, 3rem); line-height: 1.1; margin: 0.5rem 0 1rem; }
+      h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); line-height: 1.2; margin: 3rem 0 0.9rem; }
+      h3 { font-size: 1.2rem; line-height: 1.3; }
+      p { margin: 0 0 1.05rem; }
 
-      h1, h2, h3 { font-family: var(--serif); color: var(--ink); letter-spacing: -0.01em; }
-      h1 { font-size: clamp(1.85rem, 5vw, 2.5rem); line-height: 1.15; margin: 0.4rem 0 0.8rem; }
-      h2 { font-size: 1.45rem; line-height: 1.25; margin: 2.6rem 0 0.8rem; }
-      p { margin: 0 0 1rem; }
+      .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.28rem 0.7rem; border-radius: 999px; background: var(--brand-soft); color: var(--brand-ink); font: 600 0.74rem/1.2 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.2rem; border-radius: 12px; background: var(--brand); color: #fff; font-weight: 650; text-decoration: none; transition: background 0.15s, transform 0.15s; }
+      .btn:hover { background: var(--brand-ink); color: #fff; transform: translateY(-1px); }
 
-      .site-footer { margin-top: 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
-      .site-footer .wrap { padding-block: 2rem 3rem; }
-      .site-footer p { margin-bottom: 0.7rem; }
+      .site-header { position: sticky; top: 0; z-index: 10; background: rgba(251, 250, 247, 0.88); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }
+      .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 4rem; }
+      .brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; font: 600 1.22rem/1 var(--display); letter-spacing: -0.02em; }
+      .brand:hover { color: var(--ink); }
+      .site-nav { display: flex; gap: 0.25rem; }
+      .site-nav a { padding: 0.45rem 0.8rem; border-radius: 10px; color: var(--muted); font-size: 0.93rem; font-weight: 550; text-decoration: none; }
+      .site-nav a:hover, .site-nav a[aria-current='page'] { background: var(--brand-soft); color: var(--brand-ink); }
+      @media (max-width: 30rem) { .brand span { display: none; } .site-nav a { padding: 0.45rem 0.6rem; } }
+
+      .site-footer { margin-top: 5rem; background: var(--brand-ink); color: #cfe0d8; font-size: 0.92rem; }
+      .site-footer .wrap { display: grid; gap: 2rem; padding-block: 3rem; grid-template-columns: 1fr; }
+      @media (min-width: 52rem) { .site-footer .wrap { grid-template-columns: 1.2fr 1fr 1fr; } }
+      .site-footer h2 { margin: 0 0 0.7rem; color: #fff; font-size: 1rem; font-family: var(--sans); font-weight: 650; letter-spacing: 0; }
+      .site-footer a { color: #fff; }
+      .site-footer p { margin: 0 0 0.7rem; }
+      .foot-brand { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; color: #fff; font: 600 1.2rem/1 var(--display); text-decoration: none; }
+      .foot-links { list-style: none; margin: 0; padding: 0; }
+      .foot-links li { margin-bottom: 0.45rem; }
+      .foot-legal { grid-column: 1 / -1; padding-top: 1.4rem; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 0.82rem; color: #a9c2b8; }
     </style>
   </head>
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href="/">
-          <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="17" width="26" height="9" rx="4" fill="#2d5b4f" /><rect x="6" y="8" width="20" height="7" rx="3.5" fill="#90b3a6" /></svg>
-          {BRAND}
-        </a>
-        <nav class="site-nav"><a href="/">Guias</a><a href="/como-trabalhamos/">Como trabalhamos</a></nav>
+        <a class="brand" href="/" aria-label={`${BRAND}, página inicial`}><Logo size={34} /><span>{BRAND}</span></a>
+        <nav class="site-nav" aria-label="Principal">
+          <a href="/#guias" aria-current={path === '/' ? 'page' : undefined}>Guias</a>
+          <a href="/como-trabalhamos/" aria-current={path.startsWith('/como-trabalhamos') ? 'page' : undefined}>Como trabalhamos</a>
+        </nav>
       </div>
     </header>
-    <main class="wrap"><slot /></main>
+    <main><slot /></main>
     <footer class="site-footer">
       <div class="wrap">
-        <p><strong>Como trabalhamos:</strong> comparamos o que fabricantes, normas técnicas e órgãos reguladores publicam. Não testamos produtos fisicamente; dado sem fonte não entra. <a href="/como-trabalhamos/">Saiba mais</a>.</p>
-        <p>Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas feitas por meio dos nossos links. Isso não muda o que escrevemos.</p>
-        <p>Nada aqui substitui orientação de profissional de saúde.</p>
+        <div>
+          <a class="foot-brand" href="/"><Logo size={30} invert /> {BRAND}</a>
+          <p>{NICHE.site_tagline}</p>
+          <p>Comparamos o que fabricantes, normas técnicas e órgãos reguladores publicam. Não testamos produtos fisicamente; dado sem fonte não entra.</p>
+        </div>
+        <div>
+          <h2>Navegue</h2>
+          <ul class="foot-links">
+            <li><a href="/#guias">Todos os guias</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Transparência</h2>
+          <p>Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas feitas por meio dos nossos links. Isso não muda o que escrevemos.</p>
+        </div>
+        <p class="foot-legal">Nada aqui substitui orientação de profissional de saúde. Ilustrações próprias e esquemáticas: não representam produto, marca ou modelo específico. © {new Date().getFullYear()} {BRAND}</p>
       </div>
     </footer>
   </body>

@@ -1,0 +1,109 @@
+---
+// Ilustrações próprias, geradas por código: esquemas (fora de escala) de como cada tipo de produto é
+// construído. Não representam produto, marca ou modelo específico. Tipo sem desenho cai no genérico.
+// Nicho novo: acrescentar um desenho por tipo aqui (mesma paleta e mesmo viewBox).
+interface Props {
+  kind: string;
+  title?: string;
+  class?: string;
+}
+const { kind, title, class: cls } = Astro.props;
+
+const C = {
+  ink: '#173229',
+  green: '#1E5B4C',
+  mint: '#CFE6DC',
+  mintSoft: '#E6F2EC',
+  sand: '#F3EADB',
+  sandDeep: '#E2CFAE',
+  amber: '#F0B252',
+  coral: '#E58C6A',
+  white: '#FFFFFF',
+};
+
+// Pseudoaleatório determinístico: o mesmo desenho em todo build.
+let seed = 7;
+const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+const cells = (x: number, y: number, w: number, h: number, n: number, color: string) => {
+  seed = 7 + Math.round(x + y);
+  return Array.from({ length: n }, () => {
+    const r = 1.6 + rnd() * 2.6;
+    return `<circle cx="${(x + r + rnd() * (w - 2 * r)).toFixed(0)}" cy="${(y + r + rnd() * (h - 2 * r)).toFixed(0)}" r="${r.toFixed(1)}" fill="${color}"/>`;
+  }).join('');
+};
+// Mola vista de lado: anéis empilhados. waist < 1 dá a forma de ampulheta (molas interligadas).
+const coil = (cx: number, top: number, bottom: number, rx: number, rings: number, waist = 1, color = C.green) =>
+  Array.from({ length: rings }, (_, i) => {
+    const t = i / (rings - 1);
+    const k = waist === 1 ? 1 : waist + (1 - waist) * Math.abs(2 * t - 1) ** 1.4;
+    const y = top + t * (bottom - top);
+    return `<ellipse cx="${cx}" cy="${y.toFixed(1)}" rx="${(rx * k).toFixed(1)}" ry="2.6" fill="none" stroke="${color}" stroke-width="2"/>`;
+  }).join('');
+
+const shadow = `<ellipse cx="160" cy="176" rx="132" ry="9" fill="${C.ink}" opacity=".08"/>`;
+const shell = (inner: string) =>
+  `${shadow}<rect x="24" y="52" width="272" height="114" rx="16" fill="${C.white}" stroke="${C.ink}" stroke-width="2.5"/>${inner}<rect x="24" y="52" width="272" height="114" rx="16" fill="none" stroke="${C.ink}" stroke-width="2.5"/>`;
+const clip = `<clipPath id="m"><rect x="25" y="53" width="270" height="112" rx="15"/></clipPath>`;
+
+const pocketRow = (top: number, bottom: number, n: number) => {
+  const w = 268 / n;
+  return Array.from({ length: n }, (_, i) => {
+    const x = 26 + i * w;
+    return `<rect x="${(x + 1.5).toFixed(1)}" y="${top}" width="${(w - 3).toFixed(1)}" height="${bottom - top}" rx="9" fill="${C.mintSoft}" stroke="#9CC4B5" stroke-width="1.5"/>${coil(x + w / 2, top + 7, bottom - 7, w / 2 - 6, 7)}`;
+  }).join('');
+};
+
+const drawings: Record<string, string> = {
+  espuma: shell(
+    `<g clip-path="url(#m)"><rect x="24" y="52" width="272" height="30" fill="${C.sand}"/>${cells(26, 54, 268, 26, 22, C.sandDeep)}` +
+      `<rect x="24" y="82" width="272" height="44" fill="${C.sandDeep}"/>${cells(26, 84, 268, 40, 36, '#CDB48A')}` +
+      `<rect x="24" y="126" width="272" height="40" fill="#D3B98D"/>${cells(26, 128, 268, 36, 30, '#BFA275')}` +
+      `<path d="M24 82h272M24 126h272" stroke="${C.ink}" stroke-width="1.5" opacity=".35"/></g>`,
+  ),
+  molas_ensacadas: shell(
+    `<g clip-path="url(#m)"><rect x="24" y="52" width="272" height="24" fill="${C.sand}"/>${cells(26, 54, 268, 20, 16, C.sandDeep)}` +
+      pocketRow(78, 146, 8) +
+      `<rect x="24" y="148" width="272" height="18" fill="${C.sandDeep}"/></g>`,
+  ),
+  molas_interligadas: shell(
+    `<g clip-path="url(#m)"><rect x="24" y="52" width="272" height="24" fill="${C.sand}"/>${cells(26, 54, 268, 20, 16, C.sandDeep)}` +
+      Array.from({ length: 7 }, (_, i) => coil(48 + i * 37.3, 82, 142, 15, 9, 0.45)).join('') +
+      `<path d="M30 82h260M30 142h260" stroke="${C.coral}" stroke-width="2.5"/>` +
+      `<rect x="24" y="148" width="272" height="18" fill="${C.sandDeep}"/></g>`,
+  ),
+  misto: shell(
+    `<g clip-path="url(#m)"><rect x="24" y="52" width="272" height="20" fill="${C.sand}"/>${cells(26, 54, 268, 16, 14, C.sandDeep)}` +
+      `<rect x="24" y="72" width="272" height="24" fill="${C.sandDeep}"/>${cells(26, 74, 268, 20, 22, '#CDB48A')}` +
+      pocketRow(98, 148, 10) +
+      `<rect x="24" y="150" width="272" height="16" fill="#D3B98D"/></g>`,
+  ),
+  travesseiro:
+    `<ellipse cx="160" cy="170" rx="132" ry="8" fill="${C.ink}" opacity=".08"/>` +
+    `<path d="M40 160c-6-34 2-62 10-70 22-6 70-6 92 0 8 8 16 36 10 70-30 6-82 6-112 0z" fill="${C.white}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M58 106c18-3 58-3 76 0" stroke="${C.mint}" stroke-width="3" fill="none" stroke-linecap="round"/>` +
+    `<path d="M180 160c-4-16 0-28 6-32 22-5 70-5 92 0 6 4 10 16 6 32-30 5-74 5-104 0z" fill="${C.white}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M24 92v68M20 92h8M20 160h8M300 126v34M296 126h8M296 160h8" stroke="${C.coral}" stroke-width="2.5" stroke-linecap="round"/>`,
+  cadeira:
+    `<ellipse cx="160" cy="178" rx="96" ry="8" fill="${C.ink}" opacity=".08"/>` +
+    `<rect x="118" y="22" width="84" height="86" rx="18" fill="${C.mint}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M132 44h56M132 60h56M132 76h56" stroke="${C.green}" stroke-width="2" opacity=".35" stroke-linecap="round"/>` +
+    `<path d="M160 108v14" stroke="${C.ink}" stroke-width="5"/>` +
+    `<rect x="104" y="118" width="112" height="20" rx="10" fill="${C.green}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M100 92v26M220 92v26M92 92h16M212 92h16" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/>` +
+    `<path d="M160 138v20M160 158l-48 10M160 158l48 10M160 158l-20 14M160 158l20 14" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/>` +
+    [112, 140, 180, 208].map((x) => `<circle cx="${x}" cy="${x === 140 || x === 180 ? 174 : 170}" r="5" fill="${C.white}" stroke="${C.ink}" stroke-width="2.5"/>`).join(''),
+  outro:
+    `<ellipse cx="160" cy="176" rx="132" ry="9" fill="${C.ink}" opacity=".08"/>` +
+    `<rect x="30" y="54" width="30" height="116" rx="10" fill="${C.green}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<rect x="56" y="112" width="240" height="40" rx="12" fill="${C.white}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M150 112h146v22c0 10-8 18-18 18H150z" fill="${C.mint}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M66 112c-2-12 2-22 8-24 16-3 44-3 58 0 6 2 8 12 6 24z" fill="${C.sand}" stroke="${C.ink}" stroke-width="2.5"/>` +
+    `<path d="M56 152v18M290 152v18" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/>`,
+};
+
+const svg = drawings[kind] ?? drawings.outro!;
+const id = `il-${kind}`;
+const body = svg.replaceAll('url(#m)', `url(#${id})`);
+const defs = `<defs>${clip.replace('id="m"', `id="${id}"`)}</defs>`;
+---
+<svg class={cls} viewBox="0 0 320 196" role={title ? 'img' : undefined} aria-hidden={title ? undefined : 'true'} aria-label={title} xmlns="http://www.w3.org/2000/svg" set:html={defs + body} />

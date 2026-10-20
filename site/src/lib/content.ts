@@ -92,3 +92,24 @@ export function productsFor(page: PageSpec): ProductCard[] {
       checkedAt: idx.claims.get(p.availability_claim_id)!.captured_at,
     }));
 }
+
+// Tipos que a página explica (para as ilustrações). "outro" não tem desenho próprio.
+export function kindsFor(page: PageSpec): string[] {
+  const topic = loadTopics().find((t) => t.slug === page.slug);
+  return (topic?.product_kinds ?? []).filter((k) => k !== 'outro');
+}
+
+// Ilustração de cada cartão da home: o primeiro tipo da página que nenhum cartão anterior usou,
+// para a home nunca repetir a mesma imagem.
+export function homeIllustrations(pages: PageSpec[]): Map<string, string> {
+  const used = new Set<string>();
+  const out = new Map<string, string>();
+  for (const p of pages) {
+    const k = kindsFor(p).find((x) => !used.has(x)) ?? kindsFor(p)[0] ?? 'outro';
+    used.add(k);
+    out.set(p.slug, k);
+  }
+  return out;
+}
+
+export const sourcesCount = (page: PageSpec) => footnotesFor(page).notes.length;

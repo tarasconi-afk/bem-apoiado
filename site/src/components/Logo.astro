@@ -1,0 +1,15 @@
+---
+// Marca: um "b" minúsculo que é também uma cama de perfil (cabeceira = haste, colchão = bojo,
+// travesseiro âmbar junto da cabeceira). Legível de 16 px para cima.
+interface Props {
+  size?: number;
+  invert?: boolean;
+}
+const { size = 34, invert = false } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="18" fill={invert ? '#FFFFFF' : '#1E5B4C'} />
+  <rect x="13" y="10" width="9.5" height="44" rx="4.75" fill={invert ? '#1E5B4C' : '#FFFFFF'} />
+  <rect x="17.75" y="30.5" width="34.5" height="23.5" rx="11.75" fill={invert ? '#1E5B4C' : '#FFFFFF'} />
+  <rect x="25" y="36.5" width="12" height="9" rx="4.5" fill="#F0B252" />
+</svg>

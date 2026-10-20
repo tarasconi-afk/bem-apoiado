@@ -7,3 +7,9 @@ const { nums } = Astro.props;
 {nums.length > 0 && (
   <sup class="cite">{nums.map((n) => <a href={`#fonte-${n}`} aria-label={`Fonte ${n}`}>{n}</a>)}</sup>
 )}
+<style>
+  /* O estilo mora aqui: o CSS de cada página do Astro é isolado e não alcança este componente. */
+  .cite { margin-left: 0.2rem; white-space: nowrap; line-height: 0; }
+  .cite a { display: inline-block; min-width: 1.2rem; padding: 0 0.3rem; margin-left: 0.15rem; border-radius: 999px; background: var(--brand-soft); color: var(--brand-ink); font: 650 0.68rem/1.2rem var(--sans); text-align: center; text-decoration: none; vertical-align: 0.35em; }
+  .cite a:hover { background: var(--brand); color: #fff; }
+</style>

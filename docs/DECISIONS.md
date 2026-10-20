@@ -159,3 +159,19 @@ mesclado sozinho. Isso dispensa token do GitHub. A senha saiu do `basic_auth` do
 Recusa devolve uma tentativa de melhoria e usa o motivo como lacuna, se a pauta não tiver outra; sem isso
 o piloto automático considerava a pauta resolvida e nunca voltava a ela.
 Exemplos à venda no meio da página (depois de tipos e diferenças), não no fim: no fim quase ninguém chega.
+
+## 2026-10-20 — Identidade visual, ilustrações próprias e SEO técnico
+Referências: Wirecutter (guia em coluna única, foco na escolha, identidade por ilustração própria) e
+Examine (citação em cada afirmação como argumento de confiança). Paleta verde-escuro + âmbar sobre fundo
+creme; Fraunces 600 nos títulos (hospedada no site, 20 KB) e fonte do sistema no corpo. Logo: um "b"
+que é também uma cama de perfil. Imagens: ilustrações esquemáticas geradas por código
+(`Illustration.astro`), uma por tipo de produto; mostram construção (o que a foto genérica não mostra),
+sem risco de licença. Fotos do Commons foram avaliadas e recusadas (ver IMAGES.md). Cartão de produto usa a
+ilustração do tipo com o aviso "ilustração do tipo"; foto real só via PA-API.
+Página: resposta curta antes do sumário no celular; sumário lateral fixo no desktop; "Como decidir" em bloco
+escuro; exemplos em grade de 3. Corrigido: o estilo das citações nunca era aplicado (CSS isolado do Astro).
+SEO: JSON-LD Article (com `citation`) + BreadcrumbList, WebSite/Organization na home, sitemap.xml só com
+páginas aprovadas, Open Graph 1200×630 por tipo, apple-touch-icon. Indexação continua desligada.
+Produto com disponibilidade vencida some do site e só avisa no validate: tempo não é violação de integridade.
+Google Ads: só como teste pequeno depois de domínio + ~10 páginas, com ID de rastreamento próprio
+(ex.: bemapoiado-ads-20) para medir a venda daquele tráfego. Orgânico é o modelo.
