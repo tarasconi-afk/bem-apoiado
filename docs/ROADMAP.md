@@ -25,7 +25,7 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
       mesmo ASIN com menos de 30 dias + sem nome promocional), seção "Exemplos à venda" com rel=sponsored
 - [ ] popular o catálogo: depende de achar a ficha oficial de cada produto (bloqueio: precisa de API de
       busca; sites de fabricante variam — Emma recusa conexão, Ortobom carrega produtos por JS)
-- [x] hospedagem Hostinger (Business u226814741): https://silver-ibis-943605.hostingersite.com — `npm run deploy:hostinger`
+- [ ] hospedagem Hostinger (Business u226814741): https://darkslategrey-rail-669974.hostingersite.com via GitHub Action → ramo deploy (plano B manual: `npm run deploy:hostinger`)
 - [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
 - [ ] etapa "editor" (só corta/funde blocos aprovados)
 - [ ] domínio definitivo bemapoiado.com.br (compra = ação humana) e hospedagem final

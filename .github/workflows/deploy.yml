@@ -1,0 +1,38 @@
+# main → (testes + gate de evidências + build) → ramo `deploy` com SÓ o site pronto.
+# A Hostinger publica a partir do ramo `deploy` (nunca do main: lá estão código-fonte e dados).
+name: build-e-publicar
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://darkslategrey-rail-669974.hostingersite.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      # `build` roda `validate` antes: violação de evidência derruba o deploy.
+      - run: npm run build
+      - name: Publicar site/dist no ramo deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: ./site/dist
+          force_orphan: true
+          user_name: bem-apoiado-ci
+          user_email: ci@bemapoiado.invalid
+          commit_message: "site gerado de ${{ github.sha }}"

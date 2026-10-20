@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Publica o site estático num site da hospedagem Hostinger via API REST:
+# Deploy MANUAL por pacote (plano B). O caminho normal é: push no main → GitHub Action → ramo deploy → Hostinger.
 # build (com validate) → zip → upload TUS para public_html → deploy do arquivo.
 # Token REST em ~/.config/bem-apoiado/hostinger-api-token (fora do repositório).
 # ATENÇÃO: o deploy substitui todo o conteúdo do site de destino.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-DOMAIN="${1:-silver-ibis-943605.hostingersite.com}"
+DOMAIN="${1:-darkslategrey-rail-669974.hostingersite.com}"
 USERNAME="${2:-u226814741}"
 API=https://developers.hostinger.com/api/hosting/v1
 TOKEN=$(cat "$HOME/.config/bem-apoiado/hostinger-api-token")

@@ -79,3 +79,10 @@ Especificação do produto vem da ficha do fabricante (anúncio de loja não pro
 disponibilidade vem do anúncio da Amazon capturado do Mac (a Amazon bloqueia a VPS) até a PA-API.
 A página mostra "Exemplos à venda" só dos tipos que a pauta explica, sem ordem de preferência, com
 rel="sponsored". O gate barra nome promocional, anúncio de outro ASIN e disponibilidade com mais de 30 dias.
+
+## 2026-10-20 — Publicação: main → Action → ramo `deploy` → Hostinger
+Ligar a integração Git da Hostinger direto no `main` de um site estático copia o REPOSITÓRIO para a
+pasta pública (aconteceu: código e data/ ficaram acessíveis e o site saiu do ar; não havia segredo no
+repo). Correção: site temporário apagado e recriado (darkslategrey-rail-669974.hostingersite.com); um
+GitHub Action testa, roda o gate, monta o site e publica só `site/dist` no ramo `deploy`; a Hostinger
+acompanha o ramo `deploy`. A integração só pode ser ligada com a pasta pública vazia.
