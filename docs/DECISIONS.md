@@ -65,3 +65,11 @@ Diretriz do dono: o controle da criação de páginas tem de ficar na VPS, sem d
 O motor já é uma CLI comum (`npm run engine -- research|page|status`) que roda sozinha na VPS.
 Agora: painel só-leitura em /painel/ (senha). Depois que o motor rodar sozinho: um admin pequeno na
 VPS para cadastrar pautas, disparar/pausar execuções, ajustar teto de gasto e aprovar páginas.
+
+## 2026-10-20 — Deploy na hospedagem Hostinger pela API REST
+Os conectores MCP de hosting/domínios dão 401 (o OAuth deles só cobre VPS). O deploy usa a API REST
+com token pessoal guardado fora do repo: free-subdomain → onboarding no Business 1009138882 → upload
+TUS → deploy do zip. O pedido Business 1008020760 devolve 404 para criar site (acesso compartilhado).
+Em domínio temporário `*.hostingersite.com` a Hostinger serve o próprio robots.txt; o noindex fica
+garantido pela meta robots e pelo cabeçalho X-Robots-Tag do `.htaccess`.
+A VPS (Caddy) segue como segundo ambiente de preview e hospeda o painel e o motor.

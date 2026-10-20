@@ -1,0 +1,4 @@
+# Ambiente temporário: nunca indexar (reforça a meta robots e o robots.txt).
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

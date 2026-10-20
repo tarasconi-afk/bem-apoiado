@@ -23,6 +23,7 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] teto de gasto por execução e custo gravado no run
 - [ ] catálogo curado de produtos com links de afiliado (tarasconi-20), cada produto ligado a evidência
       de especificação do fabricante
+- [x] hospedagem Hostinger (Business u226814741): https://silver-ibis-943605.hostingersite.com — `npm run deploy:hostinger`
 - [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
 - [ ] etapa "editor" (só corta/funde blocos aprovados)
 - [ ] domínio definitivo bemapoiado.com.br (compra = ação humana) e hospedagem final
