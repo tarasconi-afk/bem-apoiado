@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Source, type SourceClass } from '@bem-apoiado/core';
-import { htmlToText, pdfToText } from './extract.ts';
+import { EXTRACTOR_VERSION, htmlToText, pdfToText } from './extract.ts';
 import { SOURCES_DIR, writeJson } from './store.ts';
 
 const UA = 'Mozilla/5.0 (compatible; BemApoiadoBot/0.1; +https://bemapoiado.com.br/sobre)';
@@ -29,11 +29,13 @@ export async function snapshot(input: SnapshotInput): Promise<{ source: Source; 
   const id = 'src_' + createHash('sha256').update(`${res.url}\n${sha256}`).digest('hex').slice(0, 12);
   const dir = join(SOURCES_DIR, id);
   if (existsSync(join(dir, 'meta.json'))) {
-    return { source: Source.parse(JSON.parse(readFileSync(join(dir, 'meta.json'), 'utf8'))), created: false };
+    const existing = Source.parse(JSON.parse(readFileSync(join(dir, 'meta.json'), 'utf8')));
+    // Mesmo conteúdo já salvo e íntegro: nada a fazer. Bruto corrompido: regrava a partir do download.
+    if (rawIntact(existing)) return { source: existing, created: false };
   }
 
   const isPdf = contentType === 'application/pdf' || input.url.toLowerCase().endsWith('.pdf');
-  const extracted = isPdf ? await pdfToText(body) : htmlToText(new TextDecoder('utf-8').decode(body));
+  const extracted = await extractText(body, isPdf);
   if (extracted.text.length < 200) {
     throw new Error(`Texto extraído curto demais (${extracted.text.length}): página dinâmica ou bloqueio em ${input.url}`);
   }
@@ -54,6 +56,7 @@ export async function snapshot(input: SnapshotInput): Promise<{ source: Source; 
     raw_file: rawFile,
     text_file: 'text.txt',
     text_chars: extracted.text.length,
+    extractor_version: EXTRACTOR_VERSION,
     title: extracted.title,
     publisher: input.publisher,
     source_class: input.sourceClass,
@@ -61,4 +64,25 @@ export async function snapshot(input: SnapshotInput): Promise<{ source: Source; 
   });
   writeJson(join(dir, 'meta.json'), source);
   return { source, created: true };
+}
+
+export function rawIntact(source: Source): boolean {
+  const p = join(SOURCES_DIR, source.id, source.raw_file);
+  return existsSync(p) && createHash('sha256').update(readFileSync(p)).digest('hex') === source.sha256;
+}
+
+async function extractText(body: Uint8Array, isPdf: boolean) {
+  return isPdf ? await pdfToText(body) : htmlToText(new TextDecoder('utf-8').decode(body));
+}
+
+// Regera text.txt a partir do bruto já salvo (sem baixar de novo) quando o extrator evolui.
+// O sha256 do bruto não muda, então o id da fonte continua o mesmo.
+export async function reextract(source: Source): Promise<Source> {
+  const dir = join(SOURCES_DIR, source.id);
+  const body = new Uint8Array(readFileSync(join(dir, source.raw_file)));
+  const extracted = await extractText(body, source.raw_file.endsWith('.pdf'));
+  writeFileSync(join(dir, 'text.txt'), extracted.text + '\n');
+  const updated = Source.parse({ ...source, text_chars: extracted.text.length, extractor_version: EXTRACTOR_VERSION });
+  writeJson(join(dir, 'meta.json'), updated);
+  return updated;
 }

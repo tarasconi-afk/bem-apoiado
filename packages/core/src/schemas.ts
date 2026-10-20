@@ -30,6 +30,7 @@ export const Source = z.object({
   raw_file: z.string(),
   text_file: z.string(),
   text_chars: z.number().int().nonnegative(),
+  extractor_version: z.number().int().positive().default(1),
   title: z.string().nullable(),
   publisher: z.string().min(2),
   source_class: SourceClass,

@@ -13,6 +13,7 @@ const SRC: Source = {
   raw_file: 'raw.html',
   text_file: 'text.txt',
   text_chars: 100,
+  extractor_version: 2,
   title: 'Ficha',
   publisher: 'Fabricante Teste',
   source_class: 'manufacturer',

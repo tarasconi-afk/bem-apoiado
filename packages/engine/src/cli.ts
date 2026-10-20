@@ -3,8 +3,8 @@ import { checkClaim, checkPage, SourceClass, type Violation } from '@bem-apoiado
 import { z } from 'zod';
 import { callJson } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
-import { snapshot } from './snapshot.ts';
-import { buildIndex, loadPages } from './store.ts';
+import { rawIntact, reextract, snapshot } from './snapshot.ts';
+import { buildIndex, loadPages, loadSources } from './store.ts';
 
 const [command, ...rest] = process.argv.slice(2);
 
@@ -34,6 +34,9 @@ async function main(): Promise<number> {
       // Gate determinístico: roda antes de todo build. Qualquer violação impede a publicação.
       const idx = buildIndex();
       const violations: Violation[] = [];
+      for (const s of idx.sources.values()) {
+        if (!rawIntact(s)) violations.push({ code: 'SOURCE_RAW_CORRUPT', where: `source:${s.id}`, detail: s.raw_file });
+      }
       for (const claim of idx.claims.values()) violations.push(...checkClaim(claim, idx));
       const pages = loadPages();
       for (const page of pages) {
@@ -44,6 +47,18 @@ async function main(): Promise<number> {
         `validate: ${idx.sources.size} fontes, ${idx.claims.size} evidências, ${pages.length} páginas, ${violations.length} violações`,
       );
       return violations.length === 0 ? 0 : 1;
+    }
+    case 'reextract': {
+      for (const s of loadSources()) {
+        if (!rawIntact(s)) {
+          console.error(`✗ ${s.id} bruto corrompido; rode snapshot de novo em ${s.url}`);
+          continue;
+        }
+        const u = await reextract(s);
+        console.log(`${u.id} ${s.text_chars} -> ${u.text_chars} chars (v${u.extractor_version})`);
+      }
+      console.log('Rode `validate` em seguida: trechos citados precisam continuar presentes.');
+      return 0;
     }
     case 'ping': {
       // Uma chamada mínima por papel: confirma credencial, id do modelo e suporte a saída estruturada.
@@ -68,7 +83,7 @@ async function main(): Promise<number> {
       return failures === 0 ? 0 : 1;
     }
     default:
-      console.error('comandos: snapshot | validate | ping');
+      console.error('comandos: snapshot | reextract | validate | ping');
       return 2;
   }
 }
