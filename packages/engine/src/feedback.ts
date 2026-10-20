@@ -1,7 +1,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { checkPage, HumanVerdict, PageSpec, TopicBrief, type ReviewMetrics } from '@bem-apoiado/core';
+import { checkPage, firstForbidden, HumanVerdict, PageSpec, TopicBrief, type ReviewMetrics } from '@bem-apoiado/core';
 import { z } from 'zod';
+import { loadNiche } from './niche.ts';
 import { buildIndex, DATA, PAGES_DIR, readJsonDir, RUNS_DIR, TOPICS_DIR, writeJson } from './store.ts';
 
 // Veredito humano e calibração da revisão editorial. O editor aprova ou recusa uma página com motivo;
@@ -63,10 +64,14 @@ export function recordVerdict(slug: string, verdict: 'approve' | 'reject', reaso
     const topicFile = join(TOPICS_DIR, `${slug}.json`);
     if (existsSync(topicFile)) {
       const t = TopicBrief.parse(JSON.parse(readFileSync(topicFile, 'utf8')));
-      const note = `Editor recusou: ${reason}`;
+      const notes = [`Editor recusou: ${reason}`];
+      // O editor pode pedir algo que a regra do nicho veta (ex.: "benefícios para a coluna"). A regra
+      // vence; a nota diz isso ao redator para ele não gastar tentativa nisso.
+      const bad = firstForbidden(reason, loadNiche().forbidden_terms);
+      if (bad) notes.push(`Parte do motivo acima pede algo vetado pela regra de saúde do site ("${bad.term}"): não atender essa parte, atender o restante.`);
       writeJson(topicFile, {
         ...t,
-        editorial_notes: t.editorial_notes.includes(note) ? t.editorial_notes : [...t.editorial_notes, note],
+        editorial_notes: [...t.editorial_notes, ...notes.filter((n) => !t.editorial_notes.includes(n))],
         evidence_gaps: t.evidence_gaps.length ? t.evidence_gaps : [reason],
         improve_attempts: Math.max(0, t.improve_attempts - 1),
       });

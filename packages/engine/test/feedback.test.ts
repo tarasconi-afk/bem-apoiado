@@ -1,4 +1,4 @@
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -6,7 +6,7 @@ import type { HumanVerdict, ReviewMetrics } from '@bem-apoiado/core';
 
 process.env.BEM_ROOT = mkdtempSync(join(tmpdir(), 'bem-feedback-'));
 writeFileSync(join(process.env.BEM_ROOT, 'package.json'), JSON.stringify({ name: 'bem-apoiado' }));
-const { calibrate, DEFAULT_THRESHOLDS, MIN_LABELS, ruleDecides } = await import('../src/feedback.ts');
+const { calibrate, DEFAULT_THRESHOLDS, MIN_LABELS, recordVerdict, ruleDecides } = await import('../src/feedback.ts');
 
 const m = (filler_ratio: number, criteria: number): ReviewMetrics => ({
   answers_primary_query: 'partial', concrete_guidance: true, filler_ratio, criteria, rule_publishable: false,
@@ -49,5 +49,26 @@ describe('calibração da revisão', () => {
     const r = calibrate([later, first, v('approve', null)], DEFAULT_THRESHOLDS);
     expect(r.labels).toBe(1);
     expect(r.current.agree).toBe(1);
+  });
+});
+
+describe('veredito do editor', () => {
+  it('recusa: motivo vira nota e lacuna, devolve tentativa e avisa quando pede algo vetado', () => {
+    const root = process.env.BEM_ROOT!;
+    const real = join(import.meta.dirname, '../../../data');
+    for (const d of ['pages', 'topics']) mkdirSync(join(root, 'data', d), { recursive: true });
+    copyFileSync(join(real, 'niche.json'), join(root, 'data/niche.json'));
+    copyFileSync(join(real, 'pages/colchao-d28-ou-d33.json'), join(root, 'data/pages/colchao-d28-ou-d33.json'));
+    const topic = JSON.parse(readFileSync(join(real, 'topics/colchao-d28-ou-d33.json'), 'utf8'));
+    writeFileSync(join(root, 'data/topics/colchao-d28-ou-d33.json'), JSON.stringify({ ...topic, evidence_gaps: [], improve_attempts: 2, editorial_notes: [] }));
+    const h = recordVerdict('colchao-d28-ou-d33', 'reject', 'faltou falar dos benefícios para a coluna e comparar firmeza');
+    expect(h.verdict).toBe('reject');
+    const t = JSON.parse(readFileSync(join(root, 'data/topics/colchao-d28-ou-d33.json'), 'utf8'));
+    expect(t.editorial_notes[0]).toMatch(/^Editor recusou: /);
+    expect(t.editorial_notes[1]).toMatch(/vetado.*"coluna"/);
+    expect(t.evidence_gaps).toEqual(['faltou falar dos benefícios para a coluna e comparar firmeza']);
+    expect(t.improve_attempts).toBe(1);
+    const page = JSON.parse(readFileSync(join(root, 'data/pages/colchao-d28-ou-d33.json'), 'utf8'));
+    expect(page.status).toBe('draft');
   });
 });
