@@ -52,7 +52,7 @@ function router(opts: { auditorRejectsAlways: boolean }) {
   return async (_url: string, init: RequestInit) => {
     const body = JSON.parse(String(init.body));
     let content: unknown;
-    if (body.model === 'claude-opus-5') {
+    if (body.model === 'claude-sonnet-5') {
       writerCalls++;
       // Rodadas de correção pedem remendos (page_patches), não a página inteira.
       content =

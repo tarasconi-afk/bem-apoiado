@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import { checkPage, PageSpec, type TopicBrief } from '@bem-apoiado/core';
-import { LlmError, type FetchLike } from '../llm.ts';
+import { creditsSpent, LlmError, type FetchLike } from '../llm.ts';
 import { MODELS } from '../models.ts';
 import { writeStage } from '../runs.ts';
 import { buildIndex, PAGES_DIR, writeJson } from '../store.ts';
@@ -73,7 +73,7 @@ export async function buildPage(slug: string, runId: string, fetchImpl?: FetchLi
     // Falha de LLM (crédito, rede, saída inválida) vira parada segura com relatório, nunca página parcial.
     if (!(e instanceof LlmError)) throw e;
     const reason = `LLM_${e.code}: ${e.message.slice(0, 300)}`;
-    writeStage(runId, 'page', { status: 'SAFE_STOP', reason });
+    writeStage(runId, 'page', { status: 'SAFE_STOP', reason, credits: creditsSpent() });
     return { status: 'SAFE_STOP', reason, rounds: 0, open_issues: [], usage: { input_tokens: 0, output_tokens: 0, calls: 0 } };
   }
 }
@@ -131,12 +131,12 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     if (issues.length === 0) {
       const page = toPageSpec(draft, topic, runId, 'pass');
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
-      writeStage(runId, 'page', { status: 'PASS', rounds: round + 1, usage });
+      writeStage(runId, 'page', { status: 'PASS', rounds: round + 1, usage, credits: creditsSpent() });
       return { status: 'PASS', rounds: round + 1, page, usage };
     }
   }
   // Não convergiu: nada vai para data/pages. O rascunho e os problemas ficam no run para análise.
   const open = issues.map(show);
-  writeStage(runId, 'page', { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', open_issues: open, usage });
+  writeStage(runId, 'page', { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', open_issues: open, usage, credits: creditsSpent() });
   return { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', rounds: MAX_FIX_ROUNDS + 1, open_issues: open, usage };
 }

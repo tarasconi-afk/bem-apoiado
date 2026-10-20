@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { z } from 'zod';
-import { MODELS, type Role } from './models.ts';
+import { creditsFor, MODELS, type Role } from './models.ts';
 
 // Credenciais: variáveis de ambiente, com fallback para o arquivo da VPS. Nunca no repositório.
 const ENV_FILE = '/etc/bem-apoiado/env';
@@ -28,11 +28,20 @@ export type FetchLike = (url: string, init: RequestInit) => Promise<Response>;
 export class LlmError extends Error {
   constructor(
     message: string,
-    readonly code: 'NO_CREDENTIALS' | 'HTTP' | 'INVALID_OUTPUT',
+    readonly code: 'NO_CREDENTIALS' | 'HTTP' | 'INVALID_OUTPUT' | 'BUDGET_EXCEEDED',
   ) {
     super(message);
   }
 }
+
+// Teto de gasto por execução (créditos Hostinger). Checado antes de cada chamada; ao estourar, a
+// etapa para com SAFE_STOP. Uma execução autônoma nunca gasta sem limite.
+const budget = { limit: Number.POSITIVE_INFINITY, spent: 0 };
+export function setRunBudget(limitCredits: number): void {
+  budget.limit = limitCredits;
+  budget.spent = 0;
+}
+export const creditsSpent = (): number => budget.spent;
 
 // Chamada única, JSON-in/JSON-out. Saída inválida ganha uma nova tentativa com o erro de validação;
 // se falhar de novo, o estágio para (SAFE_STOP) em vez de seguir com dado ruim.
@@ -57,6 +66,9 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
   let lastProblem = '';
 
   for (let attempt = 1; attempt <= 2; attempt++) {
+    if (budget.spent >= budget.limit) {
+      throw new LlmError(`teto de ${budget.limit} créditos atingido (gasto ${budget.spent.toFixed(1)})`, 'BUDGET_EXCEEDED');
+    }
     const { content, usage: u } = await postWithRetry(fetchImpl, `${base}/chat/completions`, key, {
       model: model.id,
       messages,
@@ -69,6 +81,7 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
     });
     usage.input_tokens += u.input_tokens;
     usage.output_tokens += u.output_tokens;
+    budget.spent += creditsFor(call.role, u);
 
     const parsed = safeParse(content, call.schema);
     if (parsed.ok) return { data: parsed.data, model: model.id, modelName: model.name, usage, attempts: attempt };

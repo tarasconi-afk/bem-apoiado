@@ -1,7 +1,7 @@
 import { parseArgs } from 'node:util';
 import { checkClaim, checkPage, SourceClass, type Violation } from '@bem-apoiado/core';
 import { z } from 'zod';
-import { callJson } from './llm.ts';
+import { callJson, creditsSpent, setRunBudget } from './llm.ts';
 import { MODELS, type Role } from './models.ts';
 import { newRunId } from './runs.ts';
 import { rawIntact, reextract, snapshot } from './snapshot.ts';
@@ -64,7 +64,12 @@ async function main(): Promise<number> {
       return 0;
     }
     case 'research': {
-      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { only: { type: 'string', multiple: true } } });
+      const { positionals, values } = parseArgs({
+        args: rest,
+        allowPositionals: true,
+        options: { only: { type: 'string', multiple: true }, budget: { type: 'string', default: '40' } },
+      });
+      setRunBudget(Number(values.budget));
       const slug = positionals[0];
       if (!slug) {
         console.error('uso: research <slug-da-pauta> [--only src_x ...]');
@@ -77,21 +82,23 @@ async function main(): Promise<number> {
       r.rejected.forEach((x) => byReason.set(x.reason, (byReason.get(x.reason) ?? 0) + 1));
       console.log(
         `run ${runId}: ${r.accepted.length} aceitas, ${r.rejected.length} rejeitadas ${JSON.stringify(Object.fromEntries(byReason))}, ` +
-          `${r.usage.calls} chamadas, tokens ${r.usage.input_tokens}/${r.usage.output_tokens}, erros ${r.errors.length}`,
+          `${r.usage.calls} chamadas, tokens ${r.usage.input_tokens}/${r.usage.output_tokens}, ~${creditsSpent().toFixed(1)} créditos, erros ${r.errors.length}`,
       );
       for (const e of r.errors) console.error(`✗ ${e.source_id}: ${e.error}`);
       return r.errors.length === 0 ? 0 : 1;
     }
     case 'page': {
-      const slug = rest[0];
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '80' } } });
+      const slug = positionals[0];
       if (!slug) {
-        console.error('uso: page <slug-da-pauta>');
+        console.error('uso: page <slug-da-pauta> [--budget créditos]');
         return 2;
       }
+      setRunBudget(Number(values.budget));
       const runId = newRunId(slug);
       const r = await buildPage(slug, runId);
       console.log(
-        `run ${runId}: ${r.status} em ${r.rounds} rodada(s), ${r.usage.calls} chamadas, tokens ${r.usage.input_tokens}/${r.usage.output_tokens}`,
+        `run ${runId}: ${r.status} em ${r.rounds} rodada(s), ${r.usage.calls} chamadas, tokens ${r.usage.input_tokens}/${r.usage.output_tokens}, ~${creditsSpent().toFixed(1)} créditos`,
       );
       if (r.status === 'SAFE_STOP') {
         console.error(`SAFE_STOP ${r.reason}`);

@@ -1,9 +1,9 @@
 ---
 interface Props {
-  ids: string[];
-  order: string[];
+  nums: number[];
 }
-const { ids, order } = Astro.props;
-const nums = ids.map((id) => order.indexOf(id) + 1).filter((n) => n > 0);
+const { nums } = Astro.props;
 ---
-{nums.map((n) => <sup><a href={`#fonte-${n}`}>[{n}]</a></sup>)}
+{nums.length > 0 && (
+  <sup class="cite">{nums.map((n) => <a href={`#fonte-${n}`} aria-label={`Fonte ${n}`}>{n}</a>)}</sup>
+)}

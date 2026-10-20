@@ -93,3 +93,18 @@ describe('callJson: streaming e erros transitórios', () => {
     expect(i).toBe(1);
   });
 });
+
+describe('teto de gasto', () => {
+  it('para antes da chamada quando o teto é atingido', async () => {
+    process.env.NEXOS_API_KEY = 'test-key';
+    const { setRunBudget, creditsSpent } = await import('../src/llm.ts');
+    setRunBudget(0.001);
+    // 1M de tokens de entrada no extrator = 100 créditos: estoura o teto na primeira chamada.
+    const f: FetchLike = async () =>
+      new Response(JSON.stringify({ choices: [{ message: { content: '{"answer":"ok","n":1}' } }], usage: { prompt_tokens: 1_000_000, completion_tokens: 0 } }));
+    await callJson(call, f);
+    expect(creditsSpent()).toBeCloseTo(100);
+    await expect(callJson(call, f)).rejects.toMatchObject({ code: 'BUDGET_EXCEEDED' });
+    setRunBudget(Number.POSITIVE_INFINITY);
+  });
+});

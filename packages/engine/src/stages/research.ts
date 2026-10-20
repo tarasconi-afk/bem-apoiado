@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { Claim, ClaimType, checkClaim, normalizeForMatch, TopicBrief, type Source } from '@bem-apoiado/core';
-import { callJson, type FetchLike } from '../llm.ts';
+import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { buildIndex, CLAIMS_DIR, DATA, sourceText, writeJson } from '../store.ts';
 import { writeStage } from '../runs.ts';
 
@@ -105,7 +105,7 @@ export async function research(slug: string, runId: string, fetchImpl?: FetchLik
     }
   }
   report.unanswered = qIds.filter((q) => report.coverage[q] === 0);
-  writeStage(runId, 'research', report);
+  writeStage(runId, 'research', { ...report, credits: creditsSpent() });
   return report;
 }
 

@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cite from '../components/Cite.astro';
-import { footnotesFor, publicPages } from '../lib/content';
+import { fmtDate, footnotesFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -9,52 +9,135 @@ export function getStaticPaths() {
 }
 
 const { page } = Astro.props as { page: PageSpec };
-const notes = footnotesFor(page);
-const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+const fn = footnotesFor(page);
+const n = fn.numberFor;
+const isDecision = (id: string, heading: string) => /decidir|escolher/i.test(id + ' ' + heading);
+const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page.page_type === 'buying_guide' ? 'Guia de compra' : 'Explicação';
 ---
 <Base title={page.title} description={page.description} noindex={page.status !== 'published'}>
-  <article>
-    <h1>{page.title}</h1>
-    <p class="muted">Atualizado em {fmtDate(page.updated_at)}</p>
-    <div class="verdict"><strong>Resposta curta:</strong> {page.verdict.text}<Cite ids={page.verdict.claim_ids} order={notes.order} /></div>
+  <article class="article">
+    <header class="article-head">
+      <p class="kicker">{kicker} · Colchões</p>
+      <h1>{page.title}</h1>
+      <p class="meta">
+        Atualizado em {fmtDate(page.updated_at)} · {fn.notes.length} fontes consultadas · {readingMinutes(page)} min de leitura
+      </p>
+    </header>
+
+    <aside class="verdict" aria-label="Resposta curta">
+      <p class="verdict-label">Resposta curta</p>
+      <p>{page.verdict.text}<Cite nums={n(page.verdict.claim_ids)} /></p>
+    </aside>
+
+    <nav class="toc" aria-label="Nesta página">
+      <p class="toc-label">Nesta página</p>
+      <ol>{page.sections.map((s) => <li><a href={`#${s.id}`}>{s.heading}</a></li>)}</ol>
+    </nav>
 
     {page.sections.map((s) => (
-      <section id={s.id}>
+      <section id={s.id} class={isDecision(s.id, s.heading) ? 'decide' : undefined}>
         <h2>{s.heading}</h2>
         {s.blocks.map((b) =>
           b.kind === 'table' ? (
-            <table>
-              <caption class="muted">{b.caption}</caption>
-              <thead><tr>{b.columns.map((c) => <th>{c}</th>)}</tr></thead>
-              <tbody>
-                {b.rows.map((r) => (
-                  <tr>{r.cells.map((c) => <td>{c.text}<Cite ids={c.claim_ids} order={notes.order} /></td>)}</tr>
-                ))}
-              </tbody>
-            </table>
+            <figure class="table-wrap">
+              <div class="table-scroll" tabindex="0">
+                <table>
+                  <thead><tr>{b.columns.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+                  <tbody>
+                    {b.rows.map((r) => (
+                      <tr>
+                        {r.cells.map((c, ci) =>
+                          ci === 0 ? <th scope="row">{c.text}<Cite nums={n(c.claim_ids)} /></th> : <td>{c.text}<Cite nums={n(c.claim_ids)} /></td>,
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <figcaption>{b.caption}</figcaption>
+            </figure>
           ) : b.kind === 'callout' ? (
-            <p class={`callout ${b.tone}`}>{b.text}<Cite ids={b.claim_ids} order={notes.order} /></p>
+            <p class={`callout ${b.tone}`}>{b.text}<Cite nums={n(b.claim_ids)} /></p>
+          ) : isDecision(s.id, s.heading) && b.basis !== 'framing' ? (
+            <p class="check">{b.text}<Cite nums={n(b.claim_ids)} /></p>
           ) : (
-            <p>{b.text}<Cite ids={b.claim_ids} order={notes.order} /></p>
+            <p class={b.basis === 'framing' ? 'lead' : undefined}>{b.text}<Cite nums={n(b.claim_ids)} /></p>
           ),
         )}
       </section>
     ))}
 
-    <section id="fontes">
-      <h2>Fontes</h2>
+    <details id="fontes" class="sources">
+      <summary>Fontes consultadas ({fn.notes.length}) e trechos citados</summary>
+      <p class="sources-note">
+        Cada número no texto aponta para uma fonte abaixo. Mostramos o trecho exato que usamos de cada uma; uma cópia de cada documento foi arquivada na data da consulta.
+      </p>
       <ol>
-        {notes.order.map((id, i) => {
-          const c = notes.claims.get(id);
-          const s = c ? notes.sources.get(c.source_id) : undefined;
-          return (
-            <li id={`fonte-${i + 1}`}>
-              {s ? <a href={s.final_url} rel="nofollow noopener">{s.publisher}{s.title ? ` — ${s.title}` : ''}</a> : id}
-              {c && <span class="muted"> · trecho: “{c.quote}” · consultado em {fmtDate(c.captured_at)}</span>}
-            </li>
-          );
-        })}
+        {fn.notes.map((note) => (
+          <li id={`fonte-${note.n}`}>
+            <a href={note.source.final_url} rel="nofollow noopener" target="_blank">{note.source.publisher}{note.source.title ? `: ${note.source.title.replace(/\s+—\s+.*$/, '')}` : ''}</a>
+            <span class="src-meta">{note.source.source_class === 'regulator' ? 'Órgão regulador' : note.source.source_class === 'manufacturer' ? 'Fabricante' : 'Fonte'} · consultado em {fmtDate(note.source.fetched_at)}</span>
+            <ul>{note.claims.map((c) => <li><q>{c.quote}</q></li>)}</ul>
+          </li>
+        ))}
       </ol>
-    </section>
+    </details>
   </article>
+
+  <script is:inline>
+    // Único JS do site: abrir o bloco de fontes quando o leitor clica numa citação.
+    function abrirFontes() { if (location.hash.startsWith('#fonte-')) { const d = document.getElementById('fontes'); if (d) d.open = true; const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); } }
+    window.addEventListener('hashchange', abrirFontes); abrirFontes();
+  </script>
 </Base>
+
+<style>
+  .article-head { padding-top: 2.2rem; }
+  .kicker { margin: 0; color: var(--accent); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+  .verdict { margin: 1.8rem 0; padding: 1.1rem 1.25rem; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; }
+  .verdict p { margin: 0; font-size: 1.08rem; }
+  .verdict .verdict-label { font: 600 0.78rem/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.55rem; }
+
+  .toc { margin: 0 0 1rem; padding: 0.9rem 1.1rem; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+  .toc-label { margin: 0 0 0.35rem; font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+  .toc ol { margin: 0; padding-left: 1.2rem; }
+  .toc li { margin: 0.15rem 0; }
+  .toc a { text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .lead { color: var(--muted); font-style: italic; }
+
+  .cite { margin-left: 0.15rem; white-space: nowrap; line-height: 0; }
+  .cite a { display: inline-block; min-width: 1.15rem; padding: 0 0.28rem; margin-left: 0.12rem; border-radius: 999px; background: var(--accent-soft); font: 600 0.68rem/1.15rem var(--sans); text-align: center; text-decoration: none; vertical-align: super; }
+  .cite a:hover { background: var(--accent); color: #fff; }
+
+  .table-wrap { margin: 1.6rem 0; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+  table { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: 0.92rem; line-height: 1.5; }
+  th, td { padding: 0.7rem 0.8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  thead th { background: #f2efe8; font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+  tbody th { font-weight: 600; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+  figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.85rem; }
+
+  .callout { padding: 0.9rem 1.1rem; border-radius: 10px; background: var(--accent-soft); }
+  .callout.warning { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+
+  .decide { margin-top: 2.6rem; padding: 0.2rem 1.25rem 0.6rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .decide h2 { margin-top: 1.2rem; }
+  .check { position: relative; padding-left: 1.9rem; }
+  .check::before { content: ''; position: absolute; left: 0; top: 0.35rem; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/0.8rem no-repeat; }
+
+  .sources { margin-top: 3rem; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+  .sources summary { cursor: pointer; padding: 0.95rem 1.1rem; font-weight: 600; list-style-position: inside; }
+  .sources[open] summary { border-bottom: 1px solid var(--line); }
+  .sources-note { padding: 0.9rem 1.1rem 0; margin: 0; color: var(--muted); font-size: 0.88rem; }
+  .sources > ol { margin: 0; padding: 0.8rem 1.1rem 1rem 2.4rem; font-size: 0.92rem; }
+  .sources > ol > li { margin-bottom: 1rem; scroll-margin-top: 1rem; }
+  .sources > ol > li:target { background: var(--accent-soft); border-radius: 6px; }
+  .src-meta { display: block; color: var(--muted); font-size: 0.82rem; }
+  .sources ul { margin: 0.35rem 0 0; padding-left: 1rem; color: var(--muted); }
+  .sources q { font-style: italic; }
+</style>

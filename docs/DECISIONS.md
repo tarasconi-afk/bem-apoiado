@@ -51,3 +51,11 @@ conteúdo, convergiu 12→1→2→0. Reescrita completa só para problema de pá
 
 ## 2026-10-20 — Streaming obrigatório
 O redator passa de 100 s e a Cloudflare do roteador devolve 524. Com `stream: true` o problema some.
+
+## 2026-10-20 — Custo: unidade errada e teto por execução
+O preço da lista de modelos do painel está em créditos nexos; o saldo e o extrato estão em créditos
+Hostinger (1 nexos = 100 Hostinger). A estimativa de "1,5 crédito/página" estava 100x abaixo: cada
+chamada do redator Opus 5 custava ~40–50 créditos Hostinger e a depuração da 1ª página consumiu ~850.
+Medidas: redator passou a ser Sonnet 5 (2,5x mais barato), `price` em créditos Hostinger em
+`models.ts`, custo gravado em cada run e teto por execução (`--budget`, padrão 80 por página e 40 por
+pesquisa) que para em SAFE_STOP antes de estourar.
