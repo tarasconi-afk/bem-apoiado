@@ -28,7 +28,10 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [x] etapa `products` (ficha do fabricante → mesmo modelo na Amazon via Tavily → identidade conferida: marca/modelo
       literais + mesma densidade + Jev; só especificação que não depende do tamanho). 1º teste: 0 produtos, recusas
       corretas (anúncios Probel na Amazon são outras versões: D20 vs D28/D33, linhas com outro nome)
-- [ ] estratégia inversa: partir dos anúncios da Amazon de um tipo e achar a ficha oficial de cada um
+- [x] estratégia inversa (`products <slug>`, padrão): anúncios da Amazon por tipo → marca no cadastro → ficha oficial
+      no site do fabricante → mesmas travas (função única confirmAndRegister). 1º teste (15 anúncios): 0 produtos;
+      gargalo é COBERTURA de fontes (marcas fora do cadastro, apelidos como Lucas Home=Ortobom, sites de fabricante
+      que bloqueiam ou que a busca não alcança), não erro de identidade
 - [ ] (antigo) popular o catálogo: busca já existe; falta a etapa que acha a ficha OFICIAL (a busca devolve
       Instagram/YouTube/Buscapé antes do fabricante; Emma recusa conexão; Ortobom carrega produtos por JS)
 - [x] hospedagem Hostinger (Business u226814741): https://darkslategrey-rail-669974.hostingersite.com via GitHub Action → ramo deploy (plano B manual: `npm run deploy:hostinger`)
