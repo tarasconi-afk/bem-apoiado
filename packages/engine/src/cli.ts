@@ -9,6 +9,7 @@ import { discoverSources } from './stages/discover.ts';
 import { improveTopic } from './stages/improve.ts';
 import { planTopic } from './stages/plan.ts';
 import { bootstrapNiche } from './stages/bootstrap.ts';
+import { runCycle } from './stages/autopilot.ts';
 import { editPage } from './stages/edit.ts';
 import { buildPage } from './stages/page.ts';
 import { reviewPage } from './stages/review.ts';
@@ -243,6 +244,15 @@ async function main(): Promise<number> {
       for (const m of report.maker_checks.filter((x) => !x.ok)) console.log(`  fabricante não conferido: ${m.brand} ${m.domain} (${m.why})`);
       console.log(`  ${report.rejected.length} domínios rejeitados; ~${report.llm_credits.toFixed(1)} créditos; Tavily no mês: ${report.tavily_credits_month}`);
       return 0;
+    }
+    case 'autopilot': {
+      const { values } = parseArgs({ args: rest, options: { budget: { type: 'string', default: '120' } } });
+      setRunBudget(Number(values.budget));
+      const runId = newRunId('autopilot');
+      const r = await runCycle(runId);
+      console.log(JSON.stringify({ status: r.status, slug: r.slug, credits: Number(r.credits.toFixed(1)), steps: r.steps }));
+      // 0 = há algo para virar PR; 3 = nada a fazer (o script não abre PR)
+      return r.status === 'PAGE_APPROVED' || r.status === 'PAGE_DRAFT' || r.status === 'STOPPED' ? 0 : 3;
     }
     case 'status': {
       const { values } = parseArgs({ args: rest, options: { out: { type: 'string' } } });

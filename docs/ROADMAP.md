@@ -51,7 +51,10 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
       do órgão; fabricantes conferidos acessando o site). Testado com "brinquedos": Inmetro, Falcão Bauer, 7 fabricantes
 - [x] `plan "<dúvida>"`: pauta gerada pelo motor (perguntas respondíveis por fonte primária, termos de foco, tipos de
       produto do nicho), evitando lacunas que o histórico mostrou sem resposta. Testado: "travesseiro alto ou baixo"
-- [ ] agendamento na VPS + envio da página como PR
+- [x] piloto automático: fila (data/queue.json) → `autopilot` (plan→discover→research→page→improve/edit) →
+      scripts/cycle.sh na VPS (git por código, ramo pagina/*) → Action testa + gate + abre PR. Tetos: ciclo 120,
+      dia 150 créditos, Tavily 1.400/mês; trava contra ciclos simultâneos
+- [ ] timer diário ligado após o 1º ciclo manual validado
 - [ ] gerar as perguntas da pauta automaticamente a partir da dúvida principal
 Admin próprio na VPS (pautas, disparo/pausa, teto de gasto, aprovação), sem depender do Claude.
 discover automático (autocomplete + Planner exportado, depois Search Console), fila de pautas,

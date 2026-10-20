@@ -1,0 +1,35 @@
+# Ramo pagina/* enviado pelo motor na VPS → testes + gate de evidências → abre PR para o main.
+# (PR aberto pelo GITHUB_TOKEN não dispara outros workflows; por isso a checagem roda aqui.)
+name: pr-do-motor
+on:
+  push:
+    branches: ['pagina/**']
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  checar-e-abrir-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - name: Gate de evidências + build
+        run: npm run build
+      - name: Abrir PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(gh pr list --head "$GITHUB_REF_NAME" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --base main --head "$GITHUB_REF_NAME" \
+              --title "$(git log -1 --format=%s)" \
+              --body "$(git log -1 --format=%b)
+
+          ---
+          ✅ Testes, typecheck e gate de evidências passaram neste ramo. Merge = publicar (se a página estiver aprovada)."
+          fi
