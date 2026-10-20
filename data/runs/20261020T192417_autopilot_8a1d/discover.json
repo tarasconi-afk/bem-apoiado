@@ -1,0 +1,311 @@
+{
+  "run_id": "20261020T192417_autopilot_8a1d",
+  "topic": "travesseiro-alto-ou-baixo",
+  "queries": [
+    {
+      "q": "travesseiro altura centímetros especificação técnica ficha inmetro",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "ABNT NBR travesseiro norma técnica dimensões material",
+      "include_domains": [
+        "abnt.org.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "travesseiro alto médio baixo altura densidade fibra espuma látex site:probel.com.br OR site:ortobom.com.br OR site:simmons.com.br",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "simmons.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "ficha técnica travesseiro manual uso cuidados vida útil fabricante",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "blog.probel.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "Inmetro travesseiro certificação selo regulação compulsória",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "travesseiro posição dormir lateral costas bruços recomendação fabricante",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "simmons.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "Inmetro travesseiro o que não avalia propriedades terapêuticas",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "norma ABNT travesseiro especificações técnicas requisitos",
+      "include_domains": [
+        "abnt.org.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_4260f4e0bd26",
+      "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/produtos-texteis/travesseiro-e-um-produto-textil-quais-informacoes-deve-apresentar-obrigatoriamente",
+      "publisher": "Inmetro",
+      "source_class": "regulator",
+      "created": true
+    },
+    {
+      "source_id": "src_99fdb6e524a8",
+      "url": "https://simmons.com.br/blog/post/escolha-travesseiro-ideal-dicas-sono-tranquilas.html",
+      "publisher": "Simmons",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_df6a42aebc7c",
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-viscopur/3472",
+      "publisher": "Ortobom",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_48d8e0abd474",
+      "url": "https://www.probel.com.br/travesseiro-probel-life-espuma-d15-firme-12cm-alt/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_2eb2a80e8e89",
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-conforto-regulavel/7027",
+      "publisher": "Ortobom",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_e4842e0200e8",
+      "url": "https://www.probel.com.br/travesseiro-probel-realizacoes-hiper-soft-extra-macio-14cm-alt/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_c4120cbcfd9c",
+      "url": "https://www.probel.com.br/travesseiro-nasa-probel-paz-viscoelastico-d30-firme-12cm-alt/p?idsku=2388",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 2,
+  "suggestions": [
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/83108357000115/compras/2025/219/arquivos/1",
+      "title": "Capa Licitação"
+    },
+    {
+      "host": "venus.maringa.pr.gov.br",
+      "url": "https://venus.maringa.pr.gov.br/arquivos/orgao_oficial/arquivos/oom%201883.pdf",
+      "title": "DO MUNICÍPIO"
+    },
+    {
+      "host": "www.cpsmbrejosanto.ce.gov.br",
+      "url": "https://www.cpsmbrejosanto.ce.gov.br/arquivos_download/licitacao/84/182",
+      "title": "TERMO DE REFERÊNCIA (TR)"
+    },
+    {
+      "host": "www.licitacao.maceio.al.gov.br",
+      "url": "https://www.licitacao.maceio.al.gov.br/visualizar/3047/esclarecimento/7464",
+      "title": "Pregão Eletrônico Nº 225/2023"
+    },
+    {
+      "host": "tamarana.pr.gov.br",
+      "url": "https://tamarana.pr.gov.br/uploads/licitacoes/pedido-de-impugnacao_2506211624639650.pdf",
+      "title": "ilustríssimo senhor presidente da comissão de licitação da"
+    }
+  ],
+  "snapshot_errors": [
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=007772%2F2024",
+      "error": "Texto extraído curto demais (59): página dinâmica ou bloqueio em https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=007772%2F2024"
+    }
+  ],
+  "tavily_credits_month": 35,
+  "triage": [
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "p_useful": 0.1,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002621.pdf",
+      "p_useful": 0.06,
+      "keep": false
+    },
+    {
+      "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/produtos-texteis/travesseiro-e-um-produto-textil-quais-informacoes-deve-apresentar-obrigatoriamente",
+      "p_useful": 0.62,
+      "keep": true
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=007772%2F2024",
+      "p_useful": 0.97,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/qualidade/rtepac/compulsorios.asp",
+      "p_useful": 0.17,
+      "keep": false
+    },
+    {
+      "url": "https://registro.inmetro.gov.br/consulta/detalhe.aspx?pag=1&NumeroRegistro=008250%2F2024",
+      "p_useful": 0.06,
+      "keep": false
+    },
+    {
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-sonho/3483",
+      "p_useful": 0.46,
+      "keep": false
+    },
+    {
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-viscopur/3472",
+      "p_useful": 0.74,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br/travesseiro-pro-latex-gel/p",
+      "p_useful": 0.48,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/travesseiro",
+      "p_useful": 0.03,
+      "keep": false
+    },
+    {
+      "url": "https://www.ortobom.com.br/colchaoideal",
+      "p_useful": 0.01,
+      "keep": false
+    },
+    {
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-conforto-regulavel/7027",
+      "p_useful": 0.6,
+      "keep": true
+    },
+    {
+      "url": "https://cdn.ortobom.com.br/file/b094f962-936c-4f52-8607-ddbcfb7d3ff5/MANUAL%20DO%20SONO%20FRANQUIA%202.2024-otimizado.pdf",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.ortobom.com.br/cat/travesseiros",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/travesseiro-probel-life-espuma-d15-firme-12cm-alt/p",
+      "p_useful": 0.98,
+      "keep": true
+    },
+    {
+      "url": "https://ortobom.com.br/concept",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/travesseiro-probel-realizacoes-hiper-soft-extra-macio-14cm-alt/p",
+      "p_useful": 0.7,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.ortobom.com.br/Kit/24259901",
+      "p_useful": 0.03,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/travesseiro-nasa-probel-paz-viscoelastico-d30-firme-12cm-alt/p?idsku=2388",
+      "p_useful": 0.57,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/noticias/conteudo/PT-Inmetro-n-121-2015.pdf",
+      "p_useful": 0.01,
+      "keep": false
+    },
+    {
+      "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/aparelhos-eletrodomesticos-e-similares/quais-eletrodomesticos-estao-no-escopo-da-portaria-inmetro-ndeg-148-de-2022",
+      "p_useful": 0.45,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/escolha-travesseiro-ideal-dicas-sono-tranquilas.html",
+      "p_useful": 0.79,
+      "keep": true
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/historia-importancia-travesseiro.html",
+      "p_useful": 0.02,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/grupo-emporio-dos-colchoes",
+      "p_useful": 0.01,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/encontre-seu-colchao-simmons-teste-do-teste",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/travesseiros-latex.html",
+      "p_useful": 0.01,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/dores-costas.html",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/niveis-conforto-colchoes.html",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/travesseiros.html",
+      "p_useful": 0,
+      "keep": false
+    }
+  ],
+  "llm_credits": 0.47328100000000006
+}
