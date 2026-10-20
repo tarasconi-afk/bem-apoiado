@@ -1,0 +1,194 @@
+{
+  "run_id": "20261020T192417_autopilot_8a1d",
+  "topic": "travesseiro-alto-ou-baixo",
+  "accepted": [
+    {
+      "claim_id": "clm_abc7525d8d39",
+      "question_id": "q_norma_abnt_travesseiro",
+      "source_id": "src_4260f4e0bd26",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f694018a6d7d",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_df6a42aebc7c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_803f3600bc44",
+      "question_id": "q_certificacao_selo_embalagem",
+      "source_id": "src_df6a42aebc7c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a6049d2b0afc",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_48d8e0abd474",
+      "new": true
+    },
+    {
+      "claim_id": "clm_91c0d608633f",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_2eb2a80e8e89",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d302c7e983e4",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "source_id": "src_2eb2a80e8e89",
+      "new": true
+    },
+    {
+      "claim_id": "clm_34ee745b5e83",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_2eb2a80e8e89",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4ced7397af94",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_e4842e0200e8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dd20077595d3",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_e4842e0200e8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_00d6af4af280",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_e4842e0200e8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9feca00257ff",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_c4120cbcfd9c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_98705e0362ce",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_c4120cbcfd9c",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_df6a42aebc7c",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Composição do produto: Revestimento: tecido 100% algodão enchimento: espuma viscoelástica 100% poliuretano."
+    },
+    {
+      "source_id": "src_df6a42aebc7c",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Instruções de cuidado: Proibido lavagem, proibido alvejamento, permitido secagem na horizontal à sombra, proibido passadoria, permitido limpeza a úmido profissional muito suave."
+    },
+    {
+      "source_id": "src_48d8e0abd474",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma\nDensidade Espuma: D15"
+    },
+    {
+      "source_id": "src_48d8e0abd474",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Lado"
+    },
+    {
+      "source_id": "src_e4842e0200e8",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Densidade Espuma: D24 Hiper Soft"
+    },
+    {
+      "source_id": "src_e4842e0200e8",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma"
+    },
+    {
+      "source_id": "src_e4842e0200e8",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Bruços ou Frente"
+    },
+    {
+      "source_id": "src_c4120cbcfd9c",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Viscoelástico\nDensidade Espuma: D30"
+    },
+    {
+      "source_id": "src_c4120cbcfd9c",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Bruços ou Frente"
+    }
+  ],
+  "coverage": {
+    "q_altura_declarada_fabricante": 3,
+    "q_ficha_tecnica_material": 2,
+    "q_norma_abnt_travesseiro": 1,
+    "q_recomendacao_fabricante_posicao": 4,
+    "q_informacao_etiqueta_cuidados": 1,
+    "q_certificacao_selo_embalagem": 1,
+    "q_inmetro_nao_avalia": 0
+  },
+  "unanswered": [
+    "q_inmetro_nao_avalia"
+  ],
+  "usage": {
+    "input_tokens": 11912,
+    "output_tokens": 2536,
+    "calls": 6
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_99fdb6e524a8"
+  ],
+  "triage": [
+    {
+      "source_id": "src_4260f4e0bd26",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.72
+    },
+    {
+      "source_id": "src_df6a42aebc7c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.89
+    },
+    {
+      "source_id": "src_48d8e0abd474",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_2eb2a80e8e89",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_e4842e0200e8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_c4120cbcfd9c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 2.9693192
+}

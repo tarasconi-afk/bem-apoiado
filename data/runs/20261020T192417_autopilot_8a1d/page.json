@@ -1,0 +1,47 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 51295,
+    "output_tokens": 26784,
+    "calls": 18
+  },
+  "credits": 50.0089192,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "filler_refs": [
+      "verdict",
+      "alturas-declaradas-pelos-fabricantes#0",
+      "alturas-declaradas-pelos-fabricantes#5",
+      "normas-e-certificacao#1",
+      "normas-e-certificacao#3",
+      "altura-e-posicao-para-dormir#0",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Para quem dorme de costas ou de bruços, a página cita um modelo de altura média indicado pelo fabricante para essas posições.",
+      "Para alternar entre dormir de lado, de costas e de bruços, a página cita um modelo regulável indicado pelo fabricante para todas essas posições.",
+      "Se o comprador já conhece sua altura preferida, deve comparar a medida declarada na ficha técnica; os exemplos apresentados têm 12 cm e 14 cm.",
+      "Para distinguir o enchimento, deve conferir a composição da ficha ou etiqueta, procurando indicações como espuma ou fibra siliconada.",
+      "No modelo com instruções reproduzidas, a lavagem deve ser feita a até 40 °C em processo suave, sem alvejante; a secagem em tambor pode ocorrer até 60 °C, e não se deve passar nem lavar a seco.",
+      "Para questões de dor cervical, ronco ou postura, a página orienta buscar um profissional de saúde em vez de escolher o travesseiro por alegações terapêuticas."
+    ],
+    "missing": [
+      "Declarações oficiais que relacionem explicitamente as categorias alto, médio e baixo a medidas em centímetros, com identificação dos respectivos modelos.",
+      "Orientação oficial que permita escolher entre travesseiro alto e baixo conforme a posição de dormir; o texto não informa a altura do produto indicado para dormir de lado e não identifica como alto ou baixo o produto recomendado para costas ou bruços.",
+      "Fichas técnicas ou etiquetas com valores numéricos de densidade para espumas e especificações comparáveis dos demais enchimentos.",
+      "Fonte primária esclarecendo se existe norma ABNT com requisitos técnicos ou dimensionais específicos para travesseiros.",
+      "Explicação do conteúdo e das exigências aplicáveis da Portaria Inmetro nº 118/2021, em vez de apenas citar sua existência.",
+      "Declaração explícita do Inmetro sobre o que não é avaliado em travesseiros, especialmente propriedades terapêuticas, ergonômicas ou posturais.",
+      "Informações oficiais sobre certificações, selos de qualidade ou conformidade e o significado de eventual “Código Inmetro”.",
+      "Instruções de uso, conservação e vida útil recomendada para os modelos citados, além das regras de lavagem de apenas um produto.",
+      "Identificação clara de cada modelo associado às alturas de 12 cm e 14 cm e às recomendações de posição de dormir."
+    ],
+    "publishable": false,
+    "summary": "A página reúne medidas, materiais, cuidados e algumas indicações de posição de dormir, mas não resolve a escolha central entre travesseiro alto e baixo. Ela não relaciona de forma clara as alturas de 12 cm e 14 cm às categorias alto, médio ou baixo, nem oferece um critério aplicável a quem dorme de lado. Também deixa sem resposta partes relevantes da pauta sobre densidade, normas dimensionais, certificações, vida útil e os limites explícitos da avaliação do Inmetro. Há orientação prática pontual, mas ainda insuficiente para publicação como resposta à busca principal.",
+    "filler_ratio": 0.2962962962962963,
+    "model_opinion": false
+  }
+}

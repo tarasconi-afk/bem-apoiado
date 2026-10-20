@@ -1,0 +1,240 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram alturas declaradas pela Probel, a classificação de “altura média” usada pela Ortobom e a classificação do travesseiro como produto têxtil pelo Inmetro. Eles não dizem que inexiste um padrão de centímetros comum entre marcas nem que a norma deixa de tratar de desempenho postural.",
+      "fix": "Nas páginas citadas, a Probel declara alturas de 12 cm e 14 cm, enquanto a Ortobom descreve o Viscopur como de “altura média”. O Inmetro classifica o travesseiro como produto têxtil sujeito à Portaria Inmetro nº 118/2021."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" afirma como fato que cada fabricante adota seu próprio modo de medir e nomear travesseiros, sem citar evidências.",
+      "fix": "Antes de comparar os números declarados nas fichas citadas, veja como cada produto é descrito."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram duas declarações de 12 cm da Probel, mas, isoladamente, não identificam os produtos nem comprovam que sejam dois travesseiros distintos ou que venham de fichas técnicas diferentes.",
+      "fix": "Em dois trechos citados da Probel, a altura declarada é de 12 cm."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho chama o travesseiro de \"altura média\", mas não comprova que a página inteira deixe de informar um valor em centímetros.",
+      "fix": "A Ortobom, por sua vez, descreve o travesseiro Viscopur como de altura média; o trecho citado não apresenta um valor em centímetros."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#4.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#4.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#4.r2",
+      "verdict": "OVERSTATED",
+      "problem": "A Ortobom declara \"altura média\", mas o trecho não demonstra que nenhum valor em centímetros seja informado na página ou ficha completa.",
+      "fix": "Altura declarada no trecho: altura média | Fabricante: Ortobom"
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#5",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos apresentam valores de 14 cm e 12 cm da Probel e a expressão \"altura média\" da Ortobom, mas não estabelecem faixas para \"alto\", \"médio\" e \"baixo\", não demonstram a inexistência de um padrão entre marcas e não dizem que cada fabricante define uma faixa própria por modelo.",
+      "fix": "Nos trechos citados, a Probel informa alturas em centímetros, enquanto a Ortobom descreve um modelo como de \"altura média\"."
+    },
+    {
+      "ref": "material-de-enchimento#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" afirma fatos sobre a variação do material interno entre travesseiros e sua presença na ficha técnica, sem evidências citadas.",
+      "fix": "Além da altura, vale conferir o material interno informado na ficha técnica."
+    },
+    {
+      "ref": "material-de-enchimento#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que a espuma \"se molda delicadamente\", mas não especifica que ela se molda ao formato da cabeça.",
+      "fix": "Segundo a Probel, um de seus travesseiros usa espuma macia e de alta resiliência, com toque extra suave, que se molda delicadamente."
+    },
+    {
+      "ref": "material-de-enchimento#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-de-enchimento#3",
+      "verdict": "OVERSTATED",
+      "problem": "O único trecho citado permite observar que essa descrição da Probel usa termos qualitativos e não apresenta densidade numérica, mas não sustenta a generalização sobre nenhuma das fichas analisadas.",
+      "fix": "Na ficha citada da Probel, não aparece um valor numérico de densidade do enchimento; aparecem descrições qualitativas, como \"macia\" e \"alta resiliência\"."
+    },
+    {
+      "ref": "normas-e-certificacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-e-certificacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho apenas afirma que travesseiros devem atender ao regulamento; ele não informa se há ou não exigências dimensionais específicas.",
+      "fix": "Segundo o Inmetro, o travesseiro é classificado como produto têxtil e deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021."
+    },
+    {
+      "ref": "normas-e-certificacao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta somente que a Ortobom usa a expressão “Código Inmetro”. Não diz que ela aparece na ficha do produto nem que a página deixa de detalhar a certificação a que o código se refere.",
+      "fix": "Uma página da Ortobom menciona a expressão “Código Inmetro”."
+    },
+    {
+      "ref": "normas-e-certificacao#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "A simples menção a “Código Inmetro” por um fabricante não sustenta as orientações de conferir a etiqueta, procurar um número de identificação do Inmetro ou consultar o fabricante sobre sua abrangência.",
+      "fix": "Um fabricante menciona a expressão “Código Inmetro”."
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" afirma como fato que a relação é descrita nas páginas dos fabricantes e que se trata de informação comercial, sem citar evidências.",
+      "fix": "Altura do travesseiro e posição de dormir"
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#4",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis \"framing\" afirma como fatos que as indicações são descrições comerciais dos fabricantes e que não possuem validação técnica independente, sem apresentar evidências. A orientação para procurar um profissional de saúde é permitida.",
+      "fix": "Para dor cervical, ronco ou outras questões posturais, procure um profissional de saúde."
+    },
+    {
+      "ref": "cuidados-e-forma-de-uso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram apenas alturas de 12 cm e 14 cm em produtos da Probel. Eles não dizem que os valores variam entre fabricantes nem que a altura consta na etiqueta.",
+      "fix": "Se você já sabe que prefere travesseiros baixos ou altos, confira a altura informada antes de comprar; nos exemplos citados, há opções de 12 cm e 14 cm."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que as composições podem mencionar espuma ou fibra siliconada, mas não afirmam que cada fabricante descreve a composição de forma própria nem que não existe padronização numérica de densidade.",
+      "fix": "Se quiser saber o material interno, procure na composição termos como espuma ou fibra siliconada."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O Inmetro afirma que travesseiros são produtos têxteis sujeitos à Portaria nº 118/2021, mas nenhum trecho diz que a presença de um “Código Inmetro” indica conformidade com essa regulamentação.",
+      "fix": "Travesseiros são classificados pelo Inmetro como produtos têxteis e devem atender às exigências da Portaria Inmetro nº 118/2021. Se o anúncio mencionar “Código Inmetro”, consulte o fabricante para saber a que o código se refere."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco com basis “framing” introduz, sem trechos citados, uma relação entre dor cervical, ronco ou desconforto e a postura ao dormir.",
+      "fix": "Em caso de dor, ronco ou outras dúvidas de saúde, procure orientação de um profissional de saúde."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram alturas declaradas pela Probel, a classificação de “altura média” usada pela Ortobom e a classificação do travesseiro como produto têxtil pelo Inmetro. Eles não dizem que inexiste um padrão de centímetros comum entre marcas nem que a norma deixa de tratar de desempenho postural. Versão sustentável: Nas páginas citadas, a Probel declara alturas de 12 cm e 14 cm, enquanto a Ortobom descreve o Viscopur como de “altura média”. O Inmetro classifica o travesseiro como produto têxtil sujeito à Portaria Inmetro nº 118/2021."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#0",
+      "msg": "FACT_IN_FRAMING. O bloco com basis \"framing\" afirma como fato que cada fabricante adota seu próprio modo de medir e nomear travesseiros, sem citar evidências. Versão sustentável: Antes de comparar os números declarados nas fichas citadas, veja como cada produto é descrito."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#2",
+      "msg": "OVERSTATED. Os trechos mostram duas declarações de 12 cm da Probel, mas, isoladamente, não identificam os produtos nem comprovam que sejam dois travesseiros distintos ou que venham de fichas técnicas diferentes. Versão sustentável: Em dois trechos citados da Probel, a altura declarada é de 12 cm."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#3",
+      "msg": "OVERSTATED. O trecho chama o travesseiro de \"altura média\", mas não comprova que a página inteira deixe de informar um valor em centímetros. Versão sustentável: A Ortobom, por sua vez, descreve o travesseiro Viscopur como de altura média; o trecho citado não apresenta um valor em centímetros."
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#4.r2",
+      "msg": "OVERSTATED. A Ortobom declara \"altura média\", mas o trecho não demonstra que nenhum valor em centímetros seja informado na página ou ficha completa. Versão sustentável: Altura declarada no trecho: altura média | Fabricante: Ortobom"
+    },
+    {
+      "ref": "alturas-declaradas-pelos-fabricantes#5",
+      "msg": "OVERSTATED. Os trechos apresentam valores de 14 cm e 12 cm da Probel e a expressão \"altura média\" da Ortobom, mas não estabelecem faixas para \"alto\", \"médio\" e \"baixo\", não demonstram a inexistência de um padrão entre marcas e não dizem que cada fabricante define uma faixa própria por modelo. Versão sustentável: Nos trechos citados, a Probel informa alturas em centímetros, enquanto a Ortobom descreve um modelo como de \"altura média\"."
+    },
+    {
+      "ref": "material-de-enchimento#0",
+      "msg": "FACT_IN_FRAMING. O bloco com basis \"framing\" afirma fatos sobre a variação do material interno entre travesseiros e sua presença na ficha técnica, sem evidências citadas. Versão sustentável: Além da altura, vale conferir o material interno informado na ficha técnica."
+    },
+    {
+      "ref": "material-de-enchimento#1",
+      "msg": "OVERSTATED. O trecho diz que a espuma \"se molda delicadamente\", mas não especifica que ela se molda ao formato da cabeça. Versão sustentável: Segundo a Probel, um de seus travesseiros usa espuma macia e de alta resiliência, com toque extra suave, que se molda delicadamente."
+    },
+    {
+      "ref": "material-de-enchimento#3",
+      "msg": "OVERSTATED. O único trecho citado permite observar que essa descrição da Probel usa termos qualitativos e não apresenta densidade numérica, mas não sustenta a generalização sobre nenhuma das fichas analisadas. Versão sustentável: Na ficha citada da Probel, não aparece um valor numérico de densidade do enchimento; aparecem descrições qualitativas, como \"macia\" e \"alta resiliência\"."
+    },
+    {
+      "ref": "normas-e-certificacao#1",
+      "msg": "UNSUPPORTED. O trecho apenas afirma que travesseiros devem atender ao regulamento; ele não informa se há ou não exigências dimensionais específicas. Versão sustentável: Segundo o Inmetro, o travesseiro é classificado como produto têxtil e deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021."
+    },
+    {
+      "ref": "normas-e-certificacao#2",
+      "msg": "UNSUPPORTED. O trecho sustenta somente que a Ortobom usa a expressão “Código Inmetro”. Não diz que ela aparece na ficha do produto nem que a página deixa de detalhar a certificação a que o código se refere. Versão sustentável: Uma página da Ortobom menciona a expressão “Código Inmetro”."
+    },
+    {
+      "ref": "normas-e-certificacao#3",
+      "msg": "UNSUPPORTED. A simples menção a “Código Inmetro” por um fabricante não sustenta as orientações de conferir a etiqueta, procurar um número de identificação do Inmetro ou consultar o fabricante sobre sua abrangência. Versão sustentável: Um fabricante menciona a expressão “Código Inmetro”."
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#0",
+      "msg": "FACT_IN_FRAMING. O bloco com basis \"framing\" afirma como fato que a relação é descrita nas páginas dos fabricantes e que se trata de informação comercial, sem citar evidências. Versão sustentável: Altura do travesseiro e posição de dormir"
+    },
+    {
+      "ref": "altura-e-posicao-para-dormir#4",
+      "msg": "FACT_IN_FRAMING. O bloco com basis \"framing\" afirma como fatos que as indicações são descrições comerciais dos fabricantes e que não possuem validação técnica independente, sem apresentar evidências. A orientação para procurar um profissional de saúde é permitida. Versão sustentável: Para dor cervical, ronco ou outras questões posturais, procure um profissional de saúde."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos mostram apenas alturas de 12 cm e 14 cm em produtos da Probel. Eles não dizem que os valores variam entre fabricantes nem que a altura consta na etiqueta. Versão sustentável: Se você já sabe que prefere travesseiros baixos ou altos, confira a altura informada antes de comprar; nos exemplos citados, há opções de 12 cm e 14 cm."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam que as composições podem mencionar espuma ou fibra siliconada, mas não afirmam que cada fabricante descreve a composição de forma própria nem que não existe padronização numérica de densidade. Versão sustentável: Se quiser saber o material interno, procure na composição termos como espuma ou fibra siliconada."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O Inmetro afirma que travesseiros são produtos têxteis sujeitos à Portaria nº 118/2021, mas nenhum trecho diz que a presença de um “Código Inmetro” indica conformidade com essa regulamentação. Versão sustentável: Travesseiros são classificados pelo Inmetro como produtos têxteis e devem atender às exigências da Portaria Inmetro nº 118/2021. Se o anúncio mencionar “Código Inmetro”, consulte o fabricante para saber a que o código se refere."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "FACT_IN_FRAMING. O bloco com basis “framing” introduz, sem trechos citados, uma relação entre dor cervical, ronco ou desconforto e a postura ao dormir. Versão sustentável: Em caso de dor, ronco ou outras dúvidas de saúde, procure orientação de um profissional de saúde."
+    }
+  ]
+}
