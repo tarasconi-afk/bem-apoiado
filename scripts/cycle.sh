@@ -9,8 +9,9 @@ flock -n 9 || { echo "outro ciclo em andamento; saindo"; exit 0; }
 
 rm -f /var/lib/bem-apoiado/run-now   # pedido do painel atendido
 cd "$REPO"
+git merge --abort 2>/dev/null || true   # merge interrompido nunca fica pendurado
 git fetch -q origin main
-git checkout -q main
+git checkout -q -f main
 git reset -q --hard origin/main          # cópia da VPS é descartável: o main do GitHub manda
 git clean -qfd -e node_modules -e .state
 if ! cmp -s package-lock.json .state/last-lock 2>/dev/null; then

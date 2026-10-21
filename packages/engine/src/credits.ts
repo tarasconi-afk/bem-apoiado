@@ -7,7 +7,9 @@ import { readState, STATE_DIR, writeState } from './store.ts';
 // O roteador não expõe saldo: o dono informa o saldo do hPanel no painel e o saldo atual é esse
 // valor menos o gasto registrado depois dele.
 
-const LEDGER = () => join(STATE_DIR, 'credits-ledger.jsonl');
+// Diretório lido na hora da chamada (os testes trocam BEM_STATE_DIR e não podem tocar no livro-caixa real).
+const dir = () => process.env.BEM_STATE_DIR ?? STATE_DIR;
+const LEDGER = () => join(dir(), 'credits-ledger.jsonl');
 
 export interface LedgerEntry {
   at: string;
@@ -19,7 +21,7 @@ export interface LedgerEntry {
 
 export function recordCharge(what: string, model: string, credits: number, estimated: boolean, now = new Date()): void {
   try {
-    mkdirSync(STATE_DIR, { recursive: true });
+    mkdirSync(dir(), { recursive: true });
     appendFileSync(LEDGER(), JSON.stringify({ at: now.toISOString(), what, model, credits, estimated } satisfies LedgerEntry) + '\n');
   } catch {
     // Livro-caixa é registro, não trava a execução (ex.: diretório de estado só leitura em teste).

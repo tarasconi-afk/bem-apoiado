@@ -21,8 +21,10 @@ if [ "${1:-}" = sync ]; then flock -n 9 || exit 0; else flock -w 120 9 || { echo
 
 cd "$REPO"
 fresh() {
+  # Merge interrompido (ex.: conflito) nunca fica pendurado: a cópia volta ao main do GitHub.
+  git merge --abort 2>/dev/null || true
   git fetch -q --prune origin main '+refs/heads/pagina/*:refs/remotes/origin/pagina/*'
-  git checkout -q main
+  git checkout -q -f main
   git reset -q --hard origin/main
   git clean -qfd -e node_modules -e .state
   if ! cmp -s package-lock.json .state/last-lock 2>/dev/null; then
@@ -111,9 +113,18 @@ case "$action" in
     ;;
   mesclar)
     fresh
-    git "${GIT_ID[@]}" merge -q --no-ff -m "Painel: mescla $2" "origin/$2"
-    # O gate completo do PR (testes + build), rodado aqui antes de ir ao main.
-    npm test >/dev/null && npm run -s typecheck && npm run -s build >/dev/null
+    # Conflito em data/ (o main mexeu na mesma pauta enquanto o ramo esperava): vale o ramo, que é o
+    # resultado mais novo do motor. Código nunca vem de ramo pagina/*, então só data/ pode conflitar.
+    if ! git "${GIT_ID[@]}" merge -q --no-ff -X theirs -m "Painel: mescla $2" "origin/$2"; then
+      git merge --abort 2>/dev/null || true
+      echo "conflito que não dá para resolver sozinho em $2; nada foi enviado" >&2; exit 4
+    fi
+    if grep -rlq '^<<<<<<< ' data; then git reset -q --hard origin/main; echo "marcador de conflito em data/; nada foi enviado" >&2; exit 4; fi
+    # O gate completo do PR (testes + typecheck + build) antes de ir ao main. Cada um checado: com
+    # "a && b && c" o set -e não para quando um deles falha (foi assim que um teste vermelho passou).
+    npm test >/tmp/painel-test.log 2>&1 || { tail -30 /tmp/painel-test.log; git reset -q --hard origin/main; echo "testes falharam; nada foi enviado" >&2; exit 3; }
+    npm run -s typecheck || { git reset -q --hard origin/main; echo "typecheck falhou; nada foi enviado" >&2; exit 3; }
+    npm run -s build >/dev/null || { git reset -q --hard origin/main; echo "build/validate falhou; nada foi enviado" >&2; exit 3; }
     git push -q origin HEAD:main
     git push -q origin --delete "$2" || true
     echo "mesclado: $2"

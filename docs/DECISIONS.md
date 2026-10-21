@@ -237,3 +237,12 @@ mecânico: remendo de linha de tabela com 3 células para 4 colunas, repetido em
 do remendo agora exige o número exato de células por linha (erro de validação volta ao redator com as
 colunas), e remendo com forma errada nunca é aplicado.
 Próxima economia grande: redação por seção (chamadas menores, sem 524, sem pagar a reserva).
+
+## 2026-10-21 — "Aceitar" com conflito e com teste vermelho
+O main mudou a pauta do travesseiro (reextração) enquanto o ramo do ciclo esperava: o merge do painel deu
+conflito, a cópia da VPS ficou presa no meio do merge e o ciclo seguinte leu JSON com `<<<<<<<`. E, no aceite
+anterior, `npm test && typecheck && build` falhou no teste mas o merge seguiu: `set -e` não para em lista com
+`&&`. Agora: cópia sempre sai de merge interrompido (`merge --abort`, `checkout -f`); conflito em data/ vale o
+ramo (`-X theirs`; ramo pagina/* só traz dados); cada etapa do gate é checada e, se falhar, nada é enviado.
+O teste do livro-caixa escrevia no livro-caixa real da VPS (diretório de estado decidido no import): agora
+lido na hora da chamada.
