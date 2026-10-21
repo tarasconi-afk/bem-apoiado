@@ -1,0 +1,87 @@
+{
+  "run_id": "20261021T175040_como-escolher-cadeira-de-escritorio-ajuste_84b5",
+  "topic": "como-escolher-cadeira-de-escritorio",
+  "accepted": [
+    {
+      "claim_id": "clm_f61918ff7b76",
+      "question_id": "q_ajuste_c4cca5f8",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9ac8117d766a",
+      "question_id": "q_ajuste_c4cca5f8",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0e1f55dc4e65",
+      "question_id": "q_ajuste_c4cca5f8",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_000ce47bb169",
+      "question_id": "q_ajuste_c4cca5f8",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a1e13ce7238b",
+      "question_id": "q_nr17_requisitos",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0f1613e910f2",
+      "question_id": "q_certificacao_responsavel",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_24102364e5e1",
+      "question_id": "q_componentes_seguranca",
+      "source_id": "src_7f88c051b5b8",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_nr17_requisitos": 1,
+    "q_nbr13962_especificacoes": 0,
+    "q_ajustes_fabricante": 0,
+    "q_capacidade_carga": 0,
+    "q_componentes_seguranca": 1,
+    "q_certificacao_responsavel": 1,
+    "q_classificacao_tipo": 0,
+    "q_ajuste_c4cca5f8": 4
+  },
+  "unanswered": [
+    "q_nbr13962_especificacoes",
+    "q_ajustes_fabricante",
+    "q_capacidade_carga",
+    "q_classificacao_tipo"
+  ],
+  "usage": {
+    "input_tokens": 5699,
+    "output_tokens": 1085,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_7f88c051b5b8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_7f88c051b5b8",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.22
+    }
+  ],
+  "credits": 0.8840562000000001
+}

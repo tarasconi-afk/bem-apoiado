@@ -1,0 +1,224 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não sustentam a exigência de conferir capacidade de carga, inclinação, apoio de braços, normas de pistão a gás e rodízios, nem afirmam que a NR-17 não certifica produtos ou que cabe ao fabricante informar tecnicamente. Também não dizem que o empregador deve validar a adequação do produto; apenas atribuem ao empregador a realização da análise ergonômica das condições de trabalho.",
+      "fix": "A escolha deve considerar as regulagens declaradas na ficha técnica, como altura e profundidade do assento, além de verificar se há menção à conformidade com a NR-17 e a ABNT NBR 13962. Segundo a NR-17, cabe ao empregador realizar a análise ergonômica do trabalho para avaliar a adaptação das condições de trabalho."
+    },
+    {
+      "ref": "o-que-nr17-exige#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-nr17-exige#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados sustentam que o encosto deve ser regulável em inclinação e altura e fornecer suporte lombar, mas não dizem que ele deve ter “forma levemente adaptada ao corpo”.",
+      "fix": "O encosto deve ser regulável em altura e inclinação e fornecer bom suporte lombar. O apoio de braços deve ser regulável em altura de 20 a 25 centímetros a partir do assento, sem interferir na aproximação da cadeira à mesa."
+    },
+    {
+      "ref": "o-que-nr17-exige#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-nr17-exige#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a NR estabelece diretrizes e requisitos para adaptar as condições de trabalho e que cabe ao empregador realizar a análise ergonômica do trabalho. Não sustentam que ela não seja um certificado de produto, nem que o empregador deva garantir que o mobiliário atenda aos requisitos durante o uso.",
+      "fix": "A NR-17 estabelece diretrizes e requisitos para adaptar as condições de trabalho às características psicofisiológicas dos trabalhadores, e cabe ao empregador realizar a análise ergonômica do trabalho."
+    },
+    {
+      "ref": "requisitos-nbr-13962#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados não dizem que a ABNT NBR 13962 estabelece requisitos de resistência e estabilidade, nem sustentam a generalização sobre fabricantes. Eles apenas registram que a Flexform declara conformidade com a norma e realizou ensaios no Laboratório Galileo, acreditado pela CGCRE.",
+      "fix": "A Flexform declara conformidade com a ABNT NBR 13962 em sua linha de cadeiras e informa que realizou ensaios no Laboratório Galileo, acreditado pela CGCRE."
+    },
+    {
+      "ref": "requisitos-nbr-13962#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que a base de alumínio tem resistência de 1100 kg conforme a NBR 13962, segundo a Flexform. Não sustenta, porém, que esse valor indique capacidade estrutural sob carga máxima.",
+      "fix": "Segundo a Flexform, a base injetada em alumínio tem resistência de 1100 kg conforme a NBR 13962."
+    },
+    {
+      "ref": "requisitos-nbr-13962#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "ajustes-declarados#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado menciona valores para altura e profundidade do assento e para o apoio lombar, mas não menciona faixa de ajuste do apoio de braços nem exige que as informações constem em ficha técnica ou manual. Também não formula uma obrigação geral de declaração.",
+      "fix": "Segundo a Flexform, devem ser declarados valores para a altura mínima e máxima do assento, a faixa de profundidade do assento e a faixa de ajuste do apoio lombar, em centímetros."
+    },
+    {
+      "ref": "ajustes-declarados#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos distinguem os mecanismos datilo, relax e sincronizado e informam características de inclinação e tensão, mas não mencionam número de posições de bloqueio nem dizem que o fabricante deve informar essas características.",
+      "fix": "Os mecanismos podem ser datilo, que inclina apenas o encosto e tem tensão fixa, relax, que inclina encosto e assento com tensão ajustável, ou sincronizado, que inclina ambos de forma coordenada."
+    },
+    {
+      "ref": "ajustes-declarados#2",
+      "verdict": "OVERSTATED",
+      "problem": "O único trecho citado é da Flexform, portanto não sustenta a referência plural a “alguns fabricantes”.",
+      "fix": "Segundo a Flexform, o apoio de braços ergonômico permite regulagem de altura e, nos modelos de maior especificação, regulagem lateral e rotacional. Confirme na ficha do produto quais regulagens estão disponíveis."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados só informam “Suporte de peso 136kg”. Eles não dizem que a capacidade deve estar na etiqueta ou ficha técnica, nem sustentam a recomendação de sempre procurar esse dado antes da compra.",
+      "fix": "A Flexform informa: “Suporte de peso 136kg”."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Como o bloco tem basis “framing”, ele não pode afirmar fatos sobre produtos ou o mundo. A afirmação de que exceder o limite compromete a estrutura e a segurança não tem trechos citados e a recomendação sobre a documentação também não é uma simples transição da página.",
+      "fix": "Consulte a documentação do fabricante antes de escolher a cadeira."
+    },
+    {
+      "ref": "componentes-seguranca#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que há regulagem de altura por pistão a gás e um sistema de segurança anti-impacto, mas não dizem que o pistão inclui esse sistema nem que ele evita especificamente um colapso acidental durante o ajuste. Além disso, há apenas um fabricante citado, não “alguns fabricantes”.",
+      "fix": "Segundo a Flexform, o produto possui regulagem de altura por pistão a gás e sistema de segurança anti-impacto."
+    },
+    {
+      "ref": "componentes-seguranca#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho do regulador sustenta a exigência sobre a resistência dos rodízios, e o trecho do fabricante menciona rodízio para piso frio e carpete. Porém, nenhum trecho diz que o fabricante deve informar o tipo de rodízio, nem sustenta a generalização de que alguns rodízios são específicos para cada tipo de piso.",
+      "fix": "A NR-17 exige rodízios cuja resistência evite deslocamentos involuntários e não comprometa a estabilidade do assento. A Flexform descreve um rodízio para pisos frios — laminados, madeira e cerâmica — e carpete."
+    },
+    {
+      "ref": "componentes-seguranca#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado sustenta apenas que um produto tem regulagem de inclinação com 5 posições de bloqueio. Não sustenta a afirmação geral sobre diferentes especificações, tipo de travamento, ajuste de tensão progressiva ou adequação a usuários de jornadas prolongadas.",
+      "fix": "Segundo a Flexform, o mecanismo possui regulagem de inclinação do encosto e do assento com 5 posições de bloqueio."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado apenas explica o objetivo da NR-17. Não sustenta a inexistência de certificação compulsória do Inmetro, nem atribui responsabilidades ao fabricante pela declaração técnica ou ao empregador pela implementação.",
+      "fix": "A NR-17 estabelece diretrizes e requisitos para adaptar as condições de trabalho às características psicofisiológicas dos trabalhadores."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que cabe ao empregador realizar a análise ergonômica para avaliar a adaptação das condições de trabalho, mas não menciona especificamente o mobiliário no excerto citado.",
+      "fix": "O empregador deve realizar análise ergonômica do trabalho para avaliar a adaptação das condições de trabalho às características psicofisiológicas dos trabalhadores."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mencionam ensaios em laboratório acreditado e conformidade com a NBR 13962, mas não mencionam uma declaração de conformidade. Portanto, o termo acrescenta uma exigência não demonstrada pelos excertos.",
+      "fix": "Procure na ficha técnica referências a ensaios em laboratório acreditado e à conformidade com a NBR 13962."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As adequações para jornadas e a recomendação de escolher esses mecanismos vêm de uma declaração da Flexform, mas o bloco as apresenta como orientação geral sem atribuição. Além disso, o trecho só declara adequação do mecanismo sincronizado, sem dizer que ele é preferível para jornadas de 8 horas ou mais.",
+      "fix": "Segundo a Flexform, o mecanismo datilo é descrito como adequado para jornadas de 8 horas com variação postural moderada, e o relax, para jornadas de 8 horas ou mais, com tensão ajustável ao peso. O trecho descreve o mecanismo sincronizado, mas não informa uma jornada específica para ele."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As informações vêm de declarações da Flexform, mas o bloco as transforma em orientação geral. O trecho não afirma que a cadeira suporta o peso do usuário, não menciona mecanismo relax e só cita um modelo específico para usuários altos em jornadas de 10 horas ou mais; portanto, também não sustenta a formulação ampla sobre 'alguns fabricantes'.",
+      "fix": "Verifique na ficha a regulagem de tensão. Segundo a Flexform, essa regulagem atende usuários com peso acima da média, e o modelo Led é descrito pela marca como voltado a usuários altos em jornadas de 10 horas ou mais."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam faixas declaradas para altura e profundidade do assento e para o apoio lombar, mas não mencionam a altura dos braços nem etiqueta ou manual. O regulador diz que as regulagens devem permitir adaptação às características antropométricas, mas não que a comparação 'garanta' a adaptação individual.",
+      "fix": "Verifique as faixas declaradas de altura e profundidade do assento e de ajuste do apoio lombar e compare-as com suas características antropométricas para avaliar se o mobiliário pode ser adaptado a você."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Flexform descreve um rodízio para piso frio e carpete, mas o bloco apresenta isso como exigência geral e acrescenta, sem apoio citado, que a especificação deve ser procurada na ficha técnica ou perguntada ao vendedor.",
+      "fix": "Confira se o tipo de rodízio é compatível com seu piso; o trecho da Flexform descreve um rodízio para pisos frios, como laminados, madeira e cerâmica, e para carpete."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não sustentam a exigência de conferir capacidade de carga, inclinação, apoio de braços, normas de pistão a gás e rodízios, nem afirmam que a NR-17 não certifica produtos ou que cabe ao fabricante informar tecnicamente. Também não dizem que o empregador deve validar a adequação do produto; apenas atribuem ao empregador a realização da análise ergonômica das condições de trabalho. Versão sustentável: A escolha deve considerar as regulagens declaradas na ficha técnica, como altura e profundidade do assento, além de verificar se há menção à conformidade com a NR-17 e a ABNT NBR 13962. Segundo a NR-17, cabe ao empregador realizar a análise ergonômica do trabalho para avaliar a adaptação das condições de trabalho."
+    },
+    {
+      "ref": "o-que-nr17-exige#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam que o encosto deve ser regulável em inclinação e altura e fornecer suporte lombar, mas não dizem que ele deve ter “forma levemente adaptada ao corpo”. Versão sustentável: O encosto deve ser regulável em altura e inclinação e fornecer bom suporte lombar. O apoio de braços deve ser regulável em altura de 20 a 25 centímetros a partir do assento, sem interferir na aproximação da cadeira à mesa."
+    },
+    {
+      "ref": "o-que-nr17-exige#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a NR estabelece diretrizes e requisitos para adaptar as condições de trabalho e que cabe ao empregador realizar a análise ergonômica do trabalho. Não sustentam que ela não seja um certificado de produto, nem que o empregador deva garantir que o mobiliário atenda aos requisitos durante o uso. Versão sustentável: A NR-17 estabelece diretrizes e requisitos para adaptar as condições de trabalho às características psicofisiológicas dos trabalhadores, e cabe ao empregador realizar a análise ergonômica do trabalho."
+    },
+    {
+      "ref": "requisitos-nbr-13962#0",
+      "msg": "UNSUPPORTED. Os trechos citados não dizem que a ABNT NBR 13962 estabelece requisitos de resistência e estabilidade, nem sustentam a generalização sobre fabricantes. Eles apenas registram que a Flexform declara conformidade com a norma e realizou ensaios no Laboratório Galileo, acreditado pela CGCRE. Versão sustentável: A Flexform declara conformidade com a ABNT NBR 13962 em sua linha de cadeiras e informa que realizou ensaios no Laboratório Galileo, acreditado pela CGCRE."
+    },
+    {
+      "ref": "requisitos-nbr-13962#1",
+      "msg": "OVERSTATED. O trecho sustenta que a base de alumínio tem resistência de 1100 kg conforme a NBR 13962, segundo a Flexform. Não sustenta, porém, que esse valor indique capacidade estrutural sob carga máxima. Versão sustentável: Segundo a Flexform, a base injetada em alumínio tem resistência de 1100 kg conforme a NBR 13962."
+    },
+    {
+      "ref": "ajustes-declarados#0",
+      "msg": "OVERSTATED. O trecho citado menciona valores para altura e profundidade do assento e para o apoio lombar, mas não menciona faixa de ajuste do apoio de braços nem exige que as informações constem em ficha técnica ou manual. Também não formula uma obrigação geral de declaração. Versão sustentável: Segundo a Flexform, devem ser declarados valores para a altura mínima e máxima do assento, a faixa de profundidade do assento e a faixa de ajuste do apoio lombar, em centímetros."
+    },
+    {
+      "ref": "ajustes-declarados#1",
+      "msg": "OVERSTATED. Os trechos distinguem os mecanismos datilo, relax e sincronizado e informam características de inclinação e tensão, mas não mencionam número de posições de bloqueio nem dizem que o fabricante deve informar essas características. Versão sustentável: Os mecanismos podem ser datilo, que inclina apenas o encosto e tem tensão fixa, relax, que inclina encosto e assento com tensão ajustável, ou sincronizado, que inclina ambos de forma coordenada."
+    },
+    {
+      "ref": "ajustes-declarados#2",
+      "msg": "OVERSTATED. O único trecho citado é da Flexform, portanto não sustenta a referência plural a “alguns fabricantes”. Versão sustentável: Segundo a Flexform, o apoio de braços ergonômico permite regulagem de altura e, nos modelos de maior especificação, regulagem lateral e rotacional. Confirme na ficha do produto quais regulagens estão disponíveis."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "msg": "UNSUPPORTED. Os trechos citados só informam “Suporte de peso 136kg”. Eles não dizem que a capacidade deve estar na etiqueta ou ficha técnica, nem sustentam a recomendação de sempre procurar esse dado antes da compra. Versão sustentável: A Flexform informa: “Suporte de peso 136kg”."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "msg": "FACT_IN_FRAMING. Como o bloco tem basis “framing”, ele não pode afirmar fatos sobre produtos ou o mundo. A afirmação de que exceder o limite compromete a estrutura e a segurança não tem trechos citados e a recomendação sobre a documentação também não é uma simples transição da página. Versão sustentável: Consulte a documentação do fabricante antes de escolher a cadeira."
+    },
+    {
+      "ref": "componentes-seguranca#0",
+      "msg": "OVERSTATED. Os trechos sustentam que há regulagem de altura por pistão a gás e um sistema de segurança anti-impacto, mas não dizem que o pistão inclui esse sistema nem que ele evita especificamente um colapso acidental durante o ajuste. Além disso, há apenas um fabricante citado, não “alguns fabricantes”. Versão sustentável: Segundo a Flexform, o produto possui regulagem de altura por pistão a gás e sistema de segurança anti-impacto."
+    },
+    {
+      "ref": "componentes-seguranca#1",
+      "msg": "UNSUPPORTED. O trecho do regulador sustenta a exigência sobre a resistência dos rodízios, e o trecho do fabricante menciona rodízio para piso frio e carpete. Porém, nenhum trecho diz que o fabricante deve informar o tipo de rodízio, nem sustenta a generalização de que alguns rodízios são específicos para cada tipo de piso. Versão sustentável: A NR-17 exige rodízios cuja resistência evite deslocamentos involuntários e não comprometa a estabilidade do assento. A Flexform descreve um rodízio para pisos frios — laminados, madeira e cerâmica — e carpete."
+    },
+    {
+      "ref": "componentes-seguranca#2",
+      "msg": "OVERSTATED. O trecho citado sustenta apenas que um produto tem regulagem de inclinação com 5 posições de bloqueio. Não sustenta a afirmação geral sobre diferentes especificações, tipo de travamento, ajuste de tensão progressiva ou adequação a usuários de jornadas prolongadas. Versão sustentável: Segundo a Flexform, o mecanismo possui regulagem de inclinação do encosto e do assento com 5 posições de bloqueio."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "UNSUPPORTED. O trecho citado apenas explica o objetivo da NR-17. Não sustenta a inexistência de certificação compulsória do Inmetro, nem atribui responsabilidades ao fabricante pela declaração técnica ou ao empregador pela implementação. Versão sustentável: A NR-17 estabelece diretrizes e requisitos para adaptar as condições de trabalho às características psicofisiológicas dos trabalhadores."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "OVERSTATED. O trecho sustenta que cabe ao empregador realizar a análise ergonômica para avaliar a adaptação das condições de trabalho, mas não menciona especificamente o mobiliário no excerto citado. Versão sustentável: O empregador deve realizar análise ergonômica do trabalho para avaliar a adaptação das condições de trabalho às características psicofisiológicas dos trabalhadores."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "msg": "OVERSTATED. Os trechos mencionam ensaios em laboratório acreditado e conformidade com a NBR 13962, mas não mencionam uma declaração de conformidade. Portanto, o termo acrescenta uma exigência não demonstrada pelos excertos. Versão sustentável: Procure na ficha técnica referências a ensaios em laboratório acreditado e à conformidade com a NBR 13962."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. As adequações para jornadas e a recomendação de escolher esses mecanismos vêm de uma declaração da Flexform, mas o bloco as apresenta como orientação geral sem atribuição. Além disso, o trecho só declara adequação do mecanismo sincronizado, sem dizer que ele é preferível para jornadas de 8 horas ou mais. Versão sustentável: Segundo a Flexform, o mecanismo datilo é descrito como adequado para jornadas de 8 horas com variação postural moderada, e o relax, para jornadas de 8 horas ou mais, com tensão ajustável ao peso. O trecho descreve o mecanismo sincronizado, mas não informa uma jornada específica para ele."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. As informações vêm de declarações da Flexform, mas o bloco as transforma em orientação geral. O trecho não afirma que a cadeira suporta o peso do usuário, não menciona mecanismo relax e só cita um modelo específico para usuários altos em jornadas de 10 horas ou mais; portanto, também não sustenta a formulação ampla sobre 'alguns fabricantes'. Versão sustentável: Verifique na ficha a regulagem de tensão. Segundo a Flexform, essa regulagem atende usuários com peso acima da média, e o modelo Led é descrito pela marca como voltado a usuários altos em jornadas de 10 horas ou mais."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam faixas declaradas para altura e profundidade do assento e para o apoio lombar, mas não mencionam a altura dos braços nem etiqueta ou manual. O regulador diz que as regulagens devem permitir adaptação às características antropométricas, mas não que a comparação 'garanta' a adaptação individual. Versão sustentável: Verifique as faixas declaradas de altura e profundidade do assento e de ajuste do apoio lombar e compare-as com suas características antropométricas para avaliar se o mobiliário pode ser adaptado a você."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. O trecho da Flexform descreve um rodízio para piso frio e carpete, mas o bloco apresenta isso como exigência geral e acrescenta, sem apoio citado, que a especificação deve ser procurada na ficha técnica ou perguntada ao vendedor. Versão sustentável: Confira se o tipo de rodízio é compatível com seu piso; o trecho da Flexform descreve um rodízio para pisos frios, como laminados, madeira e cerâmica, e para carpete."
+    }
+  ]
+}

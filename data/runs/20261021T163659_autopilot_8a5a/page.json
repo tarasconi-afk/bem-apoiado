@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 71285,
+    "output_tokens": 13153,
+    "calls": 13
+  },
+  "credits": 12.699694200000001,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "filler_refs": [
+      "capacidade-carga#1",
+      "certificacao-inmetro#0",
+      "certificacao-inmetro#1"
+    ],
+    "decision_criteria": [
+      "Compare a altura mínima e máxima do assento, a profundidade do assento e o ajuste do apoio lombar declarados na ficha técnica com as próprias medidas corporais.",
+      "Prefira encosto com regulagem de altura e inclinação e bom suporte lombar.",
+      "Verifique se os apoios de braço têm regulagem de altura e se não impedem a aproximação da cadeira à mesa.",
+      "Considere mecanismos datilo, relax ou sincronizado conforme a necessidade de inclinação do encosto, do assento e de variação postural.",
+      "Confira a capacidade máxima de peso informada para o modelo específico antes da compra.",
+      "Escolha rodízios compatíveis com o piso, como versões para pisos frios ou para carpete.",
+      "Verifique se o fabricante declara conformidade com a ABNT NBR 13962 e informa ensaios realizados em laboratório acreditado.",
+      "Para uso prolongado, considere as indicações declaradas pelo fabricante sobre jornada, regulagem de tensão e adequação a usuários mais altos ou com peso acima da média.",
+      "Considere que a análise ergonômica do trabalho e a adaptação às características dos trabalhadores são responsabilidades do empregador."
+    ],
+    "missing": [
+      "Uma resposta direta sobre a existência ou não de certificação compulsória do Inmetro para cadeiras de escritório e sobre a responsabilidade do fabricante e do empregador.",
+      "Os requisitos dimensionais, de estabilidade e de resistência da ABNT NBR 13962, em vez de apenas uma declaração de conformidade e um valor de resistência da base.",
+      "A classificação da ABNT dos tipos de cadeira de escritório, como operacional e presidente, com a indicação do uso destinado a cada categoria.",
+      "As faixas numéricas efetivamente declaradas para altura do assento, profundidade, inclinação do encosto, apoio de braços e apoio lombar de um modelo específico.",
+      "As normas de segurança citadas pelo fabricante para base giratória, rodízios e pistão a gás, separadas das características comerciais do produto.",
+      "A capacidade de carga informada para o modelo analisado, com a fonte primária correspondente, em vez de um valor geral atribuído à marca."
+    ],
+    "publishable": true,
+    "summary": "A página oferece critérios práticos úteis para comparar regulagens, capacidade de carga, rodízios e mecanismos, portanto não é apenas genérica. Porém, responde só parcialmente à dúvida principal: faltam os dados numéricos dos modelos, os requisitos efetivos da NBR 13962, a classificação das cadeiras pela ABNT e uma resposta direta sobre certificação compulsória do Inmetro. Deve ser complementada antes da publicação.",
+    "filler_ratio": 0.13636363636363635,
+    "model_opinion": false
+  }
+}
