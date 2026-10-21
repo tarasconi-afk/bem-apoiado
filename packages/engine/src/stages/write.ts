@@ -25,7 +25,8 @@ Regras editoriais (o leitor é leigo e quer decidir):
 - No máximo uma atribuição a fabricante por frase; não encadeie "segundo X... segundo Y... segundo Z".
 - Ignore evidências de marketing sem utilidade para a decisão (materiais nobres, slogans).
 - Blocos "framing" são frases completas de transição (pelo menos 6 palavras) ou não existem.
-- Parágrafos curtos: no máximo 70 palavras. Página inteira entre 700 e 1400 palavras.
+- Parágrafos curtos: no máximo 70 palavras. SEM tamanho mínimo de página: escreva só o que as evidências sustentam e ajuda a decidir; página curta e útil vale mais que longa (o limite é 1400 palavras).
+- Cada bloco tem de mudar o que o leitor confere ou escolhe. Enchimento (cortado na revisão): descrever o catálogo de uma marca (que densidades, tamanhos ou modelos ela vende), repetir o que outro bloco já disse, frase de transição que só anuncia o próximo assunto.
 
 Regras de forma:
 - Português do Brasil, frases curtas. Explique termos técnicos na primeira vez.

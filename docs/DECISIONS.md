@@ -353,3 +353,10 @@ números da revisão (responde à dúvida, enchimento × limite, critérios × m
 faltou; o editor decide e, se discordar, o veredito calibra a regra. A Hostinger voltou a não implantar o
 push do ramo deploy no bemapoiado.com (ficou em 5e9e2e5 com o main em bc88fe8); o Action ganhou etapa que
 força a implantação pela API se o segredo HOSTINGER_API_TOKEN existir (o token fica só nessa etapa).
+
+## 2026-10-21 — Atacando o enchimento na origem
+Amostra dos blocos marcados como enchimento pela revisão: quase todos descrevem o catálogo de uma marca ("a
+Ortobom menciona espuma D26 e D33", "a Probel lista os tamanhos") ou são transições vazias. Causa provável:
+o prompt pedia "página entre 700 e 1400 palavras", e com pouca evidência o redator enchia para chegar lá.
+Agora: sem mínimo de palavras (curta e útil vale mais), regra explícita de que cada bloco tem de mudar o que
+o leitor confere ou escolhe, e as lições do redator trazem exemplos reais de blocos cortados como enchimento.

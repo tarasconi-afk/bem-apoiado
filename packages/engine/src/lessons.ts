@@ -13,10 +13,10 @@ const LABEL: Record<string, string> = {
   FACT_IN_FRAMING: 'pôr fato em frase de transição (basis "framing")',
 };
 
-export interface LessonStats { attempts: number; passed: number; firstRoundIssues: number[]; rounds: number[]; credits: number[]; byType: Map<string, { n: number; examples: string[] }> }
+export interface LessonStats { filler: string[]; attempts: number; passed: number; firstRoundIssues: number[]; rounds: number[]; credits: number[]; byType: Map<string, { n: number; examples: string[] }> }
 
 export function auditStats(runsDir = RUNS_DIR, sinceMs = 60 * 86_400_000, now = Date.now()): LessonStats {
-  const s: LessonStats = { attempts: 0, passed: 0, firstRoundIssues: [], rounds: [], credits: [], byType: new Map() };
+  const s: LessonStats = { filler: [], attempts: 0, passed: 0, firstRoundIssues: [], rounds: [], credits: [], byType: new Map() };
   if (!existsSync(runsDir)) return s;
   for (const run of readdirSync(runsDir).sort().reverse()) {
     const m = /^(\d{4})(\d{2})(\d{2})T/.exec(run);
@@ -40,6 +40,17 @@ export function auditStats(runsDir = RUNS_DIR, sinceMs = 60 * 86_400_000, now = 
       if (typeof page.rounds === 'number') s.rounds.push(page.rounds);
     }
     if (a0?.open_issues) s.firstRoundIssues.push(a0.open_issues.length);
+    // Blocos que a revisão marcou como enchimento (texto do último rascunho do run): exemplos para o redator.
+    const fillerRefs: string[] = page?.review?.filler_refs ?? [];
+    if (fillerRefs.length && s.filler.length < 6) {
+      const last = readdirSync(dir).filter((x) => /^write-r\d+\.json$/.test(x)).sort().at(-1);
+      const draft = last ? read(last)?.draft : null;
+      for (const sec of draft?.sections ?? []) {
+        (sec.blocks ?? []).forEach((b: { text?: string }, i: number) => {
+          if (b.text && fillerRefs.includes(`${sec.id}#${i}`) && b.text.length < 200 && s.filler.length < 6) s.filler.push(b.text);
+        });
+      }
+    }
     for (const f of readdirSync(dir).filter((x) => /^audit-r\d+\.json$/.test(x))) {
       for (const x of read(f)?.findings ?? []) {
         if (x.verdict === 'SUPPORTED' || !LABEL[x.verdict]) continue;
@@ -61,6 +72,7 @@ export function writerLessons(stats = auditStats()): string {
   if (!top.length) return '';
   return (
     `\n\nErros mais apontados pelo auditor nas últimas páginas (evite desde a primeira versão; cada um custa uma rodada de correção):\n` +
-    top.map(([k, v]) => `- ${LABEL[k]} (${v.n}x)${v.examples[0] ? `. Exemplo real: "${v.examples[0]}"` : ''}`).join('\n')
+    top.map(([k, v]) => `- ${LABEL[k]} (${v.n}x)${v.examples[0] ? `. Exemplo real: "${v.examples[0]}"` : ''}`).join('\n') +
+    (stats.filler.length ? `\nBlocos que a revisão editorial cortou como enchimento (não escreva assim): ${stats.filler.slice(0, 3).map((f) => `"${f}"`).join(' · ')}` : '')
   );
 }

@@ -321,7 +321,7 @@ function suggestionHtml(x: { review: FullReview; writer: string } | null): strin
     r.concrete_guidance ? 'orienta o que fazer' : 'não orienta o que fazer ✗',
   ];
   return `<details class="sug"><summary>Sugestão do motor: <span class="b ${ok ? 'ok' : 'bad'}">${ok ? 'aceitar' : 'recusar'}</span> <span class="muted">${esc(why.join(' · '))}</span></summary>
-<p class="muted">${esc(r.summary)}</p>${r.missing.length ? `<p class="muted"><strong>Faltou:</strong></p><ul class="muted">${r.missing.slice(0, 5).map((m) => `<li>${esc(m)}</li>`).join('')}</ul>` : ''}<p class="muted">Redator: ${esc(x.writer)}. Discorda? Aprove ou recuse com o seu motivo; cada veredito calibra a regra. Para pedir ajuste específico, use "Pedir ao motor".</p></details>`;
+<p class="muted">${esc(r.summary)}</p>${r.missing.length ? `<p class="muted"><strong>Faltou:</strong></p><ul class="muted">${r.missing.slice(0, 5).map((m) => `<li>${esc(m)}</li>`).join('')}</ul>` : ''}<p class="muted"><strong>Enchimento</strong> = parte dos blocos que a revisão apontou como dispensável (repete outro bloco, só descreve o catálogo de uma marca, transição vazia): sai sem a página perder nada.</p><p class="muted">Redator: ${esc(x.writer)}. Discorda? Aprove ou recuse com o seu motivo; cada veredito calibra a regra. Para pedir ajuste específico, use "Pedir ao motor".</p></details>`;
 }
 
 // Pedidos em texto livre (agente): caixa + últimas respostas + pedidos anotados para o desenvolvedor.
