@@ -154,8 +154,8 @@ ${p.status === 'draft' ? '<button name="veredito" value="approve" class="ok">Apr
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="fila-adicionar"><input name="consulta" required minlength="3" maxlength="120" placeholder="nova dúvida, como o leitor busca (ex.: colchão firme ou macio)"><button class="ok">Adicionar ao fim</button></form>
 
 <h2>Piloto automático</h2>
-<p class="muted">Roda sozinho todo dia às 04:00. Um ciclo custa até 120 créditos (teto diário 150).</p>
-${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', 'Rodar um ciclo agora? Pode gastar até 120 créditos de IA.')}
+<p class="muted">Roda sozinho às 04:00 e às 14:00. Um ciclo gasta até 60 créditos, e os ciclos do dia somados até 100.</p>
+${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', 'Rodar um ciclo agora? Pode gastar até 60 créditos de IA (dentro do teto diário de 100).')}
 
 <h2>Google Search Console</h2>
 ${gscHtml()}

@@ -279,3 +279,13 @@ acrescenta fato. Enriquecimento ganhou execução própria (o registro do D28 er
 do mesmo ciclo). A CDN da Hostinger segurou o robots.txt antigo (Disallow) depois que a indexação foi ligada;
 purga pela API resolveu e robots/sitemap passam a ter cache de 5 min. Search Console: a organização Google
 do dono (Hostinger) bloqueia criar chave de conta de serviço (iam.disableServiceAccountKeyCreation).
+
+## 2026-10-21 — Mais páginas: fila do Planner, 2 ciclos/dia, teto 100
+Fila reordenada por volume do Keyword Planner dentro do tema (sem "melhor" como ranking: vira "como
+escolher"): como escolher colchão / travesseiro / cadeira de escritório (5.000 a 500.000 buscas/mês),
+base box, mesa regulável, Emma ou Luuna, D33 ou D45; a fila antiga segue depois. Tipos novos no nicho:
+base_box, mesa, suporte_notebook (as imagens saem sozinhas no ciclo). Cadência: 04:00 e 14:00; teto diário
+100 (somado), teto por ciclo 60 e nunca acima do que resta no dia; página nova só começa com ≥35 créditos
+sobrando (senão fica para o próximo ciclo, em vez de parar no meio da redação).
+Limite conhecido: a busca só aceita domínios do cadastro; tema sem fabricante cadastrado (ex.: mesa
+regulável) pode parar por falta de fonte. Próximo: o motor propõe domínios novos para aprovação no painel.

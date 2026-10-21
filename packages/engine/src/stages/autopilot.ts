@@ -185,6 +185,7 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   }
 }
 const ENRICH_MIN_CREDITS = 40;
+const PAGE_MIN_CREDITS = 35;
 
 // Search Console (se conectado): retrato diário; pautas novas a partir de buscas fortes sem página (até 2
 // por semana, fora de tema de saúde vetado); ordem da home pelos dados do Google. Só a fila e a ordem
@@ -281,7 +282,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m5 = await maintainGsc(steps);
   const maintained = m1 || m2 || m3 || m4 || m5;
 
-  const query = nextQuery();
+  // Página nova custa ~25–40 créditos: sem isso sobrando, deixa para o próximo ciclo em vez de parar no
+  // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
+  const query = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
+  if (!query && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);
   if (!query) {
     if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao', steps: [...steps, 'fila sem pauta pendente'] });
     recordCredits(creditsSpent()); // tentativa de produtos sem resultado também gasta
