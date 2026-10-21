@@ -289,7 +289,7 @@ const jsonLd = [
   .examples { margin: 3rem 0; padding: 0.4rem 1.25rem 1.25rem; border-radius: 20px; background: var(--sand); }
   .examples h2 { margin-top: 1.3rem; }
   .examples-note { color: var(--muted); font-size: 0.93rem; }
-  .product-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr)); }
+  .product-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 16.5rem)); justify-content: center; }
   .product { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
   .product-art { position: relative; background: #fbf8f2; border-bottom: 1px solid var(--line); }
   .product-art :global(.product-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
@@ -302,7 +302,7 @@ const jsonLd = [
   .product-specs a { font-size: 0.8rem; color: var(--muted); }
   .product-listing { margin: 0; font-size: 0.88rem; color: var(--muted); }
   .product-listing q { color: var(--ink); }
-  .product-cta { margin-top: auto; width: 100%; }
+  .product-cta { margin-top: auto; width: 100%; white-space: nowrap; font-size: 0.95rem; padding-inline: 0.8rem; }
   .product-checked { color: var(--muted); font-size: 0.75rem; text-align: center; }
 
   .related { margin-top: 3rem; }
