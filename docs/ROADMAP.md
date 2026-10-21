@@ -97,4 +97,6 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] exemplos à venda: 1 por tipo / 2 marcas, marcas citadas primeiro; ponte para anúncio bloqueado
 - [x] links internos no texto (âncoras do assunto principal, mesma categoria, colocação determinística)
 - [ ] renovação mensal das fontes; melhorias automáticas pelo Search Console; calibração com 8 vereditos
+- [x] 21/10: trava da resposta curta, evidências limitadas ao redator, rede com nova tentativa, lições do editor, fila de ações, produto do editor, buscas na Amazon, painel sem oscilar (ver docs/AUDITORIA-2026-10-21.md)
+- [ ] edição de tabelas no painel; registro de mudanças por página; hub por perfil na home
 - [ ] agente de código (seção/componente novo) num ramo com testes, build e prévia; avaliar modelo gratuito na VPS

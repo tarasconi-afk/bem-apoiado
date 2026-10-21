@@ -197,6 +197,16 @@ const jsonLd = [
         </section>
       )}
 
+      <aside class="trust" aria-label="Como este guia foi feito">
+        <p class="trust-title">Como este guia foi feito</p>
+        <ul>
+          <li><span aria-hidden="true">✓</span> Só o que fabricantes, normas técnicas e órgãos reguladores publicam ({fn.notes.length} fontes, com o trecho exato de cada uma)</li>
+          <li><span aria-hidden="true">✓</span> Sem ranking de "melhor" e sem testes físicos: mostramos o que conferir para o seu caso</li>
+          <li><span aria-hidden="true">✓</span> Revisado em {fmtDate(page.updated_at)}</li>
+        </ul>
+        <a href={href('/como-trabalhamos/')}>Como trabalhamos <span aria-hidden="true">→</span></a>
+      </aside>
+
       <details id="fontes" class="sources">
         <summary>Fontes consultadas ({fn.notes.length}) e trechos citados</summary>
         <p class="sources-note">
@@ -335,6 +345,12 @@ const jsonLd = [
   .sources { margin-top: 3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   .sources summary { cursor: pointer; padding: 1rem 1.2rem; font-weight: 650; }
   .sources[open] summary { border-bottom: 1px solid var(--line); }
+  .trust { margin: 2.5rem 0 1rem; padding: 1rem 1.2rem; border-radius: var(--radius); background: var(--brand-soft); border: 1px solid var(--line); font-size: 0.92rem; }
+  .trust-title { margin: 0 0 0.4rem; font: 700 0.76rem/1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-ink); }
+  .trust ul { list-style: none; padding: 0; margin: 0 0 0.5rem; }
+  .trust li { margin: 0.25rem 0; }
+  .trust li span { color: var(--brand); font-weight: 700; margin-right: 0.35rem; }
+  .trust a { font-weight: 600; text-decoration: none; }
   .sources-note { padding: 0.9rem 1.2rem 0; margin: 0; color: var(--muted); font-size: 0.88rem; }
   .sources > ol { margin: 0; padding: 0.8rem 1.2rem 1rem 2.5rem; font-size: 0.92rem; }
   .sources > ol > li { margin-bottom: 1rem; scroll-margin-top: 5rem; }
