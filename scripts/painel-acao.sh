@@ -7,6 +7,7 @@
 #   painel-acao.sh veredito <slug> approve|reject <motivo>
 #   painel-acao.sh fila-adicionar <consulta>
 #   painel-acao.sh fila-remover <consulta>
+#   painel-acao.sh pedido <arquivo.txt>         # pedido em texto livre (agente do painel)
 #   painel-acao.sh editar <slug> <edits.json>   # edição manual de texto (só grava se o auditor sustentar)
 #   painel-acao.sh dominio-aprovar <host> <classe> <publicador> | dominio-bloquear <host>
 #   painel-acao.sh mesclar <ramo pagina/...>   # aceita o resultado de um ciclo do motor
@@ -112,6 +113,12 @@ case "$action" in
     op=add; [ "$action" = fila-remover ] && op=remove
     npm run -s engine -- queue "$op" "$2"
     publish "Painel: fila ${action#fila-} \"$2\""
+    ;;
+  pedido)
+    fresh
+    npm run -s engine -- request "$2"
+    publish "Painel: pedido do editor"$'\n\n'"$(head -c 300 "$2")"
+    preview
     ;;
   editar)
     fresh

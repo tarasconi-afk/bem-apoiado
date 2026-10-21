@@ -338,3 +338,11 @@ para outras páginas (cada pauta só enxergava as próprias fontes). Agora, ante
 reaproveita evidências de pautas com os mesmos tipos de produto ou da mesma categoria: o Haiku só liga cada
 evidência às perguntas novas (o trecho literal já foi conferido); a fonte entra como já pesquisada. A base
 de evidências passa a acumular: página nova fica mais completa e mais barata.
+
+## 2026-10-21 — Agente do painel (pedidos em texto livre)
+Caixa "Pedir ao motor" (aba Decisões). O Haiku traduz o pedido em ações tipadas que o motor já executa com
+as travas de sempre: add_topics (fila), redo_page (veredito de recusa com a instrução → o motor reescreve),
+edit_text (escolhe blocos, o redator reescreve com as mesmas fontes, edição manual com auditoria: só grava se
+sustentado), unpublish, report (gastos, qualidade, páginas, fila; montado dos dados, sem IA). Mudança de
+código, visual, regra, orçamento, domínios ou integrações NÃO é executada: vira item de
+data/dev-requests.json ("pedidos para o desenvolvedor"), lido na próxima sessão de desenvolvimento.

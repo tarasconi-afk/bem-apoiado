@@ -91,4 +91,5 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] pautas sozinhas (autocompletar + Search Console), sem canibalização; redator Haiku com escalada; 4 ciclos/dia
 - [ ] meta de 200 páginas: acompanhar taxa de aprovação e custo real por página no painel; ajustar
 - [x] categorias (página, home agrupada), guias relacionados e trilha; painel em abas; aprendizado do redator
-- [ ] painel: editar seções à mão (com auditoria antes de publicar) e pedidos em texto livre (agente)
+- [x] painel: editar texto à mão (com auditoria) e pedidos em texto livre (agente)
+- [ ] edição de tabelas no painel; ler data/dev-requests.json no início de cada sessão de desenvolvimento

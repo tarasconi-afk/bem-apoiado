@@ -306,6 +306,22 @@ async function main(): Promise<number> {
       console.log(`${r.reused} evidência(s) reaproveitada(s) de ${r.sources} fonte(s); ~${creditsSpent().toFixed(2)} créditos`);
       return 0;
     }
+    case 'request': {
+      // Pedido em texto livre (painel): request <arquivo.txt>
+      if (!rest[0]) {
+        console.error('uso: request <arquivo-com-o-pedido.txt>');
+        return 2;
+      }
+      setRunBudget(15);
+      const { readFileSync } = await import('node:fs');
+      const { handleRequest } = await import('./stages/requests.ts');
+      const r = await handleRequest(readFileSync(rest[0], 'utf8').slice(0, 2000), newRunId('pedido'));
+      console.log(`→ ${r.reply}`);
+      for (const d of r.done) console.log(`✓ ${d}`);
+      for (const f of r.failed) console.log(`✗ ${f}`);
+      console.log(`~${creditsSpent().toFixed(2)} créditos`);
+      return 0;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());

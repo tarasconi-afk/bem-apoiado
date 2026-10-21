@@ -27,3 +27,7 @@ publicação com o mínimo de intervenção humana.
 - `docs/ARCHITECTURE.md`: peças e fluxo.
 - `docs/DECISIONS.md`: por que cada escolha foi feita (inclui lições do projeto anterior).
 - `docs/ROADMAP.md`: fase atual e próximo passo.
+
+
+## Pedidos do dono pelo painel
+No início de cada sessão de desenvolvimento, ler `data/dev-requests.json` (itens com status "aberto"): são pedidos feitos no agente do painel que exigem mudança de código, visual ou regra. Ao atender, marcar `status: "feito"` com uma nota.
