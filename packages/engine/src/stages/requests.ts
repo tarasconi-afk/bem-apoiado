@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
+import { Basis, checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
 import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
 import { styleIssues } from './page.ts';
@@ -19,6 +19,7 @@ import { editQueue } from './autopilot.ts';
 import { claimsForTopic, type Draft } from './draft-schema.ts';
 import { editableBlocks } from './manual-edit.ts';
 import { writePatches } from './patch.ts';
+import { formatClaims, writerSystem } from './write.ts';
 import { loadTopic } from './research.ts';
 
 // Pedidos em texto livre pelo painel ("agente"): o modelo traduz o pedido em ações que o motor já sabe
@@ -173,9 +174,9 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const pick = await callJson(
     {
       role: 'extractor',
-      system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta).',
+      system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta). "rewrite_summary": true quando o pedido é sobre a resposta curta ou o "Como decidir" COMO UM TODO (linguagem para leigo, tirar jargão, mudar o ponto de vista, foco no comprador), e não sobre um dado pontual.',
       user: `Pedido: ${instruction}\n\nSeções: ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`,
-      schema: z.object({ refs: z.array(z.enum(refs)).min(1).max(5), headings: z.array(z.object({ id: z.enum(page.sections.map((x) => x.id) as [string, ...string[]]), heading: z.string().min(3).max(70) })).default([]) }),
+      schema: z.object({ rewrite_summary: z.boolean().default(false), refs: z.array(z.enum(refs)).min(1).max(5), headings: z.array(z.object({ id: z.enum(page.sections.map((x) => x.id) as [string, ...string[]]), heading: z.string().min(3).max(70) })).default([]) }),
       schemaName: 'pick_blocks',
       maxTokens: 600,
     },
@@ -184,10 +185,21 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   // Título de seção que o pedido torna enganoso ("O que a NR-17 exige" quando os números são de um anexo).
   const heads = new Map(pick.data.headings.map((h) => [h.id, h.heading.replace(/\s+/g, ' ').trim()]));
   const draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections.map((x) => (heads.has(x.id) ? { ...x, heading: heads.get(x.id)! } : x)) };
-  const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, pick.data.refs.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.` })), fetchImpl);
-  const patched = applyPatches(draft as never, p.data.patches);
-  const spec = PageSpec.parse({ ...page, ...patched });
+  // Pedido sobre o resumo como um todo: a resposta curta e o "Como decidir" são reescritos do zero (o
+  // remendo bloco a bloco mantinha as palavras das fontes: "datilo", "Anexo II", 21/10). Resto: remendo.
+  const decIdx = draft.sections.findLastIndex((x) => /decidir|escolher/i.test(`${x.id} ${x.heading}`));
+  let base = draft as Draft;
   const touched = new Set(pick.data.refs);
+  if (pick.data.rewrite_summary && decIdx >= 0) {
+    base = await rewriteSummary(base, decIdx, instruction, topic, idx, fetchImpl);
+    touched.add('verdict');
+    base.sections[decIdx]!.blocks.forEach((_, i) => touched.add(`${base.sections[decIdx]!.id}#${i}`));
+  }
+  const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
+  const rest = pick.data.refs.filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
+  const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.` })), fetchImpl) : { data: { patches: [] } };
+  const patched = applyPatches(base as never, p.data.patches);
+  const spec = PageSpec.parse({ ...page, ...patched });
   const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
   if (gate.length) return `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
   // Audita a seção inteira, não só os blocos escolhidos: bloco vizinho com o mesmo problema ("A base deve
@@ -202,6 +214,32 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
   return `texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
     (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '');
+}
+
+async function rewriteSummary(d: Draft, decIdx: number, instruction: string, topic: TopicBrief, idx: ReturnType<typeof buildIndex>, fetchImpl?: FetchLike): Promise<Draft> {
+  const claims = claimsForTopic(topic, idx.claims.values());
+  const ids = claims.map((c) => c.id) as [string, ...string[]];
+  const Text = z.object({ text: z.string().min(20), basis: Basis, claim_ids: z.array(z.enum(ids)) });
+  const Out = z.object({ verdict: Text, blocks: z.array(Text).min(2).max(5) });
+  const sec = d.sections[decIdx]!;
+  const others = d.sections.filter((_, i) => i !== decIdx).map((x) => `## ${x.heading}\n${x.blocks.map((b) => (b.kind === 'table' ? `(tabela: ${b.caption})` : `- ${b.text}`)).join('\n')}`).join('\n');
+  const r = await callJson(
+    {
+      role: 'writer',
+      system: writerSystem(),
+      user:
+        `Pedido do editor: ${instruction}\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
+        `Resposta curta atual: ${d.verdict.text}\n## ${sec.heading} (atual)\n${sec.blocks.map((b) => (b.kind === 'table' ? '' : `- ${b.text}`)).join('\n')}\n\nResto da página (contexto):\n${others.slice(0, 6000)}\n\nEvidências:\n${formatClaims(claims, idx.sources)}`,
+      schema: Out,
+      schemaName: 'summary_rewrite',
+      maxTokens: 3000,
+    },
+    fetchImpl,
+  );
+  const out: Draft = structuredClone(d);
+  out.verdict = { text: r.data.verdict.text, basis: r.data.verdict.basis, claim_ids: r.data.verdict.claim_ids };
+  out.sections[decIdx] = { ...sec, blocks: r.data.blocks.map((b) => ({ kind: 'paragraph' as const, text: b.text, basis: b.basis, claim_ids: b.claim_ids })) };
+  return out;
 }
 
 // Auditoria com correção, como no pipeline da página: bloco reprovado é reescrito pelo redator com o
