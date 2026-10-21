@@ -6,6 +6,8 @@ import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
 import { setReportedBalance } from './credits.ts';
+import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
+import { RUNS_DIR } from './store.ts';
 import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
 import { DATA, loadPages, ROOT } from './store.ts';
@@ -149,6 +151,9 @@ ${pages.map((p) => `<tr><td><a href="${PREVIEW}/${esc(p.slug)}/" target="_blank"
 ${p.status === 'draft' ? '<button name="veredito" value="approve" class="ok">Aprovar</button>' : ''}<button name="veredito" value="reject" class="bad">Recusar</button></form></td></tr>`).join('')}
 </tbody></table></div>
 
+<h2>Domínios novos encontrados nas buscas</h2>
+${domainsHtml()}
+
 <h2>Fila de pautas</h2>
 <div class="tw"><table><tbody>${queue.map((q, i) => `<tr><td class="num">${i + 1}</td><td>${esc(q)}</td><td class="actions">${form('fila-remover', { consulta: q }, 'Remover', 'bad', `Remover "${q}" da fila?`)}</td></tr>`).join('')}</tbody></table></div>
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="fila-adicionar"><input name="consulta" required minlength="3" maxlength="120" placeholder="nova dúvida, como o leitor busca (ex.: colchão firme ou macio)"><button class="ok">Adicionar ao fim</button></form>
@@ -174,6 +179,21 @@ ${gscHtml()}
 <p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
 
 ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${!j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+}
+
+function domainsHtml(): string {
+  let cands: ReturnType<typeof domainCandidates> = [];
+  try {
+    cands = domainCandidates(RUNS_DIR, loadDomainRegistry()).slice(0, 15);
+  } catch {
+    return '<p class="muted">não foi possível ler os candidatos agora</p>';
+  }
+  if (!cands.length) return '<p class="muted">Nenhum domínio fora do cadastro apareceu nas buscas.</p>';
+  const opts = [['manufacturer', 'Fabricante'], ['regulator', 'Órgão regulador'], ['standard_body', 'Norma técnica'], ['independent_test', 'Teste independente']].map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
+  return `<p class="muted">A busca só usa domínios aprovados. Aprove só fonte primária (fabricante, regulador, norma, teste independente); loja, blog e ranking: bloquear.</p>
+<div class="tw"><table><thead><tr><th>Domínio</th><th>Visto em</th><th>Exemplo</th><th></th></tr></thead><tbody>${cands.map((c) => `<tr><td><code>${esc(c.host)}</code></td><td class="muted">${c.topics.length} pauta(s), ${c.hits}x</td><td><a href="${esc(c.example.url)}" target="_blank" rel="noopener noreferrer">${esc(c.example.title.slice(0, 70))}</a></td><td>
+<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="dominio-aprovar"><input type="hidden" name="host" value="${esc(c.host)}"><input name="publicador" required maxlength="60" placeholder="nome (ex.: Cavaletti)" style="min-width:120px"><select name="classe">${opts}</select><button class="ok">Aprovar</button></form>
+${form('dominio-bloquear', { host: c.host }, 'Bloquear', 'bad')}</td></tr>`).join('')}</tbody></table></div>`;
 }
 
 function gscHtml(): string {
@@ -234,6 +254,15 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const q = clean(f.get('consulta'), 120);
     if (q.length < 3) return 'consulta inválida';
     return { label: `${acao === 'fila-adicionar' ? 'adicionar à' : 'remover da'} fila: ${q}`, args: [acao, q] };
+  }
+  if (acao === 'dominio-aprovar' || acao === 'dominio-bloquear') {
+    const host = clean(f.get('host'), 100).toLowerCase();
+    if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(host)) return 'domínio inválido';
+    if (acao === 'dominio-bloquear') return { label: `bloquear domínio ${host}`, args: ['dominio-bloquear', host] };
+    const classe = f.get('classe') ?? '';
+    const pub = clean(f.get('publicador'), 60);
+    if (!['manufacturer', 'regulator', 'standard_body', 'independent_test'].includes(classe) || pub.length < 2) return 'classe ou nome inválido';
+    return { label: `aprovar domínio ${host} (${pub})`, args: ['dominio-aprovar', host, classe, pub] };
   }
   if (acao === 'mesclar' || acao === 'descartar') {
     const ramo = f.get('ramo') ?? '';

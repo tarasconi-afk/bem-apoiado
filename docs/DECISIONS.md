@@ -288,4 +288,5 @@ base_box, mesa, suporte_notebook (as imagens saem sozinhas no ciclo). Cadência:
 100 (somado), teto por ciclo 60 e nunca acima do que resta no dia; página nova só começa com ≥35 créditos
 sobrando (senão fica para o próximo ciclo, em vez de parar no meio da redação).
 Limite conhecido: a busca só aceita domínios do cadastro; tema sem fabricante cadastrado (ex.: mesa
-regulável) pode parar por falta de fonte. Próximo: o motor propõe domínios novos para aprovação no painel.
+regulável) pode parar por falta de fonte. Resolvido no mesmo dia: o painel lista os domínios fora do cadastro que apareceram nas buscas (prefeituras,
+diários oficiais e licitações filtrados) e o editor aprova (com classe e nome) ou bloqueia; vira commit no main.

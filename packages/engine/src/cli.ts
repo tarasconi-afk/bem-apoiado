@@ -253,6 +253,18 @@ async function main(): Promise<number> {
       console.log(`~${creditsSpent().toFixed(1)} créditos`);
       return r.status === 'CLEAN' || r.status === 'FIXED' ? 0 : 1;
     }
+    case 'registry': {
+      // Cadastro de domínios (aprovação humana pelo painel): registry allow <host> <classe> <publicador...> | registry block <host>
+      const [op, host, cls, ...pub] = rest;
+      const { editRegistry } = await import('./stages/discover.ts');
+      if (op === 'allow' && host && cls && pub.length) console.log(editRegistry('allow', host, pub.join(' '), cls as never) ? `cadastrado: ${host} (${cls}, ${pub.join(' ')})` : `${host} já estava no cadastro`);
+      else if (op === 'block' && host) console.log(editRegistry('block', host) ? `bloqueado: ${host}` : `${host} já estava no cadastro`);
+      else {
+        console.error('uso: registry allow <host> <manufacturer|regulator|standard_body|independent_test> <publicador> | registry block <host>');
+        return 2;
+      }
+      return 0;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());

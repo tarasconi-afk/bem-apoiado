@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { SourceClass, TopicBrief } from '@bem-apoiado/core';
@@ -164,4 +164,43 @@ export async function discoverSources(
   report.tavily_credits_month = creditsThisMonth();
   writeStage(runId, 'discover', { ...report, llm_credits: creditsSpent() });
   return report;
+}
+
+// Cadastro de domínios editado pelo painel (aprovação humana). Host normalizado, sem www.
+export function editRegistry(op: 'allow' | 'block', host: string, publisher?: string, sourceClass?: SourceClass, path = join(DATA, 'registry', 'domains.json')): boolean {
+  const h = host.toLowerCase().replace(/^www\./, '').trim();
+  if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(h)) throw new Error(`domínio inválido: ${host}`);
+  const raw = JSON.parse(readFileSync(path, 'utf8'));
+  const reg = Registry.parse(raw);
+  if (reg.allow.some((a) => a.host === h && !a.path) || reg.block.includes(h)) return false;
+  if (op === 'allow') {
+    if (!publisher || !sourceClass) throw new Error('aprovar exige nome do publicador e classe da fonte');
+    raw.allow.push({ host: h, publisher, source_class: SourceClass.parse(sourceClass) });
+  } else raw.block.push(h);
+  writeFileSync(path, JSON.stringify(raw, null, 2) + '\n');
+  return true;
+}
+
+// Prefeituras, estados e diários oficiais (licitação, edital): aparecem muito na busca e nunca são fonte.
+const NOISE = /(\.(ac|al|am|ap|ba|ce|df|es|go|ma|mg|ms|mt|pa|pb|pe|pi|pr|rj|rn|ro|rr|rs|sc|se|sp|to)\.gov\.br|^pncp\.gov\.br|imprensaoficial|diario|licitac)/;
+
+// Domínios que apareceram nas buscas mas não estão no cadastro: candidatos para o editor aprovar.
+export function domainCandidates(runsDir: string, reg: Registry): { host: string; hits: number; topics: string[]; example: { url: string; title: string } }[] {
+  const out = new Map<string, { host: string; hits: number; topics: Set<string>; example: { url: string; title: string } }>();
+  if (!existsSync(runsDir)) return [];
+  for (const run of readdirSync(runsDir)) {
+    const f = join(runsDir, run, 'discover.json');
+    if (!existsSync(f)) continue;
+    let d: { topic?: string; suggestions?: { host: string; url: string; title: string }[] };
+    try { d = JSON.parse(readFileSync(f, 'utf8')); } catch { continue; }
+    for (const s of d.suggestions ?? []) {
+      const host = s.host.replace(/^www\./, '');
+      if (classify(`https://${host}/`, reg) !== 'unknown' || NOISE.test(host)) continue;
+      const c = out.get(host) ?? { host, hits: 0, topics: new Set<string>(), example: { url: s.url, title: s.title } };
+      c.hits++;
+      if (d.topic) c.topics.add(d.topic);
+      out.set(host, c);
+    }
+  }
+  return [...out.values()].map((c) => ({ ...c, topics: [...c.topics] })).sort((a, b) => b.topics.length - a.topics.length || b.hits - a.hits);
 }
