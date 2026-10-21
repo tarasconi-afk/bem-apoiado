@@ -312,3 +312,15 @@ segunda tentativa com Sonnet 5 se houver ≥30 créditos. Haiku faz streaming de
 Conta para 200 páginas: ~10 créditos (texto) + ~5 (capa) por página ≈ 3.000, contra ~10.000 com o Sonnet.
 Cadência: 04:00, 10:00, 16:00, 22:00, uma página por ciclo (uma decisão por vez no painel); 40 por ciclo,
 100 por dia; página nova com ≥15 créditos sobrando.
+
+## 2026-10-21 — Aprendizado do redator, categorias, painel em abas
+Redator recebe no prompt os erros mais apontados pelo auditor nos últimos 60 dias (tipo, contagem e um
+exemplo real; ~150 tokens). Motivo de recusa humana não entra (é da página e já vai pelas notas da pauta).
+Linha de base no painel (aba Desempenho): 3/10 tentativas aprovadas, 14 problemas por página na 1ª
+auditoria, 3 rodadas por tentativa. Alavancas para subir a taxa: lições no prompt, salvamento por remoção,
+escalada ao Sonnet, calibração com vereditos humanos.
+Categorias no perfil do nicho (data/niche.json → categories): página /categoria/<id>/ (só com guia
+publicado), home agrupada, "Guias relacionados" no fim de cada guia, trilha e JSON-LD de 3 níveis, sitemap.
+Painel em abas (Decisões, Conteúdo, Desempenho, Motor, Configurações) por script pequeno que agrupa os h2;
+vereditos mostram só o que precisa de decisão. Cadastro: consumidor.gov.br bloqueado (reclamações não são
+norma técnica); o painel explica cada classe de fonte.

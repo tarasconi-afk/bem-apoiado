@@ -144,7 +144,7 @@ ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.started))}. A página atualiza sozinha.</p>` : ''}
 
 <h2>Esperando sua decisão: resultados do motor</h2>
-${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
+${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr data-pending><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
 <p class="muted">Aceitar roda testes, gate e build aqui antes de ir ao main; equivale ao merge do PR.</p>` : '<p class="muted">Nenhum resultado pendente.</p>'}
 
 ${verdictsHtml(pages)}
@@ -193,7 +193,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   const live = pages.filter((p) => p.status !== 'draft');
   return `<h2>Páginas: seu veredito ${waiting.length ? `<span class="b neutral">${waiting.length} aguardando</span>` : ''}</h2>
 ${waiting.length ? `<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a>. Aprovar publica; recusar volta ao motor com o motivo como instrução. Cada veredito calibra a revisão automática.</p>
-<div class="tw"><table><tbody>${waiting.map((p) => `<tr><td>${link(p)}</td><td>${box(p, true, 'Recusar')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
+<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}</td><td>${box(p, true, 'Recusar')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
 ${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor vai tentar de novo: ${rejected.map((p) => `${link(p)} <span class="muted">("${esc(lastFor(p)!.reason.slice(0, 80))}")</span>`).join(' · ')}</p>` : ''}
 <details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
@@ -243,7 +243,44 @@ ${ops.lowCtr.length ? `<p><strong>Aparecem, mas pouco clicadas</strong> (CTR &lt
 ${ops.newTopics.length ? `<p><strong>Buscas sem página própria</strong> (o ciclo põe até 2 por semana na fila): ${ops.newTopics.map((t) => `"${esc(t.query)}" (${t.impressions})`).join(', ')}.</p>` : ''}`;
 }
 
+// Abas: as seções continuam sendo h2 + conteúdo; o script agrupa cada h2 (e o que vem até o próximo) na
+// aba do mapa abaixo. Sem framework, e sem script o painel continua inteiro numa página só.
+const TABS_JS = `<script>
+(function () {
+  var MAP = [['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Domínios novos','conteudo'],
+    ['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
+    ['Saldo de créditos','config'],['Senha do painel','config']];
+  var NAMES = { decisoes: 'Decisões', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
+  var main = document.querySelector('main'); if (!main) return;
+  var grid = main.querySelector('.grid'); if (!grid) return;
+  var panes = {}; var cur = null;
+  Object.keys(NAMES).forEach(function (k) { var d = document.createElement('div'); d.className = 'pane'; d.dataset.tab = k; panes[k] = d; });
+  var after = false;
+  Array.prototype.slice.call(main.children).forEach(function (n) {
+    if (n === grid) { after = true; return; }
+    if (!after || n.classList.contains('flash')) return;
+    if (n.tagName === 'H2') { var t = n.textContent || ''; cur = 'motor'; MAP.forEach(function (m) { if (t.indexOf(m[0]) === 0) cur = m[1]; }); }
+    if (cur) panes[cur].appendChild(n);
+  });
+  var bar = document.createElement('nav'); bar.className = 'tabs';
+  var pending = panes.decisoes.querySelectorAll('[data-pending]').length;
+  Object.keys(NAMES).forEach(function (k) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = NAMES[k]; b.dataset.tab = k;
+    if (k === 'decisoes' && pending) { var s = document.createElement('span'); s.className = 'count'; s.textContent = pending; b.appendChild(s); }
+    b.onclick = function () { show(k); }; bar.appendChild(b);
+  });
+  grid.after(bar); var holder = bar; Object.keys(panes).forEach(function (k) { holder.after(panes[k]); holder = panes[k]; });
+  function show(k) { Object.keys(panes).forEach(function (x) { panes[x].hidden = x !== k; }); bar.querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === k); }); try { localStorage.setItem('painel-aba', k); } catch (e) {} }
+  var saved = null; try { saved = localStorage.getItem('painel-aba'); } catch (e) {}
+  show(pending ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
+})();
+</script>`;
+
 const ADMIN_CSS = `<style>
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.tabs button{background:transparent;color:var(--muted);border:1px solid transparent;font-weight:600}
+.tabs button.on{background:var(--card);color:var(--ink);border-color:var(--line)}
+.tabs .count{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;background:var(--badbg);color:var(--bad);font-size:.75rem}
 .flash{background:var(--nbg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
 form.inline{display:inline}form.verdict{display:flex;gap:6px;flex-wrap:wrap}form.verdict input{flex:1;min-width:180px}
 input{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
@@ -329,7 +366,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     // Dados ilegíveis (ex.: cópia no meio de um merge) não derrubam o painel: mostra o erro e as últimas ações.
     let html: string;
     try {
-      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')), refresh: running() ? 10 : 300 });
+      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')), refresh: running() ? 10 : 300 }).replace('</body>', `${TABS_JS}</body>`);
     } catch (e) {
       html = `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="20"><body style="font:15px system-ui;max-width:900px;margin:24px auto;padding:0 16px"><h1>Painel</h1><p><b>Os dados do motor estão ilegíveis agora</b> (${esc((e as Error).message.slice(0, 200))}). O sync limpa a cópia em até 5 min; esta página tenta de novo sozinha.</p>${jobs.slice(0, 5).map((j) => `<pre style="white-space:pre-wrap;background:#f4f1ea;padding:8px">${esc(j.label)} (${j.ended ? `código ${j.code}` : 'rodando'})\n${esc(j.output.slice(-800))}</pre>`).join('')}</body>`;
     }
