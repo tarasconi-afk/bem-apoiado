@@ -90,6 +90,19 @@ describe('renovação da disponibilidade', () => {
   });
 });
 
+describe('renovação com a página do anúncio bloqueada', () => {
+  it('leitura falha mas o anúncio está no índice de busca: renova pelo índice em vez de retirar', async () => {
+    product('B000000007', 31); // prova vencida, leitura bloqueada
+    product('B000000008', 31); // prova vencida, nem leitura nem índice
+    const capture = async () => 'anúncio não capturado: extração vazia';
+    const fromIndex = async (p: { asin: string }) => (p.asin === 'B000000007' ? source(p.asin, `${QUOTE}\nresumo do anúncio no índice de busca`) : null);
+    const r = await refreshProducts('run_bloqueio', { now: NOW }, capture, fromIndex as never);
+    expect(r.refreshed.map((x) => x.asin)).toContain('B000000007');
+    expect(r.retired.map((x) => x.asin)).toContain('B000000008');
+    expect(existsSync(productFile('B000000007'))).toBe(true);
+  });
+});
+
 describe('produtos para páginas no ar', () => {
   const page = (slug: string, status: 'draft' | 'approved') => ({ slug, status }) as never;
   const topic = (slug: string, kinds: string[]) => ({ slug, product_kinds: kinds }) as never;

@@ -1,9 +1,11 @@
 import { existsSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
-import { AVAILABILITY_MAX_AGE_DAYS, Claim, checkProduct, quoteAppearsIn, type Product, type Source } from '@bem-apoiado/core';
+import { AVAILABILITY_MAX_AGE_DAYS, Claim, checkProduct, normalizeForMatch, quoteAppearsIn, type Product, type Source } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
 import { writeStage } from '../runs.ts';
-import { creditsThisMonth, MONTHLY_CREDIT_CAP } from '../search.ts';
+import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from '../search.ts';
+import { snapshotFromSearch } from '../snapshot.ts';
+import { loadRegistry } from './discover.ts';
 import { buildIndex, CLAIMS_DIR, DATA, loadProducts, PRODUCTS_DIR, readState, sourceText, writeJson, writeState } from '../store.ts';
 import { claimIdFor } from './research.ts';
 import { brandProblem, captureListing } from './products.ts';
@@ -37,10 +39,31 @@ function retire(p: Product, reason: string, now: Date): void {
   if (existsSync(f)) unlinkSync(f);
 }
 
+// Página do anúncio bloqueada (a Amazon devolve vazio à leitura automática desde 21/10): a prova vem do
+// título e do resumo do próprio anúncio no índice de busca, só para marca do cadastro de fabricantes. O
+// cartão passa a dizer "anúncio encontrado em". Sem isto, os cartões dos colchões sairiam do ar em 30 dias.
+export type IndexLookup = (p: Product) => Promise<Source | null>;
+export const lookupInSearchIndex: IndexLookup = async (p) => {
+  const makers = loadRegistry().allow.filter((a) => a.source_class === 'manufacturer');
+  const norm = (t: string) => normalizeForMatch(t);
+  if (!makers.some((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => norm(n) === norm(p.brand)))) return null;
+  // Nome curto, título do anúncio (o trecho da prova anterior) e o código: o primeiro que trouxer o anúncio.
+  const quote = buildIndex().claims.get(p.availability_claim_id)?.quote ?? '';
+  const queries = [p.label, quote.split(/\s+/).slice(0, 8).join(' '), p.asin].filter((q, i, a) => q && a.indexOf(q) === i);
+  let h: Awaited<ReturnType<typeof webSearch>>[number] | undefined;
+  for (const q of queries) {
+    h = (await webSearch(q, { maxResults: 8, includeDomains: ['amazon.com.br'] })).find((x) => x.url.includes(`/dp/${p.asin}`) || x.url.includes(`/gp/product/${p.asin}`));
+    if (h) break;
+  }
+  if (!h) return null;
+  return snapshotFromSearch({ url: `https://www.amazon.com.br/dp/${p.asin}`, text: `${h.title.replace(/\s*[:|-]\s*Amazon\.com\.br.*$/i, '')}\n${h.content}`, publisher: 'Amazon.com.br', sourceClass: 'retailer_listing' });
+};
+
 export async function refreshProducts(
   runId: string,
   opts: { maxAgeDays?: number; now?: Date } = {},
   capture: Capture = captureListing,
+  fromIndex: IndexLookup = lookupInSearchIndex,
 ): Promise<RefreshReport> {
   const now = opts.now ?? new Date();
   const maxAge = opts.maxAgeDays ?? REFRESH_AFTER_DAYS;
@@ -79,7 +102,8 @@ export async function refreshProducts(
       } else report.kept.push({ asin: p.asin, reason: 'cota do Tavily esgotada' });
       continue;
     }
-    const fresh = await capture(p.asin);
+    let fresh: Source | string = await capture(p.asin);
+    if (typeof fresh === 'string') fresh = (await fromIndex(p).catch(() => null)) ?? fresh;
     if (typeof fresh === 'string') {
       // Falha de captura pode ser passageira: só retira se a prova já venceu.
       if (expired) {

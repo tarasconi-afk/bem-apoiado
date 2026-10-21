@@ -501,3 +501,13 @@ Ajuste: com ou sem pesquisa, o mesmo caminho com correção; o alcance da fonte 
 e no "Como decidir" (nome técnico só nos detalhes), termo técnico explicado. Limite conhecido: o ajuste remenda
 bloco a bloco e o Haiku mantém as palavras das fontes; reescrever o resumo inteiro para leigo ainda depende de
 edição manual (Sonnet no ajuste passou de 15 créditos).
+
+## 2026-10-21 — Renovação dos cartões com a Amazon bloqueando; sem contornar o bloqueio
+A renovação relia o anúncio a cada 7 dias e retirava o cartão quando a prova passava de 30 dias: com a
+leitura bloqueada, os 3 cartões dos colchões sairiam do ar por volta de 19/11. Agora, se a leitura falha, a
+prova vem do título e do resumo do próprio anúncio no índice de busca (nome curto, título do anúncio ou ASIN),
+só para marca do cadastro, e o trecho anterior tem de aparecer nele; o cartão passa a "anúncio encontrado em".
+Conferido com os 3 colchões reais: todos achados, trecho batendo.
+Contornar o bloqueio (navegador disfarçado, proxy residencial) não: é corrida armamentista com a Amazon e os
+termos dela proíbem raspagem automática, o que arriscaria a conta de Associados. Caminho oficial: API da
+Amazon (PA-API, migrando para a Creators API) depois das vendas.
