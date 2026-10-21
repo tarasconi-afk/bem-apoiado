@@ -18,7 +18,19 @@ export function refFromWhere(where: string): string | null {
   return row !== undefined ? `${m[1]}#${m[2]}.r${row}` : `${m[1]}#${m[2]}`;
 }
 
-export function makePatchSchema(refs: string[], claimIds: string[]) {
+// Colunas de cada linha de tabela a corrigir: o remendo precisa devolver exatamente esse número de células
+// (o redator devolvia 3 células numa tabela de 4 colunas e a página não convergia; 21/10).
+export function tableColumns(draft: Draft, refs: string[]): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  for (const ref of refs) {
+    const m = /^([^#]+)#(\d+)\.r\d+$/.exec(ref);
+    const b = m ? draft.sections.find((x) => x.id === m[1])?.blocks[Number(m[2])] : undefined;
+    if (b?.kind === 'table') out.set(ref, b.columns);
+  }
+  return out;
+}
+
+export function makePatchSchema(refs: string[], claimIds: string[], columns: Map<string, string[]> = new Map()) {
   const Refs = z.array(z.enum(claimIds as [string, ...string[]]));
   return z.object({
     patches: z.array(
@@ -31,6 +43,11 @@ export function makePatchSchema(refs: string[], claimIds: string[]) {
         claim_ids: Refs.optional(),
         // replace de linha de tabela
         cells: z.array(z.object({ text: z.string(), claim_ids: Refs })).optional(),
+      }).superRefine((p, ctx) => {
+        const cols = columns.get(p.ref);
+        if (cols && p.action === 'replace' && p.cells?.length !== cols.length) {
+          ctx.addIssue({ code: 'custom', message: `a linha ${p.ref} precisa de exatamente ${cols.length} células, uma por coluna (${cols.join(' | ')}); use "Não informado nas fontes" com claim_ids vazio quando faltar dado` });
+        }
       }),
     ),
   });
@@ -53,7 +70,7 @@ export function applyPatches(draft: Draft, patches: Patch[]): Draft {
     if (!block) continue;
     if (p.action === 'remove') {
       removals.push({ sec, block: bi, ...(ri !== undefined ? { row: ri } : {}) });
-    } else if (block.kind === 'table' && ri !== undefined && p.cells) {
+    } else if (block.kind === 'table' && ri !== undefined && p.cells && p.cells.length === block.columns.length) {
       block.rows[ri] = { cells: p.cells };
     } else if (block.kind !== 'table' && p.text) {
       block.text = p.text;
@@ -84,7 +101,8 @@ export async function writePatches(
   fetchImpl?: FetchLike,
 ) {
   const refs = [...new Set(issues.map((i) => i.ref).filter((r): r is string => r !== null))];
-  const schema = makePatchSchema(refs, claims.map((c) => c.id));
+  const columns = tableColumns(draft, refs);
+  const schema = makePatchSchema(refs, claims.map((c) => c.id), columns);
   // Contexto enxuto: só as seções com bloco a corrigir (o resto está trancado e não precisa ser relido).
   // Entrada do redator é o maior custo de um remendo; o roteador não faz cache de prompt.
   const touched = new Set(refs.map((r) => r.split('#')[0]));
@@ -98,6 +116,6 @@ export async function writePatches(
     `Seções do rascunho com blocos a corrigir (só para contexto; os demais blocos já foram aprovados e NÃO podem mudar):\n${JSON.stringify(context)}\n\n` +
     `Corrija apenas estes blocos. Para cada ref, devolva um remendo: "replace" com o novo texto, basis e claim_ids ` +
     `(ou "cells" para linha de tabela), ou "remove" se o bloco não se sustenta nem estreitado.\n` +
-    issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}`).join('\n');
+    issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}${columns.has(i.ref!) ? ` [linha de tabela: exatamente ${columns.get(i.ref!)!.length} células, colunas ${columns.get(i.ref!)!.join(' | ')}]` : ''}`).join('\n');
   return callJson({ role: 'writer', system: writerSystem(), user, schema, schemaName: 'page_patches', maxTokens: 8000 }, fetchImpl);
 }

@@ -229,3 +229,11 @@ seções com bloco a corrigir (antes, o rascunho inteiro).
 <table> HTML; o extrator v2 a achatava em palavras soltas ("D33"), que nenhum trecho podia sustentar. v3
 acrescenta ao texto cada célula com rótulo de linha e coluna (cabeçalho diagonal incluído). Determinístico,
 reproduzível do bruto, texto anterior intacto (0 violações após reextrair as 82 fontes).
+
+## 2026-10-21 — Ciclo do travesseiro: onde foram 40 créditos
+Livro-caixa real do ciclo: redator Sonnet 5 25,1 + reserva Sonnet 4.6 12,1 (o 524 voltou; a reserva
+salvou a chamada) + auditor Luna 1,4. O redator é ~95% do custo. A página não convergiu por defeito
+mecânico: remendo de linha de tabela com 3 células para 4 colunas, repetido em todas as rodadas. O schema
+do remendo agora exige o número exato de células por linha (erro de validação volta ao redator com as
+colunas), e remendo com forma errada nunca é aplicado.
+Próxima economia grande: redação por seção (chamadas menores, sem 524, sem pagar a reserva).

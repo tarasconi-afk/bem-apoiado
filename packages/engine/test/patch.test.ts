@@ -60,3 +60,14 @@ describe('refFromWhere', () => {
     expect(refFromWhere('status')).toBeNull();
   });
 });
+
+import { makePatchSchema as mps } from '../src/stages/patch.ts';
+describe('remendo de linha de tabela', () => {
+  it('recusa número de células diferente do número de colunas', () => {
+    const schema = mps(['s#0.r1'], ['clm_a'], new Map([['s#0.r1', ['Tipo', 'Altura', 'Material', 'Indicação']]]));
+    const cell = { text: 'x', claim_ids: [] as string[] };
+    expect(schema.safeParse({ patches: [{ ref: 's#0.r1', action: 'replace', cells: [cell, cell, cell] }] }).success).toBe(false);
+    expect(schema.safeParse({ patches: [{ ref: 's#0.r1', action: 'replace', cells: [cell, cell, cell, cell] }] }).success).toBe(true);
+    expect(schema.safeParse({ patches: [{ ref: 's#0.r1', action: 'remove' }] }).success).toBe(true);
+  });
+});
