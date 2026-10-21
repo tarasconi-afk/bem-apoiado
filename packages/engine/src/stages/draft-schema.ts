@@ -47,6 +47,26 @@ export function claimsForTopic(topic: TopicBrief, all: Iterable<Claim>): Claim[]
     .sort((a, b) => a.id.localeCompare(b.id));
 }
 
+// Evidências que o redator recebe: as mais ligadas às perguntas da pauta, no máximo `max` (21/10: a base box
+// mandou 91 evidências, o Haiku estourou o tempo do roteador duas vezes e a reserva cara entrou). Regulador e
+// norma pesam mais; as já citadas na página (`keep`) entram sempre.
+export const WRITER_MAX_CLAIMS = 60;
+export function selectClaims(topic: TopicBrief, all: Iterable<Claim>, classOf: (sourceId: string) => string | undefined, keep: Set<string> = new Set(), max = WRITER_MAX_CLAIMS): Claim[] {
+  const pool = claimsForTopic(topic, all);
+  if (pool.length <= max) return pool;
+  const qs = new Set(topic.questions.map((q) => q.id));
+  const focus = topic.focus_terms.map((t) => t.toLowerCase());
+  const weight: Record<string, number> = { regulator: 2, standard_body: 2, independent_test: 1.5, manufacturer: 1 };
+  const score = (c: Claim) => c.question_ids.filter((q) => qs.has(q)).length * 2 + (weight[classOf(c.source_id) ?? ''] ?? 0.5) + focus.filter((f) => c.quote.toLowerCase().includes(f)).length * 0.5;
+  const kept = pool.filter((c) => keep.has(c.id));
+  // Uma vaga por fonte primeiro (variedade de fabricantes), depois pela pontuação.
+  const rest = pool.filter((c) => !keep.has(c.id)).sort((a, b) => score(b) - score(a));
+  const bySource = new Set<string>();
+  const first = rest.filter((c) => (bySource.has(c.source_id) ? false : (bySource.add(c.source_id), true)));
+  const chosen = [...kept, ...first, ...rest.filter((c) => !first.includes(c))].slice(0, Math.max(max, kept.length));
+  return chosen.sort((a, b) => a.id.localeCompare(b.id));
+}
+
 // Referência estável para cada unidade auditável do rascunho.
 export function blockRefs(d: Draft): { ref: string; text: string; claim_ids: string[]; basis: string }[] {
   const out = [{ ref: 'verdict', text: d.verdict.text, claim_ids: d.verdict.claim_ids, basis: d.verdict.basis }];

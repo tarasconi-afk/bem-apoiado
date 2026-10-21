@@ -6,7 +6,7 @@ import { MODELS } from '../models.ts';
 import { writeStage } from '../runs.ts';
 import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
-import { blockRefs, claimsForTopic, type Draft } from './draft-schema.ts';
+import { blockRefs, claimsForTopic, selectClaims, type Draft } from './draft-schema.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
@@ -64,6 +64,13 @@ export function styleIssues(draft: Draft): Issue[] {
     if (u.basis === 'framing' && n < 6) out.push({ ref: u.ref, msg: 'frase de transição incompleta; escreva uma frase completa ou remova o bloco.' });
     if (!u.ref.includes('.r') && n > 90) out.push({ ref: u.ref, msg: `parágrafo com ${n} palavras; encurte para no máximo 70.` });
   }
+  // Resposta curta (a frase mais lida da página e a que a busca com IA cita): no máximo 3 frases, começa pela
+  // resposta prática e nunca por norma ou regulador. "Trechos citados" é jargão do motor, não do leitor.
+  const v = draft.verdict.text.trim();
+  const sentences = v.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9])/).filter((x) => x.trim().length > 3).length;
+  if (sentences > 3) out.push({ ref: 'verdict', msg: `resposta curta com ${sentences} frases; deixe em até 3, começando pela resposta prática para quem vai comprar.` });
+  if (/^(segundo|conforme|de acordo com|no|na|nos|nas|o|a|os|as)?\s*(inmetro|abnt|nbr|nr[- ]?\d|anvisa|portaria|norma|regulamento|regula[cç][aã]o|trecho|anexo)/i.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir.' });
+  for (const u of blockRefs(draft)) if (/\b(nos|os|segundo os|dos) trechos? citados?\b/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trechos citados" (é termo do motor): diga quem afirma ("segundo a Ortobom") ou o que não foi informado ("a ficha não informa").' });
   if (draft.title.includes('—')) out.push({ ref: null, msg: 'title: remova o travessão (—).' });
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
   // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.
@@ -115,7 +122,7 @@ async function buildPageOnce(slug: string, runId: string, fetchImpl?: FetchLike)
 async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike): Promise<PageOutcome> {
   const topic = loadTopic(slug);
   const idx = buildIndex();
-  const claims = claimsForTopic(topic, idx.claims.values());
+  const claims = selectClaims(topic, idx.claims.values(), (id) => idx.sources.get(id)?.source_class);
   const usage: Usage = { input_tokens: 0, output_tokens: 0, calls: 0 };
   const add = (u: { input_tokens: number; output_tokens: number }, calls = 1) => {
     usage.input_tokens += u.input_tokens;

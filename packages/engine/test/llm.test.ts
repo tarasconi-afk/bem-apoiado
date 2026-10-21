@@ -138,3 +138,18 @@ describe('teto de gasto', () => {
     setRunBudget(Number.POSITIVE_INFINITY);
   });
 });
+
+describe('conexão cortada', () => {
+  it('tenta de novo quando a rede corta e segue na segunda', async () => {
+    const { callJson } = await import('../src/llm.ts');
+    const { z } = await import('zod');
+    let n = 0;
+    const f = async () => {
+      if (n++ === 0) throw Object.assign(new TypeError('fetch failed'), { cause: { code: 'ECONNRESET' } });
+      return new Response(JSON.stringify({ choices: [{ message: { content: '{"ok":true}' } }], usage: { prompt_tokens: 1, completion_tokens: 1 } }));
+    };
+    const r = await callJson({ role: 'extractor', system: 's', user: 'u', schema: z.object({ ok: z.boolean() }), schemaName: 't' }, f as never);
+    expect(r.data.ok).toBe(true);
+    expect(n).toBe(2);
+  });
+});

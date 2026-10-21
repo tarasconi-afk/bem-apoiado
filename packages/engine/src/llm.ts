@@ -26,7 +26,7 @@ export type FetchLike = (url: string, init: RequestInit) => Promise<Response>;
 export class LlmError extends Error {
   constructor(
     message: string,
-    readonly code: 'NO_CREDENTIALS' | 'HTTP' | 'INVALID_OUTPUT' | 'BUDGET_EXCEEDED',
+    readonly code: 'NO_CREDENTIALS' | 'HTTP' | 'INVALID_OUTPUT' | 'BUDGET_EXCEEDED' | 'NETWORK',
   ) {
     super(message);
   }
@@ -121,13 +121,25 @@ const TRANSIENT = new Set([429, 500, 502, 503, 504, 520, 522, 524, 529]);
 const RETRY_WAIT = [15_000, 45_000];
 async function postWithRetry(fetchImpl: FetchLike, url: string, key: string, payload: unknown) {
   for (let i = 0; ; i++) {
-    const res = await fetchImpl(url, {
-      method: 'POST',
-      headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(600_000),
-    });
-    if (res.ok) return readCompletion(res);
+    let res: Response;
+    try {
+      res = await fetchImpl(url, {
+        method: 'POST',
+        headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(600_000),
+      });
+      if (res.ok) return await readCompletion(res);
+    } catch (e) {
+      // Conexão cortada (ECONNRESET, "fetch failed"), inclusive no meio da resposta em streaming: tenta de
+      // novo como erro transitório. 21/10: um corte derrubou o ciclo e jogou fora a pesquisa já feita.
+      if (e instanceof LlmError) throw e;
+      if (i < RETRY_WAIT.length) {
+        await new Promise((r) => setTimeout(r, Number(process.env.BEM_RETRY_MS ?? RETRY_WAIT[i])));
+        continue;
+      }
+      throw new LlmError(`rede: ${(e as Error).message}${(e as { cause?: { code?: string } }).cause?.code ? ` (${(e as { cause: { code: string } }).cause.code})` : ''}`, 'NETWORK');
+    }
     const detail = (await res.text()).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200);
     if (i < RETRY_WAIT.length && TRANSIENT.has(res.status)) {
       await new Promise((r) => setTimeout(r, Number(process.env.BEM_RETRY_MS ?? RETRY_WAIT[i])));
