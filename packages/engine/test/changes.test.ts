@@ -35,6 +35,18 @@ describe('mudanças de um resultado do motor', () => {
     expect(s.learning.join(' | ')).toContain('1 fonte(s) nova(s)');
   });
 
+  it('capa da página nova vai no item da própria página', () => {
+    const nb: Read = (p) => (p === 'data/pages/como-escolher-cadeira.json' ? JSON.stringify({ ...page('approved', 'resposta curta da cadeira nova'), slug: 'como-escolher-cadeira' }) : null);
+    const s = describeChanges([
+      { status: 'A', path: 'data/pages/como-escolher-cadeira.json' },
+      { status: 'A', path: 'site/src/assets/generated/pagina-como-escolher-cadeira.webp' },
+      { status: 'M', path: 'data/images/registry.json' },
+    ], () => null, nb);
+    expect(s.items.map((i) => i.id)).toEqual(['page:como-escolher-cadeira']);
+    expect(s.items[0]!.paths).toHaveLength(3);
+    expect(s.items[0]!.detail).toMatch(/capa/);
+  });
+
   it('só aprendizado: nenhum item', () => {
     expect(describeChanges(files.slice(1).filter((f) => !f.path.includes('products')), rm, rb).items).toEqual([]);
   });

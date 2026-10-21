@@ -202,6 +202,7 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
   const pageFor = (kind?: string) => loadPages().find((p) => p.status !== 'draft' && topics.find((t) => t.slug === p.slug)?.product_kinds.includes(kind ?? ''))?.slug;
   const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
   const outcome = plainOutcome(b.steps);
+  const review = reviewFrom(readBranch(b.branch), slug);
   const item = (it: ChangeItem) => {
     const where = it.slug ? prev(`${esc(it.slug)}/`, 'ver na prévia') : it.kind && pageFor(it.kind) ? prev(`${esc(pageFor(it.kind)!)}/#exemplos`, 'ver na prévia') : it.id === 'theme' || it.id === 'home' ? prev('', 'ver na prévia') : '';
     const amazon = it.asin && it.title.startsWith('Novo exemplo') ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : '';
@@ -215,7 +216,7 @@ ${query ? `<p>Pauta "${esc(query)}": ${esc(outcome ?? b.subject)}</p>` : ''}
 ${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><ul class="changes">${items.map(item).join('')}</ul>
 ${learning.length ? `<p class="muted">Também guarda (não aparece no site): ${esc(learning.join('; '))}.</p>` : ''}<button class="ok">Aplicar marcados</button></form>` : `<p class="muted">Guarda: ${esc(learning.join('; ') || 'registros do ciclo')}. Entra sozinho em até 5 min, depois dos testes e do build.</p>`}
 <div class="actions">${form('descartar', { ramo: b.branch }, 'Descartar tudo', 'bad', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}${adjustForm(b.branch, slug)}</div>
-${suggestionHtml(reviewFrom(readBranch(b.branch), slug))}
+${suggestionHtml(review)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever a página? ~10 a 20 créditos; a prévia se refaz e você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou (com pesquisa)</button></form>` : ''}
 <details><summary class="muted">detalhes técnicos</summary><ul class="muted">${b.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></details>
 </div>`;
 }
@@ -371,14 +372,18 @@ function suggestionHtml(x: { review: FullReview; writer: string } | null): strin
 <p class="muted">${esc(r.summary)}</p>${r.missing.length ? `<p class="muted"><strong>Faltou:</strong></p><ul class="muted">${r.missing.slice(0, 5).map((m) => `<li>${esc(m)}</li>`).join('')}</ul>` : ''}<p class="muted"><strong>Enchimento</strong> = parte dos blocos que a revisão apontou como dispensável (repete outro bloco, só descreve o catálogo de uma marca, transição vazia): sai sem a página perder nada.</p><p class="muted">Redator: ${esc(x.writer)}. Discorda? Aprove ou recuse com o seu motivo; cada veredito calibra a regra. Para pedir ajuste específico, use "Pedir ao motor".</p></details>`;
 }
 
+// Resposta a um pedido: só o mais recente fica à vista (e só por 6 h); os anteriores ficam recolhidos.
+const answerHtml = (j: Job) => `<div class="flash" style="margin-top:8px"><strong>${esc(j.label.slice(8))}</strong> <span class="muted">${esc(fmt(j.started))}</span>${!j.ended ? ' <span class="b neutral">pensando…</span>' : ''}<pre>${esc(j.output.split('\n').filter((l) => /^(→|✓|✗)/.test(l)).join('\n') || (j.ended ? j.output.slice(-400) : ''))}</pre></div>`;
+
 // Pedidos em texto livre (agente): caixa + últimas respostas + pedidos anotados para o desenvolvedor.
 function requestsHtml(): string {
-  const answers = jobs.filter((j) => j.label.startsWith('pedido:')).slice(0, 3);
+  const answers = jobs.filter((j) => j.label.startsWith('pedido:')).slice(0, 10);
   const devFile = join(DATA, 'dev-requests.json');
   const dev = existsSync(devFile) ? (JSON.parse(readFileSync(devFile, 'utf8')) as { summary: string; status: string; at: string }[]).filter((d) => d.status === 'aberto') : [];
   return `<form method="post" action="acao"><input type="hidden" name="acao" value="pedido"><textarea name="texto" required rows="2" style="width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)" placeholder="Ex.: crie pautas sobre colchão para quem sente calor · deixe a resposta curta do guia de molas mais direta · relatório de gastos da semana"></textarea><button class="ok" style="margin-top:6px">Enviar pedido</button></form>
 <p class="muted">O motor transforma o pedido em ações que ele já faz com as travas de sempre (fila, refazer página com instrução, editar texto com auditoria, despublicar, relatório). Mudança de visual, código ou regra fica anotada para o desenvolvedor.</p>
-${answers.map((j) => `<div class="flash" style="margin-top:8px"><strong>${esc(j.label.slice(8))}</strong>${!j.ended ? ' <span class="b neutral">pensando…</span>' : ''}<pre>${esc(j.output.split('\n').filter((l) => /^(→|✓|✗)/.test(l)).join('\n') || (j.ended ? j.output.slice(-400) : ''))}</pre></div>`).join('')}
+${answers.slice(0, 1).filter((j) => !j.ended || Date.now() - Date.parse(j.started) < 6 * 3600_000).map(answerHtml).join('')}
+${answers.length > 1 ? `<details style="margin-top:8px"><summary class="muted">pedidos anteriores (${answers.length - 1})</summary>${answers.slice(1).map(answerHtml).join('')}</details>` : ''}
 ${dev.length ? `<details style="margin-top:8px"><summary class="muted">${dev.length} pedido(s) anotado(s) para o desenvolvedor</summary><ul class="muted">${dev.map((d) => `<li>${esc(d.summary)} <span class="muted">(${esc(d.at.slice(0, 10))})</span></li>`).join('')}</ul></details>` : ''}`;
 }
 

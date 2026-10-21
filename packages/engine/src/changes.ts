@@ -122,7 +122,14 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
     } else continue;
     items.push(it);
   }
-  if (images.length) items.push({ id: 'images', title: `Imagens novas (${images.filter((x) => !x.endsWith('.json')).length})`, paths: images });
+  // Capa de página nova (pagina-<slug>) vai junto do item da própria página: aceitar a página sem a capa,
+  // ou a capa sem a página, não faz sentido. Imagem de tipo de produto continua item próprio.
+  const files_ = images.filter((x) => !x.endsWith('.json'));
+  const pageOf = (x: string) => items.find((i) => i.slug && i.id === `page:${i.slug}` && x.includes(`pagina-${i.slug}.`));
+  if (files_.length && files_.every(pageOf)) {
+    for (const x of images) (pageOf(x) ?? pageOf(files_[0]!))!.paths.push(x);
+    for (const i of new Set(files_.map(pageOf))) i!.detail = [i!.detail, 'inclui a imagem de capa'].filter(Boolean).join(' · ');
+  } else if (images.length) items.push({ id: 'images', title: `Imagens novas (${files_.length})`, paths: images });
   if (count.sources) learning.push(`${count.sources} fonte(s) nova(s) arquivada(s)`);
   if (count.claims) learning.push(`${count.claims} evidência(s) nova(s) ou ligada(s) a pautas`);
   if (count.topics) learning.push(`${count.topics} pauta(s) criada(s) ou atualizada(s)`);

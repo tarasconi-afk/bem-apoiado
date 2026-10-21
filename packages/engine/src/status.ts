@@ -85,9 +85,11 @@ function cycleLiveHtml(now: Date): string {
 // Aviso quando o site público ficou para trás do main (sync grava STATE/live-site.json a cada 5 min).
 // Só o build do Action carimba a versão; commit de dados do painel também conta como versão nova.
 function liveWarning(): string {
-  const s = readJson(join(STATE_DIR, 'live-site.json')) as { checked_at: string; live: string; main: string } | null;
+  const s = readJson(join(STATE_DIR, 'live-site.json')) as { checked_at: string; live: string; main: string; main_at?: string } | null;
   if (!s || !s.live || s.live === s.main) return '';
-  return `<p class="flash" style="border-color:var(--bad)">Site público em versão antiga (<code>${esc(s.live.slice(0, 7))}</code>; main em <code>${esc(s.main.slice(0, 7))}</code>, conferido ${esc(fmt(new Date(s.checked_at)))}). Se passar de 15 min, a implantação automática da Hostinger não disparou: hPanel → Sites → Git → Implantar.</p>`;
+  // Implantação leva alguns minutos depois de cada envio ao main: só avisa se passou de 15 min.
+  if (s.main_at && Date.parse(s.checked_at) - Date.parse(s.main_at) < 15 * 60_000) return '';
+  return `<p class="flash" style="border-color:var(--bad)">Site público em versão antiga (<code>${esc(s.live.slice(0, 7))}</code>; main em <code>${esc(s.main.slice(0, 7))}</code>, conferido ${esc(fmt(new Date(s.checked_at)))}). Mais de 15 min: a implantação automática da Hostinger não disparou (hPanel → Sites → Git → Implantar).</p>`;
 }
 
 export function renderStatus(now = new Date(), opts: { adminHtml?: string; refresh?: number } = {}): string {
