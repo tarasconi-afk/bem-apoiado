@@ -378,3 +378,10 @@ depois, "Último ciclo" com os passos e, se falhou, as últimas 40 linhas do log
 Ciclo das 12:19 (fluxo novo completo: plano Sonnet, reuso, Haiku, lições, sem mínimo de palavras): "como
 escolher travesseiro" aprovada de primeira (PASS) por 25,8 créditos com 29 evidências reaproveitadas de 16
 fontes vizinhas. Primeira página do piloto automático que passa sem escalada.
+
+## 2026-10-21 — "Pedir ajuste" antes de decidir
+Sugestão do dono: além de aceitar/descartar, ajustar. Cada resultado do motor com página, cada rascunho e
+cada página no ar tem um campo "pedir ajuste": o modelo escolhe os blocos, o redator reescreve com as MESMAS
+fontes, a edição manual passa pela auditoria e só grava se sustentado. No resultado do motor o ajuste vira
+commit no próprio ramo pagina/* (a prévia se refaz e o editor decide depois); em rascunho ou página no ar,
+commit no main. Layout e visual continuam sendo pedido para o desenvolvedor.

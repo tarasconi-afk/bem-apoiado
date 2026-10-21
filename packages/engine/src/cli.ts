@@ -306,6 +306,22 @@ async function main(): Promise<number> {
       console.log(`${r.reused} evidência(s) reaproveitada(s) de ${r.sources} fonte(s); ~${creditsSpent().toFixed(2)} créditos`);
       return 0;
     }
+    case 'adjust': {
+      // Ajuste pedido no painel para uma página: adjust <slug> <arquivo.txt com o pedido>. Mesmas fontes; só
+      // grava se o auditor sustentar. Sai com 1 se não salvou (o script não faz commit).
+      const [slug, file] = rest;
+      if (!slug || !file) {
+        console.error('uso: adjust <slug> <arquivo-com-o-pedido.txt>');
+        return 2;
+      }
+      setRunBudget(15);
+      const { readFileSync } = await import('node:fs');
+      const { editByInstruction } = await import('./stages/requests.ts');
+      const msg = await editByInstruction(slug, readFileSync(file, 'utf8').slice(0, 1000), newRunId(`${slug}-ajuste`));
+      console.log(`→ ${msg}`);
+      console.log(`~${creditsSpent().toFixed(2)} créditos`);
+      return msg.startsWith('texto ajustado') ? 0 : 1;
+    }
     case 'request': {
       // Pedido em texto livre (painel): request <arquivo.txt>
       if (!rest[0]) {

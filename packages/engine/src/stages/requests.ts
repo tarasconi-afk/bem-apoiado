@@ -72,7 +72,7 @@ function report(about: 'gastos' | 'qualidade' | 'paginas' | 'fila' | 'visitas'):
 
 // Edição de texto por instrução: o modelo escolhe os blocos, o redator reescreve só eles (mesmas fontes) e a
 // edição manual confere com o auditor; só grava se sustentado.
-async function editByInstruction(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike): Promise<string> {
+export async function editByInstruction(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
   const blocks = editableBlocks(page);

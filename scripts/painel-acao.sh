@@ -7,6 +7,7 @@
 #   painel-acao.sh veredito <slug> approve|reject <motivo>
 #   painel-acao.sh fila-adicionar <consulta>
 #   painel-acao.sh fila-remover <consulta>
+#   painel-acao.sh ajustar <ramo|main> <slug> <pedido.txt>  # ajuste de texto antes de aceitar
 #   painel-acao.sh pedido <arquivo.txt>         # pedido em texto livre (agente do painel)
 #   painel-acao.sh editar <slug> <edits.json>   # edição manual de texto (só grava se o auditor sustentar)
 #   painel-acao.sh dominio-aprovar <host> <classe> <publicador> | dominio-bloquear <host>
@@ -113,6 +114,24 @@ case "$action" in
     op=add; [ "$action" = fila-remover ] && op=remove
     npm run -s engine -- queue "$op" "$2"
     publish "Painel: fila ${action#fila-} \"$2\""
+    ;;
+  ajustar)
+    # ajustar <ramo pagina/...|main> <slug> <pedido.txt>: ajusta o texto da página no próprio resultado do
+    # motor (antes do aceite) ou no main; a prévia se refaz e o editor decide depois.
+    fresh
+    if [ "$2" != main ]; then git checkout -q -B "$2" "origin/$2"; fi
+    if ! npm run -s engine -- adjust "$3" "$4"; then
+      git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; exit 1
+    fi
+    git add data/
+    git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3"$'\n\n'"$(head -c 300 "$4")"
+    if [ "$2" = main ]; then
+      npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
+    else
+      git push -q origin "HEAD:$2"
+    fi
+    git checkout -q -f main
+    echo "ajuste salvo em $2: $3"
     ;;
   pedido)
     fresh
