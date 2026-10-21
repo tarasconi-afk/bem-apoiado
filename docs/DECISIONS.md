@@ -511,3 +511,11 @@ Conferido com os 3 colchões reais: todos achados, trecho batendo.
 Contornar o bloqueio (navegador disfarçado, proxy residencial) não: é corrida armamentista com a Amazon e os
 termos dela proíbem raspagem automática, o que arriscaria a conta de Associados. Caminho oficial: API da
 Amazon (PA-API, migrando para a Creators API) depois das vendas.
+
+## 2026-10-21 — Produto escolhido pelo editor
+Como no Ferramenta Clara: o editor cola o link de um anúncio no painel (Conteúdo → Produtos à venda), com tipo,
+marca e nome. Nível "editor" no catálogo: sem leitura do anúncio (a Amazon bloqueia), validado (ASIN do link,
+tipo do nicho, marca plausível, nome com a marca e sem promoção ou termo vetado). Cartão igual aos dos colchões,
+com a imagem do tipo gerada por IA (foto da Amazon só pela API), "conferido pelo editor em <data>; preço e
+estoque podem mudar". Vale 45 dias sem reconferir; o painel avisa a partir de 30 e tem "Reconferi" e "Remover"
+(removido vai para products-retired e a busca automática não traz de volta).

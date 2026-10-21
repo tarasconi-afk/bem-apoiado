@@ -48,7 +48,7 @@ export const lookupInSearchIndex: IndexLookup = async (p) => {
   const norm = (t: string) => normalizeForMatch(t);
   if (!makers.some((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => norm(n) === norm(p.brand)))) return null;
   // Nome curto, título do anúncio (o trecho da prova anterior) e o código: o primeiro que trouxer o anúncio.
-  const quote = buildIndex().claims.get(p.availability_claim_id)?.quote ?? '';
+  const quote = buildIndex().claims.get(p.availability_claim_id ?? '')?.quote ?? '';
   const queries = [p.label, quote.split(/\s+/).slice(0, 8).join(' '), p.asin].filter((q, i, a) => q && a.indexOf(q) === i);
   let h: Awaited<ReturnType<typeof webSearch>>[number] | undefined;
   for (const q of queries) {
@@ -76,13 +76,15 @@ export async function refreshProducts(
   // continua com a prova antiga; sem isto o ciclo recapturaria (e pagaria) todo dia.
   const tried = readState<Record<string, string>>('products-refresh.json', {});
   for (const p of loadProducts()) {
+    // Escolha do editor não é relida: ele mesmo reconfere pelo painel.
+    if (p.evidence === 'editor') continue;
     const badBrand = brandProblem(p.brand, labels.get(p.kind) ?? p.kind);
     if (badBrand) {
       retire(p, badBrand, now);
       report.retired.push({ asin: p.asin, reason: badBrand });
       continue;
     }
-    const old = idx.claims.get(p.availability_claim_id);
+    const old = idx.claims.get(p.availability_claim_id ?? '');
     const age = old ? ageDays(old.captured_at, now) : Infinity;
     if (age < maxAge) continue;
     const expiredNow = age > AVAILABILITY_MAX_AGE_DAYS;

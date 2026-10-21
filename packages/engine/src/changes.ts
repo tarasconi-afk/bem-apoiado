@@ -115,7 +115,7 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
     if (after && !before) {
       it.title = `Novo exemplo à venda: ${after.label}`;
       it.kind = after.kind;
-      it.detail = `${after.evidence === 'listing' ? 'só anúncio (sem ficha do fabricante)' : 'com ficha do fabricante'} · marca "${after.brand}" · aparece nas páginas com o tipo "${after.kind}"`;
+      it.detail = `${after.evidence === 'editor' ? 'escolhido pelo editor' : after.evidence === 'listing' ? 'só anúncio (sem ficha do fabricante)' : 'com ficha do fabricante'} · marca "${after.brand}" · aparece nas páginas com o tipo "${after.kind}"`;
     } else if (before && !after) {
       it.title = `Exemplo retirado: ${before.label}`;
       it.detail = why ? `motivo: ${why}` : undefined;

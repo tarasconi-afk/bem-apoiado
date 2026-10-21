@@ -18,6 +18,8 @@ export type SourceClass = z.infer<typeof SourceClass>;
 
 // Tag de afiliado da conta Amazon Associados (StoreID).
 export const AFFILIATE_TAG = 'bemapoiado-20';
+// Escolha do editor sem nova conferência por mais que isso: o cartão sai do site até ele reconferir.
+export const EDITOR_PICK_MAX_AGE_DAYS = 45;
 export const affiliateUrl = (asin: string) => `https://www.amazon.com.br/dp/${asin}?tag=${AFFILIATE_TAG}`;
 // Busca na Amazon com a nossa tag: não aponta um produto, então não há anúncio a conferir (nem a ler, e a
 // Amazon bloqueia a leitura automática). Compra feita na sessão conta como venda do Associados.
@@ -171,11 +173,15 @@ export const Product = z.object({
   kind: ProductKind,
   // "manufacturer": especificações da ficha oficial. "listing": sem ficha oficial; o cartão só mostra o
   // tipo como "anunciado como", citando o anúncio (quem afirma é o vendedor), e nenhuma especificação.
-  evidence: z.enum(['manufacturer', 'listing']).default('manufacturer'),
+  // "editor": escolhido pelo editor no painel (link colado), sem leitura automática do anúncio, que a Amazon
+  // bloqueia; vale por EDITOR_PICK_MAX_AGE_DAYS desde a última conferência humana.
+  evidence: z.enum(['manufacturer', 'listing', 'editor']).default('manufacturer'),
   spec_claim_ids: z.array(ClaimId),
-  availability_claim_id: ClaimId,
+  // Prova de disponibilidade capturada (obrigatória nos níveis manufacturer e listing).
+  availability_claim_id: ClaimId.optional(),
+  editor: z.object({ checked_at: z.iso.date() }).optional(),
   added_at: z.iso.date(),
-});
+}).refine((p) => (p.evidence === 'editor' ? !!p.editor : !!p.availability_claim_id), { message: 'produto sem prova: anúncio capturado ou conferência do editor' });
 export type Product = z.infer<typeof Product>;
 
 export const PageStatus = z.enum(['draft', 'approved', 'published']);

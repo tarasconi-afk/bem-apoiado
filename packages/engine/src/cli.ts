@@ -19,7 +19,7 @@ import { loadTopic } from './stages/research.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP, webSearch } from './search.ts';
 import { renderStatus } from './status.ts';
 import { research } from './stages/research.ts';
-import { buildIndex, loadPages, loadProducts, loadSources, loadTopics, PAGES_DIR, TOPICS_DIR, writeJson } from './store.ts';
+import { buildIndex, loadPages, loadProducts, loadSources, loadTopics, PAGES_DIR, PRODUCTS_DIR, TOPICS_DIR, writeJson } from './store.ts';
 import { loadNiche } from './niche.ts';
 import { join } from 'node:path';
 
@@ -248,6 +248,39 @@ async function main(): Promise<number> {
       }
       const { applyExclusions } = await import('./changes.ts');
       for (const t of applyExclusions(ref, ids.split(',').filter(Boolean))) console.log(`recusado: ${t}`);
+      return 0;
+    }
+    case 'product-pick': {
+      // product-pick <link|ASIN> <tipo> <marca> <nome...>: produto escolhido pelo editor no painel.
+      const [url, kind, brand, ...name] = rest;
+      if (!url || !kind || !brand || !name.length) {
+        console.error('uso: product-pick <link|ASIN> <tipo> <marca> <nome do produto>');
+        return 2;
+      }
+      const { editorPick } = await import('./stages/products.ts');
+      const p = editorPick({ url, kind, brand, label: name.join(' ') });
+      console.log(`produto do editor: ${p.label} (${p.asin}, ${p.kind})`);
+      return 0;
+    }
+    case 'product-recheck': {
+      const { editorRecheck } = await import('./stages/products.ts');
+      const p = editorRecheck(rest[0] ?? '');
+      console.log(`reconferido: ${p.label} (${p.editor!.checked_at})`);
+      return 0;
+    }
+    case 'product-remove': {
+      // product-remove <ASIN> <motivo...>: tira do site e grava em products-retired (a busca não traz de volta).
+      const [asin, ...why] = rest;
+      const p = loadProducts().find((x) => x.asin === asin);
+      if (!p) {
+        console.error(`produto ${asin} não está no catálogo`);
+        return 2;
+      }
+      const { RETIRED_DIR } = await import('./stages/refresh.ts');
+      const { unlinkSync } = await import('node:fs');
+      writeJson(join(RETIRED_DIR, `${p.asin}.json`), { ...p, retired_at: new Date().toISOString(), reason: why.join(' ') || 'removido pelo editor' });
+      unlinkSync(join(PRODUCTS_DIR, `${p.asin}.json`));
+      console.log(`removido: ${p.label}`);
       return 0;
     }
     case 'queue': {

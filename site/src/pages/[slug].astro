@@ -161,7 +161,9 @@ const jsonLd = [
                   <div class="product-body">
                     <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
                     <span class="product-name">{card.product.label}</span>
-                    {card.listingQuote ? (
+                    {card.editorPick ? (
+                      <p class="product-listing">Escolhido pelo editor como exemplo deste tipo. Confira na ficha do anúncio os pontos do resumo acima.</p>
+                    ) : card.listingQuote ? (
                       <p class="product-listing">Anunciado como: <q>{card.listingQuote}</q></p>
                     ) : (
                       <ul class="product-specs">
@@ -169,7 +171,7 @@ const jsonLd = [
                       </ul>
                     )}
                     <a class={`btn product-cta${THEME.cta.style === 'contorno' ? ' contorno' : ''}`} href={card.url} rel="sponsored nofollow noopener" target="_blank">{THEME.cta.label} <span aria-hidden="true">↗</span></a>
-                    <span class="product-checked">{card.searchOnly ? 'Anúncio encontrado em' : 'Disponibilidade conferida em'} {fmtDate(card.checkedAt)}</span>
+                    <span class="product-checked">{card.editorPick ? 'Conferido pelo editor em' : card.searchOnly ? 'Anúncio encontrado em' : 'Disponibilidade conferida em'} {fmtDate(card.checkedAt)}{card.editorPick && '; preço e estoque podem mudar'}</span>
                   </div>
                 </li>
               ))}

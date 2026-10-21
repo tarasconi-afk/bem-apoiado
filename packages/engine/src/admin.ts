@@ -6,6 +6,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
+import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
@@ -15,7 +16,7 @@ import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/d
 import { RUNS_DIR } from './store.ts';
 import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
-import { DATA, loadPages, ROOT } from './store.ts';
+import { DATA, loadPages, loadProducts, ROOT } from './store.ts';
 
 // Painel admin: o painel de status + ações. Escuta só em 127.0.0.1 atrás do Caddy (HTTPS). A senha
 // é conferida aqui (hash scrypt em STATE, fora do git), para o dono poder trocá-la pelo próprio painel.
@@ -161,6 +162,9 @@ ${domainsHtml()}
 ${ideasHtml()}
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="fila-adicionar"><input name="consulta" required minlength="3" maxlength="120" placeholder="nova dúvida, como o leitor busca (ex.: colchão firme ou macio)"><button class="ok">Adicionar ao fim</button></form>
 
+<h2>Produtos à venda</h2>
+${productsHtml()}
+
 <h2>Piloto automático</h2>
 <p class="muted">Roda sozinho às 04:00, 10:00, 16:00 e 22:00 (uma página por ciclo). Um ciclo gasta até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos, e os ciclos do dia somados até ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}.</p>
 ${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', `Rodar um ciclo agora? Pode gastar até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos de IA (dentro do teto diário de ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}).`)}
@@ -221,6 +225,27 @@ ${learning.length ? `<p class="muted">Também guarda (não aparece no site): ${e
 ${suggestionHtml(review)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever a página? ~10 a 20 créditos; a prévia se refaz e você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou (com pesquisa)</button></form>` : ''}
 <details><summary class="muted">detalhes técnicos</summary><ul class="muted">${b.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></details>
 </div>`;
+}
+
+// Catálogo de exemplos à venda + produto escolhido pelo editor (link colado; a Amazon bloqueia a leitura
+// automática dos anúncios). Escolha do editor sai do site se passar de EDITOR_PICK_MAX_AGE_DAYS sem reconferir.
+function productsHtml(): string {
+  const kinds = loadNiche().product_kinds.filter((k) => k.id !== 'outro');
+  const label = new Map(kinds.map((k) => [k.id, k.label]));
+  const today = Date.now();
+  const rows = loadProducts().map((p) => {
+    const age = p.evidence === 'editor' ? Math.floor((today - Date.parse(p.editor!.checked_at)) / 86_400_000) : null;
+    const how = p.evidence === 'editor' ? `escolha sua, conferida há ${age} dia(s)${age! > 30 ? ` <span class="b bad">reconferir</span>` : ''}` : p.evidence === 'manufacturer' ? 'motor: ficha do fabricante + anúncio' : 'motor: só anúncio';
+    return `<tr><td><a href="https://www.amazon.com.br/dp/${esc(p.asin)}" target="_blank" rel="noopener">${esc(p.label)}</a></td><td class="muted">${esc(label.get(p.kind) ?? p.kind)}</td><td class="muted">${how}</td><td class="actions">${p.evidence === 'editor' ? form('produto-reconferir', { asin: p.asin }, 'Reconferi', 'ok') : ''}${form('produto-remover', { asin: p.asin }, 'Remover', 'bad', `Tirar "${p.label}" do site? Ele não volta pela busca automática.`)}</td></tr>`;
+  });
+  return `${rows.length ? `<div class="tw"><table><thead><tr><th>Produto</th><th>Tipo</th><th>Origem</th><th></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>` : '<p class="muted">Nenhum produto no catálogo.</p>'}
+<form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="produto-adicionar">
+<input name="link" required maxlength="500" placeholder="link do anúncio na Amazon" style="min-width:240px">
+<select name="tipo">${kinds.map((k) => `<option value="${esc(k.id)}">${esc(k.label)}</option>`).join('')}</select>
+<input name="marca" required minlength="2" maxlength="40" placeholder="marca (ex.: Cavaletti)">
+<input name="nome" required minlength="5" maxlength="80" placeholder="nome com a marca (ex.: Cavaletti Air)">
+<button class="ok">Adicionar</button></form>
+<p class="muted">Aparece com a imagem do tipo (gerada por IA) em todas as páginas desse tipo, com "conferido pelo editor em". Reconfira em até 45 dias; depois disso o cartão sai do site sozinho até você reconferir.</p>`;
 }
 
 // Vereditos: só pede decisão do que precisa dela. Rascunho cuja versão atual ainda não foi julgada fica
@@ -294,7 +319,7 @@ const TABS_JS = `<script>
 // não repetir o aviso para sempre.
 if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
-  var MAP = [['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Domínios novos','conteudo'],
+  var MAP = [['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','conteudo'],['Domínios novos','conteudo'],
     ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
     ['Saldo de créditos','config'],['Senha do painel','config']];
   var NAMES = { decisoes: 'Decisões', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
@@ -480,6 +505,20 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const pub = clean(f.get('publicador'), 60);
     if (!['manufacturer', 'regulator', 'standard_body', 'independent_test'].includes(classe) || pub.length < 2) return 'classe ou nome inválido';
     return { label: `aprovar domínio ${host} (${pub})`, args: ['dominio-aprovar', host, classe, pub] };
+  }
+  if (acao === 'produto-adicionar') {
+    const link = clean(f.get('link'), 500);
+    const tipo = f.get('tipo') ?? '';
+    const marca = clean(f.get('marca'), 40);
+    const nome = clean(f.get('nome'), 80);
+    if (!/^https:\/\/(www\.)?amazon\.com\.br\/.*(dp|gp\/product)\/[A-Z0-9]{10}/.test(link) && !/^[A-Z0-9]{10}$/.test(link)) return 'cole o link de um anúncio da amazon.com.br (com /dp/ no endereço)';
+    if (!loadNiche().product_kinds.some((k) => k.id === tipo) || marca.length < 2 || nome.length < 5) return 'tipo, marca ou nome inválido';
+    return { label: `adicionar produto: ${nome}`, args: ['produto-adicionar', link, tipo, marca, nome] };
+  }
+  if (acao === 'produto-reconferir' || acao === 'produto-remover') {
+    const asin = f.get('asin') ?? '';
+    if (!/^[A-Z0-9]{10}$/.test(asin)) return 'produto inválido';
+    return { label: `${acao === 'produto-reconferir' ? 'reconferir' : 'remover'} produto ${asin}`, args: [acao, asin] };
   }
   if (acao === 'descartar') {
     const ramo = f.get('ramo') ?? '';

@@ -464,3 +464,31 @@ async function registerListingOnly(
   writeJson(join(PRODUCTS_DIR, `${a.asin}.json`), product);
   return { ok: true, product };
 }
+
+// Produto escolhido pelo editor no painel (link colado): sem leitura do anúncio. Validações de sempre: ASIN,
+// tipo do nicho, marca plausível, nome sem promoção. Reconferir renova a data; remover vai para retirados.
+export function editorPick(input: { url: string; kind: string; brand: string; label: string }, now = new Date()): Product {
+  const asin = /\/(?:dp|gp\/product)\/([A-Z0-9]{10})/.exec(input.url)?.[1] ?? (/^[A-Z0-9]{10}$/.test(input.url.trim()) ? input.url.trim() : null);
+  if (!asin) throw new Error('link sem código de produto da Amazon (/dp/XXXXXXXXXX)');
+  const niche = loadNiche();
+  const kind = niche.product_kinds.find((k) => k.id === input.kind);
+  if (!kind) throw new Error(`tipo desconhecido: ${input.kind}`);
+  const bad = brandProblem(input.brand, kind.label);
+  if (bad) throw new Error(bad);
+  const label = input.label.replace(/\s+/g, ' ').trim();
+  if (!loose(label).includes(loose(input.brand.trim()))) throw new Error('o nome do produto precisa trazer a marca');
+  const day = now.toISOString().slice(0, 10);
+  const p = Product.parse({ asin, label, brand: input.brand.trim(), kind: kind.id, evidence: 'editor', spec_claim_ids: [], editor: { checked_at: day }, added_at: day });
+  const problems = checkProduct(p, buildIndex(), now, kind.label, niche.forbidden_terms);
+  if (problems.length) throw new Error(problems.map((x) => `${x.code}: ${x.detail}`).join('; '));
+  writeJson(join(PRODUCTS_DIR, `${asin}.json`), p);
+  return p;
+}
+
+export function editorRecheck(asin: string, now = new Date()): Product {
+  const p = loadProducts().find((x) => x.asin === asin);
+  if (!p || p.evidence !== 'editor') throw new Error(`${asin} não é escolha do editor`);
+  const up = Product.parse({ ...p, editor: { checked_at: now.toISOString().slice(0, 10) } });
+  writeJson(join(PRODUCTS_DIR, `${asin}.json`), up);
+  return up;
+}

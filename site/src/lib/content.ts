@@ -71,6 +71,8 @@ export interface ProductCard {
   checkedAt: string;
   // Prova só pelo índice de busca (página do anúncio bloqueada): o cartão não afirma disponibilidade.
   searchOnly: boolean;
+  // Escolhido pelo editor (link colado no painel): o cartão diz isso e manda conferir preço e estoque.
+  editorPick: boolean;
 }
 
 // Exemplos à venda: só tipos que a pauta explica, só produtos que passam no gate agora (ficha do
@@ -81,8 +83,8 @@ export function productsFor(page: PageSpec): ProductCard[] {
   const idx = buildIndex();
   return loadProducts()
     .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0)
-    // Com ficha oficial antes de "só anúncio".
-    .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : 1))
+    // Com ficha oficial antes de "só anúncio" e da escolha do editor.
+    .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : b.evidence === 'manufacturer' ? 1 : 0))
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))
     .map((p) => ({
       product: p,
@@ -92,9 +94,10 @@ export function productsFor(page: PageSpec): ProductCard[] {
         const s = idx.sources.get(c.source_id)!;
         return { statement: c.quote, sourceUrl: s.final_url, publisher: s.publisher };
       }),
-      listingQuote: p.evidence === 'listing' ? idx.claims.get(p.availability_claim_id)!.quote : null,
-      checkedAt: idx.claims.get(p.availability_claim_id)!.captured_at,
-      searchOnly: idx.sources.get(idx.claims.get(p.availability_claim_id)!.source_id)?.note === SEARCH_INDEX_NOTE,
+      listingQuote: p.evidence === 'listing' ? idx.claims.get(p.availability_claim_id!)!.quote : null,
+      checkedAt: p.evidence === 'editor' ? p.editor!.checked_at : idx.claims.get(p.availability_claim_id!)!.captured_at,
+      searchOnly: p.evidence !== 'editor' && idx.sources.get(idx.claims.get(p.availability_claim_id!)!.source_id)?.note === SEARCH_INDEX_NOTE,
+      editorPick: p.evidence === 'editor',
     }));
 }
 
