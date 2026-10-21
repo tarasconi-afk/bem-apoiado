@@ -6,6 +6,9 @@ User=bemapoiado
 WorkingDirectory=/opt/bem-apoiado/repo
 Environment=HOME=/opt/bem-apoiado
 EnvironmentFile=/etc/bem-apoiado/env
+# Mesmos tetos do ciclo, só para o painel exibir.
+Environment=BEM_DAILY_CREDIT_CAP=250
+Environment=BEM_CYCLE_BUDGET=60
 ExecStart=/usr/bin/npm run -s engine -- admin
 # Sai sozinho quando o main traz código novo; o systemd sobe de novo com ele.
 Restart=always

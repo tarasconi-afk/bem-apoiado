@@ -7,6 +7,8 @@ User=bemapoiado
 WorkingDirectory=/opt/bem-apoiado/repo
 Environment=HOME=/opt/bem-apoiado
 # Teto diário somado entre ciclos (4 por dia). Página com Haiku ~8–12 créditos; escalada ao Sonnet ~25.
-Environment=BEM_DAILY_CREDIT_CAP=100
+# FASE DE DESENVOLVIMENTO (21/10, autorizado pelo dono): 250/dia e 60/ciclo. Voltar para ~100/40 depois.
+Environment=BEM_DAILY_CREDIT_CAP=250
+Environment=BEM_CYCLE_BUDGET=60
 ExecStart=/opt/bem-apoiado/repo/scripts/cycle.sh
 TimeoutStartSec=3h

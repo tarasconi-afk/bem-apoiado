@@ -26,7 +26,7 @@ export BEM_PENDING_SLUGS=$(git branch -r --no-merged origin/main --list 'origin/
 [ -n "$BEM_PENDING_SLUGS" ] && echo "aguardando merge: $BEM_PENDING_SLUGS"
 
 set +e
-OUT=$(npm run -s engine -- autopilot 2>&1)
+OUT=$(npm run -s engine -- autopilot --budget "${BEM_CYCLE_BUDGET:-40}" 2>&1)
 CODE=$?
 set -e
 echo "$OUT" | tail -5

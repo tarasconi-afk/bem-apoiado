@@ -6,6 +6,9 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
+import { editableBlocks } from './stages/manual-edit.ts';
+import { loadClaims } from './store.ts';
+import { mkdirSync } from 'node:fs';
 import { setReportedBalance } from './credits.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { RUNS_DIR } from './store.ts';
@@ -158,8 +161,8 @@ ${ideasHtml()}
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="fila-adicionar"><input name="consulta" required minlength="3" maxlength="120" placeholder="nova dúvida, como o leitor busca (ex.: colchão firme ou macio)"><button class="ok">Adicionar ao fim</button></form>
 
 <h2>Piloto automático</h2>
-<p class="muted">Roda sozinho às 04:00, 10:00, 16:00 e 22:00 (uma página por ciclo). Um ciclo gasta até 40 créditos, e os ciclos do dia somados até 100.</p>
-${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', 'Rodar um ciclo agora? Pode gastar até 40 créditos de IA (dentro do teto diário de 100).')}
+<p class="muted">Roda sozinho às 04:00, 10:00, 16:00 e 22:00 (uma página por ciclo). Um ciclo gasta até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos, e os ciclos do dia somados até ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}.</p>
+${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', `Rodar um ciclo agora? Pode gastar até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos de IA (dentro do teto diário de ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}).`)}
 
 <h2>Google Search Console</h2>
 ${gscHtml()}
@@ -185,6 +188,7 @@ ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>
 function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   const verdicts = loadVerdicts();
   const lastFor = (p: (typeof pages)[number]) => verdicts.filter((v) => v.slug === p.slug && v.run_id === p.provenance.run_id).at(-1);
+  const editLink = (p: (typeof pages)[number]) => `<a href="${BASE}editar/${esc(p.slug)}">Editar texto</a>`;
   const box = (p: (typeof pages)[number], approve: boolean, label: string) => `<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo (obrigatório)">${approve ? '<button name="veredito" value="approve" class="ok">Aprovar</button>' : ''}<button name="veredito" value="reject" class="bad">${label}</button></form>`;
   const link = (p: (typeof pages)[number]) => `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a>`;
   const drafts = pages.filter((p) => p.status === 'draft');
@@ -195,7 +199,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
 ${waiting.length ? `<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a>. Aprovar publica; recusar volta ao motor com o motivo como instrução. Cada veredito calibra a revisão automática.</p>
 <div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}</td><td>${box(p, true, 'Recusar')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
 ${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor vai tentar de novo: ${rejected.map((p) => `${link(p)} <span class="muted">("${esc(lastFor(p)!.reason.slice(0, 80))}")</span>`).join(' · ')}</p>` : ''}
-<details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}</td></tr>`).join('')}</tbody></table></div></details>`;
+<details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}<br>${editLink(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
 
 // Ideias descobertas sozinhas (autocompletar do Google), ainda fora da fila: um clique põe na fila.
@@ -275,6 +279,19 @@ const TABS_JS = `<script>
   show(pending ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
 })();
 </script>`;
+
+// Tela de edição: um campo por bloco de texto, com as fontes que o bloco cita (que não mudam).
+function editHtml(page: ReturnType<typeof loadPages>[number]): string {
+  const claims = new Map(loadClaims().map((c) => [c.id, c]));
+  const blocks = editableBlocks(page);
+  return `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Editar: ${esc(page.title)}</title>
+<style>body{font:15px/1.5 system-ui;max-width:900px;margin:24px auto;padding:0 16px;background:#f6f5f1;color:#1d1f1c}textarea{width:100%;font:15px/1.5 system-ui;padding:8px;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}.b{background:#fff;border:1px solid #e4e1d8;border-radius:12px;padding:12px 14px;margin:12px 0}.l{font-weight:600;font-size:.85rem;color:#5b6159}.q{font-size:.8rem;color:#6b716a;margin-top:6px}button{font:inherit;padding:8px 16px;border-radius:8px;border:1px solid #cfe3d9;background:#e3f1ea;color:#1e5b4c;font-weight:600;cursor:pointer}</style>
+<p><a href="${BASE}">← painel</a></p><h1 style="font-size:1.3rem">${esc(page.title)}</h1>
+<p style="color:#5b6159">Mude só o texto. As fontes citadas de cada bloco continuam as mesmas, e o auditor confere se o texto novo ainda é sustentado por elas (~0,1 crédito). Se não for, nada é salvo e o motivo aparece em "Últimas ações".</p>
+<form method="post" action="${BASE}acao"><input type="hidden" name="acao" value="editar"><input type="hidden" name="slug" value="${esc(page.slug)}">
+${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textarea name="b:${esc(b.ref)}" rows="${Math.min(10, Math.ceil(b.text.length / 90) + 1)}">${esc(b.text)}</textarea>${b.claim_ids.length ? `<div class="q">Fontes: ${b.claim_ids.map((id) => `"${esc((claims.get(id)?.quote ?? id).slice(0, 140))}"`).join(' · ')}</div>` : '<div class="q">Frase de contexto (sem fato e sem fonte).</div>'}</div>`).join('')}
+<button>Salvar (passa pelo auditor)</button></form>`;
+}
 
 const ADMIN_CSS = `<style>
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
@@ -362,6 +379,11 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
   }
   const url = new URL(req.url ?? '/', 'http://x');
   if (req.method === 'GET' && url.pathname.startsWith('/previa/')) return servePreview(url.pathname, res);
+  if (req.method === 'GET' && url.pathname.startsWith('/editar/')) {
+    const page = loadPages().find((p) => p.slug === decodeURIComponent(url.pathname.slice('/editar/'.length)));
+    res.writeHead(page ? 200 : 404, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' });
+    return res.end(page ? editHtml(page) : 'página não encontrada');
+  }
   if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '')) {
     // Dados ilegíveis (ex.: cópia no meio de um merge) não derrubam o painel: mostra o erro e as últimas ações.
     let html: string;
@@ -381,7 +403,19 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     }
     const f = await readBody(req);
     let msg: string;
-    if (f.get('acao') === 'senha') {
+    if (f.get('acao') === 'editar') {
+      const slug = f.get('slug') ?? '';
+      if (!Slug.safeParse(slug).success || !loadPages().some((p) => p.slug === slug)) msg = 'página inválida';
+      else {
+        const edits: Record<string, string> = {};
+        for (const [k, v] of f) if (k.startsWith('b:') && /^[a-z0-9-]+#\d+$|^verdict$/.test(k.slice(2))) edits[k.slice(2)] = v.slice(0, 2000);
+        const dir = join(STATE, 'edits');
+        mkdirSync(dir, { recursive: true });
+        const file = join(dir, `${Date.now().toString(36)}.json`);
+        writeFileSync(file, JSON.stringify(edits));
+        msg = startJob(`editar ${slug}`, ['editar', slug, file]) ?? `iniciado: editar ${slug} (o auditor confere os blocos alterados; resultado em "Últimas ações")`;
+      }
+    } else if (f.get('acao') === 'senha') {
       const user = Buffer.from(/^Basic (.+)$/.exec(req.headers.authorization!)![1]!, 'base64').toString().split(':')[0]!;
       const nova = f.get('nova') ?? '';
       if (!passwordOk(user, f.get('atual') ?? '')) msg = 'senha atual não confere';

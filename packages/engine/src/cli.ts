@@ -277,6 +277,24 @@ async function main(): Promise<number> {
       console.log(`${r.added.length} ideia(s) nova(s), ${r.total} no total; na fila: ${p.join('; ') || 'nenhuma'} (~${creditsSpent().toFixed(2)} créditos)`);
       return 0;
     }
+    case 'manual-edit': {
+      // Edição manual (painel): manual-edit <slug> <arquivo.json com {ref: texto}>. Só grava se o auditor sustentar.
+      const [slug, file] = rest;
+      const page = loadPages().find((p) => p.slug === slug);
+      if (!page || !file) {
+        console.error('uso: manual-edit <slug> <edits.json>');
+        return 2;
+      }
+      setRunBudget(5);
+      const { readFileSync } = await import('node:fs');
+      const { manualEdit } = await import('./stages/manual-edit.ts');
+      const r = await manualEdit(page, JSON.parse(readFileSync(file, 'utf8')), newRunId(`${slug}-editor`));
+      if (r.status === 'SAVED') console.log(`edição salva: ${r.changed.length} bloco(s) (${r.changed.join(', ')})`);
+      else if (r.status === 'UNCHANGED') console.log('nada mudou');
+      else for (const p of r.problems) console.log(`✗ ${p.ref}: ${p.msg}`);
+      console.log(`~${creditsSpent().toFixed(2)} créditos`);
+      return r.status === 'REJECTED' ? 1 : 0;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());

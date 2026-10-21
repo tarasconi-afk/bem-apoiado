@@ -324,3 +324,8 @@ publicado), home agrupada, "Guias relacionados" no fim de cada guia, trilha e JS
 Painel em abas (Decisões, Conteúdo, Desempenho, Motor, Configurações) por script pequeno que agrupa os h2;
 vereditos mostram só o que precisa de decisão. Cadastro: consumidor.gov.br bloqueado (reclamações não são
 norma técnica); o painel explica cada classe de fonte.
+
+## 2026-10-21 — Tetos de desenvolvimento (temporário)
+O dono autorizou gastar mais enquanto o motor é desenvolvido e testado: 250 créditos/dia e 60/ciclo (4
+ciclos/dia). Voltar para ~100/dia e 40/ciclo quando a taxa de aprovação e o custo por página se firmarem.
+Ajuste: BEM_DAILY_CREDIT_CAP e BEM_CYCLE_BUDGET em infra/bem-apoiado-cycle.service (e no admin, só exibição).
