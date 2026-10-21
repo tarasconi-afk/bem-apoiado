@@ -5,7 +5,7 @@ import { callJson, type FetchLike } from './llm.ts';
 import { DATA, writeJson } from './store.ts';
 
 // Lições do editor (data/editor-lessons.json): pedido de ajuste salvo ou recusa com motivo que vale para
-// TODAS as páginas vira regra curta, e o redator recebe a lista em toda página nova e todo remendo.
+// TODAS as páginas vira regra curta. Redator, planejador da pauta e busca de fontes recebem a lista.
 // 21/10: os pedidos do editor corrigiam só a página pedida e o motor repetia o erro na seguinte.
 
 export const EDITOR_LESSONS_FILE = join(DATA, 'editor-lessons.json');
@@ -26,7 +26,7 @@ export async function learnFromEditor(slug: string, request: string, fetchImpl?:
     {
       role: 'extractor',
       system:
-        'Você transforma pedidos do editor de um site de guias de compra em regras para o redator. Se o pedido vale para TODAS as páginas (tom, linguagem, foco no comprador, como apresentar fontes, estrutura), escreva UMA regra curta e geral (até 200 caracteres, imperativa, sem citar a página, o produto ou números dela) e general=true. Se é específico desta página (um dado, um trecho, um produto), general=false e lesson=null. already_covered=true se a regra já está na lista atual.',
+        'Você transforma pedidos do editor de um site de guias de compra em regras para o redator. Se o pedido vale para TODAS as páginas (tom, linguagem, foco no comprador, como apresentar fontes, estrutura, o que pesquisar e em que tipo de fonte), escreva UMA regra curta e geral (até 200 caracteres, imperativa, sem citar a página, o produto ou números dela) e general=true. Se é específico desta página (um dado, um trecho, um produto), general=false e lesson=null. already_covered=true se a regra já está na lista atual.',
       user: `Página: ${slug}\nPedido do editor: ${request.slice(0, 1200)}\n\nRegras atuais:\n${cur.lessons.map((l) => `- ${l.text}`).join('\n') || '(nenhuma)'}`,
       schema: Out,
       schemaName: 'editor_lesson',

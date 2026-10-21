@@ -1,6 +1,6 @@
 import { loadThresholds, loadVerdicts } from './feedback.ts';
 import { spawn, execFileSync } from 'node:child_process';
-import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
+import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { join } from 'node:path';
@@ -383,14 +383,29 @@ if (location.search) history.replaceState(null, '', location.pathname);
   top.after(bar); var holder = bar; Object.keys(panes).forEach(function (k) { holder.after(panes[k]); holder = panes[k]; });
   function show(k) { Object.keys(panes).forEach(function (x) { panes[x].hidden = x !== k; }); bar.querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === k); }); try { localStorage.setItem('painel-aba', k); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem('painel-aba'); } catch (e) {}
-  show(pending ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
+  // Decisões pendentes abrem a aba Decisões só na primeira visita da sessão; depois, fica onde o editor estava.
+  var first = true; try { first = !sessionStorage.getItem('painel-visto'); sessionStorage.setItem('painel-visto', '1'); } catch (e) {}
+  show(pending && first ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
 })();
 </script>`;
+
+// Impressão digital do que o painel mostra e muda sozinho: versão do código, ações (fila, rodando, fim),
+// ciclo ao vivo e resultados pendentes. O navegador consulta /estado e só recarrega quando ela muda.
+function panelVersion(): string {
+  let cycle = '';
+  try {
+    const c = JSON.parse(readFileSync(join(STATE, 'cycle-live.json'), 'utf8'));
+    cycle = `${c.state}|${c.updated}|${(c.steps ?? []).length}`;
+  } catch { /* sem ciclo */ }
+  const j = jobs.slice(0, 12).map((x) => `${x.id}:${x.queued ? 'q' : x.ended ? x.code : 'r'}`).join(',');
+  const b = pendingBranches().map((x) => `${x.branch}@${x.when}`).join(',');
+  return createHash('sha1').update(`${head()}|${cycle}|${j}|${b}`).digest('hex').slice(0, 16);
+}
 
 // Atualização automática que não apaga o que o editor está escrevendo (21/10: um pedido de ajuste se perdeu
 // quando a página recarregou). Recarrega só sem campo de texto em foco ou preenchido; o rascunho de cada
 // campo fica no navegador (localStorage) e volta depois de recarregar; sai ao enviar o formulário.
-const draftsJs = (secs: number) => `<script>
+const draftsJs = (secs: number, version: string) => `<script>
 (function () {
   var fields = Array.prototype.slice.call(document.querySelectorAll('textarea, input[type=text], input:not([type])'));
   function key(el) { var f = el.form; var parts = ['rascunho']; if (f) Array.prototype.slice.call(f.querySelectorAll('input[type=hidden]')).forEach(function (h) { parts.push(h.name + '=' + h.value); }); parts.push(el.name || ''); return parts.join('|'); }
@@ -402,8 +417,19 @@ const draftsJs = (secs: number) => `<script>
     el.addEventListener('input', function () { set(k, el.value); });
     if (el.form) el.form.addEventListener('submit', function () { set(k, ''); });
   });
-  function busy() { var a = document.activeElement; if (a && (a.tagName === 'TEXTAREA' || a.tagName === 'INPUT' || a.tagName === 'SELECT')) return true; return fields.some(function (el) { return el.value && el.value.trim(); }); }
-  setInterval(function () { if (!busy() && !document.hidden) location.reload(); }, ${secs} * 1000);
+  // Volta para onde o editor estava (aba e rolagem) depois de recarregar.
+  try { var y = sessionStorage.getItem('painel-y'); if (y !== null) { sessionStorage.removeItem('painel-y'); window.scrollTo(0, +y); } } catch (e) {}
+  function busy() { var a = document.activeElement; if (a && (a.tagName === 'TEXTAREA' || a.tagName === 'INPUT' || a.tagName === 'SELECT')) return true; if (document.querySelector('details[open] pre')) return true; return fields.some(function (el) { return el.value && el.value.trim(); }); }
+  var current = '${version}';
+  // Consulta leve em segundo plano; recarrega só quando algo mudou e o editor não está escrevendo.
+  setInterval(function () {
+    if (document.hidden) return;
+    fetch('estado', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || d.v === current || busy()) return;
+      try { sessionStorage.setItem('painel-y', String(window.scrollY)); } catch (e) {}
+      location.reload();
+    }).catch(function () {});
+  }, ${secs} * 1000);
 })();
 </script>`;
 
@@ -607,6 +633,10 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
   }
   const url = new URL(req.url ?? '/', 'http://x');
   if (req.method === 'GET' && url.pathname.startsWith('/previa/')) return servePreview(url.pathname, res);
+  if (req.method === 'GET' && url.pathname === '/estado') {
+    res.writeHead(200, { 'content-type': 'application/json', 'cache-control': 'no-store' });
+    return res.end(JSON.stringify({ v: panelVersion() }));
+  }
   if (req.method === 'GET' && url.pathname === '/imagem') {
     // Miniatura de imagem nova de um resultado do motor, lida direto do ramo (só imagens geradas).
     const ramo = url.searchParams.get('ramo') ?? '';
@@ -633,7 +663,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     // Dados ilegíveis (ex.: cópia no meio de um merge) não derrubam o painel: mostra o erro e as últimas ações.
     let html: string;
     try {
-      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')) }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() ? 10 : 300)}</body>`);
+      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')) }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() || queuedJobs().length ? 10 : 30, panelVersion())}</body>`);
     } catch (e) {
       html = `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="20"><body style="font:15px system-ui;max-width:900px;margin:24px auto;padding:0 16px"><h1>Painel</h1><p><b>Os dados do motor estão ilegíveis agora</b> (${esc((e as Error).message.slice(0, 200))}). O sync limpa a cópia em até 5 min; esta página tenta de novo sozinha.</p>${jobs.slice(0, 5).map((j) => `<pre style="white-space:pre-wrap;background:#f4f1ea;padding:8px">${esc(j.label)} (${j.ended ? `código ${j.code}` : 'rodando'})\n${esc(j.output.slice(-800))}</pre>`).join('')}</body>`;
     }

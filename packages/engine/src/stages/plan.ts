@@ -1,3 +1,4 @@
+import { editorLessonsPrompt } from '../editor-lessons.ts';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -48,7 +49,8 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `fabricante, uma norma ou um regulador costumam responder por escrito (definições, requisitos, especificações, ` +
         `o que a etiqueta deve informar). Evite perguntas que dependem de teste prático, preço ou opinião.\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
-        `"product_kinds": só os tipos do vocabulário que a página vai explicar.`,
+        `"product_kinds": só os tipos do vocabulário que a página vai explicar.` +
+        editorLessonsPrompt(),
       user:
         `Dúvida principal: "${primaryQuery}"\n` +
         (gaps.length ? `\nEm pautas anteriores, estas informações NÃO foram encontradas em texto de fonte primária; não dependa delas para a decisão:\n${gaps.map((g) => `- ${g}`).join('\n')}\n` : ''),

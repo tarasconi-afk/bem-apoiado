@@ -1,3 +1,4 @@
+import { editorLessonsPrompt } from '../editor-lessons.ts';
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -47,7 +48,7 @@ Reguladores e normas típicos deste tema:
 ${loadNiche().regulator_hints.map((h) => `- ${h}`).join('\n')}
 Gere consultas em português do Brasil que tendem a trazer ESSAS fontes, não lojas, blogs ou vídeos.
 Use "include_domains" quando a consulta mira um domínio específico (ex.: ["gov.br"] para um órgão federal, ou os domínios de fabricantes).
-Cubra as perguntas da pauta. No máximo o número de consultas pedido.`;
+Cubra as perguntas da pauta. No máximo o número de consultas pedido.${editorLessonsPrompt()}`;
 
 // Fabricantes do cadastro que fazem os tipos da pauta (campo "kinds"). Sem isto o planejador buscou
 // cadeira de escritório no site da Probel (colchões) e ignorou Cavaletti, Flexform e Frisokar (21/10).

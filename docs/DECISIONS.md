@@ -527,3 +527,12 @@ por um modelo barato que decide se o pedido vale para todas as páginas; se vale
 data/editor-lessons.json (máx. 12, sem repetir), que o redator recebe em toda página e todo remendo, e que o
 painel lista em "Pedir ao motor". Semeado com 4 lições dos pedidos de 21/10. Ajuste no main refaz a prévia na
 hora (antes o editor via a versão antiga por até 5 min).
+
+## 2026-10-21 — Painel atualiza só quando muda; lições do editor também na pesquisa
+A recarga periódica voltava o editor para a aba Decisões no meio da leitura. Agora o navegador consulta
+/estado (impressão digital de versão, ações, ciclo e resultados pendentes) a cada 10–30 s e só recarrega quando
+ela muda e o editor não está escrevendo nem com uma saída aberta; volta na mesma aba e na mesma rolagem.
+Decisões abre sozinha só na primeira visita da sessão.
+As lições do editor passam a ir também para o planejador da pauta e para o planejador de buscas: um pedido
+sobre o que pesquisar (ex.: medidas e peso suportado em fichas de mais de um fabricante) muda as próximas pautas,
+não só o texto.
