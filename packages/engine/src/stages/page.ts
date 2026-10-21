@@ -69,13 +69,14 @@ export function styleIssues(draft: Draft): Issue[] {
   const v = draft.verdict.text.trim();
   const sentences = v.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9])/).filter((x) => x.trim().length > 3).length;
   if (sentences > 3) out.push({ ref: 'verdict', msg: `resposta curta com ${sentences} frases; deixe em até 3, começando pela resposta prática para quem vai comprar.` });
+  if (/^(segundo|de acordo com|conforme)\s+(a|o)\s+\p{Lu}/u.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir citando uma marca ("Segundo a Ortobom..."): comece pela resposta prática; a marca entra depois, se precisar.' });
   if (/^(segundo|conforme|de acordo com|no|na|nos|nas|o|a|os|as)?\s*(inmetro|abnt|nbr|nr[- ]?\d|anvisa|portaria|norma|regulamento|regula[cç][aã]o|trecho|anexo)/i.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir.' });
   for (const u of blockRefs(draft)) if (/\b(nos|os|segundo os|dos) trechos? citados?\b/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trechos citados" (é termo do motor): diga quem afirma ("segundo a Ortobom") ou o que não foi informado ("a ficha não informa").' });
   if (draft.title.includes('—')) out.push({ ref: null, msg: 'title: remova o travessão (—).' });
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
   // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.
   const last = draft.sections.at(-1);
-  if (!last || !/decidir|^como escolher/i.test(last.heading)) out.push({ ref: null, msg: 'a última seção tem de ser "Como decidir", com 2 a 4 orientações condicionais ("se você..., ...") sustentadas pelas evidências.' });
+  if (!last || !/decidir|escolher|antes de comprar|na pr[aá]tica|o que (verificar|conferir)/i.test(last.heading)) out.push({ ref: null, msg: 'a última seção tem de ser "Como decidir", com 2 a 4 orientações condicionais ("se você..., ...") sustentadas pelas evidências.' });
   if (draft.sections.length < 3) out.push({ ref: null, msg: 'a página ficou com menos de 3 seções.' });
   return out;
 }

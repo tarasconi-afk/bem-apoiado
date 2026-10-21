@@ -20,11 +20,11 @@ const kinds = kindsFor(page);
 const cat = categoryOf(page);
 const related = relatedPages(page);
 const links = inlineLinks(page);
-const isDecision = (id: string, heading: string) => /decidir|escolher/i.test(id + ' ' + heading);
 // Resumo para leigos no topo: a seção "Como decidir" vem logo depois da resposta curta, os exemplos à
 // venda em seguida e os detalhes técnicos abaixo (pesquisa de 21/10: 57% do tempo de leitura fica na
 // primeira tela e 74% nas duas primeiras, NN/g 2018; anúncio logo acima da dobra é o mais visto, Google 2014).
-const decisionIdx = page.sections.findLastIndex((s) => isDecision(s.id, s.heading));
+// A última seção é sempre a de decisão (regra do redator), mesmo com título novo ("Antes de comprar...").
+const decisionIdx = page.sections.length - 1;
 const sections = decisionIdx >= 0 ? [page.sections[decisionIdx]!, ...page.sections.filter((_, i) => i !== decisionIdx)] : page.sections;
 const n0 = sections.length;
 const examplesAfter = products.length === 0 && searches.length === 0 ? -1 : THEME.examples_position === 'fim' ? n0 - 1 : 0;
@@ -113,7 +113,7 @@ const jsonLd = [
       {sections.map((s, i) => (
         <>
         {i === detailsFrom && <p class="details-label">Detalhes técnicos: de onde vem cada orientação acima</p>}
-        <section id={s.id} class={isDecision(s.id, s.heading) ? 'decide' : undefined}>
+        <section id={s.id} class={i === 0 && decisionIdx >= 0 ? 'decide' : undefined}>
           <h2>{s.heading}</h2>
           {s.blocks.map((b, bi) =>
             b.kind === 'table' ? (
@@ -136,7 +136,7 @@ const jsonLd = [
               </figure>
             ) : b.kind === 'callout' ? (
               <p class={`callout ${b.tone}`}><Linked text={b.text} link={links.get(`${s.id}#${bi}`)} /><Cite nums={n(b.claim_ids)} /></p>
-            ) : isDecision(s.id, s.heading) && b.basis !== 'framing' ? (
+            ) : i === 0 && decisionIdx >= 0 && b.basis !== 'framing' ? (
               <p class="check"><Linked text={b.text} link={links.get(`${s.id}#${bi}`)} /><Cite nums={n(b.claim_ids)} /></p>
             ) : (
               <p class={b.basis === 'framing' ? 'lead' : undefined}><Linked text={b.text} link={links.get(`${s.id}#${bi}`)} /><Cite nums={n(b.claim_ids)} /></p>

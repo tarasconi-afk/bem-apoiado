@@ -259,7 +259,8 @@ async function maintainGsc(steps: string[]): Promise<boolean> {
 export const SUMMARY_FIX = 'Reescreva a resposta curta e o "Como decidir" para quem vai comprar, em palavras simples: a resposta curta em até 3 frases, começando pela resposta prática (o que escolher ou conferir), sem abrir com norma ou regulador e sem "trechos citados".';
 async function maintainSummary(runId: string, steps: string[]): Promise<boolean> {
   const tried = readState<Record<string, string>>('summary-fix.json', {});
-  const page = loadPages().find((p) => p.status !== 'draft' && styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || /trechos citados/.test(i.msg)) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
+  const weak = (p: PageSpec) => (p.provenance.review as { quick_answer?: boolean } | undefined)?.quick_answer === false || styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || /trechos citados/.test(i.msg));
+  const page = loadPages().find((p) => p.status !== 'draft' && weak(p) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
   if (!page || creditsLeft() < 10) return false;
   writeState('summary-fix.json', { ...tried, [page.slug]: new Date().toISOString() });
   try {
