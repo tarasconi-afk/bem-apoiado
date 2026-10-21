@@ -34,3 +34,17 @@ describe('Search Console', () => {
     expect(homeOrder(s, ['colchao-d28-ou-d33', 'colchao-de-molas-ou-espuma'])).toEqual(['colchao-de-molas-ou-espuma', 'colchao-d28-ou-d33']);
   });
 });
+
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+describe('chave colada', () => {
+  it('aceita aspas curvas do TextEdit e nunca ecoa o conteúdo no erro', async () => {
+    process.env.BEM_STATE_DIR = mkdtempSync(join(tmpdir(), 'bem-gsc-'));
+    const { saveKey } = await import('../src/gsc.ts');
+    const k = saveKey('{“type”: “service_account”, “client_email”: “m@p.iam.gserviceaccount.com”, “private_key”: “-----BEGIN PRIVATE KEY-----\\nabc\\n-----END PRIVATE KEY-----\\n”}');
+    expect(k.client_email).toBe('m@p.iam.gserviceaccount.com');
+    expect(() => saveKey('{ "private_key": "SEGREDO123", quebrado')).toThrow(/não é um JSON válido/);
+    try { saveKey('{ "private_key": "SEGREDO123", quebrado'); } catch (e) { expect((e as Error).message).not.toContain('SEGREDO'); }
+  });
+});

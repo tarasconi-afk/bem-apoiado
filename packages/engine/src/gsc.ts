@@ -18,8 +18,19 @@ const GSC_DIR = () => join(process.env.BEM_STATE_DIR ?? STATE_DIR, 'gsc');
 export const ServiceKey = z.object({ client_email: z.string().email(), private_key: z.string().includes('PRIVATE KEY'), token_uri: z.string().url().default('https://oauth2.googleapis.com/token') });
 export type ServiceKey = z.infer<typeof ServiceKey>;
 
+// Texto colado de editor (TextEdit/Notas) vem com aspas curvas e espaços especiais: normaliza antes.
+// Erro nunca devolve trecho do texto (seria pedaço da chave privada na tela ou no log).
 export function saveKey(json: string): ServiceKey {
-  const k = ServiceKey.parse(JSON.parse(json));
+  const clean = json.replace(/[\u201C\u201D\u201E\u2033]/g, '"').replace(/[\u2018\u2019]/g, "'").replace(/\u00A0/g, ' ').trim();
+  let raw: unknown;
+  try {
+    raw = JSON.parse(clean);
+  } catch {
+    throw new Error('o conteúdo não é um JSON válido; envie o arquivo .json baixado do Google (botão "Escolher arquivo")');
+  }
+  const parsed = ServiceKey.safeParse(raw);
+  if (!parsed.success) throw new Error('JSON sem client_email/private_key: confira se é a chave da conta de serviço (tipo service_account)');
+  const k = parsed.data;
   writeFileSync(KEY_FILE(), JSON.stringify(k), { mode: 0o600 });
   return k;
 }

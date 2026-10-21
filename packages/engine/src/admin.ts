@@ -179,7 +179,9 @@ ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>
 function gscHtml(): string {
   if (!hasKey()) {
     return `<p class="muted">Não conectado. Crie a conta de serviço (passo a passo na conversa com o Claude), adicione o e-mail dela como usuário "Restrito" na propriedade <code>${esc(GSC_SITE)}</code> e cole aqui o JSON da chave. Ela fica só na VPS (arquivo 600), nunca no git.</p>
-<form method="post" action="acao"><input type="hidden" name="acao" value="gsc-chave"><textarea name="chave" required rows="4" style="width:100%;font:12px ui-monospace,monospace" placeholder='{"type": "service_account", "client_email": "...", "private_key": "-----BEGIN PRIVATE KEY-----..."}'></textarea><button class="ok" style="margin-top:6px">Conectar</button></form>`;
+<form method="post" action="acao"><input type="hidden" name="acao" value="gsc-chave">
+<p><input type="file" accept=".json,application/json" onchange="const f=this.files[0];if(f){f.text().then(t=>{this.form.chave.value=t;this.form.submit();});}"> <span class="muted">escolha o arquivo .json baixado do Google (envia sozinho)</span></p>
+<details><summary class="muted">ou colar o conteúdo</summary><textarea name="chave" rows="4" style="width:100%;font:12px ui-monospace,monospace" placeholder='{"type": "service_account", ...}'></textarea><button class="ok" style="margin-top:6px">Conectar</button></details></form>`;
   }
   const snap = latestSnapshot();
   if (!snap) return `<p class="muted">Conectado como <code>${esc(keyEmail())}</code>. Primeiro retrato no próximo ciclo (o Google leva alguns dias para ter dados de um site novo).</p>`;
@@ -301,7 +303,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
         const k = saveKey(f.get('chave') ?? '');
         msg = `Search Console conectado com ${k.client_email}. Os dados chegam no próximo ciclo.`;
       } catch (e) {
-        msg = `chave inválida: ${(e as Error).message.slice(0, 120)}`;
+        msg = `chave não aceita: ${(e as Error).message}`;
       }
     } else if (f.get('acao') === 'saldo') {
       const v = Number((f.get('saldo') ?? '').replace(/\./g, '').replace(',', '.'));
