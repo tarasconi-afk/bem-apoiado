@@ -1,0 +1,65 @@
+{
+  "patches": [
+    {
+      "ref": "peso-e-altura#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, a escolha da densidade de colchões de espuma simples deve considerar o peso e a altura de quem os usará, e a marca apresenta uma tabela com recomendações.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6a5fe535ce38",
+        "clm_795c4d8bb735",
+        "clm_6a3c8fe5f464"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Quilos de espuma por m³, segundo a Ortobom",
+          "claim_ids": []
+        },
+        {
+          "text": "Não informado nas fontes",
+          "claim_ids": []
+        },
+        {
+          "text": "33 kg/m³, segundo a Ortobom",
+          "claim_ids": [
+            "clm_834ae54f95d5"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Firmeza segundo a Probel",
+          "claim_ids": []
+        },
+        {
+          "text": "Intermediária",
+          "claim_ids": [
+            "clm_04789db60329"
+          ]
+        },
+        {
+          "text": "Não informado nas fontes",
+          "claim_ids": []
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que D33 corresponde a 33 kg/m³ segundo a Ortobom. Ele não afirma que D28 não é informado nas fontes."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta que a espuma D28 tem firmeza intermediária, mas não afirma que D33 não é informado nas fontes."
+    }
+  ]
+}

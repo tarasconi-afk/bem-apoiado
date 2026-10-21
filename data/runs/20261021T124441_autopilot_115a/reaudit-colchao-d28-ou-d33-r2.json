@@ -1,0 +1,60 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Quilos de espuma por m³, conforme a definição da Ortobom",
+          "claim_ids": [
+            "clm_834ae54f95d5"
+          ]
+        },
+        {
+          "text": "28 kg de espuma por m³, pela mesma lógica de nomenclatura explicada pela Ortobom",
+          "claim_ids": [
+            "clm_834ae54f95d5"
+          ]
+        },
+        {
+          "text": "33 kg de espuma por m³, segundo a Ortobom",
+          "claim_ids": [
+            "clm_834ae54f95d5"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Firmeza segundo a Probel",
+          "claim_ids": []
+        },
+        {
+          "text": "Intermediária",
+          "claim_ids": [
+            "clm_04789db60329"
+          ]
+        },
+        {
+          "text": "Firme, com suporte robusto",
+          "claim_ids": [
+            "clm_bef6a4951704"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. O trecho define a densidade e exemplifica que D33 corresponde a 33 kg/m³, mas não afirma literalmente que D28 corresponde a 28 kg/m³. Essa equivalência foi extrapolada para D28."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta firmeza intermediária para D28 e suporte robusto para a densidade mencionada, mas não afirma que D33 é firme nem identifica literalmente a segunda citação como D33."
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que densidade é expressa em kg/m³, que modelos podem variar em densidade e resistência e que peso e altura devem ser considerados. Porém, não dizem que a densidade indica “só” a quantidade de espuma, que não garante firmeza, nem recomendam comparar a ficha técnica ou conferir a etiqueta.",
+      "fix": "A densidade é expressa em kg/m³ e se refere à quantidade de espuma por metro cúbico. Como os modelos podem ter diferentes densidades, resistências e níveis de conforto, considere também o peso e a altura de quem usará o colchão e verifique a densidade nominal do modelo específico."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-densidade#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado menciona a densidade nominal das lâminas de espuma em kg/m³, mas não afirma que o Inmetro exige essa declaração.",
+      "fix": "O Inmetro se refere à densidade nominal das lâminas de espuma utilizadas no colchão, em kg/m³."
+    },
+    {
+      "ref": "densidade-peso-altura#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco afirma como fato geral que fabricantes costumam indicar faixas de peso e altura, mas não há trechos citados que sustentem essa afirmação. Como o basis é framing, ainda assim ele contém uma afirmação factual sobre fabricantes.",
+      "fix": "Além da densidade, a seguir são apresentadas informações sobre peso e altura, conforme as fontes citadas."
+    },
+    {
+      "ref": "densidade-peso-altura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-peso-altura#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram opções de suporte de peso da Probel entre 50 kg e 150 kg por pessoa e os rótulos relacionados a altura, biotipos e casais. Porém, não dizem explicitamente que se trata de filtros, nem que esses itens são critérios de seleção de produtos no site; além disso, os valores listados não demonstram uma faixa contínua entre 50 kg e 150 kg.",
+      "fix": "A Probel exibe opções de suporte de peso por pessoa de 50 kg a 150 kg e rótulos relacionados a altura, biotipos e casais."
+    },
+    {
+      "ref": "densidade-peso-altura#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram opções de suporte de peso da Probel e uma tabela da Ortobom aplicável a colchões de espuma simples, mas não sustentam que as faixas sejam definidas por cada fabricante, que variem de marca para marca ou que não exista uma regra única para D28 e todos os produtos.",
+      "fix": "Os trechos mostram que a Probel oferece opções de suporte de peso e que a Ortobom orienta a escolha da densidade por meio de uma tabela específica para colchões de espuma simples."
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados associam a D33 a suporte firme e estabilidade durante o sono, mas não dizem explicitamente que isso ocorre em “outros modelos”.",
+      "fix": "A Probel descreve espumas D33 como associadas a suporte firme e estabilidade durante o sono."
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco tenha basis framing, ele afirma como fato que a etiqueta e o registro no Inmetro trazem informações padronizadas e ajudam a comparar produtos, sem trechos citados que sustentem isso.",
+      "fix": "A seguir, veja as informações apresentadas na etiqueta do colchão e no registro no Inmetro."
+    },
+    {
+      "ref": "etiqueta-e-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#5",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Probel mostram números de certificação associados a diferentes fábricas da própria empresa, mas não sustentam a generalização de que colchões certificados pelo Inmetro, em geral, trazem um número de certificação por fábrica de origem.",
+      "fix": "Registros publicados pela Probel mostram números de certificação do Inmetro associados a diferentes fábricas de origem."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Como o bloco tem basis framing, ele não pode afirmar como fato que fabricantes relacionam densidade e durabilidade sem trechos citados que sustentem isso.",
+      "fix": "A seguir, veja as explicações apresentadas nesta página sobre densidade e durabilidade."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a recomendação de girar e virar o colchão a cada 15 dias ou uma vez por mês, mas não diz que isso vale independentemente da densidade da espuma.",
+      "fix": "A Probel recomenda girar e virar o colchão a cada 15 dias ou uma vez por mês como cuidado de manutenção."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#3.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa a durabilidade da espuma D33, mas não afirma que a durabilidade da D28 não foi informada nas fontes.",
+      "fix": "Aspecto: Durabilidade declarada | D33 (segundo Probel): durável, mantém a forma e o conforto ao longo do tempo."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam consultar a densidade nominal da espuma em kg/m³, mas não dizem que esse valor representa a “quantidade real” de espuma nem fazem comparação com o nome comercial do colchão.",
+      "fix": "Se você quer conferir a densidade informada da espuma, consulte o valor nominal em kg/m³ indicado na etiqueta."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam consultar tabelas de recomendação e mostram faixas de suporte de peso, mas não mencionam filtros, modelos específicos avaliados nem afirmam explicitamente que as faixas variam entre marcas.",
+      "fix": "Se peso e altura são sua maior dúvida, consulte a tabela de recomendação do fabricante do colchão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho menciona diferentes tecnologias, estruturas, densidades, resistências e níveis de conforto, mas não afirma que a firmeza depende desses fatores nem trata da relação entre maior densidade e maior firmeza.",
+      "fix": "Não assuma que colchões com densidades diferentes terão necessariamente o mesmo nível de conforto; a Ortobom menciona diferenças de tecnologia, estrutura, densidade e resistência entre produtos."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a declaração da Probel sobre durabilidade da espuma D33 e recomendam girar e virar o colchão, mas não dizem que a declaração vale para um modelo específico.",
+      "fix": "Se durabilidade é prioridade, consulte o que o fabricante declara sobre a durabilidade do produto e siga as orientações de manutenção, como girar e virar o colchão periodicamente."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que densidade é expressa em kg/m³, que modelos podem variar em densidade e resistência e que peso e altura devem ser considerados. Porém, não dizem que a densidade indica “só” a quantidade de espuma, que não garante firmeza, nem recomendam comparar a ficha técnica ou conferir a etiqueta. Versão sustentável: A densidade é expressa em kg/m³ e se refere à quantidade de espuma por metro cúbico. Como os modelos podem ter diferentes densidades, resistências e níveis de conforto, considere também o peso e a altura de quem usará o colchão e verifique a densidade nominal do modelo específico."
+    },
+    {
+      "ref": "o-que-e-densidade#2",
+      "msg": "UNSUPPORTED. O trecho citado menciona a densidade nominal das lâminas de espuma em kg/m³, mas não afirma que o Inmetro exige essa declaração. Versão sustentável: O Inmetro se refere à densidade nominal das lâminas de espuma utilizadas no colchão, em kg/m³."
+    },
+    {
+      "ref": "densidade-peso-altura#0",
+      "msg": "FACT_IN_FRAMING. O bloco afirma como fato geral que fabricantes costumam indicar faixas de peso e altura, mas não há trechos citados que sustentem essa afirmação. Como o basis é framing, ainda assim ele contém uma afirmação factual sobre fabricantes. Versão sustentável: Além da densidade, a seguir são apresentadas informações sobre peso e altura, conforme as fontes citadas."
+    },
+    {
+      "ref": "densidade-peso-altura#2",
+      "msg": "OVERSTATED. Os trechos mostram opções de suporte de peso da Probel entre 50 kg e 150 kg por pessoa e os rótulos relacionados a altura, biotipos e casais. Porém, não dizem explicitamente que se trata de filtros, nem que esses itens são critérios de seleção de produtos no site; além disso, os valores listados não demonstram uma faixa contínua entre 50 kg e 150 kg. Versão sustentável: A Probel exibe opções de suporte de peso por pessoa de 50 kg a 150 kg e rótulos relacionados a altura, biotipos e casais."
+    },
+    {
+      "ref": "densidade-peso-altura#3",
+      "msg": "OVERSTATED. Os trechos mostram opções de suporte de peso da Probel e uma tabela da Ortobom aplicável a colchões de espuma simples, mas não sustentam que as faixas sejam definidas por cada fabricante, que variem de marca para marca ou que não exista uma regra única para D28 e todos os produtos. Versão sustentável: Os trechos mostram que a Probel oferece opções de suporte de peso e que a Ortobom orienta a escolha da densidade por meio de uma tabela específica para colchões de espuma simples."
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#2",
+      "msg": "OVERSTATED. Os trechos citados associam a D33 a suporte firme e estabilidade durante o sono, mas não dizem explicitamente que isso ocorre em “outros modelos”. Versão sustentável: A Probel descreve espumas D33 como associadas a suporte firme e estabilidade durante o sono."
+    },
+    {
+      "ref": "etiqueta-e-inmetro#0",
+      "msg": "FACT_IN_FRAMING. Embora o bloco tenha basis framing, ele afirma como fato que a etiqueta e o registro no Inmetro trazem informações padronizadas e ajudam a comparar produtos, sem trechos citados que sustentem isso. Versão sustentável: A seguir, veja as informações apresentadas na etiqueta do colchão e no registro no Inmetro."
+    },
+    {
+      "ref": "etiqueta-e-inmetro#5",
+      "msg": "MISATTRIBUTED. Os trechos da Probel mostram números de certificação associados a diferentes fábricas da própria empresa, mas não sustentam a generalização de que colchões certificados pelo Inmetro, em geral, trazem um número de certificação por fábrica de origem. Versão sustentável: Registros publicados pela Probel mostram números de certificação do Inmetro associados a diferentes fábricas de origem."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#0",
+      "msg": "FACT_IN_FRAMING. Como o bloco tem basis framing, ele não pode afirmar como fato que fabricantes relacionam densidade e durabilidade sem trechos citados que sustentem isso. Versão sustentável: A seguir, veja as explicações apresentadas nesta página sobre densidade e durabilidade."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#2",
+      "msg": "UNSUPPORTED. O trecho sustenta a recomendação de girar e virar o colchão a cada 15 dias ou uma vez por mês, mas não diz que isso vale independentemente da densidade da espuma. Versão sustentável: A Probel recomenda girar e virar o colchão a cada 15 dias ou uma vez por mês como cuidado de manutenção."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#3.r1",
+      "msg": "UNSUPPORTED. O trecho citado informa a durabilidade da espuma D33, mas não afirma que a durabilidade da D28 não foi informada nas fontes. Versão sustentável: Aspecto: Durabilidade declarada | D33 (segundo Probel): durável, mantém a forma e o conforto ao longo do tempo."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos sustentam consultar a densidade nominal da espuma em kg/m³, mas não dizem que esse valor representa a “quantidade real” de espuma nem fazem comparação com o nome comercial do colchão. Versão sustentável: Se você quer conferir a densidade informada da espuma, consulte o valor nominal em kg/m³ indicado na etiqueta."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam consultar tabelas de recomendação e mostram faixas de suporte de peso, mas não mencionam filtros, modelos específicos avaliados nem afirmam explicitamente que as faixas variam entre marcas. Versão sustentável: Se peso e altura são sua maior dúvida, consulte a tabela de recomendação do fabricante do colchão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho menciona diferentes tecnologias, estruturas, densidades, resistências e níveis de conforto, mas não afirma que a firmeza depende desses fatores nem trata da relação entre maior densidade e maior firmeza. Versão sustentável: Não assuma que colchões com densidades diferentes terão necessariamente o mesmo nível de conforto; a Ortobom menciona diferenças de tecnologia, estrutura, densidade e resistência entre produtos."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam a declaração da Probel sobre durabilidade da espuma D33 e recomendam girar e virar o colchão, mas não dizem que a declaração vale para um modelo específico. Versão sustentável: Se durabilidade é prioridade, consulte o que o fabricante declara sobre a durabilidade do produto e siga as orientações de manutenção, como girar e virar o colchão periodicamente."
+    }
+  ]
+}
