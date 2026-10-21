@@ -56,7 +56,7 @@ const draft = (verdictText: string) => ({
 });
 
 // Simula o roteador: responde conforme o modelo pedido no corpo da requisição.
-function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean }) {
+function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean; rejectRef?: string }) {
   let writerCalls = 0;
   let reviews = 0;
   return async (_url: string, init: RequestInit) => {
@@ -67,8 +67,10 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
       // Rodadas de correção pedem remendos (page_patches), não a página inteira.
       content =
         body.response_format.json_schema.name === 'page_patches'
-          ? { patches: [{ ref: 'verdict', action: 'replace', text: 'Depende do uso, segundo as fontes citadas.', basis: 'reasoning', claim_ids: [IDS[0]] }] }
-          : draft('Colchão de espuma sempre dura mais em qualquer caso.');
+          ? opts.rejectRef
+            ? { patches: [{ ref: opts.rejectRef, action: 'replace', text: 'Outro texto sustentado, reescrito.', basis: 'evidence', claim_ids: [IDS[5]] }] }
+            : { patches: [{ ref: 'verdict', action: 'replace', text: 'Depende do uso, segundo as fontes citadas.', basis: 'reasoning', claim_ids: [IDS[0]] }] }
+          : draft(opts.rejectRef ? 'Depende do uso, segundo as fontes citadas.' : 'Colchão de espuma sempre dura mais em qualquer caso.');
     } else if (body.response_format.json_schema.name === 'editorial_review') {
       reviews++;
       if (opts.nearMiss && reviews === 1) {
@@ -83,7 +85,7 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
       content = {
         findings: refs.map((ref) => ({
           ref,
-          verdict: ref === 'verdict' && (opts.auditorRejectsAlways || writerCalls === 1) ? 'OVERSTATED' : 'SUPPORTED',
+          verdict: ref === opts.rejectRef ? 'UNSUPPORTED' : ref === 'verdict' && !opts.rejectRef && (opts.auditorRejectsAlways || writerCalls === 1) ? 'OVERSTATED' : 'SUPPORTED',
           problem: ref === 'verdict' ? '"sempre" generaliza' : '',
           fix: '',
         })),
@@ -134,5 +136,17 @@ describe('buildPage', () => {
     const r = await buildPage('pagina-teste', 'run_b', router({ auditorRejectsAlways: true }));
     expect(r.status).toBe('SAFE_STOP');
     if (r.status === 'SAFE_STOP') expect(r.open_issues.join(' ')).toContain('OVERSTATED');
+  });
+
+  it('não converge por um bloco só: remove o bloco e a página segue para a revisão', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_salvage', router({ auditorRejectsAlways: false, rejectRef: 'tipos#1' }));
+    expect(r.status === 'SAFE_STOP' ? `${r.reason} ${r.open_issues.join(' | ')}` : r.status).toBe('PASS');
+    if (r.status === 'PASS') {
+      const tipos = r.page.sections.find((x) => x.id === 'tipos')!;
+      expect(tipos.blocks).toHaveLength(1);
+      expect(JSON.stringify(r.page)).not.toContain('Outro texto sustentado');
+      expect(r.page.verdict.text).toBe('Depende do uso, segundo as fontes citadas.');
+    }
   });
 });

@@ -14,6 +14,8 @@ import { applyEdits } from './edit.ts';
 import { writeDraft } from './write.ts';
 
 const MAX_FIX_ROUNDS = 3;
+// Até quantos blocos sem prova a página pode perder no fim (por remoção) e ainda seguir para a revisão.
+const SALVAGE_MAX = 3;
 const MIN_CLAIMS = 8;
 
 export type PageOutcome =
@@ -96,6 +98,38 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     return { status: 'SAFE_STOP', reason: `INSUFFICIENT_EVIDENCE (${claims.length})`, rounds: 0, open_issues: [], usage };
   }
 
+  // 3) Revisão editorial e gravação: igual para página convergida e para página salva por remoção.
+  const finish = async (final: Draft, rounds: number): Promise<PageOutcome> => {
+    let draft = final;
+    // 3) Revisão editorial: correta não basta, tem de servir. Reprovada fica como rascunho.
+    let passed = toPageSpec(draft, topic, runId, 'pass');
+    let rv = await reviewPage(passed, topic, fetchImpl);
+    add(rv.usage);
+    // Quase lá (orienta, tem critérios, enchimento até 45%): corta os blocos que a própria revisão
+    // apontou como enchimento e revisa de novo. Remover nunca acrescenta fato; uma vez só.
+    const r0 = rv.review;
+    if (!r0.publishable && r0.concrete_guidance && r0.answers_primary_query !== 'no' && r0.decision_criteria.length >= loadThresholds().min_criteria && r0.filler_ratio <= 0.45 && r0.filler_refs.length > 0) {
+      const trimmed = applyEdits(draft, r0.filler_refs.map((ref) => ({ ref, action: 'remove' as const, reason: 'enchimento apontado pela revisão' }))).draft;
+      const candidate = toPageSpec(trimmed, topic, runId, 'pass');
+      if (checkPage(candidate, idx).length === 0 && styleIssues(trimmed).length === 0) {
+        const rv2 = await reviewPage(candidate, topic, fetchImpl);
+        add(rv2.usage);
+        writeStage(runId, 'trim', { removed: r0.filler_refs, before: r0, after: rv2.review });
+        draft = trimmed;
+        passed = candidate;
+        rv = rv2;
+      }
+    }
+    const reviewed: PageSpec = { ...passed, provenance: { ...passed.provenance, review: reviewMetrics(rv.review) } };
+    const page: PageSpec = rv.review.publishable ? reviewed : { ...reviewed, status: 'draft' };
+    writeJson(join(PAGES_DIR, `${slug}.json`), page);
+    // A pauta guarda o que faltou: é a entrada da próxima tentativa (improve).
+    writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: rv.review.publishable ? [] : rv.review.missing }));
+    const status = rv.review.publishable ? 'PASS' : 'NOT_PUBLISHABLE';
+    writeStage(runId, 'page', { status, rounds: rounds, usage, credits: creditsSpent(), review: rv.review });
+    return { status, rounds: rounds, page, usage, review: rv.review };
+  };
+
   const cache: AuditCache = new Map();
   let draft: Draft | null = null;
   let issues: Issue[] = [];
@@ -132,37 +166,20 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     }
     writeStage(runId, `audit-r${round}`, { findings, open_issues: issues });
 
-    if (issues.length === 0) {
-      // 3) Revisão editorial: correta não basta, tem de servir. Reprovada fica como rascunho.
-      let passed = toPageSpec(draft, topic, runId, 'pass');
-      let rv = await reviewPage(passed, topic, fetchImpl);
-      add(rv.usage);
-      // Quase lá (orienta, tem critérios, enchimento até 45%): corta os blocos que a própria revisão
-      // apontou como enchimento e revisa de novo. Remover nunca acrescenta fato; uma vez só.
-      const r0 = rv.review;
-      if (!r0.publishable && r0.concrete_guidance && r0.answers_primary_query !== 'no' && r0.decision_criteria.length >= loadThresholds().min_criteria && r0.filler_ratio <= 0.45 && r0.filler_refs.length > 0) {
-        const trimmed = applyEdits(draft, r0.filler_refs.map((ref) => ({ ref, action: 'remove' as const, reason: 'enchimento apontado pela revisão' }))).draft;
-        const candidate = toPageSpec(trimmed, topic, runId, 'pass');
-        if (checkPage(candidate, idx).length === 0 && styleIssues(trimmed).length === 0) {
-          const rv2 = await reviewPage(candidate, topic, fetchImpl);
-          add(rv2.usage);
-          writeStage(runId, 'trim', { removed: r0.filler_refs, before: r0, after: rv2.review });
-          draft = trimmed;
-          passed = candidate;
-          rv = rv2;
-        }
-      }
-      const reviewed: PageSpec = { ...passed, provenance: { ...passed.provenance, review: reviewMetrics(rv.review) } };
-      const page: PageSpec = rv.review.publishable ? reviewed : { ...reviewed, status: 'draft' };
-      writeJson(join(PAGES_DIR, `${slug}.json`), page);
-      // A pauta guarda o que faltou: é a entrada da próxima tentativa (improve).
-      writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: rv.review.publishable ? [] : rv.review.missing }));
-      const status = rv.review.publishable ? 'PASS' : 'NOT_PUBLISHABLE';
-      writeStage(runId, 'page', { status, rounds: round + 1, usage, credits: creditsSpent(), review: rv.review });
-      return { status, rounds: round + 1, page, usage, review: rv.review };
+    if (issues.length === 0) return finish(draft, round + 1);
+  }
+  // Não convergiu, mas sobraram poucos blocos sem prova: remove esses blocos (remover nunca acrescenta
+  // fato) e, se o gate passar, segue para a revisão editorial como qualquer página. Antes, 1 bloco ruim
+  // descartava a página inteira depois de 4 rodadas pagas do redator (21/10: 37,8 créditos perdidos).
+  if (draft && issues.length > 0 && issues.length <= SALVAGE_MAX && issues.every((i) => i.ref && i.ref !== 'verdict')) {
+    const salvaged = applyPatches(draft, issues.map((i) => ({ ref: i.ref!, action: 'remove' as const })));
+    const gate = [...checkPage(toPageSpec(salvaged, topic, runId, 'pending'), idx), ...styleIssues(salvaged)];
+    if (gate.length === 0 && salvaged.sections.length >= 2) {
+      writeStage(runId, 'salvage', { removed: issues.map(show) });
+      return finish(salvaged, MAX_FIX_ROUNDS + 1);
     }
   }
-  // Não convergiu: nada vai para data/pages. O rascunho e os problemas ficam no run para análise.
+  // Não salvou: nada vai para data/pages. O rascunho e os problemas ficam no run para análise.
   const open = issues.map(show);
   writeStage(runId, 'page', { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', open_issues: open, usage, credits: creditsSpent() });
   return { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', rounds: MAX_FIX_ROUNDS + 1, open_issues: open, usage };

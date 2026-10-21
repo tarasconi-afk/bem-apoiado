@@ -1,3 +1,4 @@
+import { newRunId } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
 import { firstForbidden } from '@bem-apoiado/core';
 import { nextReaudit, reauditPage } from './reaudit.ts';
@@ -161,13 +162,15 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   const t = topics.get(page.slug)!;
   const only = t.source_ids.filter((s) => !t.researched_source_ids.includes(s));
   const original = readFileSync(join(DATA, 'pages', `${page.slug}.json`), 'utf8');
+  // Execução própria: no mesmo ciclo pode haver outra página, e os registros não podem se sobrescrever.
+  const rid = newRunId(`${page.slug}-enrich`);
   try {
-    const r = await research(page.slug, runId, undefined, only);
+    const r = await research(page.slug, rid, undefined, only);
     if (r.accepted.length === 0) {
       steps.push(`enriquecimento de ${page.slug}: ${only.length} fonte(s) relida(s), nenhuma evidência nova`);
       return true; // a pauta registra as fontes como pesquisadas
     }
-    const p = await buildPage(page.slug, runId);
+    const p = await buildPage(page.slug, rid);
     if (p.status !== 'PASS') {
       writeFileSync(join(DATA, 'pages', `${page.slug}.json`), original);
       steps.push(`enriquecimento de ${page.slug}: +${r.accepted.length} evidências, mas a nova versão não passou (${p.status}); página publicada mantida`);

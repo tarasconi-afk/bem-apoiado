@@ -270,3 +270,12 @@ cliques > mais impressões) e pautas novas (busca com ≥20 impressões, sem pá
 até 2/semana). Painel: tabela por página, "quase na 1ª página" (posição 8–20, ≥50 impressões) e "pouco
 clicadas" (≥100 impressões, CTR < 1%). Ação automática sobre essas duas listas fica para quando houver
 dados reais (hoje: zero tráfego).
+
+## 2026-10-21 — Salvar página que quase converge; robots.txt em cache
+Ciclo das 09:53: 40,8 créditos (37,8 no redator) e nenhuma página. O enriquecimento do D28 fez 4 rodadas e
+sobrou UM bloco sem prova; a versão inteira foi descartada. Agora, se no fim restam até 3 blocos sem prova (e
+nenhum é a resposta curta), eles são removidos e a página segue para gate e revisão editorial; remover nunca
+acrescenta fato. Enriquecimento ganhou execução própria (o registro do D28 era sobrescrito pela página nova
+do mesmo ciclo). A CDN da Hostinger segurou o robots.txt antigo (Disallow) depois que a indexação foi ligada;
+purga pela API resolveu e robots/sitemap passam a ter cache de 5 min. Search Console: a organização Google
+do dono (Hostinger) bloqueia criar chave de conta de serviço (iam.disableServiceAccountKeyCreation).
