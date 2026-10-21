@@ -161,7 +161,7 @@ const jsonLd = [
                       </ul>
                     )}
                     <a class={`btn product-cta${THEME.cta.style === 'contorno' ? ' contorno' : ''}`} href={card.url} rel="sponsored nofollow noopener" target="_blank">{THEME.cta.label} <span aria-hidden="true">↗</span></a>
-                    <span class="product-checked">Disponibilidade conferida em {fmtDate(card.checkedAt)}</span>
+                    <span class="product-checked">{card.searchOnly ? 'Anúncio encontrado em' : 'Disponibilidade conferida em'} {fmtDate(card.checkedAt)}</span>
                   </div>
                 </li>
               ))}

@@ -116,3 +116,26 @@ async function snapshotViaTavily(input: SnapshotInput): Promise<{ source: Source
   writeJson(join(dir, 'meta.json'), source);
   return { source, created: true };
 }
+
+// Anúncio cuja página a loja bloqueia para leitura automática: a prova passa a ser o título e o resumo do
+// anúncio no índice de busca (Tavily), com o endereço do próprio anúncio. Fica marcado na nota: o cartão
+// diz "anúncio encontrado em", nunca "disponibilidade conferida".
+export const SEARCH_INDEX_NOTE = 'título e resumo do anúncio no índice de busca (página do anúncio bloqueada para leitura automática)';
+export function snapshotFromSearch(input: { url: string; text: string; publisher: string; sourceClass: Source['source_class'] }): Source {
+  const text = input.text.replace(/\r/g, '').trim();
+  const body = new TextEncoder().encode(text);
+  const sha256 = createHash('sha256').update(body).digest('hex');
+  const id = 'src_' + createHash('sha256').update(`${input.url}\n${sha256}`).digest('hex').slice(0, 12);
+  const dir = join(SOURCES_DIR, id);
+  if (existsSync(join(dir, 'meta.json'))) return Source.parse(JSON.parse(readFileSync(join(dir, 'meta.json'), 'utf8')));
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'raw.txt'), body);
+  writeFileSync(join(dir, 'text.txt'), text + '\n');
+  const source = Source.parse({
+    id, url: input.url, final_url: input.url, fetched_at: new Date().toISOString(), http_status: 200,
+    content_type: 'text/plain', sha256, raw_file: 'raw.txt', text_file: 'text.txt', text_chars: text.length,
+    extractor_version: EXTRACTOR_VERSION, title: null, publisher: input.publisher, source_class: input.sourceClass, note: SEARCH_INDEX_NOTE,
+  });
+  writeJson(join(dir, 'meta.json'), source);
+  return source;
+}

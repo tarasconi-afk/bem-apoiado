@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { affiliateUrl, checkProduct, DEFAULT_THEME, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
-import { buildIndex, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT } from '@bem-apoiado/engine';
+import { buildIndex, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
@@ -69,6 +69,8 @@ export interface ProductCard {
   // Nível "só anúncio": trecho literal do anúncio que descreve o tipo (quem afirma é o vendedor).
   listingQuote: string | null;
   checkedAt: string;
+  // Prova só pelo índice de busca (página do anúncio bloqueada): o cartão não afirma disponibilidade.
+  searchOnly: boolean;
 }
 
 // Exemplos à venda: só tipos que a pauta explica, só produtos que passam no gate agora (ficha do
@@ -92,6 +94,7 @@ export function productsFor(page: PageSpec): ProductCard[] {
       }),
       listingQuote: p.evidence === 'listing' ? idx.claims.get(p.availability_claim_id)!.quote : null,
       checkedAt: idx.claims.get(p.availability_claim_id)!.captured_at,
+      searchOnly: idx.sources.get(idx.claims.get(p.availability_claim_id)!.source_id)?.note === SEARCH_INDEX_NOTE,
     }));
 }
 

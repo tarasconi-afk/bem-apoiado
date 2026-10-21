@@ -78,20 +78,25 @@ export async function webSearch(query: string, opts: SearchOptions = {}, fetchIm
 
 // Lê uma página pela infraestrutura da Tavily (útil onde a VPS é bloqueada, ex.: Amazon).
 // Extração básica: no teste de out/2026 não consumiu crédito; mesmo assim passa pelo teto mensal.
-export async function webExtract(url: string, fetchImpl: typeof fetch = fetch): Promise<string> {
+// Página de loja às vezes volta vazia para leitor automático (21/10: os 5 anúncios de travesseiro). Nesse
+// caso, uma nova tentativa com extract_depth "advanced" (2 créditos Tavily) antes de desistir.
+export async function webExtract(url: string, fetchImpl: typeof fetch = fetch, depth: 'basic' | 'advanced' = 'basic'): Promise<string> {
   const key = process.env.TAVILY_API_KEY;
   if (!key) throw new SearchError('TAVILY_API_KEY ausente', 'NO_KEY');
   if (creditsThisMonth() + 1 > MONTHLY_CREDIT_CAP) throw new SearchError('teto mensal Tavily atingido', 'MONTHLY_CAP');
   const res = await fetchImpl('https://api.tavily.com/extract', {
     method: 'POST',
     headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-    body: JSON.stringify({ urls: [url], extract_depth: 'basic', include_usage: true }),
+    body: JSON.stringify({ urls: [url], extract_depth: depth, include_usage: true }),
     signal: AbortSignal.timeout(60_000),
   });
   if (!res.ok) throw new SearchError(`HTTP ${res.status} ${(await res.text()).slice(0, 200)}`, 'HTTP');
   const body = (await res.json()) as { results?: { raw_content?: string }[]; usage?: { credits?: number } };
   charge(body.usage?.credits ?? 0);
   const text = body.results?.[0]?.raw_content ?? '';
-  if (text.length < 200) throw new SearchError(`extração vazia para ${url}`, 'HTTP');
+  if (text.length < 200) {
+    if (depth === 'basic' && /amazon\./.test(url)) return webExtract(url, fetchImpl, 'advanced');
+    throw new SearchError(`extração vazia para ${url}`, 'HTTP');
+  }
   return text;
 }

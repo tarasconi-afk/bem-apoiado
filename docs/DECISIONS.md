@@ -398,3 +398,16 @@ futuro; avaliar modelos gratuitos rodando na própria VPS).
 Corrigido: o aviso da última ação ficava no endereço (?msg=) e a atualização automática o repetia para sempre.
 Nota técnica: no Zod 4, objeto aninhado com padrões internos precisa de .prefault({}) (.default({}) devolve o
 objeto vazio sem aplicar os padrões; as cores do tema saíam "undefined").
+
+## 2026-10-21 — Quantos exemplos à venda por página; Amazon bloqueando leitura dos anúncios
+Pesquisa (Iyengar & Lepper 2000: 24 opções → 3% compram, 6 → 30%; Scheibehenne 2010: efeito médio ~0 em 50
+experimentos; Chernev 2015: excesso de escolha aparece com decisão difícil, opções complexas e comprador
+incerto — o nosso leitor): 3 opções não confundem; opções sem diferença clara, sim (o site não faz ranking).
+Regra: página que compara tipos, 1 exemplo por tipo (até 3); página de um tipo só, 2 de marcas diferentes;
+marcas citadas na página vêm primeiro; os exemplos herdados de outras páginas contam.
+A Amazon passou a devolver página vazia à leitura automática (travesseiro: 8 de 9 anúncios; "advanced" do
+Tavily também falha). Ponte até a PA-API: prova pelo título e resumo do anúncio no índice de busca, com o
+endereço do próprio anúncio; só para marca do cadastro de fabricantes; o cartão diz "anúncio encontrado em",
+nunca "disponibilidade conferida". Travas novas vindas do teste real: triagem recusa versão de viagem,
+portátil, pet e infantil; marca genérica ("Espuma D33-20cm") recusada; "luxo", "premium" e "super" barrados
+no nome do produto.

@@ -95,13 +95,15 @@ describe('produtos para páginas no ar', () => {
   const topic = (slug: string, kinds: string[]) => ({ slug, product_kinds: kinds }) as never;
   const prod = (kind: string) => ({ kind }) as never;
 
-  it('só página aprovada, com tipos sem produto, uma tentativa por semana', () => {
+  it('só página aprovada com menos de 3 exemplos dos seus tipos, uma tentativa por semana', () => {
     const pages = [page('a', 'approved'), page('b', 'draft'), page('c', 'approved'), page('d', 'approved')];
     const topics = [topic('a', ['espuma']), topic('b', ['espuma']), topic('c', ['travesseiro']), topic('d', [])];
-    expect(pagesNeedingProducts(pages, topics, [prod('travesseiro')], {}, NOW)).toEqual(['a']);
+    expect(pagesNeedingProducts(pages, topics, [prod('travesseiro')], {}, NOW)).toEqual(['a', 'c']);
+    const three = [prod('travesseiro'), prod('travesseiro'), prod('travesseiro')];
+    expect(pagesNeedingProducts(pages, topics, three, {}, NOW)).toEqual(['a']);
     const recent = { a: new Date(NOW.getTime() - 2 * 86_400_000).toISOString() };
-    expect(pagesNeedingProducts(pages, topics, [prod('travesseiro')], recent, NOW)).toEqual([]);
+    expect(pagesNeedingProducts(pages, topics, three, recent, NOW)).toEqual([]);
     const old = { a: new Date(NOW.getTime() - 8 * 86_400_000).toISOString() };
-    expect(pagesNeedingProducts(pages, topics, [prod('travesseiro')], old, NOW)).toEqual(['a']);
+    expect(pagesNeedingProducts(pages, topics, three, old, NOW)).toEqual(['a']);
   });
 });

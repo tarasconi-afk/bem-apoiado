@@ -1,13 +1,14 @@
 import { join } from 'node:path';
 import { z } from 'zod';
-import { Claim, checkClaim, checkProduct, firstForbidden, normalizeForMatch, Product, type Source } from '@bem-apoiado/core';
+import { Claim, checkClaim, checkProduct, firstForbidden, normalizeForMatch, Product, referencedClaimIds, type Source } from '@bem-apoiado/core';
 import { jevDecide, type Decider } from '../jev.ts';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
 import { writeStage } from '../runs.ts';
 import { webSearch } from '../search.ts';
-import { snapshot } from '../snapshot.ts';
-import { buildIndex, CLAIMS_DIR, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
+import { SEARCH_INDEX_NOTE, snapshot, snapshotFromSearch } from '../snapshot.ts';
+const sourceNote = (s: Source) => s.note;
+import { buildIndex, CLAIMS_DIR, loadPages, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
 import { claimIdFor, loadTopic } from './research.ts';
 import { loadRegistry } from './discover.ts';
 
@@ -109,10 +110,14 @@ export async function findProducts(slug: string, runId: string, opts: { max?: nu
         done = true;
         break;
       }
-      const listing = await captureListing(asin);
+      let listing: Source | string = await captureListing(asin);
       if (typeof listing === 'string') {
-        report.skipped.push({ url: h.url, reason: listing });
-        continue;
+        // Página bloqueada: prova pelo título e resumo do índice de busca, se trouxerem marca e tipo.
+        if (h.title.split(/\s+/).length < 4) {
+          report.skipped.push({ url: h.url, reason: listing });
+          continue;
+        }
+        listing = snapshotFromSearch({ url: `https://www.amazon.com.br/dp/${asin}`, text: `${h.title.replace(/\s*[:|-]\s*Amazon\.com\.br.*$/i, '')}\n${h.content}`, publisher: 'Amazon.com.br', sourceClass: 'retailer_listing' });
       }
       const r = await confirmAndRegister({ brand: p.brand, model: p.model, kind: p.kind, specClaims, asin, listing, runId }, idx, decide);
       if (!r.ok) {
@@ -243,7 +248,7 @@ async function sheetSpecs(s: Source, kinds: string[], runId: string, idx: Return
 export async function findProductsFromAmazon(
   slug: string,
   runId: string,
-  opts: { maxPerKind?: number; listingsPerKind?: number } = {},
+  opts: { maxPerKind?: number; listingsPerKind?: number; target?: number } = {},
   fetchImpl?: FetchLike,
   decide: Decider = jevDecide,
 ): Promise<ProductsReport> {
@@ -256,12 +261,27 @@ export async function findProductsFromAmazon(
   const makers = loadRegistry().allow.filter((a) => a.source_class === 'manufacturer');
   const report: ProductsReport = { run_id: runId, topic: slug, candidates: 0, added: [], skipped: [] };
   const Listing = z.object({ brand: z.string(), model: z.string(), is_single_product: z.boolean() });
+  // Quantos exemplos (pesquisa de 21/10: excesso de escolha aparece com muitas opções e comprador incerto;
+  // 3 opções não confundem, opções sem diferença clara sim). Página que compara tipos: 1 por tipo, até 3.
+  // Página de um tipo só: 2, de marcas diferentes. Os que a página já herda de outras contam.
+  const existing = loadProducts().filter((p) => kinds.includes(p.kind));
+  const target = opts.target ?? (kinds.length > 1 ? Math.min(3, kinds.length) : 2);
+  let need = Math.max(0, target - existing.length);
+  const perKind = opts.maxPerKind ?? (kinds.length > 1 ? 1 : need);
+  const usedBrands = new Set(existing.map((p) => loose(p.brand)));
+  // Marcas que a página cita (fontes de fabricante usadas nela) vêm primeiro: texto e exemplos coerentes.
+  const page = loadPages().find((p) => p.slug === slug);
+  const cited = new Set<string>();
+  if (page) for (const id of referencedClaimIds(page)) { const c = idx.claims.get(id); const s = c && idx.sources.get(c.source_id); if (s?.source_class === 'manufacturer') cited.add(loose(s.publisher)); }
 
   for (const kind of kinds) {
+    if (need <= 0) break;
     let added = 0;
-    const hits = (await webSearch(labels.get(kind) ?? kind, { maxResults: 10, includeDomains: ['amazon.com.br'] })).filter((h) => ASIN_RE.test(h.url));
-    for (const h of hits.slice(0, opts.listingsPerKind ?? 5)) {
-      if (added >= (opts.maxPerKind ?? 1)) break;
+    const hits = (await webSearch(labels.get(kind) ?? kind, { maxResults: 10, includeDomains: ['amazon.com.br'] }))
+      .filter((h) => ASIN_RE.test(h.url))
+      .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
+    for (const h of hits.slice(0, opts.listingsPerKind ?? 10)) {
+      if (added >= perKind || need <= 0) break;
       const asin = ASIN_RE.exec(h.url)![1]!;
       if (known.has(asin)) continue;
       report.candidates++;
@@ -285,7 +305,13 @@ export async function findProductsFromAmazon(
         report.skipped.push({ url: h.url, reason: 'kit/conjunto/acessório' });
         continue;
       }
-      // Marca plausível: sem artigo no início e no máximo 3 palavras ("O armazenamento do colchão" não é marca).
+      // Marca plausível: sem artigo no início, no máximo 3 palavras ("O armazenamento do colchão" não é marca)
+      // e não pode ser palavra genérica do próprio produto ("Espuma D33-20cm" não tem marca; 21/10).
+      const generic = new Set([...loose(labels.get(kind) ?? kind).split(/\s+/), 'colchao', 'colchão', 'espuma', 'travesseiro', 'mola', 'molas', 'cadeira', 'mesa', 'suporte', 'almofada', 'generico', 'genérico', 'generica', 'genérica', 'sem', 'marca', 'kit']);
+      if (loose(l.data.brand).split(/\s+/).every((w) => generic.has(w))) {
+        report.skipped.push({ url: h.url, reason: `marca genérica: "${l.data.brand}"` });
+        continue;
+      }
       if (/^(o|a|os|as|um|uma)\s/i.test(l.data.brand.trim()) || l.data.brand.trim().split(/\s+/).length > 3) {
         report.skipped.push({ url: h.url, reason: `marca implausível: "${l.data.brand}"` });
         continue;
@@ -296,11 +322,22 @@ export async function findProductsFromAmazon(
         item: {
           type: 'choice',
           instructions: `Este anúncio vende um(a) ${kindLabel.toLowerCase()} propriamente dito(a)?`,
-          criteria: { sim: `o produto vendido é um(a) ${kindLabel.toLowerCase()}`, nao: 'capa, bolsa, protetor, base, cama, kit, peça ou acessório' },
+          criteria: { sim: `o produto vendido é um(a) ${kindLabel.toLowerCase()} para uso normal em casa`, nao: 'capa, bolsa, protetor, base, cama, kit, peça, acessório, ou versão de viagem, portátil, para pet ou infantil' },
         },
       });
       if ((isItem.item?.probabilities?.sim ?? 0) < 0.85) {
         report.skipped.push({ url: h.url, reason: `triagem: não vende o próprio ${kindLabel.toLowerCase()}` });
+        continue;
+      }
+      // Sem a página do anúncio (só índice de busca), a confiança vem da marca: só fabricante do cadastro.
+      const fromSearch = sourceNote(listing) === SEARCH_INDEX_NOTE;
+      if (fromSearch && !makers.some((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)))) {
+        report.skipped.push({ url: h.url, reason: `página do anúncio bloqueada e marca "${l.data.brand}" fora do cadastro de fabricantes` });
+        continue;
+      }
+      // Marcas diferentes na mesma página: dois exemplos da mesma marca não ajudam a decidir.
+      if (usedBrands.has(loose(l.data.brand))) {
+        report.skipped.push({ url: h.url, reason: `marca já tem exemplo nesta página: ${l.data.brand}` });
         continue;
       }
       const maker = makers.filter((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)));
@@ -310,6 +347,8 @@ export async function findProductsFromAmazon(
           known.add(asin);
           report.added.push({ asin, label: `${r.product.label} [só anúncio]`, kind });
           added++;
+          need--;
+          usedBrands.add(loose(l.data.brand));
         } else report.skipped.push({ url: h.url, reason: `fabricante "${l.data.brand}" fora do cadastro; nível anúncio: ${r.reason}` });
         continue;
       }
@@ -338,6 +377,8 @@ export async function findProductsFromAmazon(
         known.add(asin);
         report.added.push({ asin, label: r.product.label, kind: r.product.kind });
         added++;
+        need--;
+        usedBrands.add(loose(l.data.brand));
         ok = true;
         break;
       }
@@ -348,6 +389,8 @@ export async function findProductsFromAmazon(
           known.add(asin);
           report.added.push({ asin, label: `${r.product.label} [só anúncio]`, kind });
           added++;
+          need--;
+          usedBrands.add(loose(l.data.brand));
         } else report.skipped.push({ url: h.url, reason: `sem ficha oficial; nível anúncio: ${r.reason}` });
       }
     }

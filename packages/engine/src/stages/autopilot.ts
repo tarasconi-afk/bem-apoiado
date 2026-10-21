@@ -100,13 +100,16 @@ export function nextQuery(): string | null {
 export const PRODUCTS_RETRY_DAYS = 7;
 export const PRODUCTS_MIN_CREDITS = 20;
 
+export const PRODUCTS_PER_PAGE = 3;
+
 export function pagesNeedingProducts(pages: PageSpec[], topics: TopicBrief[], products: Product[], attempts: Record<string, string>, now = new Date()): string[] {
   const kindsOf = new Map(topics.map((t) => [t.slug, t.product_kinds]));
   return pages
     .filter((p) => p.status !== 'draft')
     .filter((p) => {
       const kinds = kindsOf.get(p.slug) ?? [];
-      if (kinds.length === 0 || products.some((x) => kinds.includes(x.kind))) return false;
+      // Meta: PRODUCTS_PER_PAGE exemplos por página (os de tipo compartilhado com outras páginas contam).
+      if (kinds.length === 0 || products.filter((x) => kinds.includes(x.kind)).length >= PRODUCTS_PER_PAGE) return false;
       const last = attempts[p.slug];
       return !last || now.getTime() - new Date(last).getTime() >= PRODUCTS_RETRY_DAYS * 86_400_000;
     })

@@ -93,7 +93,7 @@ export function checkPage(page: PageSpec, idx: EvidenceIndex): Violation[] {
   return out;
 }
 
-const PROMO = /\b(melhor|top|imbatível|perfeito|campeão|número 1|nº 1|n°1|recomendado|oferta|promoção|barato)\b/i;
+const PROMO = /\b(melhor|top|imbatível|perfeito|campeão|número 1|nº 1|n°1|recomendado|oferta|promoção|barato|luxo|premium|super)\b/i;
 // Disponibilidade mais velha que isso precisa de nova captura antes de exibir o produto.
 export const AVAILABILITY_MAX_AGE_DAYS = 30;
 
