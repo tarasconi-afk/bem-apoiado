@@ -24,3 +24,5 @@
   fila, só a manutenção vira ramo `pagina/manutencao-produtos-*`. Tentativas ficam em
   `/var/lib/bem-apoiado/products-{refresh,attempts}.json`.
 - Tetos: 40 créditos/ciclo (nunca acima do que resta no dia), 100/dia em 4 ciclos (04:00, 10:00, 16:00, 22:00) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
+- `bem-apoiado-hits.service`: contador de visitas sem cookie (`npm run engine -- hits-server`, 127.0.0.1:8788);
+  o Caddy publica só `POST /c` em `t.bemapoiado.com`. Dados em `/var/lib/bem-apoiado/hits/AAAA-MM-DD.jsonl`.

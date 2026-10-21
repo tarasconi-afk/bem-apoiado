@@ -255,7 +255,7 @@ ${ops.newTopics.length ? `<p><strong>Buscas sem página própria</strong> (o cic
 const TABS_JS = `<script>
 (function () {
   var MAP = [['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Domínios novos','conteudo'],
-    ['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
+    ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
     ['Saldo de créditos','config'],['Senha do painel','config']];
   var NAMES = { decisoes: 'Decisões', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
   var main = document.querySelector('main'); if (!main) return;

@@ -1,0 +1,12 @@
+[Unit]
+Description=Bem Apoiado: contador de visitas sem cookie (127.0.0.1:8788, publicado em t.bemapoiado.com/c)
+After=network-online.target
+[Service]
+User=bemapoiado
+WorkingDirectory=/opt/bem-apoiado/repo
+Environment=HOME=/opt/bem-apoiado
+ExecStart=/usr/bin/npm run -s engine -- hits-server
+Restart=always
+RestartSec=3
+[Install]
+WantedBy=multi-user.target

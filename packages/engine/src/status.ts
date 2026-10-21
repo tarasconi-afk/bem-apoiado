@@ -1,3 +1,4 @@
+import { trafficSummary } from './hits.ts';
 import { auditStats } from './lessons.ts';
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
 import { balanceNow, ledger, spendBy } from './credits.ts';
@@ -162,6 +163,21 @@ ${violations.length ? `<h2>Violações no gate</h2><div class="tw"><table><thead
 <div class="card"><div class="v">${cr1(sumMap(spendBy(led, 7 * 24 * 3600_000)))}</div><div class="l">cobrado em 7 dias</div></div>
 </div>
 ${led.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Categoria (7 dias)</th><th class="num">Créditos</th><th class="num">%</th></tr></thead><tbody>${[...spendBy(led, 7 * 24 * 3600_000)].sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(LABELS[k] ?? k)}</td><td class="num">${cr1(v)}</td><td class="num">${Math.round((100 * v) / Math.max(sumMap(spendBy(led, 7 * 24 * 3600_000)), 1e-9))}%</td></tr>`).join('')}</tbody></table></div>` : ''}
+
+<h2>Visitas (contador próprio, sem cookie)</h2>
+${(() => {
+  const w = trafficSummary(7, now);
+  const m = trafficSummary(30, now);
+  if (!m.views && !m.clicks) return '<p class="muted">Ainda sem visitas registradas. Conta páginas vistas e cliques em "Ver preço na Amazon"; robôs ficam de fora.</p>';
+  return `<div class="grid">
+<div class="card"><div class="v">${w.views}</div><div class="l">páginas vistas em 7 dias (${m.views} em 30)</div></div>
+<div class="card"><div class="v">${w.visitors}</div><div class="l">visitantes por dia somados em 7 dias</div></div>
+<div class="card"><div class="v">${w.clicks}</div><div class="l">cliques na Amazon em 7 dias</div></div>
+<div class="card"><div class="v">${w.views ? `${((100 * w.clicks) / w.views).toFixed(1)}%` : '—'}</div><div class="l">cliques na Amazon por página vista</div></div>
+</div>
+<div class="tw" style="margin-top:12px"><table><thead><tr><th>Página (30 dias)</th><th class="num">Vistas</th><th class="num">Visitantes</th><th class="num">Cliques Amazon</th><th class="num">Taxa</th></tr></thead><tbody>${m.pages.slice(0, 20).map((p) => `<tr><td><code>${esc(p.path)}</code></td><td class="num">${p.views}</td><td class="num">${p.visitors}</td><td class="num">${p.clicks}</td><td class="num">${p.views ? `${((100 * p.clicks) / p.views).toFixed(1)}%` : '—'}</td></tr>`).join('')}</tbody></table></div>
+${m.referrers.length ? `<p class="muted">De onde vieram (30 dias): ${m.referrers.map(([h, n]) => `${esc(h)} ${n}`).join(' · ')}</p>` : ''}`;
+})()}
 
 <h2>Qualidade do motor (60 dias)</h2>
 <p class="muted">Quanto menos problemas na 1ª rodada, menos remendos pagos e mais páginas aprovadas de primeira. Os erros mais comuns do auditor entram no prompt do redator a cada página.</p>

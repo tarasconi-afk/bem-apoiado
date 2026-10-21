@@ -7,6 +7,7 @@ import { buildIndex, DATA, loadPages, loadTopics } from '../store.ts';
 import { balanceNow, ledger, spendBy } from '../credits.ts';
 import { auditStats } from '../lessons.ts';
 import { latestSnapshot, pageStats } from '../gsc.ts';
+import { trafficSummary } from '../hits.ts';
 import { editQueue } from './autopilot.ts';
 import { claimsForTopic } from './draft-schema.ts';
 import { manualEdit, editableBlocks } from './manual-edit.ts';
@@ -42,7 +43,8 @@ export interface RequestResult { reply: string; done: string[]; failed: string[]
 function report(about: 'gastos' | 'qualidade' | 'paginas' | 'fila' | 'visitas'): string {
   if (about === 'visitas') {
     const snap = latestSnapshot();
-    const note = ' O site não mede visitas diretas (não há ferramenta de estatística de acesso); estes números são só do Google.';
+    const own = trafficSummary(7);
+    const note = own.views || own.clicks ? ` Contador próprio (7 dias): ${own.views} páginas vistas, ${own.clicks} cliques na Amazon${own.pages[0] ? `; mais lida: ${own.pages[0].path} (${own.pages[0].views})` : ''}.` : ' Contador próprio: ainda sem visitas registradas.';
     if (!snap) return `Ainda sem dados do Google Search Console (a primeira leitura chega no ciclo; site novo leva dias a semanas para aparecer).${note}`;
     const st = [...pageStats(snap).values()].sort((a, b) => b.impressions - a.impressions);
     if (!st.length) return `Google Search Console (${snap.start} a ${snap.end}): nenhuma impressão ainda. Normal nas primeiras semanas de um domínio novo.${note}`;

@@ -419,6 +419,11 @@ async function main(): Promise<number> {
       console.log(`run ${runId}: ${r.refreshed.length} renovados, ${r.retired.length} retirados, ${r.kept.length} mantidos`);
       return 0;
     }
+    case 'hits-server': {
+      const { startHitsServer } = await import('./hits.ts');
+      startHitsServer();
+      return await new Promise<number>(() => {});
+    }
     case 'admin': {
       const { startAdmin } = await import('./admin.ts');
       startAdmin();

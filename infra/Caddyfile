@@ -18,3 +18,19 @@ srv2079501.hstgr.cloud {
 		file_server
 	}
 }
+
+# Contador de visitas: só recebe POST /c do site (sem cookie, sem IP guardado). Nada mais é servido aqui.
+t.bemapoiado.com {
+	header -Server
+	header X-Robots-Tag "noindex, nofollow"
+	@hit {
+		method POST
+		path /c
+	}
+	handle @hit {
+		reverse_proxy 127.0.0.1:8788
+	}
+	handle {
+		respond 404
+	}
+}

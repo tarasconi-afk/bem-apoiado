@@ -360,3 +360,12 @@ Ortobom menciona espuma D26 e D33", "a Probel lista os tamanhos") ou são transi
 o prompt pedia "página entre 700 e 1400 palavras", e com pouca evidência o redator enchia para chegar lá.
 Agora: sem mínimo de palavras (curta e útil vale mais), regra explícita de que cada bloco tem de mudar o que
 o leitor confere ou escolhe, e as lições do redator trazem exemplos reais de blocos cortados como enchimento.
+
+## 2026-10-21 — Contador de visitas próprio (sem cookie); Google Analytics não
+GA4 exigiria aviso de consentimento (cookies, LGPD), pesa na página e manda dado do leitor ao Google; o que
+importa ao motor (visitas por página, origem, cliques em "Ver preço na Amazon") o contador próprio entrega, e o
+Search Console cobre a busca. Coletor na VPS (127.0.0.1:8788, publicado em t.bemapoiado.com/c, DNS A → VPS),
+aviso por navigator.sendBeacon só no site indexável. Sem cookie e sem IP guardado: visitante = sha256(sal do
+dia + IP + navegador), sal trocado todo dia (não dá para seguir alguém entre dias); referência guardada só
+como origem (google.com); robôs descartados; 60 avisos/min por IP. Painel (Desempenho → Visitas) e agente
+("relatório de visitas") leem os arquivos diários. Página "Como trabalhamos" ganhou a seção Privacidade.
