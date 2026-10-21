@@ -74,7 +74,7 @@ branch_previews() {
 
 # O site público está na versão do main? (a implantação por Git da Hostinger às vezes não dispara)
 live_check() {
-  local live; live=$(curl -fsS -m 20 "https://darkslategrey-rail-669974.hostingersite.com/?v=$(date +%s)" 2>/dev/null | grep -o 'name="bem-build" content="[0-9a-f]*"' | grep -o '[0-9a-f]\{40\}' || true)
+  local live; live=$(curl -fsS -m 20 "https://bemapoiado.com/?v=$(date +%s)" 2>/dev/null | grep -o 'name="bem-build" content="[0-9a-f]*"' | grep -o '[0-9a-f]\{40\}' || true)
   printf '{"checked_at":"%s","live":"%s","main":"%s"}\n' "$(date -u +%FT%TZ)" "$live" "$(git rev-parse HEAD)" > /var/lib/bem-apoiado/live-site.json
 }
 

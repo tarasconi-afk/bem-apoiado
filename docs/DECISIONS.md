@@ -246,3 +246,11 @@ anterior, `npm test && typecheck && build` falhou no teste mas o merge seguiu: `
 ramo (`-X theirs`; ramo pagina/* só traz dados); cada etapa do gate é checada e, se falhar, nada é enviado.
 O teste do livro-caixa escrevia no livro-caixa real da VPS (diretório de estado decidido no import): agora
 lido na hora da chamada.
+
+## 2026-10-21 — Domínio bemapoiado.com
+O dono registrou bemapoiado.com na Hostinger (o .com.br fica para depois). Site novo no mesmo plano Business
+(pedido 1009138882) via onboarding da API; implantação por Git no ramo `deploy` (a mesma do temporário);
+DNS ajustado sozinho para a CDN da Hostinger; SSL vitalício ativo com redirecionamento HTTPS. Build passa
+a usar SITE_URL=https://bemapoiado.com (canonical, sitemap, OG). Indexação continua desligada (noindex em
+cabeçalho, meta e robots.txt) até instrução explícita do dono. O temporário segue publicando o mesmo ramo,
+com canonical apontando para o domínio.

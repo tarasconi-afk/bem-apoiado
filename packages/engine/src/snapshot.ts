@@ -6,7 +6,7 @@ import { EXTRACTOR_VERSION, htmlToText, pdfToText } from './extract.ts';
 import { SOURCES_DIR, writeJson } from './store.ts';
 import { webExtract } from './search.ts';
 
-const UA = 'Mozilla/5.0 (compatible; BemApoiadoBot/0.1; +https://bemapoiado.com.br/sobre)';
+const UA = 'Mozilla/5.0 (compatible; BemApoiadoBot/0.1; +https://bemapoiado.com/como-trabalhamos/)';
 
 export interface SnapshotInput {
   url: string;

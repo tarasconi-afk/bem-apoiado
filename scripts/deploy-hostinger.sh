@@ -6,7 +6,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-DOMAIN="${1:-darkslategrey-rail-669974.hostingersite.com}"
+DOMAIN="${1:-bemapoiado.com}"
 USERNAME="${2:-u226814741}"
 API=https://developers.hostinger.com/api/hosting/v1
 TOKEN=$(cat "$HOME/.config/bem-apoiado/hostinger-api-token")
