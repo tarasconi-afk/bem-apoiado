@@ -216,3 +216,16 @@ não é fato; SAFETY_CLAIM se julga pelo texto do bloco. Depois do ajuste: 8/8 e
 Implantação da Hostinger às vezes não dispara no push do ramo `deploy` (21/10: ficou na versão anterior;
 regravar as configurações de auto-deploy via API resolveu). O build carimba `bem-build` = commit; o sync
 compara com o main e o painel avisa.
+
+## 2026-10-21 — Re-auditoria, contexto enxuto nos remendos, tabelas legíveis (extrator v3)
+Re-auditoria no ciclo: uma página publicada por ciclo (auditor trocado ou >30 dias); o que o auditor
+apontar ganha remendo só no bloco e é auditado de novo; corrigida vai para o ramo de manutenção e só vai
+ao ar com o aceite humano; não converge = página publicada intacta.
+Cache de prompt: o roteador não repassa (cached_tokens 0 em repetição idêntica, Luna e Claude; com
+cache_control o Claude cobrou 25% A MAIS). Preço real de entrada (créditos/M): Sol 602, Sonnet 4.6 361,
+Sonnet 5 240, Gemini 3.5 Flash 182, Haiku 120, Luna ~24. Economia possível no redator: remendo envia só as
+seções com bloco a corrigir (antes, o rascunho inteiro).
+"Leitura de tabela em imagem" era o problema errado: a tabela densidade × peso × altura da Ortobom é uma
+<table> HTML; o extrator v2 a achatava em palavras soltas ("D33"), que nenhum trecho podia sustentar. v3
+acrescenta ao texto cada célula com rótulo de linha e coluna (cabeçalho diagonal incluído). Determinístico,
+reproduzível do bruto, texto anterior intacto (0 violações após reextrair as 82 fontes).

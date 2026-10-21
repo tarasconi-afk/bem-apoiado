@@ -1,3 +1,5 @@
+import { nextReaudit, reauditPage } from './reaudit.ts';
+import { MODELS } from '../models.ts';
 import { BRIEF_SYSTEM, BriefOut, ensureImages } from '../images.ts';
 import { applyCalibration, calibrate, loadVerdicts } from '../feedback.ts';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -123,6 +125,24 @@ async function maintainImages(steps: string[]): Promise<boolean> {
 }
 const IMAGE_MIN_CREDITS = 15;
 
+// Re-auditoria: uma página publicada por ciclo (auditor trocado ou mais de 30 dias). Com o Luna custa
+// ~1 crédito; o remendo, quando há, é do redator. Página corrigida só vai ao ar depois do aceite humano.
+async function maintainAudit(runId: string, steps: string[]): Promise<boolean> {
+  const last = readState<Record<string, { at: string; model: string }>>('reaudit.json', {});
+  const page = nextReaudit(loadPages(), last);
+  if (!page || creditsLeft() < REAUDIT_MIN_CREDITS) return false;
+  const r = await reauditPage(page, runId);
+  if (r.status !== 'SAFE_STOP') writeState('reaudit.json', { ...last, [page.slug]: { at: new Date().toISOString(), model: MODELS.auditor.id } });
+  steps.push(
+    r.status === 'CLEAN' ? `re-auditoria de ${page.slug}: sem problemas`
+      : r.status === 'FIXED' ? `re-auditoria de ${page.slug}: ${r.fixed.length} bloco(s) corrigido(s) (${r.fixed.join(', ')}); confira na prévia antes de aceitar`
+      : r.status === 'OPEN' ? `re-auditoria de ${page.slug}: ${r.open.length} problema(s) sem correção segura; página publicada mantida`
+      : `re-auditoria de ${page.slug}: parou (${r.reason})`,
+  );
+  return r.status === 'FIXED';
+}
+const REAUDIT_MIN_CREDITS = 20;
+
 async function maintainProducts(runId: string, steps: string[], only?: string): Promise<boolean> {
   let changed = false;
   if (!only) {
@@ -171,11 +191,15 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const cal = calibrate(loadVerdicts());
   if (applyCalibration(cal)) steps.push(`revisão recalibrada: enchimento ≤ ${cal.best.max_filler_ratio}, critérios ≥ ${cal.best.min_criteria} (${cal.best.agree}/${cal.labels} vereditos)`);
 
-  const maintained = (await maintainProducts(runId, steps)) || (await maintainImages(steps));
+  // Manutenção primeiro (todas rodam; qualquer mudança vira ramo de manutenção se não houver pauta).
+  const m1 = await maintainProducts(runId, steps);
+  const m2 = await maintainImages(steps);
+  const m3 = await maintainAudit(runId, steps);
+  const maintained = m1 || m2 || m3;
 
   const query = nextQuery();
   if (!query) {
-    if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao-produtos', steps: [...steps, 'fila sem pauta pendente'] });
+    if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao', steps: [...steps, 'fila sem pauta pendente'] });
     recordCredits(creditsSpent()); // tentativa de produtos sem resultado também gasta
     return { status: 'NOTHING_TO_DO', steps: [...steps, 'fila vazia ou todas as pautas resolvidas/esgotadas'], credits: creditsSpent() };
   }
@@ -214,10 +238,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
 function writePrSummary(r: CycleResult, runId: string): void {
   const dir = join(ROOT, '.pr');
   mkdirSync(dir, { recursive: true });
-  const title = r.status === 'MAINTENANCE' ? 'Manutenção do catálogo de produtos' : r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : `Tentativa (rascunho): ${r.query}`;
+  const title = r.status === 'MAINTENANCE' ? 'Manutenção: produtos, imagens e re-auditoria' : r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : `Tentativa (rascunho): ${r.query}`;
   const body = [
     `**Pauta:** ${r.query ?? '— (manutenção)'}`,
-    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 só produtos: disponibilidade renovada/retirada ou exemplos novos para páginas no ar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não será publicada; o merge só guarda o aprendizado (fontes, evidências, lacunas)'}`,
+    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 manutenção: produtos (disponibilidade, exemplos novos), imagens e correções da re-auditoria em páginas no ar; veja a prévia antes de aceitar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não será publicada; o merge só guarda o aprendizado (fontes, evidências, lacunas)'}`,
     '',
     '**Etapas:**',
     ...r.steps.map((s) => `- ${s}`),

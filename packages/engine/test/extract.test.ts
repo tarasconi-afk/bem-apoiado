@@ -46,3 +46,16 @@ describe('htmlToText', () => {
     expect(r.text).not.toContain('Rodapé');
   });
 });
+
+import { htmlToText as h2t } from '../src/extract.ts';
+describe('tabelas linearizadas (v3)', () => {
+  it('cada célula sai com rótulo da linha e da coluna, inclusive cabeçalho em diagonal', () => {
+    const html = `<html><body><main><p>${'texto '.repeat(80)}</p></main><div><h2>Tabela de colchões</h2><table>
+      <tr><th><span>Altura (m)</span><hr/><span>Peso (Kg)</span></th><th>até 1,50</th><th>1,51 a 1,60</th></tr>
+      <tr><th>até 50</th><td>D23</td><td></td></tr><tr><th>51 a 60</th><td>D26</td><td>D26*/23</td></tr></table></div></body></html>`;
+    const t = h2t(html).text;
+    expect(t).toContain('Tabela de colchões: Peso (Kg) até 50, Altura (m) até 1,50: D23');
+    expect(t).toContain('Tabela de colchões: Peso (Kg) 51 a 60, Altura (m) 1,51 a 1,60: D26*/23');
+    expect(t).not.toContain('Peso (Kg) até 50, Altura (m) 1,51 a 1,60');
+  });
+});

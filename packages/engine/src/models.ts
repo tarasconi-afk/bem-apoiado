@@ -7,7 +7,7 @@
 // aqui já custou caro uma vez: conferir contra o extrato do hPanel ao trocar de modelo.
 export const MODELS = {
   // Propõe trechos candidatos das fontes. Barato: o código confere a literalidade depois.
-  extractor: { id: 'claude-haiku-4.5', name: 'Claude Haiku 4.5', vendor: 'anthropic', price: [100, 500] },
+  extractor: { id: 'claude-haiku-4.5', name: 'Claude Haiku 4.5', vendor: 'anthropic', price: [120, 600] },
   // Escreve o PageSpec a partir só dos claims aprovados. Sonnet 5: 2,5x mais barato que o Opus 5.
   // O roteador não faz streaming de verdade com o Sonnet 5 (entrega tudo no fim): saída longa passa de
   // 100 s e a Cloudflare corta com 524. Reserva: Sonnet 4.6, que faz streaming real (mais lento, ~1,4x o preço).

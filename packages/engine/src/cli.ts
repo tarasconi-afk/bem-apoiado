@@ -228,6 +228,21 @@ async function main(): Promise<number> {
       console.log(editQueue(op, query) ? `fila: ${op} "${query}"` : `fila sem mudança ("${query}" ${op === 'add' ? 'já está na fila' : 'não está na fila'})`);
       return 0;
     }
+    case 'reaudit': {
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '30' } } });
+      const page = loadPages().find((p) => p.slug === positionals[0]);
+      if (!page) {
+        console.error('uso: reaudit <slug> [--budget créditos]');
+        return 2;
+      }
+      setRunBudget(Number(values.budget));
+      const { reauditPage } = await import('./stages/reaudit.ts');
+      const runId = newRunId(`${page.slug}-reaudit`);
+      const r = await reauditPage(page, runId);
+      console.log(`run ${runId}: ${JSON.stringify(r)}`);
+      console.log(`~${creditsSpent().toFixed(1)} créditos`);
+      return r.status === 'CLEAN' || r.status === 'FIXED' ? 0 : 1;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());

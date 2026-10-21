@@ -85,9 +85,17 @@ export async function writePatches(
 ) {
   const refs = [...new Set(issues.map((i) => i.ref).filter((r): r is string => r !== null))];
   const schema = makePatchSchema(refs, claims.map((c) => c.id));
+  // Contexto enxuto: só as seções com bloco a corrigir (o resto está trancado e não precisa ser relido).
+  // Entrada do redator é o maior custo de um remendo; o roteador não faz cache de prompt.
+  const touched = new Set(refs.map((r) => r.split('#')[0]));
+  const context = {
+    title: draft.title,
+    ...(touched.has('verdict') ? { verdict: draft.verdict } : {}),
+    sections: draft.sections.filter((s) => touched.has(s.id)),
+  };
   const user =
     `Pauta: "${topic.primary_query}"\n\nEvidências disponíveis:\n${formatClaims(claims, sources)}\n\n` +
-    `Rascunho atual (só para contexto; os demais blocos já foram aprovados e NÃO podem mudar):\n${JSON.stringify(draft)}\n\n` +
+    `Seções do rascunho com blocos a corrigir (só para contexto; os demais blocos já foram aprovados e NÃO podem mudar):\n${JSON.stringify(context)}\n\n` +
     `Corrija apenas estes blocos. Para cada ref, devolva um remendo: "replace" com o novo texto, basis e claim_ids ` +
     `(ou "cells" para linha de tabela), ou "remove" se o bloco não se sustenta nem estreitado.\n` +
     issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}`).join('\n');
