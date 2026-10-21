@@ -181,6 +181,7 @@ case "$action" in
     git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3${5:+ (com pesquisa)}"$'\n\n'"$(head -c 300 "$4")"
     if [ "$2" = main ]; then
       npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
+      preview   # a prévia do site mostra o ajuste já (antes esperava o próximo sync)
     else
       git push -q origin "HEAD:$2"
     fi

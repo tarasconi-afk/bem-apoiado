@@ -19,6 +19,7 @@ import { editQueue } from './autopilot.ts';
 import { claimsForTopic, type Draft } from './draft-schema.ts';
 import { editableBlocks } from './manual-edit.ts';
 import { writePatches } from './patch.ts';
+import { learnFromEditor } from '../editor-lessons.ts';
 import { formatClaims, writerSystem } from './write.ts';
 import { loadTopic } from './research.ts';
 
@@ -212,7 +213,9 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const gate2 = checkPage(final, idx);
   if (gate2.length) return `ajuste NÃO salvo (regra do site): ${gate2.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
   writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
-  return `texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
+  // O pedido pode valer para todas as páginas: vira lição do redator (falha aqui não desfaz o ajuste).
+  const learned = await learnFromEditor(slug, instruction, fetchImpl).catch(() => null);
+  return `${learned ? `lição nova para todas as páginas: "${learned}"\n→ ` : ''}texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
     (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '');
 }
 

@@ -519,3 +519,11 @@ tipo do nicho, marca plausível, nome com a marca e sem promoção ou termo veta
 com a imagem do tipo gerada por IA (foto da Amazon só pela API), "conferido pelo editor em <data>; preço e
 estoque podem mudar". Vale 45 dias sem reconferir; o painel avisa a partir de 30 e tem "Reconferi" e "Remover"
 (removido vai para products-retired e a busca automática não traz de volta).
+
+## 2026-10-21 — Pedidos do editor viram lição para todas as páginas
+Os ajustes do editor corrigiam só a página pedida, e o motor repetia o erro na seguinte (resposta curta abrindo
+pelo Inmetro na base box, depois de o mesmo pedido na cadeira). Agora: ajuste salvo e recusa com motivo passam
+por um modelo barato que decide se o pedido vale para todas as páginas; se vale, vira regra curta em
+data/editor-lessons.json (máx. 12, sem repetir), que o redator recebe em toda página e todo remendo, e que o
+painel lista em "Pedir ao motor". Semeado com 4 lições dos pedidos de 21/10. Ajuste no main refaz a prévia na
+hora (antes o editor via a versão antiga por até 5 min).

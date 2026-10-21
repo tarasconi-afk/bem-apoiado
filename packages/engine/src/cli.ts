@@ -224,6 +224,10 @@ async function main(): Promise<number> {
         return 2;
       }
       const h = recordVerdict(slug, verdict, values.reason);
+      // Motivo que vale para todas as páginas vira lição do redator (editor-lessons.ts).
+      const { learnFromEditor } = await import('./editor-lessons.ts');
+      const learned = verdict === 'reject' ? await learnFromEditor(slug, values.reason).catch(() => null) : null;
+      if (learned) console.log(`lição nova para todas as páginas: "${learned}"`);
       console.log(`${h.slug}: ${h.verdict} registrado${h.review ? ` (regra dizia ${h.review.rule_publishable ? 'publicar' : 'não publicar'})` : ' (sem métricas de revisão)'}`);
       return 0;
     }

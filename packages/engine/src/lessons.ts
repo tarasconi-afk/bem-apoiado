@@ -1,3 +1,4 @@
+import { editorLessonsPrompt } from './editor-lessons.ts';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { RUNS_DIR } from './store.ts';
@@ -68,9 +69,11 @@ export function auditStats(runsDir = RUNS_DIR, sinceMs = 60 * 86_400_000, now = 
 // Bloco curto para o prompt do redator (entrada custa: ~150 tokens no máximo).
 export function writerLessons(stats = auditStats()): string {
   const top = [...stats.byType].sort((a, b) => b[1].n - a[1].n).slice(0, 4);
-  // Motivo de recusa do editor é da página (vai pelas notas da pauta), não vira lição global.
-  if (!top.length) return '';
-  return (
+  // Pedidos do editor que valem para todas as páginas (editor-lessons.ts); o resto do motivo de recusa
+  // é da página e vai pelas notas da pauta.
+  const editor = editorLessonsPrompt();
+  if (!top.length) return editor;
+  return editor + (
     `\n\nErros mais apontados pelo auditor nas últimas páginas (evite desde a primeira versão; cada um custa uma rodada de correção):\n` +
     top.map(([k, v]) => `- ${LABEL[k]} (${v.n}x)${v.examples[0] ? `. Exemplo real: "${v.examples[0]}"` : ''}`).join('\n') +
     (stats.filler.length ? `\nBlocos que a revisão editorial cortou como enchimento (não escreva assim): ${stats.filler.slice(0, 3).map((f) => `"${f}"`).join(' · ')}` : '')
