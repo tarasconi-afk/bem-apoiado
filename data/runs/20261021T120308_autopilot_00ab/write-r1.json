@@ -1,0 +1,711 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Os trechos mostram que Probel e Ortobom indicam determinados modelos para posições específicas de dormir, incluindo um modelo Ortobom de altura média para quem dorme de costas ou de bruços. Essas são declarações dos fabricantes, não uma validação técnica independente. Se você tiver dúvidas relacionadas a dor ou postura, consulte um profissional de saúde.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_97222d79822a",
+        "clm_f694018a6d7d",
+        "clm_34ee745b5e83",
+        "clm_5072479965ac"
+      ]
+    },
+    {
+      "ref": "como-cada-tipo-funciona#0",
+      "action": "replace",
+      "text": "As fichas citadas registram espuma, espuma viscoelástica e fibra siliconada 100% poliéster como materiais de enchimento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_b96239ec6425",
+        "clm_a58b2169fded",
+        "clm_91c0d608633f",
+        "clm_d15e9f191a77"
+      ]
+    },
+    {
+      "ref": "como-cada-tipo-funciona#1",
+      "action": "replace",
+      "text": "Segundo a Probel, a espuma tem densidade D30.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_72535056a323",
+        "clm_804f1b6f9826"
+      ]
+    },
+    {
+      "ref": "como-cada-tipo-funciona#3",
+      "action": "replace",
+      "text": "A Ortobom declara travesseiros com enchimento de fibra siliconada 100% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_91c0d608633f",
+        "clm_be7544143084"
+      ]
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#0",
+      "action": "replace",
+      "text": "A seguir, veja as alturas e indicações de posição de dormir apresentadas nas fontes consultadas.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Espuma viscoelástica D30 (Probel)",
+          "claim_ids": [
+            "clm_72535056a323",
+            "clm_a58b2169fded"
+          ]
+        },
+        {
+          "text": "12 cm",
+          "claim_ids": [
+            "clm_0373b10bfbe5"
+          ]
+        },
+        {
+          "text": "Bruços ou de costas",
+          "claim_ids": [
+            "clm_5072479965ac"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Espuma (Probel)",
+          "claim_ids": [
+            "clm_b96239ec6425"
+          ]
+        },
+        {
+          "text": "12 cm ou 14 cm",
+          "claim_ids": [
+            "clm_a6049d2b0afc",
+            "clm_e09aaf51c204"
+          ]
+        },
+        {
+          "text": "De lado",
+          "claim_ids": [
+            "clm_e34383551f07"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Espuma (Probel)",
+          "claim_ids": [
+            "clm_b96239ec6425"
+          ]
+        },
+        {
+          "text": "12 cm ou 14 cm",
+          "claim_ids": [
+            "clm_a270aee72e56",
+            "clm_763b8f6e58c3"
+          ]
+        },
+        {
+          "text": "De lado",
+          "claim_ids": [
+            "clm_97222d79822a"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Espuma viscoelástica 100% poliuretano (Ortobom)",
+          "claim_ids": [
+            "clm_d15e9f191a77"
+          ]
+        },
+        {
+          "text": "De costas ou bruços",
+          "claim_ids": [
+            "clm_f694018a6d7d"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r5",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Fibra siliconada 100% poliéster (Ortobom)",
+          "claim_ids": [
+            "clm_91c0d608633f"
+          ]
+        },
+        {
+          "text": "Regulável",
+          "claim_ids": [
+            "clm_34ee745b5e83"
+          ]
+        },
+        {
+          "text": "Todas as posições",
+          "claim_ids": [
+            "clm_34ee745b5e83"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#2",
+      "action": "replace",
+      "text": "O trecho citado informa que o travesseiro é classificado como produto têxtil e deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_abc7525d8d39"
+      ]
+    },
+    {
+      "ref": "normas-e-certificacao#1",
+      "action": "replace",
+      "text": "O Inmetro classifica o travesseiro como produto têxtil e determina que ele atenda às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_abc7525d8d39"
+      ]
+    },
+    {
+      "ref": "normas-e-certificacao#2",
+      "action": "replace",
+      "text": "O trecho citado da página da Ortobom menciona \"Código Inmetro\", sem fornecer, nesse trecho, um número ou escopo do registro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_803f3600bc44"
+      ]
+    },
+    {
+      "ref": "normas-e-certificacao#3",
+      "action": "replace",
+      "text": "Se você tem dúvidas sobre dor, postura ou condição de saúde relacionada ao sono, consulte um profissional de saúde.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_abc7525d8d39"
+      ]
+    },
+    {
+      "ref": "etiqueta-e-cuidados#0",
+      "action": "replace",
+      "text": "As composições citadas listam materiais e percentuais para capa, revestimento e enchimento em produtos Ortobom.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_91c0d608633f",
+        "clm_d15e9f191a77",
+        "clm_be7544143084"
+      ]
+    },
+    {
+      "ref": "etiqueta-e-cuidados#1",
+      "action": "replace",
+      "text": "Nas instruções citadas da Ortobom, é permitida lavagem a até 40°C, incluindo processo suave em um dos trechos, secagem em tambor a até 60°C, e são proibidos alvejamento, passadoria e limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e61133bf32b",
+        "clm_d302c7e983e4"
+      ]
+    },
+    {
+      "ref": "etiqueta-e-cuidados#3",
+      "action": "replace",
+      "text": "A Ortobom declara garantia de 90 dias. A informação citada não permite concluir a vida útil do produto.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5f320627cf05"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você dorme de lado, a Probel apresenta travesseiros de 14 cm para essa posição.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e34383551f07",
+        "clm_97222d79822a",
+        "clm_af008e779265",
+        "clm_f2b471f384be"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Para quem dorme de costas ou de bruços, a Ortobom descreve um travesseiro de altura média como adequado; a Probel também apresenta um travesseiro com 12 cm de altura.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5072479965ac",
+        "clm_f694018a6d7d",
+        "clm_9feca00257ff"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Antes de comprar, confira a composição do produto e, quando informado, o Código Inmetro. O Inmetro classifica travesseiros como produtos têxteis sujeitos às exigências do regulamento citado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_abc7525d8d39",
+        "clm_803f3600bc44",
+        "clm_91c0d608633f"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro alto ou baixo: como escolher a altura certa?",
+    "description": "Entenda o que fabricantes e o Inmetro informam sobre altura, material e uso do travesseiro para decidir com segurança.",
+    "verdict": {
+      "text": "Os trechos mostram que Probel e Ortobom indicam determinados modelos para posições específicas de dormir, incluindo um modelo Ortobom de altura média para quem dorme de costas ou de bruços. Essas são declarações dos fabricantes, não uma validação técnica independente. Se você tiver dúvidas relacionadas a dor ou postura, consulte um profissional de saúde.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_97222d79822a",
+        "clm_f694018a6d7d",
+        "clm_34ee745b5e83",
+        "clm_5072479965ac"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-cada-tipo-funciona",
+        "heading": "Como cada tipo de travesseiro funciona",
+        "blocks": [
+          {
+            "text": "As fichas citadas registram espuma, espuma viscoelástica e fibra siliconada 100% poliéster como materiais de enchimento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b96239ec6425",
+              "clm_a58b2169fded",
+              "clm_91c0d608633f",
+              "clm_d15e9f191a77"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a espuma tem densidade D30.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_72535056a323",
+              "clm_804f1b6f9826"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a espuma Hiper Soft é descrita como macia e de alta resiliência, com toque extra suave, moldando-se delicadamente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d36f21639e21",
+              "clm_dd20077595d3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom declara travesseiros com enchimento de fibra siliconada 100% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_91c0d608633f",
+              "clm_be7544143084"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "alturas-e-indicacoes-declaradas",
+        "heading": "Alturas e indicações declaradas pelos fabricantes",
+        "blocks": [
+          {
+            "text": "A seguir, veja as alturas e indicações de posição de dormir apresentadas nas fontes consultadas.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Alturas e indicações de posição declaradas pelos fabricantes",
+            "columns": [
+              "Tipo de enchimento",
+              "Altura declarada",
+              "Firmeza declarada",
+              "Posição indicada pelo fabricante"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Espuma viscoelástica D30 (Probel)",
+                    "claim_ids": [
+                      "clm_72535056a323",
+                      "clm_a58b2169fded"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_0373b10bfbe5"
+                    ]
+                  },
+                  {
+                    "text": "Bruços ou de costas",
+                    "claim_ids": [
+                      "clm_5072479965ac"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Espuma (Probel)",
+                    "claim_ids": [
+                      "clm_b96239ec6425"
+                    ]
+                  },
+                  {
+                    "text": "12 cm ou 14 cm",
+                    "claim_ids": [
+                      "clm_a6049d2b0afc",
+                      "clm_e09aaf51c204"
+                    ]
+                  },
+                  {
+                    "text": "De lado",
+                    "claim_ids": [
+                      "clm_e34383551f07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Espuma (Probel)",
+                    "claim_ids": [
+                      "clm_b96239ec6425"
+                    ]
+                  },
+                  {
+                    "text": "12 cm ou 14 cm",
+                    "claim_ids": [
+                      "clm_a270aee72e56",
+                      "clm_763b8f6e58c3"
+                    ]
+                  },
+                  {
+                    "text": "De lado",
+                    "claim_ids": [
+                      "clm_97222d79822a"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Espuma Hiper Soft (Probel)",
+                    "claim_ids": [
+                      "clm_d36f21639e21"
+                    ]
+                  },
+                  {
+                    "text": "14 cm",
+                    "claim_ids": [
+                      "clm_4ced7397af94"
+                    ]
+                  },
+                  {
+                    "text": "Extra macio",
+                    "claim_ids": [
+                      "clm_dd20077595d3"
+                    ]
+                  },
+                  {
+                    "text": "Bruços ou de costas",
+                    "claim_ids": [
+                      "clm_fcfc6ac9789e"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Espuma viscoelástica 100% poliuretano (Ortobom)",
+                    "claim_ids": [
+                      "clm_d15e9f191a77"
+                    ]
+                  },
+                  {
+                    "text": "De costas ou bruços",
+                    "claim_ids": [
+                      "clm_f694018a6d7d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Fibra siliconada 100% poliéster (Ortobom)",
+                    "claim_ids": [
+                      "clm_91c0d608633f"
+                    ]
+                  },
+                  {
+                    "text": "Regulável",
+                    "claim_ids": [
+                      "clm_34ee745b5e83"
+                    ]
+                  },
+                  {
+                    "text": "Todas as posições",
+                    "claim_ids": [
+                      "clm_34ee745b5e83"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "O trecho citado informa que o travesseiro é classificado como produto têxtil e deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "normas-e-certificacao",
+        "heading": "Normas, certificação e o que o Inmetro avalia",
+        "blocks": [
+          {
+            "text": "O Inmetro classifica o travesseiro como produto têxtil. Ele deve atender ao Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro classifica o travesseiro como produto têxtil e determina que ele atenda às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          },
+          {
+            "text": "O trecho citado da página da Ortobom menciona \"Código Inmetro\", sem fornecer, nesse trecho, um número ou escopo do registro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_803f3600bc44"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você tem dúvidas sobre dor, postura ou condição de saúde relacionada ao sono, consulte um profissional de saúde.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-e-cuidados",
+        "heading": "O que a etiqueta informa sobre cuidados e conservação",
+        "blocks": [
+          {
+            "text": "As composições citadas listam materiais e percentuais para capa, revestimento e enchimento em produtos Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_91c0d608633f",
+              "clm_d15e9f191a77",
+              "clm_be7544143084"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nas instruções citadas da Ortobom, é permitida lavagem a até 40°C, incluindo processo suave em um dos trechos, secagem em tambor a até 60°C, e são proibidos alvejamento, passadoria e limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e61133bf32b",
+              "clm_d302c7e983e4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Já para travesseiros de espuma viscoelástica, a Ortobom proíbe lavagem normal e indica apenas limpeza a úmido profissional muito suave, com secagem na horizontal à sombra.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7fd8b4659dea"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom declara garantia de 90 dias. A informação citada não permite concluir a vida útil do produto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5f320627cf05"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se você dorme de lado, a Probel apresenta travesseiros de 14 cm para essa posição.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e34383551f07",
+              "clm_97222d79822a",
+              "clm_af008e779265",
+              "clm_f2b471f384be"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para quem dorme de costas ou de bruços, a Ortobom descreve um travesseiro de altura média como adequado; a Probel também apresenta um travesseiro com 12 cm de altura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5072479965ac",
+              "clm_f694018a6d7d",
+              "clm_9feca00257ff"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você muda de posição durante a noite, considere travesseiros com enchimento regulável. Segundo a Ortobom, esse tipo é indicado para todas as posições de dormir.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_34ee745b5e83"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Antes de comprar, confira a composição do produto e, quando informado, o Código Inmetro. O Inmetro classifica travesseiros como produtos têxteis sujeitos às exigências do regulamento citado.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_abc7525d8d39",
+              "clm_803f3600bc44",
+              "clm_91c0d608633f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não sustentam que a escolha dependa principalmente do material de enchimento, nem que haja validação técnica independente — ou ausência dela — sobre a relação entre altura e posição. Eles apenas mostram indicações dos fabricantes para determinadas posições de dormir. Versão sustentável: Os trechos mostram que Probel e Ortobom indicam determinados modelos para posições específicas de dormir, incluindo um modelo Ortobom de altura média para quem dorme de costas ou de bruços. Essas são declarações dos fabricantes, não uma validação técnica independente. Se você tiver dúvidas relacionadas a dor ou postura, consulte um profissional de saúde."
+    },
+    {
+      "ref": "como-cada-tipo-funciona#0",
+      "msg": "UNSUPPORTED. Os trechos identificam espuma, espuma viscoelástica e fibra siliconada de poliéster, mas não mencionam látex, nem dizem que existem quatro materiais principais. Também não sustentam que a espuma de poliuretano seja rígida ou macia nem que a viscoelástica ceda lentamente ao peso. Versão sustentável: As fichas citadas registram espuma, espuma viscoelástica e fibra siliconada 100% poliéster como materiais de enchimento."
+    },
+    {
+      "ref": "como-cada-tipo-funciona#1",
+      "msg": "OVERSTATED. Os trechos sustentam apenas que a Probel informa densidade D30. Não mencionam espuma convencional com densidade D15 ou D24, nem afirmam que uma densidade maior torna a espuma mais firme ou pesada. Versão sustentável: Segundo a Probel, a espuma tem densidade D30."
+    },
+    {
+      "ref": "como-cada-tipo-funciona#3",
+      "msg": "UNSUPPORTED. Os trechos confirmam apenas que a Ortobom declara enchimento de fibra siliconada 100% poliéster. Não dizem que esses travesseiros são mais macios ou maleáveis, que o enchimento é solto, nem que permite ajuste de volume. Versão sustentável: A Ortobom declara travesseiros com enchimento de fibra siliconada 100% poliéster."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#0",
+      "msg": "FACT_IN_FRAMING. Embora o bloco tenha basis framing, ele afirma fatos sobre as declarações oficiais dos fabricantes e sobre a ausência de validação técnica independente, sem trechos citados. Versão sustentável: A seguir, veja as alturas e indicações de posição de dormir apresentadas nas fontes consultadas."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam D30, espuma viscoelástica, 12 cm e a indicação para dormir de bruços ou de costas, mas não dizem que a firmeza não foi informada nas fontes. Versão sustentável: Tipo de enchimento: Espuma viscoelástica D30 (Probel) | Altura declarada: 12 cm | Posição indicada pelo fabricante: bruços ou de costas."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r1",
+      "msg": "UNSUPPORTED. Os trechos não informam densidade D15 nem firmeza “Firme”. Eles sustentam apenas que é espuma, as alturas de 12 cm e 14 cm e a indicação para quem dorme de lado. Versão sustentável: Tipo de enchimento: Espuma (Probel) | Altura declarada: 12 cm ou 14 cm | Posição indicada pelo fabricante: de lado."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r2",
+      "msg": "UNSUPPORTED. Os trechos não mencionam D24 nem qualificam a firmeza como “Soft (macio)”. Sustentam espuma, as alturas de 12 cm e 14 cm e a indicação para quem dorme de lado. Versão sustentável: Tipo de enchimento: Espuma (Probel) | Altura declarada: 12 cm ou 14 cm | Posição indicada pelo fabricante: de lado."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r4",
+      "msg": "UNSUPPORTED. A composição viscoelástica de 100% poliuretano e a indicação para dormir de costas ou de bruços estão nos trechos, mas eles não dizem que altura e firmeza não foram informadas nas fontes. Versão sustentável: Tipo de enchimento: Espuma viscoelástica 100% poliuretano (Ortobom) | Posição indicada pelo fabricante: de costas ou bruços."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#1.r5",
+      "msg": "UNSUPPORTED. Os trechos sustentam fibra siliconada 100% poliéster e a indicação para todas as posições, além de descreverem o produto como regulável, mas não dizem que a firmeza é regulável nem que altura e firmeza não foram informadas nas fontes. Versão sustentável: Tipo de enchimento: Fibra siliconada 100% poliéster (Ortobom) | Característica declarada: regulável | Posição indicada pelo fabricante: todas as posições."
+    },
+    {
+      "ref": "alturas-e-indicacoes-declaradas#2",
+      "msg": "UNSUPPORTED. O trecho do Inmetro apenas classifica o travesseiro como produto têxtil e menciona exigências regulamentares. Não afirma que as indicações de posição são declarações dos fabricantes nem que não há norma ou órgão regulador que as valide. Versão sustentável: O trecho citado informa que o travesseiro é classificado como produto têxtil e deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021."
+    },
+    {
+      "ref": "normas-e-certificacao#1",
+      "msg": "UNSUPPORTED. Os trechos não dizem que a certificação compulsória abrange colchões de espuma e de molas, que não abrange travesseiros, nem que as regras tratam de composição e rotulagem ou não avaliam propriedades terapêuticas e posturais. Versão sustentável: O Inmetro classifica o travesseiro como produto têxtil e determina que ele atenda às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021."
+    },
+    {
+      "ref": "normas-e-certificacao#2",
+      "msg": "UNSUPPORTED. O trecho confirma apenas a menção a “Código Inmetro”. Ele não informa que isso aparece na ficha do produto nem permite afirmar que a página não detalha o número ou o escopo do registro. Versão sustentável: O trecho citado da página da Ortobom menciona “Código Inmetro”, sem fornecer, nesse trecho, um número ou escopo do registro."
+    },
+    {
+      "ref": "normas-e-certificacao#3",
+      "msg": "UNSUPPORTED. A orientação para consultar um profissional de saúde é aceitável, mas o trecho citado não afirma que nenhum regulador ou norma avalia propriedades terapêuticas de travesseiros. Versão sustentável: Se você tem dúvidas sobre dor, postura ou condição de saúde relacionada ao sono, consulte um profissional de saúde."
+    },
+    {
+      "ref": "etiqueta-e-cuidados#0",
+      "msg": "UNSUPPORTED. Os trechos mostram exemplos de composição com materiais e percentuais, mas não dizem que essa composição é obrigatória na etiqueta nem sustentam que a informação permite saber exatamente o que está sendo comprado. Versão sustentável: As composições citadas listam materiais e percentuais para capa, revestimento e enchimento em produtos Ortobom."
+    },
+    {
+      "ref": "etiqueta-e-cuidados#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as instruções de lavagem, secagem e proibições, mas não dizem que elas se aplicam especificamente a travesseiros de fibra e de espuma convencional. Versão sustentável: Nas instruções citadas da Ortobom, é permitida lavagem a até 40 °C, incluindo processo suave em um dos trechos, secagem em tambor a até 60 °C, e são proibidos alvejamento, passadoria e limpeza a seco."
+    },
+    {
+      "ref": "etiqueta-e-cuidados#3",
+      "msg": "UNSUPPORTED. O trecho declara apenas “Garantia Ortobom: 90 dias”; não especifica que a garantia se refere a travesseiros nem sustenta a afirmação sobre a vida útil além desse prazo. Versão sustentável: A Ortobom declara garantia de 90 dias. A informação citada não permite concluir a vida útil do produto."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a Probel associa travesseiros de 14 cm a quem dorme de lado, mas não mencionam espumas de densidade D24 ou D15 firme. Versão sustentável: Se você dorme de lado, a Probel apresenta travesseiros de 14 cm para essa posição."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a Ortobom associa a altura média a quem dorme de costas ou de bruços e que a Probel apresenta um produto de 12 cm, mas não dizem que os 12 cm são indicados para essas posições nem que essa é uma altura menor recomendada. Versão sustentável: Para quem dorme de costas ou de bruços, a Ortobom descreve um travesseiro de altura média como adequado; a Probel também apresenta um travesseiro com 12 cm de altura."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam informações sobre composição e Código Inmetro, mas não mencionam instruções de lavagem, etiqueta, nem que essas informações permitam comparar produtos em oposição a descrições de marketing. Versão sustentável: Antes de comprar, confira a composição do produto e, quando informado, o Código Inmetro. O Inmetro classifica travesseiros como produtos têxteis sujeitos às exigências do regulamento citado."
+    }
+  ],
+  "usage": {
+    "input_tokens": 31610,
+    "output_tokens": 13689
+  }
+}
