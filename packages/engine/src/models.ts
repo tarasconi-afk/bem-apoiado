@@ -13,7 +13,10 @@ export const MODELS = {
   // 100 s e a Cloudflare corta com 524. Reserva: Sonnet 4.6, que faz streaming real (mais lento, ~1,4x o preço).
   writer: { id: 'claude-sonnet-5', name: 'Claude Sonnet 5', vendor: 'anthropic', price: [240, 1200], fallback: { id: 'claude-sonnet-4.6', name: 'Claude Sonnet 4.6' } },
   // Julga se cada bloco é sustentado pelos trechos citados. Outro fornecedor que o redator.
-  auditor: { id: 'gpt-5.6-sol', name: 'GPT 5.6 Sol', vendor: 'openai', price: [400, 2000] },
+  // GPT 5.6 Luna desde 21/10: na avaliação com erros plantados pegou 8/8 (número, atribuição, sem fonte,
+  // saúde) e achou erros reais que o Sol deixou passar, a ~1/25 do custo (o Sol estourou 40 créditos em
+  // duas páginas). Preço medido: ~0,22 crédito por 1.500 tokens de saída (o livro-caixa usa o valor cobrado).
+  auditor: { id: 'gpt-5.6-luna', name: 'GPT 5.6 Luna', vendor: 'openai', price: [30, 145] },
 } as const;
 
 export type Role = keyof typeof MODELS;

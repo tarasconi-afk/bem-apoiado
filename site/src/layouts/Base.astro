@@ -27,6 +27,7 @@ const path = Astro.url.pathname;
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical.href} />
     <meta name="theme-color" content="#1E5B4C" />
+    <meta name="bem-build" content={process.env.GITHUB_SHA ?? 'local'} />
     <meta property="og:site_name" content={BRAND} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical.href} />

@@ -204,3 +204,15 @@ Custo passa a vir de `usage.credits_charged` (valor do roteador), num livro-caix
 Hostinger não tem créditos de IA: o dono informa o saldo do hPanel no painel e o painel desconta o gasto.
 Imagens no ciclo: tipo do nicho sem imagem e capa de cada página aprovada (`pagina-<slug>`), até 2 por ciclo;
 o pedido é escrito pelo Haiku e fica em briefs.json. A home prefere a capa da página (nunca repete imagem).
+
+## 2026-10-21 — Auditor GPT 5.6 Luna (avaliação com erros plantados)
+`scripts/eval-auditor.ts`: audita as páginas aprovadas e versões com 4 erros plantados por página (número
+trocado, atribuição trocada, afirmação sem fonte, alegação de saúde). Luna e Terra pegaram 8/8; Sol estourou
+40 créditos antes de terminar (raciocínio interno caro). Luna marcou nos originais erros reais que o Sol
+aprovou (D33 "firme" sem o trecho dizer D33; "Inmetro certifica"; "muitas vezes" virando "sempre") e alguns
+falsos alarmes (frase de transição como fato; orientação a profissional de saúde). Prompt ajustado: transição
+não é fato; SAFETY_CLAIM se julga pelo texto do bloco. Depois do ajuste: 8/8 e zero falso alarme de transição,
+1,85 crédito. Os dois erros reais foram corrigidos nas páginas publicadas.
+Implantação da Hostinger às vezes não dispara no push do ramo `deploy` (21/10: ficou na versão anterior;
+regravar as configurações de auto-deploy via API resolveu). O build carimba `bem-build` = commit; o sync
+compara com o main e o painel avisa.

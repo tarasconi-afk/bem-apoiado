@@ -7,7 +7,7 @@ import { MODELS } from './models.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
 import { computeLearning } from './learning.ts';
 import { rawIntact } from './snapshot.ts';
-import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR } from './store.ts';
+import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR, STATE_DIR } from './store.ts';
 
 // Painel de status: tudo vem de data/ (o mesmo estado que o motor usa). As ações (admin.ts) entram
 // como um bloco extra; sem ele, a página é só leitura.
@@ -67,6 +67,14 @@ const cr1 = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 1 
 const sumMap = (m: Map<string, number>) => [...m.values()].reduce((t, v) => t + v, 0);
 const LABELS: Record<string, string> = { writer: 'Redação', auditor: 'Auditoria e revisão', extractor: 'Extração de trechos', imagem: 'Imagens', jev: 'Triagem (Jev)', outro: 'Outros' };
 
+// Aviso quando o site público ficou para trás do main (sync grava STATE/live-site.json a cada 5 min).
+// Só o build do Action carimba a versão; commit de dados do painel também conta como versão nova.
+function liveWarning(): string {
+  const s = readJson(join(STATE_DIR, 'live-site.json')) as { checked_at: string; live: string; main: string } | null;
+  if (!s || !s.live || s.live === s.main) return '';
+  return `<p class="flash" style="border-color:var(--bad)">Site público em versão antiga (<code>${esc(s.live.slice(0, 7))}</code>; main em <code>${esc(s.main.slice(0, 7))}</code>, conferido ${esc(fmt(new Date(s.checked_at)))}). Se passar de 15 min, a implantação automática da Hostinger não disparou: hPanel → Sites → Git → Implantar.</p>`;
+}
+
 export function renderStatus(now = new Date(), opts: { adminHtml?: string; refresh?: number } = {}): string {
   const runs = collectRuns();
   const idx = buildIndex();
@@ -123,6 +131,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
+${liveWarning()}
 ${opts.adminHtml ?? ''}
 ${unknownCost ? `<p class="muted">${unknownCost} execução(ões) anteriores ao registro de custo aparecem sem créditos; o extrato do hPanel é a referência final.</p>` : ''}
 

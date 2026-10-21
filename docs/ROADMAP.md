@@ -80,3 +80,8 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [ ] AdSense: reavaliar com domínio, política de privacidade/consentimento e tráfego orgânico estável
 - [ ] imagens por IA para tipos de nicho novo (`images`), hoje manual
 - [ ] ilustrações para tipos de nicho novo (hoje cai no genérico)
+- [x] gasto real por chamada + saldo informado no painel; reserva contra 524; auditor Luna
+- [ ] re-auditar páginas publicadas com o auditor novo e corrigir pelo motor (edit) o que ele apontar
+- [ ] cache de prompt (entrada repetida nos remendos e na auditoria) e redação por seção
+- [ ] token Hostinger restrito no GitHub para o Action forçar a implantação (hoje: aviso no painel)
+- [ ] calibração da revisão com 8+ vereditos; leitura de tabela em imagem (visão); PA-API após 10 vendas
