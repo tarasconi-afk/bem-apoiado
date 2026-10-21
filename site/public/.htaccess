@@ -1,4 +1,8 @@
-# Ambiente temporário: nunca indexar (reforça a meta robots e o robots.txt).
-<IfModule mod_headers.c>
-  Header set X-Robots-Tag "noindex, nofollow"
+# Endereço único: o site temporário (*.hostingersite.com) e o www redirecionam (301) para o domínio.
+# Assim o Google nunca vê duas cópias do mesmo conteúdo.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} \.hostingersite\.com$ [NC,OR]
+  RewriteCond %{HTTP_HOST} ^www\.bemapoiado\.com$ [NC]
+  RewriteRule ^ https://bemapoiado.com%{REQUEST_URI} [R=301,L]
 </IfModule>

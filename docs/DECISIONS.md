@@ -254,3 +254,10 @@ DNS ajustado sozinho para a CDN da Hostinger; SSL vitalício ativo com redirecio
 a usar SITE_URL=https://bemapoiado.com (canonical, sitemap, OG). Indexação continua desligada (noindex em
 cabeçalho, meta e robots.txt) até instrução explícita do dono. O temporário segue publicando o mesmo ramo,
 com canonical apontando para o domínio.
+
+## 2026-10-21 — Indexação ligada (ordem explícita do dono)
+SITE_INDEXABLE=true no deploy: meta robots index,follow, robots.txt com sitemap, sem X-Robots-Tag. Páginas
+"approved" são indexáveis (antes o template só liberava "published", status que o fluxo nunca usa); rascunho
+nunca é publicado. O temporário e o www fazem 301 para https://bemapoiado.com (sem conteúdo duplicado).
+Prévias da VPS continuam noindex (sem SITE_INDEXABLE + cabeçalho do Caddy). Verificação do Search Console por
+TXT no DNS (registro criado pela API).

@@ -45,7 +45,7 @@ const jsonLd = [
   },
 ];
 ---
-<Base title={page.title} description={page.description} noindex={page.status !== 'published'} ogType="article" ogImage={`/og/${kinds[0] ?? 'default'}.jpg`} jsonLd={jsonLd}>
+<Base title={page.title} description={page.description} noindex={page.status === 'draft'} ogType="article" ogImage={`/og/${kinds[0] ?? 'default'}.jpg`} jsonLd={jsonLd}>
   <header class="article-hero">
     <div class="wrap">
       <nav class="crumbs" aria-label="Você está em"><a href={href('/')}>Início</a> <span aria-hidden="true">›</span> <a href={href('/#guias')}>Guias</a></nav>
