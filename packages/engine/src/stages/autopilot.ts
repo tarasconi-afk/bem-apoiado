@@ -14,8 +14,8 @@ import { z } from 'zod';
 import { callJson, creditsLeft, creditsSpent } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
 import { creditsThisMonth } from '../search.ts';
-import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, writeState } from '../store.ts';
-import type { PageSpec, Product, TopicBrief } from '@bem-apoiado/core';
+import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, writeJson, writeState } from '../store.ts';
+import { TopicBrief, type PageSpec, type Product } from '@bem-apoiado/core';
 import { findProductsFromAmazon } from './products.ts';
 import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources } from './discover.ts';
@@ -23,7 +23,7 @@ import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
 import { buildPage } from './page.ts';
 import { planTopic } from './plan.ts';
-import { research } from './research.ts';
+import { loadTopic, research } from './research.ts';
 
 // Piloto automático: um ciclo = uma pauta, do plano à página revisada. Não mexe em git (o script
 // de ciclo faz isso); só escreve em data/ e deixa um resumo para o PR em .pr/.
@@ -374,6 +374,12 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
     const p = await buildPage(topic.slug, runId);
     steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : ''}`);
+    // Parou sem página e sem lacuna registrada: as perguntas sem resposta viram lacunas, senão a fila trata
+    // a pauta como esgotada e nunca volta a ela (cadeira de escritório, 21/10: 0 evidências, 0 lacunas).
+    const t = loadTopic(topic.slug);
+    if (p.status === 'SAFE_STOP' && t.evidence_gaps.length === 0 && r.unanswered.length) {
+      writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: t.questions.filter((q) => r.unanswered.includes(q.id)).map((q) => q.text) }));
+    }
     if (p.status === 'PASS') {
       const e = await editPage(p.page, runId);
       steps.push(`edit: ${e.status}`);
