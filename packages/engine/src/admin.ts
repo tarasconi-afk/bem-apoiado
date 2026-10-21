@@ -6,7 +6,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
-import { loadEditorLessons } from './editor-lessons.ts';
+import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
@@ -32,7 +32,11 @@ const PREVIEW = process.env.BEM_PREVIEW_URL ?? 'https://srv2079501.hstgr.cloud';
 const STATE = process.env.BEM_STATE_DIR ?? '/var/lib/bem-apoiado';
 const JOBS_FILE = join(STATE, 'painel-jobs.json');
 const RUN_NOW = join(STATE, 'run-now');
-const SCRIPT = join(ROOT, 'scripts/painel-acao.sh');
+// O painel lê os dados de uma cópia só de leitura do main (BEM_ROOT=/opt/bem-apoiado/view), atualizada no fim de
+// cada ação e de cada sync; ações e ciclos trabalham na cópia de trabalho (BEM_REPO). Assim o painel não mostra
+// dados de um resultado no meio de um ajuste (21/10: "5 páginas", ajuste mandado para o lugar errado).
+const REPO = process.env.BEM_REPO ?? ROOT;
+const SCRIPT = join(REPO, 'scripts/painel-acao.sh');
 const REPO_URL = 'https://github.com/tarasconi-afk/bem-apoiado';
 
 const AUTH_FILE = join(STATE, 'painel-auth.json');
@@ -122,7 +126,7 @@ function run(job: Job): void {
   job.queued = false;
   job.ran_at = new Date().toISOString();
   saveJobs();
-  const p = spawn('bash', [SCRIPT, ...job.args], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+  const p = spawn('bash', [SCRIPT, ...job.args], { cwd: REPO, stdio: ['ignore', 'pipe', 'pipe'] });
   const add = (b: Buffer) => { job.output = (job.output + b.toString()).slice(-4000); };
   p.stdout.on('data', add);
   p.stderr.on('data', add);
@@ -495,7 +499,7 @@ function requestsHtml(): string {
 <p class="muted">O motor transforma o pedido em ações que ele já faz com as travas de sempre (fila, refazer página com instrução, editar texto com auditoria, despublicar, relatório). Mudança de visual, código ou regra fica anotada para o desenvolvedor.</p>
 ${answers.slice(0, 1).filter((j) => !j.ended || Date.now() - Date.parse(j.started) < 6 * 3600_000).map(answerHtml).join('')}
 ${answers.length > 1 ? `<details style="margin-top:8px"><summary class="muted">pedidos anteriores (${answers.length - 1})</summary>${answers.slice(1).map(answerHtml).join('')}</details>` : ''}
-${lessons.length ? `<details style="margin-top:8px"><summary class="muted">${lessons.length} lição(ões) dos seus pedidos que o redator segue em todas as páginas</summary><ul class="muted">${lessons.map((l) => `<li>${esc(l.text)} <span class="muted">(${esc(l.from)})</span></li>`).join('')}</ul></details>` : ''}
+${lessons.length ? `<details style="margin-top:8px"><summary class="muted">${lessons.length} lição(ões) dos seus pedidos que o redator segue em todas as páginas</summary><ul class="muted">${lessons.map((l) => `<li>${esc(l.text)} <span class="muted">(${esc(l.from)})</span> ${form('licao-remover', { licao: lessonId(l.text) }, 'Remover', 'bad', 'Remover esta lição? O redator deixa de segui-la nas próximas páginas.')}</li>`).join('')}</ul><p class="muted">Lições nascem dos seus pedidos de ajuste e motivos de recusa que valem para todas as páginas. Para criar uma, escreva o pedido como regra ("sempre...", "nunca...").</p></details>` : ''}
 ${dev.length ? `<details style="margin-top:8px"><summary class="muted">${dev.length} pedido(s) anotado(s) para o desenvolvedor</summary><ul class="muted">${dev.map((d) => `<li>${esc(d.summary)} <span class="muted">(${esc(d.at.slice(0, 10))})</span></li>`).join('')}</ul></details>` : ''}`;
 }
 
@@ -579,6 +583,11 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     if (!/^https:\/\/(www\.)?amazon\.com\.br\/.*(dp|gp\/product)\/[A-Z0-9]{10}/.test(link) && !/^[A-Z0-9]{10}$/.test(link)) return 'cole o link de um anúncio da amazon.com.br (com /dp/ no endereço)';
     if (!loadNiche().product_kinds.some((k) => k.id === tipo) || marca.length < 2 || nome.length < 5) return 'tipo, marca ou nome inválido';
     return { label: `adicionar produto: ${nome}`, args: ['produto-adicionar', link, tipo, marca, nome] };
+  }
+  if (acao === 'licao-remover') {
+    const id = f.get('licao') ?? '';
+    if (!/^[a-f0-9]{10}$/.test(id)) return 'lição inválida';
+    return { label: 'remover lição do editor', args: ['licao-remover', id] };
   }
   if (acao === 'produto-reconferir' || acao === 'produto-remover') {
     const asin = f.get('asin') ?? '';

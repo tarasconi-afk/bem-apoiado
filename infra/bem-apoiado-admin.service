@@ -5,6 +5,9 @@ After=network-online.target
 User=bemapoiado
 WorkingDirectory=/opt/bem-apoiado/repo
 Environment=HOME=/opt/bem-apoiado
+# Lê os dados da cópia só de leitura do main; ações rodam na cópia de trabalho.
+Environment=BEM_ROOT=/opt/bem-apoiado/view
+Environment=BEM_REPO=/opt/bem-apoiado/repo
 EnvironmentFile=/etc/bem-apoiado/env
 # Mesmos tetos do ciclo, só para o painel exibir.
 Environment=BEM_DAILY_CREDIT_CAP=250

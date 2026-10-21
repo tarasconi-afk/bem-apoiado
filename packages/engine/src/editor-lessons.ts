@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -44,4 +45,15 @@ export async function learnFromEditor(slug: string, request: string, fetchImpl?:
 export function editorLessonsPrompt(): string {
   const l = loadEditorLessons().lessons;
   return l.length ? `\n\nPedidos do editor que valem para todas as páginas (siga desde a primeira versão):\n${l.map((x) => `- ${x.text}`).join('\n')}` : '';
+}
+
+// Id curto e estável de uma lição (para o botão "remover" do painel).
+export const lessonId = (text: string) => createHash('sha1').update(text).digest('hex').slice(0, 10);
+
+export function removeEditorLesson(id: string): string | null {
+  const cur = loadEditorLessons();
+  const hit = cur.lessons.find((l) => lessonId(l.text) === id);
+  if (!hit) return null;
+  writeJson(EDITOR_LESSONS_FILE, { lessons: cur.lessons.filter((l) => l !== hit) });
+  return hit.text;
 }

@@ -20,6 +20,15 @@ PREVIEW=/var/www/bem-apoiado
 export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes"
 GIT_ID=(-c user.name="Bem Apoiado (painel)" -c user.email="painel@bemapoiado.invalid")
 
+# Cópia só de leitura do main que o painel lê (BEM_ROOT do bem-apoiado-admin): atualizada ao fim de toda ação
+# e de todo sync, inclusive quando o sync sai porque o ciclo está rodando.
+VIEW=/opt/bem-apoiado/view
+update_view() {
+  [ -e "$VIEW/.git" ] || git -C "$REPO" worktree add -q --detach "$VIEW" origin/main
+  git -C "$VIEW" checkout -q -f --detach origin/main && git -C "$VIEW" clean -qfd
+}
+trap 'update_view >/dev/null 2>&1 || true' EXIT
+
 # Mesmo lock do ciclo: ação do painel nunca roda no meio de um ciclo (nem o contrário).
 exec 9>/var/lib/bem-apoiado/cycle.lock
 if [ "${1:-}" = sync ]; then flock -n 9 || exit 0; else flock -w 120 9 || { echo "motor ocupado; tente de novo em alguns minutos"; exit 75; }; fi
@@ -230,6 +239,11 @@ case "$action" in
     npm run -s engine -- product-remove "$2" "removido pelo editor no painel"
     publish "Painel: produto removido pelo editor ($2)"
     preview
+    ;;
+  licao-remover)
+    fresh
+    npm run -s engine -- lesson-remove "$2"
+    publish "Painel: lição do editor removida ($2)"
     ;;
   dominio-aprovar)
     fresh

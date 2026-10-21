@@ -287,6 +287,16 @@ async function main(): Promise<number> {
       console.log(`removido: ${p.label}`);
       return 0;
     }
+    case 'lesson-remove': {
+      const { removeEditorLesson } = await import('./editor-lessons.ts');
+      const t = removeEditorLesson(rest[0] ?? '');
+      if (!t) {
+        console.error('lição não encontrada');
+        return 2;
+      }
+      console.log(`lição removida: ${t}`);
+      return 0;
+    }
     case 'queue': {
       const [op, ...words] = rest;
       const query = words.join(' ');
