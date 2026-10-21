@@ -65,7 +65,7 @@ const jsonLd = [
               <li><KindImage id={k} class="type-img" sizes="(min-width: 66rem) 14rem, 46vw" eager /><span>{KIND_LABEL[k] ?? k}</span></li>
             ))}
           </ul>
-          <figcaption>Imagens ilustrativas geradas por IA, sem marca. A construção real varia por fabricante e modelo.</figcaption>
+          <figcaption><a class="ast" href="#nota-imagens" aria-label="Sobre as imagens">*</a></figcaption>
         </figure>
       )}
     </div>
@@ -135,7 +135,7 @@ const jsonLd = [
                 <li class="product">
                   <div class="product-art">
                     <KindImage id={card.product.kind} class="product-img" sizes="(min-width: 66rem) 14rem, 92vw" />
-                    <span class="art-note">imagem ilustrativa do tipo (IA)</span>
+                    <a class="art-note" href="#nota-imagens" aria-label="Sobre a imagem">*</a>
                   </div>
                   <div class="product-body">
                     <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
@@ -253,10 +253,11 @@ const jsonLd = [
   .decide { margin-top: 3rem; padding: 0.4rem 1.5rem 0.8rem; border-radius: 20px; background: var(--brand-ink); color: #e3eee9; }
   .decide h2 { color: #fff; margin-top: 1.3rem; }
   .decide .lead { color: #b9d0c6; }
-  .decide :global(.cite a) { background: rgba(255, 255, 255, 0.14); color: #fff; }
+  .decide :global(.cite) { color: rgba(255, 255, 255, 0.4); }
   /* Tabela dentro do bloco escuro: fundo branco, então o texto volta à cor de tinta. */
-  .decide .table-scroll { color: var(--ink); }
-  .decide .table-scroll :global(.cite a) { background: var(--brand-soft); color: var(--brand-ink); }
+  .decide .table-scroll, .decide .callout { color: var(--ink); }
+  .decide .callout :global(.cite) { color: #8b968f; }
+  .decide .table-scroll :global(.cite) { color: #a7b1ab; }
   .decide figcaption { color: #b9d0c6; }
   .check { position: relative; padding: 0.85rem 1rem 0.85rem 3rem; margin-bottom: 0.7rem; border-radius: 12px; background: rgba(255, 255, 255, 0.07); }
   .check::before { content: ''; position: absolute; left: 1rem; top: 1.12rem; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: var(--amber) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23123d33' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/0.85rem no-repeat; }
@@ -268,7 +269,8 @@ const jsonLd = [
   .product { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
   .product-art { position: relative; background: #fbf8f2; border-bottom: 1px solid var(--line); }
   .product-art :global(.product-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
-  .art-note { position: absolute; left: 0.5rem; bottom: 0.5rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.9); font-size: 0.66rem; color: var(--muted); }
+  .art-note { position: absolute; right: 0.45rem; bottom: 0.2rem; color: rgba(255, 255, 255, 0.85); font-size: 0.9rem; text-decoration: none; text-shadow: 0 0 3px rgba(0, 0, 0, 0.35); }
+  .ast { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
   .product-body { display: flex; flex-direction: column; gap: 0.45rem; padding: 1rem 1.1rem 1.1rem; flex: 1; }
   .product-kind { color: var(--brand); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
   .product-name { font: 600 1.15rem/1.3 var(--display); }

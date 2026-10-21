@@ -100,6 +100,8 @@ const path = Astro.url.pathname;
       .foot-brand { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; color: #fff; font: 600 1.2rem/1 var(--display); text-decoration: none; }
       .foot-links { list-style: none; margin: 0; padding: 0; }
       .foot-links li { margin-bottom: 0.45rem; }
+      .foot-legal p { margin: 0 0 0.35rem; }
+      #nota-imagens:target { color: #fff; }
       .foot-legal { grid-column: 1 / -1; padding-top: 1.4rem; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 0.82rem; color: #a9c2b8; }
     </style>
   </head>
@@ -132,7 +134,11 @@ const path = Astro.url.pathname;
           <h2>Transparência</h2>
           <p>Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas feitas por meio dos nossos links. Isso não muda o que escrevemos.</p>
         </div>
-        <p class="foot-legal">Nada aqui substitui orientação de profissional de saúde. Imagens ilustrativas geradas por IA: não representam produto, marca ou modelo específico. © {new Date().getFullYear()} {BRAND}</p>
+        <div class="foot-legal">
+          <p>Nada aqui substitui orientação de profissional de saúde.</p>
+          <p id="nota-imagens">* Imagens ilustrativas geradas por inteligência artificial, sem marca: mostram o tipo de produto, não um produto, marca ou modelo específico. A construção real varia por fabricante e modelo.</p>
+          <p>© {new Date().getFullYear()} {BRAND}</p>
+        </div>
       </div>
     </footer>
   </body>

@@ -23,7 +23,7 @@ const jsonLd = [
       </div>
       <figure class="hero-art">
         <KindImage id="capa" class="hero-img" sizes="(min-width: 60rem) 36rem, 92vw" eager />
-        <figcaption>Imagem ilustrativa gerada por IA.</figcaption>
+        <figcaption><a href="#nota-imagens" aria-label="Sobre a imagem">*</a></figcaption>
       </figure>
     </div>
   </section>
@@ -73,7 +73,8 @@ const jsonLd = [
   .lede { color: var(--muted); font-size: 1.15rem; max-width: 34rem; margin-bottom: 1.6rem; }
   .hero-art { margin: 0; }
   .hero-art :global(.hero-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow); }
-  .hero-art figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.78rem; text-align: right; }
+  .hero-art figcaption { margin-top: 0.3rem; font-size: 0.8rem; text-align: right; }
+  .hero-art figcaption a { color: var(--muted); text-decoration: none; }
 
   .how { padding-block: 3rem 1rem; }
   .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
