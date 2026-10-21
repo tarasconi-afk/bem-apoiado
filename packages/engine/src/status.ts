@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { trafficSummary } from './hits.ts';
 import { auditStats } from './lessons.ts';
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
@@ -9,7 +10,7 @@ import { MODELS } from './models.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
 import { computeLearning } from './learning.ts';
 import { rawIntact } from './snapshot.ts';
-import { buildIndex, DATA, loadPages, loadProducts, RUNS_DIR, STATE_DIR } from './store.ts';
+import { buildIndex, DATA, loadPages, loadProducts, ROOT, RUNS_DIR, STATE_DIR } from './store.ts';
 
 // Painel de status: tudo vem de data/ (o mesmo estado que o motor usa). As ações (admin.ts) entram
 // como um bloco extra; sem ele, a página é só leitura.
@@ -92,6 +93,16 @@ function liveWarning(): string {
   return `<p class="flash" style="border-color:var(--bad)">Site público em versão antiga (<code>${esc(s.live.slice(0, 7))}</code>; main em <code>${esc(s.main.slice(0, 7))}</code>, conferido ${esc(fmt(new Date(s.checked_at)))}). Mais de 15 min: a implantação automática da Hostinger não disparou (hPanel → Sites → Git → Implantar).</p>`;
 }
 
+// Versão que está rodando (último commit do main na VPS): o editor sabe se o envio mais recente já chegou.
+function versionLine(): string {
+  try {
+    const [sha, at, subject] = execFileSync('git', ['log', '-1', '--format=%h%x1f%cI%x1f%s'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim().split('\x1f');
+    return `<br>Versão em uso: último envio ao main em <strong>${esc(fmt(new Date(at!)))}</strong> <span title="${esc(subject)}">(<code>${esc(sha)}</code>: ${esc(subject!.slice(0, 70))}${subject!.length > 70 ? '…' : ''})</span>`;
+  } catch {
+    return '';
+  }
+}
+
 export function renderStatus(now = new Date(), opts: { adminHtml?: string; refresh?: number } = {}): string {
   const runs = collectRuns();
   const idx = buildIndex();
@@ -139,7 +150,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 .num{text-align:right;font-variant-numeric:tabular-nums}code{font-size:.82rem}
 </style></head><body><main>
 <h1>Painel do motor · Bem Apoiado</h1>
-<p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}</p>
+<p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}${versionLine()}</p>
 <div class="grid">
 <div class="card"><div class="v">${pages.filter((p) => p.status !== 'draft').length}</div><div class="l">páginas aprovadas</div></div>
 <div class="card"><div class="v">${topics.length}</div><div class="l">pautas cadastradas</div></div>
