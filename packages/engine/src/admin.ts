@@ -160,6 +160,7 @@ ${domainsHtml()}
 
 <h2>Fila de pautas</h2>
 <div class="tw"><table><tbody>${queue.map((q, i) => `<tr><td class="num">${i + 1}</td><td>${esc(q)}</td><td class="actions">${form('fila-remover', { consulta: q }, 'Remover', 'bad', `Remover "${q}" da fila?`)}</td></tr>`).join('')}</tbody></table></div>
+${ideasHtml()}
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="fila-adicionar"><input name="consulta" required minlength="3" maxlength="120" placeholder="nova dúvida, como o leitor busca (ex.: colchão firme ou macio)"><button class="ok">Adicionar ao fim</button></form>
 
 <h2>Piloto automático</h2>
@@ -183,6 +184,16 @@ ${gscHtml()}
 <p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
 
 ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${!j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+}
+
+// Ideias descobertas sozinhas (autocompletar do Google), ainda fora da fila: um clique põe na fila.
+function ideasHtml(): string {
+  const f = join(DATA, 'ideas.json');
+  if (!existsSync(f)) return '<p class="muted">O ciclo procura pautas novas no autocompletar do Google uma vez por semana.</p>';
+  const queued = new Set(queueItems().map((q) => q.toLowerCase()));
+  const ideas = (JSON.parse(readFileSync(f, 'utf8')) as { query: string; score: number; status: string; from: string[] }[]).filter((i) => i.status === 'nova' && !queued.has(i.query.toLowerCase())).sort((a, b) => b.score - a.score).slice(0, 15);
+  if (!ideas.length) return '';
+  return `<details style="margin-top:10px"><summary><strong>${ideas.length} ideias de pauta</strong> <span class="muted">(achadas no autocompletar do Google; o ciclo põe 5 por semana na fila)</span></summary><div class="tw"><table><tbody>${ideas.map((i) => `<tr><td>${esc(i.query)}</td><td class="muted">${esc(i.from.slice(0, 2).join(' · '))}</td><td class="num">${i.score}</td><td class="actions">${form('fila-adicionar', { consulta: i.query }, 'Pôr na fila', 'ok')}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
 
 function domainsHtml(): string {

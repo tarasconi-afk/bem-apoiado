@@ -1,3 +1,4 @@
+import { discoverIdeas, promoteIdeas } from './ideas.ts';
 import { newRunId } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
 import { firstForbidden } from '@bem-apoiado/core';
@@ -187,6 +188,23 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
 const ENRICH_MIN_CREDITS = 40;
 const PAGE_MIN_CREDITS = 35;
 
+// Descoberta de pautas (autocompletar do Google + triagem barata), uma vez por semana; as 5 melhores
+// ideias novas entram na fila. Custa ~1 crédito. A lista completa fica em data/ideas.json (painel).
+async function maintainIdeas(steps: string[]): Promise<boolean> {
+  const last = readState<{ at: string } | null>('ideas-run.json', null);
+  if (last && Date.now() - Date.parse(last.at) < 7 * 86_400_000) return false;
+  try {
+    const r = await discoverIdeas();
+    writeState('ideas-run.json', { at: new Date().toISOString() });
+    const promoted = promoteIdeas((q) => editQueue('add', q), 5);
+    steps.push(`ideias: ${r.added.length} pauta(s) nova(s) achadas no autocompletar do Google${promoted.length ? `; na fila: ${promoted.map((q) => `"${q}"`).join(', ')}` : ''}`);
+    return r.added.length > 0 || promoted.length > 0;
+  } catch (e) {
+    steps.push(`ideias: falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
+
 // Search Console (se conectado): retrato diário; pautas novas a partir de buscas fortes sem página (até 2
 // por semana, fora de tema de saúde vetado); ordem da home pelos dados do Google. Só a fila e a ordem
 // entram no git, e só quando mudam.
@@ -280,7 +298,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m3 = await maintainAudit(runId, steps);
   const m4 = await maintainEnrich(runId, steps);
   const m5 = await maintainGsc(steps);
-  const maintained = m1 || m2 || m3 || m4 || m5;
+  const m6 = await maintainIdeas(steps);
+  const maintained = m1 || m2 || m3 || m4 || m5 || m6;
 
   // Página nova custa ~25–40 créditos: sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.

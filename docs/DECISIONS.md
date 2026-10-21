@@ -290,3 +290,14 @@ sobrando (senão fica para o próximo ciclo, em vez de parar no meio da redaçã
 Limite conhecido: a busca só aceita domínios do cadastro; tema sem fabricante cadastrado (ex.: mesa
 regulável) pode parar por falta de fonte. Resolvido no mesmo dia: o painel lista os domínios fora do cadastro que apareceram nas buscas (prefeituras,
 diários oficiais e licitações filtrados) e o editor aprova (com classe e nome) ou bloqueia; vira commit no main.
+
+## 2026-10-21 — Pautas descobertas sozinhas (autocompletar do Google) sem canibalização
+Semanal, no ciclo (~3 créditos): sementes = tipos do nicho + nome-base ("colchão"), padrões de decisão
+("X ou", "X qual", "como escolher X", "X vale a pena", "X diferença", "qual X"); triagem pelo Haiku com a
+lista de pautas existentes e da fila. Variação de pauta existente não vira página (canibalização): vai para
+data/topic-variants.json como busca daquela pauta. Família do mesmo atributo (densidades, tamanhos) vira
+uma pauta-guia. "Qual o melhor X" vira "como escolher X". 5 por semana entram na fila; o resto fica em
+data/ideas.json, visível no painel com "Pôr na fila". Primeira rodada real: 15 ideias distintas + 41
+buscas mapeadas como variação das pautas existentes.
+Também: o painel aceitou aprovar "gov.br" inteiro (liberaria prefeituras e diários como regulador);
+revertido, e sufixo público passa a ser recusado. Imagens passam a contar no teto do ciclo.

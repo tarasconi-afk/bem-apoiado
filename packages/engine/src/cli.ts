@@ -265,6 +265,18 @@ async function main(): Promise<number> {
       }
       return 0;
     }
+    case 'ideas': {
+      // Descobre pautas no autocompletar do Google; --promote N põe as N melhores na fila.
+      const { values } = parseArgs({ args: rest, options: { promote: { type: 'string', default: '0' } } });
+      setRunBudget(5);
+      const { discoverIdeas, promoteIdeas } = await import('./stages/ideas.ts');
+      const { editQueue } = await import('./stages/autopilot.ts');
+      const r = await discoverIdeas();
+      for (const i of r.added) console.log(`${String(i.score).padStart(3)}  ${i.query}  ← ${i.from.slice(0, 3).join(' | ')}`);
+      const p = promoteIdeas((q) => editQueue('add', q), Number(values.promote));
+      console.log(`${r.added.length} ideia(s) nova(s), ${r.total} no total; na fila: ${p.join('; ') || 'nenhuma'} (~${creditsSpent().toFixed(2)} créditos)`);
+      return 0;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());
