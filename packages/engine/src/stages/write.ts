@@ -1,3 +1,4 @@
+import { writerLessons } from '../lessons.ts';
 import type { Claim, NicheProfile, Source, TopicBrief } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
 import { callJson, type FetchLike } from '../llm.ts';
@@ -32,7 +33,7 @@ Regras de forma:
 - "title" até 70 caracteres com a dúvida principal; "description" entre 50 e 160 caracteres.
 - "verdict": resposta curta e honesta à dúvida (geralmente "depende de X e Y"), com basis "reasoning" e evidências.
 - 4 a 6 seções com "id" em kebab-case, nesta lógica: ${n.decision_outline.join('; ')}. A última seção é sempre "Como decidir", com orientações condicionais ("se você...") sustentadas pelas evidências.
-- Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".`;
+- Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".${writerLessons()}`;
 }
 
 export function formatClaims(claims: Claim[], sources: Map<string, Source>): string {

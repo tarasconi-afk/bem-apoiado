@@ -1,3 +1,4 @@
+import { auditStats } from './lessons.ts';
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
 import { balanceNow, ledger, spendBy } from './credits.ts';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
@@ -86,6 +87,8 @@ export function renderStatus(now = new Date(), opts: { adminHtml?: string; refre
   const products = loadProducts();
   const cal = calibrate(loadVerdicts());
   const led = ledger();
+  const q = auditStats();
+  const avg = (xs: number[]) => (xs.length ? (xs.reduce((t, x) => t + x, 0) / xs.length).toFixed(1) : '—');
   const bal = balanceNow(led);
   for (const p of products) violations.push(...checkProduct(p, idx, now));
 
@@ -159,6 +162,16 @@ ${violations.length ? `<h2>Violações no gate</h2><div class="tw"><table><thead
 <div class="card"><div class="v">${cr1(sumMap(spendBy(led, 7 * 24 * 3600_000)))}</div><div class="l">cobrado em 7 dias</div></div>
 </div>
 ${led.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Categoria (7 dias)</th><th class="num">Créditos</th><th class="num">%</th></tr></thead><tbody>${[...spendBy(led, 7 * 24 * 3600_000)].sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(LABELS[k] ?? k)}</td><td class="num">${cr1(v)}</td><td class="num">${Math.round((100 * v) / Math.max(sumMap(spendBy(led, 7 * 24 * 3600_000)), 1e-9))}%</td></tr>`).join('')}</tbody></table></div>` : ''}
+
+<h2>Qualidade do motor (60 dias)</h2>
+<p class="muted">Quanto menos problemas na 1ª rodada, menos remendos pagos e mais páginas aprovadas de primeira. Os erros mais comuns do auditor entram no prompt do redator a cada página.</p>
+<div class="grid">
+<div class="card"><div class="v">${q.attempts ? `${Math.round((100 * q.passed) / q.attempts)}%` : '—'}</div><div class="l">tentativas de página aprovadas (${q.passed}/${q.attempts})</div></div>
+<div class="card"><div class="v">${avg(q.firstRoundIssues)}</div><div class="l">problemas por página na 1ª auditoria (média)</div></div>
+<div class="card"><div class="v">${avg(q.rounds)}</div><div class="l">rodadas por tentativa (média)</div></div>
+<div class="card"><div class="v">${avg(q.credits)}</div><div class="l">créditos por página aprovada (média)</div></div>
+</div>
+${q.byType.size ? `<p class="muted">Erros do auditor: ${[...q.byType].sort((a, b) => b[1].n - a[1].n).map(([k, v]) => `${esc(k)} ${v.n}`).join(' · ')}</p>` : ''}
 
 <h2>Calibração da revisão</h2>
 <p class="muted">Vereditos do editor (<code>verdict &lt;slug&gt; approve|reject --reason "…"</code>) contra a regra automática. Os limites só mudam com ${MIN_LABELS} ou mais vereditos e ganho real de concordância.</p>

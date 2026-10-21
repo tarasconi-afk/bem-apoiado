@@ -1,3 +1,4 @@
+import { loadVerdicts } from './feedback.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -146,14 +147,7 @@ ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde
 ${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
 <p class="muted">Aceitar roda testes, gate e build aqui antes de ir ao main; equivale ao merge do PR.</p>` : '<p class="muted">Nenhum resultado pendente.</p>'}
 
-<h2>Páginas: seu veredito</h2>
-<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a> (mostra rascunhos). Aprovar publica no próximo deploy; recusar volta a rascunho e o motivo vira instrução para o motor tentar de novo. Cada veredito calibra a revisão automática.</p>
-<div class="tw"><table><thead><tr><th>Página</th><th>Situação</th><th>Veredito</th></tr></thead><tbody>
-${pages.map((p) => `<tr><td><a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a></td><td><span class="b ${p.status === 'draft' ? 'neutral' : 'ok'}">${esc(p.status === 'draft' ? 'rascunho' : p.status)}</span></td><td>
-<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}">
-<input name="motivo" required minlength="3" maxlength="400" placeholder="motivo (obrigatório)">
-${p.status === 'draft' ? '<button name="veredito" value="approve" class="ok">Aprovar</button>' : ''}<button name="veredito" value="reject" class="bad">Recusar</button></form></td></tr>`).join('')}
-</tbody></table></div>
+${verdictsHtml(pages)}
 
 <h2>Domínios novos encontrados nas buscas</h2>
 ${domainsHtml()}
@@ -184,6 +178,24 @@ ${gscHtml()}
 <p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
 
 ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${!j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+}
+
+// Vereditos: só pede decisão do que precisa dela. Rascunho cuja versão atual ainda não foi julgada fica
+// em destaque; recusado aguarda o motor; página no ar fica recolhida (com opção de despublicar).
+function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
+  const verdicts = loadVerdicts();
+  const lastFor = (p: (typeof pages)[number]) => verdicts.filter((v) => v.slug === p.slug && v.run_id === p.provenance.run_id).at(-1);
+  const box = (p: (typeof pages)[number], approve: boolean, label: string) => `<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo (obrigatório)">${approve ? '<button name="veredito" value="approve" class="ok">Aprovar</button>' : ''}<button name="veredito" value="reject" class="bad">${label}</button></form>`;
+  const link = (p: (typeof pages)[number]) => `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a>`;
+  const drafts = pages.filter((p) => p.status === 'draft');
+  const waiting = drafts.filter((p) => !lastFor(p));
+  const rejected = drafts.filter((p) => lastFor(p)?.verdict === 'reject');
+  const live = pages.filter((p) => p.status !== 'draft');
+  return `<h2>Páginas: seu veredito ${waiting.length ? `<span class="b neutral">${waiting.length} aguardando</span>` : ''}</h2>
+${waiting.length ? `<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a>. Aprovar publica; recusar volta ao motor com o motivo como instrução. Cada veredito calibra a revisão automática.</p>
+<div class="tw"><table><tbody>${waiting.map((p) => `<tr><td>${link(p)}</td><td>${box(p, true, 'Recusar')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
+${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor vai tentar de novo: ${rejected.map((p) => `${link(p)} <span class="muted">("${esc(lastFor(p)!.reason.slice(0, 80))}")</span>`).join(' · ')}</p>` : ''}
+<details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
 
 // Ideias descobertas sozinhas (autocompletar do Google), ainda fora da fila: um clique põe na fila.
