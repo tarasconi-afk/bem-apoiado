@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Cite from '../components/Cite.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { BRAND, categoryOf, fmtDate, href, relatedPages, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import { BRAND, categoryOf, fmtDate, href, imageFor, relatedPages, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -62,7 +62,14 @@ const jsonLd = [
         <li>{readingMinutes(page)} min de leitura</li>
         <li class="verified"><span aria-hidden="true">✓</span> Cada afirmação aponta para a fonte</li>
       </ul>
-      {kinds.length > 0 && (
+      {/* Um tipo só: capa larga sem rótulo (o título já diz o tema). Vários tipos: grade com o nome de cada um. */}
+      {kinds.length === 1 && (
+        <figure class="cover">
+          <KindImage id={imageFor(`pagina-${page.slug}`) ? `pagina-${page.slug}` : kinds[0]!} class="cover-img" sizes="(min-width: 66rem) 62rem, 92vw" eager />
+          <figcaption><a class="ast" href="#nota-imagens" aria-label="Sobre a imagem">*</a></figcaption>
+        </figure>
+      )}
+      {kinds.length > 1 && (
         <figure class="types">
           <ul class={`types-grid n${Math.min(kinds.length, 4)}`}>
             {kinds.map((k) => (
@@ -209,6 +216,9 @@ const jsonLd = [
   .meta .verified span { display: inline-grid; place-items: center; width: 1.15rem; height: 1.15rem; margin-right: 0.25rem; border-radius: 50%; background: var(--brand); color: #fff; font-size: 0.65rem; }
 
   .types { margin: 2rem 0 0; }
+  .cover { margin: 2rem 0 0; max-width: 52rem; }
+  .cover :global(.cover-img) { display: block; width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); }
+  .cover figcaption { text-align: right; margin-top: 0.2rem; }
   .types-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (min-width: 48rem) { .types-grid { gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); } }
   .types-grid.n1 { grid-template-columns: minmax(0, 1fr); }
