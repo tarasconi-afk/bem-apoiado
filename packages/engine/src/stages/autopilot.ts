@@ -1,8 +1,10 @@
+import { BRIEF_SYSTEM, BriefOut, ensureImages } from '../images.ts';
 import { applyCalibration, calibrate, loadVerdicts } from '../feedback.ts';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { creditsLeft, creditsSpent } from '../llm.ts';
+import { callJson, creditsLeft, creditsSpent } from '../llm.ts';
+import { loadNiche } from '../niche.ts';
 import { creditsThisMonth } from '../search.ts';
 import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, writeState } from '../store.ts';
 import type { PageSpec, Product, TopicBrief } from '@bem-apoiado/core';
@@ -104,6 +106,23 @@ export function pagesNeedingProducts(pages: PageSpec[], topics: TopicBrief[], pr
 
 // Manutenção do catálogo dentro do ciclo (e não num timer separado): as mudanças saem no mesmo ramo
 // e passam pelo mesmo gate/aceite; se um ciclo falha, o próximo retoma sozinho, sem depender de dia da semana.
+// Imagens que faltam (tipo novo do nicho, capa de página aprovada): até 2 por ciclo, ~5 créditos cada.
+// Falha aqui nunca derruba o ciclo; a página fica com a imagem do tipo (ou a ilustração) até a próxima vez.
+async function maintainImages(steps: string[]): Promise<boolean> {
+  if (creditsLeft() < IMAGE_MIN_CREDITS) return false;
+  try {
+    const writeBrief = async (subject: string) =>
+      (await callJson({ role: 'extractor', system: BRIEF_SYSTEM, user: subject, schema: BriefOut, schemaName: 'image_brief', maxTokens: 600 })).data;
+    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, { max: 2 });
+    if (made.length) steps.push(`imagens: ${made.map((m) => m.id).join(', ')} (~${made.reduce((t, m) => t + m.credits, 0).toFixed(1)} créditos)`);
+    return made.length > 0;
+  } catch (e) {
+    steps.push(`imagens: falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
+const IMAGE_MIN_CREDITS = 15;
+
 async function maintainProducts(runId: string, steps: string[], only?: string): Promise<boolean> {
   let changed = false;
   if (!only) {
@@ -152,7 +171,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const cal = calibrate(loadVerdicts());
   if (applyCalibration(cal)) steps.push(`revisão recalibrada: enchimento ≤ ${cal.best.max_filler_ratio}, critérios ≥ ${cal.best.min_criteria} (${cal.best.agree}/${cal.labels} vereditos)`);
 
-  const maintained = await maintainProducts(runId, steps);
+  const maintained = (await maintainProducts(runId, steps)) || (await maintainImages(steps));
 
   const query = nextQuery();
   if (!query) {
@@ -184,7 +203,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const page = loadPages().find((p) => p.slug === topic.slug);
   const status = page && page.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT';
   // Página aprovada neste ciclo já sai com exemplos à venda, se sobrar orçamento.
-  if (status === 'PAGE_APPROVED') await maintainProducts(runId, steps, topic.slug);
+  if (status === 'PAGE_APPROVED') {
+    await maintainProducts(runId, steps, topic.slug);
+    await maintainImages(steps);
+  }
   return done({ status, slug: topic.slug, query, steps });
 }
 

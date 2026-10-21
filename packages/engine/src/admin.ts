@@ -5,6 +5,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
+import { setReportedBalance } from './credits.ts';
 import { DATA, loadPages, ROOT } from './store.ts';
 
 // Painel admin: o painel de status + ações. Escuta só em 127.0.0.1 atrás do Caddy (HTTPS). A senha
@@ -154,6 +155,11 @@ ${p.status === 'draft' ? '<button name="veredito" value="approve" class="ok">Apr
 <p class="muted">Roda sozinho todo dia às 04:00. Um ciclo custa até 120 créditos (teto diário 150).</p>
 ${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', 'Rodar um ciclo agora? Pode gastar até 120 créditos de IA.')}
 
+<h2>Saldo de créditos</h2>
+<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="saldo">
+<input name="saldo" required inputmode="decimal" placeholder="saldo de créditos mostrado no hPanel agora (ex.: 4850)"><button class="ok">Registrar saldo</button></form>
+<p class="muted">Basta informar de vez em quando (ex.: depois de recarregar). O painel desconta o gasto real registrado a partir daí.</p>
+
 <h2>Senha do painel</h2>
 <form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="senha">
 <input type="password" name="atual" required autocomplete="current-password" placeholder="senha atual">
@@ -260,6 +266,13 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       else {
         setPassword(nova, user);
         msg = 'senha trocada';
+      }
+    } else if (f.get('acao') === 'saldo') {
+      const v = Number((f.get('saldo') ?? '').replace(/\./g, '').replace(',', '.'));
+      if (!Number.isFinite(v) || v < 0 || v > 10_000_000) msg = 'saldo inválido';
+      else {
+        setReportedBalance(v);
+        msg = `saldo registrado: ${v.toLocaleString('pt-BR')} créditos`;
       }
     } else if (f.get('acao') === 'ciclo') {
       if (existsSync(RUN_NOW)) msg = 'ciclo já solicitado';

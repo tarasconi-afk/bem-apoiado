@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { z } from 'zod';
+import { recordCharge } from './credits.ts';
 
 // Imagens ilustrativas geradas por IA (gpt-image via AI Router). Uma por tipo de produto do nicho,
 // mais a capa. Cada arquivo fica registrado com modelo, prompt, custo e hash: origem auditável.
@@ -87,6 +88,7 @@ export async function generateImage(b: Brief, root: string, o: GenerateOptions =
     sha256: createHash('sha256').update(webp).digest('hex'), created_at: (o.now ?? new Date()).toISOString(),
     license: `Gerada por IA para o projeto (${model} via Hostinger AI Router). Ilustrativa; não retrata produto específico.`,
   });
+  recordCharge('imagem', model, rec.credits, d.usage?.credits_charged === undefined);
   const reg = loadRegistry(root).filter((r) => r.id !== b.id);
   mkdirSync(join(root, 'data/images'), { recursive: true });
   writeFileSync(paths.registry, JSON.stringify([...reg, rec].sort((a, x) => a.id.localeCompare(x.id)), null, 2) + '\n');
@@ -102,3 +104,48 @@ export async function generateMissing(root: string, opts: GenerateOptions & { on
   for (const b of todo) done.push(await generateImage(b, root, opts));
   return done;
 }
+
+// Piloto automático: o que ainda não tem imagem. Cada tipo de produto do nicho precisa da sua (vale para
+// nicho novo) e cada página aprovada ganha uma capa própria ("pagina-<slug>"), para a home nunca repetir
+// imagem. O pedido é escrito pelo modelo barato a partir do tipo ou do título e fica em briefs.json.
+export interface Wanted {
+  id: string;
+  kind?: string;
+  subject: string;
+}
+
+export function wantedImages(root: string, kinds: { id: string; label: string }[], pages: { slug: string; title: string; status: string }[]): Wanted[] {
+  const have = new Set(loadRegistry(root).map((r) => r.id));
+  const out: Wanted[] = [];
+  for (const k of kinds) if (!have.has(k.id)) out.push({ id: k.id, kind: k.id, subject: `tipo de produto: ${k.label}. Mostrar como esse tipo é construído ou o que o distingue visualmente dos outros tipos.` });
+  for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: `capa de um guia intitulado "${p.title}". Cena que ilustre o tema do guia, sem mostrar produto de marca.` });
+  return out;
+}
+
+const BriefOut = z.object({ alt: z.string().min(10).max(160), prompt: z.string().min(60).max(900) });
+
+export async function ensureImages(
+  root: string,
+  kinds: { id: string; label: string }[],
+  pages: { slug: string; title: string; status: string }[],
+  writeBrief: (subject: string) => Promise<{ alt: string; prompt: string }>,
+  opts: GenerateOptions & { max?: number } = {},
+): Promise<ImageRecord[]> {
+  const todo = wantedImages(root, kinds, pages).slice(0, opts.max ?? 2);
+  const briefsFile = imagePaths(root).briefs;
+  const done: ImageRecord[] = [];
+  for (const w of todo) {
+    const b = Brief.parse({ id: w.id, kind: w.kind, ...(await writeBrief(w.subject)) });
+    const briefs = existsSync(briefsFile) ? z.array(Brief).parse(JSON.parse(readFileSync(briefsFile, 'utf8'))) : [];
+    writeFileSync(briefsFile, JSON.stringify([...briefs.filter((x) => x.id !== b.id), b], null, 2) + '\n');
+    done.push(await generateImage(b, root, opts));
+  }
+  return done;
+}
+
+export const BRIEF_SYSTEM =
+  'Você escreve pedidos para um gerador de imagens de um site editorial brasileiro. Devolva "prompt" em inglês ' +
+  '(uma cena fotográfica realista, concreta, com materiais e enquadramento) e "alt" em português (descrição curta ' +
+  'do que a imagem mostra). Proibido: pessoas, texto, números, logotipos, marcas, embalagens, produto identificável. ' +
+  'O estilo de luz e paleta é acrescentado depois; não repita.';
+export { BriefOut };

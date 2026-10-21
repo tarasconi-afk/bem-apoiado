@@ -1,6 +1,13 @@
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+
+process.env.BEM_RETRY_MS = '0';
+process.env.BEM_STATE_DIR = mkdtempSync(join(tmpdir(), 'bem-llm-state-'));
 import { z } from 'zod';
-import { callJson, LlmError, type FetchLike } from '../src/llm.ts';
+import { callJson, creditsSpent, LlmError, setRunBudget, type FetchLike } from '../src/llm.ts';
+import { ledger } from '../src/credits.ts';
 
 const Out = z.object({ answer: z.string(), n: z.number().int() });
 
@@ -73,6 +80,29 @@ describe('callJson: streaming e erros transitórios', () => {
     const r = await callJson(call, f);
     expect(r.data).toEqual({ answer: 'ok', n: 3 });
     expect(r.usage).toEqual({ input_tokens: 40, output_tokens: 7 });
+  });
+
+  it('usa o valor cobrado pelo roteador (credits_charged) e registra no livro-caixa', async () => {
+    setRunBudget(100);
+    const sse = 'data: {"choices":[{"delta":{"content":"{\\"answer\\":\\"ok\\",\\"n\\":2}"}}]}\ndata: {"choices":[],"usage":{"prompt_tokens":10,"completion_tokens":4,"credits_charged":0.0036}}\n';
+    const f: FetchLike = async () => new Response(sse, { status: 200, headers: { 'content-type': 'text/event-stream' } });
+    await callJson(call, f);
+    expect(creditsSpent()).toBeCloseTo(0.0036, 6);
+    const last = ledger().at(-1)!;
+    expect(last).toMatchObject({ what: 'extractor', model: 'claude-haiku-4.5', credits: 0.0036, estimated: false });
+  });
+
+  it('524 persistente no redator: troca para o modelo reserva', async () => {
+    const models: string[] = [];
+    const f: FetchLike = async (_u, init) => {
+      const m = JSON.parse(String(init.body)).model as string;
+      models.push(m);
+      return m === 'claude-sonnet-5' ? new Response('timeout', { status: 524 }) : reply('{"answer":"ok","n":5}');
+    };
+    const r = await callJson({ ...call, role: 'writer' as const }, f);
+    expect(r.data.n).toBe(5);
+    expect(models).toEqual(['claude-sonnet-5', 'claude-sonnet-5', 'claude-sonnet-5', 'claude-sonnet-4.6']);
+    expect(r.model).toBe('claude-sonnet-4.6');
   });
 
   it('tenta de novo uma vez em 524 e segue', async () => {

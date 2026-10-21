@@ -35,7 +35,7 @@ echo "$OUT" | tail -5
 SLUG=$(cat .pr/slug.txt)
 BRANCH="pagina/${SLUG}-$(date +%Y%m%d-%H%M)"
 git checkout -q -b "$BRANCH"
-git add data/
+git add data/ site/src/assets/generated/
 git diff --cached --quiet && { echo "sem mudanças em data/"; exit 0; }
 git -c user.name="Bem Apoiado (motor)" -c user.email="motor@bemapoiado.invalid" \
   commit -q -F <(cat .pr/title.txt; echo; echo; cat .pr/body.md)

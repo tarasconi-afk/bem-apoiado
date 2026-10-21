@@ -31,7 +31,7 @@ export const jevDecide: Decider = async (state, questions) => {
   });
   if (!res.ok) throw new Error(`Jev HTTP ${res.status} ${(await res.text()).slice(0, 200)}`);
   const body = (await res.json()) as { answers?: Record<string, ChoiceAnswer>; usage?: { credits_charged?: number } };
-  addSpend(body.usage?.credits_charged ?? 0);
+  addSpend(body.usage?.credits_charged ?? 0, 'jev', 'jev-latest');
   return body.answers ?? {};
 };
 

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ENV_FILE_PATH as ENV_FILE } from './env.ts';
-import { creditsFor, MODELS, type Role } from './models.ts';
+import { recordCharge } from './credits.ts';
+import { creditsFor, fallbackFor, MODELS, type Role } from './models.ts';
 
 
 export interface LlmCall<T> {
@@ -41,8 +42,9 @@ export function setRunBudget(limitCredits: number): void {
 export const creditsSpent = (): number => budget.spent;
 export const creditsLeft = (): number => budget.limit - budget.spent;
 // Gasto de chamadas fora do chat (ex.: Jev) também conta no teto da execução.
-export function addSpend(credits: number): void {
+export function addSpend(credits: number, what = 'outro', model = '-'): void {
   budget.spent += credits;
+  recordCharge(what, model, credits, false);
 }
 
 // Chamada única, JSON-in/JSON-out. Saída inválida ganha uma nova tentativa com o erro de validação;
@@ -53,7 +55,9 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
   const base = (process.env.NEXOS_BASE_URL ?? 'https://router.hostinger.com/v1').replace(/\/$/, '');
   if (!key) throw new LlmError(`NEXOS_API_KEY ausente (ambiente ou ${ENV_FILE})`, 'NO_CREDENTIALS');
 
-  const model = MODELS[call.role];
+  // BEM_MODEL_<PAPEL> troca o modelo de um papel sem mexer no código (avaliações, emergência).
+  const override = process.env[`BEM_MODEL_${call.role.toUpperCase()}`];
+  let model: { id: string; name: string } = override ? { id: override, name: override } : MODELS[call.role];
   const jsonSchema = z.toJSONSchema(call.schema, { target: 'draft-7' });
   // O roteador não impõe response_format para todos os fornecedores (o Claude trocou question_id por
   // question). Por isso o schema também vai no prompt, com os nomes exatos dos campos.
@@ -71,19 +75,32 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
     if (budget.spent >= budget.limit) {
       throw new LlmError(`teto de ${budget.limit} créditos atingido (gasto ${budget.spent.toFixed(1)})`, 'BUDGET_EXCEEDED');
     }
-    const { content, usage: u } = await postWithRetry(fetchImpl, `${base}/chat/completions`, key, {
-      model: model.id,
+    const payload = (id: string) => ({
+      model: id,
       messages,
       max_tokens: call.maxTokens ?? 8000,
-      // Streaming: respostas longas (redator) passam de 100 s, e a Cloudflare na frente do roteador
-      // derruba conexão ociosa com 524. Com stream, os tokens chegam continuamente.
+      // Streaming: com modelo que transmite de verdade, os tokens chegam antes dos 100 s da Cloudflare.
       stream: true,
       stream_options: { include_usage: true },
       response_format: { type: 'json_schema', json_schema: { name: call.schemaName, schema: jsonSchema, strict: false } },
     });
+    let r: Awaited<ReturnType<typeof postWithRetry>>;
+    try {
+      r = await postWithRetry(fetchImpl, `${base}/chat/completions`, key, payload(model.id));
+    } catch (e) {
+      // 524 persistente: a mesma chamada vai para o modelo reserva do papel (se houver).
+      const fb = fallbackFor(call.role);
+      if (!(e instanceof LlmError && e.message.startsWith('HTTP 524')) || !fb || model.id === fb.id) throw e;
+      model = fb;
+      r = await postWithRetry(fetchImpl, `${base}/chat/completions`, key, payload(model.id));
+    }
+    const { content, usage: u } = r;
     usage.input_tokens += u.input_tokens;
     usage.output_tokens += u.output_tokens;
-    budget.spent += creditsFor(call.role, u);
+    // Valor cobrado pelo roteador quando vem na resposta; tabela de preços só como estimativa.
+    const charged = u.credits ?? creditsFor(call.role, u);
+    budget.spent += charged;
+    recordCharge(call.role, model.id, charged, u.credits === undefined);
 
     const parsed = safeParse(content, call.schema);
     if (parsed.ok) return { data: parsed.data, model: model.id, modelName: model.name, usage, attempts: attempt };
@@ -99,7 +116,9 @@ export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch
 
 const TRANSIENT = new Set([429, 500, 502, 503, 504, 520, 522, 524, 529]);
 
-// Uma nova tentativa para erro transitório do roteador/Cloudflare; erro de crédito ou de chave não se repete.
+// Até duas novas tentativas espaçadas para erro transitório do roteador/Cloudflare; erro de crédito ou de
+// chave não se repete. Os testes zeram a espera com BEM_RETRY_MS=0.
+const RETRY_WAIT = [15_000, 45_000];
 async function postWithRetry(fetchImpl: FetchLike, url: string, key: string, payload: unknown) {
   for (let i = 0; ; i++) {
     const res = await fetchImpl(url, {
@@ -110,8 +129,8 @@ async function postWithRetry(fetchImpl: FetchLike, url: string, key: string, pay
     });
     if (res.ok) return readCompletion(res);
     const detail = (await res.text()).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200);
-    if (i === 0 && TRANSIENT.has(res.status)) {
-      await new Promise((r) => setTimeout(r, 5_000));
+    if (i < RETRY_WAIT.length && TRANSIENT.has(res.status)) {
+      await new Promise((r) => setTimeout(r, Number(process.env.BEM_RETRY_MS ?? RETRY_WAIT[i])));
       continue;
     }
     throw new LlmError(`HTTP ${res.status} ${detail}`, 'HTTP');
@@ -119,16 +138,18 @@ async function postWithRetry(fetchImpl: FetchLike, url: string, key: string, pay
 }
 
 // Aceita tanto SSE (stream) quanto JSON comum (os testes e alguns fornecedores devolvem JSON).
-async function readCompletion(res: Response): Promise<{ content: string; usage: { input_tokens: number; output_tokens: number } }> {
-  const usage = { input_tokens: 0, output_tokens: 0 };
-  const take = (u?: { prompt_tokens?: number; completion_tokens?: number }) => {
+type RawUsage = { prompt_tokens?: number; completion_tokens?: number; credits_charged?: number };
+async function readCompletion(res: Response): Promise<{ content: string; usage: { input_tokens: number; output_tokens: number; credits?: number } }> {
+  const usage: { input_tokens: number; output_tokens: number; credits?: number } = { input_tokens: 0, output_tokens: 0 };
+  const take = (u?: RawUsage) => {
     if (u?.prompt_tokens) usage.input_tokens = u.prompt_tokens;
     if (u?.completion_tokens) usage.output_tokens = u.completion_tokens;
+    if (typeof u?.credits_charged === 'number') usage.credits = u.credits_charged;
   };
   if (!(res.headers.get('content-type') ?? '').includes('text/event-stream')) {
     const body = (await res.json()) as {
       choices?: { message?: { content?: string } }[];
-      usage?: { prompt_tokens?: number; completion_tokens?: number };
+      usage?: RawUsage;
     };
     take(body.usage);
     return { content: body.choices?.[0]?.message?.content ?? '', usage };
@@ -141,7 +162,7 @@ async function readCompletion(res: Response): Promise<{ content: string; usage: 
     try {
       const evt = JSON.parse(data) as {
         choices?: { delta?: { content?: string } }[];
-        usage?: { prompt_tokens?: number; completion_tokens?: number };
+        usage?: RawUsage;
       };
       content += evt.choices?.[0]?.delta?.content ?? '';
       take(evt.usage);

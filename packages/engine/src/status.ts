@@ -1,4 +1,5 @@
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
+import { balanceNow, ledger, spendBy } from './credits.ts';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
@@ -62,6 +63,9 @@ const esc = (s: unknown) =>
   String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 const fmt = (d: Date) => d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', dateStyle: 'short', timeStyle: 'short' });
 const cr = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+const cr1 = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 1 });
+const sumMap = (m: Map<string, number>) => [...m.values()].reduce((t, v) => t + v, 0);
+const LABELS: Record<string, string> = { writer: 'Redação', auditor: 'Auditoria e revisão', extractor: 'Extração de trechos', imagem: 'Imagens', jev: 'Triagem (Jev)', outro: 'Outros' };
 
 export function renderStatus(now = new Date(), opts: { adminHtml?: string; refresh?: number } = {}): string {
   const runs = collectRuns();
@@ -73,6 +77,8 @@ export function renderStatus(now = new Date(), opts: { adminHtml?: string; refre
   for (const p of pages) violations.push(...checkPage(p, idx));
   const products = loadProducts();
   const cal = calibrate(loadVerdicts());
+  const led = ledger();
+  const bal = balanceNow(led);
   for (const p of products) violations.push(...checkProduct(p, idx, now));
 
   const since = (h: number) => runs.filter((r) => now.getTime() - r.when.getTime() < h * 3600_000);
@@ -135,6 +141,15 @@ ${runs.slice(0, 40).map((r) => `<tr><td>${esc(fmt(r.when))}</td><td><code>${esc(
 </tbody></table></div>
 
 ${violations.length ? `<h2>Violações no gate</h2><div class="tw"><table><thead><tr><th>Código</th><th>Onde</th><th>Detalhe</th></tr></thead><tbody>${violations.slice(0, 50).map((v) => `<tr><td>${esc(v.code)}</td><td><code>${esc(v.where)}</code></td><td class="muted">${esc(v.detail)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+
+<h2>Créditos de IA</h2>
+<p class="muted">Valor cobrado pelo próprio roteador em cada chamada (livro-caixa desde ${led.length ? esc(fmt(new Date(led[0]!.at))) : 'hoje'}). O roteador não informa saldo: o saldo abaixo é o último valor informado do hPanel menos o gasto registrado depois dele.</p>
+<div class="grid">
+<div class="card"><div class="v">${bal.estimate === null ? '—' : cr(bal.estimate)}</div><div class="l">${bal.reported ? `saldo estimado (informado ${esc(fmt(new Date(bal.reported.reported_at)))}: ${cr(bal.reported.reported)})` : 'saldo: informe o valor do hPanel'}</div></div>
+<div class="card"><div class="v">${cr1(sumMap(spendBy(led, 24 * 3600_000)))}</div><div class="l">cobrado nas últimas 24 h</div></div>
+<div class="card"><div class="v">${cr1(sumMap(spendBy(led, 7 * 24 * 3600_000)))}</div><div class="l">cobrado em 7 dias</div></div>
+</div>
+${led.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Categoria (7 dias)</th><th class="num">Créditos</th><th class="num">%</th></tr></thead><tbody>${[...spendBy(led, 7 * 24 * 3600_000)].sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(LABELS[k] ?? k)}</td><td class="num">${cr1(v)}</td><td class="num">${Math.round((100 * v) / Math.max(sumMap(spendBy(led, 7 * 24 * 3600_000)), 1e-9))}%</td></tr>`).join('')}</tbody></table></div>` : ''}
 
 <h2>Calibração da revisão</h2>
 <p class="muted">Vereditos do editor (<code>verdict &lt;slug&gt; approve|reject --reason "…"</code>) contra a regra automática. Os limites só mudam com ${MIN_LABELS} ou mais vereditos e ganho real de concordância.</p>

@@ -99,13 +99,14 @@ export function kindsFor(page: PageSpec): string[] {
   return (topic?.product_kinds ?? []).filter((k) => k !== 'outro');
 }
 
-// Ilustração de cada cartão da home: o primeiro tipo da página que nenhum cartão anterior usou,
-// para a home nunca repetir a mesma imagem.
+// Imagem de cada cartão da home: a capa própria da página (gerada no ciclo) ou, enquanto ela não
+// existe, o primeiro tipo da página que nenhum cartão anterior usou. A home nunca repete imagem.
 export function homeIllustrations(pages: PageSpec[]): Map<string, string> {
   const used = new Set<string>();
   const out = new Map<string, string>();
   for (const p of pages) {
-    const k = kindsFor(p).find((x) => !used.has(x)) ?? kindsFor(p)[0] ?? 'outro';
+    const cover = `pagina-${p.slug}`;
+    const k = IMAGES.some((r) => r.id === cover) ? cover : (kindsFor(p).find((x) => !used.has(x)) ?? kindsFor(p)[0] ?? 'outro');
     used.add(k);
     out.set(p.slug, k);
   }

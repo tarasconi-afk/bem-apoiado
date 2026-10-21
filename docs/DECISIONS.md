@@ -191,3 +191,16 @@ Removida da página D28 uma pergunta solta sobre "dor ou desconforto na coluna" 
 AdSense (pergunta real do dono, não Google Ads): adiado. Exige domínio próprio, política de privacidade e
 consentimento (LGPD), disputa atenção com o botão de afiliado e paga pouco com tráfego pequeno.
 Reavaliar com domínio e tráfego orgânico estável.
+
+## 2026-10-21 — Gasto real, 524 do redator, imagens automáticas
+Medido no roteador (1.500 tokens de saída): Haiku 4.5 0,81 crédito; Sonnet 5 1,8; Sonnet 4.6 2,7;
+GPT 5.6 Sol 5,41; GPT 5.5 5,41; GPT 5.6 Luna 0,22; Gemini 3.5 Flash 1,62; Opus 5 4,5. Só Haiku e Sonnet 4.x
+fazem streaming de verdade; Sonnet 5, GPT e Gemini entregam tudo no fim, então "stream" não protege contra
+o corte de 100 s da Cloudflare. Ciclo de 21/10 perdeu a página do travesseiro com 524 no redator.
+Correção: até 2 novas tentativas espaçadas (15 s, 45 s) e, com 524 persistente, a mesma chamada vai para o
+Sonnet 4.6 (streaming real). Tabela do Sonnet 5 corrigida para 240/1200 (o valor cobrado era 20% maior).
+Custo passa a vir de `usage.credits_charged` (valor do roteador), num livro-caixa por chamada
+(STATE/credits-ledger.jsonl). O roteador não expõe saldo (endpoints testados: 404) e a API de billing da
+Hostinger não tem créditos de IA: o dono informa o saldo do hPanel no painel e o painel desconta o gasto.
+Imagens no ciclo: tipo do nicho sem imagem e capa de cada página aprovada (`pagina-<slug>`), até 2 por ciclo;
+o pedido é escrito pelo Haiku e fica em briefs.json. A home prefere a capa da página (nunca repete imagem).
