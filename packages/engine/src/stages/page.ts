@@ -80,11 +80,16 @@ const show = (i: Issue) => (i.ref ? `${i.ref}: ${i.msg}` : i.msg);
 // Haiku 7,8 créditos, Sonnet 24,2, as duas aprovadas com notas de revisão parecidas.
 export const ESCALATION_WRITER = 'claude-sonnet-5';
 const ESCALATION_MIN_CREDITS = 30;
+// Primeira tentativa que já custou isso não ganha a segunda (21/10: base box gastou ~30 no Haiku, com 2
+// reservas de Sonnet 4.6 por 524, e mais 14 na escalada; terminou rascunho igual).
+const ESCALATION_MAX_FIRST_SPEND = 15;
 
 export async function buildPage(slug: string, runId: string, fetchImpl?: FetchLike): Promise<PageOutcome> {
+  const before = creditsSpent();
   const first = await buildPageOnce(slug, runId, fetchImpl);
   const doomed = first.status === 'SAFE_STOP' && /INSUFFICIENT_EVIDENCE|BUDGET/.test(first.reason);
-  if (first.status === 'PASS' || doomed || process.env.BEM_MODEL_WRITER || creditsLeft() < ESCALATION_MIN_CREDITS) return first;
+  const costly = creditsSpent() - before > ESCALATION_MAX_FIRST_SPEND;
+  if (first.status === 'PASS' || doomed || costly || process.env.BEM_MODEL_WRITER || creditsLeft() < ESCALATION_MIN_CREDITS) return first;
   const rid = newRunId(`${slug}-escalada`);
   writeStage(runId, 'escalation', { from: MODELS.writer.id, to: ESCALATION_WRITER, first: first.status, run: rid });
   process.env.BEM_MODEL_WRITER = ESCALATION_WRITER;

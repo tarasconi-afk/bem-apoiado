@@ -646,8 +646,14 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     const f = await readBody(req);
     let msg: string;
     if (f.get('acao') === 'ajustar') {
-      const ramo = f.get('ramo') ?? '';
+      let ramo = f.get('ramo') ?? '';
       const slug = f.get('slug') ?? '';
+      // Página que só existe num resultado pendente (rascunho novo): o ajuste vai para esse resultado, não
+      // para o main (21/10: "página não existe" no ajuste da base box).
+      if (ramo === 'main' && !loadPages().some((p) => p.slug === slug)) {
+        const b = pendingBranches().find((x) => x.branch.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '') === slug);
+        if (b) ramo = b.branch;
+      }
       const pedido = clean(f.get('pedido'), 600);
       if ((ramo !== 'main' && !BRANCH.test(ramo)) || !Slug.safeParse(slug).success || pedido.length < 5) msg = 'ajuste inválido';
       else {
