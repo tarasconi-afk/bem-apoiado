@@ -473,3 +473,14 @@ não eixo); o redator escreve resposta curta e "Como decidir" para quem compra, 
 eixo e sem apoiar a decisão numa marca só quando há outras; a revisão avalia "reader_fit" e a regra de
 publicação exige que não seja false (revisões antigas sem o campo continuam valendo). Os problemas de
 leitura entram na lista "faltou" (viram lacuna e alimentam o "completar o que faltou").
+
+## 2026-10-21 — Padrão editorial do dono: decidir, comprar, leigo, rápido
+Quatro perguntas viram régua do site (packages/core/src/editorial.ts, AGENTS.md): ajuda a decidir? leva à
+compra (o que conferir no anúncio/ficha, sem pressão)? é fácil para leigos? responde rápido a dúvida simples?
+O redator recebe a lista; a revisão avalia "quick_answer" e "purchase_path" além de "reader_fit", e a regra
+de publicação exige resposta curta que resolva sozinha e linguagem de leigo. "Leva à compra" falhando vira
+item em "faltou" (não bloqueia: página sem exemplo à venda ainda pode orientar a compra).
+Busca com IA do Google: não há otimização especial; valem as mesmas práticas de conteúdo útil e de SEO
+(Google Search Central, "AI features and your website"; "Creating helpful, reliable, people-first content").
+O modo IA faz buscas em leque por subtemas: página que responde direto a uma dúvida simples e traz as
+comparações com fonte é o que esse modo pode citar.

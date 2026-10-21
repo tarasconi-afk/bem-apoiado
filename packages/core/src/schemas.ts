@@ -187,6 +187,7 @@ export const ReviewMetrics = z.object({
   // Fala com o público do nicho (leigo que compra), sem jargão solto nem ponto de vista de outro público
   // (empregador, fiscal, fabricante). Ausente em revisões antigas = não avaliado.
   reader_fit: z.boolean().optional(),
+  quick_answer: z.boolean().optional(),
   rule_publishable: z.boolean(),
 });
 export type ReviewMetrics = z.infer<typeof ReviewMetrics>;

@@ -1,5 +1,5 @@
 import { writerLessons } from '../lessons.ts';
-import type { Claim, NicheProfile, Source, TopicBrief } from '@bem-apoiado/core';
+import { editorialChecklist, type Claim, type NicheProfile, type Source, type TopicBrief } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
 import { sourceText } from '../store.ts';
 import { callJson, type FetchLike } from '../llm.ts';
@@ -28,6 +28,9 @@ Regras editoriais (o leitor é leigo e quer decidir):
 - Blocos "framing" são frases completas de transição (pelo menos 6 palavras) ou não existem.
 - Parágrafos curtos: no máximo 70 palavras. SEM tamanho mínimo de página: escreva só o que as evidências sustentam e ajuda a decidir; página curta e útil vale mais que longa (o limite é 1400 palavras).
 - Cada bloco tem de mudar o que o leitor confere ou escolhe. Enchimento (cortado na revisão): descrever o catálogo de uma marca (que densidades, tamanhos ou modelos ela vende), repetir o que outro bloco já disse, frase de transição que só anuncia o próximo assunto.
+
+Padrão editorial (cada bloco tem de passar nestas perguntas; a revisão reprova a página que não passa):
+${editorialChecklist()}
 
 Regras de forma:
 - Português do Brasil, frases curtas. Explique termos técnicos na primeira vez.

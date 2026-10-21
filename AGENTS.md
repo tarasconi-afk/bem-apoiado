@@ -17,6 +17,13 @@ publicação com o mínimo de intervenção humana.
 - Indexação só com `SITE_INDEXABLE=true` explícito, e só no domínio definitivo.
 - Nada de estado em `/tmp`: fontes, evidências, páginas e runs vivem em `data/` e vão para o git.
 
+## Padrão editorial (régua de toda página e de toda mudança no motor)
+1. Isso ajuda quem está lendo a tomar uma decisão?
+2. Isso leva à compra? (o leitor sabe o que conferir no anúncio/ficha e que opção serve para ele; sem pressão)
+3. Isso é fácil para leigos?
+4. Isso responde rapidamente a uma dúvida simples? (a resposta curta resolve sozinha)
+Fonte única no código: `packages/core/src/editorial.ts` (redator e revisão usam a mesma lista).
+
 ## Comandos
 
 - `npm test` · `npm run typecheck` · `npm run validate` · `npm run build`
