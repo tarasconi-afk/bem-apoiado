@@ -6,6 +6,7 @@ import { recordVerdict } from '../feedback.ts';
 import { buildIndex, DATA, loadPages, loadTopics } from '../store.ts';
 import { balanceNow, ledger, spendBy } from '../credits.ts';
 import { auditStats } from '../lessons.ts';
+import { latestSnapshot, pageStats } from '../gsc.ts';
 import { editQueue } from './autopilot.ts';
 import { claimsForTopic } from './draft-schema.ts';
 import { manualEdit, editableBlocks } from './manual-edit.ts';
@@ -22,7 +23,7 @@ const Action = z.discriminatedUnion('type', [
   z.object({ type: z.literal('redo_page'), slug: z.string(), instruction: z.string().min(5) }),
   z.object({ type: z.literal('edit_text'), slug: z.string(), instruction: z.string().min(5) }),
   z.object({ type: z.literal('unpublish'), slug: z.string(), reason: z.string().min(5) }),
-  z.object({ type: z.literal('report'), about: z.enum(['gastos', 'qualidade', 'paginas', 'fila']) }),
+  z.object({ type: z.literal('report'), about: z.enum(['gastos', 'qualidade', 'paginas', 'fila', 'visitas']) }),
   z.object({ type: z.literal('developer'), summary: z.string().min(5) }),
 ]);
 const Plan = z.object({ actions: z.array(Action).min(1).max(6), reply: z.string() });
@@ -32,13 +33,21 @@ const SYSTEM = `Você é o assistente do painel de um site de guias. Transforme 
 - redo_page: refazer uma página existente com uma instrução (vai para o motor, que reescreve e passa pela auditoria).
 - edit_text: ajustar o texto de uma página existente sem mudar as fontes (ex.: "resposta curta mais direta", "frase X mais simples").
 - unpublish: tirar uma página do ar (com motivo).
-- report: relatório sobre gastos, qualidade, paginas ou fila.
+- report: relatório sobre gastos, qualidade, paginas, fila ou visitas (visitas = dados do Google Search Console: cliques, impressões, posição).
 - developer: qualquer coisa que mude código, visual, regras do site, orçamento, cadastro de domínios ou integrações. NÃO tente fazer: resuma para o desenvolvedor.
-Use só slugs da lista de páginas. Em "reply", diga em uma ou duas frases o que vai ser feito.`;
+Use só slugs da lista de páginas. Em "reply", diga em uma ou duas frases o que vai ser feito, sem prometer dado que o motor não tem.`;
 
 export interface RequestResult { reply: string; done: string[]; failed: string[] }
 
-function report(about: 'gastos' | 'qualidade' | 'paginas' | 'fila'): string {
+function report(about: 'gastos' | 'qualidade' | 'paginas' | 'fila' | 'visitas'): string {
+  if (about === 'visitas') {
+    const snap = latestSnapshot();
+    const note = ' O site não mede visitas diretas (não há ferramenta de estatística de acesso); estes números são só do Google.';
+    if (!snap) return `Ainda sem dados do Google Search Console (a primeira leitura chega no ciclo; site novo leva dias a semanas para aparecer).${note}`;
+    const st = [...pageStats(snap).values()].sort((a, b) => b.impressions - a.impressions);
+    if (!st.length) return `Google Search Console (${snap.start} a ${snap.end}): nenhuma impressão ainda. Normal nas primeiras semanas de um domínio novo.${note}`;
+    return `Google (${snap.start} a ${snap.end}): ${st.map((p) => `/${p.slug}/ ${p.clicks} cliques, ${p.impressions} impressões, posição ${p.position.toFixed(1)}`).join('; ')}.${note}`;
+  }
   if (about === 'gastos') {
     const led = ledger();
     const by = [...spendBy(led, 7 * 86_400_000)].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v.toFixed(1)}`).join(', ');

@@ -13,6 +13,9 @@ export const MODELS = {
   // com nota de revisão parecida; faz streaming de verdade (sem 524). Página que não passar ganha uma
   // segunda tentativa com o Sonnet 5 (page.ts, ESCALATION_WRITER). Reserva contra 524: Sonnet 4.6.
   writer: { id: 'claude-haiku-4.5', name: 'Claude Haiku 4.5', vendor: 'anthropic', price: [120, 600], fallback: { id: 'claude-sonnet-4.6', name: 'Claude Sonnet 4.6' } },
+  // Planeja pauta, propõe nicho e edições: poucas chamadas curtas que definem a qualidade de tudo depois.
+  // Sonnet 5 (o Haiku falhou no schema do plano duas vezes seguidas e derrubou o ciclo em 21/10).
+  planner: { id: 'claude-sonnet-5', name: 'Claude Sonnet 5', vendor: 'anthropic', price: [240, 1200] },
   // Julga se cada bloco é sustentado pelos trechos citados. Outro fornecedor que o redator.
   // GPT 5.6 Luna desde 21/10: na avaliação com erros plantados pegou 8/8 (número, atribuição, sem fonte,
   // saúde) e achou erros reais que o Sol deixou passar, a ~1/25 do custo (o Sol estourou 40 créditos em

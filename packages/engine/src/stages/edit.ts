@@ -114,7 +114,7 @@ export async function editPage(page: PageSpec, runId: string, fetchImpl?: FetchL
 
   const r = await callJson(
     {
-      role: 'writer',
+      role: 'planner',
       system: system(),
       user: `Evidências citadas na página:\n${formatClaims(claims, idx.sources)}\n\nPágina (refs dos blocos entre colchetes):\n` +
         blockRefs(draft).map((u) => `[${u.ref}] (${u.basis}) ${u.text}`).join('\n'),

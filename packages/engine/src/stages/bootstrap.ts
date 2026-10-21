@@ -21,7 +21,7 @@ export async function bootstrapNiche(theme: string, opts: { maxSearches?: number
   });
   const draft = await callJson(
     {
-      role: 'writer',
+      role: 'planner',
       system:
         `Você prepara um site de afiliados brasileiro que só usa fontes primárias (reguladores, normas, páginas oficiais de fabricantes) ` +
         `para ajudar leigos a decidir compras. Proponha o perfil do nicho e buscas para encontrar as fontes oficiais.\n` +
@@ -103,7 +103,7 @@ export async function bootstrapNiche(theme: string, opts: { maxSearches?: number
   const Makers = z.object({ makers: z.array(z.object({ brand: z.string(), domain: z.string() })).max(15) });
   const makers = await callJson(
     {
-      role: 'writer',
+      role: 'planner',
       system: 'Liste fabricantes/marcas relevantes no Brasil para o tema e o domínio do site oficial brasileiro de cada um (sem https, sem caminho). Se não souber o domínio, omita a marca.',
       user: `Tema: "${theme}". Até 15 marcas.`,
       schema: Makers,

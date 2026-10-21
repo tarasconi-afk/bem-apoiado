@@ -30,6 +30,7 @@ OUT=$(npm run -s engine -- autopilot --budget "${BEM_CYCLE_BUDGET:-40}" 2>&1)
 CODE=$?
 set -e
 echo "$OUT" | tail -5
+[ $CODE -ne 0 ] && [ $CODE -ne 3 ] && echo "$OUT" | tail -40   # erro: mostra o contexto inteiro no log
 [ $CODE -eq 3 ] && { echo "nada a publicar neste ciclo"; exit 0; }
 [ $CODE -ne 0 ] && { echo "autopilot falhou ($CODE)"; exit $CODE; }
 

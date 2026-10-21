@@ -83,7 +83,9 @@ export function nextQuery(): string | null {
   // Pauta com ramo pagina/* ainda não mesclado: o aprendizado dela ainda não está no main.
   // Esperar o merge em vez de refazer (e pagar de novo) o mesmo trabalho.
   const pending = new Set((process.env.BEM_PENDING_SLUGS ?? '').split(',').filter(Boolean));
+  const planFails = readState<Record<string, number>>('plan-failures.json', {});
   for (const item of q.items) {
+    if ((planFails[item.query] ?? 0) >= 2) continue;
     const slug = slugOf(item.query);
     if (approved.has(slug) || pending.has(slug)) continue;
     const t = topics.get(slug);
@@ -313,7 +315,18 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     return { status: 'NOTHING_TO_DO', steps: [...steps, 'fila vazia ou todas as pautas resolvidas/esgotadas'], credits: creditsSpent() };
   }
 
-  const planned = await planTopic(query);
+  // Falha no planejamento (ex.: saída inválida do modelo) não derruba o ciclo: a pauta sai da vez após 2.
+  let planned: Awaited<ReturnType<typeof planTopic>>;
+  try {
+    planned = await planTopic(query);
+  } catch (e) {
+    const fails = readState<Record<string, number>>('plan-failures.json', {});
+    fails[query] = (fails[query] ?? 0) + 1;
+    writeState('plan-failures.json', fails);
+    steps.push(`planejamento de "${query}" falhou (${(e as Error).message.slice(0, 120)})${fails[query]! >= 2 ? '; pauta sai da vez' : ''}`);
+    recordCredits(creditsSpent());
+    return { status: 'NOTHING_TO_DO', steps, credits: creditsSpent() };
+  }
   steps.push(planned.created ? `pauta planejada (${planned.topic.questions.length} perguntas)` : 'pauta já existia');
   // Evidência já verificada em pautas vizinhas entra antes da pesquisa nova (mais completa, mais barata).
   try {

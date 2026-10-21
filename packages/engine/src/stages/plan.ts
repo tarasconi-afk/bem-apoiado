@@ -36,7 +36,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
   });
   const r = await callJson(
     {
-      role: 'writer',
+      role: 'planner',
       system:
         `Você planeja pautas para o site ${niche.brand} (${niche.scope}), que só escreve o que fontes primárias dizem ` +
         `(reguladores, normas, páginas oficiais de fabricantes). Reguladores típicos: ${niche.regulator_hints.join('; ')}.\n` +
