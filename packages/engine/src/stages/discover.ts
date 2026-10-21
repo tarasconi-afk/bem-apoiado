@@ -10,7 +10,7 @@ import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
 import { writeStage } from '../runs.ts';
 import { creditsThisMonth, webSearch, type SearchResult } from '../search.ts';
 import { snapshot } from '../snapshot.ts';
-import { DATA, loadTopics, TOPICS_DIR, writeJson } from '../store.ts';
+import { DATA, loadSources, loadTopics, TOPICS_DIR, writeJson } from '../store.ts';
 import { loadTopic } from './research.ts';
 
 // Descobre fontes para uma pauta: LLM sugere consultas → Tavily → só domínios do cadastro entram →
@@ -113,10 +113,15 @@ export async function discoverSources(
   const candidates = new Map<string, SearchResult & { publisher: string; source_class: SourceClass }>();
   const queries: { q: string; include_domains?: string[] }[] = plan.data.queries.slice(0, maxSearches);
   // Garantido, mesmo que o planejador esqueça: uma busca no site de cada fabricante do tipo (até 3).
-  for (const m of makers.slice(0, 3)) if (!queries.some((q) => q.include_domains?.includes(m.host))) queries.push({ q: `${topic.primary_query} ficha técnica especificações`, include_domains: [m.host] });
-  // Nenhum fabricante cadastrado para o tipo (categoria nova): 2 buscas abertas. O que vier de fora do
+  // Fabricantes que a pauta ainda não leu vêm primeiro: a página precisa de mais de uma marca (21/10: base box
+  // e cadeira ficaram presas a Ortobom/Probel e a Flexform).
+  const srcs = new Map(loadSources().map((x) => [x.id, x]));
+  const withEvidence = new Set(topic.source_ids.map((id) => srcs.get(id)).filter((x) => x?.source_class === 'manufacturer').map((x) => x!.publisher));
+  const fresh = [...makers.filter((m) => !withEvidence.has(m.publisher)), ...makers.filter((m) => withEvidence.has(m.publisher))];
+  for (const m of fresh.slice(0, 3)) if (!queries.some((q) => q.include_domains?.includes(m.host))) queries.push({ q: `${topic.primary_query} ficha técnica especificações`, include_domains: [m.host] });
+  // Menos de 2 fabricantes com fonte na pauta (ou nenhum cadastrado): 2 buscas abertas. O que vier de fora do
   // cadastro não entra como fonte; vira sugestão em "Domínios novos" para o editor aprovar.
-  if (!makers.length) {
+  if (withEvidence.size < 2) {
     const label = loadNiche().product_kinds.find((k) => topic.product_kinds.includes(k.id))?.label ?? topic.primary_query;
     queries.push({ q: `${label} fabricante ficha técnica especificações` }, { q: `${label} norma técnica requisitos Brasil` });
   }
