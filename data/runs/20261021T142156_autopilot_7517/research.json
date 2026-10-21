@@ -1,0 +1,162 @@
+{
+  "run_id": "20261021T142156_autopilot_7517",
+  "topic": "como-escolher-colchao",
+  "accepted": [
+    {
+      "claim_id": "clm_80b18ef58aa1",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_2f040ea6d323",
+      "new": true
+    },
+    {
+      "claim_id": "clm_686ae84e8543",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_2f040ea6d323",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3602c0340d27",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_e31faac7bf12",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c4bb0f0e5d36",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_bede80d9c047",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a7a19c58ca43",
+      "question_id": "q_colchao_tipos_estrutura",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fb875f7299b1",
+      "question_id": "q_colchao_tipos_estrutura",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_827b5cd7cd98",
+      "question_id": "q_densidade_espuma_o_que_e",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1b3fe9afff25",
+      "question_id": "q_densidade_espuma_o_que_e",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4d1b4e4f5828",
+      "question_id": "q_densidade_espuma_o_que_e",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_076751011313",
+      "question_id": "q_firmeza_relacao_fatores",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1597b8075648",
+      "question_id": "q_firmeza_relacao_fatores",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7b8c85091ae4",
+      "question_id": "q_firmeza_relacao_fatores",
+      "source_id": "src_065412eb6c34",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d79dfd73a1db",
+      "question_id": "q_densidade_espuma_o_que_e",
+      "source_id": "src_afc6fc23e2ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_df7d1c513351",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_afc6fc23e2ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_688cf846790e",
+      "question_id": "q_firmeza_relacao_fatores",
+      "source_id": "src_afc6fc23e2ca",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_e31faac7bf12",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Casal, Largura: 138 cm, Comprimento: 188 cm"
+    },
+    {
+      "source_id": "src_e31faac7bf12",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Queen size, Largura: 158 cm, Comprimento: 198 cm"
+    }
+  ],
+  "coverage": {
+    "q_colchao_tipos_estrutura": 2,
+    "q_densidade_espuma_o_que_e": 4,
+    "q_certificacao_inmetro_obrigatoria": 0,
+    "q_informacoes_etiqueta_colchao": 0,
+    "q_firmeza_relacao_fatores": 4,
+    "q_tamanho_colchao_opcoes": 5
+  },
+  "unanswered": [
+    "q_certificacao_inmetro_obrigatoria",
+    "q_informacoes_etiqueta_colchao"
+  ],
+  "usage": {
+    "input_tokens": 15386,
+    "output_tokens": 2017,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_2f040ea6d323",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_e31faac7bf12",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_bede80d9c047",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_065412eb6c34",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_afc6fc23e2ca",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.56
+    }
+  ],
+  "credits": 11.5765146
+}

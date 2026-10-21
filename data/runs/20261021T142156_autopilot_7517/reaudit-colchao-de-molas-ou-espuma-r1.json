@@ -1,0 +1,32 @@
+{
+  "patches": [
+    {
+      "ref": "diferencas-que-importam#0",
+      "action": "replace",
+      "text": "Fabricantes como Probel e Simmons afirmam que molas ensacadas individualmente minimizam ou evitam a transferência de movimentos e as recomendam para casais. A Ortobom declara que elas diminuem as vibrações e evitam que os movimentos de uma pessoa interfiram diretamente no sono da outra.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_34f341d76049",
+        "clm_2bfe0b0f071c",
+        "clm_0522b96db922"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas em colchões mistos, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto. Temas de saúde devem ser levados a um profissional de saúde.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_f616b772652c",
+        "clm_890b15b7e995",
+        "clm_5ecd83851e80"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. A primeira frase é sustentada pelos trechos do Inmetro. Porém, os trechos não dizem que temas de saúde devem ser levados a um profissional de saúde; apenas mencionam que produtos com indicação de prevenção, tratamento ou reabilitação são abrangidos pela Anvisa."
+    }
+  ]
+}

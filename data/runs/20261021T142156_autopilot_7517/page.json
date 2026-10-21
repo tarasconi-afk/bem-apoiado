@@ -1,0 +1,44 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 36771,
+    "output_tokens": 13609,
+    "calls": 19
+  },
+  "credits": 16.1438346,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "filler_refs": [
+      "verdict",
+      "tipos-estrutura#1",
+      "densidade-espuma#0",
+      "densidade-espuma#1",
+      "componentes-influenciam#1",
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Confira na ficha técnica quais densidades de espuma são usadas, como D28, D33 ou D45.",
+      "Verifique o material de cada camada, como espuma viscoelástica, espuma HR ou poliuretano D33.",
+      "Compare a construção: há modelos com molas ensacadas individualmente e modelos com molas de fios contínuos interconectados e borda de aço.",
+      "Escolha entre os tamanhos solteiro, viúva, casal, queen e king conforme o espaço disponível; o texto informa 138 × 188 cm para casal e 193 × 203 cm para king.",
+      "Não se limite ao nome do colchão: procure na ficha técnica as densidades e os materiais das camadas."
+    ],
+    "missing": [
+      "Explicação objetiva do que a densidade D28, D33 ou D45 mede e de como ela se relaciona — ou não — com firmeza e capacidade de suporte.",
+      "Critérios que relacionem densidade, tipo de espuma, espessura das camadas e núcleo ao peso do usuário, à firmeza e ao uso pretendido.",
+      "Descrição das diferenças práticas entre molas ensacadas e fios contínuos, como transferência de movimento, suporte e durabilidade, se informadas pelo fabricante.",
+      "Identificação da certificação obrigatória do Inmetro, incluindo o que ela garante ao consumidor.",
+      "Lista completa das informações obrigatórias na etiqueta ou ficha técnica, como fabricante, composição, dimensões, densidade, cuidados e identificação da certificação.",
+      "Tabela completa das dimensões padronizadas de solteiro, viúva, casal, queen e king, incluindo largura e comprimento; o texto só informa medidas de casal e king.",
+      "Orientação para conferir a altura e a compatibilidade do colchão com a cama, já que a altura é citada apenas em um exemplo."
+    ],
+    "publishable": false,
+    "summary": "A página responde parcialmente e oferece alguns itens concretos para conferir na ficha técnica, mas não explica o significado da densidade nem aborda a certificação e as informações obrigatórias do Inmetro, que são centrais para a pauta. Também repete conteúdo em vários blocos e não transforma os tipos de estrutura ou componentes em critérios práticos de escolha.",
+    "filler_ratio": 0.5714285714285714,
+    "model_opinion": false
+  }
+}

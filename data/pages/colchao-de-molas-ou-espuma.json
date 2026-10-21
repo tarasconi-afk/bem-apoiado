@@ -5,7 +5,7 @@
   "title": "Colchão de molas ou espuma: como decidir sem chutar",
   "description": "Como cada tipo é construído, o que muda para casais, o que a densidade (D) significa e o que o selo do Inmetro avalia (e o que não avalia).",
   "primary_query": "colchão de molas ou espuma",
-  "updated_at": "2026-10-20",
+  "updated_at": "2026-10-21",
   "verdict": {
     "text": "Depende de quem divide a cama e do que você prioriza. Fabricantes como Probel e Simmons afirmam que molas ensacadas individualmente reduzem a transferência de movimento entre os lados. Para espuma simples, a Ortobom orienta escolher a densidade pelo peso e pela altura de quem usa. A Simmons acrescenta que o conforto vem de toda a composição, não só do tipo. O Inmetro tem portarias distintas para cada tipo.",
     "basis": "reasoning",
@@ -185,7 +185,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Transferência de movimento é o quanto um lado da cama balança quando a outra pessoa se mexe. Fabricantes como Probel e Simmons afirmam que as molas ensacadas individualmente reduzem essa transferência, por isso as indicam para casais. A Ortobom diz o mesmo sobre suas molas ensacadas individualmente, que diminuiriam as vibrações entre os dois lados.",
+          "text": "Fabricantes como Probel e Simmons afirmam que molas ensacadas individualmente minimizam ou evitam a transferência de movimentos e as recomendam para casais. A Ortobom declara que elas diminuem as vibrações e evitam que os movimentos de uma pessoa interfiram diretamente no sono da outra.",
           "basis": "evidence",
           "claim_ids": [
             "clm_34f341d76049",
@@ -386,12 +386,10 @@
         {
           "kind": "callout",
           "tone": "info",
-          "text": "Se o anúncio promete efeito terapêutico ou ortopédico, lembre que o Inmetro não avalia essas propriedades e exige aviso no manual. Temas de saúde devem ser levados a um profissional de saúde.",
-          "basis": "reasoning",
+          "text": "Se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas em colchões mistos, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto.",
+          "basis": "evidence",
           "claim_ids": [
-            "clm_f616b772652c",
-            "clm_890b15b7e995",
-            "clm_5ecd83851e80"
+            "clm_890b15b7e995"
           ]
         }
       ]
@@ -399,9 +397,9 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261020T172047_colchao-de-molas-ou-espuma_dae4+edit:20261020T182719_colchao-de-molas-ou-espuma-edit_7079",
+    "run_id": "20261020T172047_colchao-de-molas-ou-espuma_dae4+edit:20261020T182719_colchao-de-molas-ou-espuma-edit_7079+reaudit:20261021T142156_autopilot_7517",
     "writer_model": "claude-opus-5",
-    "auditor_model": "gpt-5.6-sol",
+    "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass"
   }
 }
