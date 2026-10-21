@@ -1,4 +1,4 @@
-import { loadVerdicts } from './feedback.ts';
+import { loadThresholds, loadVerdicts } from './feedback.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -150,7 +150,7 @@ ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde
 ${requestsHtml()}
 
 <h2>Esperando sua decisão: resultados do motor</h2>
-${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr data-pending><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
+${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr data-pending><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${suggestionHtml(reviewFrom(readBranch(b.branch), b.branch.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')))}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
 <p class="muted">Aceitar roda testes, gate e build aqui antes de ir ao main; equivale ao merge do PR.</p>` : '<p class="muted">Nenhum resultado pendente.</p>'}
 
 ${verdictsHtml(pages)}
@@ -200,7 +200,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   const live = pages.filter((p) => p.status !== 'draft');
   return `<h2>Páginas: seu veredito ${waiting.length ? `<span class="b neutral">${waiting.length} aguardando</span>` : ''}</h2>
 ${waiting.length ? `<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a>. Aprovar publica; recusar volta ao motor com o motivo como instrução. Cada veredito calibra a revisão automática.</p>
-<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}</td><td>${box(p, true, 'Recusar')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
+<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}${suggestionHtml(reviewFrom(readMain, p.slug))}</td><td>${box(p, true, 'Recusar')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
 ${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor vai tentar de novo: ${rejected.map((p) => `${link(p)} <span class="muted">("${esc(lastFor(p)!.reason.slice(0, 80))}")</span>`).join(' · ')}</p>` : ''}
 <details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}<br>${editLink(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
@@ -283,6 +283,47 @@ const TABS_JS = `<script>
 })();
 </script>`;
 
+// Sugestão do motor (aceitar/recusar) com os motivos da revisão editorial: o editor vê o que não passou e
+// pode pedir ajuste. `read` lê um arquivo do repositório (do main ou de um ramo do motor).
+type FullReview = { answers_primary_query: string; concrete_guidance: boolean; filler_ratio: number; decision_criteria: string[]; missing: string[]; summary: string; publishable: boolean };
+function reviewFrom(read: (path: string) => string | null, slug: string): { review: FullReview; writer: string } | null {
+  try {
+    const page = JSON.parse(read(`data/pages/${slug}.json`) ?? 'null');
+    if (!page) return null;
+    const runs = String(page.provenance.run_id).split('+').map((x: string) => x.replace(/^[a-z]+:/, '')).reverse();
+    for (const r of runs) {
+      const pj = read(`data/runs/${r}/page.json`);
+      const rv = pj ? JSON.parse(pj).review : null;
+      if (rv) return { review: rv, writer: page.provenance.writer_model };
+    }
+  } catch {
+    /* sem revisão registrada */
+  }
+  return null;
+}
+const readMain = (path: string) => (existsSync(join(ROOT, path)) ? readFileSync(join(ROOT, path), 'utf8') : null);
+const readBranch = (branch: string) => (path: string) => {
+  try {
+    return execFileSync('git', ['show', `origin/${branch}:${path}`], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  } catch {
+    return null;
+  }
+};
+function suggestionHtml(x: { review: FullReview; writer: string } | null): string {
+  if (!x) return '';
+  const r = x.review;
+  const t = loadThresholds();
+  const ok = r.publishable;
+  const why = [
+    `responde à dúvida: ${r.answers_primary_query === 'yes' ? 'sim' : r.answers_primary_query === 'partial' ? 'em parte' : 'não'}`,
+    `enchimento ${Math.round(100 * r.filler_ratio)}% (limite ${Math.round(100 * t.max_filler_ratio)}%)${r.filler_ratio > t.max_filler_ratio ? ' ✗' : ''}`,
+    `${r.decision_criteria.length} critérios de decisão (mínimo ${t.min_criteria})${r.decision_criteria.length < t.min_criteria ? ' ✗' : ''}`,
+    r.concrete_guidance ? 'orienta o que fazer' : 'não orienta o que fazer ✗',
+  ];
+  return `<details class="sug"><summary>Sugestão do motor: <span class="b ${ok ? 'ok' : 'bad'}">${ok ? 'aceitar' : 'recusar'}</span> <span class="muted">${esc(why.join(' · '))}</span></summary>
+<p class="muted">${esc(r.summary)}</p>${r.missing.length ? `<p class="muted"><strong>Faltou:</strong></p><ul class="muted">${r.missing.slice(0, 5).map((m) => `<li>${esc(m)}</li>`).join('')}</ul>` : ''}<p class="muted">Redator: ${esc(x.writer)}. Discorda? Aprove ou recuse com o seu motivo; cada veredito calibra a regra. Para pedir ajuste específico, use "Pedir ao motor".</p></details>`;
+}
+
 // Pedidos em texto livre (agente): caixa + últimas respostas + pedidos anotados para o desenvolvedor.
 function requestsHtml(): string {
   const answers = jobs.filter((j) => j.label.startsWith('pedido:')).slice(0, 3);
@@ -308,6 +349,7 @@ ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textare
 }
 
 const ADMIN_CSS = `<style>
+.sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
 .tabs button{background:transparent;color:var(--muted);border:1px solid transparent;font-weight:600}
 .tabs button.on{background:var(--card);color:var(--ink);border-color:var(--line)}

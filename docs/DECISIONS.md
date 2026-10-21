@@ -346,3 +346,10 @@ edit_text (escolhe blocos, o redator reescreve com as mesmas fontes, edição ma
 sustentado), unpublish, report (gastos, qualidade, páginas, fila; montado dos dados, sem IA). Mudança de
 código, visual, regra, orçamento, domínios ou integrações NÃO é executada: vira item de
 data/dev-requests.json ("pedidos para o desenvolvedor"), lido na próxima sessão de desenvolvimento.
+
+## 2026-10-21 — Sugestão do motor no painel; implantação forçada pelo Action
+Cada resultado do motor e cada rascunho esperando veredito mostra "Sugestão do motor: aceitar/recusar" com os
+números da revisão (responde à dúvida, enchimento × limite, critérios × mínimo, orientação), o resumo e o que
+faltou; o editor decide e, se discordar, o veredito calibra a regra. A Hostinger voltou a não implantar o
+push do ramo deploy no bemapoiado.com (ficou em 5e9e2e5 com o main em bc88fe8); o Action ganhou etapa que
+força a implantação pela API se o segredo HOSTINGER_API_TOKEN existir (o token fica só nessa etapa).

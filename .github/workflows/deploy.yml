@@ -17,6 +17,9 @@ jobs:
       SITE_URL: https://bemapoiado.com
       # Indexação liberada pelo dono em 2026-10-21. Rascunho nunca é publicado; prévias (VPS) seguem noindex.
       SITE_INDEXABLE: 'true'
+      # Segredo opcional (Settings → Secrets → Actions): força a implantação na Hostinger após publicar.
+      # Aqui vai só "existe ou não"; o token em si fica restrito à etapa que o usa.
+      HAS_HOSTINGER_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -38,3 +41,14 @@ jobs:
           user_name: bem-apoiado-ci
           user_email: ci@bemapoiado.invalid
           commit_message: "site gerado de ${{ github.sha }}"
+      # A implantação por Git da Hostinger nem sempre dispara com o push no ramo deploy (21/10, duas vezes).
+      # Regravar a configuração de auto-deploy força a implantação. Só roda se o segredo existir.
+      - name: Forçar implantação na Hostinger
+        if: ${{ env.HAS_HOSTINGER_TOKEN == 'true' }}
+        env:
+          HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+        run: |
+          curl -fsS -X PUT -H "Authorization: Bearer $HOSTINGER_API_TOKEN" -H "Content-Type: application/json" \
+            -d '{"installation_uuid":"019ff2bf-978e-7364-a77a-7ff4f0fdbd7b","owner":"tarasconi-afk","repository":"bem-apoiado","branch":"deploy","directory":"","is_enabled":true}' \
+            https://developers.hostinger.com/api/hosting/v1/accounts/u226814741/websites/bemapoiado.com/git/auto-deployments/settings
+
