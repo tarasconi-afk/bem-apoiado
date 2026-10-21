@@ -295,6 +295,17 @@ async function main(): Promise<number> {
       console.log(`~${creditsSpent().toFixed(2)} créditos`);
       return r.status === 'REJECTED' ? 1 : 0;
     }
+    case 'reuse': {
+      if (!rest[0]) {
+        console.error('uso: reuse <slug>');
+        return 2;
+      }
+      setRunBudget(5);
+      const { reuseEvidence } = await import('./stages/reuse.ts');
+      const r = await reuseEvidence(rest[0]);
+      console.log(`${r.reused} evidência(s) reaproveitada(s) de ${r.sources} fonte(s); ~${creditsSpent().toFixed(2)} créditos`);
+      return 0;
+    }
     case 'calibrate': {
       const { values } = parseArgs({ args: rest, options: { apply: { type: 'boolean', default: false } } });
       const r = calibrate(loadVerdicts());

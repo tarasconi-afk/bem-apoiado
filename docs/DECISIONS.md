@@ -329,3 +329,12 @@ norma técnica); o painel explica cada classe de fonte.
 O dono autorizou gastar mais enquanto o motor é desenvolvido e testado: 250 créditos/dia e 60/ciclo (4
 ciclos/dia). Voltar para ~100/dia e 40/ciclo quando a taxa de aprovação e o custo por página se firmarem.
 Ajuste: BEM_DAILY_CREDIT_CAP e BEM_CYCLE_BUDGET em infra/bem-apoiado-cycle.service (e no admin, só exibição).
+
+## 2026-10-21 — Reuso de evidências entre pautas
+Primeiro ciclo com o fluxo novo (Haiku, lições, ideias): 16,1 créditos; re-auditoria corrigiu 2 blocos de
+"molas ou espuma"; 5 pautas do autocompletar entraram na fila; "como escolher colchão" (15 evidências novas)
+reprovada na revisão: 57% de enchimento e sem densidade, Inmetro e etiqueta, que o motor JÁ tinha verificado
+para outras páginas (cada pauta só enxergava as próprias fontes). Agora, antes da pesquisa nova, a pauta
+reaproveita evidências de pautas com os mesmos tipos de produto ou da mesma categoria: o Haiku só liga cada
+evidência às perguntas novas (o trecho literal já foi conferido); a fonte entra como já pesquisada. A base
+de evidências passa a acumular: página nova fica mais completa e mais barata.

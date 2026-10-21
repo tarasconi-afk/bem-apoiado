@@ -1,3 +1,4 @@
+import { reuseEvidence } from './reuse.ts';
 import { discoverIdeas, promoteIdeas } from './ideas.ts';
 import { newRunId } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
@@ -312,8 +313,16 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     return { status: 'NOTHING_TO_DO', steps: [...steps, 'fila vazia ou todas as pautas resolvidas/esgotadas'], credits: creditsSpent() };
   }
 
-  const { topic, created } = await planTopic(query);
-  steps.push(created ? `pauta planejada (${topic.questions.length} perguntas)` : 'pauta já existia');
+  const planned = await planTopic(query);
+  steps.push(planned.created ? `pauta planejada (${planned.topic.questions.length} perguntas)` : 'pauta já existia');
+  // Evidência já verificada em pautas vizinhas entra antes da pesquisa nova (mais completa, mais barata).
+  try {
+    const re = await reuseEvidence(planned.topic.slug);
+    if (re.reused) steps.push(`reuso: ${re.reused} evidência(s) já verificadas de ${re.sources} fonte(s) de pautas vizinhas`);
+  } catch (e) {
+    steps.push(`reuso: falhou (${(e as Error).message.slice(0, 80)})`);
+  }
+  const topic = loadTopics().find((t) => t.slug === planned.topic.slug) ?? planned.topic;
 
   if (topic.researched_source_ids.length > 0 && topic.evidence_gaps.length > 0) {
     // Já tentada e reprovada: nova tentativa dirigida às lacunas.
@@ -322,7 +331,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   } else {
     const d = await discoverSources(topic.slug, runId);
     steps.push(`discover: ${d.added.length} fontes (${d.queries.length} buscas)`);
-    if (d.added.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
+    // Sem fonte nova, ainda pode haver evidência reaproveitada suficiente: só para se não houver nenhuma fonte.
+    if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
     const r = await research(topic.slug, runId);
     steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
     const p = await buildPage(topic.slug, runId);
