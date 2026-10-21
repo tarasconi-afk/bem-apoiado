@@ -1,0 +1,27 @@
+{
+  "patches": [
+    {
+      "ref": "ajustes-declarados#1",
+      "action": "replace",
+      "text": "Segundo a Flexform, os mecanismos podem ser datilo, que inclina apenas o encosto com tensão fixa; relax, que inclina encosto e assento com tensão ajustável por peso; ou sincronizado, que inclina ambos de forma coordenada.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e3fdb4ada9dc"
+      ]
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "action": "replace",
+      "text": "A Flexform informa suporte de peso de 136 kg.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0ac471fb7745"
+      ]
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "action": "remove"
+    }
+  ],
+  "open_issues": []
+}
