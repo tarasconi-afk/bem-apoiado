@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { recordCharge } from './credits.ts';
+import { addSpend } from './llm.ts';
 
 // Imagens ilustrativas geradas por IA (gpt-image via AI Router). Uma por tipo de produto do nicho,
 // mais a capa. Cada arquivo fica registrado com modelo, prompt, custo e hash: origem auditável.
@@ -88,7 +88,8 @@ export async function generateImage(b: Brief, root: string, o: GenerateOptions =
     sha256: createHash('sha256').update(webp).digest('hex'), created_at: (o.now ?? new Date()).toISOString(),
     license: `Gerada por IA para o projeto (${model} via Hostinger AI Router). Ilustrativa; não retrata produto específico.`,
   });
-  recordCharge('imagem', model, rec.credits, d.usage?.credits_charged === undefined);
+  // Conta no teto do ciclo e no livro-caixa (antes só ia para o livro-caixa e o ciclo subestimava o gasto).
+  addSpend(rec.credits, 'imagem', model);
   const reg = loadRegistry(root).filter((r) => r.id !== b.id);
   mkdirSync(join(root, 'data/images'), { recursive: true });
   writeFileSync(paths.registry, JSON.stringify([...reg, rec].sort((a, x) => a.id.localeCompare(x.id)), null, 2) + '\n');

@@ -287,7 +287,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const query = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
   if (!query && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);
   if (!query) {
-    if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao', steps: [...steps, 'fila sem pauta pendente'] });
+    const why = creditsLeft() < PAGE_MIN_CREDITS ? 'sem orçamento para página nova neste ciclo' : 'fila sem pauta pendente';
+    if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao', steps: [...steps, why] });
     recordCredits(creditsSpent()); // tentativa de produtos sem resultado também gasta
     return { status: 'NOTHING_TO_DO', steps: [...steps, 'fila vazia ou todas as pautas resolvidas/esgotadas'], credits: creditsSpent() };
   }

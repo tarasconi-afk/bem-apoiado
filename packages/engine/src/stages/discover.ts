@@ -170,6 +170,9 @@ export async function discoverSources(
 export function editRegistry(op: 'allow' | 'block', host: string, publisher?: string, sourceClass?: SourceClass, path = join(DATA, 'registry', 'domains.json')): boolean {
   const h = host.toLowerCase().replace(/^www\./, '').trim();
   if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(h)) throw new Error(`domínio inválido: ${host}`);
+  // Sufixo público (gov.br, com.br...) cobriria milhares de sites: aprovar "gov.br" liberou prefeituras
+  // e diários oficiais como "regulador" (21/10). Só domínio de um publicador específico.
+  if (op === 'allow' && isPublicSuffix(h)) throw new Error(`${h} é um sufixo público, não um site: aprove o domínio do órgão ou da empresa (ex.: inmetro.gov.br)`);
   const raw = JSON.parse(readFileSync(path, 'utf8'));
   const reg = Registry.parse(raw);
   if (reg.allow.some((a) => a.host === h && !a.path) || reg.block.includes(h)) return false;
@@ -180,6 +183,9 @@ export function editRegistry(op: 'allow' | 'block', host: string, publisher?: st
   writeFileSync(path, JSON.stringify(raw, null, 2) + '\n');
   return true;
 }
+
+const SUFFIX_2 = /^(gov|com|org|net|edu|ind|art|mil|jus|leg|mp|blog|eco|emp|tec|app|dev)\.br$/;
+export const isPublicSuffix = (h: string) => SUFFIX_2.test(h) || /^[a-z]{2,}$/.test(h) || /^(co|com|org|gov|ac)\.[a-z]{2}$/.test(h);
 
 // Prefeituras, estados e diários oficiais (licitação, edital): aparecem muito na busca e nunca são fonte.
 const NOISE = /(\.(ac|al|am|ap|ba|ce|df|es|go|ma|mg|ms|mt|pa|pb|pe|pi|pr|rj|rn|ro|rr|rs|sc|se|sp|to)\.gov\.br|^pncp\.gov\.br|imprensaoficial|diario|licitac)/;
@@ -195,7 +201,7 @@ export function domainCandidates(runsDir: string, reg: Registry): { host: string
     try { d = JSON.parse(readFileSync(f, 'utf8')); } catch { continue; }
     for (const s of d.suggestions ?? []) {
       const host = s.host.replace(/^www\./, '');
-      if (classify(`https://${host}/`, reg) !== 'unknown' || NOISE.test(host)) continue;
+      if (classify(`https://${host}/`, reg) !== 'unknown' || NOISE.test(host) || isPublicSuffix(host)) continue;
       const c = out.get(host) ?? { host, hits: 0, topics: new Set<string>(), example: { url: s.url, title: s.title } };
       c.hits++;
       if (d.topic) c.topics.add(d.topic);

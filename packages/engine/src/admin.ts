@@ -98,12 +98,14 @@ function startJob(label: string, args: string[]): string | null {
 }
 
 // Ramos do motor ainda não mesclados: resultado de ciclos esperando decisão.
-function pendingBranches(): { branch: string; subject: string; when: string }[] {
+function pendingBranches(): { branch: string; subject: string; when: string; steps: string[] }[] {
   try {
-    const out = execFileSync('git', ['for-each-ref', '--no-merged=origin/main', '--sort=-committerdate', '--format=%(refname:short)|%(subject)|%(committerdate:iso-strict)', 'refs/remotes/origin/pagina/'], { cwd: ROOT, encoding: 'utf8' });
-    return out.split('\n').filter(Boolean).map((l) => {
-      const [ref, subject, when] = l.split('|');
-      return { branch: ref!.replace(/^origin\//, ''), subject: subject ?? '', when: when ?? '' };
+    const out = execFileSync('git', ['for-each-ref', '--no-merged=origin/main', '--sort=-committerdate', '--format=%(refname:short)%1f%(subject)%1f%(committerdate:iso-strict)%1f%(body)%1e', 'refs/remotes/origin/pagina/'], { cwd: ROOT, encoding: 'utf8' });
+    return out.split('\x1e').map((x) => x.trim()).filter(Boolean).map((l) => {
+      const [ref, subject, when, body] = l.split('\x1f');
+      // Etapas do ciclo (linhas "- ..." do corpo do commit): o que o motor fez, inclusive quando não gerou página.
+      const steps = (body ?? '').split('\n').filter((x) => x.startsWith('- ')).map((x) => x.slice(2));
+      return { branch: ref!.replace(/^origin\//, ''), subject: subject ?? '', when: when ?? '', steps };
     });
   } catch {
     return [];
@@ -120,8 +122,10 @@ function previewLink(branch: string): string {
   const dir = branch.replace(/^pagina\//, '');
   const slug = dir.replace(/-\d{8}-\d{4}$/, '');
   const ready = existsSync(join(PREVIAS, dir, 'index.html'));
-  const target = existsSync(join(PREVIAS, dir, slug)) ? `${slug}/` : '';
-  return ready ? `<a href="${BASE}previa/${esc(dir)}/${esc(target)}" target="_blank" rel="noopener"><strong>Ver prévia da página</strong></a>` : '<span class="muted">prévia sendo montada (até 5 min)</span>';
+  if (!ready) return '<span class="muted">prévia sendo montada (até 5 min)</span>';
+  // Tentativa que não gerou página (parou antes) ou manutenção: não há página para ver; a prévia é do site.
+  if (!existsSync(join(PREVIAS, dir, slug))) return `<span class="muted">sem página nova para ver</span> · <a href="${BASE}previa/${esc(dir)}/" target="_blank" rel="noopener">site com esta mudança</a>`;
+  return `<a href="${BASE}previa/${esc(dir)}/${esc(slug)}/" target="_blank" rel="noopener"><strong>Ver prévia da página</strong></a>`;
 }
 
 const esc = (s: unknown) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
@@ -139,7 +143,7 @@ ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.started))}. A página atualiza sozinha.</p>` : ''}
 
 <h2>Esperando sua decisão: resultados do motor</h2>
-${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
+${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
 <p class="muted">Aceitar roda testes, gate e build aqui antes de ir ao main; equivale ao merge do PR.</p>` : '<p class="muted">Nenhum resultado pendente.</p>'}
 
 <h2>Páginas: seu veredito</h2>

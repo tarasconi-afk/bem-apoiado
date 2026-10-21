@@ -38,6 +38,7 @@ describe('cadastro de domínios pelo painel', () => {
     const c = domainCandidates(runs, { allow: [{ host: 'gov.br', publisher: 'G', source_class: 'regulator' }], block: [] } as never);
     expect(c.map((x) => x.host)).toEqual(['mesasx.com.br']);
     expect(() => editRegistry('allow', 'nao é domínio', 'X', 'manufacturer')).toThrow();
+    expect(() => editRegistry('allow', 'gov.br', 'Gov', 'regulator', j(runs, 'x.json'))).toThrow(/sufixo público/);
     const regFile = j(runs, 'domains.json');
     wf(regFile, JSON.stringify({ allow: [], block: [] }));
     expect(editRegistry('allow', 'www.MesasX.com.br', 'Mesas X', 'manufacturer', regFile)).toBe(true);
