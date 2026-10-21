@@ -7,13 +7,11 @@
   "primary_query": "base para cama box: o que conferir",
   "updated_at": "2026-10-21",
   "verdict": {
-    "text": "Bases de colchões, quando não acopladas a eles, estão excluídas deste regulamento do Inmetro. Ao avaliar um produto, confira na documentação do fabricante a compatibilidade de largura, a capacidade de carga — inclusive se inclui o peso do colchão — e os prazos e condições de garantia informados.",
-    "basis": "reasoning",
+    "text": "Na documentação da Ortobom citada, colchões Casal têm largura entre 128 cm e 138 cm, e colchões Queen, King e Superking entre 158 cm e 193 cm. Um produto Ortobom informa capacidade de 150 kg além do peso do colchão. Na página de um kit Probel, a garantia informada é de 6 meses para a estrutura e 3 meses para tecido e mecanismos. Verifique na ficha técnica do seu produto qual é exatamente a capacidade de carga e se o peso do colchão está incluído naquele valor.",
+    "basis": "evidence",
     "claim_ids": [
-      "clm_bc7b42eb4e1b",
       "clm_b8200cb52c08",
       "clm_f07ed1d3c9d0",
-      "clm_07edec6f3f44",
       "clm_286a835dbfa3",
       "clm_1b99b17cf337"
     ]
@@ -225,7 +223,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você quer verificar a compatibilidade, a Ortobom indica bases para colchões Casal com largura entre 128 cm e 138 cm e para colchões Queen, King ou Superking entre 158 cm e 193 cm. As dimensões finais do produto podem variar em até 1,0 cm, inclusive em produtos sob medida.",
+          "text": "Se você está escolhendo o tamanho, confira na ficha técnica da base: na documentação da Ortobom citada, colchões Casal têm largura entre 128 cm e 138 cm, e colchões Queen, King e Superking entre 158 cm e 193 cm. As dimensões finais podem variar até 1,0 cm para mais ou para menos, inclusive em produtos sob medida.",
           "basis": "evidence",
           "claim_ids": [
             "clm_b8200cb52c08",
@@ -235,27 +233,20 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer saber o peso máximo que a base suporta: procure na ficha a informação de capacidade de carga e verifique se o número inclui ou exclui o peso do colchão (isso muda o cálculo do total). Segundo a Ortobom, uma de suas bases suporta 150 kg além do peso do colchão.",
+          "text": "Se você precisa saber o peso máximo permitido, procure na ficha a capacidade de carga e verifique exatamente como o fabricante descreve esse número: se o peso do colchão está incluído ou não. Na página da base Bellona citada, a Ortobom informa 150 kg além do peso do colchão; na página do kit Probel citado, a garantia informada é de 6 meses para a estrutura e 3 meses para tecido e mecanismos.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_286a835dbfa3"
+            "clm_286a835dbfa3",
+            "clm_1b99b17cf337"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer comparar garantias: procure prazos diferentes para estrutura, tecido e mecanismos, pois variam por fabricante. Segundo a Probel, algumas bases oferecem 6 meses para a estrutura e 3 meses para tecido e mecanismos. Segundo a Ortobom, a estrutura de madeira pode ter garantia de 1 ano (maior parte das linhas) ou 5 anos (linha Arte), enquanto amortecedores, pés e mecanismos têm cobertura legal de 3 meses.",
+          "text": "Se você quer comparar garantias, a tabela da Ortobom citada mostra 5 anos para a linha Arte e períodos de 1 ano em outras categorias nela listadas. No produto Probel citado, a garantia é de 6 meses para a estrutura e 3 meses para tecido e mecanismos. Verifique o posicionamento adequado da base: segundo a Ortobom, são exemplos de posicionamento inadequado uma base menor ou maior que o colchão e imperfeições no piso que afetem a estabilidade.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1b99b17cf337",
             "clm_5a2a8e2e5f7f",
-            "clm_ac0d02067042"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Ortobom, o posicionamento é inadequado quando o produto é menor ou maior que o colchão ou quando há imperfeições no piso que afetem a estabilidade do produto.",
-          "basis": "evidence",
-          "claim_ids": [
+            "clm_1b99b17cf337",
             "clm_3d2d072e15ca"
           ]
         }
@@ -264,7 +255,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00",
+    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
