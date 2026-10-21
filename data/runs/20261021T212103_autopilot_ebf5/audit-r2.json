@@ -1,0 +1,120 @@
+{
+  "findings": [
+    {
+      "ref": "como-firmeza-varia#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-corporal-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "inmetro-nao-avalia-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As duas afirmações sobre a relação entre firmeza, densidade e peso são apresentadas como fatos gerais, mas os trechos citados são todos de fabricante. Além disso, os trechos não dizem explicitamente que a escolha pode considerar preferências pessoais de conforto.",
+      "fix": "Segundo a Castor, a firmeza está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura da pessoa. A Castor também relaciona densidades menores a colchões mais macios e confortáveis. Procure um profissional de saúde se você acredita precisar de uma firmeza específica."
+    },
+    {
+      "ref": "como-firmeza-varia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-firmeza-varia#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "componentes-espuma-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "componentes-espuma-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "componentes-espuma-firmeza#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-corporal-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-corporal-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "inmetro-nao-avalia-firmeza#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que as Portarias nº 35/2021 e nº 75/2021 aprovam regulamentos técnicos e requisitos de avaliação da conformidade, mas não dizem que o foco é o desempenho por meio de certificação compulsória.",
+      "fix": "A Portaria Inmetro nº 35/2021 aprova o Regulamento Técnico da Qualidade e os Requisitos de Avaliação da Conformidade para colchões e colchonetes de espuma flexível de poliuretano, enquanto a nº 75/2021 faz o mesmo para colchões de molas."
+    },
+    {
+      "ref": "inmetro-nao-avalia-firmeza#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são afirmações da Castor, mas o bloco apresenta a relação entre densidade e firmeza como fato geral, sem atribuí-la à fabricante. Além disso, os trechos citam peso e altura, não preferências, e não sustentam especificamente a recomendação de consultar anúncio ou ficha técnica.",
+      "fix": "Segundo a Castor, a densidade tem relação com a firmeza do colchão, e a densidade da espuma deve ser adequada ao peso e à altura da pessoa. Consulte no anúncio ou na ficha técnica a densidade e a descrição de firmeza informadas pelo fabricante."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As duas afirmações sobre a relação entre firmeza, densidade e peso são apresentadas como fatos gerais, mas os trechos citados são todos de fabricante. Além disso, os trechos não dizem explicitamente que a escolha pode considerar preferências pessoais de conforto. Versão sustentável: Segundo a Castor, a firmeza está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura da pessoa. A Castor também relaciona densidades menores a colchões mais macios e confortáveis. Procure um profissional de saúde se você acredita precisar de uma firmeza específica."
+    },
+    {
+      "ref": "inmetro-nao-avalia-firmeza#0",
+      "msg": "OVERSTATED. Os trechos sustentam que as Portarias nº 35/2021 e nº 75/2021 aprovam regulamentos técnicos e requisitos de avaliação da conformidade, mas não dizem que o foco é o desempenho por meio de certificação compulsória. Versão sustentável: A Portaria Inmetro nº 35/2021 aprova o Regulamento Técnico da Qualidade e os Requisitos de Avaliação da Conformidade para colchões e colchonetes de espuma flexível de poliuretano, enquanto a nº 75/2021 faz o mesmo para colchões de molas."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. Os trechos são afirmações da Castor, mas o bloco apresenta a relação entre densidade e firmeza como fato geral, sem atribuí-la à fabricante. Além disso, os trechos citam peso e altura, não preferências, e não sustentam especificamente a recomendação de consultar anúncio ou ficha técnica. Versão sustentável: Segundo a Castor, a densidade tem relação com a firmeza do colchão, e a densidade da espuma deve ser adequada ao peso e à altura da pessoa. Consulte no anúncio ou na ficha técnica a densidade e a descrição de firmeza informadas pelo fabricante."
+    }
+  ]
+}
