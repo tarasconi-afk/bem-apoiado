@@ -1,0 +1,13 @@
+---
+// Texto de um bloco com, no máximo, um link interno na primeira ocorrência da âncora (inlineLinks).
+interface Props {
+  text: string;
+  link?: { start: number; end: number; href: string };
+}
+const { text, link } = Astro.props;
+---
+{link ? <>{text.slice(0, link.start)}<a class="inline-link" href={link.href}>{text.slice(link.start, link.end)}</a>{text.slice(link.end)}</> : text}
+<style>
+  .inline-link { color: var(--brand); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  .inline-link:hover { text-decoration-thickness: 2px; }
+</style>

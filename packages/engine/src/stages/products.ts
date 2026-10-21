@@ -293,7 +293,7 @@ export async function findProductsFromAmazon(
       const l = await callJson(
         {
           role: 'extractor',
-          system: 'Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). "is_single_product": false se for kit, conjunto com base/box ou acessório.',
+          system: 'Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": false se for kit, conjunto com base/box ou acessório.',
           user: (sourceText(listing.id) ?? '').slice(0, 6000),
           schema: Listing,
           schemaName: 'listing',
@@ -305,15 +305,9 @@ export async function findProductsFromAmazon(
         report.skipped.push({ url: h.url, reason: 'kit/conjunto/acessório' });
         continue;
       }
-      // Marca plausível: sem artigo no início, no máximo 3 palavras ("O armazenamento do colchão" não é marca)
-      // e não pode ser palavra genérica do próprio produto ("Espuma D33-20cm" não tem marca; 21/10).
-      const generic = new Set([...loose(labels.get(kind) ?? kind).split(/\s+/), 'colchao', 'colchão', 'espuma', 'travesseiro', 'mola', 'molas', 'cadeira', 'mesa', 'suporte', 'almofada', 'generico', 'genérico', 'generica', 'genérica', 'sem', 'marca', 'kit']);
-      if (loose(l.data.brand).split(/\s+/).every((w) => generic.has(w))) {
-        report.skipped.push({ url: h.url, reason: `marca genérica: "${l.data.brand}"` });
-        continue;
-      }
-      if (/^(o|a|os|as|um|uma)\s/i.test(l.data.brand.trim()) || l.data.brand.trim().split(/\s+/).length > 3) {
-        report.skipped.push({ url: h.url, reason: `marca implausível: "${l.data.brand}"` });
+      const bad = brandProblem(l.data.brand, labels.get(kind) ?? kind);
+      if (bad) {
+        report.skipped.push({ url: h.url, reason: bad });
         continue;
       }
       // O anúncio vende o PRÓPRIO produto do tipo, e não capa, bolsa, protetor, base ou acessório?
@@ -397,6 +391,17 @@ export async function findProductsFromAmazon(
   }
   writeStage(runId, 'products-amazon', { ...report, credits: creditsSpent() });
   return report;
+}
+
+// Marca plausível: não vazia, sem artigo no início, no máximo 3 palavras ("O armazenamento do colchão"
+// não é marca), não só palavra genérica do produto ("Espuma D33-20cm" não tem marca) e sem especificação
+// no lugar ("D33 Miami" virou marca "D33"; 21/10). Vale na entrada e na renovação (refresh retira).
+export function brandProblem(brand: string, kindLabel: string): string | null {
+  const b = brand.trim();
+  const generic = new Set([...loose(kindLabel).split(/\s+/), 'colchao', 'colchão', 'espuma', 'travesseiro', 'mola', 'molas', 'cadeira', 'mesa', 'suporte', 'almofada', 'generico', 'genérico', 'generica', 'genérica', 'sem', 'marca', 'kit']);
+  if (!b || loose(b).split(/\s+/).every((w) => generic.has(w))) return `marca genérica: "${brand}"`;
+  if (/^(o|a|os|as|um|uma)\s/i.test(b) || b.split(/\s+/).length > 3 || b.split(/\s+/).some((w) => /\d/.test(w))) return `marca implausível: "${brand}"`;
+  return null;
 }
 
 // Nível "só anúncio": sem ficha oficial. O cartão mostra apenas o tipo "anunciado como", com a linha

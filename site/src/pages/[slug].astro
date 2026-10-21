@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cite from '../components/Cite.astro';
+import Linked from '../components/Linked.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { BRAND, categoryOf, fmtDate, href, imageFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import { BRAND, categoryOf, fmtDate, href, imageFor, inlineLinks, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -17,6 +18,7 @@ const n = fn.numberFor;
 const kinds = kindsFor(page);
 const cat = categoryOf(page);
 const related = relatedPages(page);
+const links = inlineLinks(page);
 const isDecision = (id: string, heading: string) => /decidir|escolher/i.test(id + ' ' + heading);
 // Exemplos no meio da página: depois que os tipos e as diferenças foram explicados, antes dos detalhes
 // de etiqueta e da seção de decisão (no fim, quase ninguém chega até eles).
@@ -107,7 +109,7 @@ const jsonLd = [
         <>
         <section id={s.id} class={isDecision(s.id, s.heading) ? 'decide' : undefined}>
           <h2>{s.heading}</h2>
-          {s.blocks.map((b) =>
+          {s.blocks.map((b, bi) =>
             b.kind === 'table' ? (
               <figure class="table-wrap">
                 <div class="table-scroll" tabindex="0">
@@ -127,11 +129,11 @@ const jsonLd = [
                 <figcaption>{b.caption}</figcaption>
               </figure>
             ) : b.kind === 'callout' ? (
-              <p class={`callout ${b.tone}`}>{b.text}<Cite nums={n(b.claim_ids)} /></p>
+              <p class={`callout ${b.tone}`}><Linked text={b.text} link={links.get(`${s.id}#${bi}`)} /><Cite nums={n(b.claim_ids)} /></p>
             ) : isDecision(s.id, s.heading) && b.basis !== 'framing' ? (
-              <p class="check">{b.text}<Cite nums={n(b.claim_ids)} /></p>
+              <p class="check"><Linked text={b.text} link={links.get(`${s.id}#${bi}`)} /><Cite nums={n(b.claim_ids)} /></p>
             ) : (
-              <p class={b.basis === 'framing' ? 'lead' : undefined}>{b.text}<Cite nums={n(b.claim_ids)} /></p>
+              <p class={b.basis === 'framing' ? 'lead' : undefined}><Linked text={b.text} link={links.get(`${s.id}#${bi}`)} /><Cite nums={n(b.claim_ids)} /></p>
             ),
           )}
         </section>
@@ -308,6 +310,8 @@ const jsonLd = [
   .related { margin-top: 3rem; }
   .related-more { margin-top: 0.8rem; font-weight: 600; }
   .related-more a { text-decoration: none; }
+  .decide :global(.inline-link) { color: #fff; }
+  .decide .callout :global(.inline-link) { color: var(--brand); }
   .sources { margin-top: 3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   .sources summary { cursor: pointer; padding: 1rem 1.2rem; font-weight: 650; }
   .sources[open] summary { border-bottom: 1px solid var(--line); }

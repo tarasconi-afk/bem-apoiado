@@ -94,4 +94,7 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] painel: editar texto à mão (com auditoria) e pedidos em texto livre (agente)
 - [ ] edição de tabelas no painel; ler data/dev-requests.json no início de cada sessão de desenvolvimento
 - [x] ajuste com pesquisa; tema editável pelo chat com prévia e aceite
+- [x] exemplos à venda: 1 por tipo / 2 marcas, marcas citadas primeiro; ponte para anúncio bloqueado
+- [x] links internos no texto (âncoras do assunto principal, mesma categoria, colocação determinística)
+- [ ] renovação mensal das fontes; melhorias automáticas pelo Search Console; calibração com 8 vereditos
 - [ ] agente de código (seção/componente novo) num ramo com testes, build e prévia; avaliar modelo gratuito na VPS

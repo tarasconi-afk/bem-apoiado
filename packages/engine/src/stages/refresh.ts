@@ -6,7 +6,7 @@ import { writeStage } from '../runs.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP } from '../search.ts';
 import { buildIndex, CLAIMS_DIR, DATA, loadProducts, PRODUCTS_DIR, readState, sourceText, writeJson, writeState } from '../store.ts';
 import { claimIdFor } from './research.ts';
-import { captureListing } from './products.ts';
+import { brandProblem, captureListing } from './products.ts';
 
 // Renovação da disponibilidade: cada produto tem o anúncio recapturado antes de a prova envelhecer
 // (o gate recusa disponibilidade com mais de 30 dias). Só renova se o MESMO trecho literal continua
@@ -53,6 +53,12 @@ export async function refreshProducts(
   // continua com a prova antiga; sem isto o ciclo recapturaria (e pagaria) todo dia.
   const tried = readState<Record<string, string>>('products-refresh.json', {});
   for (const p of loadProducts()) {
+    const badBrand = brandProblem(p.brand, labels.get(p.kind) ?? p.kind);
+    if (badBrand) {
+      retire(p, badBrand, now);
+      report.retired.push({ asin: p.asin, reason: badBrand });
+      continue;
+    }
     const old = idx.claims.get(p.availability_claim_id);
     const age = old ? ageDays(old.captured_at, now) : Infinity;
     if (age < maxAge) continue;

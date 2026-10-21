@@ -411,3 +411,15 @@ endereço do próprio anúncio; só para marca do cadastro de fabricantes; o car
 nunca "disponibilidade conferida". Travas novas vindas do teste real: triagem recusa versão de viagem,
 portátil, pet e infantil; marca genérica ("Espuma D33-20cm") recusada; "luxo", "premium" e "super" barrados
 no nome do produto.
+
+## 2026-10-21 — Links internos no texto; ciclo pedido durante ação do painel
+Âncoras por página (data/link-anchors.json, auditável): o modelo barato propõe 3–6 expressões curtas do
+assunto PRINCIPAL da página (1ª versão pegava subtemas de seção, "instruções de lavagem", que roubariam a
+âncora de páginas futuras); cada âncora pertence a uma página só. A colocação é do site e determinística
+(placeLinks): primeira ocorrência, 1 link por destino, 1 por bloco, até 4 por página, sem resposta curta e
+tabela, só destino da mesma categoria ("densidades de espuma" num travesseiro levava à página D28/D33). O
+texto não muda; nada a re-auditar. Cobertura inicial baixa (0–1 link por página): precisão antes de volume.
+Produto com especificação no lugar da marca ("D33 Miami" → marca "D33") recusado na entrada e retirado na
+renovação. Ciclo: o "rodar agora" chegou durante uma mesclagem (mesma trava), o ciclo saiu sem apagar o
+pedido e o systemd o redisparou até travar o gatilho; agora espera a trava (até 30 min) e sem limite de
+disparo.

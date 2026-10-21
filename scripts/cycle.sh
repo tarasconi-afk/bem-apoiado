@@ -5,7 +5,13 @@ set -euo pipefail
 REPO=/opt/bem-apoiado/repo
 export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes"
 exec 9>/var/lib/bem-apoiado/cycle.lock
-flock -n 9 || { echo "outro ciclo em andamento; saindo"; exit 0; }
+# A trava é a mesma das ações do painel (mesclar, veredito...), que duram segundos: espera em vez de sair.
+# 21/10: o pedido "rodar agora" chegou durante uma mesclagem, o ciclo saiu sem apagar run-now e o systemd
+# o redisparou até bloquear o gatilho (start-limit-hit).
+if ! flock -n 9; then
+  echo "trava ocupada (ação do painel); esperando"
+  flock -w 1800 9 || { echo "trava ocupada há 30 min; saindo"; rm -f /var/lib/bem-apoiado/run-now; exit 0; }
+fi
 
 rm -f /var/lib/bem-apoiado/run-now   # pedido do painel atendido
 LIVE=/var/lib/bem-apoiado/cycle-live.json

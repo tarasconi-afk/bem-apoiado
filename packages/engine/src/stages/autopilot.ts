@@ -1,4 +1,5 @@
 import { reuseEvidence } from './reuse.ts';
+import { ensureAnchors } from './links.ts';
 import { discoverIdeas, promoteIdeas } from './ideas.ts';
 import { live, newRunId } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
@@ -250,6 +251,19 @@ async function maintainGsc(steps: string[]): Promise<boolean> {
   }
 }
 
+// Âncoras dos links internos para páginas no ar que ainda não têm (até 5 por ciclo, ~0,1 crédito cada).
+// O site liga a primeira ocorrência delas no texto das outras páginas; o texto não muda.
+async function maintainLinks(steps: string[]): Promise<boolean> {
+  try {
+    const done = await ensureAnchors(loadPages());
+    if (done.length) steps.push(`links internos: âncoras para ${done.join(', ')}`);
+    return done.length > 0;
+  } catch (e) {
+    steps.push(`links internos: falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
+
 async function maintainProducts(runId: string, steps: string[], only?: string): Promise<boolean> {
   let changed = false;
   if (!only) {
@@ -311,7 +325,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m4 = await maintainEnrich(runId, steps);
   const m5 = await maintainGsc(steps);
   const m6 = await maintainIdeas(steps);
-  const maintained = m1 || m2 || m3 || m4 || m5 || m6;
+  const m7 = await maintainLinks(steps);
+  const maintained = m1 || m2 || m3 || m4 || m5 || m6 || m7;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.

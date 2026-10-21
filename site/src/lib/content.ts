@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { affiliateUrl, checkProduct, DEFAULT_THEME, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
-import { buildIndex, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
+import { affiliateUrl, checkProduct, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
+import { buildIndex, loadAnchors, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
@@ -152,6 +152,15 @@ export function relatedPages(page: PageSpec, max = 4): PageSpec[] {
     return (categoryOf(p)?.id === cat?.id ? 10 : 0) + k.filter((x) => kinds.has(x)).length;
   };
   return publicPages().filter((p) => p.slug !== page.slug && p.status !== 'draft').map((p) => ({ p, s: score(p) })).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, max).map((x) => x.p);
+}
+
+// Links internos no texto: primeira ocorrência das âncoras de outras páginas no ar (data/link-anchors.json),
+// só da mesma categoria ("densidades de espuma" num travesseiro não leva à página de colchão D28 ou D33).
+export function inlineLinks(page: PageSpec): Map<string, { start: number; end: number; href: string }> {
+  const anchors = loadAnchors().pages;
+  const cat = categoryOf(page)?.id;
+  const targets = publicPages().filter((p) => p.status !== 'draft' && anchors[p.slug] && categoryOf(p)?.id === cat).map((p) => ({ slug: p.slug, anchors: anchors[p.slug]!.anchors }));
+  return new Map([...placeLinks(page, targets)].map(([ref, l]) => [ref, { start: l.start, end: l.end, href: href(`/${l.slug}/`) }]));
 }
 
 // Tema (data/theme.json, mudado pelo chat do painel com aceite): valores validados, padrão quando ausente.

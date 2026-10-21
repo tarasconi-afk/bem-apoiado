@@ -1,6 +1,8 @@
 [Unit]
 Description=Bem Apoiado: um ciclo do piloto automático
 After=network-online.target
+# Disparo repetido pelo gatilho run-now nunca bloqueia o serviço.
+StartLimitIntervalSec=0
 [Service]
 Type=oneshot
 User=bemapoiado
