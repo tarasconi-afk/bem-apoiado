@@ -1,6 +1,7 @@
 import { writerLessons } from '../lessons.ts';
 import type { Claim, NicheProfile, Source, TopicBrief } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
+import { sourceText } from '../store.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { makeDraftSchema, type Draft } from './draft-schema.ts';
 
@@ -41,16 +42,39 @@ Regras de forma:
 
 // Qual documento é (título + endereço): é aí que aparece o alcance ("anexo II teleatendimento") e a versão
 // ("atualizada-2018"). Sem isto, regra de um anexo virou "a NR-17 exige" para toda cadeira (21/10).
-export function docLabel(s: Source | undefined): string {
+// Com o trecho, diz também em que parte do documento ele está (último "ANEXO II"/"CAPÍTULO 3" antes dele,
+// com a linha de título seguinte): o PDF inteiro da NR-17 traz o Anexo II, e pelo endereço não dava para saber.
+export function docLabel(s: Source | undefined, quote?: string): string {
   if (!s) return '?';
-  return `${s.title ? `"${s.title.slice(0, 100)}" ` : ''}${s.final_url.replace(/^https?:\/\/(www\.)?/, '').slice(0, 160)}`;
+  const where = quote ? quoteLocation(s, quote) : null;
+  return `${s.title ? `"${s.title.slice(0, 100)}" ` : ''}${s.final_url.replace(/^https?:\/\/(www\.)?/, '').slice(0, 160)}${where ? ` | trecho em: ${where}` : ''}`;
+}
+
+const PART = /^[^\p{L}\d]*((?:ANEXO|Anexo|CAPÍTULO|Capítulo|CAPITULO)\s+[IVXLC\d]+\b[^\n]{0,80})$/gmu;
+export function quoteLocation(s: Source, quote: string): string | null {
+  const text = sourceText(s.id);
+  if (!text) return null;
+  const i = text.indexOf(quote.slice(0, 40));
+  if (i < 0) return null;
+  let last: RegExpExecArray | null = null;
+  for (const m of text.slice(0, i).matchAll(PART)) last = m;
+  // Antes de qualquer anexo/capítulo, mas o documento tem anexos depois: é o texto principal (21/10: o
+  // redator pôs "no Anexo II" no objetivo geral da NR-17). Título que reaparece depois do trecho é sumário.
+  const after = [...text.slice(i).matchAll(PART)];
+  const key = (h: string) => /^(\S+)\s+([IVXLC\d]+)/i.exec(h.trim())?.slice(1).join(' ').toUpperCase().replace('Í', 'I');
+  if (last && after.some((m) => key(m[1]!) === key(last![1]!))) last = null;
+  if (!last) return after.length ? `texto principal (antes de ${after[0]![1]!.trim().slice(0, 40)})` : null;
+  const head = last[1]!.trim();
+  // "ANEXO II" sozinho: a linha seguinte costuma ser o título ("TRABALHO EM TELEATENDIMENTO/TELEMARKETING").
+  const next = head.length < 20 ? text.slice(last.index! + last[0].length, i).split('\n').map((l) => l.trim()).find((l) => l.length > 3) : undefined;
+  return `${head}${next ? ` · ${next.slice(0, 80)}` : ''}`;
 }
 
 export function formatClaims(claims: Claim[], sources: Map<string, Source>): string {
   return claims
     .map((c) => {
       const s = sources.get(c.source_id);
-      return `[${c.id}] fonte: ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) | documento: ${docLabel(s)} | tipo: ${c.claim_type}\n  paráfrase: ${c.statement}\n  trecho literal: "${c.quote}"`;
+      return `[${c.id}] fonte: ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) | documento: ${docLabel(s, c.quote)} | tipo: ${c.claim_type}\n  paráfrase: ${c.statement}\n  trecho literal: "${c.quote}"`;
     })
     .join('\n');
 }

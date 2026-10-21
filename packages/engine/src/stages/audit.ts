@@ -22,7 +22,7 @@ Para cada bloco você recebe o texto publicado e os trechos LITERAIS das evidên
 - SUPPORTED: cada afirmação do bloco está dita nos trechos citados (paráfrase fiel é aceitável).
 - OVERSTATED: a ideia existe nos trechos, mas o bloco afirma mais (generaliza "sempre/todos", intensifica, acrescenta número ou condição). Também: regra de um anexo ou de um setor específico (veja o documento: ex. "anexo II teleatendimento") apresentada como regra geral; "é preferível/recomenda" (manual, guia) apresentado como exigência.
 - UNSUPPORTED: o bloco afirma algo que nenhum trecho citado diz.
-- MISATTRIBUTED: afirmação que nos trechos é posição de um fabricante (classe manufacturer) aparece como fato geral, sem "segundo a <marca>"; ou o bloco atribui a uma fonte o que ela não disse.
+- MISATTRIBUTED: afirmação que nos trechos é posição de um fabricante (classe manufacturer) aparece como fato geral, sem "segundo a <marca>"; ou o bloco atribui a uma fonte o que ela não disse. Também: o bloco situa a afirmação numa parte do documento (anexo, capítulo, setor) que o "trecho em" da evidência não mostra.
 - SAFETY_CLAIM: o bloco viola esta regra do site, MESMO quando atribui a afirmação a um fabricante: ${loadNiche().safety_rule}
 - FACT_IN_FRAMING: bloco com basis "framing" que afirma algum fato sobre produtos, fontes ou o mundo. Frase de transição que só descreve a própria página ("A seguir, veja o que as fontes dizem sobre X") NÃO é fato: é SUPPORTED.
 
@@ -81,7 +81,7 @@ export async function auditDraft(
           .map((id) => {
             const c = claims.get(id);
             const s = c ? sources.get(c.source_id) : undefined;
-            return c ? `    [${id}] ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) · documento: ${docLabel(s)}: "${c.quote}"` : `    [${id}] (inexistente)`;
+            return c ? `    [${id}] ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) · documento: ${docLabel(s, c.quote)}: "${c.quote}"` : `    [${id}] (inexistente)`;
           })
           .join('\n');
         return `BLOCO ${u.ref} (basis: ${u.basis})\n  texto: ${u.text}\n  trechos citados:\n${cited || '    (nenhum)'}`;

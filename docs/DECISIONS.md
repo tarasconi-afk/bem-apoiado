@@ -454,3 +454,13 @@ auditor passam a ver título e endereço do documento; generalizar anexo/setor o
 OVERSTATED; com duas versões do mesmo documento, vale a mais nova.
 Prévia de resultado montava com as imagens do main: capa nova aparecia como a ilustração antiga. Agora usa as
 do ramo; e o item mostra a miniatura da imagem nova.
+
+## 2026-10-21 — Ajuste que corrige em vez de desistir; parte do documento de cada trecho
+O ajuste da cadeira foi reprovado em 3 blocos e nada foi salvo. Agora o ajuste tem o ciclo do pipeline:
+bloco reprovado volta ao redator com o problema e a versão sustentada que o auditor propôs (até 2 voltas);
+o que ainda não passar volta ao texto anterior e o resto fica. Audita a seção inteira dos blocos tocados,
+escolhe até 5 blocos, corrige título de seção que o pedido torna enganoso e segue sem fonte nova quando o
+pedido é uma correção. Cada evidência mostra em que parte do documento está ("ANEXO II · TRABALHO EM
+TELEATENDIMENTO", "texto principal"): o PDF inteiro da NR-17 traz os anexos e pelo endereço não dava para
+saber; sumário no topo do PDF é ignorado. Bloco que situa algo numa parte que a evidência não mostra:
+MISATTRIBUTED. Testado em cópia isolada com os dados reais da cadeira (~2–3,5 créditos por ajuste).

@@ -16,7 +16,7 @@ import { auditStats } from '../lessons.ts';
 import { latestSnapshot, pageStats } from '../gsc.ts';
 import { trafficSummary } from '../hits.ts';
 import { editQueue } from './autopilot.ts';
-import { claimsForTopic } from './draft-schema.ts';
+import { claimsForTopic, type Draft } from './draft-schema.ts';
 import { manualEdit, editableBlocks } from './manual-edit.ts';
 import { writePatches } from './patch.ts';
 import { loadTopic } from './research.ts';
@@ -181,25 +181,68 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const fresh = r.accepted.filter((a) => a.new).length;
   // A lacuna temporária sai; a pergunta nova fica (as evidências achadas ficam ligadas a ela).
   writeJson(topicFile, TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: before.evidence_gaps }));
-  if (!fresh) return `nenhuma fonte nova sustentou o pedido (${d.added.length} fonte(s) lida(s)); a página não mudou`;
+  // Sem fonte nova o pedido ainda pode ser uma correção (escopo, atribuição, "exige" → "recomenda"):
+  // segue com as evidências que a página já tem.
   const topic = loadTopic(slug);
   const idx = buildIndex();
   const blocks = editableBlocks(page);
   const refs = blocks.map((b) => b.ref) as [string, ...string[]];
   const pick = await callJson(
-    { role: 'extractor', system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 3).', user: `Pedido: ${instruction}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`, schema: z.object({ refs: z.array(z.enum(refs)).min(1).max(3) }), schemaName: 'pick_blocks', maxTokens: 400 },
+    {
+      role: 'extractor',
+      system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta).',
+      user: `Pedido: ${instruction}\n\nSeções: ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`,
+      schema: z.object({ refs: z.array(z.enum(refs)).min(1).max(5), headings: z.array(z.object({ id: z.enum(page.sections.map((x) => x.id) as [string, ...string[]]), heading: z.string().min(3).max(70) })).default([]) }),
+      schemaName: 'pick_blocks',
+      maxTokens: 600,
+    },
     fetchImpl,
   );
-  const draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections };
+  // Título de seção que o pedido torna enganoso ("O que a NR-17 exige" quando os números são de um anexo).
+  const heads = new Map(pick.data.headings.map((h) => [h.id, h.heading.replace(/\s+/g, ' ').trim()]));
+  const draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections.map((x) => (heads.has(x.id) ? { ...x, heading: heads.get(x.id)! } : x)) };
   const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, pick.data.refs.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.` })), fetchImpl);
   const patched = applyPatches(draft as never, p.data.patches);
   const spec = PageSpec.parse({ ...page, ...patched });
   const touched = new Set(pick.data.refs);
   const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
   if (gate.length) return `ajuste com pesquisa NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
-  const a = await auditDraft(patched, idx.claims, idx.sources, fetchImpl, new Map(), touched);
-  const bad = a.findings.filter((f) => f.verdict !== 'SUPPORTED');
-  if (bad.length) return `ajuste com pesquisa NÃO salvo (o auditor não sustentou): ${bad.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
-  writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...spec, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
-  return `texto ajustado em ${slug} com ${fresh} evidência(s) nova(s): ${[...touched].join(', ')}`;
+  // Audita a seção inteira, não só os blocos escolhidos: bloco vizinho com o mesmo problema ("A base deve
+  // ter 5 pés", do mesmo anexo) também entra na correção.
+  const secs = new Set([...touched].map((r) => r.split('#')[0]));
+  const scope = new Set([...touched, ...editableBlocks({ ...page, ...patched } as never).map((b) => b.ref).filter((r) => secs.has(r.split('#')[0]))]);
+  const fixed = await fixUntilSupported(topic, idx, draft as Draft, patched, scope, fetchImpl);
+  if (!fixed.kept.length) return `ajuste NÃO salvo (o auditor não sustentou nenhum bloco alterado depois de ${FIX_ROUNDS} correções): ${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
+  const final = PageSpec.parse({ ...page, ...fixed.draft });
+  const gate2 = checkPage(final, idx);
+  if (gate2.length) return `ajuste NÃO salvo (regra do site): ${gate2.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
+  writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
+  return `texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
+    (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '');
+}
+
+// Auditoria com correção, como no pipeline da página: bloco reprovado é reescrito pelo redator com o
+// problema e a versão sustentada que o auditor propôs, até FIX_ROUNDS vezes. O que ainda não passar volta
+// ao texto anterior (o resto do ajuste fica). 21/10: um ajuste da cadeira perdeu tudo por 3 blocos.
+const FIX_ROUNDS = 2;
+async function fixUntilSupported(topic: TopicBrief, idx: ReturnType<typeof buildIndex>, original: Draft, start: Draft, touched: Set<string>, fetchImpl?: FetchLike): Promise<{ draft: Draft; kept: string[]; dropped: { ref: string; problem: string }[] }> {
+  let draft = start;
+  let pending = new Set(touched);
+  let bad: { ref: string; problem: string; fix: string }[] = [];
+  for (let round = 0; round <= FIX_ROUNDS && pending.size; round++) {
+    const a = await auditDraft(draft, idx.claims, idx.sources, fetchImpl, new Map(), pending);
+    bad = a.findings.filter((f) => f.verdict !== 'SUPPORTED' && pending.has(f.ref));
+    pending = new Set(bad.map((f) => f.ref));
+    if (!bad.length || round === FIX_ROUNDS) break;
+    const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, bad.map((f) => ({ ref: f.ref, msg: `O auditor reprovou: ${f.problem}${f.fix ? ` Versão que as fontes sustentam: "${f.fix}"` : ''}` })), fetchImpl);
+    draft = applyPatches(draft as never, p.data.patches.filter((x) => pending.has(x.ref))) as Draft;
+  }
+  const restore = bad.map((f) => {
+    if (f.ref === 'verdict') return { ref: 'verdict', action: 'replace' as const, text: original.verdict.text, basis: original.verdict.basis, claim_ids: original.verdict.claim_ids };
+    const [sec, i] = f.ref.split('#');
+    const b = original.sections.find((x) => x.id === sec)?.blocks[Number(i)];
+    return b && b.kind !== 'table' ? { ref: f.ref, action: 'replace' as const, text: b.text, basis: b.basis, claim_ids: b.claim_ids } : { ref: f.ref, action: 'remove' as const };
+  });
+  if (restore.length) draft = applyPatches(draft as never, restore as never) as Draft;
+  return { draft, kept: [...touched].filter((r) => !pending.has(r)), dropped: bad };
 }
