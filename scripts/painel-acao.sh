@@ -166,7 +166,13 @@ case "$action" in
     # ajustar <ramo pagina/...|main> <slug> <pedido.txt>: ajusta o texto da página no próprio resultado do
     # motor (antes do aceite) ou no main; a prévia se refaz e o editor decide depois.
     fresh
-    if [ "$2" != main ]; then git checkout -q -B "$2" "origin/$2"; fi
+    if [ "$2" != main ]; then
+      git checkout -q -B "$2" "origin/$2"
+      # Dados do ramo, código do main: o ramo tem o motor da hora em que foi criado, e o ajuste rodava com
+      # ele (21/10: a correção do ajuste já estava no main e não valeu). Só na cópia de trabalho; o commit
+      # abaixo leva só data/. scripts/ fica de fora (este script está rodando).
+      git restore --source=origin/main --worktree -- packages site package.json package-lock.json
+    fi
     if ! npm run -s engine -- adjust "$3" "$4" ${5:+--pesquisar}; then
       git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; exit 1
     fi
