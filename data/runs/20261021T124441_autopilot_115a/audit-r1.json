@@ -1,0 +1,180 @@
+{
+  "findings": [
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-peso-altura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-peso-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-peso-altura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-peso-altura#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-e-firmeza#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-inmetro#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#3.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas a afirmação sobre a espuma D33. Ele não informa nada sobre D28 nem sustenta que D28 não foi informado nas fontes.",
+      "fix": "Aspecto: Durabilidade declarada | D33 (segundo Probel): durável, mantém a forma e o conforto ao longo do tempo."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos dizem que a densidade nominal deve ser expressa em kg/m³, mas não dizem que esse valor está indicado na etiqueta nem orientam a consultá-la.",
+      "fix": "Se você quer conferir a densidade informada da espuma, procure o valor nominal expresso em kg/m³."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam recomendações sobre densidade e suporte de peso, mas não mencionam altura. Portanto, a referência a peso e altura excede o conteúdo citado.",
+      "fix": "Se o peso é sua maior dúvida, consulte a tabela de recomendação do fabricante do colchão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "durabilidade-e-deformacao#3.r1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas a afirmação sobre a espuma D33. Ele não informa nada sobre D28 nem sustenta que D28 não foi informado nas fontes. Versão sustentável: Aspecto: Durabilidade declarada | D33 (segundo Probel): durável, mantém a forma e o conforto ao longo do tempo."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos dizem que a densidade nominal deve ser expressa em kg/m³, mas não dizem que esse valor está indicado na etiqueta nem orientam a consultá-la. Versão sustentável: Se você quer conferir a densidade informada da espuma, procure o valor nominal expresso em kg/m³."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam recomendações sobre densidade e suporte de peso, mas não mencionam altura. Portanto, a referência a peso e altura excede o conteúdo citado. Versão sustentável: Se o peso é sua maior dúvida, consulte a tabela de recomendação do fabricante do colchão."
+    }
+  ]
+}

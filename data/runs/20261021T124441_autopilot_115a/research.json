@@ -1,0 +1,46 @@
+{
+  "run_id": "20261021T124441_autopilot_115a",
+  "topic": "travesseiro-de-latex-ou-viscoelastico",
+  "accepted": [
+    {
+      "claim_id": "clm_abc7525d8d39",
+      "question_id": "q_informacoes_etiqueta",
+      "source_id": "src_4260f4e0bd26",
+      "new": false
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_composicao_material": 0,
+    "q_certificacao_inmetro": 0,
+    "q_informacoes_etiqueta": 1,
+    "q_normas_abnt": 0,
+    "q_cuidados_conservacao": 0,
+    "q_finalidade_terapeutica_anvisa": 0,
+    "q_garantia_politica_fabricante": 0
+  },
+  "unanswered": [
+    "q_composicao_material",
+    "q_certificacao_inmetro",
+    "q_normas_abnt",
+    "q_cuidados_conservacao",
+    "q_finalidade_terapeutica_anvisa",
+    "q_garantia_politica_fabricante"
+  ],
+  "usage": {
+    "input_tokens": 1267,
+    "output_tokens": 160,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_4260f4e0bd26",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    }
+  ],
+  "credits": 40.843348200000015
+}
