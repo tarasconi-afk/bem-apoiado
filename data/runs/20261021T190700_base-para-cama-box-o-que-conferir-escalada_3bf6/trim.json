@@ -1,0 +1,86 @@
+{
+  "removed": [
+    "como-decidir#0",
+    "como-decidir#1",
+    "como-decidir#2",
+    "como-decidir#3"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Compare a largura declarada da base com a largura do colchão e confira a faixa indicada pelo fabricante.",
+      "Considere a tolerância dimensional informada, de até 1 cm nos exemplos citados.",
+      "Confira altura da base, altura dos pés e altura total do conjunto para avaliar conforto e compatibilidade com o ambiente.",
+      "Verifique se a capacidade de carga é da base sozinha ou se inclui o peso do colchão; nos exemplos citados, os 150 kg são além do peso do colchão.",
+      "Confira o material da estrutura interna, como madeira de reflorestamento tratada, e o material do suporte do colchão, como EPS, quando declarado.",
+      "Compare o revestimento externo informado na ficha, como jacquard, tecido rústico ou poliéster, conforme a preferência e o uso.",
+      "Confira o tipo de pé e o sistema de montagem, como pés rosqueáveis, aparafusados ou união entre módulos por chapa e parafusos.",
+      "Se a base for baú, verifique se há sistema basculante com pistões e como ele é acionado.",
+      "Leia separadamente os prazos de garantia da estrutura, do tecido, dos pés, dos amortecedores e dos mecanismos.",
+      "Verifique se a garantia exclui problemas causados por base menor ou maior que o colchão ou por piso irregular.",
+      "Não presuma que uma base não acoplada ao colchão precise de certificação compulsória do Inmetro; confira o enquadramento do produto.",
+      "Para uma base não acoplada, procure a informação do fabricante sobre dimensões, carga, materiais, montagem e garantia, em vez de exigir automaticamente selo do Inmetro."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Identificação de uma norma ABNT aplicável às bases box e explicação objetiva do que ela regula, caso exista.",
+      "Medidas de comprimento compatíveis com cada tamanho de colchão; os trechos citados só oferecem faixas de largura.",
+      "Orientação específica sobre a fixação entre base, estrado e cabeceira; os exemplos tratam principalmente de pés, união de módulos e mecanismo basculante.",
+      "Uma tabela por modelo relacionando dimensões da base, tamanho do colchão e capacidade de carga.",
+      "Condições completas de uso, exclusões e procedimento para acionar a garantia em cada fabricante.",
+      "Critério para conferir no anúncio se a capacidade declarada é por base, por módulo, por pessoa ou para o conjunto completo.",
+      "Explicação sobre quando a base é vendida acoplada ao colchão e como isso altera a análise da certificação do Inmetro."
+    ],
+    "publishable": false,
+    "summary": "A página reúne bons critérios práticos sobre medidas, carga, materiais, montagem, garantia e Inmetro, mas responde apenas parcialmente porque não esclarece a norma ABNT nem a compatibilidade de comprimento e de fixação com cabeceira e estrado. Além disso, a seção “Como decidir” se apoia principalmente na Ortobom apesar de a página citar outros fabricantes, e repete informações anteriores; por isso, não está pronta para publicação sem revisão editorial.",
+    "filler_ratio": 0.18181818181818182,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Comparar a largura declarada para a base com a largura real do colchão e conferir a faixa compatível indicada pelo fabricante.",
+      "Considerar a tolerância dimensional declarada de até 1 cm ao avaliar o encaixe.",
+      "Verificar também o comprimento do colchão e da base, pois a página não fornece esse critério na decisão final.",
+      "Conferir se a capacidade de carga é de 150 kg além do peso do colchão ou se o limite já inclui o colchão.",
+      "Procurar na ficha a madeira ou outro material da estrutura interna, o material de suporte e o tecido do revestimento.",
+      "Verificar o tipo de pé e como ele é instalado, como rosqueado ou aparafusado.",
+      "Em bases divididas, conferir se a união entre os módulos usa chapa e parafusos.",
+      "Se for uma base com abertura, conferir a presença de pistões e o sistema basculante.",
+      "Comparar no certificado o prazo de garantia da estrutura, do tecido, dos pés e dos mecanismos, porque eles podem ter prazos diferentes.",
+      "Verificar se o colchão fica do mesmo tamanho da base e se o piso é regular para evitar instabilidade.",
+      "Não exigir a certificação compulsória do Inmetro para uma base vendida separadamente, distinguindo-a das exigências aplicáveis aos colchões."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma orientação de conferência do comprimento, além da largura, com medidas declaradas para cada tamanho e modelo.",
+      "Uma tabela ou instrução do fabricante relacionando cada base ao tamanho exato de colchão compatível.",
+      "A capacidade de carga específica de cada modelo, com indicação clara de se inclui ou não o peso do colchão e como considerar o peso dos usuários.",
+      "Uma descrição do fabricante sobre a fixação da cabeceira e do estrado, já que os exemplos tratam principalmente dos pés, da união de módulos e do mecanismo de abertura.",
+      "A identificação de eventual norma ABNT aplicável às bases e o que ela efetivamente regula, ou uma conclusão explícita baseada em fonte primária.",
+      "As exclusões completas da garantia e as condições de instalação, uso e montagem que podem anulá-la."
+    ],
+    "publishable": false,
+    "summary": "A página reúne bons exemplos concretos de dimensões, carga, materiais, montagem, garantia e Inmetro, mas responde apenas parcialmente à dúvida. O principal problema é que a orientação final de compra compara só a largura e admite que os trechos não informam o comprimento; também faltam critérios claros para fixação da cabeceira e do estrado e uma resposta sobre norma ABNT. Assim, o leitor aprende o que procurar, mas ainda não consegue confirmar com segurança se uma base específica serve para seu colchão.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
