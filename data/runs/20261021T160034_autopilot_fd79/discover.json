@@ -1,0 +1,107 @@
+{
+  "run_id": "20261021T160034_autopilot_fd79",
+  "topic": "como-escolher-cadeira-de-escritorio",
+  "queries": [
+    {
+      "q": "NR-17 ergonomia cadeira escritório altura assento apoio lombar braços ajustes",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "ABNT NBR 13962 cadeira escritório dimensões estabilidade resistência requisitos",
+      "include_domains": [
+        "abnt.org.br"
+      ],
+      "results": 4
+    },
+    {
+      "q": "Probel cadeira escritório especificações ajustes altura encosto braços profundidade assento",
+      "include_domains": [
+        "probel.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "manual cadeira escritório capacidade carga peso máximo suportado fabricante",
+      "include_domains": [
+        "probel.com.br"
+      ],
+      "results": 3
+    },
+    {
+      "q": "norma segurança base giratória rodízios pistão gás cadeira escritório ABNT",
+      "include_domains": [
+        "abnt.org.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "Inmetro certificação compulsória cadeira escritório conformidade NR-17",
+      "include_domains": [
+        "inmetro.gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "ABNT NBR 13962 classificação tipos cadeira operacional presidente uso destinação",
+      "include_domains": [
+        "abnt.org.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_0a28fb5ef514",
+      "url": "https://www.probel.com.br/poltrona-probel-jacarta/p",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 0,
+  "suggestions": [],
+  "snapshot_errors": [],
+  "tavily_credits_month": 157,
+  "triage": [
+    {
+      "url": "https://abnt.org.br/wp-content/docs/certificacao/PG-15.07_Manual%20de%20Instruc%CC%A7o%CC%83es%20do%20uso%20da%20Marca%20ABNT.pdf",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://abnt.org.br",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://abnt.org.br/certificacao",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://abnt.org.br/certificacao/empresas-certificadas",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/poltrona-probel-jacarta/p",
+      "p_useful": 0.98,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/poltrona",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br",
+      "p_useful": 0,
+      "keep": false
+    }
+  ],
+  "llm_credits": 3.0195233999999997
+}
