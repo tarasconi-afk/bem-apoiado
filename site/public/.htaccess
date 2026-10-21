@@ -6,3 +6,11 @@
   RewriteCond %{HTTP_HOST} ^www\.bemapoiado\.com$ [NC]
   RewriteRule ^ https://bemapoiado.com%{REQUEST_URI} [R=301,L]
 </IfModule>
+
+# robots.txt e sitemap mudam com o site: a CDN não pode segurar versão velha (21/10: robots.txt antigo
+# ficou em cache bloqueando o Google depois que a indexação foi ligada).
+<IfModule mod_headers.c>
+  <FilesMatch "^(robots\.txt|sitemap\.xml)$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+</IfModule>
