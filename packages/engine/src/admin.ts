@@ -76,15 +76,20 @@ interface Job {
   id: string;
   label: string;
   args: string[];
-  started: string;
+  started: string; // quando foi pedida (entrou na fila)
+  queued?: boolean; // esperando a vez
+  ran_at?: string; // quando começou a rodar
   ended?: string;
   code?: number | null;
   output: string;
 }
 
 const jobs: Job[] = existsSync(JOBS_FILE) ? JSON.parse(readFileSync(JOBS_FILE, 'utf8')) : [];
-const saveJobs = () => writeFileSync(JOBS_FILE, JSON.stringify(jobs.slice(0, 30), null, 2));
-const running = () => jobs.find((j) => !j.ended);
+// Painel reiniciado no meio de uma ação: ela não tem mais processo; marca como interrompida.
+for (const j of jobs) if (!j.ended && !j.queued) Object.assign(j, { ended: new Date().toISOString(), code: -1, output: `${j.output}\n(interrompida: o painel reiniciou)` });
+const saveJobs = () => writeFileSync(JOBS_FILE, JSON.stringify(jobs.filter((j) => j.queued).concat(jobs.filter((j) => !j.queued).slice(0, 30)), null, 2));
+const running = () => jobs.find((j) => !j.ended && !j.queued);
+const queuedJobs = () => jobs.filter((j) => j.queued).reverse(); // mais antiga primeiro
 // Ciclo do agendador em andamento (status gravado pelo cycle.sh/motor): painel atualiza a cada 10 s.
 const cycleRunning = () => {
   try {
@@ -95,22 +100,52 @@ const cycleRunning = () => {
   }
 };
 
-function startJob(label: string, args: string[]): string | null {
-  if (running()) return 'já há uma ação em andamento; espere ela terminar';
-  const job: Job = { id: Date.now().toString(36), label, args, started: new Date().toISOString(), output: '' };
-  jobs.unshift(job);
+// Fila de ações (21/10: "já há uma ação em andamento" obrigava o editor a esperar). Toda ação entra na
+// fila e roda uma por vez, na ordem; durante um ciclo, espera (a trava é a mesma). Ação que achou a trava
+// ocupada (código 75 do script) volta para a fila e tenta de novo em 1 min.
+const BUSY = 75;
+let pumpTimer: NodeJS.Timeout | null = null;
+function pump(delayMs = 0): void {
+  if (pumpTimer) return;
+  pumpTimer = setTimeout(() => {
+    pumpTimer = null;
+    if (running()) return;
+    const next = queuedJobs()[0];
+    if (!next) return;
+    if (cycleRunning()) return pump(30_000);
+    run(next);
+  }, delayMs);
+}
+
+function run(job: Job): void {
+  job.queued = false;
+  job.ran_at = new Date().toISOString();
   saveJobs();
-  const p = spawn('bash', [SCRIPT, ...args], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+  const p = spawn('bash', [SCRIPT, ...job.args], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
   const add = (b: Buffer) => { job.output = (job.output + b.toString()).slice(-4000); };
   p.stdout.on('data', add);
   p.stderr.on('data', add);
   p.on('close', (code) => {
+    if (code === BUSY) {
+      Object.assign(job, { queued: true, ran_at: undefined, output: `${job.output}\n(motor ocupado; volta a tentar em 1 min)\n` });
+      saveJobs();
+      return pump(60_000);
+    }
     job.ended = new Date().toISOString();
     job.code = code;
     saveJobs();
+    pump();
   });
+}
+
+function startJob(label: string, args: string[]): string | null {
+  const job: Job = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5), label, args, started: new Date().toISOString(), queued: true, output: '' };
+  jobs.unshift(job);
+  saveJobs();
+  pump();
   return null;
 }
+pump();
 
 // Ramos do motor ainda não mesclados: resultado de ciclos esperando decisão.
 function pendingBranches(): { branch: string; subject: string; when: string; steps: string[] }[] {
@@ -144,7 +179,8 @@ function adminHtml(msg: string | null): string {
   const queue = queueItems();
   return `
 ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
-${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
+${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.ran_at ?? job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
+${queuedJobs().length ? `<p class="flash">Na fila (${queuedJobs().length}): ${queuedJobs().map((j) => esc(j.label)).join(' · ')}${cycleRunning() ? '. Começam quando o ciclo em andamento terminar.' : '.'}</p>` : ''}
 
 <h2>Pedir ao motor</h2>
 ${requestsHtml()}
@@ -185,7 +221,7 @@ ${gscHtml()}
 <button class="ok">Trocar senha</button></form>
 <p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
 
-${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${!j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${j.queued ? '<span class="b neutral">na fila</span>' : !j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
 }
 
 // Um resultado do motor como lista do que muda no site, item por item (desmarcado = não entra). O que
@@ -642,7 +678,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
         mkdirSync(dir, { recursive: true });
         const file = join(dir, `${Date.now().toString(36)}.json`);
         writeFileSync(file, JSON.stringify(edits));
-        msg = startJob(`editar ${slug}`, ['editar', slug, file]) ?? `iniciado: editar ${slug} (o auditor confere os blocos alterados; resultado em "Últimas ações")`;
+        msg = startJob(`editar ${slug}`, ['editar', slug, file]) ?? `na fila: editar ${slug} (o auditor confere os blocos alterados; resultado em "Últimas ações")`;
       }
     } else if (f.get('acao') === 'senha') {
       const user = Buffer.from(/^Basic (.+)$/.exec(req.headers.authorization!)![1]!, 'base64').toString().split(':')[0]!;
@@ -676,7 +712,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       }
     } else {
       const j = toJob(f);
-      msg = typeof j === 'string' ? j : (startJob(j.label, j.args) ?? `iniciado: ${j.label}`);
+      msg = typeof j === 'string' ? j : (startJob(j.label, j.args) ?? `na fila: ${j.label} (roda assim que chegar a vez; acompanhe em "Últimas ações")`);
     }
     res.writeHead(303, { location: `${BASE}?msg=${encodeURIComponent(msg)}` });
     return res.end();
@@ -698,7 +734,7 @@ export function startAdmin() {
   // (Restart=always) sobe de novo já com o código atualizado. Sem privilégio de reiniciar nada.
   const started = head();
   setInterval(() => {
-    if (!running() && head() !== started) process.exit(0);
+    if (!running() && !queuedJobs().length && head() !== started) process.exit(0);
   }, 60_000).unref();
   createServer((req, res) => {
     handle(req, res).catch((e) => {
