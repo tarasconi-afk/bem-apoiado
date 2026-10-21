@@ -88,3 +88,6 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [ ] redação por seção (só se o 524 voltar mesmo com a reserva)
 - [ ] token Hostinger restrito no GitHub para o Action forçar a implantação (hoje: aviso no painel)
 - [ ] calibração da revisão com 8+ vereditos; tabelas HTML legíveis (feito, v3); leitura de tabela em imagem só se aparecer caso real; PA-API após 10 vendas
+- [x] pautas sozinhas (autocompletar + Search Console), sem canibalização; redator Haiku com escalada; 4 ciclos/dia
+- [ ] meta de 200 páginas: acompanhar taxa de aprovação e custo real por página no painel; ajustar
+- [ ] hub de categorias na home (colchão, travesseiro, home office) e links internos entre guias relacionados

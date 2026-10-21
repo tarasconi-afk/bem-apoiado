@@ -1,8 +1,10 @@
 [Unit]
-Description=Bem Apoiado: piloto automático (2x/dia)
+Description=Bem Apoiado: piloto automático (4x/dia)
 [Timer]
 OnCalendar=*-*-* 04:00:00 America/Sao_Paulo
-OnCalendar=*-*-* 14:00:00 America/Sao_Paulo
+OnCalendar=*-*-* 10:00:00 America/Sao_Paulo
+OnCalendar=*-*-* 16:00:00 America/Sao_Paulo
+OnCalendar=*-*-* 22:00:00 America/Sao_Paulo
 Persistent=true
 RandomizedDelaySec=15min
 [Install]

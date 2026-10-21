@@ -9,9 +9,10 @@ export const MODELS = {
   // Propõe trechos candidatos das fontes. Barato: o código confere a literalidade depois.
   extractor: { id: 'claude-haiku-4.5', name: 'Claude Haiku 4.5', vendor: 'anthropic', price: [120, 600] },
   // Escreve o PageSpec a partir só dos claims aprovados. Sonnet 5: 2,5x mais barato que o Opus 5.
-  // O roteador não faz streaming de verdade com o Sonnet 5 (entrega tudo no fim): saída longa passa de
-  // 100 s e a Cloudflare corta com 524. Reserva: Sonnet 4.6, que faz streaming real (mais lento, ~1,4x o preço).
-  writer: { id: 'claude-sonnet-5', name: 'Claude Sonnet 5', vendor: 'anthropic', price: [240, 1200], fallback: { id: 'claude-sonnet-4.6', name: 'Claude Sonnet 4.6' } },
+  // Haiku 4.5 desde 21/10: mesma pauta, mesma auditoria, aprovada por 7,8 créditos contra 24,2 do Sonnet 5,
+  // com nota de revisão parecida; faz streaming de verdade (sem 524). Página que não passar ganha uma
+  // segunda tentativa com o Sonnet 5 (page.ts, ESCALATION_WRITER). Reserva contra 524: Sonnet 4.6.
+  writer: { id: 'claude-haiku-4.5', name: 'Claude Haiku 4.5', vendor: 'anthropic', price: [120, 600], fallback: { id: 'claude-sonnet-4.6', name: 'Claude Sonnet 4.6' } },
   // Julga se cada bloco é sustentado pelos trechos citados. Outro fornecedor que o redator.
   // GPT 5.6 Luna desde 21/10: na avaliação com erros plantados pegou 8/8 (número, atribuição, sem fonte,
   // saúde) e achou erros reais que o Sol deixou passar, a ~1/25 do custo (o Sol estourou 40 créditos em

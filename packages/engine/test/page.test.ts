@@ -56,14 +56,16 @@ const draft = (verdictText: string) => ({
 });
 
 // Simula o roteador: responde conforme o modelo pedido no corpo da requisição.
-function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean; rejectRef?: string }) {
+function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean; rejectRef?: string; rejectWhileWriter?: string }) {
   let writerCalls = 0;
+  let lastWriter = '';
   let reviews = 0;
   return async (_url: string, init: RequestInit) => {
     const body = JSON.parse(String(init.body));
     let content: unknown;
-    if (body.model === 'claude-sonnet-5') {
+    if (body.model === 'claude-haiku-4.5' || body.model === 'claude-sonnet-5') {
       writerCalls++;
+      lastWriter = body.model;
       // Rodadas de correção pedem remendos (page_patches), não a página inteira.
       content =
         body.response_format.json_schema.name === 'page_patches'
@@ -85,7 +87,7 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
       content = {
         findings: refs.map((ref) => ({
           ref,
-          verdict: ref === opts.rejectRef ? 'UNSUPPORTED' : ref === 'verdict' && !opts.rejectRef && (opts.auditorRejectsAlways || writerCalls === 1) ? 'OVERSTATED' : 'SUPPORTED',
+          verdict: opts.rejectWhileWriter && lastWriter === opts.rejectWhileWriter ? 'UNSUPPORTED' : ref === opts.rejectRef ? 'UNSUPPORTED' : ref === 'verdict' && !opts.rejectRef && (opts.auditorRejectsAlways || writerCalls === 1) ? 'OVERSTATED' : 'SUPPORTED',
           problem: ref === 'verdict' ? '"sempre" generaliza' : '',
           fix: '',
         })),
@@ -136,6 +138,14 @@ describe('buildPage', () => {
     const r = await buildPage('pagina-teste', 'run_b', router({ auditorRejectsAlways: true }));
     expect(r.status).toBe('SAFE_STOP');
     if (r.status === 'SAFE_STOP') expect(r.open_issues.join(' ')).toContain('OVERSTATED');
+  });
+
+  it('redator barato não converge: segunda tentativa com o Sonnet passa', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_escala', router({ auditorRejectsAlways: false, rejectWhileWriter: 'claude-haiku-4.5', rejectRef: 'nenhum' }));
+    expect(r.status).toBe('PASS');
+    if (r.status === 'PASS') expect(r.page.provenance.writer_model).toBe('claude-sonnet-5');
+    expect(process.env.BEM_MODEL_WRITER).toBeUndefined();
   });
 
   it('não converge por um bloco só: remove o bloco e a página segue para a revisão', async () => {

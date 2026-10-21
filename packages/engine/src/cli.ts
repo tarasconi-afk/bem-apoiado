@@ -338,8 +338,8 @@ async function main(): Promise<number> {
       return 0;
     }
     case 'autopilot': {
-      const { values } = parseArgs({ args: rest, options: { budget: { type: 'string', default: '60' } } });
-      // Nunca passa do que resta do teto diário (2 ciclos por dia somados).
+      const { values } = parseArgs({ args: rest, options: { budget: { type: 'string', default: '40' } } });
+      // Nunca passa do que resta do teto diário (4 ciclos por dia somados).
       const { creditsToday, DAILY_CREDIT_CAP } = await import('./stages/autopilot.ts');
       setRunBudget(Math.max(0, Math.min(Number(values.budget), DAILY_CREDIT_CAP - creditsToday())));
       const runId = newRunId('autopilot');

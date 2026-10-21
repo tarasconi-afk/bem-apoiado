@@ -23,4 +23,4 @@
   página aprovada sem produto (uma tentativa por página por semana, se sobrarem 20+ créditos). Sem pauta na
   fila, só a manutenção vira ramo `pagina/manutencao-produtos-*`. Tentativas ficam em
   `/var/lib/bem-apoiado/products-{refresh,attempts}.json`.
-- Tetos: 60 créditos/ciclo (nunca acima do que resta no dia), 100/dia em 2 ciclos (04:00 e 14:00) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
+- Tetos: 40 créditos/ciclo (nunca acima do que resta no dia), 100/dia em 4 ciclos (04:00, 10:00, 16:00, 22:00) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.

@@ -1,6 +1,7 @@
 import { join } from 'node:path';
 import { checkPage, PageSpec, TopicBrief } from '@bem-apoiado/core';
-import { creditsSpent, LlmError, type FetchLike } from '../llm.ts';
+import { creditsLeft, creditsSpent, LlmError, type FetchLike } from '../llm.ts';
+import { newRunId } from '../runs.ts';
 import { MODELS } from '../models.ts';
 import { writeStage } from '../runs.ts';
 import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
@@ -43,7 +44,7 @@ export function toPageSpec(draft: Draft, topic: TopicBrief, runId: string, audit
     products: [],
     provenance: {
       run_id: runId,
-      writer_model: MODELS.writer.id,
+      writer_model: process.env.BEM_MODEL_WRITER ?? MODELS.writer.id,
       auditor_model: auditVerdict === 'pass' ? MODELS.auditor.id : null,
       audit_verdict: auditVerdict,
     },
@@ -65,14 +66,36 @@ export function styleIssues(draft: Draft): Issue[] {
   }
   if (draft.title.includes('—')) out.push({ ref: null, msg: 'title: remova o travessão (—).' });
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
-  if (!draft.sections.some((s) => /decidir|escolher/i.test(s.heading))) out.push({ ref: null, msg: 'falta a seção final "Como decidir".' });
+  // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.
+  const last = draft.sections.at(-1);
+  if (!last || !/decidir|^como escolher/i.test(last.heading)) out.push({ ref: null, msg: 'a última seção tem de ser "Como decidir", com 2 a 4 orientações condicionais ("se você..., ...") sustentadas pelas evidências.' });
   if (draft.sections.length < 3) out.push({ ref: null, msg: 'a página ficou com menos de 3 seções.' });
   return out;
 }
 
 const show = (i: Issue) => (i.ref ? `${i.ref}: ${i.msg}` : i.msg);
 
+// Redator em camadas: o barato (Haiku) escreve; se a página não passar (auditoria não converge ou revisão
+// reprova), uma segunda tentativa com o Sonnet, se houver orçamento. Avaliação de 21/10 na mesma pauta:
+// Haiku 7,8 créditos, Sonnet 24,2, as duas aprovadas com notas de revisão parecidas.
+export const ESCALATION_WRITER = 'claude-sonnet-5';
+const ESCALATION_MIN_CREDITS = 30;
+
 export async function buildPage(slug: string, runId: string, fetchImpl?: FetchLike): Promise<PageOutcome> {
+  const first = await buildPageOnce(slug, runId, fetchImpl);
+  const doomed = first.status === 'SAFE_STOP' && /INSUFFICIENT_EVIDENCE|BUDGET/.test(first.reason);
+  if (first.status === 'PASS' || doomed || process.env.BEM_MODEL_WRITER || creditsLeft() < ESCALATION_MIN_CREDITS) return first;
+  const rid = newRunId(`${slug}-escalada`);
+  writeStage(runId, 'escalation', { from: MODELS.writer.id, to: ESCALATION_WRITER, first: first.status, run: rid });
+  process.env.BEM_MODEL_WRITER = ESCALATION_WRITER;
+  try {
+    return await buildPageOnce(slug, rid, fetchImpl);
+  } finally {
+    delete process.env.BEM_MODEL_WRITER;
+  }
+}
+
+async function buildPageOnce(slug: string, runId: string, fetchImpl?: FetchLike): Promise<PageOutcome> {
   try {
     return await buildPageInner(slug, runId, fetchImpl);
   } catch (e) {

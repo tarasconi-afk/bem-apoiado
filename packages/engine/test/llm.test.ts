@@ -97,11 +97,11 @@ describe('callJson: streaming e erros transitórios', () => {
     const f: FetchLike = async (_u, init) => {
       const m = JSON.parse(String(init.body)).model as string;
       models.push(m);
-      return m === 'claude-sonnet-5' ? new Response('timeout', { status: 524 }) : reply('{"answer":"ok","n":5}');
+      return m === 'claude-haiku-4.5' ? new Response('timeout', { status: 524 }) : reply('{"answer":"ok","n":5}');
     };
     const r = await callJson({ ...call, role: 'writer' as const }, f);
     expect(r.data.n).toBe(5);
-    expect(models).toEqual(['claude-sonnet-5', 'claude-sonnet-5', 'claude-sonnet-5', 'claude-sonnet-4.6']);
+    expect(models).toEqual(['claude-haiku-4.5', 'claude-haiku-4.5', 'claude-haiku-4.5', 'claude-sonnet-4.6']);
     expect(r.model).toBe('claude-sonnet-4.6');
   });
 

@@ -186,7 +186,7 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   }
 }
 const ENRICH_MIN_CREDITS = 40;
-const PAGE_MIN_CREDITS = 35;
+const PAGE_MIN_CREDITS = 15;
 
 // Descoberta de pautas (autocompletar do Google + triagem barata), uma vez por semana; as 5 melhores
 // ideias novas entram na fila. Custa ~1 crédito. A lista completa fica em data/ideas.json (painel).
@@ -301,7 +301,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m6 = await maintainIdeas(steps);
   const maintained = m1 || m2 || m3 || m4 || m5 || m6;
 
-  // Página nova custa ~25–40 créditos: sem isso sobrando, deixa para o próximo ciclo em vez de parar no
+  // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
   const query = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
   if (!query && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);

@@ -301,3 +301,14 @@ data/ideas.json, visível no painel com "Pôr na fila". Primeira rodada real: 15
 buscas mapeadas como variação das pautas existentes.
 Também: o painel aceitou aprovar "gov.br" inteiro (liberaria prefeituras e diários como regulador);
 revertido, e sufixo público passa a ser recusado. Imagens passam a contar no teto do ciclo.
+
+## 2026-10-21 — Redator Haiku 4.5 com escalada ao Sonnet; 4 ciclos por dia
+Avaliação na mesma pauta (molas ou espuma, todas as evidências), mesmo auditor Luna, cópias isoladas:
+Sonnet 5 aprovada em 3 rodadas por 24,2 créditos; Haiku 4.5 aprovada em 4 rodadas por 7,8; Gemini 3.5 Flash
+recusado pelo roteador (formato). Revisão: enchimento 21% × 24%, critérios 12 × 11. Defeito do Haiku: sem
+seção final de decisão (a regra aceitava "como escolher" no meio da página) — agora a ÚLTIMA seção tem de ser
+"Como decidir". Redator padrão = Haiku; página que não passa (não converge ou revisão reprova) ganha uma
+segunda tentativa com Sonnet 5 se houver ≥30 créditos. Haiku faz streaming de verdade (sem 524).
+Conta para 200 páginas: ~10 créditos (texto) + ~5 (capa) por página ≈ 3.000, contra ~10.000 com o Sonnet.
+Cadência: 04:00, 10:00, 16:00, 22:00, uma página por ciclo (uma decisão por vez no painel); 40 por ciclo,
+100 por dia; página nova com ≥15 créditos sobrando.
