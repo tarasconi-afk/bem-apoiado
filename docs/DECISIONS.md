@@ -435,3 +435,10 @@ disponibilidade renovada) é aprendizado: resultado só com isso entra sozinho p
 (testes, typecheck, build); se falhar, fica para decisão. Motivo da parada traduzido ("as fontes encontradas
 não responderam às perguntas"). Corrigido: respostas dos pedidos e "Último ciclo" caíam no fim da página
 (o script das abas pulava todo elemento .flash).
+
+## 2026-10-21 — Pauta de categoria nova sem fonte: fabricantes por tipo
+"Como escolher cadeira de escritório" parou com 0 evidências: o planejador não sabia que marca faz o quê e
+buscou cadeira no site da Probel; Cavaletti, Flexform e Frisokar estavam no cadastro e não foram buscados.
+Agora cada fabricante do cadastro tem "kinds"; o planejador recebe os fabricantes do tipo da pauta e há uma
+busca garantida no site de cada um (até 3). Tipo sem fabricante cadastrado (categoria nova): 2 buscas abertas,
+cujos sites viram sugestão em "Domínios novos"; fabricante aprovado herda os tipos das pautas em que apareceu.

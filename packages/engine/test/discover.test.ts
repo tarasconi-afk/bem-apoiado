@@ -51,3 +51,19 @@ describe('cadastro de domínios pelo painel', () => {
     expect(domainCandidates(runs, { allow: [], block: [] } as never)).toEqual([]);
   });
 });
+
+describe('fabricantes por tipo', () => {
+  it('pauta de cadeira mira só quem faz cadeira', async () => {
+    const { makersFor } = await import('../src/stages/discover.ts');
+    const r = {
+      allow: [
+        { host: 'probel.com.br', publisher: 'Probel', source_class: 'manufacturer' as const, kinds: ['espuma', 'travesseiro'] },
+        { host: 'cavaletti.com.br', publisher: 'Cavaletti', source_class: 'manufacturer' as const, kinds: ['cadeira'] },
+        { host: 'gov.br', path: '/inmetro', publisher: 'Inmetro', source_class: 'regulator' as const },
+      ],
+      block: [],
+    };
+    expect(makersFor(['cadeira'], r).map((m) => m.publisher)).toEqual(['Cavaletti']);
+    expect(makersFor(['mesa'], r)).toEqual([]);
+  });
+});

@@ -455,7 +455,8 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   if (acao === 'descartar') {
     const ramo = f.get('ramo') ?? '';
     if (!BRANCH.test(ramo)) return 'ramo inválido';
-    return { label: `descartar ${ramo}`, args: [acao, ramo] };
+    const at = /-(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})$/.exec(ramo);
+    return { label: `descartar resultado do ${at ? `ciclo de ${at[3]}/${at[2]} ${at[4]}:${at[5]}` : ramo}`, args: [acao, ramo] };
   }
   if (acao === 'mesclar') {
     const ramo = f.get('ramo') ?? '';
@@ -465,7 +466,10 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const all = gitChanges(`origin/${ramo}`).summary.items.map((i) => i.id);
     const excl = all.filter((id) => !keep.has(id));
     if (all.length && excl.length === all.length) return 'nenhum item marcado: para não aplicar nada, use "Descartar tudo"';
-    return { label: `aceitar ${ramo}${excl.length ? ` (sem ${excl.length} item(ns) recusado(s))` : ''}`, args: ['mesclar', ramo, ...(excl.length ? [excl.join(',')] : [])] };
+    // Rótulo para o editor: o ramo tem o nome da pauta tentada, que confunde quando o que entra é outra coisa.
+    const at = /-(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})$/.exec(ramo);
+    const when = at ? `ciclo de ${at[3]}/${at[2]} ${at[4]}:${at[5]}` : ramo;
+    return { label: `aplicar resultado do ${when}: ${all.length - excl.length} de ${all.length} mudança(s)${excl.length ? `, ${excl.length} recusada(s)` : ''}`, args: ['mesclar', ramo, ...(excl.length ? [excl.join(',')] : [])] };
   }
   return 'ação desconhecida';
 }

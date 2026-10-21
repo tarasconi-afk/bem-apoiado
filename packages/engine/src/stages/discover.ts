@@ -9,14 +9,14 @@ import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
 import { writeStage } from '../runs.ts';
 import { creditsThisMonth, webSearch, type SearchResult } from '../search.ts';
 import { snapshot } from '../snapshot.ts';
-import { DATA, TOPICS_DIR, writeJson } from '../store.ts';
+import { DATA, loadTopics, TOPICS_DIR, writeJson } from '../store.ts';
 import { loadTopic } from './research.ts';
 
 // Descobre fontes para uma pauta: LLM sugere consultas → Tavily → só domínios do cadastro entram →
 // snapshot. Domínio fora do cadastro vira SUGESTÃO no relatório, nunca fonte automática.
 
 const Registry = z.object({
-  allow: z.array(z.object({ host: z.string(), path: z.string().optional(), publisher: z.string(), source_class: SourceClass, aliases: z.array(z.string()).optional() })),
+  allow: z.array(z.object({ host: z.string(), path: z.string().optional(), publisher: z.string(), source_class: SourceClass, aliases: z.array(z.string()).optional(), kinds: z.array(z.string()).optional() })),
   block: z.array(z.string()),
 });
 type Registry = z.infer<typeof Registry>;
@@ -49,6 +49,12 @@ Gere consultas em português do Brasil que tendem a trazer ESSAS fontes, não lo
 Use "include_domains" quando a consulta mira um domínio específico (ex.: ["gov.br"] para um órgão federal, ou os domínios de fabricantes).
 Cubra as perguntas da pauta. No máximo o número de consultas pedido.`;
 
+// Fabricantes do cadastro que fazem os tipos da pauta (campo "kinds"). Sem isto o planejador buscou
+// cadeira de escritório no site da Probel (colchões) e ignorou Cavaletti, Flexform e Frisokar (21/10).
+export function makersFor(kinds: string[], reg: Registry): Registry['allow'] {
+  return reg.allow.filter((a) => a.source_class === 'manufacturer' && a.kinds?.some((k) => kinds.includes(k)));
+}
+
 export interface DiscoverReport {
   run_id: string;
   topic: string;
@@ -76,6 +82,7 @@ export async function discoverSources(
   const hints = plannerHints(learning);
   const maxSearches = opts.maxSearches ?? 8;
   const maxSources = opts.maxSources ?? 14;
+  const makers = makersFor(topic.product_kinds, reg);
 
   const Plan = z.object({
     queries: z.array(z.object({ q: z.string().min(5), include_domains: z.array(z.string()).optional() })).min(1).max(maxSearches),
@@ -86,6 +93,7 @@ export async function discoverSources(
       system: planSystem(),
       user:
         `Pauta: "${topic.primary_query}"\nPerguntas:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n` +
+        (makers.length ? `\nFabricantes cadastrados que fazem este produto (use os domínios deles): ${makers.map((m) => `${m.publisher} (${m.host})`).join(', ')}\n` : `\nNenhum fabricante cadastrado faz este produto: NÃO mire fabricantes de outros produtos.\n`) +
         (topic.evidence_gaps.length
           ? `\nPRIORIDADE: uma tentativa anterior não achou fonte para estas lacunas. Concentre as consultas nelas:\n${topic.evidence_gaps.map((g) => `- ${g}`).join('\n')}\n`
           : '') +
@@ -102,7 +110,16 @@ export async function discoverSources(
     run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, skipped_learned: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0, triage: [],
   };
   const candidates = new Map<string, SearchResult & { publisher: string; source_class: SourceClass }>();
-  for (const q of plan.data.queries.slice(0, maxSearches)) {
+  const queries: { q: string; include_domains?: string[] }[] = plan.data.queries.slice(0, maxSearches);
+  // Garantido, mesmo que o planejador esqueça: uma busca no site de cada fabricante do tipo (até 3).
+  for (const m of makers.slice(0, 3)) if (!queries.some((q) => q.include_domains?.includes(m.host))) queries.push({ q: `${topic.primary_query} ficha técnica especificações`, include_domains: [m.host] });
+  // Nenhum fabricante cadastrado para o tipo (categoria nova): 2 buscas abertas. O que vier de fora do
+  // cadastro não entra como fonte; vira sugestão em "Domínios novos" para o editor aprovar.
+  if (!makers.length) {
+    const label = loadNiche().product_kinds.find((k) => topic.product_kinds.includes(k.id))?.label ?? topic.primary_query;
+    queries.push({ q: `${label} fabricante ficha técnica especificações` }, { q: `${label} norma técnica requisitos Brasil` });
+  }
+  for (const q of queries) {
     const results = await webSearch(q.q, { maxResults: 8, ...(q.include_domains?.length ? { includeDomains: q.include_domains } : {}) });
     report.queries.push({ q: q.q, ...(q.include_domains ? { include_domains: q.include_domains } : {}), results: results.length });
     for (const r of results) {
@@ -178,7 +195,10 @@ export function editRegistry(op: 'allow' | 'block', host: string, publisher?: st
   if (reg.allow.some((a) => a.host === h && !a.path) || reg.block.includes(h)) return false;
   if (op === 'allow') {
     if (!publisher || !sourceClass) throw new Error('aprovar exige nome do publicador e classe da fonte');
-    raw.allow.push({ host: h, publisher, source_class: SourceClass.parse(sourceClass) });
+    // Fabricante aprovado herda os tipos das pautas em que o site apareceu: a próxima busca já mira nele.
+    const seen = new Set(domainCandidates(join(DATA, 'runs'), reg).find((c) => c.host === h)?.topics ?? []);
+    const kinds = [...new Set(loadTopics().filter((t) => seen.has(t.slug)).flatMap((t) => t.product_kinds))];
+    raw.allow.push({ host: h, publisher, source_class: SourceClass.parse(sourceClass), ...(sourceClass === 'manufacturer' && kinds.length ? { kinds } : {}) });
   } else raw.block.push(h);
   writeFileSync(path, JSON.stringify(raw, null, 2) + '\n');
   return true;
