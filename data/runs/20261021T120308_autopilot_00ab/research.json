@@ -1,0 +1,220 @@
+{
+  "run_id": "20261021T120308_autopilot_00ab",
+  "topic": "travesseiro-alto-ou-baixo",
+  "accepted": [
+    {
+      "claim_id": "clm_763b8f6e58c3",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_51f13d38f20b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7952e4c4503d",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_51f13d38f20b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f2b471f384be",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_2a7744f9ee07",
+      "new": true
+    },
+    {
+      "claim_id": "clm_af008e779265",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_2a7744f9ee07",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3634177232ce",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_95f5bf299ee1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e34383551f07",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_95f5bf299ee1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a270aee72e56",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_36c02ecc933d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b37e122e97ea",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_36c02ecc933d",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_51f13d38f20b",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Densidade Espuma: D24 Soft"
+    },
+    {
+      "source_id": "src_51f13d38f20b",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma"
+    },
+    {
+      "source_id": "src_51f13d38f20b",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Lado"
+    },
+    {
+      "source_id": "src_2a7744f9ee07",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma. Densidade Espuma: D15"
+    },
+    {
+      "source_id": "src_2a7744f9ee07",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Composição: Espuma: Assegura o suporte adequado para um descanso otimizado. Camada Protetora: Microfibra suave e respirável com toque sedoso e fresco."
+    },
+    {
+      "source_id": "src_2a7744f9ee07",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Lado"
+    },
+    {
+      "source_id": "src_2a7744f9ee07",
+      "question_id": "q_certificacao_selo_embalagem",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 3 Meses"
+    },
+    {
+      "source_id": "src_95f5bf299ee1",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Densidade Espuma: D15"
+    },
+    {
+      "source_id": "src_95f5bf299ee1",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma"
+    },
+    {
+      "source_id": "src_95f5bf299ee1",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Lado"
+    },
+    {
+      "source_id": "src_36c02ecc933d",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Densidade Espuma: D24 Soft"
+    },
+    {
+      "source_id": "src_36c02ecc933d",
+      "question_id": "q_ficha_tecnica_material",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma"
+    },
+    {
+      "source_id": "src_36c02ecc933d",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Posição de Dormir: Lado"
+    }
+  ],
+  "coverage": {
+    "q_altura_declarada_fabricante": 4,
+    "q_ficha_tecnica_material": 0,
+    "q_norma_abnt_travesseiro": 0,
+    "q_recomendacao_fabricante_posicao": 4,
+    "q_informacao_etiqueta_cuidados": 0,
+    "q_certificacao_selo_embalagem": 0,
+    "q_inmetro_nao_avalia": 0
+  },
+  "unanswered": [
+    "q_ficha_tecnica_material",
+    "q_norma_abnt_travesseiro",
+    "q_informacao_etiqueta_cuidados",
+    "q_certificacao_selo_embalagem",
+    "q_inmetro_nao_avalia"
+  ],
+  "usage": {
+    "input_tokens": 13568,
+    "output_tokens": 1893,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_1bf96faa28b8",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_1bf96faa28b8",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_1bf96faa28b8",
+      "chunk": 2,
+      "keep": true,
+      "p_useful": 0.69
+    },
+    {
+      "source_id": "src_1bf96faa28b8",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_1bf96faa28b8",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_1bf96faa28b8",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_51f13d38f20b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_2a7744f9ee07",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_95f5bf299ee1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_36c02ecc933d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 1.7576958
+}
