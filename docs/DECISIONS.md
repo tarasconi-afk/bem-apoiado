@@ -369,3 +369,12 @@ aviso por navigator.sendBeacon só no site indexável. Sem cookie e sem IP guard
 dia + IP + navegador), sal trocado todo dia (não dá para seguir alguém entre dias); referência guardada só
 como origem (google.com); robôs descartados; 60 avisos/min por IP. Painel (Desempenho → Visitas) e agente
 ("relatório de visitas") leem os arquivos diários. Página "Como trabalhamos" ganhou a seção Privacidade.
+
+## 2026-10-21 — Status ao vivo do ciclo; primeira página nova aprovada de primeira
+O ciclo do agendador não aparecia no painel (só as ações disparadas pelo painel). Agora cycle.sh grava
+STATE/cycle-live.json (rodando/ok/falhou), o motor atualiza a etapa atual a cada writeStage e cada passo
+concluído; o painel mostra "Ciclo em andamento · agora: <etapa> (rodada N)" com atualização a cada 10 s e,
+depois, "Último ciclo" com os passos e, se falhou, as últimas 40 linhas do log.
+Ciclo das 12:19 (fluxo novo completo: plano Sonnet, reuso, Haiku, lições, sem mínimo de palavras): "como
+escolher travesseiro" aprovada de primeira (PASS) por 25,8 créditos com 29 evidências reaproveitadas de 16
+fontes vizinhas. Primeira página do piloto automático que passa sem escalada.

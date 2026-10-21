@@ -1,6 +1,6 @@
 import { reuseEvidence } from './reuse.ts';
 import { discoverIdeas, promoteIdeas } from './ideas.ts';
-import { newRunId } from '../runs.ts';
+import { live, newRunId } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
 import { firstForbidden } from '@bem-apoiado/core';
 import { nextReaudit, reauditPage } from './reaudit.ts';
@@ -281,7 +281,13 @@ async function maintainProducts(runId: string, steps: string[], only?: string): 
 }
 
 export async function runCycle(runId: string): Promise<CycleResult> {
-  const steps: string[] = [];
+  // Cada passo concluído vai também para o status ao vivo do painel.
+  const steps: string[] = new Proxy([] as string[], {
+    get(t, k, r) {
+      if (k === 'push') return (...xs: string[]) => { const n = t.push(...xs); live({ steps: [...t] }); return n; };
+      return Reflect.get(t, k, r);
+    },
+  });
   const done = (r: Omit<CycleResult, 'credits'>): CycleResult => {
     const credits = creditsSpent();
     recordCredits(credits);

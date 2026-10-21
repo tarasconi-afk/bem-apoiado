@@ -8,6 +8,21 @@ exec 9>/var/lib/bem-apoiado/cycle.lock
 flock -n 9 || { echo "outro ciclo em andamento; saindo"; exit 0; }
 
 rm -f /var/lib/bem-apoiado/run-now   # pedido do painel atendido
+LIVE=/var/lib/bem-apoiado/cycle-live.json
+printf '{"state":"rodando","started":"%s","updated":"%s","steps":[]}' "$(date -u +%FT%TZ)" "$(date -u +%FT%TZ)" > "$LIVE"
+# Fim do ciclo (qualquer saída): estado final + últimas linhas do log para o painel.
+finish() { local code=$?; local st=ok; [ $code -ne 0 ] && st=falhou; python3 - "$LIVE" "$st" "$code" <<'PY' || true
+import json, sys, datetime
+p, st, code = sys.argv[1], sys.argv[2], int(sys.argv[3])
+try: d = json.load(open(p))
+except Exception: d = {}
+d.update(state=st, code=code, ended=datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'))
+d['updated'] = d['ended']
+json.dump(d, open(p, 'w'))
+PY
+}
+trap finish EXIT
+export BEM_CYCLE_LIVE=1
 cd "$REPO"
 git merge --abort 2>/dev/null || true   # merge interrompido nunca fica pendurado
 git fetch -q origin main
@@ -30,6 +45,7 @@ OUT=$(npm run -s engine -- autopilot --budget "${BEM_CYCLE_BUDGET:-40}" 2>&1)
 CODE=$?
 set -e
 echo "$OUT" | tail -5
+printf '%s\n' "$OUT" | tail -40 > /var/lib/bem-apoiado/cycle-last.log
 [ $CODE -ne 0 ] && [ $CODE -ne 3 ] && echo "$OUT" | tail -40   # erro: mostra o contexto inteiro no log
 [ $CODE -eq 3 ] && { echo "nada a publicar neste ciclo"; exit 0; }
 [ $CODE -ne 0 ] && { echo "autopilot falhou ($CODE)"; exit $CODE; }

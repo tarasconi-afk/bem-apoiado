@@ -83,6 +83,15 @@ interface Job {
 const jobs: Job[] = existsSync(JOBS_FILE) ? JSON.parse(readFileSync(JOBS_FILE, 'utf8')) : [];
 const saveJobs = () => writeFileSync(JOBS_FILE, JSON.stringify(jobs.slice(0, 30), null, 2));
 const running = () => jobs.find((j) => !j.ended);
+// Ciclo do agendador em andamento (status gravado pelo cycle.sh/motor): painel atualiza a cada 10 s.
+const cycleRunning = () => {
+  try {
+    const c = JSON.parse(readFileSync(join(STATE, 'cycle-live.json'), 'utf8'));
+    return c.state === 'rodando' && Date.now() - Date.parse(c.updated) < 90 * 60_000;
+  } catch {
+    return false;
+  }
+};
 
 function startJob(label: string, args: string[]): string | null {
   if (running()) return 'já há uma ação em andamento; espere ela terminar';
@@ -444,7 +453,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     // Dados ilegíveis (ex.: cópia no meio de um merge) não derrubam o painel: mostra o erro e as últimas ações.
     let html: string;
     try {
-      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')), refresh: running() ? 10 : 300 }).replace('</body>', `${TABS_JS}</body>`);
+      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')), refresh: running() || cycleRunning() ? 10 : 300 }).replace('</body>', `${TABS_JS}</body>`);
     } catch (e) {
       html = `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="20"><body style="font:15px system-ui;max-width:900px;margin:24px auto;padding:0 16px"><h1>Painel</h1><p><b>Os dados do motor estão ilegíveis agora</b> (${esc((e as Error).message.slice(0, 200))}). O sync limpa a cópia em até 5 min; esta página tenta de novo sozinha.</p>${jobs.slice(0, 5).map((j) => `<pre style="white-space:pre-wrap;background:#f4f1ea;padding:8px">${esc(j.label)} (${j.ended ? `código ${j.code}` : 'rodando'})\n${esc(j.output.slice(-800))}</pre>`).join('')}</body>`;
     }

@@ -69,6 +69,19 @@ const cr1 = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 1 
 const sumMap = (m: Map<string, number>) => [...m.values()].reduce((t, v) => t + v, 0);
 const LABELS: Record<string, string> = { writer: 'Redação', auditor: 'Auditoria e revisão', extractor: 'Extração de trechos', imagem: 'Imagens', jev: 'Triagem (Jev)', outro: 'Outros' };
 
+// Ciclo ao vivo: faixa no topo enquanto roda; depois, o resultado do último ciclo (log se falhou).
+function cycleLiveHtml(now: Date): string {
+  const c = readJson(join(STATE_DIR, 'cycle-live.json')) as { state: string; started?: string; ended?: string; updated?: string; stage?: string; steps?: string[]; code?: number } | null;
+  if (!c) return '';
+  const mins = (iso?: string) => (iso ? Math.max(0, Math.round((now.getTime() - Date.parse(iso)) / 60000)) : 0);
+  const STAGE: Record<string, string> = { discover: 'procurando fontes', research: 'lendo fontes e extraindo trechos', audit: 'auditando', write: 'escrevendo', trim: 'cortando enchimento', page: 'revisão editorial', edit: 'edição final', escalation: 'segunda tentativa com o Sonnet', salvage: 'salvando a página', 'refresh-products': 'renovando produtos' };
+  const stage = c.stage ? (STAGE[c.stage.replace(/-r\d+$/, '').replace(/^reaudit-.*/, 'audit')] ?? c.stage) + (/-r(\d+)$/.exec(c.stage) ? ` (rodada ${Number(/-r(\d+)$/.exec(c.stage)![1]) + 1})` : '') : 'começando';
+  const last = (c.steps ?? []).slice(-3).map((s) => `<li>${esc(s)}</li>`).join('');
+  if (c.state === 'rodando' && mins(c.updated) < 90) return `<div class="flash" style="border-color:var(--ok)"><strong>Ciclo em andamento</strong> há ${mins(c.started)} min · agora: ${esc(stage)} <span class="muted">(última atividade há ${mins(c.updated)} min)</span>${last ? `<ul class="muted">${last}</ul>` : ''}</div>`;
+  const log = existsSync(join(STATE_DIR, 'cycle-last.log')) ? readFileSync(join(STATE_DIR, 'cycle-last.log'), 'utf8') : '';
+  return `<details class="flash" style="${c.state === 'falhou' ? 'border-color:var(--bad)' : ''}"><summary><strong>Último ciclo:</strong> ${c.state === 'falhou' ? '<span class="b bad">falhou</span>' : c.state === 'rodando' ? '<span class="b bad">parou sem terminar</span>' : '<span class="b ok">terminou</span>'} <span class="muted">${esc(fmt(new Date(c.ended ?? c.updated ?? now.toISOString())))}</span></summary>${(c.steps ?? []).length ? `<ul class="muted">${(c.steps ?? []).map((s) => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${c.state !== 'ok' && log ? `<pre style="white-space:pre-wrap;font-size:.75rem">${esc(log.slice(-2500))}</pre>` : ''}</details>`;
+}
+
 // Aviso quando o site público ficou para trás do main (sync grava STATE/live-site.json a cada 5 min).
 // Só o build do Action carimba a versão; commit de dados do painel também conta como versão nova.
 function liveWarning(): string {
@@ -135,6 +148,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
+${cycleLiveHtml(now)}
 ${liveWarning()}
 ${opts.adminHtml ?? ''}
 ${unknownCost ? `<p class="muted">${unknownCost} execução(ões) anteriores ao registro de custo aparecem sem créditos; o extrato do hPanel é a referência final.</p>` : ''}
