@@ -195,14 +195,14 @@ ${led.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Ca
 ${(() => {
   const w = trafficSummary(7, now);
   const m = trafficSummary(30, now);
-  if (!m.views && !m.clicks) return '<p class="muted">Ainda sem visitas registradas. Conta páginas vistas e cliques em "Ver preço na Amazon"; robôs ficam de fora.</p>';
+  if (!m.views && !m.clicks) return '<p class="muted">Ainda sem visitas registradas. Conta páginas vistas e cliques na Amazon (cartões de produto e buscas); robôs ficam de fora.</p>';
   return `<div class="grid">
 <div class="card"><div class="v">${w.views}</div><div class="l">páginas vistas em 7 dias (${m.views} em 30)</div></div>
 <div class="card"><div class="v">${w.visitors}</div><div class="l">visitantes por dia somados em 7 dias</div></div>
-<div class="card"><div class="v">${w.clicks}</div><div class="l">cliques na Amazon em 7 dias</div></div>
+<div class="card"><div class="v">${w.clicks}</div><div class="l">cliques na Amazon em 7 dias (${w.productClicks} em cartões, ${w.searchClicks} em buscas)</div></div>
 <div class="card"><div class="v">${w.views ? `${((100 * w.clicks) / w.views).toFixed(1)}%` : '—'}</div><div class="l">cliques na Amazon por página vista</div></div>
 </div>
-<div class="tw" style="margin-top:12px"><table><thead><tr><th>Página (30 dias)</th><th class="num">Vistas</th><th class="num">Visitantes</th><th class="num">Cliques Amazon</th><th class="num">Taxa</th></tr></thead><tbody>${m.pages.slice(0, 20).map((p) => `<tr><td><code>${esc(p.path)}</code></td><td class="num">${p.views}</td><td class="num">${p.visitors}</td><td class="num">${p.clicks}</td><td class="num">${p.views ? `${((100 * p.clicks) / p.views).toFixed(1)}%` : '—'}</td></tr>`).join('')}</tbody></table></div>
+<div class="tw" style="margin-top:12px"><table><thead><tr><th>Página (30 dias)</th><th class="num">Vistas</th><th class="num">Visitantes</th><th class="num">Cliques Amazon</th><th class="num">Cartão / busca</th><th class="num">Taxa</th></tr></thead><tbody>${m.pages.slice(0, 20).map((p) => `<tr><td><code>${esc(p.path)}</code></td><td class="num">${p.views}</td><td class="num">${p.visitors}</td><td class="num">${p.clicks}</td><td class="num">${p.productClicks} / ${p.searchClicks}</td><td class="num">${p.views ? `${((100 * p.clicks) / p.views).toFixed(1)}%` : '—'}</td></tr>`).join('')}</tbody></table></div>
 ${m.referrers.length ? `<p class="muted">De onde vieram (30 dias): ${m.referrers.map(([h, n]) => `${esc(h)} ${n}`).join(' · ')}</p>` : ''}`;
 })()}
 

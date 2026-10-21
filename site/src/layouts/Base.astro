@@ -152,10 +152,10 @@ const liveCats = CATEGORIES.filter((c) => live.some((p) => categoryOf(p)?.id ===
     </footer>
     {INDEXABLE && (
       <script is:inline>
-        // Contador próprio, sem cookie: página vista e clique em "Ver preço na Amazon". Nada sai do navegador além disso.
+        // Contador próprio, sem cookie: página vista e clique na Amazon (cartão de produto ou busca). Nada sai do navegador além disso.
         (function () { var U = 'https://t.bemapoiado.com/c'; function s(o) { try { navigator.sendBeacon(U, new Blob([JSON.stringify(o)], { type: 'text/plain' })); } catch (e) {} }
           s({ e: 'pv', p: location.pathname, r: document.referrer });
-          document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('a[rel~="sponsored"]'); if (!a) return; var m = /\/dp\/([A-Z0-9]{10})/.exec(a.href); s({ e: 'aff', p: location.pathname, a: m ? m[1] : '' }); }, true);
+          document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('a[rel~="sponsored"]'); if (!a) return; var m = /\/dp\/([A-Z0-9]{10})/.exec(a.href); s({ e: 'aff', p: location.pathname, a: m ? m[1] : '', k: m ? 'produto' : /\/s\?/.test(a.href) ? 'busca' : 'outro' }); }, true);
         })();
       </script>
     )}

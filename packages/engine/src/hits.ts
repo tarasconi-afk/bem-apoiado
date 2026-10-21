@@ -13,7 +13,7 @@ const dir = () => join(process.env.BEM_STATE_DIR ?? STATE_DIR, 'hits');
 const BOT = /bot|crawl|spider|slurp|bing|google|yandex|baidu|duckduck|facebookexternalhit|preview|headless|lighthouse|pingdom|uptime|curl|wget|python|node-fetch|axios|go-http/i;
 const SITE = process.env.BEM_SITE_HOST ?? 'bemapoiado.com';
 
-export interface Hit { t: string; e: 'pv' | 'aff'; p: string; a?: string; r?: string; v: string }
+export interface Hit { t: string; e: 'pv' | 'aff'; p: string; a?: string; k?: 'produto' | 'busca'; r?: string; v: string }
 
 function daySalt(day: string): string {
   const f = join(dir(), `.sal-${day}`);
@@ -28,7 +28,7 @@ function daySalt(day: string): string {
 
 export function toHit(body: unknown, ip: string, ua: string, now = new Date()): Hit | null {
   if (!ua || BOT.test(ua)) return null;
-  const b = body as { e?: string; p?: string; a?: string; r?: string };
+  const b = body as { e?: string; p?: string; a?: string; k?: string; r?: string };
   if (b?.e !== 'pv' && b?.e !== 'aff') return null;
   const p = String(b.p ?? '').slice(0, 200);
   if (!/^\/[a-z0-9/_-]*$/i.test(p)) return null;
@@ -43,6 +43,7 @@ export function toHit(body: unknown, ip: string, ua: string, now = new Date()): 
   return {
     t: now.toISOString(), e: b.e, p,
     ...(b.e === 'aff' && /^[A-Z0-9]{10}$/.test(String(b.a)) ? { a: String(b.a) } : {}),
+    ...(b.e === 'aff' && (b.k === 'produto' || b.k === 'busca') ? { k: b.k } : {}),
     ...(r ? { r } : {}),
     v: createHash('sha256').update(`${daySalt(day)}|${ip}|${ua}`).digest('hex').slice(0, 16),
   };
@@ -78,10 +79,12 @@ export function startHitsServer(port = Number(process.env.BEM_HITS_PORT ?? 8788)
   }).listen(port, '127.0.0.1', () => console.log(`contador em 127.0.0.1:${port}`));
 }
 
-export interface PageTraffic { path: string; views: number; visitors: number; clicks: number }
+export interface PageTraffic { path: string; views: number; visitors: number; clicks: number; productClicks: number; searchClicks: number }
 
-export function trafficSummary(days: number, now = new Date()): { views: number; visitors: number; clicks: number; pages: PageTraffic[]; referrers: [string, number][] } {
-  const pages = new Map<string, { views: number; v: Set<string>; clicks: number }>();
+export function trafficSummary(days: number, now = new Date()): { views: number; visitors: number; clicks: number; productClicks: number; searchClicks: number; pages: PageTraffic[]; referrers: [string, number][] } {
+  const pages = new Map<string, { views: number; v: Set<string>; clicks: number; prod: number; search: number }>();
+  let productClicks = 0;
+  let searchClicks = 0;
   const refs = new Map<string, number>();
   const visitors = new Set<string>();
   let views = 0;
@@ -98,7 +101,7 @@ export function trafficSummary(days: number, now = new Date()): { views: number;
       } catch {
         continue;
       }
-      const p = pages.get(h.p) ?? { views: 0, v: new Set<string>(), clicks: 0 };
+      const p = pages.get(h.p) ?? { views: 0, v: new Set<string>(), clicks: 0, prod: 0, search: 0 };
       if (h.e === 'pv') {
         p.views++;
         views++;
@@ -108,13 +111,15 @@ export function trafficSummary(days: number, now = new Date()): { views: number;
       } else {
         p.clicks++;
         clicks++;
+        // Cliques antigos (sem "k") contam como produto: antes de 21/10 só havia cartões.
+        if (h.k === 'busca') { p.search++; searchClicks++; } else { p.prod++; productClicks++; }
       }
       pages.set(h.p, p);
     }
   }
   return {
-    views, visitors: visitors.size, clicks,
-    pages: [...pages].map(([path, x]) => ({ path, views: x.views, visitors: x.v.size, clicks: x.clicks })).sort((a, b) => b.views - a.views),
+    views, visitors: visitors.size, clicks, productClicks, searchClicks,
+    pages: [...pages].map(([path, x]) => ({ path, views: x.views, visitors: x.v.size, clicks: x.clicks, productClicks: x.prod, searchClicks: x.search })).sort((a, b) => b.views - a.views),
     referrers: [...refs].sort((a, b) => b[1] - a[1]).slice(0, 10),
   };
 }

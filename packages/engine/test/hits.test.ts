@@ -35,7 +35,7 @@ describe('contador de visitas', () => {
     expect(s.views).toBe(3);
     expect(s.clicks).toBe(1);
     expect(s.visitors).toBe(2);
-    expect(s.pages[0]).toEqual({ path: '/a/', views: 2, visitors: 2, clicks: 1 });
+    expect(s.pages[0]).toEqual({ path: '/a/', views: 2, visitors: 2, clicks: 1, productClicks: 1, searchClicks: 0 });
     expect(s.referrers).toEqual([['google.com', 1]]);
   });
 });
