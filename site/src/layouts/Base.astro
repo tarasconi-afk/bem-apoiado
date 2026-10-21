@@ -1,7 +1,7 @@
 ---
 import '@fontsource/fraunces/latin-600.css';
 import Logo from '../components/Logo.astro';
-import { BRAND, href, INDEXABLE, NICHE } from '../lib/content';
+import { BRAND, CATEGORIES, categoryOf, href, INDEXABLE, NICHE, publicPages } from '../lib/content';
 
 interface Props {
   title: string;
@@ -16,6 +16,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const robots = INDEXABLE && !noindex ? 'index,follow' : 'noindex,nofollow';
 const image = new URL(ogImage, Astro.site).href;
 const path = Astro.url.pathname;
+const live = publicPages().filter((p) => p.status !== 'draft');
+const liveCats = CATEGORIES.filter((c) => live.some((p) => categoryOf(p)?.id === c.id));
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -127,6 +129,7 @@ const path = Astro.url.pathname;
           <h2>Navegue</h2>
           <ul class="foot-links">
             <li><a href={href('/#guias')}>Todos os guias</a></li>
+            {liveCats.map((c) => <li><a href={href(`/categoria/${c.id}/`)}>{c.label}</a></li>)}
             <li><a href={href('/como-trabalhamos/')}>Como trabalhamos</a></li>
           </ul>
         </div>

@@ -132,3 +132,21 @@ export function homeSorted(pages: PageSpec[]): PageSpec[] {
   const rank = (s: string) => (order.includes(s) ? order.indexOf(s) : order.length);
   return [...pages].sort((a, b) => rank(a.slug) - rank(b.slug) || b.updated_at.localeCompare(a.updated_at));
 }
+
+// Categoria de cada página: a primeira categoria do nicho que contém um dos tipos da pauta.
+export const CATEGORIES = NICHE.categories;
+export function categoryOf(page: PageSpec): (typeof CATEGORIES)[number] | undefined {
+  const kinds = loadTopics().find((t) => t.slug === page.slug)?.product_kinds ?? [];
+  return CATEGORIES.find((c) => c.kinds.some((k) => kinds.includes(k)));
+}
+
+// Guias relacionados: mesma categoria primeiro (mais tipos em comum antes), depois os demais; nunca a própria.
+export function relatedPages(page: PageSpec, max = 4): PageSpec[] {
+  const kinds = new Set(loadTopics().find((t) => t.slug === page.slug)?.product_kinds ?? []);
+  const cat = categoryOf(page);
+  const score = (p: PageSpec) => {
+    const k = loadTopics().find((t) => t.slug === p.slug)?.product_kinds ?? [];
+    return (categoryOf(p)?.id === cat?.id ? 10 : 0) + k.filter((x) => kinds.has(x)).length;
+  };
+  return publicPages().filter((p) => p.slug !== page.slug && p.status !== 'draft').map((p) => ({ p, s: score(p) })).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, max).map((x) => x.p);
+}

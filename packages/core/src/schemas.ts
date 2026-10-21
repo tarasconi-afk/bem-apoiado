@@ -67,6 +67,8 @@ export const NicheProfile = z.object({
   product_kinds: z.array(z.object({ id: ProductKind, label: z.string() })).min(1),
   // Termos que o site nunca exibe, nem citando vendedor (aplicado a trechos de anúncio).
   forbidden_terms: z.array(z.string()).default([]),
+  // Seções do site (páginas de categoria e agrupamento da home): cada uma reúne tipos de produto.
+  categories: z.array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string(), intro: z.string(), kinds: z.array(ProductKind).min(1) })).default([]),
 });
 export type NicheProfile = z.infer<typeof NicheProfile>;
 

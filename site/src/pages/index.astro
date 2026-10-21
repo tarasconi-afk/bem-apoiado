@@ -1,11 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import KindImage from '../components/KindImage.astro';
-import { BRAND, fmtDate, homeSorted, href, homeIllustrations, KIND_LABEL, NICHE, publicPages, sourcesCount } from '../lib/content';
+import GuideCards from '../components/GuideCards.astro';
+import { BRAND, CATEGORIES, categoryOf, homeSorted, href, NICHE, publicPages } from '../lib/content';
 
 const pages = homeSorted(publicPages());
-const art = homeIllustrations(pages);
-const kicker = (t: string) => (t === 'decision_compare' ? 'Guia de decisão' : t === 'buying_guide' ? 'Guia de compra' : 'Explicação');
+// Home por categoria (até 6 guias cada; o resto na página da categoria); sem categoria vai para "Outros guias".
+const groups = [
+  ...CATEGORIES.map((c) => ({ id: c.id, label: c.label, all: pages.filter((p) => categoryOf(p)?.id === c.id) })),
+  { id: '', label: 'Outros guias', all: pages.filter((p) => !categoryOf(p)) },
+].filter((g) => g.all.length).map((g) => ({ ...g, pages: g.all.slice(0, 6), total: g.all.length }));
 const site = Astro.site!.href;
 const jsonLd = [
   { '@context': 'https://schema.org', '@type': 'WebSite', name: BRAND, url: site, inLanguage: 'pt-BR' },
@@ -41,26 +45,18 @@ const jsonLd = [
 
   <section id="guias" class="guides" aria-labelledby="guias-t">
     <div class="wrap">
-      <h2 id="guias-t">Guias</h2>
-      {pages.length === 0 ? (
-        <p class="empty">Primeiros guias em preparação.</p>
-      ) : (
-        <ul class="cards">
-          {pages.map((p) => (
-            <li>
-              <a href={href(`/${p.slug}/`)}>
-                <div class="card-art"><KindImage id={art.get(p.slug)!} class="card-img" sizes="(min-width: 48rem) 24rem, 92vw" /></div>
-                <div class="card-body">
-                  <span class="card-kicker">{kicker(p.page_type)}{art.get(p.slug) !== 'outro' && ` · ${KIND_LABEL[art.get(p.slug)!]}`}</span>
-                  <span class="card-title">{p.title}</span>
-                  <span class="card-desc">{p.description}</span>
-                  <span class="card-meta">{sourcesCount(p)} fontes · atualizado em {fmtDate(p.updated_at)}</span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <h2 id="guias-t" class="sr-only">Guias</h2>
+      {pages.length === 0 && <p class="empty">Primeiros guias em preparação.</p>}
+      {groups.map((g) => (
+        <div class="group">
+          <div class="group-head">
+            <h2>{g.label}</h2>
+            {g.id && g.total > g.pages.length && <a href={href(`/categoria/${g.id}/`)}>Ver os {g.total} guias <span aria-hidden="true">→</span></a>}
+            {g.id && g.total <= g.pages.length && <a href={href(`/categoria/${g.id}/`)}>Página da categoria <span aria-hidden="true">→</span></a>}
+          </div>
+          <GuideCards pages={g.pages} />
+        </div>
+      ))}
     </div>
   </section>
 </Base>
@@ -83,16 +79,9 @@ const jsonLd = [
   .steps p { color: var(--muted); font-size: 0.98rem; }
   .n { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 10px; background: var(--amber-soft); color: var(--warn); font-weight: 700; }
 
-  .guides h2 { margin-top: 2.5rem; }
-  .cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); }
-  .cards a { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); text-decoration: none; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
-  .cards a:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: #cfd9d3; }
-  .card-art { background: var(--sand); }
-  .card-art :global(.card-img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
-  .card-body { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 1.4rem 1.4rem; flex: 1; }
-  .card-kicker { color: var(--brand); font-size: 0.74rem; font-weight: 650; letter-spacing: 0.07em; text-transform: uppercase; }
-  .card-title { font: 600 1.3rem/1.25 var(--display); letter-spacing: -0.01em; }
-  .card-desc { color: var(--muted); font-size: 0.96rem; }
-  .card-meta { margin-top: auto; padding-top: 0.6rem; color: var(--muted); font-size: 0.82rem; }
+  .group { margin-top: 2.5rem; }
+  .group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .group-head h2 { margin: 0; }
+  .group-head a { font-weight: 600; text-decoration: none; }
   .empty { color: var(--muted); }
 </style>

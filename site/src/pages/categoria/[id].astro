@@ -1,0 +1,38 @@
+---
+// Página de categoria: reúne os guias de um grupo de tipos de produto (definido em data/niche.json).
+// Só existe com pelo menos um guia publicado.
+import Base from '../../layouts/Base.astro';
+import GuideCards from '../../components/GuideCards.astro';
+import { BRAND, CATEGORIES, categoryOf, homeSorted, href, publicPages } from '../../lib/content';
+
+export function getStaticPaths() {
+  const pages = publicPages().filter((p) => p.status !== 'draft');
+  return CATEGORIES.filter((c) => pages.some((p) => categoryOf(p)?.id === c.id)).map((c) => ({ params: { id: c.id }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: (typeof CATEGORIES)[number] };
+const pages = homeSorted(publicPages().filter((p) => p.status !== 'draft' && categoryOf(p)?.id === cat.id));
+const site = Astro.site!.href;
+const url = new URL(`/categoria/${cat.id}/`, site).href;
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${cat.label}: guias`, url, inLanguage: 'pt-BR', hasPart: pages.map((p) => ({ '@type': 'Article', headline: p.title, url: new URL(`/${p.slug}/`, site).href })) },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: site }, { '@type': 'ListItem', position: 2, name: cat.label, item: url }] },
+];
+---
+<Base title={`${cat.label}: guias para decidir | ${BRAND}`} description={cat.intro.slice(0, 158)} jsonLd={jsonLd}>
+  <header class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Você está em"><a href={href('/')}>Início</a> <span aria-hidden="true">›</span> {cat.label}</nav>
+      <span class="chip">{pages.length} {pages.length === 1 ? 'guia' : 'guias'}</span>
+      <h1>{cat.label}</h1>
+      <p class="dek">{cat.intro}</p>
+    </div>
+  </header>
+  <section class="wrap guides"><GuideCards pages={pages} /></section>
+</Base>
+<style>
+  .page-hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); padding: 1.6rem 0 2.2rem; }
+  .crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.1rem; }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .dek { color: var(--muted); font-size: 1.15rem; max-width: 44rem; }
+  .guides { padding-top: 2rem; }
+</style>

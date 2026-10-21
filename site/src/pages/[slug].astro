@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Cite from '../components/Cite.astro';
 import KindImage from '../components/KindImage.astro';
-import { BRAND, fmtDate, href, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import GuideCards from '../components/GuideCards.astro';
+import { BRAND, categoryOf, fmtDate, href, relatedPages, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -14,6 +15,8 @@ const fn = footnotesFor(page);
 const products = productsFor(page);
 const n = fn.numberFor;
 const kinds = kindsFor(page);
+const cat = categoryOf(page);
+const related = relatedPages(page);
 const isDecision = (id: string, heading: string) => /decidir|escolher/i.test(id + ' ' + heading);
 // Exemplos no meio da página: depois que os tipos e as diferenças foram explicados, antes dos detalhes
 // de etiqueta e da seção de decisão (no fim, quase ninguém chega até eles).
@@ -40,7 +43,8 @@ const jsonLd = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Início', item: site },
-      { '@type': 'ListItem', position: 2, name: page.title, item: url },
+      ...(cat ? [{ '@type': 'ListItem', position: 2, name: cat.label, item: new URL(`/categoria/${cat.id}/`, site).href }] : []),
+      { '@type': 'ListItem', position: cat ? 3 : 2, name: page.title, item: url },
     ],
   },
 ];
@@ -48,7 +52,7 @@ const jsonLd = [
 <Base title={page.title} description={page.description} noindex={page.status === 'draft'} ogType="article" ogImage={`/og/${kinds[0] ?? 'default'}.jpg`} jsonLd={jsonLd}>
   <header class="article-hero">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Você está em"><a href={href('/')}>Início</a> <span aria-hidden="true">›</span> <a href={href('/#guias')}>Guias</a></nav>
+      <nav class="crumbs" aria-label="Você está em"><a href={href('/')}>Início</a> <span aria-hidden="true">›</span> {cat ? <a href={href(`/categoria/${cat.id}/`)}>{cat.label}</a> : <a href={href('/#guias')}>Guias</a>}</nav>
       <span class="chip">{kicker} · {NICHE.category_label}</span>
       <h1>{page.title}</h1>
       <p class="dek">{page.description}</p>
@@ -157,6 +161,14 @@ const jsonLd = [
         )}
         </>
       ))}
+
+      {related.length > 0 && (
+        <section class="related" aria-labelledby="relacionados">
+          <h2 id="relacionados">Guias relacionados</h2>
+          <GuideCards pages={related} compact />
+          {cat && <p class="related-more"><a href={href(`/categoria/${cat.id}/`)}>Todos os guias de {cat.label.toLowerCase()} <span aria-hidden="true">→</span></a></p>}
+        </section>
+      )}
 
       <details id="fontes" class="sources">
         <summary>Fontes consultadas ({fn.notes.length}) e trechos citados</summary>
@@ -281,6 +293,9 @@ const jsonLd = [
   .product-cta { margin-top: auto; width: 100%; }
   .product-checked { color: var(--muted); font-size: 0.75rem; text-align: center; }
 
+  .related { margin-top: 3rem; }
+  .related-more { margin-top: 0.8rem; font-weight: 600; }
+  .related-more a { text-decoration: none; }
   .sources { margin-top: 3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   .sources summary { cursor: pointer; padding: 1rem 1.2rem; font-weight: 650; }
   .sources[open] summary { border-bottom: 1px solid var(--line); }

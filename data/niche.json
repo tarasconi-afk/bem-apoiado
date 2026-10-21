@@ -83,5 +83,37 @@
     "hipoalergen",
     "antiácaro",
     "antiacaro"
+  ],
+  "categories": [
+    {
+      "id": "colchao",
+      "label": "Colchão",
+      "intro": "Tipos de colchão, densidade, etiqueta do Inmetro e base: o que conferir antes de comprar.",
+      "kinds": [
+        "espuma",
+        "molas_ensacadas",
+        "molas_interligadas",
+        "misto",
+        "base_box"
+      ]
+    },
+    {
+      "id": "travesseiro",
+      "label": "Travesseiro",
+      "intro": "Altura, material e o que os fabricantes declaram sobre cada tipo de travesseiro.",
+      "kinds": [
+        "travesseiro"
+      ]
+    },
+    {
+      "id": "home-office",
+      "label": "Home office",
+      "intro": "Cadeira, mesa e suporte para notebook: o que as normas e os fabricantes dizem.",
+      "kinds": [
+        "cadeira",
+        "mesa",
+        "suporte_notebook"
+      ]
+    }
   ]
 }
