@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { BRAND, CATEGORIES, categoryOf, homeSorted, href, NICHE, publicPages } from '../lib/content';
+import { BRAND, CATEGORIES, categoryOf, homeSorted, href, NICHE, publicPages, THEME } from '../lib/content';
 
 const pages = homeSorted(publicPages());
 // Home por categoria (até 6 guias cada; o resto na página da categoria); sem categoria vai para "Outros guias".
@@ -23,7 +23,7 @@ const jsonLd = [
         <span class="chip">{NICHE.category_label}</span>
         <h1>{NICHE.site_tagline}</h1>
         <p class="lede">{NICHE.site_intro}</p>
-        <a class="btn" href="#guias">Ver os guias <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#guias">{THEME.texts.hero_button} <span aria-hidden="true">→</span></a>
       </div>
       <figure class="hero-art">
         <KindImage id="capa" class="hero-img" sizes="(min-width: 60rem) 36rem, 92vw" eager />

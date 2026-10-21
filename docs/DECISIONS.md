@@ -385,3 +385,16 @@ cada página no ar tem um campo "pedir ajuste": o modelo escolhe os blocos, o re
 fontes, a edição manual passa pela auditoria e só grava se sustentado. No resultado do motor o ajuste vira
 commit no próprio ramo pagina/* (a prévia se refaz e o editor decide depois); em rascunho ou página no ar,
 commit no main. Layout e visual continuam sendo pedido para o desenvolvedor.
+
+## 2026-10-21 — Ajuste com pesquisa; tema editável pelo chat (etapa 1 de visual)
+"Pedir ajuste" ganhou "pode pesquisar": a instrução vira pergunta da pauta, busca dirigida (4 buscas, até 5
+fontes), pesquisa só nas novas, redator reescreve os blocos escolhidos podendo citar as evidências novas, gate
+e auditoria nos blocos tocados; sem fonte nova, diz e não muda a página (~10–20 créditos).
+Tema: data/theme.json (core/theme.ts, Zod com faixas: cores hex, radius 0–28, escala de texto 0,9–1,2,
+títulos 0,85–1,2, botão de compra rótulo/estilo, posição dos exemplos, textos fixos). O agente tem a ação
+"theme"; mudança de tema não vai ao main: vira ramo pagina/tema-* com prévia do site e só vale com o aceite.
+Seção/componente novos continuam como pedido para o desenvolvedor (etapa 2: agente de código num ramo, no
+futuro; avaliar modelos gratuitos rodando na própria VPS).
+Corrigido: o aviso da última ação ficava no endereço (?msg=) e a atualização automática o repetia para sempre.
+Nota técnica: no Zod 4, objeto aninhado com padrões internos precisa de .prefault({}) (.default({}) devolve o
+objeto vazio sem aplicar os padrões; as cores do tema saíam "undefined").

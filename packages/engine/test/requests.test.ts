@@ -30,3 +30,22 @@ describe('pedidos em texto livre', () => {
     expect(dev[0]).toMatchObject({ summary: 'mudar a cor do botão de compra', status: 'aberto' });
   });
 });
+
+describe('tema pelo pedido', () => {
+  it('muda só o pedido, valida faixa e recusa valor fora do permitido', async () => {
+    const run = async (changes: unknown) => {
+      const plan = { reply: 'ok', actions: [{ type: 'theme', changes }] };
+      const llm = async () => new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(plan) } }], usage: { prompt_tokens: 10, completion_tokens: 5 } }));
+      const { handleRequest } = await import('../src/stages/requests.ts');
+      return handleRequest('botão de compra contorno e texto "Ver na Amazon"', 'run_t', llm);
+    };
+    const ok = await run({ cta: { style: 'contorno', label: 'Ver na Amazon' } });
+    expect(ok.done[0]).toMatch(/^tema alterado/);
+    const t = JSON.parse(readFileSync(join(process.env.BEM_ROOT!, 'data/theme.json'), 'utf8'));
+    expect(t.cta).toEqual({ label: 'Ver na Amazon', style: 'contorno' });
+    expect(t.colors.brand).toBe('#1e5b4c');
+    const bad = await run({ text_scale: 3, colors: { brand: 'vermelho' } });
+    expect(bad.failed[0]).toMatch(/fora do permitido.*(text_scale|colors\.brand)/);
+    expect(JSON.parse(readFileSync(join(process.env.BEM_ROOT!, 'data/theme.json'), 'utf8')).text_scale).toBe(1);
+  });
+});

@@ -262,6 +262,9 @@ ${ops.newTopics.length ? `<p><strong>Buscas sem página própria</strong> (o cic
 // Abas: as seções continuam sendo h2 + conteúdo; o script agrupa cada h2 (e o que vem até o próximo) na
 // aba do mapa abaixo. Sem framework, e sem script o painel continua inteiro numa página só.
 const TABS_JS = `<script>
+// O aviso da última ação vem no endereço (?msg=): mostra uma vez e limpa, para a atualização automática
+// não repetir o aviso para sempre.
+if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
   var MAP = [['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Domínios novos','conteudo'],
     ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
@@ -297,7 +300,7 @@ const TABS_JS = `<script>
 function adjustForm(ramo: string, slug: string): string {
   const hasPage = ramo === 'main' || readBranch(ramo)(`data/pages/${slug}.json`) !== null;
   if (!hasPage) return '';
-  return `<form method="post" action="acao" class="verdict adjust"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}"><input name="pedido" required minlength="5" maxlength="600" placeholder="pedir ajuste (ex.: resposta curta mais direta)"><button>Ajustar</button></form>`;
+  return `<form method="post" action="acao" class="verdict adjust"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}"><input name="pedido" required minlength="5" maxlength="600" placeholder="pedir ajuste (ex.: resposta curta mais direta)"><label class="muted" title="Busca fontes novas sobre o pedido antes de reescrever (~10 a 20 créditos)"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar</label><button>Ajustar</button></form>`;
 }
 
 // Sugestão do motor (aceitar/recusar) com os motivos da revisão editorial: o editor vê o que não passou e
@@ -487,7 +490,8 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
         mkdirSync(dir, { recursive: true });
         const file = join(dir, `${Date.now().toString(36)}.txt`);
         writeFileSync(file, pedido);
-        msg = startJob(`ajustar ${slug}: ${pedido.slice(0, 50)}`, ['ajustar', ramo, slug, file]) ?? `ajustando ${slug} (o auditor confere; a prévia se refaz em até 5 min)`;
+        const pesquisar = f.get('pesquisar') === '1';
+        msg = startJob(`ajustar ${slug}${pesquisar ? ' (com pesquisa)' : ''}: ${pedido.slice(0, 50)}`, ['ajustar', ramo, slug, file, ...(pesquisar ? ['pesquisar'] : [])]) ?? `ajustando ${slug}${pesquisar ? ' com pesquisa (alguns minutos)' : ''} (o auditor confere; a prévia se refaz em até 5 min)`;
       }
     } else if (f.get('acao') === 'pedido') {
       const texto = (f.get('texto') ?? '').trim().slice(0, 2000);

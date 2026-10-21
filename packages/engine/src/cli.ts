@@ -316,8 +316,11 @@ async function main(): Promise<number> {
       }
       setRunBudget(15);
       const { readFileSync } = await import('node:fs');
-      const { editByInstruction } = await import('./stages/requests.ts');
-      const msg = await editByInstruction(slug, readFileSync(file, 'utf8').slice(0, 1000), newRunId(`${slug}-ajuste`));
+      const { adjustWithResearch, editByInstruction } = await import('./stages/requests.ts');
+      const pesquisar = rest.includes('--pesquisar');
+      if (pesquisar) setRunBudget(30);
+      const text = readFileSync(file, 'utf8').slice(0, 1000);
+      const msg = pesquisar ? await adjustWithResearch(slug, text, newRunId(`${slug}-ajuste`)) : await editByInstruction(slug, text, newRunId(`${slug}-ajuste`));
       console.log(`→ ${msg}`);
       console.log(`~${creditsSpent().toFixed(2)} créditos`);
       return msg.startsWith('texto ajustado') ? 0 : 1;

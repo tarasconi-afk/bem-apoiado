@@ -120,11 +120,11 @@ case "$action" in
     # motor (antes do aceite) ou no main; a prévia se refaz e o editor decide depois.
     fresh
     if [ "$2" != main ]; then git checkout -q -B "$2" "origin/$2"; fi
-    if ! npm run -s engine -- adjust "$3" "$4"; then
+    if ! npm run -s engine -- adjust "$3" "$4" ${5:+--pesquisar}; then
       git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; exit 1
     fi
     git add data/
-    git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3"$'\n\n'"$(head -c 300 "$4")"
+    git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3${5:+ (com pesquisa)}"$'\n\n'"$(head -c 300 "$4")"
     if [ "$2" = main ]; then
       npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
     else
@@ -136,8 +136,19 @@ case "$action" in
   pedido)
     fresh
     npm run -s engine -- request "$2"
-    publish "Painel: pedido do editor"$'\n\n'"$(head -c 300 "$2")"
-    preview
+    if [ -z "$(git status --porcelain -- data/theme.json)" ]; then
+      publish "Painel: pedido do editor"$'\n\n'"$(head -c 300 "$2")"
+      preview
+    else
+      # Mudança de tema vai para um resultado com prévia (ramo pagina/tema-*); só vale com o aceite.
+      B="pagina/tema-$(date +%Y%m%d-%H%M)"
+      git checkout -q -b "$B"
+      git add data/
+      git "${GIT_ID[@]}" commit -q -m "Tema: pedido do editor"$'\n\n'"- $(head -c 300 "$2")"
+      git push -q origin "HEAD:$B"
+      git checkout -q -f main
+      echo "mudança de tema em $B: confira a prévia em Esperando sua decisão"
+    fi
     ;;
   editar)
     fresh

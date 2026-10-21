@@ -1,9 +1,16 @@
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
+import { auditDraft } from './audit.ts';
+import { discoverSources } from './discover.ts';
+import { styleIssues } from './page.ts';
+import { research } from './research.ts';
+import { applyPatches } from './patch.ts';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { callJson, type FetchLike } from '../llm.ts';
 import { recordVerdict } from '../feedback.ts';
-import { buildIndex, DATA, loadPages, loadTopics } from '../store.ts';
+import { buildIndex, DATA, loadPages, loadTopics, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { balanceNow, ledger, spendBy } from '../credits.ts';
 import { auditStats } from '../lessons.ts';
 import { latestSnapshot, pageStats } from '../gsc.ts';
@@ -25,6 +32,7 @@ const Action = z.discriminatedUnion('type', [
   z.object({ type: z.literal('edit_text'), slug: z.string(), instruction: z.string().min(5) }),
   z.object({ type: z.literal('unpublish'), slug: z.string(), reason: z.string().min(5) }),
   z.object({ type: z.literal('report'), about: z.enum(['gastos', 'qualidade', 'paginas', 'fila', 'visitas']) }),
+  z.object({ type: z.literal('theme'), changes: z.record(z.string(), z.unknown()) }),
   z.object({ type: z.literal('developer'), summary: z.string().min(5) }),
 ]);
 const Plan = z.object({ actions: z.array(Action).min(1).max(6), reply: z.string() });
@@ -35,8 +43,19 @@ const SYSTEM = `Você é o assistente do painel de um site de guias. Transforme 
 - edit_text: ajustar o texto de uma página existente sem mudar as fontes (ex.: "resposta curta mais direta", "frase X mais simples").
 - unpublish: tirar uma página do ar (com motivo).
 - report: relatório sobre gastos, qualidade, paginas, fila ou visitas (visitas = dados do Google Search Console: cliques, impressões, posição).
-- developer: qualquer coisa que mude código, visual, regras do site, orçamento, cadastro de domínios ou integrações. NÃO tente fazer: resuma para o desenvolvedor.
+- theme: mudar o visual pelo tema (cores em hex, radius_px, text_scale, heading_scale, cta.label, cta.style "cheio"|"contorno", examples_position "inicio"|"meio"|"fim", texts.*). Em "changes", só as chaves que mudam, no mesmo formato do tema atual (objetos aninhados). A mudança vai para prévia e só vale com o aceite do editor.
+- developer: o que o tema não cobre (seção ou componente novo, código, regras do site, orçamento, cadastro de domínios, integrações). NÃO tente fazer: resuma para o desenvolvedor.
 Use só slugs da lista de páginas. Em "reply", diga em uma ou duas frases o que vai ser feito, sem prometer dado que o motor não tem.`;
+
+const THEME_FILE = join(DATA, 'theme.json');
+export const loadTheme = (): Theme => (existsSync(THEME_FILE) ? Theme.parse(JSON.parse(readFileSync(THEME_FILE, 'utf8'))) : DEFAULT_THEME);
+function deepMerge(base: Record<string, unknown>, patch: Record<string, unknown>): Record<string, unknown> {
+  const out: Record<string, unknown> = { ...base };
+  for (const [k, v] of Object.entries(patch)) {
+    out[k] = v && typeof v === 'object' && !Array.isArray(v) && base[k] && typeof base[k] === 'object' ? deepMerge(base[k] as Record<string, unknown>, v as Record<string, unknown>) : v;
+  }
+  return out;
+}
 
 export interface RequestResult { reply: string; done: string[]; failed: string[] }
 
@@ -98,7 +117,7 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
   const plan = await callJson(
     {
       role: 'extractor', system: SYSTEM,
-      user: `Páginas (slug: título, situação):\n${pages.map((p) => `- ${p.slug}: ${p.title} (${p.status === 'draft' ? 'rascunho' : 'no ar'})`).join('\n')}\n\nPautas: ${loadTopics().map((t) => t.slug).join(', ')}\n\nPedido do editor: ${text}`,
+      user: `Tema atual: ${JSON.stringify(loadTheme())}\n\nPáginas (slug: título, situação):\n${pages.map((p) => `- ${p.slug}: ${p.title} (${p.status === 'draft' ? 'rascunho' : 'no ar'})`).join('\n')}\n\nPautas: ${loadTopics().map((t) => t.slug).join(', ')}\n\nPedido do editor: ${text}`,
       schema: Plan, schemaName: 'panel_request', maxTokens: 1500,
     },
     fetchImpl,
@@ -115,7 +134,15 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
         }
       }
       else if (a.type === 'report') done.push(report(a.about));
-      else if (a.type === 'developer') {
+      else if (a.type === 'theme') {
+        const merged = deepMerge(loadTheme() as unknown as Record<string, unknown>, a.changes);
+        const parsed = Theme.safeParse(merged);
+        if (!parsed.success) failed.push(`tema: mudança fora do permitido (${parsed.error.issues.map((i) => i.path.join('.')).join(', ')})`);
+        else {
+          writeFileSync(THEME_FILE, JSON.stringify(parsed.data, null, 2) + '\n');
+          done.push(`tema alterado (${Object.keys(a.changes).join(', ')}): confira na prévia do resultado em "Esperando sua decisão" e aceite para publicar`);
+        }
+      } else if (a.type === 'developer') {
         const f = join(DATA, 'dev-requests.json');
         const cur = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : [];
         writeFileSync(f, JSON.stringify([...cur, { at: new Date().toISOString(), request: text, summary: a.summary, status: 'aberto' }], null, 2) + '\n');
@@ -133,4 +160,46 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
     }
   }
   return { reply: plan.data.reply, done, failed };
+}
+
+// Ajuste com pesquisa ("pode pesquisar"): a instrução vira pergunta da pauta, a busca dirigida procura fontes
+// sobre ela e a pesquisa lê só as novas; o redator reescreve os blocos escolhidos podendo citar as evidências
+// novas; gate + auditoria dos blocos tocados; só grava se tudo for sustentado. Sem fonte nova: diz e não inventa.
+export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike): Promise<string> {
+  const page = loadPages().find((p) => p.slug === slug);
+  if (!page) return `página ${slug} não existe`;
+  const before = loadTopic(slug);
+  const qid = `q_ajuste_${createHash('sha1').update(instruction).digest('hex').slice(0, 8)}`;
+  const topicFile = join(TOPICS_DIR, `${slug}.json`);
+  writeJson(topicFile, TopicBrief.parse({
+    ...before,
+    questions: before.questions.some((q) => q.id === qid) ? before.questions : [...before.questions, { id: qid, text: instruction }],
+    evidence_gaps: [instruction],
+  }));
+  const d = await discoverSources(slug, runId, { maxSearches: 4, maxSources: 5 });
+  const r = await research(slug, runId, fetchImpl);
+  const fresh = r.accepted.filter((a) => a.new).length;
+  // A lacuna temporária sai; a pergunta nova fica (as evidências achadas ficam ligadas a ela).
+  writeJson(topicFile, TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: before.evidence_gaps }));
+  if (!fresh) return `nenhuma fonte nova sustentou o pedido (${d.added.length} fonte(s) lida(s)); a página não mudou`;
+  const topic = loadTopic(slug);
+  const idx = buildIndex();
+  const blocks = editableBlocks(page);
+  const refs = blocks.map((b) => b.ref) as [string, ...string[]];
+  const pick = await callJson(
+    { role: 'extractor', system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 3).', user: `Pedido: ${instruction}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`, schema: z.object({ refs: z.array(z.enum(refs)).min(1).max(3) }), schemaName: 'pick_blocks', maxTokens: 400 },
+    fetchImpl,
+  );
+  const draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections };
+  const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, pick.data.refs.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.` })), fetchImpl);
+  const patched = applyPatches(draft as never, p.data.patches);
+  const spec = PageSpec.parse({ ...page, ...patched });
+  const touched = new Set(pick.data.refs);
+  const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
+  if (gate.length) return `ajuste com pesquisa NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
+  const a = await auditDraft(patched, idx.claims, idx.sources, fetchImpl, new Map(), touched);
+  const bad = a.findings.filter((f) => f.verdict !== 'SUPPORTED');
+  if (bad.length) return `ajuste com pesquisa NÃO salvo (o auditor não sustentou): ${bad.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
+  writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...spec, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
+  return `texto ajustado em ${slug} com ${fresh} evidência(s) nova(s): ${[...touched].join(', ')}`;
 }

@@ -93,3 +93,5 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] categorias (página, home agrupada), guias relacionados e trilha; painel em abas; aprendizado do redator
 - [x] painel: editar texto à mão (com auditoria) e pedidos em texto livre (agente)
 - [ ] edição de tabelas no painel; ler data/dev-requests.json no início de cada sessão de desenvolvimento
+- [x] ajuste com pesquisa; tema editável pelo chat com prévia e aceite
+- [ ] agente de código (seção/componente novo) num ramo com testes, build e prévia; avaliar modelo gratuito na VPS

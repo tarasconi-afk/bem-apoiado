@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { affiliateUrl, checkProduct, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
+import { affiliateUrl, checkProduct, DEFAULT_THEME, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
 import { buildIndex, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
@@ -150,3 +150,6 @@ export function relatedPages(page: PageSpec, max = 4): PageSpec[] {
   };
   return publicPages().filter((p) => p.slug !== page.slug && p.status !== 'draft').map((p) => ({ p, s: score(p) })).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, max).map((x) => x.p);
 }
+
+// Tema (data/theme.json, mudado pelo chat do painel com aceite): valores validados, padrão quando ausente.
+export const THEME: Theme = existsSync(join(ROOT, 'data/theme.json')) ? Theme.parse(JSON.parse(readFileSync(join(ROOT, 'data/theme.json'), 'utf8'))) : DEFAULT_THEME;
