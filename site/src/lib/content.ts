@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { affiliateUrl, checkProduct, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
 import { buildIndex, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT } from '@bem-apoiado/engine';
 
@@ -121,3 +123,12 @@ export const imageFor = (idOrKind: string) => IMAGES.find((r) => r.id === idOrKi
 
 // Links internos respeitam o caminho-base do build (a prévia de ramo no painel vive em /painel/previa/<ramo>/).
 export const href = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
+
+// Ordem dos guias na home: a do Search Console (data/home-order.json, gravada pelo ciclo) quando existe;
+// páginas fora dela vêm depois, das mais novas para as mais antigas.
+export function homeSorted(pages: PageSpec[]): PageSpec[] {
+  const f = join(ROOT, 'data/home-order.json');
+  const order: string[] = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')).order : [];
+  const rank = (s: string) => (order.includes(s) ? order.indexOf(s) : order.length);
+  return [...pages].sort((a, b) => rank(a.slug) - rank(b.slug) || b.updated_at.localeCompare(a.updated_at));
+}

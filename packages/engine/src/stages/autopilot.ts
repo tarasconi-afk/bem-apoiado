@@ -1,3 +1,5 @@
+import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
+import { firstForbidden } from '@bem-apoiado/core';
 import { nextReaudit, reauditPage } from './reaudit.ts';
 import { MODELS } from '../models.ts';
 import { BRIEF_SYSTEM, BriefOut, ensureImages } from '../images.ts';
@@ -181,6 +183,45 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
 }
 const ENRICH_MIN_CREDITS = 40;
 
+// Search Console (se conectado): retrato diário; pautas novas a partir de buscas fortes sem página (até 2
+// por semana, fora de tema de saúde vetado); ordem da home pelos dados do Google. Só a fila e a ordem
+// entram no git, e só quando mudam.
+async function maintainGsc(steps: string[]): Promise<boolean> {
+  if (!hasKey()) return false;
+  try {
+    const last = latestSnapshot();
+    const snap = last && Date.now() - Date.parse(last.fetched_at) < 20 * 3600_000 ? last : await fetchSnapshot();
+    let changed = false;
+    const pages = loadPages().filter((p) => p.status !== 'draft');
+    const order = homeOrder(snap, pages.sort((a, b) => b.updated_at.localeCompare(a.updated_at)).map((p) => p.slug));
+    const prev = existsSync(HOME_ORDER_FILE) ? (JSON.parse(readFileSync(HOME_ORDER_FILE, 'utf8')) as { order: string[] }).order : [];
+    if (snap.rows.length > 0 && JSON.stringify(order) !== JSON.stringify(prev)) {
+      writeFileSync(HOME_ORDER_FILE, JSON.stringify({ order, source: 'Search Console', period: `${snap.start}..${snap.end}` }, null, 2) + '\n');
+      steps.push(`home reordenada pelo Search Console (${order.slice(0, 3).join(', ')}…)`);
+      changed = true;
+    }
+    const added = readState<{ at: string }[]>('gsc-topics.json', []).filter((x) => Date.now() - Date.parse(x.at) < 7 * 86_400_000);
+    if (added.length < 2) {
+      const queuePath = join(DATA, 'queue.json');
+      const queued = new Set(existsSync(queuePath) ? Queue.parse(JSON.parse(readFileSync(queuePath, 'utf8'))).items.map((i) => slugOf(i.query)) : []);
+      const forbidden = loadNiche().forbidden_terms;
+      const ops = opportunities(snap, new Set(loadTopics().map((t) => t.slug)), queued, slugOf);
+      for (const t of ops.newTopics.filter((x) => !firstForbidden(x.query, forbidden)).slice(0, 2 - added.length)) {
+        if (editQueue('add', t.query)) {
+          added.push({ at: new Date().toISOString() });
+          steps.push(`pauta nova do Search Console: "${t.query}" (${t.impressions} impressões, aparecemos via /${t.page}/)`);
+          changed = true;
+        }
+      }
+      writeState('gsc-topics.json', added);
+    }
+    return changed;
+  } catch (e) {
+    steps.push(`Search Console: falhou (${(e as Error).message.slice(0, 100)})`);
+    return false;
+  }
+}
+
 async function maintainProducts(runId: string, steps: string[], only?: string): Promise<boolean> {
   let changed = false;
   if (!only) {
@@ -234,7 +275,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m2 = await maintainImages(steps);
   const m3 = await maintainAudit(runId, steps);
   const m4 = await maintainEnrich(runId, steps);
-  const maintained = m1 || m2 || m3 || m4;
+  const m5 = await maintainGsc(steps);
+  const maintained = m1 || m2 || m3 || m4 || m5;
 
   const query = nextQuery();
   if (!query) {

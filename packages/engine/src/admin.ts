@@ -6,6 +6,8 @@ import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
 import { setReportedBalance } from './credits.ts';
+import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
+import { loadTopics } from './store.ts';
 import { DATA, loadPages, ROOT } from './store.ts';
 
 // Painel admin: o painel de status + ações. Escuta só em 127.0.0.1 atrás do Caddy (HTTPS). A senha
@@ -155,6 +157,9 @@ ${p.status === 'draft' ? '<button name="veredito" value="approve" class="ok">Apr
 <p class="muted">Roda sozinho todo dia às 04:00. Um ciclo custa até 120 créditos (teto diário 150).</p>
 ${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', 'Rodar um ciclo agora? Pode gastar até 120 créditos de IA.')}
 
+<h2>Google Search Console</h2>
+${gscHtml()}
+
 <h2>Saldo de créditos</h2>
 <form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="saldo">
 <input name="saldo" required inputmode="decimal" placeholder="saldo de créditos mostrado no hPanel agora (ex.: 4850)"><button class="ok">Registrar saldo</button></form>
@@ -169,6 +174,24 @@ ${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', 'Rodar um ciclo agora? Pode ga
 <p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
 
 ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${!j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+}
+
+function gscHtml(): string {
+  if (!hasKey()) {
+    return `<p class="muted">Não conectado. Crie a conta de serviço (passo a passo na conversa com o Claude), adicione o e-mail dela como usuário "Restrito" na propriedade <code>${esc(GSC_SITE)}</code> e cole aqui o JSON da chave. Ela fica só na VPS (arquivo 600), nunca no git.</p>
+<form method="post" action="acao"><input type="hidden" name="acao" value="gsc-chave"><textarea name="chave" required rows="4" style="width:100%;font:12px ui-monospace,monospace" placeholder='{"type": "service_account", "client_email": "...", "private_key": "-----BEGIN PRIVATE KEY-----..."}'></textarea><button class="ok" style="margin-top:6px">Conectar</button></form>`;
+  }
+  const snap = latestSnapshot();
+  if (!snap) return `<p class="muted">Conectado como <code>${esc(keyEmail())}</code>. Primeiro retrato no próximo ciclo (o Google leva alguns dias para ter dados de um site novo).</p>`;
+  const stats = [...pageStats(snap).values()].sort((a, b) => b.impressions - a.impressions);
+  const topics = loadTopics();
+  const ops = opportunities(snap, new Set(topics.map((t) => t.slug)), new Set(queueItems().map((q) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))), (q) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60));
+  const pct = (x: number) => `${(100 * x).toFixed(1)}%`;
+  return `<p class="muted">Conectado como <code>${esc(keyEmail())}</code> · período ${esc(snap.start)} a ${esc(snap.end)} · ${snap.rows.length} combinações página×busca.</p>
+<div class="tw"><table><thead><tr><th>Página</th><th class="num">Cliques</th><th class="num">Impressões</th><th class="num">CTR</th><th class="num">Posição</th><th>Buscas principais</th></tr></thead><tbody>${stats.map((p) => `<tr><td><code>/${esc(p.slug)}/</code></td><td class="num">${p.clicks}</td><td class="num">${p.impressions}</td><td class="num">${pct(p.ctr)}</td><td class="num">${p.position.toFixed(1)}</td><td class="muted">${p.queries.slice(0, 3).map((q) => esc(q.query)).join(' · ')}</td></tr>`).join('') || '<tr><td colspan="6" class="muted">sem impressões ainda</td></tr>'}</tbody></table></div>
+${ops.strikingDistance.length ? `<p><strong>Quase na 1ª página</strong> (posição 8–20): ${ops.strikingDistance.map((p) => `<code>/${esc(p.slug)}/</code> (${p.position.toFixed(1)})`).join(', ')}. Melhorar estas rende mais que criar páginas novas.</p>` : ''}
+${ops.lowCtr.length ? `<p><strong>Aparecem, mas pouco clicadas</strong> (CTR &lt; 1%): ${ops.lowCtr.map((p) => `<code>/${esc(p.slug)}/</code> (${pct(p.ctr)})`).join(', ')}. Título e descrição são o primeiro alvo.</p>` : ''}
+${ops.newTopics.length ? `<p><strong>Buscas sem página própria</strong> (o ciclo põe até 2 por semana na fila): ${ops.newTopics.map((t) => `"${esc(t.query)}" (${t.impressions})`).join(', ')}.</p>` : ''}`;
 }
 
 const ADMIN_CSS = `<style>
@@ -272,6 +295,13 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       else {
         setPassword(nova, user);
         msg = 'senha trocada';
+      }
+    } else if (f.get('acao') === 'gsc-chave') {
+      try {
+        const k = saveKey(f.get('chave') ?? '');
+        msg = `Search Console conectado com ${k.client_email}. Os dados chegam no próximo ciclo.`;
+      } catch (e) {
+        msg = `chave inválida: ${(e as Error).message.slice(0, 120)}`;
       }
     } else if (f.get('acao') === 'saldo') {
       const v = Number((f.get('saldo') ?? '').replace(/\./g, '').replace(',', '.'));

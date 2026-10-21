@@ -261,3 +261,12 @@ SITE_INDEXABLE=true no deploy: meta robots index,follow, robots.txt com sitemap,
 nunca é publicado. O temporário e o www fazem 301 para https://bemapoiado.com (sem conteúdo duplicado).
 Prévias da VPS continuam noindex (sem SITE_INDEXABLE + cabeçalho do Caddy). Verificação do Search Console por
 TXT no DNS (registro criado pela API).
+
+## 2026-10-21 — Search Console no motor
+Conta de serviço só leitura (webmasters.readonly), JWT RS256 assinado com node:crypto (sem SDK do Google).
+Chave colada no painel, gravada na VPS (600), nunca no git. Retrato diário (28 dias até D-3, página×busca)
+no diretório de estado; no git só entra o que muda o site: ordem da home (data/home-order.json, mais
+cliques > mais impressões) e pautas novas (busca com ≥20 impressões, sem página, fora de tema vetado;
+até 2/semana). Painel: tabela por página, "quase na 1ª página" (posição 8–20, ≥50 impressões) e "pouco
+clicadas" (≥100 impressões, CTR < 1%). Ação automática sobre essas duas listas fica para quando houver
+dados reais (hoje: zero tráfego).

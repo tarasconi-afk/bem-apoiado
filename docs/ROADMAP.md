@@ -76,7 +76,9 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [ ] painel: orçamentos editáveis, aprovação de proposta de nicho
 - [x] manutenção do catálogo no ciclo (renovar ≥7 dias, retirar sem oferta/trecho mudado) e produtos para página aprovada
 - [x] identidade visual nova, ilustrações próprias por tipo, SEO técnico (JSON-LD, sitemap, OG)
-- [ ] domínio + indexação + GSC (aguardando o dono)
+- [x] domínio bemapoiado.com + indexação + verificação do Search Console
+- [x] Search Console no motor (aguarda a chave da conta de serviço)
+- [ ] com dados do Google: melhorar automaticamente páginas "quase na 1ª página" e reescrever título/descrição das pouco clicadas
 - [ ] AdSense: reavaliar com domínio, política de privacidade/consentimento e tráfego orgânico estável
 - [ ] imagens por IA para tipos de nicho novo (`images`), hoje manual
 - [ ] ilustrações para tipos de nicho novo (hoje cai no genérico)

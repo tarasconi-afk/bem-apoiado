@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import KindImage from '../components/KindImage.astro';
-import { BRAND, fmtDate, href, homeIllustrations, KIND_LABEL, NICHE, publicPages, sourcesCount } from '../lib/content';
+import { BRAND, fmtDate, homeSorted, href, homeIllustrations, KIND_LABEL, NICHE, publicPages, sourcesCount } from '../lib/content';
 
-const pages = publicPages().sort((a, b) => b.updated_at.localeCompare(a.updated_at));
+const pages = homeSorted(publicPages());
 const art = homeIllustrations(pages);
 const kicker = (t: string) => (t === 'decision_compare' ? 'Guia de decisão' : t === 'buying_guide' ? 'Guia de compra' : 'Explicação');
 const site = Astro.site!.href;
