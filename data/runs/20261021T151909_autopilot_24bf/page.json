@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 59463,
+    "output_tokens": 12165,
+    "calls": 19
+  },
+  "credits": 16.5112302,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Compare a altura declarada pelo fabricante, como 12 cm ou 14 cm, com a necessidade de suporte e com o tamanho da fronha.",
+      "Confira as dimensões da ficha técnica e a compatibilidade com a fronha: há modelo de 40 x 60 x 14 cm indicado para fronha 50 x 70 cm, além de modelos de 52 x 38 cm e 70 x 50 cm.",
+      "Use a classificação declarada de firmeza para comparar modelos: há opções Extra Macio e Firme.",
+      "Considere a descrição técnica do enchimento: fibra siliconada é descrita como macia e leve; Hiper Soft como macia, resiliente e de toque suave; espuma High Resilience Gel como de retorno rápido e dissipação de calor.",
+      "Confira a composição do enchimento: há modelos com espuma viscoelástica 100% poliuretano e fibra siliconada 100% poliéster.",
+      "Verifique as instruções de cuidado antes da compra: alguns modelos permitem lavagem a até 40 °C, enquanto outros não podem ser lavados e exigem limpeza profissional úmida suave.",
+      "Prefira verificar se há capa removível com zíper quando a facilidade de higienização for importante.",
+      "Compare a garantia declarada: 3 meses em modelos Probel e 90 dias em modelos Ortobom.",
+      "Confira se a identificação do produto atende às exigências têxteis do regulamento do Inmetro."
+    ],
+    "missing": [
+      "Critérios objetivos usados pelo fabricante para transformar densidades como D24, D30 e D40 em níveis de firmeza como Extra Macio e Firme.",
+      "Tabela completa do fabricante relacionando altura, firmeza, densidade e indicação de uso de cada modelo.",
+      "Informação sobre peso do travesseiro e país de origem na etiqueta ou ficha técnica.",
+      "Descrição técnica de outros enchimentos pedidos na pauta, como látex, pena e plumas, caso sejam oferecidos pelos fabricantes consultados.",
+      "Explicação, baseada na entidade certificadora, do que significam selos como OEKO-TEX, antiácaro e hipoalergênico.",
+      "Prazo de vida útil recomendado e sinais objetivos para substituição do travesseiro.",
+      "Condições detalhadas da garantia, incluindo cobertura de defeitos de fabricação, exclusões por desgaste, necessidade de nota fiscal e procedimentos para acionar o fabricante.",
+      "Orientação mais direta para escolher altura e firmeza conforme posição de dormir, biotipo ou preferência, se houver respaldo em fonte primária."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável como um guia técnico parcial: oferece critérios concretos para comparar altura, dimensões, composição, firmeza declarada, cuidados e garantia. Porém, responde apenas parcialmente a “como escolher travesseiro” porque repete esses critérios na seção final e não informa aspectos importantes da pauta, como peso, país de origem, base técnica da firmeza, certificações, vida útil e condições detalhadas da garantia.",
+    "filler_ratio": 0.21052631578947367,
+    "model_opinion": true
+  }
+}

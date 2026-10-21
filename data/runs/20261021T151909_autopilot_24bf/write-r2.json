@@ -1,0 +1,412 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A escolha pode considerar a altura ofertada, o nível de firmeza declarado pelo fabricante e as instruções de cuidado e garantia.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0373b10bfbe5",
+        "clm_59b909e3c5d4",
+        "clm_0e61133bf32b",
+        "clm_5f320627cf05"
+      ]
+    },
+    {
+      "ref": "tipos-material-enchimento#1",
+      "action": "replace",
+      "text": "Segundo a Probel, há espuma viscoelástica entre os tipos de enchimento. A espuma High Resilience Gel, segundo a marca, oferece suporte duradouro, retorno rápido à forma original e dissipação de calor pelo gel integrado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a58b2169fded",
+        "clm_afed8ba23825"
+      ]
+    },
+    {
+      "ref": "dimensoes-altura-padroes#0",
+      "action": "replace",
+      "text": "Segundo a Probel, há registros de modelos com altura de 12 cm e de 14 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0373b10bfbe5",
+        "clm_21f4a9a9259d"
+      ]
+    },
+    {
+      "ref": "dimensoes-altura-padroes#1",
+      "action": "replace",
+      "text": "Segundo a Probel, há uma medida de 40 cm de comprimento por 60 cm de largura e 14 cm de altura, que atende fronhas de tamanho 50x70 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_178e870d47cd",
+        "clm_4cc483bf8801"
+      ]
+    },
+    {
+      "ref": "classificacao-firmeza#0",
+      "action": "replace",
+      "text": "Segundo a Probel, há modelos com nível de firmeza Extra Macio e modelos com nível Firme.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6fab0db51839",
+        "clm_59b909e3c5d4"
+      ]
+    },
+    {
+      "ref": "classificacao-firmeza#1",
+      "action": "replace",
+      "text": "Segundo a Probel, há modelos com espuma D24 Hiper Soft, D30 e D40. A firmeza é classificada em níveis como Extra Macio e Firme, conforme indicado na ficha técnica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6894e29fffd2",
+        "clm_72535056a323",
+        "clm_a073ec020662",
+        "clm_6fab0db51839",
+        "clm_59b909e3c5d4"
+      ]
+    },
+    {
+      "ref": "instrucoes-lavagem-conservacao#0",
+      "action": "replace",
+      "text": "Segundo a Ortobom, a lavagem é permitida a até 40 °C, a secagem em tambor até 60 °C, e são proibidos alvejamento, passadoria e limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e61133bf32b"
+      ]
+    },
+    {
+      "ref": "instrucoes-lavagem-conservacao#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, há instruções que proíbem a lavagem, permitem secagem na horizontal à sombra e permitem apenas limpeza a úmido profissional muito suave.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7fd8b4659dea"
+      ]
+    },
+    {
+      "ref": "instrucoes-lavagem-conservacao#2",
+      "action": "replace",
+      "text": "Segundo a Probel, a capa de malha com zíper é fácil de remover e lavar e oferece proteção extra ao travesseiro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_ea93fe0389bb"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Segundo a Probel, a fibra proporciona maciez e leveza, e o Hiper Soft oferece toque extra suave. Para escolher entre opções Extra Macio e Firme, consulte a classificação de firmeza do modelo desejado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_c1c6d33691e5",
+        "clm_1fe66c4066c9",
+        "clm_6fab0db51839",
+        "clm_59b909e3c5d4"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Verifique as instruções de cuidado antes da compra: entre os modelos citados, um permite lavagem até 40 °C, enquanto outro proíbe lavagem e permite limpeza a úmido profissional.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0e61133bf32b",
+        "clm_7fd8b4659dea"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Confirme as dimensões na ficha técnica: os trechos citam um modelo de 40x60 cm, indicado para fronhas de 50x70 cm, e outro de 52x38 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4cc483bf8801",
+        "clm_138970fb3f79"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "As fichas técnicas citadas informam garantia de 3 meses para a Probel e de 90 dias para a Ortobom.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4f9fb2817355",
+        "clm_5f320627cf05"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher travesseiro: especificações técnicas",
+    "description": "Guia sobre materiais, dimensões, firmeza e certificações de travesseiros segundo fabricantes e reguladores.",
+    "verdict": {
+      "text": "A escolha pode considerar a altura ofertada, o nível de firmeza declarado pelo fabricante e as instruções de cuidado e garantia.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0373b10bfbe5",
+        "clm_59b909e3c5d4",
+        "clm_0e61133bf32b",
+        "clm_5f320627cf05"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tipos-material-enchimento",
+        "heading": "Tipos de material de enchimento",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, a espuma padrão oferece suporte adequado para descanso otimizado. Quando chamada de Hiper Soft, é descrita como macia e de alta resiliência com toque extra suave que se molda delicadamente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b96239ec6425",
+              "clm_1fe66c4066c9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, há espuma viscoelástica entre os tipos de enchimento. A espuma High Resilience Gel, segundo a marca, oferece suporte duradouro, retorno rápido à forma original e dissipação de calor pelo gel integrado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a58b2169fded",
+              "clm_afed8ba23825"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a fibra siliconada proporciona maciez e leveza com toque suave e agradável. Segundo a Ortobom, o enchimento de fibra siliconada é 100% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c1c6d33691e5",
+              "clm_be7544143084"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, a espuma viscoelástica é 100% poliuretano. Seus travesseiros com fibra siliconada combinam capa de tecido com bordado também em fibra siliconada 100% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d15e9f191a77",
+              "clm_91c0d608633f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-altura-padroes",
+        "heading": "Dimensões e altura padrão",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, há registros de modelos com altura de 12 cm e de 14 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0373b10bfbe5",
+              "clm_21f4a9a9259d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, há uma medida de 40 cm de comprimento por 60 cm de largura e 14 cm de altura, que atende fronhas de tamanho 50x70 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_178e870d47cd",
+              "clm_4cc483bf8801"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, é oferecido tamanho de 52x38 cm em alguns modelos, enquanto em outros o tamanho é 70x50 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_138970fb3f79",
+              "clm_d66565f8a43b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "classificacao-firmeza",
+        "heading": "Classificação de firmeza",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, há modelos com nível de firmeza Extra Macio e modelos com nível Firme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6fab0db51839",
+              "clm_59b909e3c5d4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, há modelos com espuma D24 Hiper Soft, D30 e D40. A firmeza é classificada em níveis como Extra Macio e Firme, conforme indicado na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6894e29fffd2",
+              "clm_72535056a323",
+              "clm_a073ec020662",
+              "clm_6fab0db51839",
+              "clm_59b909e3c5d4"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "instrucoes-lavagem-conservacao",
+        "heading": "Instruções de lavagem e conservação",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, a lavagem é permitida a até 40 °C, a secagem em tambor até 60 °C, e são proibidos alvejamento, passadoria e limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e61133bf32b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, há instruções que proíbem a lavagem, permitem secagem na horizontal à sombra e permitem apenas limpeza a úmido profissional muito suave.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7fd8b4659dea"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a capa de malha com zíper é fácil de remover e lavar e oferece proteção extra ao travesseiro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ea93fe0389bb"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-certificacoes",
+        "heading": "Garantia e certificações",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, a garantia padrão é de 3 meses. Segundo a Ortobom, a garantia oferecida é de 90 dias.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f9fb2817355",
+              "clm_5f320627cf05"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo o Inmetro, travesseiros são classificados como produtos têxteis e devem atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, a fibra proporciona maciez e leveza, e o Hiper Soft oferece toque extra suave. Para escolher entre opções Extra Macio e Firme, consulte a classificação de firmeza do modelo desejado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c1c6d33691e5",
+              "clm_1fe66c4066c9",
+              "clm_6fab0db51839",
+              "clm_59b909e3c5d4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique as instruções de cuidado antes da compra: entre os modelos citados, um permite lavagem até 40 °C, enquanto outro proíbe lavagem e permite limpeza a úmido profissional.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0e61133bf32b",
+              "clm_7fd8b4659dea"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confirme as dimensões na ficha técnica: os trechos citam um modelo de 40x60 cm, indicado para fronhas de 50x70 cm, e outro de 52x38 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4cc483bf8801",
+              "clm_138970fb3f79"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As fichas técnicas citadas informam garantia de 3 meses para a Probel e de 90 dias para a Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f9fb2817355",
+              "clm_5f320627cf05"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não mencionam espuma, fibra siliconada ou viscoelástica, nem sustentam que a escolha dependa desses materiais. Também só há evidência de altura de 12 cm, não de padrões de 12 a 14 cm. Os trechos sustentam instruções de lavagem, níveis de firmeza declarados e garantia, mas não a formulação completa do bloco. Versão sustentável: A escolha pode considerar a altura ofertada, o nível de firmeza declarado pelo fabricante e as instruções de cuidado e garantia. Há evidência citada de um produto com 12 cm de altura, de opções firme e extra macia, de instruções de lavagem e de garantia de 90 dias."
+    },
+    {
+      "ref": "tipos-material-enchimento#1",
+      "msg": "OVERSTATED. O trecho citado informa que há um tipo de enchimento viscoelástico, mas não afirma que a espuma viscoelástica é oferecida em “alguns modelos”. Versão sustentável: Segundo a Probel, há espuma viscoelástica entre os tipos de enchimento. A espuma High Resilience Gel, segundo a marca, oferece suporte duradouro, retorno rápido à forma original e dissipação de calor pelo gel integrado."
+    },
+    {
+      "ref": "dimensoes-altura-padroes#0",
+      "msg": "OVERSTATED. Os trechos informam alturas de 12 cm e 14 cm, mas não dizem que essas alturas são oferecidas em alguns modelos nem que 14 cm é padrão em diversos modelos. Versão sustentável: Segundo a Probel, há registros de modelos com altura de 12 cm e de 14 cm."
+    },
+    {
+      "ref": "dimensoes-altura-padroes#1",
+      "msg": "OVERSTATED. Os trechos sustentam comprimento de 40 cm, largura de 60 cm, altura de 14 cm e atendimento a fronhas de 50x70 cm, mas não sustentam altura entre 12 e 14 cm nem a variação conforme o modelo. Versão sustentável: Segundo a Probel, há uma medida de 40 cm de comprimento por 60 cm de largura e 14 cm de altura, que atende fronhas de tamanho 50x70 cm."
+    },
+    {
+      "ref": "classificacao-firmeza#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Probel usa os níveis “Extra Macio” e “Firme”, mas não dizem que a firmeza é indicada na ficha técnica de cada modelo. Versão sustentável: Segundo a Probel, há modelos com nível de firmeza “Extra Macio” e modelos com nível “Firme”."
+    },
+    {
+      "ref": "classificacao-firmeza#1",
+      "msg": "MISATTRIBUTED. Os trechos mostram separadamente a densidade D24 Hiper Soft, as densidades D30 e D40 e o nível “Extra Macio”, mas não afirmam que D24 corresponde a “Extra Macio” nem que D30 e D40 indicam maior firmeza. Portanto, essa relação não pode ser atribuída à Probel com base nas citações. Versão sustentável: Segundo os trechos citados, a Probel apresenta espuma D24 Hiper Soft e também espuma D30 e D40; um dos trechos identifica o nível de firmeza “Extra Macio”, sem estabelecer a relação entre esse nível e essas densidades."
+    },
+    {
+      "ref": "instrucoes-lavagem-conservacao#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam os limites de temperatura e as proibições citadas, mas não dizem que se trata de travesseiros com fibra siliconada nem mencionam processo suave. Versão sustentável: Segundo a Ortobom, a lavagem é permitida a até 40 °C; a secagem em tambor, a até 60 °C; e são proibidos alvejamento, passadoria e limpeza a seco."
+    },
+    {
+      "ref": "instrucoes-lavagem-conservacao#1",
+      "msg": "UNSUPPORTED. O trecho sustenta a proibição de lavagem, a secagem horizontal à sombra e a limpeza a úmido profissional muito suave, mas não afirma que isso se aplica a alguns modelos com materiais mais delicados nem apresenta a orientação como recomendação. Versão sustentável: Segundo a Ortobom, há instruções que proíbem a lavagem, permitem secagem na horizontal à sombra e permitem apenas limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "instrucoes-lavagem-conservacao#2",
+      "msg": "UNSUPPORTED. O trecho diz que uma capa de malha com zíper é fácil de remover e lavar, mas não afirma que alguns modelos possuem essa capa nem menciona especificamente manutenção e higiene como finalidade. Versão sustentável: Segundo a Probel, a capa de malha com zíper é fácil de remover e lavar e oferece proteção extra ao travesseiro."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam maciez e leveza da fibra, as características macias do Hiper Soft e as classificações “Extra Macio” e “Firme”, mas nenhum trecho menciona densidade mais alta como critério de firmeza. Além disso, as propriedades citadas são afirmações da Probel e aparecem sem atribuição explícita à fabricante. Versão sustentável: Segundo a Probel, a fibra proporciona maciez e leveza, e o Hiper Soft tem toque extra suave; para escolher entre opções “Extra Macio” e “Firme”, consulte a classificação de firmeza do modelo. Remova a referência à densidade mais alta."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos mostram instruções de cuidado de modelos específicos: um permite lavagem até 40 °C e outro proíbe lavagem e permite limpeza profissional. Eles não dizem que modelos com fibra siliconada em geral podem ser lavados a 40 °C, nem relacionam a limpeza profissional a materiais mais delicados. Versão sustentável: Verifique as instruções de cuidado antes da compra: entre os modelos citados, um permite lavagem até 40 °C, enquanto outro proíbe lavagem e permite limpeza a úmido profissional."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos citam as medidas de dois modelos e informam que o modelo de 40x60 cm atende a fronhas de 50x70 cm, mas não sustentam que 40x60 cm e 52x38 cm sejam padrões comuns em geral. Versão sustentável: Confirme as dimensões na ficha técnica: os trechos citam um modelo de 40x60 cm, indicado para fronhas de 50x70 cm, e outro de 52x38 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. As fontes informam os prazos de garantia de cada fabricante, mas não dizem que a garantia se aplica especificamente a defeitos de fabricação nem sustentam a orientação de garantir que se esteja dentro do prazo nessa situação. Versão sustentável: As fichas citadas informam garantia de 3 meses para a Probel e de 90 dias para a Ortobom."
+    }
+  ],
+  "usage": {
+    "input_tokens": 12367,
+    "output_tokens": 1640
+  }
+}

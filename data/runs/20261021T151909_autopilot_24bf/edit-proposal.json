@@ -1,0 +1,57 @@
+{
+  "edits": [
+    {
+      "ref": "dimensoes-altura-padroes#0",
+      "action": "rewrite",
+      "text": "Segundo a Probel, há modelos com altura de 12 cm e de 14 cm; o modelo de 14 cm tem 40 cm de comprimento por 60 cm de largura, compatível com fronhas de 50x70 cm.",
+      "claim_ids": [
+        "clm_0373b10bfbe5",
+        "clm_21f4a9a9259d",
+        "clm_178e870d47cd",
+        "clm_4cc483bf8801"
+      ],
+      "absorbs": [
+        "dimensoes-altura-padroes#1"
+      ],
+      "reason": "As duas evidências da Probel tratam das mesmas medidas (altura 12/14 cm e 40x60 cm); unificadas para evitar repetição."
+    },
+    {
+      "ref": "classificacao-firmeza#0",
+      "action": "rewrite",
+      "text": "Segundo a Probel, os modelos são classificados como Extra Macio ou Firme, com densidades de espuma D24 Hiper Soft, D30 ou D40.",
+      "claim_ids": [
+        "clm_6fab0db51839",
+        "clm_59b909e3c5d4",
+        "clm_6894e29fffd2",
+        "clm_72535056a323",
+        "clm_a073ec020662"
+      ],
+      "absorbs": [
+        "classificacao-firmeza#1"
+      ],
+      "reason": "O segundo bloco repetia os mesmos níveis de firmeza já citados no primeiro; unificação remove a duplicidade."
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Para escolher a firmeza, compare os modelos Extra Macio e Firme na ficha técnica; fibra e espuma Hiper Soft indicam toque mais macio.",
+      "claim_ids": [
+        "clm_c1c6d33691e5",
+        "clm_1fe66c4066c9",
+        "clm_6fab0db51839",
+        "clm_59b909e3c5d4"
+      ],
+      "reason": "Frase original longa e com repetição de termos já explicados nas seções anteriores; versão mais direta para o leitor leigo."
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "remove",
+      "reason": "Repete exatamente a informação já apresentada em garantia-certificacoes#0 (3 meses Probel, 90 dias Ortobom)."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 6193,
+    "output_tokens": 3398
+  }
+}
