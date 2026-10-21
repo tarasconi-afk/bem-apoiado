@@ -22,7 +22,8 @@ import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources } from './discover.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
-import { buildPage } from './page.ts';
+import { buildPage, styleIssues } from './page.ts';
+import { adjustWithResearch } from './requests.ts';
 import { planTopic } from './plan.ts';
 import { loadTopic, research } from './research.ts';
 
@@ -252,6 +253,25 @@ async function maintainGsc(steps: string[]): Promise<boolean> {
   }
 }
 
+// Resumo que não passa na trava (mais de 3 frases, abre com norma, "trechos citados"): reescreve a resposta
+// curta e o "Como decidir" de uma página no ar por ciclo, com as evidências que ela já tem (~2–3 créditos).
+// Sai como resultado para o editor aceitar; tentativa no máximo 1x por semana por página.
+export const SUMMARY_FIX = 'Reescreva a resposta curta e o "Como decidir" para quem vai comprar, em palavras simples: a resposta curta em até 3 frases, começando pela resposta prática (o que escolher ou conferir), sem abrir com norma ou regulador e sem "trechos citados".';
+async function maintainSummary(runId: string, steps: string[]): Promise<boolean> {
+  const tried = readState<Record<string, string>>('summary-fix.json', {});
+  const page = loadPages().find((p) => p.status !== 'draft' && styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || /trechos citados/.test(i.msg)) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
+  if (!page || creditsLeft() < 10) return false;
+  writeState('summary-fix.json', { ...tried, [page.slug]: new Date().toISOString() });
+  try {
+    const msg = await adjustWithResearch(page.slug, SUMMARY_FIX, runId, undefined, { research: false, learn: false });
+    steps.push(`resumo de ${page.slug}: ${msg.startsWith('texto ajustado') ? 'reescrito para leigo (confira na prévia antes de aceitar)' : msg.slice(0, 120)}`);
+    return msg.startsWith('texto ajustado');
+  } catch (e) {
+    steps.push(`resumo de ${page.slug}: falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
+
 // Âncoras dos links internos para páginas no ar que ainda não têm (até 5 por ciclo, ~0,1 crédito cada).
 // O site liga a primeira ocorrência delas no texto das outras páginas; o texto não muda.
 async function maintainLinks(steps: string[]): Promise<boolean> {
@@ -330,7 +350,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m5 = await maintainGsc(steps);
   const m6 = await maintainIdeas(steps);
   const m7 = await maintainLinks(steps);
-  const maintained = m1 || m2 || m3 || m4 || m5 || m6 || m7;
+  const m8 = await maintainSummary(runId, steps);
+  const maintained = m1 || m2 || m3 || m4 || m5 || m6 || m7 || m8;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.

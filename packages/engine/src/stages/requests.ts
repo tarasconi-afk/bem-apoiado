@@ -146,12 +146,12 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
 // Ajuste com pesquisa ("pode pesquisar"): a instrução vira pergunta da pauta, a busca dirigida procura fontes
 // sobre ela e a pesquisa lê só as novas; o redator reescreve os blocos escolhidos podendo citar as evidências
 // novas; gate + auditoria dos blocos tocados; só grava se tudo for sustentado. Sem fonte nova: diz e não inventa.
-export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean } = {}): Promise<string> {
+export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean } = {}): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
   const doResearch = opts.research ?? true;
   // O pedido pode valer para todas as páginas: vira lição mesmo que o ajuste desta página não salve.
-  const learned = await learnFromEditor(slug, instruction, fetchImpl).catch(() => null);
+  const learned = opts.learn === false ? null : await learnFromEditor(slug, instruction, fetchImpl).catch(() => null);
   const lessonNote = learned ? `lição nova para todas as páginas: "${learned}"\n→ ` : '';
   const before = loadTopic(slug);
   const qid = `q_ajuste_${createHash('sha1').update(instruction).digest('hex').slice(0, 8)}`;

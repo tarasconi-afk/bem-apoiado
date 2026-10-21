@@ -42,6 +42,8 @@ Regras de forma:
 - Termo técnico na resposta curta e em "Como decidir" (nome de mecanismo, "antropométrico", sigla de norma): troque pela descrição do que ele faz ("encosto que inclina sozinho"); se for inevitável, explique entre parênteses na mesma frase. "É preferível" ou "recomenda" (manual, guia) não é "exige". Se houver duas versões do mesmo documento, use a mais recente.
 - Escreva para ${n.audience}: resposta curta e "Como decidir" falam com quem vai comprar (não com empregador, fiscal ou fabricante). Norma ou regulador servem de referência ("a norma usa X como referência"), não de obrigação do leitor. Se a página cita mais de um fabricante, "Como decidir" não se apoia numa marca só.
 - A seção "Como decidir" aparece no TOPO da página, logo depois da resposta curta, para quem não entende do assunto: frases curtas, palavras do dia a dia, termo técnico só com explicação entre parênteses, cada orientação começando por "Se você..." e dizendo o que conferir. Os detalhes técnicos ficam nas outras seções.
+- Títulos de seção em forma de pergunta do leitor quando couber ("Qual altura escolher para quem dorme de lado?"), como as pessoas perguntam ao Google.
+- Formatos que ajudam o leigo (pesquisa de 21/10 em Sleep Foundation, Consumer Reports e mybest), só quando as evidências sustentam cada item: tabela de decisão por perfil (perfil × o que conferir), "para quem é / para quem não é" de cada opção, checklist do que conferir na ficha antes de comprar. Nunca nota, ranking ou preço.
 - Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".${writerLessons()}`;
 }
 
