@@ -143,7 +143,7 @@ function adminHtml(msg: string | null): string {
   const queue = queueItems();
   return `
 ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
-${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.started))}. A página atualiza sozinha.</p>` : ''}
+${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
 
 <h2>Pedir ao motor</h2>
 ${requestsHtml()}

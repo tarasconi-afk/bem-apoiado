@@ -72,3 +72,13 @@ describe('veredito do editor', () => {
     expect(page.status).toBe('draft');
   });
 });
+
+describe('regra de publicação: público', () => {
+  it('página que não fala com o leitor leigo não passa; revisão antiga (sem o campo) continua valendo', async () => {
+    const { ruleDecides: rd } = await import('../src/feedback.ts');
+    const m = { answers_primary_query: 'yes' as const, concrete_guidance: true, filler_ratio: 0.1, criteria: 4, rule_publishable: false };
+    const t = { max_filler_ratio: 0.25, min_criteria: 2 };
+    expect(rd(m, t)).toBe(true);
+    expect(rd({ ...m, reader_fit: false }, t)).toBe(false);
+  });
+});

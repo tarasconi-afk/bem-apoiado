@@ -36,6 +36,7 @@ Regras de forma:
 - "verdict": resposta curta e honesta à dúvida (geralmente "depende de X e Y"), com basis "reasoning" e evidências.
 - 4 a 6 seções com "id" em kebab-case, nesta lógica: ${n.decision_outline.join('; ')}. A última seção é sempre "Como decidir", com orientações condicionais ("se você...") sustentadas pelas evidências.
 - Alcance da fonte: diga a que se aplica a regra quando o documento é um anexo ou trata de um setor específico (ex.: "no Anexo II da NR-17, sobre teleatendimento"); nunca apresente como regra geral. "É preferível" ou "recomenda" (manual, guia) não é "exige". Se houver duas versões do mesmo documento, use a mais recente.
+- Escreva para ${n.audience}: resposta curta e "Como decidir" falam com quem vai comprar (não com empregador, fiscal ou fabricante). Norma ou regulador servem de referência ("a norma usa X como referência"), não de obrigação do leitor. Se a página cita mais de um fabricante, "Como decidir" não se apoia numa marca só.
 - A seção "Como decidir" aparece no TOPO da página, logo depois da resposta curta, para quem não entende do assunto: frases curtas, palavras do dia a dia, termo técnico só com explicação entre parênteses, cada orientação começando por "Se você..." e dizendo o que conferir. Os detalhes técnicos ficam nas outras seções.
 - Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".${writerLessons()}`;
 }

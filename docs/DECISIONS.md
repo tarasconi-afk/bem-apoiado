@@ -464,3 +464,12 @@ pedido é uma correção. Cada evidência mostra em que parte do documento está
 TELEATENDIMENTO", "texto principal"): o PDF inteiro da NR-17 traz os anexos e pelo endereço não dava para
 saber; sumário no topo do PDF é ignorado. Bloco que situa algo numa parte que a evidência não mostra:
 MISATTRIBUTED. Testado em cópia isolada com os dados reais da cadeira (~2–3,5 créditos por ajuste).
+
+## 2026-10-21 — Público no centro: planejador, redator e revisão
+A cadeira saiu correta mas escrita para o empregador: pauta planejada em torno de "o que a NR-17 exige",
+resposta curta sobre análise ergonômica, "Como decidir" com jargão (antropométricas, datilo/relax) e apoiado
+só na Flexform. Agora: o planejador gera as perguntas do leitor do nicho na hora da compra (norma é apoio,
+não eixo); o redator escreve resposta curta e "Como decidir" para quem compra, sem obrigação de terceiros como
+eixo e sem apoiar a decisão numa marca só quando há outras; a revisão avalia "reader_fit" e a regra de
+publicação exige que não seja false (revisões antigas sem o campo continuam valendo). Os problemas de
+leitura entram na lista "faltou" (viram lacuna e alimentam o "completar o que faltou").

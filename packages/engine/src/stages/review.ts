@@ -12,6 +12,8 @@ const system = () => `Você é o editor-chefe do site ${loadNiche().brand}. Aval
 Não julgue a veracidade (isso já foi auditado). Julgue a utilidade:
 - "answers_primary_query": a página responde à dúvida principal de forma direta? "yes", "partial" ou "no".
 - "concrete_guidance": o leitor sai sabendo o que fazer ou conferir na prática? (true/false)
+- "reader_fit": a página fala com o público do site (${loadNiche().audience})? false se: a resposta curta ou "Como decidir" usam jargão sem explicar (ex.: "antropométricas", nomes de mecanismo), se o ponto de vista é de outro público (obrigação do empregador, fiscalização, linguagem de norma) em vez de quem vai comprar, ou se "Como decidir" se apoia numa marca só quando a página cita outras.
+- "reader_problems": o que impede o leitor leigo de usar a página (vazio se reader_fit).
 - "filler_refs": refs de blocos que não acrescentam nada (repetição, frase vaga, dado sem utilidade).
 - "decision_criteria": liste os critérios CONCRETOS de decisão que a página dá ao leitor (ex.: "se divide a cama, molas ensacadas reduzem transferência de movimento"). Frases genéricas como "considere suas necessidades" ou "consulte o fabricante" não contam.
 - "missing": que tipo de informação, se encontrada em fonte primária, faria a página responder bem (ex.: "tabela do fabricante relacionando densidade e peso").
@@ -22,6 +24,8 @@ export interface ReviewResult {
   model_opinion?: boolean;
   answers_primary_query: 'yes' | 'partial' | 'no';
   concrete_guidance: boolean;
+  reader_fit?: boolean;
+  reader_problems?: string[];
   filler_refs: string[];
   decision_criteria: string[];
   missing: string[];
@@ -36,6 +40,8 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
   const Out = z.object({
     answers_primary_query: z.enum(['yes', 'partial', 'no']),
     concrete_guidance: z.boolean(),
+    reader_fit: z.boolean().default(true),
+    reader_problems: z.array(z.string()).default([]),
     filler_refs: z.array(z.enum(refs)),
     decision_criteria: z.array(z.string()),
     missing: z.array(z.string()),
@@ -62,12 +68,13 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
   const d = r.data;
   const filler_ratio = new Set(d.filler_refs).size / units.length;
   const publishable = ruleDecides(
-    { answers_primary_query: d.answers_primary_query, concrete_guidance: d.concrete_guidance, filler_ratio, criteria: d.decision_criteria.length, rule_publishable: false },
+    { answers_primary_query: d.answers_primary_query, concrete_guidance: d.concrete_guidance, reader_fit: d.reader_fit, filler_ratio, criteria: d.decision_criteria.length, rule_publishable: false },
     loadThresholds(),
   );
-  return { review: { ...d, filler_ratio, model_opinion: d.publishable, publishable } as ReviewResult, usage: r.usage };
+  // Problemas de leitura entram em "missing": viram lacuna da pauta e o "completar o que faltou" do painel.
+  return { review: { ...d, missing: [...d.reader_problems.map((x) => `Para o leitor leigo: ${x}`), ...d.missing], filler_ratio, model_opinion: d.publishable, publishable } as ReviewResult, usage: r.usage };
 }
 
 export function reviewMetrics(r: ReviewResult): ReviewMetrics {
-  return { answers_primary_query: r.answers_primary_query, concrete_guidance: r.concrete_guidance, filler_ratio: r.filler_ratio, criteria: r.decision_criteria.length, rule_publishable: r.publishable };
+  return { answers_primary_query: r.answers_primary_query, concrete_guidance: r.concrete_guidance, ...(r.reader_fit === undefined ? {} : { reader_fit: r.reader_fit }), filler_ratio: r.filler_ratio, criteria: r.decision_criteria.length, rule_publishable: r.publishable };
 }

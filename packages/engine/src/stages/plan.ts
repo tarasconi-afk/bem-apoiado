@@ -41,6 +41,9 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `Você planeja pautas para o site ${niche.brand} (${niche.scope}), que só escreve o que fontes primárias dizem ` +
         `(reguladores, normas, páginas oficiais de fabricantes). Reguladores típicos: ${niche.regulator_hints.join('; ')}.\n` +
         `Regra de segurança do site: ${niche.safety_rule}\n\n` +
+        `Público: ${niche.audience}. As perguntas são as DESSE leitor na hora da compra (o que conferir, como escolher para o ` +
+        `próprio caso, o que muda entre as opções); norma e regulador entram como apoio a essas perguntas, nunca como eixo ` +
+        `("o que a norma exige do empregador" não é dúvida de quem compra). 21/10: a pauta de cadeira virou um guia da NR-17.\n` +
         `Para a dúvida dada, gere de 4 a 7 perguntas que, respondidas, permitem ao leitor DECIDIR. Prefira perguntas que um ` +
         `fabricante, uma norma ou um regulador costumam responder por escrito (definições, requisitos, especificações, ` +
         `o que a etiqueta deve informar). Evite perguntas que dependem de teste prático, preço ou opinião.\n` +

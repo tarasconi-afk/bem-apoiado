@@ -29,7 +29,7 @@ export function loadThresholds(): Thresholds {
 export const loadVerdicts = () => readJsonDir(FEEDBACK_DIR, (v) => HumanVerdict.parse(v));
 
 export function ruleDecides(m: ReviewMetrics, t: Thresholds): boolean {
-  return m.answers_primary_query !== 'no' && m.concrete_guidance && m.filler_ratio <= t.max_filler_ratio && m.criteria >= t.min_criteria;
+  return m.answers_primary_query !== 'no' && m.concrete_guidance && m.reader_fit !== false && m.filler_ratio <= t.max_filler_ratio && m.criteria >= t.min_criteria;
 }
 
 // Métricas da última revisão da página: as gravadas na própria página ou, em páginas antigas,
