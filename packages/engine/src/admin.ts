@@ -1,6 +1,6 @@
 import { spawn, execFileSync } from 'node:child_process';
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
@@ -110,6 +110,15 @@ function queueItems(): string[] {
   return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')).items.map((i: { query: string }) => i.query) : [];
 }
 
+// Link para a página do ramo na prévia: pagina/<slug>-AAAAMMDD-HHMM → /painel/previa/<slug>-.../<slug>/.
+function previewLink(branch: string): string {
+  const dir = branch.replace(/^pagina\//, '');
+  const slug = dir.replace(/-\d{8}-\d{4}$/, '');
+  const ready = existsSync(join(PREVIAS, dir, 'index.html'));
+  const target = existsSync(join(PREVIAS, dir, slug)) ? `${slug}/` : '';
+  return ready ? `<a href="${BASE}previa/${esc(dir)}/${esc(target)}" target="_blank" rel="noopener"><strong>Ver prévia da página</strong></a>` : '<span class="muted">prévia sendo montada (até 5 min)</span>';
+}
+
 const esc = (s: unknown) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 const fmt = (iso: string) => new Date(iso).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', dateStyle: 'short', timeStyle: 'short' });
 const form = (acao: string, fields: Record<string, string>, button: string, cls = '', confirm?: string) =>
@@ -125,7 +134,7 @@ ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.started))}. A página atualiza sozinha.</p>` : ''}
 
 <h2>Esperando sua decisão: resultados do motor</h2>
-${branches.length ? `<div class="tw"><table><thead><tr><th>Ramo</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr><td><a href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener"><code>${esc(b.branch)}</code></a></td><td>${esc(b.subject)}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
+${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}</td></tr>`).join('')}</tbody></table></div>
 <p class="muted">Aceitar roda testes, gate e build aqui antes de ir ao main; equivale ao merge do PR.</p>` : '<p class="muted">Nenhum resultado pendente.</p>'}
 
 <h2>Páginas: seu veredito</h2>
@@ -203,6 +212,24 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   return 'ação desconhecida';
 }
 
+const PREVIAS = join(STATE, 'previas');
+const TYPES: Record<string, string> = {
+  html: 'text/html; charset=utf-8', css: 'text/css', js: 'text/javascript', webp: 'image/webp', avif: 'image/avif', png: 'image/png',
+  jpg: 'image/jpeg', svg: 'image/svg+xml', woff2: 'font/woff2', woff: 'font/woff', xml: 'application/xml', txt: 'text/plain; charset=utf-8',
+};
+
+// Prévia de ramo (montada pelo sync): arquivos estáticos de STATE/previas/<ramo>/, nunca fora dali.
+function servePreview(pathname: string, res: ServerResponse) {
+  const rel = decodeURIComponent(pathname.slice('/previa/'.length));
+  if (rel.split('/').some((p) => p === '..' || p.startsWith('.'))) return res.writeHead(400).end();
+  let file = join(PREVIAS, rel);
+  if (!file.startsWith(PREVIAS + '/')) return res.writeHead(400).end();
+  if (existsSync(file) && statSync(file).isDirectory()) file = join(file, 'index.html');
+  if (!existsSync(file)) return res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' }).end('prévia ainda não montada (o sync roda a cada 5 min)');
+  res.writeHead(200, { 'content-type': TYPES[file.split('.').pop()!] ?? 'application/octet-stream', 'cache-control': 'no-store' });
+  res.end(readFileSync(file));
+}
+
 async function handle(req: IncomingMessage, res: ServerResponse) {
   const auth = authorized(req);
   if (auth !== 'ok') {
@@ -210,6 +237,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     return res.end(auth === 'locked' ? 'muitas tentativas; espere 15 minutos' : 'senha necessária');
   }
   const url = new URL(req.url ?? '/', 'http://x');
+  if (req.method === 'GET' && url.pathname.startsWith('/previa/')) return servePreview(url.pathname, res);
   if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '')) {
     const html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')), refresh: running() ? 10 : 300 });
     res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' });

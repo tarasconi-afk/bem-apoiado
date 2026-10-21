@@ -328,6 +328,16 @@ async function main(): Promise<number> {
       startAdmin();
       return await new Promise<number>(() => {});
     }
+    case 'images': {
+      // Imagens ilustrativas por IA a partir de data/images/briefs.json (só as que faltam, ou --only).
+      const { values } = parseArgs({ args: rest, options: { only: { type: 'string' }, force: { type: 'boolean', default: false }, quality: { type: 'string', default: 'medium' }, max: { type: 'string', default: '10' } } });
+      const { generateMissing } = await import('./images.ts');
+      const { ROOT } = await import('./store.ts');
+      const done = await generateMissing(ROOT, { only: values.only?.split(','), force: values.force, quality: values.quality as 'medium', maxImages: Number(values.max) });
+      for (const r of done) console.log(`+ ${r.id} ${r.width}x${r.height} ~${r.credits.toFixed(1)} créditos`);
+      console.log(`${done.length} imagem(ns), ~${done.reduce((t, r) => t + r.credits, 0).toFixed(1)} créditos`);
+      return 0;
+    }
     case 'admin-senha': {
       // Define a senha do painel lendo uma linha da entrada padrão (nunca por argumento: ficaria no histórico).
       const { setPassword } = await import('./admin.ts');

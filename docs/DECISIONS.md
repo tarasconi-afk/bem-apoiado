@@ -175,3 +175,19 @@ páginas aprovadas, Open Graph 1200×630 por tipo, apple-touch-icon. Indexação
 Produto com disponibilidade vencida some do site e só avisa no validate: tempo não é violação de integridade.
 Google Ads: só como teste pequeno depois de domínio + ~10 páginas, com ID de rastreamento próprio
 (ex.: bemapoiado-ads-20) para medir a venda daquele tráfego. Orgânico é o modelo.
+
+## 2026-10-21 — Imagens realistas por IA; prévia de ramo no painel; AdSense adiado
+O dono achou as ilustrações em SVG amadoras. O AI Router tem `gpt-image-2`: ~5 créditos por imagem média
+(`credits_charged` já vem em créditos Hostinger, conferido contra uma chamada de texto). Oito imagens (capa
++ uma por tipo) por ~40 créditos; construção conferida a olho (molas ensacadas em tecido, Bonnell em
+ampulheta com arame, misto com espuma grossa). Etapa `images` no motor, com registro auditável (prompt,
+modelo, custo, sha256). O site sinaliza "imagem ilustrativa gerada por IA" e nunca a usa como produto.
+A capa com selos flutuantes ("Norma técnica"...) não comunicava nada: virou foto do quarto.
+Contraste: tabela dentro do bloco escuro "Como decidir" herdava texto claro sobre fundo branco.
+Prévia de ramo: o sync monta cada ramo `pagina/*` pendente com os dados do ramo e o código do main, em
+`/painel/previa/<ramo>/` (atrás da senha); o painel linka a página, não o diff. Para isso o site aceita
+`SITE_BASE`/`SITE_OUT_DIR` e os links internos passam por `href()`.
+Removida da página D28 uma pergunta solta sobre "dor ou desconforto na coluna" (framing sem orientação).
+AdSense (pergunta real do dono, não Google Ads): adiado. Exige domínio próprio, política de privacidade e
+consentimento (LGPD), disputa atenção com o botão de afiliado e paga pouco com tráfego pequeno.
+Reavaliar com domínio e tráfego orgânico estável.

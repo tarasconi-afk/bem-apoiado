@@ -1,7 +1,7 @@
 ---
 import '@fontsource/fraunces/latin-600.css';
 import Logo from '../components/Logo.astro';
-import { BRAND, INDEXABLE, NICHE } from '../lib/content';
+import { BRAND, href, INDEXABLE, NICHE } from '../lib/content';
 
 interface Props {
   title: string;
@@ -11,7 +11,7 @@ interface Props {
   ogImage?: string;
   jsonLd?: object[];
 }
-const { title, description, noindex = false, ogType = 'website', ogImage = '/og/default.png', jsonLd = [] } = Astro.props;
+const { title, description, noindex = false, ogType = 'website', ogImage = '/og/default.jpg', jsonLd = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const robots = INDEXABLE && !noindex ? 'index,follow' : 'noindex,nofollow';
 const image = new URL(ogImage, Astro.site).href;
@@ -37,8 +37,8 @@ const path = Astro.url.pathname;
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={href('/apple-touch-icon.png')} />
     {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
     <style is:global>
       :root {
@@ -105,10 +105,10 @@ const path = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href="/" aria-label={`${BRAND}, página inicial`}><Logo size={34} /><span>{BRAND}</span></a>
+        <a class="brand" href={href('/')} aria-label={`${BRAND}, página inicial`}><Logo size={34} /><span>{BRAND}</span></a>
         <nav class="site-nav" aria-label="Principal">
-          <a href="/#guias" aria-current={path === '/' ? 'page' : undefined}>Guias</a>
-          <a href="/como-trabalhamos/" aria-current={path.startsWith('/como-trabalhamos') ? 'page' : undefined}>Como trabalhamos</a>
+          <a href={href('/#guias')} aria-current={path === href('/') ? 'page' : undefined}>Guias</a>
+          <a href={href('/como-trabalhamos/')} aria-current={path.startsWith(href('/como-trabalhamos')) ? 'page' : undefined}>Como trabalhamos</a>
         </nav>
       </div>
     </header>
@@ -116,22 +116,22 @@ const path = Astro.url.pathname;
     <footer class="site-footer">
       <div class="wrap">
         <div>
-          <a class="foot-brand" href="/"><Logo size={30} invert /> {BRAND}</a>
+          <a class="foot-brand" href={href('/')}><Logo size={30} invert /> {BRAND}</a>
           <p>{NICHE.site_tagline}</p>
           <p>Comparamos o que fabricantes, normas técnicas e órgãos reguladores publicam. Não testamos produtos fisicamente; dado sem fonte não entra.</p>
         </div>
         <div>
           <h2>Navegue</h2>
           <ul class="foot-links">
-            <li><a href="/#guias">Todos os guias</a></li>
-            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href={href('/#guias')}>Todos os guias</a></li>
+            <li><a href={href('/como-trabalhamos/')}>Como trabalhamos</a></li>
           </ul>
         </div>
         <div>
           <h2>Transparência</h2>
           <p>Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas feitas por meio dos nossos links. Isso não muda o que escrevemos.</p>
         </div>
-        <p class="foot-legal">Nada aqui substitui orientação de profissional de saúde. Ilustrações próprias e esquemáticas: não representam produto, marca ou modelo específico. © {new Date().getFullYear()} {BRAND}</p>
+        <p class="foot-legal">Nada aqui substitui orientação de profissional de saúde. Imagens ilustrativas geradas por IA: não representam produto, marca ou modelo específico. © {new Date().getFullYear()} {BRAND}</p>
       </div>
     </footer>
   </body>

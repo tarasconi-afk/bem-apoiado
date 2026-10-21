@@ -40,6 +40,34 @@ preview() {
   echo "$head" > .state/preview-head
 }
 
+# Prévia de cada ramo do motor ainda não aceito: o build usa os dados do ramo (git archive de data/)
+# com o código do main, em /painel/previa/<ramo>/ (atrás da senha do painel). Só refaz quando o ramo anda.
+PREVIAS=/var/lib/bem-apoiado/previas
+branch_previews() {
+  mkdir -p "$PREVIAS"
+  local keep=" "
+  for ref in $(git for-each-ref --no-merged=origin/main --format='%(refname:short)' refs/remotes/origin/pagina/); do
+    local b=${ref#origin/} dir=${ref#origin/pagina/} sha; sha=$(git rev-parse "$ref")
+    keep="$keep$dir "
+    [ "$(cat "$PREVIAS/$dir/.sha" 2>/dev/null)" = "$sha" ] && continue
+    local tmp; tmp=$(mktemp -d)
+    git archive "$ref" data | tar -x -C "$tmp"
+    if BEM_ROOT="$tmp" SITE_URL=https://srv2079501.hstgr.cloud SITE_SHOW_DRAFTS=true SITE_BASE="/painel/previa/$dir/" \
+        SITE_OUT_DIR="$PREVIAS/$dir.new" npm run -s build -w site >/dev/null 2>&1; then
+      rm -rf "$PREVIAS/$dir" && mv "$PREVIAS/$dir.new" "$PREVIAS/$dir" && echo "$sha" > "$PREVIAS/$dir/.sha"
+      echo "prévia: $b"
+    else
+      rm -rf "$PREVIAS/$dir.new"; echo "prévia falhou: $b" >&2
+    fi
+    rm -rf "$tmp"
+  done
+  # Ramo aceito ou descartado: a prévia sai.
+  for d in "$PREVIAS"/*/; do
+    [ -d "$d" ] || continue; local n; n=$(basename "$d")
+    case "$keep" in *" $n "*) ;; *) rm -rf "$d" ;; esac
+  done
+}
+
 # Commit no main + push. Se o main andou no meio (merge no GitHub), refaz sobre o novo main uma vez.
 publish() {
   local msg=$1
@@ -58,6 +86,7 @@ case "$action" in
   sync)
     fresh
     preview
+    branch_previews
     ;;
   veredito)
     fresh

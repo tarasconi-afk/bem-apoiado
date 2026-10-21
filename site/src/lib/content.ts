@@ -1,5 +1,5 @@
 import { affiliateUrl, checkProduct, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
-import { buildIndex, loadClaims, loadNiche, loadPages, loadProducts, loadSources, loadTopics } from '@bem-apoiado/engine';
+import { buildIndex, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
@@ -113,3 +113,10 @@ export function homeIllustrations(pages: PageSpec[]): Map<string, string> {
 }
 
 export const sourcesCount = (page: PageSpec) => footnotesFor(page).notes.length;
+
+// Imagens ilustrativas (IA) registradas em data/images/registry.json, por id ou tipo de produto.
+const IMAGES = loadImageRegistry(ROOT);
+export const imageFor = (idOrKind: string) => IMAGES.find((r) => r.id === idOrKind) ?? IMAGES.find((r) => r.kind === idOrKind);
+
+// Links internos respeitam o caminho-base do build (a prévia de ramo no painel vive em /painel/previa/<ramo>/).
+export const href = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;

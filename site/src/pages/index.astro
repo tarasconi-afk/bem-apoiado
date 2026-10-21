@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import Illustration from '../components/Illustration.astro';
-import { BRAND, fmtDate, homeIllustrations, KIND_LABEL, NICHE, publicPages, sourcesCount } from '../lib/content';
+import KindImage from '../components/KindImage.astro';
+import { BRAND, fmtDate, href, homeIllustrations, KIND_LABEL, NICHE, publicPages, sourcesCount } from '../lib/content';
 
 const pages = publicPages().sort((a, b) => b.updated_at.localeCompare(a.updated_at));
 const art = homeIllustrations(pages);
@@ -21,11 +21,9 @@ const jsonLd = [
         <p class="lede">{NICHE.site_intro}</p>
         <a class="btn" href="#guias">Ver os guias <span aria-hidden="true">→</span></a>
       </div>
-      <figure class="hero-art" aria-hidden="true">
-        <div class="hero-panel"><Illustration kind="molas_ensacadas" /></div>
-        <span class="tag t1"><b>✓</b> Norma técnica</span>
-        <span class="tag t2"><b>✓</b> Órgão regulador</span>
-        <span class="tag t3"><b>✓</b> Ficha do fabricante</span>
+      <figure class="hero-art">
+        <KindImage id="capa" class="hero-img" sizes="(min-width: 60rem) 36rem, 92vw" eager />
+        <figcaption>Imagem ilustrativa gerada por IA.</figcaption>
       </figure>
     </div>
   </section>
@@ -50,8 +48,8 @@ const jsonLd = [
         <ul class="cards">
           {pages.map((p) => (
             <li>
-              <a href={`/${p.slug}/`}>
-                <div class="card-art"><Illustration kind={art.get(p.slug)!} /></div>
+              <a href={href(`/${p.slug}/`)}>
+                <div class="card-art"><KindImage id={art.get(p.slug)!} class="card-img" sizes="(min-width: 48rem) 24rem, 92vw" /></div>
                 <div class="card-body">
                   <span class="card-kicker">{kicker(p.page_type)}{art.get(p.slug) !== 'outro' && ` · ${KIND_LABEL[art.get(p.slug)!]}`}</span>
                   <span class="card-title">{p.title}</span>
@@ -73,14 +71,9 @@ const jsonLd = [
   @media (min-width: 60rem) { .hero-grid { grid-template-columns: 1.05fr 1fr; padding-block: 5rem 4.5rem; } }
   .hero-copy h1 { max-width: 34rem; }
   .lede { color: var(--muted); font-size: 1.15rem; max-width: 34rem; margin-bottom: 1.6rem; }
-  .hero-art { position: relative; margin: 0; }
-  .hero-panel { padding: 2rem 1.5rem 1.2rem; border-radius: 24px; background: var(--surface); box-shadow: var(--shadow); border: 1px solid var(--line); }
-  .tag { position: absolute; display: inline-flex; gap: 0.4rem; align-items: center; padding: 0.45rem 0.75rem; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
-  .tag b { display: inline-grid; place-items: center; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: var(--brand); color: #fff; font-size: 0.7rem; }
-  .t1 { top: -0.9rem; left: 1rem; }
-  .t2 { top: 38%; right: -0.6rem; }
-  .t3 { bottom: -1rem; left: 22%; }
-  @media (max-width: 40rem) { .t2 { right: 0.5rem; } }
+  .hero-art { margin: 0; }
+  .hero-art :global(.hero-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow); }
+  .hero-art figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.78rem; text-align: right; }
 
   .how { padding-block: 3rem 1rem; }
   .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
@@ -93,7 +86,8 @@ const jsonLd = [
   .cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); }
   .cards a { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); text-decoration: none; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
   .cards a:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: #cfd9d3; }
-  .card-art { padding: 1.4rem 1.6rem 0.6rem; background: var(--sand); }
+  .card-art { background: var(--sand); }
+  .card-art :global(.card-img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
   .card-body { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 1.4rem 1.4rem; flex: 1; }
   .card-kicker { color: var(--brand); font-size: 0.74rem; font-weight: 650; letter-spacing: 0.07em; text-transform: uppercase; }
   .card-title { font: 600 1.3rem/1.25 var(--display); letter-spacing: -0.01em; }

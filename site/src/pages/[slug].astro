@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cite from '../components/Cite.astro';
-import Illustration from '../components/Illustration.astro';
-import { BRAND, fmtDate, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import KindImage from '../components/KindImage.astro';
+import { BRAND, fmtDate, href, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -30,7 +30,7 @@ const jsonLd = [
     dateModified: page.updated_at,
     inLanguage: 'pt-BR',
     mainEntityOfPage: url,
-    image: new URL(`/og/${kinds[0] ?? 'default'}.png`, site).href,
+    image: new URL(`/og/${kinds[0] ?? 'default'}.jpg`, site).href,
     author: { '@type': 'Organization', name: BRAND, url: site },
     publisher: { '@type': 'Organization', name: BRAND, url: site, logo: { '@type': 'ImageObject', url: new URL('/apple-touch-icon.png', site).href } },
     citation: fn.notes.map((x) => x.source.final_url),
@@ -45,10 +45,10 @@ const jsonLd = [
   },
 ];
 ---
-<Base title={page.title} description={page.description} noindex={page.status !== 'published'} ogType="article" ogImage={`/og/${kinds[0] ?? 'default'}.png`} jsonLd={jsonLd}>
+<Base title={page.title} description={page.description} noindex={page.status !== 'published'} ogType="article" ogImage={`/og/${kinds[0] ?? 'default'}.jpg`} jsonLd={jsonLd}>
   <header class="article-hero">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> <span aria-hidden="true">›</span> <a href="/#guias">Guias</a></nav>
+      <nav class="crumbs" aria-label="Você está em"><a href={href('/')}>Início</a> <span aria-hidden="true">›</span> <a href={href('/#guias')}>Guias</a></nav>
       <span class="chip">{kicker} · {NICHE.category_label}</span>
       <h1>{page.title}</h1>
       <p class="dek">{page.description}</p>
@@ -62,10 +62,10 @@ const jsonLd = [
         <figure class="types">
           <ul class={`types-grid n${Math.min(kinds.length, 4)}`}>
             {kinds.map((k) => (
-              <li><Illustration kind={k} title={`Esquema: ${KIND_LABEL[k] ?? k}`} /><span>{KIND_LABEL[k] ?? k}</span></li>
+              <li><KindImage id={k} class="type-img" sizes="(min-width: 66rem) 14rem, 46vw" eager /><span>{KIND_LABEL[k] ?? k}</span></li>
             ))}
           </ul>
-          <figcaption>Ilustração esquemática, fora de escala. A construção real varia por fabricante e modelo.</figcaption>
+          <figcaption>Imagens ilustrativas geradas por IA, sem marca. A construção real varia por fabricante e modelo.</figcaption>
         </figure>
       )}
     </div>
@@ -134,8 +134,8 @@ const jsonLd = [
               {products.map((card) => (
                 <li class="product">
                   <div class="product-art">
-                    <Illustration kind={card.product.kind} />
-                    <span class="art-note">ilustração do tipo</span>
+                    <KindImage id={card.product.kind} class="product-img" sizes="(min-width: 66rem) 14rem, 92vw" />
+                    <span class="art-note">imagem ilustrativa do tipo (IA)</span>
                   </div>
                   <div class="product-body">
                     <span class="product-kind">{KIND_LABEL[card.product.kind] ?? card.product.kind}</span>
@@ -202,8 +202,10 @@ const jsonLd = [
   .types-grid.n1 { grid-template-columns: minmax(0, 1fr); }
   .types-grid.n1 { max-width: 19rem; }
   .types-grid.n2 { max-width: 44rem; }
-  .types-grid li { padding: 0.8rem 0.7rem 0.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); text-align: center; }
-  .types-grid span { display: block; margin-top: 0.35rem; font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
+  .types-grid li { overflow: hidden; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); text-align: center; }
+  .types-grid :global(.type-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+  .types-grid :global(svg.type-img) { padding: 0.8rem 0.7rem 0; aspect-ratio: auto; }
+  .types-grid span { display: block; padding: 0.55rem 0.6rem 0.65rem; font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
   .types figcaption { margin-top: 0.7rem; color: var(--muted); font-size: 0.82rem; }
 
   .layout { display: grid; gap: 0 3.5rem; grid-template-columns: minmax(0, 1fr); padding-top: 2rem; }
@@ -252,6 +254,10 @@ const jsonLd = [
   .decide h2 { color: #fff; margin-top: 1.3rem; }
   .decide .lead { color: #b9d0c6; }
   .decide :global(.cite a) { background: rgba(255, 255, 255, 0.14); color: #fff; }
+  /* Tabela dentro do bloco escuro: fundo branco, então o texto volta à cor de tinta. */
+  .decide .table-scroll { color: var(--ink); }
+  .decide .table-scroll :global(.cite a) { background: var(--brand-soft); color: var(--brand-ink); }
+  .decide figcaption { color: #b9d0c6; }
   .check { position: relative; padding: 0.85rem 1rem 0.85rem 3rem; margin-bottom: 0.7rem; border-radius: 12px; background: rgba(255, 255, 255, 0.07); }
   .check::before { content: ''; position: absolute; left: 1rem; top: 1.12rem; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: var(--amber) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23123d33' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/0.85rem no-repeat; }
 
@@ -260,8 +266,9 @@ const jsonLd = [
   .examples-note { color: var(--muted); font-size: 0.93rem; }
   .product-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr)); }
   .product { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
-  .product-art { position: relative; padding: 1rem 1.1rem 0.4rem; background: #fbf8f2; border-bottom: 1px solid var(--line); }
-  .art-note { position: absolute; right: 0.6rem; bottom: 0.4rem; font-size: 0.68rem; color: var(--muted); }
+  .product-art { position: relative; background: #fbf8f2; border-bottom: 1px solid var(--line); }
+  .product-art :global(.product-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+  .art-note { position: absolute; left: 0.5rem; bottom: 0.5rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.9); font-size: 0.66rem; color: var(--muted); }
   .product-body { display: flex; flex-direction: column; gap: 0.45rem; padding: 1rem 1.1rem 1.1rem; flex: 1; }
   .product-kind { color: var(--brand); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
   .product-name { font: 600 1.15rem/1.3 var(--display); }

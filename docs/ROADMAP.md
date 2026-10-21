@@ -77,5 +77,6 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] manutenção do catálogo no ciclo (renovar ≥7 dias, retirar sem oferta/trecho mudado) e produtos para página aprovada
 - [x] identidade visual nova, ilustrações próprias por tipo, SEO técnico (JSON-LD, sitemap, OG)
 - [ ] domínio + indexação + GSC (aguardando o dono)
-- [ ] Google Ads: teste de R$ 50–100 com ID próprio, só depois do domínio e ~10 páginas
+- [ ] AdSense: reavaliar com domínio, política de privacidade/consentimento e tráfego orgânico estável
+- [ ] imagens por IA para tipos de nicho novo (`images`), hoje manual
 - [ ] ilustrações para tipos de nicho novo (hoje cai no genérico)

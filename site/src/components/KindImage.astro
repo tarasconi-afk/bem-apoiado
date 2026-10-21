@@ -1,0 +1,24 @@
+---
+// Imagem ilustrativa (IA) de um tipo de produto ou da capa, otimizada pelo Astro (WebP responsivo).
+// Sem imagem registrada para o tipo, cai na ilustração esquemática em SVG.
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Illustration from './Illustration.astro';
+import { imageFor } from '../lib/content';
+
+interface Props {
+  id: string;
+  sizes?: string;
+  class?: string;
+  eager?: boolean;
+}
+const { id, sizes = '(min-width: 66rem) 22rem, 90vw', class: cls, eager = false } = Astro.props;
+const files = import.meta.glob<{ default: ImageMetadata }>('../assets/generated/*.webp', { eager: true });
+const rec = imageFor(id);
+const src = rec ? files[`../assets/generated/${rec.id}.webp`]?.default : undefined;
+---
+{src ? (
+  <Picture src={src} alt={rec!.alt} widths={[480, 800, 1200, 1536]} sizes={sizes} formats={['avif', 'webp']} fallbackFormat="webp" class={cls} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} />
+) : (
+  <Illustration kind={id} class={cls} />
+)}
