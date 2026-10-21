@@ -20,10 +20,14 @@ const cat = categoryOf(page);
 const related = relatedPages(page);
 const links = inlineLinks(page);
 const isDecision = (id: string, heading: string) => /decidir|escolher/i.test(id + ' ' + heading);
-// Exemplos no meio da página: depois que os tipos e as diferenças foram explicados, antes dos detalhes
-// de etiqueta e da seção de decisão (no fim, quase ninguém chega até eles).
-const n0 = page.sections.length;
-const examplesAfter = products.length === 0 ? -1 : THEME.examples_position === 'inicio' ? 0 : THEME.examples_position === 'fim' ? n0 - 1 : Math.max(0, Math.floor(n0 / 2) - 1);
+// Resumo para leigos no topo: a seção "Como decidir" vem logo depois da resposta curta, os exemplos à
+// venda em seguida e os detalhes técnicos abaixo (pesquisa de 21/10: 57% do tempo de leitura fica na
+// primeira tela e 74% nas duas primeiras, NN/g 2018; anúncio logo acima da dobra é o mais visto, Google 2014).
+const decisionIdx = page.sections.findLastIndex((s) => isDecision(s.id, s.heading));
+const sections = decisionIdx >= 0 ? [page.sections[decisionIdx]!, ...page.sections.filter((_, i) => i !== decisionIdx)] : page.sections;
+const n0 = sections.length;
+const examplesAfter = products.length === 0 ? -1 : THEME.examples_position === 'fim' ? n0 - 1 : 0;
+const detailsFrom = decisionIdx >= 0 ? 1 : -1;
 const T = THEME.texts;
 const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page.page_type === 'buying_guide' ? 'Guia de compra' : 'Explicação';
 const site = Astro.site!.href;
@@ -90,7 +94,7 @@ const jsonLd = [
     <aside class="side">
       <nav class="toc" aria-label="Nesta página">
         <p class="toc-label">Nesta página</p>
-        <ol>{page.sections.map((s, i) => <><li><a href={`#${s.id}`}>{s.heading}</a></li>{i === examplesAfter && <li><a href="#exemplos">{T.examples_title}</a></li>}</>)}</ol>
+        <ol>{sections.map((s, i) => <><li><a href={`#${s.id}`}>{s.heading}</a></li>{i === examplesAfter && <li><a href="#exemplos">{T.examples_title}</a></li>}</>)}</ol>
       </nav>
     </aside>
 
@@ -102,11 +106,12 @@ const jsonLd = [
 
       <details class="toc-mobile">
         <summary>Nesta página</summary>
-        <ol>{page.sections.map((s, i) => <><li><a href={`#${s.id}`}>{s.heading}</a></li>{i === examplesAfter && <li><a href="#exemplos">{T.examples_title}</a></li>}</>)}</ol>
+        <ol>{sections.map((s, i) => <><li><a href={`#${s.id}`}>{s.heading}</a></li>{i === examplesAfter && <li><a href="#exemplos">{T.examples_title}</a></li>}</>)}</ol>
       </details>
 
-      {page.sections.map((s, i) => (
+      {sections.map((s, i) => (
         <>
+        {i === detailsFrom && <p class="details-label">Detalhes técnicos: de onde vem cada orientação acima</p>}
         <section id={s.id} class={isDecision(s.id, s.heading) ? 'decide' : undefined}>
           <h2>{s.heading}</h2>
           {s.blocks.map((b, bi) =>
@@ -141,7 +146,7 @@ const jsonLd = [
           <section id="exemplos" class="examples">
             <h2>{T.examples_title}</h2>
             <p class="examples-note">
-              Exemplos dos tipos explicados acima, sem ordem de preferência. Antes de comprar, veja mais abaixo o que conferir na etiqueta e como decidir.{' '}
+              Exemplos à venda, sem ordem de preferência. Antes de comprar, confira neles os pontos do resumo acima; os detalhes técnicos estão logo abaixo.{' '}
               {products.some((c) => !c.listingQuote) && 'Quando há ficha oficial, as características vêm do fabricante. '}
               {products.some((c) => c.listingQuote) && 'Quando não há, mostramos só como o vendedor descreve o produto na Amazon. '}
             </p>
@@ -276,6 +281,7 @@ const jsonLd = [
   .callout { padding: 1rem 1.15rem; border-radius: 12px; background: var(--brand-soft); }
   .callout.warning { background: var(--amber-soft); border-left: 4px solid var(--amber); }
 
+  .details-label { margin: 3rem 0 -0.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font: 700 0.76rem/1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
   .decide { margin-top: 3rem; padding: 0.4rem 1.5rem 0.8rem; border-radius: 20px; background: var(--brand-ink); color: #e3eee9; }
   .decide h2 { color: #fff; margin-top: 1.3rem; }
   .decide .lead { color: #b9d0c6; }

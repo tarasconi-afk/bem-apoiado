@@ -128,7 +128,7 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
   const pageOf = (x: string) => items.find((i) => i.slug && i.id === `page:${i.slug}` && x.includes(`pagina-${i.slug}.`));
   if (files_.length && files_.every(pageOf)) {
     for (const x of images) (pageOf(x) ?? pageOf(files_[0]!))!.paths.push(x);
-    for (const i of new Set(files_.map(pageOf))) i!.detail = [i!.detail, 'inclui a imagem de capa'].filter(Boolean).join(' · ');
+    for (const i of new Set(files_.map(pageOf))) i!.detail = [i!.detail, 'inclui a imagem de capa nova (miniatura abaixo)'].filter(Boolean).join(' · ');
   } else if (images.length) items.push({ id: 'images', title: `Imagens novas (${files_.length})`, paths: images });
   if (count.sources) learning.push(`${count.sources} fonte(s) nova(s) arquivada(s)`);
   if (count.claims) learning.push(`${count.claims} evidência(s) nova(s) ou ligada(s) a pautas`);

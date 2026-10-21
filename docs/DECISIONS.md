@@ -442,3 +442,15 @@ buscou cadeira no site da Probel; Cavaletti, Flexform e Frisokar estavam no cada
 Agora cada fabricante do cadastro tem "kinds"; o planejador recebe os fabricantes do tipo da pauta e há uma
 busca garantida no site de cada um (até 3). Tipo sem fabricante cadastrado (categoria nova): 2 buscas abertas,
 cujos sites viram sugestão em "Domínios novos"; fabricante aprovado herda os tipos das pautas em que apareceu.
+
+## 2026-10-21 — Resumo para leigos no topo; alcance da fonte; prévia com a imagem do ramo
+Pesquisa: 57% do tempo de leitura fica na primeira tela e 74% nas duas primeiras (NN/g, eyetracking 2018);
+pirâmide invertida (conclusão primeiro) para quem escaneia; anúncio logo acima da dobra é o mais visto
+(Google, viewability 2014: 68% acima × 40% abaixo). Página agora: resposta curta → "Como decidir" (redator
+instruído a escrever para leigo) → exemplos à venda → "Detalhes técnicos". Só a ordem muda: nada a re-auditar.
+Cadeira (21/10): números do Anexo II da NR-17 (teleatendimento) viraram "a NR-17 exige" para toda cadeira,
+e um manual de 2002 ("é preferível") virou exigência; cada trecho batia, então o auditor aprovou. Redator e
+auditor passam a ver título e endereço do documento; generalizar anexo/setor ou "recomenda" → "exige" é
+OVERSTATED; com duas versões do mesmo documento, vale a mais nova.
+Prévia de resultado montava com as imagens do main: capa nova aparecia como a ilustração antiga. Agora usa as
+do ramo; e o item mostra a miniatura da imagem nova.

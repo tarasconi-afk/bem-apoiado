@@ -34,14 +34,23 @@ Regras de forma:
 - "title" até 70 caracteres com a dúvida principal; "description" entre 50 e 160 caracteres.
 - "verdict": resposta curta e honesta à dúvida (geralmente "depende de X e Y"), com basis "reasoning" e evidências.
 - 4 a 6 seções com "id" em kebab-case, nesta lógica: ${n.decision_outline.join('; ')}. A última seção é sempre "Como decidir", com orientações condicionais ("se você...") sustentadas pelas evidências.
+- Alcance da fonte: diga a que se aplica a regra quando o documento é um anexo ou trata de um setor específico (ex.: "no Anexo II da NR-17, sobre teleatendimento"); nunca apresente como regra geral. "É preferível" ou "recomenda" (manual, guia) não é "exige". Se houver duas versões do mesmo documento, use a mais recente.
+- A seção "Como decidir" aparece no TOPO da página, logo depois da resposta curta, para quem não entende do assunto: frases curtas, palavras do dia a dia, termo técnico só com explicação entre parênteses, cada orientação começando por "Se você..." e dizendo o que conferir. Os detalhes técnicos ficam nas outras seções.
 - Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".${writerLessons()}`;
+}
+
+// Qual documento é (título + endereço): é aí que aparece o alcance ("anexo II teleatendimento") e a versão
+// ("atualizada-2018"). Sem isto, regra de um anexo virou "a NR-17 exige" para toda cadeira (21/10).
+export function docLabel(s: Source | undefined): string {
+  if (!s) return '?';
+  return `${s.title ? `"${s.title.slice(0, 100)}" ` : ''}${s.final_url.replace(/^https?:\/\/(www\.)?/, '').slice(0, 160)}`;
 }
 
 export function formatClaims(claims: Claim[], sources: Map<string, Source>): string {
   return claims
     .map((c) => {
       const s = sources.get(c.source_id);
-      return `[${c.id}] fonte: ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) | tipo: ${c.claim_type}\n  paráfrase: ${c.statement}\n  trecho literal: "${c.quote}"`;
+      return `[${c.id}] fonte: ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) | documento: ${docLabel(s)} | tipo: ${c.claim_type}\n  paráfrase: ${c.statement}\n  trecho literal: "${c.quote}"`;
     })
     .join('\n');
 }

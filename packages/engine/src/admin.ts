@@ -207,7 +207,9 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
     const where = it.slug ? prev(`${esc(it.slug)}/`, 'ver na prévia') : it.kind && pageFor(it.kind) ? prev(`${esc(pageFor(it.kind)!)}/#exemplos`, 'ver na prévia') : it.id === 'theme' || it.id === 'home' ? prev('', 'ver na prévia') : '';
     const amazon = it.asin && it.title.startsWith('Novo exemplo') ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : '';
     const diffs = it.diffs?.length ? `<details><summary class="muted">antes → depois</summary>${it.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
-    return `<li><label><input type="checkbox" name="manter" value="${esc(it.id)}" checked> <strong>${esc(it.title)}</strong></label>${where}${amazon}${it.detail ? `<div class="muted">${esc(it.detail)}</div>` : ''}${diffs}</li>`;
+    // Imagem nova: miniatura aqui mesmo, para decidir sem abrir a prévia.
+    const thumbs = it.paths.filter((x) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x)).map((x) => `<a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="imagem nova" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a>`).join('');
+    return `<li><label><input type="checkbox" name="manter" value="${esc(it.id)}" checked> <strong>${esc(it.title)}</strong></label>${where}${amazon}${it.detail ? `<div class="muted">${esc(it.detail)}</div>` : ''}${thumbs ? `<div class="thumbs">${thumbs}<span class="muted">imagem nova (gerada por IA): desmarque o item se não servir</span></div>` : ''}${diffs}</li>`;
   };
   const head = items.length ? `${items.length} mudança(s) no site para você decidir` : 'Só aprendizado: não muda nada no site';
   return `<div class="result" data-pending>
@@ -404,6 +406,7 @@ const ADMIN_CSS = `<style>
 .adjust{margin-top:6px}.adjust input{min-width:160px}
 .result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
 .changes{list-style:none;padding:0;margin:8px 0}.changes li{padding:6px 0;border-top:1px solid var(--line)}.changes li:first-child{border-top:0}
+.thumbs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}.thumb{width:180px;height:auto;border-radius:6px;border:1px solid var(--line)}
 .diff{margin:6px 0;font-size:.88rem}.diff del{display:block;background:var(--badbg);text-decoration:line-through;padding:2px 6px;border-radius:4px}.diff ins{display:block;background:var(--okbg);text-decoration:none;padding:2px 6px;border-radius:4px;margin-top:2px}
 .sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
@@ -505,6 +508,23 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
   }
   const url = new URL(req.url ?? '/', 'http://x');
   if (req.method === 'GET' && url.pathname.startsWith('/previa/')) return servePreview(url.pathname, res);
+  if (req.method === 'GET' && url.pathname === '/imagem') {
+    // Miniatura de imagem nova de um resultado do motor, lida direto do ramo (só imagens geradas).
+    const ramo = url.searchParams.get('ramo') ?? '';
+    const path = url.searchParams.get('arquivo') ?? '';
+    if (!BRANCH.test(ramo) || !/^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(path)) {
+      res.writeHead(400);
+      return res.end();
+    }
+    try {
+      const img = execFileSync('git', ['show', `origin/${ramo}:${path}`], { cwd: ROOT, maxBuffer: 32 << 20, stdio: ['ignore', 'pipe', 'ignore'] });
+      res.writeHead(200, { 'content-type': 'image/webp', 'cache-control': 'private, max-age=600' });
+      return res.end(img);
+    } catch {
+      res.writeHead(404);
+      return res.end();
+    }
+  }
   if (req.method === 'GET' && url.pathname.startsWith('/editar/')) {
     const page = loadPages().find((p) => p.slug === decodeURIComponent(url.pathname.slice('/editar/'.length)));
     res.writeHead(page ? 200 : 404, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' });

@@ -60,8 +60,14 @@ branch_previews() {
     git archive "$ref" data | tar -x -C "$tmp"
     # Ramo criado antes de uma imagem existir: completa com o registro do main (sem sobrescrever o do ramo).
     [ -f "$tmp/data/images/registry.json" ] || { mkdir -p "$tmp/data/images" && cp data/images/*.json "$tmp/data/images/"; }
-    if BEM_ROOT="$tmp" SITE_URL=https://srv2079501.hstgr.cloud SITE_SHOW_DRAFTS=true SITE_BASE="/painel/previa/$dir/" \
-        SITE_OUT_DIR="$PREVIAS/$dir.new" npm run -s build -w site >/dev/null 2>&1; then
+    # Imagens geradas no ramo (capa nova): sem elas a prévia caía na ilustração antiga (21/10). Entram só
+    # durante o build da prévia; depois a pasta volta exatamente ao main.
+    git archive "$ref" site/src/assets/generated 2>/dev/null | tar -x -C . 2>/dev/null || true
+    local ok=0
+    BEM_ROOT="$tmp" SITE_URL=https://srv2079501.hstgr.cloud SITE_SHOW_DRAFTS=true SITE_BASE="/painel/previa/$dir/" \
+        SITE_OUT_DIR="$PREVIAS/$dir.new" npm run -s build -w site >/dev/null 2>&1 && ok=1
+    git checkout -q -- site/src/assets/generated; git clean -qfd site/src/assets/generated
+    if [ $ok = 1 ]; then
       rm -rf "$PREVIAS/$dir" && mv "$PREVIAS/$dir.new" "$PREVIAS/$dir" && echo "$sha" > "$PREVIAS/$dir/.sha"
       echo "prévia: $b"
     else
