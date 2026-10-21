@@ -227,6 +227,29 @@ async function main(): Promise<number> {
       console.log(`${h.slug}: ${h.verdict} registrado${h.review ? ` (regra dizia ${h.review.rule_publishable ? 'publicar' : 'não publicar'})` : ' (sem métricas de revisão)'}`);
       return 0;
     }
+    case 'changes': {
+      // changes <ref> [--publicas]: o que o resultado muda (JSON) ou só quantas mudanças públicas tem.
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { publicas: { type: 'boolean' } } });
+      if (!positionals[0]) {
+        console.error('uso: changes <ref> [--publicas]');
+        return 2;
+      }
+      const { gitChanges } = await import('./changes.ts');
+      const { summary } = gitChanges(positionals[0]);
+      console.log(values.publicas ? String(summary.items.length) : JSON.stringify(summary, null, 2));
+      return 0;
+    }
+    case 'changes-exclude': {
+      // changes-exclude <ref> <id,id>: depois do merge, desfaz só os itens que o editor desmarcou.
+      const [ref, ids] = rest;
+      if (!ref || !ids) {
+        console.error('uso: changes-exclude <ref> <id,id,...>');
+        return 2;
+      }
+      const { applyExclusions } = await import('./changes.ts');
+      for (const t of applyExclusions(ref, ids.split(',').filter(Boolean))) console.log(`recusado: ${t}`);
+      return 0;
+    }
     case 'queue': {
       const [op, ...words] = rest;
       const query = words.join(' ');

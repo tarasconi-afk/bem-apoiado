@@ -373,7 +373,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     const r = await research(topic.slug, runId);
     steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
     const p = await buildPage(topic.slug, runId);
-    steps.push(`page: ${p.status}`);
+    steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : ''}`);
     if (p.status === 'PASS') {
       const e = await editPage(p.page, runId);
       steps.push(`edit: ${e.status}`);

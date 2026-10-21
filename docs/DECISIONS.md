@@ -423,3 +423,15 @@ Produto com especificação no lugar da marca ("D33 Miami" → marca "D33") recu
 renovação. Ciclo: o "rodar agora" chegou durante uma mesclagem (mesma trava), o ciclo saiu sem apagar o
 pedido e o systemd o redisparou até travar o gatilho; agora espera a trava (até 30 min) e sem limite de
 disparo.
+
+## 2026-10-21 — "Esperando sua decisão" item por item; aprendizado entra sozinho
+O editor não sabia por que aceitar um resultado "rascunho/SAFE_STOP" sem página para ver, que ainda trazia
+correções da re-auditoria e um produto ruim misturados. Agora (changes.ts) cada resultado vira a lista do que
+o LEITOR veria: texto de página no ar (antes → depois), página nova, exemplo à venda novo/retirado, tema,
+imagens, links internos, ordem da home; cada item com caixa marcada e link da prévia na página afetada.
+"Aplicar marcados" mescla e desfaz só os desmarcados (voltam à versão do main; produto recusado vai para
+products-retired/ e a busca não o traz de volta). O resto (fontes, evidências, pautas, rascunhos, registros,
+disponibilidade renovada) é aprendizado: resultado só com isso entra sozinho pelo sync, com o mesmo gate
+(testes, typecheck, build); se falhar, fica para decisão. Motivo da parada traduzido ("as fontes encontradas
+não responderam às perguntas"). Corrigido: respostas dos pedidos e "Último ciclo" caíam no fim da página
+(o script das abas pulava todo elemento .flash).

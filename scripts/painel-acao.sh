@@ -11,7 +11,7 @@
 #   painel-acao.sh pedido <arquivo.txt>         # pedido em texto livre (agente do painel)
 #   painel-acao.sh editar <slug> <edits.json>   # edição manual de texto (só grava se o auditor sustentar)
 #   painel-acao.sh dominio-aprovar <host> <classe> <publicador> | dominio-bloquear <host>
-#   painel-acao.sh mesclar <ramo pagina/...>   # aceita o resultado de um ciclo do motor
+#   painel-acao.sh mesclar <ramo pagina/...> [ids]  # aceita o resultado; ids = itens desmarcados (não entram)
 #   painel-acao.sh descartar <ramo pagina/...> # apaga o ramo; a pauta volta para a fila
 set -euo pipefail
 REPO=/opt/bem-apoiado/repo
@@ -95,10 +95,51 @@ publish() {
   echo "enviado ao main: $msg"
 }
 
+# Mescla um resultado do motor no main. excl = ids (painel) dos itens que o editor desmarcou: depois do
+# merge, só esses arquivos voltam à versão do main (produto recusado vai para products-retired/).
+merge_branch() {
+  local ramo=$1 excl=${2:-}
+  fresh
+  # Conflito em data/ (o main mexeu na mesma pauta enquanto o ramo esperava): vale o ramo, que é o
+  # resultado mais novo do motor. Código nunca vem de ramo pagina/*, então só data/ pode conflitar.
+  if ! git "${GIT_ID[@]}" merge -q --no-ff -X theirs -m "Painel: mescla $ramo" "origin/$ramo"; then
+    git merge --abort 2>/dev/null || true
+    echo "conflito que não dá para resolver sozinho em $ramo; nada foi enviado" >&2; return 4
+  fi
+  if grep -rlq '^<<<<<<< ' data; then git reset -q --hard origin/main; echo "marcador de conflito em data/; nada foi enviado" >&2; return 4; fi
+  if [ -n "$excl" ]; then
+    local out; out=$(npm run -s engine -- changes-exclude "origin/$ramo" "$excl") || { git reset -q --hard origin/main; echo "não deu para separar os itens; nada foi enviado" >&2; return 3; }
+    echo "$out"
+    git add -A data site/src/assets/generated
+    git diff --cached --quiet || git "${GIT_ID[@]}" commit -q -m "Painel: itens recusados de $ramo"$'\n\n'"$out"
+  fi
+  # O gate completo do PR (testes + typecheck + build) antes de ir ao main. Cada um checado: com
+  # "a && b && c" o set -e não para quando um deles falha (foi assim que um teste vermelho passou).
+  npm test >/tmp/painel-test.log 2>&1 || { tail -30 /tmp/painel-test.log; git reset -q --hard origin/main; echo "testes falharam; nada foi enviado" >&2; return 3; }
+  npm run -s typecheck || { git reset -q --hard origin/main; echo "typecheck falhou; nada foi enviado" >&2; return 3; }
+  npm run -s build >/dev/null || { git reset -q --hard origin/main; echo "build/validate falhou; nada foi enviado" >&2; return 3; }
+  git push -q origin HEAD:main || { git reset -q --hard origin/main; echo "envio ao GitHub falhou; nada foi enviado" >&2; return 5; }
+  git push -q origin --delete "$ramo" || true
+  echo "mesclado: $ramo"
+}
+
+# Resultado que só traz aprendizado (nada que o leitor veja) entra sozinho, pelo mesmo gate. Falhou o
+# gate: fica esperando decisão e não tenta de novo para o mesmo commit.
+auto_learning() {
+  for ref in $(git for-each-ref --no-merged=origin/main --format='%(refname:short)' refs/remotes/origin/pagina/); do
+    local b=${ref#origin/} sha; sha=$(git rev-parse "$ref")
+    grep -qx "$sha" .state/auto-failed 2>/dev/null && continue
+    [ "$(npm run -s engine -- changes "$ref" --publicas 2>/dev/null)" = 0 ] || continue
+    if merge_branch "$b" >/dev/null 2>&1; then echo "aprendizado guardado sozinho: $b"; else mkdir -p .state; echo "$sha" >> .state/auto-failed; echo "aprendizado de $b não passou no gate; fica para decisão" >&2; fi
+    fresh
+  done
+}
+
 action=${1:-}
 case "$action" in
   sync)
     fresh
+    auto_learning
     preview
     branch_previews
     live_check
@@ -169,22 +210,7 @@ case "$action" in
     publish "Painel: domínio bloqueado $2"
     ;;
   mesclar)
-    fresh
-    # Conflito em data/ (o main mexeu na mesma pauta enquanto o ramo esperava): vale o ramo, que é o
-    # resultado mais novo do motor. Código nunca vem de ramo pagina/*, então só data/ pode conflitar.
-    if ! git "${GIT_ID[@]}" merge -q --no-ff -X theirs -m "Painel: mescla $2" "origin/$2"; then
-      git merge --abort 2>/dev/null || true
-      echo "conflito que não dá para resolver sozinho em $2; nada foi enviado" >&2; exit 4
-    fi
-    if grep -rlq '^<<<<<<< ' data; then git reset -q --hard origin/main; echo "marcador de conflito em data/; nada foi enviado" >&2; exit 4; fi
-    # O gate completo do PR (testes + typecheck + build) antes de ir ao main. Cada um checado: com
-    # "a && b && c" o set -e não para quando um deles falha (foi assim que um teste vermelho passou).
-    npm test >/tmp/painel-test.log 2>&1 || { tail -30 /tmp/painel-test.log; git reset -q --hard origin/main; echo "testes falharam; nada foi enviado" >&2; exit 3; }
-    npm run -s typecheck || { git reset -q --hard origin/main; echo "typecheck falhou; nada foi enviado" >&2; exit 3; }
-    npm run -s build >/dev/null || { git reset -q --hard origin/main; echo "build/validate falhou; nada foi enviado" >&2; exit 3; }
-    git push -q origin HEAD:main
-    git push -q origin --delete "$2" || true
-    echo "mesclado: $2"
+    merge_branch "$2" "${3:-}"
     preview
     ;;
   descartar)

@@ -1,3 +1,4 @@
+import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { Claim, checkClaim, checkProduct, firstForbidden, normalizeForMatch, Product, referencedClaimIds, type Source } from '@bem-apoiado/core';
@@ -8,7 +9,7 @@ import { writeStage } from '../runs.ts';
 import { webSearch } from '../search.ts';
 import { SEARCH_INDEX_NOTE, snapshot, snapshotFromSearch } from '../snapshot.ts';
 const sourceNote = (s: Source) => s.note;
-import { buildIndex, CLAIMS_DIR, loadPages, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
+import { buildIndex, CLAIMS_DIR, DATA, loadPages, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
 import { claimIdFor, loadTopic } from './research.ts';
 import { loadRegistry } from './discover.ts';
 
@@ -32,7 +33,7 @@ export async function findProducts(slug: string, runId: string, opts: { max?: nu
   const kinds = topic.product_kinds.length ? topic.product_kinds : niche.product_kinds.map((k) => k.id);
   const idx = buildIndex();
   const report: ProductsReport = { run_id: runId, topic: slug, candidates: 0, added: [], skipped: [] };
-  const known = new Set(loadProducts().map((p) => p.asin));
+  const known = knownAsins();
   const max = opts.max ?? 4;
 
   // 1) Fichas de UM produto entre as fontes de fabricante da pauta (triagem barata).
@@ -135,6 +136,12 @@ export async function findProducts(slug: string, runId: string, opts: { max?: nu
   return report;
 }
 
+// Já no catálogo, retirado ou recusado pelo editor: a busca não traz de volta.
+function knownAsins(): Set<string> {
+  const dir = join(DATA, 'products-retired');
+  const retired = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)) : [];
+  return new Set([...loadProducts().map((p) => p.asin), ...retired]);
+}
 const loose = (t: string) => normalizeForMatch(t).replace(/-/g, ' ');
 
 // Palavra que identifica OUTRO tipo do vocabulário aparecendo no nome do produto (ex.: "MISTO" num
@@ -257,7 +264,7 @@ export async function findProductsFromAmazon(
   const kinds = topic.product_kinds.length ? topic.product_kinds : niche.product_kinds.map((k) => k.id);
   const labels = new Map(niche.product_kinds.map((k) => [k.id, k.label]));
   const idx = buildIndex();
-  const known = new Set(loadProducts().map((p) => p.asin));
+  const known = knownAsins();
   const makers = loadRegistry().allow.filter((a) => a.source_class === 'manufacturer');
   const report: ProductsReport = { run_id: runId, topic: slug, candidates: 0, added: [], skipped: [] };
   const Listing = z.object({ brand: z.string(), model: z.string(), is_single_product: z.boolean() });

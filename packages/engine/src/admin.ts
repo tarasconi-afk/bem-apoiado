@@ -6,6 +6,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { join } from 'node:path';
 import { Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
+import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
@@ -130,17 +131,6 @@ function queueItems(): string[] {
   return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')).items.map((i: { query: string }) => i.query) : [];
 }
 
-// Link para a página do ramo na prévia: pagina/<slug>-AAAAMMDD-HHMM → /painel/previa/<slug>-.../<slug>/.
-function previewLink(branch: string): string {
-  const dir = branch.replace(/^pagina\//, '');
-  const slug = dir.replace(/-\d{8}-\d{4}$/, '');
-  const ready = existsSync(join(PREVIAS, dir, 'index.html'));
-  if (!ready) return '<span class="muted">prévia sendo montada (até 5 min)</span>';
-  // Tentativa que não gerou página (parou antes) ou manutenção: não há página para ver; a prévia é do site.
-  if (!existsSync(join(PREVIAS, dir, slug))) return `<span class="muted">sem página nova para ver</span> · <a href="${BASE}previa/${esc(dir)}/" target="_blank" rel="noopener">site com esta mudança</a>`;
-  return `<a href="${BASE}previa/${esc(dir)}/${esc(slug)}/" target="_blank" rel="noopener"><strong>Ver prévia da página</strong></a>`;
-}
-
 const esc = (s: unknown) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 const fmt = (iso: string) => new Date(iso).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', dateStyle: 'short', timeStyle: 'short' });
 const form = (acao: string, fields: Record<string, string>, button: string, cls = '', confirm?: string) =>
@@ -159,8 +149,7 @@ ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde
 ${requestsHtml()}
 
 <h2>Esperando sua decisão: resultados do motor</h2>
-${branches.length ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Resumo</th><th>Quando</th><th></th></tr></thead><tbody>${branches.map((b) => `<tr data-pending><td>${previewLink(b.branch)}<br><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></td><td>${esc(b.subject)}${suggestionHtml(reviewFrom(readBranch(b.branch), b.branch.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')))}${b.steps.length ? `<details><summary class="muted">etapas</summary><ul class="muted">${b.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></details>` : ''}</td><td class="muted">${esc(fmt(b.when))}</td><td class="actions">${form('mesclar', { ramo: b.branch }, 'Aceitar', 'ok', 'Aceitar o resultado deste ciclo no main? Página aprovada pela regra vai ao ar no próximo deploy.')}${form('descartar', { ramo: b.branch }, 'Descartar', 'bad', 'Descartar este ramo? A pauta volta para a fila.')}${adjustForm(b.branch, b.branch.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, ''))}</td></tr>`).join('')}</tbody></table></div>
-<p class="muted">Aceitar roda testes, gate e build aqui antes de ir ao main; equivale ao merge do PR.</p>` : '<p class="muted">Nenhum resultado pendente.</p>'}
+${branches.length ? branches.map(pendingHtml).join('') + '<p class="muted">Aplicar roda testes, gate e build aqui antes de ir ao main. Resultado que só traz aprendizado (nada que o leitor veja) entra sozinho em até 5 min.</p>' : '<p class="muted">Nenhum resultado pendente.</p>'}
 
 ${verdictsHtml(pages)}
 
@@ -193,6 +182,42 @@ ${gscHtml()}
 <p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
 
 ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${!j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+}
+
+// Um resultado do motor como lista do que muda no site, item por item (desmarcado = não entra). O que
+// não aparece no site (fontes, evidências, rascunho) vai junto como aprendizado, sem pedir decisão.
+function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
+  const dir = b.branch.replace(/^pagina\//, '');
+  const slug = dir.replace(/-\d{8}-\d{4}$/, '');
+  let items: ChangeItem[] = [];
+  let learning: string[] = [];
+  try {
+    ({ items, learning } = gitChanges(`origin/${b.branch}`).summary);
+  } catch {
+    learning = ['não foi possível ler as mudanças deste resultado'];
+  }
+  const ready = existsSync(join(PREVIAS, dir, 'index.html'));
+  const prev = (path: string, label: string) => (ready ? ` <a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : ' <span class="muted">(prévia sendo montada, até 5 min)</span>');
+  const topics = loadTopics();
+  const pageFor = (kind?: string) => loadPages().find((p) => p.status !== 'draft' && topics.find((t) => t.slug === p.slug)?.product_kinds.includes(kind ?? ''))?.slug;
+  const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
+  const outcome = plainOutcome(b.steps);
+  const item = (it: ChangeItem) => {
+    const where = it.slug ? prev(`${esc(it.slug)}/`, 'ver na prévia') : it.kind && pageFor(it.kind) ? prev(`${esc(pageFor(it.kind)!)}/#exemplos`, 'ver na prévia') : it.id === 'theme' || it.id === 'home' ? prev('', 'ver na prévia') : '';
+    const amazon = it.asin && it.title.startsWith('Novo exemplo') ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : '';
+    const diffs = it.diffs?.length ? `<details><summary class="muted">antes → depois</summary>${it.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
+    return `<li><label><input type="checkbox" name="manter" value="${esc(it.id)}" checked> <strong>${esc(it.title)}</strong></label>${where}${amazon}${it.detail ? `<div class="muted">${esc(it.detail)}</div>` : ''}${diffs}</li>`;
+  };
+  const head = items.length ? `${items.length} mudança(s) no site para você decidir` : 'Só aprendizado: não muda nada no site';
+  return `<div class="result" data-pending>
+<p class="result-head"><strong>${esc(head)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}</span></p>
+${query ? `<p>Pauta "${esc(query)}": ${esc(outcome ?? b.subject)}</p>` : ''}
+${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><ul class="changes">${items.map(item).join('')}</ul>
+${learning.length ? `<p class="muted">Também guarda (não aparece no site): ${esc(learning.join('; '))}.</p>` : ''}<button class="ok">Aplicar marcados</button></form>` : `<p class="muted">Guarda: ${esc(learning.join('; ') || 'registros do ciclo')}. Entra sozinho em até 5 min, depois dos testes e do build.</p>`}
+<div class="actions">${form('descartar', { ramo: b.branch }, 'Descartar tudo', 'bad', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}${adjustForm(b.branch, slug)}</div>
+${suggestionHtml(reviewFrom(readBranch(b.branch), slug))}
+<details><summary class="muted">detalhes técnicos</summary><ul class="muted">${b.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></details>
+</div>`;
 }
 
 // Vereditos: só pede decisão do que precisa dela. Rascunho cuja versão atual ainda não foi julgada fica
@@ -274,12 +299,14 @@ if (location.search) history.replaceState(null, '', location.pathname);
   var grid = main.querySelector('.grid'); if (!grid) return;
   var panes = {}; var cur = null;
   Object.keys(NAMES).forEach(function (k) { var d = document.createElement('div'); d.className = 'pane'; d.dataset.tab = k; panes[k] = d; });
-  var after = false;
+  // Avisos antes do 1º título (ciclo ao vivo, última ação) ficam acima das abas; o resto vai para a aba
+  // do seu título (antes, todo aviso ficava fora das abas e as respostas dos pedidos caíam no fim da página).
+  var after = false; var top = grid;
   Array.prototype.slice.call(main.children).forEach(function (n) {
     if (n === grid) { after = true; return; }
-    if (!after || n.classList.contains('flash')) return;
+    if (!after) return;
     if (n.tagName === 'H2') { var t = n.textContent || ''; cur = 'motor'; MAP.forEach(function (m) { if (t.indexOf(m[0]) === 0) cur = m[1]; }); }
-    if (cur) panes[cur].appendChild(n);
+    if (cur) panes[cur].appendChild(n); else top = n;
   });
   var bar = document.createElement('nav'); bar.className = 'tabs';
   var pending = panes.decisoes.querySelectorAll('[data-pending]').length;
@@ -288,7 +315,7 @@ if (location.search) history.replaceState(null, '', location.pathname);
     if (k === 'decisoes' && pending) { var s = document.createElement('span'); s.className = 'count'; s.textContent = pending; b.appendChild(s); }
     b.onclick = function () { show(k); }; bar.appendChild(b);
   });
-  grid.after(bar); var holder = bar; Object.keys(panes).forEach(function (k) { holder.after(panes[k]); holder = panes[k]; });
+  top.after(bar); var holder = bar; Object.keys(panes).forEach(function (k) { holder.after(panes[k]); holder = panes[k]; });
   function show(k) { Object.keys(panes).forEach(function (x) { panes[x].hidden = x !== k; }); bar.querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === k); }); try { localStorage.setItem('painel-aba', k); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem('painel-aba'); } catch (e) {}
   show(pending ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
@@ -370,6 +397,9 @@ ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textare
 
 const ADMIN_CSS = `<style>
 .adjust{margin-top:6px}.adjust input{min-width:160px}
+.result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
+.changes{list-style:none;padding:0;margin:8px 0}.changes li{padding:6px 0;border-top:1px solid var(--line)}.changes li:first-child{border-top:0}
+.diff{margin:6px 0;font-size:.88rem}.diff del{display:block;background:var(--badbg);text-decoration:line-through;padding:2px 6px;border-radius:4px}.diff ins{display:block;background:var(--okbg);text-decoration:none;padding:2px 6px;border-radius:4px;margin-top:2px}
 .sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
 .tabs button{background:transparent;color:var(--muted);border:1px solid transparent;font-weight:600}
@@ -422,10 +452,20 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     if (!['manufacturer', 'regulator', 'standard_body', 'independent_test'].includes(classe) || pub.length < 2) return 'classe ou nome inválido';
     return { label: `aprovar domínio ${host} (${pub})`, args: ['dominio-aprovar', host, classe, pub] };
   }
-  if (acao === 'mesclar' || acao === 'descartar') {
+  if (acao === 'descartar') {
     const ramo = f.get('ramo') ?? '';
     if (!BRANCH.test(ramo)) return 'ramo inválido';
-    return { label: `${acao === 'mesclar' ? 'aceitar' : 'descartar'} ${ramo}`, args: [acao, ramo] };
+    return { label: `descartar ${ramo}`, args: [acao, ramo] };
+  }
+  if (acao === 'mesclar') {
+    const ramo = f.get('ramo') ?? '';
+    if (!BRANCH.test(ramo)) return 'ramo inválido';
+    // Os recusados são calculados aqui, a partir das mudanças reais do ramo: o formulário só diz o que manter.
+    const keep = new Set(f.getAll('manter'));
+    const all = gitChanges(`origin/${ramo}`).summary.items.map((i) => i.id);
+    const excl = all.filter((id) => !keep.has(id));
+    if (all.length && excl.length === all.length) return 'nenhum item marcado: para não aplicar nada, use "Descartar tudo"';
+    return { label: `aceitar ${ramo}${excl.length ? ` (sem ${excl.length} item(ns) recusado(s))` : ''}`, args: ['mesclar', ramo, ...(excl.length ? [excl.join(',')] : [])] };
   }
   return 'ação desconhecida';
 }
