@@ -79,13 +79,23 @@ async function main(): Promise<number> {
       return blocking.length === 0 ? 0 : 1;
     }
     case 'reextract': {
+      const changed: string[] = [];
       for (const s of loadSources()) {
         if (!rawIntact(s)) {
           console.error(`✗ ${s.id} bruto corrompido; rode snapshot de novo em ${s.url}`);
           continue;
         }
         const u = await reextract(s);
+        if (u.text_chars !== s.text_chars) changed.push(u.id);
         console.log(`${u.id} ${s.text_chars} -> ${u.text_chars} chars (v${u.extractor_version})`);
+      }
+      // Texto novo (ex.: tabela que passou a ser legível): a fonte volta para a pesquisa das pautas que a usam.
+      for (const t of loadTopics()) {
+        const back = t.researched_source_ids.filter((id) => changed.includes(id));
+        if (back.length) {
+          writeJson(join(TOPICS_DIR, `${t.slug}.json`), TopicBrief.parse({ ...t, researched_source_ids: t.researched_source_ids.filter((id) => !back.includes(id)) }));
+          console.log(`  ${t.slug}: ${back.length} fonte(s) voltam para a pesquisa`);
+        }
       }
       console.log('Rode `validate` em seguida: trechos citados precisam continuar presentes.');
       return 0;

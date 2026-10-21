@@ -143,6 +143,44 @@ async function maintainAudit(runId: string, steps: string[]): Promise<boolean> {
 }
 const REAUDIT_MIN_CREDITS = 20;
 
+// Página no ar com fonte ainda não pesquisada (ex.: reextraída com tabela legível) e lacunas abertas:
+// pesquisa só essas fontes e reescreve. Passou na auditoria e na revisão: vai para o ramo (aceite humano,
+// com prévia). Não passou: a página publicada volta exatamente como estava. Uma por ciclo, no máximo 1x/semana.
+async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> {
+  const attempts = readState<Record<string, string>>('enrich-attempts.json', {});
+  const week = 7 * 86_400_000;
+  const topics = new Map(loadTopics().map((t) => [t.slug, t]));
+  const page = loadPages().find((p) => {
+    const t = topics.get(p.slug);
+    return p.status !== 'draft' && t && t.evidence_gaps.length > 0 && t.source_ids.some((s) => !t.researched_source_ids.includes(s)) && !(attempts[p.slug] && Date.now() - Date.parse(attempts[p.slug]!) < week);
+  });
+  if (!page || creditsLeft() < ENRICH_MIN_CREDITS) return false;
+  writeState('enrich-attempts.json', { ...attempts, [page.slug]: new Date().toISOString() });
+  const t = topics.get(page.slug)!;
+  const only = t.source_ids.filter((s) => !t.researched_source_ids.includes(s));
+  const original = readFileSync(join(DATA, 'pages', `${page.slug}.json`), 'utf8');
+  try {
+    const r = await research(page.slug, runId, undefined, only);
+    if (r.accepted.length === 0) {
+      steps.push(`enriquecimento de ${page.slug}: ${only.length} fonte(s) relida(s), nenhuma evidência nova`);
+      return true; // a pauta registra as fontes como pesquisadas
+    }
+    const p = await buildPage(page.slug, runId);
+    if (p.status !== 'PASS') {
+      writeFileSync(join(DATA, 'pages', `${page.slug}.json`), original);
+      steps.push(`enriquecimento de ${page.slug}: +${r.accepted.length} evidências, mas a nova versão não passou (${p.status}); página publicada mantida`);
+      return true;
+    }
+    steps.push(`enriquecimento de ${page.slug}: +${r.accepted.length} evidências, página reescrita e aprovada pela auditoria; confira na prévia antes de aceitar`);
+    return true;
+  } catch (e) {
+    writeFileSync(join(DATA, 'pages', `${page.slug}.json`), original);
+    steps.push(`enriquecimento de ${page.slug}: falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
+const ENRICH_MIN_CREDITS = 40;
+
 async function maintainProducts(runId: string, steps: string[], only?: string): Promise<boolean> {
   let changed = false;
   if (!only) {
@@ -195,7 +233,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m1 = await maintainProducts(runId, steps);
   const m2 = await maintainImages(steps);
   const m3 = await maintainAudit(runId, steps);
-  const maintained = m1 || m2 || m3;
+  const m4 = await maintainEnrich(runId, steps);
+  const maintained = m1 || m2 || m3 || m4;
 
   const query = nextQuery();
   if (!query) {
