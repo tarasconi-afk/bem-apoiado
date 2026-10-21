@@ -536,3 +536,10 @@ Decisões abre sozinha só na primeira visita da sessão.
 As lições do editor passam a ir também para o planejador da pauta e para o planejador de buscas: um pedido
 sobre o que pesquisar (ex.: medidas e peso suportado em fichas de mais de um fabricante) muda as próximas pautas,
 não só o texto.
+
+## 2026-10-21 — Ajuste não cai por parágrafo longo; lição sai mesmo se o ajuste falhar
+Dois ajustes com pesquisa da base box foram perdidos pela regra de forma (parágrafos de 98 a 130 palavras;
+limite 70), que derrubava o ajuste antes de qualquer correção. Agora o bloco volta ao redator com "encurte"
+(até 2 voltas). O pedido do editor vira lição antes do ajuste, independente do resultado; "já coberta" só quando
+uma regra diz a mesma coisa (o modelo descartou a regra de pesquisa por parecer com uma regra de texto; a lição
+foi registrada à mão, a pedido explícito "para todas as páginas").

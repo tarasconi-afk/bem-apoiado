@@ -26,7 +26,7 @@ export async function learnFromEditor(slug: string, request: string, fetchImpl?:
     {
       role: 'extractor',
       system:
-        'Você transforma pedidos do editor de um site de guias de compra em regras para o redator. Se o pedido vale para TODAS as páginas (tom, linguagem, foco no comprador, como apresentar fontes, estrutura, o que pesquisar e em que tipo de fonte), escreva UMA regra curta e geral (até 200 caracteres, imperativa, sem citar a página, o produto ou números dela) e general=true. Se é específico desta página (um dado, um trecho, um produto), general=false e lesson=null. already_covered=true se a regra já está na lista atual.',
+        'Você transforma pedidos do editor de um site de guias de compra em regras para o redator. Se o pedido vale para TODAS as páginas (tom, linguagem, foco no comprador, como apresentar fontes, estrutura, o que pesquisar e em que tipo de fonte), escreva UMA regra curta e geral (até 200 caracteres, imperativa, sem citar a página, o produto ou números dela) e general=true. Se é específico desta página (um dado, um trecho, um produto), general=false e lesson=null. already_covered=true só se uma regra atual já diz a MESMA coisa (regra sobre pesquisa não está coberta por regra sobre texto, e vice-versa).',
       user: `Página: ${slug}\nPedido do editor: ${request.slice(0, 1200)}\n\nRegras atuais:\n${cur.lessons.map((l) => `- ${l.text}`).join('\n') || '(nenhuma)'}`,
       schema: Out,
       schemaName: 'editor_lesson',

@@ -150,6 +150,9 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
   const doResearch = opts.research ?? true;
+  // O pedido pode valer para todas as páginas: vira lição mesmo que o ajuste desta página não salve.
+  const learned = await learnFromEditor(slug, instruction, fetchImpl).catch(() => null);
+  const lessonNote = learned ? `lição nova para todas as páginas: "${learned}"\n→ ` : '';
   const before = loadTopic(slug);
   const qid = `q_ajuste_${createHash('sha1').update(instruction).digest('hex').slice(0, 8)}`;
   const topicFile = join(TOPICS_DIR, `${slug}.json`);
@@ -199,23 +202,30 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
   const rest = pick.data.refs.filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
   const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.` })), fetchImpl) : { data: { patches: [] } };
-  const patched = applyPatches(base as never, p.data.patches);
+  let patched = applyPatches(base as never, p.data.patches) as Draft;
+  // Regra de forma (parágrafo longo etc.) volta ao redator em vez de derrubar o ajuste (21/10: dois ajustes
+  // com pesquisa perdidos por um parágrafo de 130 palavras).
+  for (let round = 0; round < FIX_ROUNDS; round++) {
+    const st = styleIssues(patched).filter((i) => i.ref && touched.has(i.ref));
+    if (!st.length) break;
+    const p2 = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, patched as never, st.map((i) => ({ ref: i.ref!, msg: i.msg })), fetchImpl);
+    patched = applyPatches(patched as never, p2.data.patches) as Draft;
+  }
   const spec = PageSpec.parse({ ...page, ...patched });
   const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
-  if (gate.length) return `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
+  if (gate.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
   // Audita a seção inteira, não só os blocos escolhidos: bloco vizinho com o mesmo problema ("A base deve
   // ter 5 pés", do mesmo anexo) também entra na correção.
   const secs = new Set([...touched].map((r) => r.split('#')[0]));
   const scope = new Set([...touched, ...editableBlocks({ ...page, ...patched } as never).map((b) => b.ref).filter((r) => secs.has(r.split('#')[0]))]);
   const fixed = await fixUntilSupported(topic, idx, draft as Draft, patched, scope, fetchImpl);
-  if (!fixed.kept.length) return `ajuste NÃO salvo (o auditor não sustentou nenhum bloco alterado depois de ${FIX_ROUNDS} correções): ${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
+  if (!fixed.kept.length) return lessonNote + `ajuste NÃO salvo (o auditor não sustentou nenhum bloco alterado depois de ${FIX_ROUNDS} correções): ${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
   const final = PageSpec.parse({ ...page, ...fixed.draft });
   const gate2 = checkPage(final, idx);
-  if (gate2.length) return `ajuste NÃO salvo (regra do site): ${gate2.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
+  if (gate2.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate2.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
   writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
-  // O pedido pode valer para todas as páginas: vira lição do redator (falha aqui não desfaz o ajuste).
-  const learned = await learnFromEditor(slug, instruction, fetchImpl).catch(() => null);
-  return `${learned ? `lição nova para todas as páginas: "${learned}"\n→ ` : ''}texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
+
+  return `${lessonNote}texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
     (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '');
 }
 
