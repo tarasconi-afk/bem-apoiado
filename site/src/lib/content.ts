@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { affiliateUrl, checkProduct, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
-import { buildIndex, loadAnchors, loadClaims, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
+import { affiliateUrl, amazonSearchUrl, checkProduct, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
+import { buildIndex, loadAnchors, loadClaims, loadSearchLinks, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
@@ -152,6 +152,11 @@ export function relatedPages(page: PageSpec, max = 4): PageSpec[] {
     return (categoryOf(p)?.id === cat?.id ? 10 : 0) + k.filter((x) => kinds.has(x)).length;
   };
   return publicPages().filter((p) => p.slug !== page.slug && p.status !== 'draft').map((p) => ({ p, s: score(p) })).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, max).map((x) => x.p);
+}
+
+// Buscas na Amazon da página (data/search-links.json): rótulo para o leitor + link de busca com a nossa tag.
+export function searchLinksFor(page: PageSpec): { label: string; url: string }[] {
+  return (loadSearchLinks().pages[page.slug]?.links ?? []).map((l) => ({ label: l.label, url: amazonSearchUrl(l.query) }));
 }
 
 // Links internos no texto: primeira ocorrência das âncoras de outras páginas no ar (data/link-anchors.json),

@@ -325,6 +325,26 @@ if (location.search) history.replaceState(null, '', location.pathname);
 })();
 </script>`;
 
+// Atualização automática que não apaga o que o editor está escrevendo (21/10: um pedido de ajuste se perdeu
+// quando a página recarregou). Recarrega só sem campo de texto em foco ou preenchido; o rascunho de cada
+// campo fica no navegador (localStorage) e volta depois de recarregar; sai ao enviar o formulário.
+const draftsJs = (secs: number) => `<script>
+(function () {
+  var fields = Array.prototype.slice.call(document.querySelectorAll('textarea, input[type=text], input:not([type])'));
+  function key(el) { var f = el.form; var parts = ['rascunho']; if (f) Array.prototype.slice.call(f.querySelectorAll('input[type=hidden]')).forEach(function (h) { parts.push(h.name + '=' + h.value); }); parts.push(el.name || ''); return parts.join('|'); }
+  function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function set(k, v) { try { if (v) localStorage.setItem(k, v); else localStorage.removeItem(k); } catch (e) {} }
+  fields.forEach(function (el) {
+    var k = key(el); var saved = get(k);
+    if (saved && !el.value) { el.value = saved; el.classList.add('restored'); }
+    el.addEventListener('input', function () { set(k, el.value); });
+    if (el.form) el.form.addEventListener('submit', function () { set(k, ''); });
+  });
+  function busy() { var a = document.activeElement; if (a && (a.tagName === 'TEXTAREA' || a.tagName === 'INPUT' || a.tagName === 'SELECT')) return true; return fields.some(function (el) { return el.value && el.value.trim(); }); }
+  setInterval(function () { if (!busy() && !document.hidden) location.reload(); }, ${secs} * 1000);
+})();
+</script>`;
+
 // Pedir ajuste antes de decidir: o texto muda no próprio resultado (ou no main), com as mesmas fontes e
 // auditoria; a prévia se refaz. Só para resultado que tem página.
 function adjustForm(ramo: string, slug: string): string {
@@ -404,6 +424,7 @@ ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textare
 
 const ADMIN_CSS = `<style>
 .adjust{margin-top:6px}.adjust input{min-width:160px}
+.restored{outline:2px solid var(--amber,#f0b252)}
 .result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
 .changes{list-style:none;padding:0;margin:8px 0}.changes li{padding:6px 0;border-top:1px solid var(--line)}.changes li:first-child{border-top:0}
 .thumbs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}.thumb{width:180px;height:auto;border-radius:6px;border:1px solid var(--line)}
@@ -534,7 +555,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     // Dados ilegíveis (ex.: cópia no meio de um merge) não derrubam o painel: mostra o erro e as últimas ações.
     let html: string;
     try {
-      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')), refresh: running() || cycleRunning() ? 10 : 300 }).replace('</body>', `${TABS_JS}</body>`);
+      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')) }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() ? 10 : 300)}</body>`);
     } catch (e) {
       html = `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="20"><body style="font:15px system-ui;max-width:900px;margin:24px auto;padding:0 16px"><h1>Painel</h1><p><b>Os dados do motor estão ilegíveis agora</b> (${esc((e as Error).message.slice(0, 200))}). O sync limpa a cópia em até 5 min; esta página tenta de novo sozinha.</p>${jobs.slice(0, 5).map((j) => `<pre style="white-space:pre-wrap;background:#f4f1ea;padding:8px">${esc(j.label)} (${j.ended ? `código ${j.code}` : 'rodando'})\n${esc(j.output.slice(-800))}</pre>`).join('')}</body>`;
     }

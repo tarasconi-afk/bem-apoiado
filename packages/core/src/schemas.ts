@@ -19,6 +19,9 @@ export type SourceClass = z.infer<typeof SourceClass>;
 // Tag de afiliado da conta Amazon Associados (StoreID).
 export const AFFILIATE_TAG = 'bemapoiado-20';
 export const affiliateUrl = (asin: string) => `https://www.amazon.com.br/dp/${asin}?tag=${AFFILIATE_TAG}`;
+// Busca na Amazon com a nossa tag: não aponta um produto, então não há anúncio a conferir (nem a ler, e a
+// Amazon bloqueia a leitura automática). Compra feita na sessão conta como venda do Associados.
+export const amazonSearchUrl = (query: string) => `https://www.amazon.com.br/s?k=${encodeURIComponent(query.trim()).replace(/%20/g, '+')}&tag=${AFFILIATE_TAG}`;
 
 export const PRIMARY_CLASSES: readonly SourceClass[] = ['manufacturer', 'regulator', 'standard_body'];
 

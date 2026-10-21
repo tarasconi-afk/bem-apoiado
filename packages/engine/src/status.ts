@@ -135,7 +135,7 @@ export function renderStatus(now = new Date(), opts: { adminHtml?: string; refre
 
   return `<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta http-equiv="refresh" content="${opts.refresh ?? 300}">
+<meta name="robots" content="noindex,nofollow">${opts.adminHtml ? '' : `<meta http-equiv="refresh" content="${opts.refresh ?? 300}">`}
 <title>Painel do motor</title>
 <style>
 :root{--bg:#f6f5f1;--card:#fff;--ink:#1f2421;--muted:#626862;--line:#e3ded4;--ok:#2d6a4f;--okbg:#e5f2ea;--bad:#a23b2a;--badbg:#fbe9e5;--n:#5d5a52;--nbg:#efede7}

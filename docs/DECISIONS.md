@@ -484,3 +484,20 @@ Busca com IA do Google: não há otimização especial; valem as mesmas prática
 (Google Search Central, "AI features and your website"; "Creating helpful, reliable, people-first content").
 O modo IA faz buscas em leque por subtemas: página que responde direto a uma dúvida simples e traz as
 comparações com fonte é o que esse modo pode citar.
+
+## 2026-10-21 — Links de busca na Amazon; painel sem perder digitação; D28 restaurada
+Ferramenta Clara não é bloqueado porque não lê a Amazon: ASINs conferidos por uma pessoa num catálogo curado.
+Aqui, antes da PA-API: busca na Amazon com a nossa tag (amazon.com.br/s?k=...&tag=bemapoiado-20) em toda
+página no ar; não aponta produto, então não há anúncio a ler nem a conferir. 1 a 3 por página, geradas uma vez
+pelo modelo barato a partir do "Como decidir" (data/search-links.json), validadas (2 a 7 palavras, sem
+promoção/ranking/termo vetado, uma medida no máximo); sem busca válida, cai no tipo de produto. Ficam junto dos
+exemplos à venda (cartões dos colchões mantidos) ou sozinhas em "Opções na Amazon".
+Painel: a recarga automática apagou um pedido de ajuste sendo digitado. Agora só recarrega sem campo em foco ou
+preenchido, e cada campo guarda rascunho no navegador até o envio.
+Erro meu: um teste novo carregou o módulo antes de trocar o BEM_ROOT e o teste de veredito gravou 2 recusas
+falsas no repositório real, voltando a D28 para rascunho (saiu do ar). Restaurado; writeJson recusa gravar no
+data/ real durante testes (BEM_REAL_ROOT no vitest).
+Ajuste: com ou sem pesquisa, o mesmo caminho com correção; o alcance da fonte vai em palavras simples no resumo
+e no "Como decidir" (nome técnico só nos detalhes), termo técnico explicado. Limite conhecido: o ajuste remenda
+bloco a bloco e o Haiku mantém as palavras das fontes; reescrever o resumo inteiro para leigo ainda depende de
+edição manual (Sonnet no ajuste passou de 15 créditos).

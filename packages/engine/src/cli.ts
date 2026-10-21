@@ -339,11 +339,12 @@ async function main(): Promise<number> {
       }
       setRunBudget(15);
       const { readFileSync } = await import('node:fs');
-      const { adjustWithResearch, editByInstruction } = await import('./stages/requests.ts');
+      const { adjustWithResearch } = await import('./stages/requests.ts');
       const pesquisar = rest.includes('--pesquisar');
       if (pesquisar) setRunBudget(30);
       const text = readFileSync(file, 'utf8').slice(0, 1000);
-      const msg = pesquisar ? await adjustWithResearch(slug, text, newRunId(`${slug}-ajuste`)) : await editByInstruction(slug, text, newRunId(`${slug}-ajuste`));
+      // Com ou sem pesquisa, o mesmo caminho: escolhe blocos e títulos, remenda, audita a seção e corrige.
+      const msg = await adjustWithResearch(slug, text, newRunId(`${slug}-ajuste`), undefined, { research: pesquisar });
       console.log(`→ ${msg}`);
       console.log(`~${creditsSpent().toFixed(2)} créditos`);
       return msg.startsWith('texto ajustado') ? 0 : 1;

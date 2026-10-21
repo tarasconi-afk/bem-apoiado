@@ -90,6 +90,11 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
       const b = parse(readBranch(f.path), (v) => v as { pages: Record<string, { anchors: string[] }> })?.pages ?? {};
       const changed = Object.keys(b).filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]));
       items.push({ id: 'anchors', title: 'Links internos no texto', detail: changed.map((k) => `${k}: ${b[k]!.anchors.join(', ')}`).join(' · '), paths: [f.path] });
+    } else if (f.path === 'data/search-links.json') {
+      const a = parse(readMain(f.path), (v) => v as { pages: Record<string, { links: { label: string; query: string }[] }> })?.pages ?? {};
+      const b = parse(readBranch(f.path), (v) => v as { pages: Record<string, { links: { label: string; query: string }[] }> })?.pages ?? {};
+      const changed = Object.keys(b).filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]));
+      items.push({ id: 'search-links', title: 'Buscas na Amazon (links com a nossa tag)', detail: changed.map((k) => `${k}: ${b[k]!.links.map((l) => `"${l.label}" (${l.query})`).join(', ')}`).join(' · '), paths: [f.path] });
     } else if (f.path === 'data/home-order.json') {
       items.push({ id: 'home', title: 'Ordem dos guias na home (dados do Google)', paths: [f.path] });
     } else if (f.path.startsWith('site/src/assets/generated/') || f.path.startsWith('data/images/')) {

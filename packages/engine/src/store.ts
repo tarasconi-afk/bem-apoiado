@@ -34,7 +34,15 @@ export const RUNS_DIR = join(DATA, 'runs');
 export const PRODUCTS_DIR = join(DATA, 'products');
 export const TOPICS_DIR = join(DATA, 'topics');
 
+// Em teste, nunca grava no repositório de verdade (21/10: um teste carregou o módulo antes de trocar o
+// BEM_ROOT, gravou vereditos falsos e tirou a página D28 do ar). O vitest define BEM_REAL_ROOT.
+function guardTestWrite(path: string): void {
+  const real = process.env.BEM_REAL_ROOT;
+  if (process.env.VITEST && real && path.startsWith(join(real, 'data'))) throw new Error(`teste tentou gravar no repositório real: ${path}`);
+}
+
 export function writeJson(path: string, value: unknown): void {
+  guardTestWrite(path);
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, JSON.stringify(value, null, 2) + '\n');
 }

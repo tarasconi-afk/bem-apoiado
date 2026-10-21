@@ -17,7 +17,7 @@ import { latestSnapshot, pageStats } from '../gsc.ts';
 import { trafficSummary } from '../hits.ts';
 import { editQueue } from './autopilot.ts';
 import { claimsForTopic, type Draft } from './draft-schema.ts';
-import { manualEdit, editableBlocks } from './manual-edit.ts';
+import { editableBlocks } from './manual-edit.ts';
 import { writePatches } from './patch.ts';
 import { loadTopic } from './research.ts';
 
@@ -91,27 +91,6 @@ function report(about: 'gastos' | 'qualidade' | 'paginas' | 'fila' | 'visitas'):
 
 // Edição de texto por instrução: o modelo escolhe os blocos, o redator reescreve só eles (mesmas fontes) e a
 // edição manual confere com o auditor; só grava se sustentado.
-export async function editByInstruction(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike): Promise<string> {
-  const page = loadPages().find((p) => p.slug === slug);
-  if (!page) return `página ${slug} não existe`;
-  const blocks = editableBlocks(page);
-  const refs = blocks.map((b) => b.ref) as [string, ...string[]];
-  const pick = await callJson(
-    { role: 'extractor', system: 'Escolha os blocos da página que o pedido manda alterar (no máximo 4).', user: `Pedido: ${instruction}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`, schema: z.object({ refs: z.array(z.enum(refs)).min(1).max(4) }), schemaName: 'pick_blocks', maxTokens: 400 },
-    fetchImpl,
-  );
-  const topic = loadTopic(slug);
-  const idx = buildIndex();
-  const draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections };
-  const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, pick.data.refs.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Mantenha as mesmas evidências (claim_ids) e o mesmo basis.` })), fetchImpl);
-  const edits: Record<string, string> = {};
-  for (const x of p.data.patches) if (x.action === 'replace' && x.text) edits[x.ref] = x.text;
-  const r = await manualEdit(page, edits, runId, fetchImpl);
-  if (r.status === 'SAVED') return `texto ajustado em ${slug}: ${r.changed.join(', ')}`;
-  if (r.status === 'UNCHANGED') return `nada mudou em ${slug}`;
-  return `edição em ${slug} NÃO salva (o auditor não sustentou): ${r.problems.map((x) => `${x.ref}: ${x.msg.slice(0, 160)}`).join(' | ')}`;
-}
-
 export async function handleRequest(text: string, runId: string, fetchImpl?: FetchLike): Promise<RequestResult> {
   const pages = loadPages();
   const plan = await callJson(
@@ -154,7 +133,7 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
       } else if (a.type === 'unpublish') {
         recordVerdict(a.slug, 'reject', a.reason);
         done.push(`${a.slug}: despublicada (${a.reason})`);
-      } else if (a.type === 'edit_text') done.push(await editByInstruction(a.slug, a.instruction, runId, fetchImpl));
+      } else if (a.type === 'edit_text') done.push(await adjustWithResearch(a.slug, a.instruction, runId, fetchImpl, { research: false }));
     } catch (e) {
       failed.push(`${a.type}: ${(e as Error).message.slice(0, 160)}`);
     }
@@ -165,22 +144,26 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
 // Ajuste com pesquisa ("pode pesquisar"): a instrução vira pergunta da pauta, a busca dirigida procura fontes
 // sobre ela e a pesquisa lê só as novas; o redator reescreve os blocos escolhidos podendo citar as evidências
 // novas; gate + auditoria dos blocos tocados; só grava se tudo for sustentado. Sem fonte nova: diz e não inventa.
-export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike): Promise<string> {
+export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean } = {}): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
+  const doResearch = opts.research ?? true;
   const before = loadTopic(slug);
   const qid = `q_ajuste_${createHash('sha1').update(instruction).digest('hex').slice(0, 8)}`;
   const topicFile = join(TOPICS_DIR, `${slug}.json`);
-  writeJson(topicFile, TopicBrief.parse({
-    ...before,
-    questions: before.questions.some((q) => q.id === qid) ? before.questions : [...before.questions, { id: qid, text: instruction }],
-    evidence_gaps: [instruction],
-  }));
-  const d = await discoverSources(slug, runId, { maxSearches: 4, maxSources: 5 });
-  const r = await research(slug, runId, fetchImpl);
-  const fresh = r.accepted.filter((a) => a.new).length;
-  // A lacuna temporária sai; a pergunta nova fica (as evidências achadas ficam ligadas a ela).
-  writeJson(topicFile, TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: before.evidence_gaps }));
+  let fresh = 0;
+  if (doResearch) {
+    writeJson(topicFile, TopicBrief.parse({
+      ...before,
+      questions: before.questions.some((q) => q.id === qid) ? before.questions : [...before.questions, { id: qid, text: instruction }],
+      evidence_gaps: [instruction],
+    }));
+    await discoverSources(slug, runId, { maxSearches: 4, maxSources: 5 });
+    const r = await research(slug, runId, fetchImpl);
+    fresh = r.accepted.filter((a) => a.new).length;
+    // A lacuna temporária sai; a pergunta nova fica (as evidências achadas ficam ligadas a ela).
+    writeJson(topicFile, TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: before.evidence_gaps }));
+  }
   // Sem fonte nova o pedido ainda pode ser uma correção (escopo, atribuição, "exige" → "recomenda"):
   // segue com as evidências que a página já tem.
   const topic = loadTopic(slug);
@@ -206,7 +189,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const spec = PageSpec.parse({ ...page, ...patched });
   const touched = new Set(pick.data.refs);
   const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
-  if (gate.length) return `ajuste com pesquisa NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
+  if (gate.length) return `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
   // Audita a seção inteira, não só os blocos escolhidos: bloco vizinho com o mesmo problema ("A base deve
   // ter 5 pés", do mesmo anexo) também entra na correção.
   const secs = new Set([...touched].map((r) => r.split('#')[0]));

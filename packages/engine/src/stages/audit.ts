@@ -20,7 +20,7 @@ const auditorSystem = () => `Você é o auditor de evidências do site ${loadNic
 Para cada bloco você recebe o texto publicado e os trechos LITERAIS das evidências que ele cita (com a fonte e a classe da fonte). Julgue cada bloco sozinho, só contra os trechos citados nele, sem usar conhecimento próprio:
 
 - SUPPORTED: cada afirmação do bloco está dita nos trechos citados (paráfrase fiel é aceitável).
-- OVERSTATED: a ideia existe nos trechos, mas o bloco afirma mais (generaliza "sempre/todos", intensifica, acrescenta número ou condição). Também: regra de um anexo ou de um setor específico (veja o documento: ex. "anexo II teleatendimento") apresentada como regra geral; "é preferível/recomenda" (manual, guia) apresentado como exigência.
+- OVERSTATED: a ideia existe nos trechos, mas o bloco afirma mais (generaliza "sempre/todos", intensifica, acrescenta número ou condição). Também: regra de um anexo ou de um setor específico (veja o documento: ex. "anexo II teleatendimento") apresentada como regra geral (dizer o alcance em palavras simples, sem o nome técnico, é correto: "regra para postos de atendimento por telefone"); "é preferível/recomenda" (manual, guia) apresentado como exigência.
 - UNSUPPORTED: o bloco afirma algo que nenhum trecho citado diz.
 - MISATTRIBUTED: afirmação que nos trechos é posição de um fabricante (classe manufacturer) aparece como fato geral, sem "segundo a <marca>"; ou o bloco atribui a uma fonte o que ela não disse. Também: o bloco situa a afirmação numa parte do documento (anexo, capítulo, setor) que o "trecho em" da evidência não mostra.
 - SAFETY_CLAIM: o bloco viola esta regra do site, MESMO quando atribui a afirmação a um fabricante: ${loadNiche().safety_rule}

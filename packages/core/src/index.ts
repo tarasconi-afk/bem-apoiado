@@ -4,3 +4,4 @@ export * from './integrity.ts';
 export * from './theme.ts';
 export * from './links.ts';
 export * from './editorial.ts';
+export * from './search-links.ts';

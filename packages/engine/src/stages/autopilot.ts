@@ -1,5 +1,6 @@
 import { reuseEvidence } from './reuse.ts';
 import { ensureAnchors } from './links.ts';
+import { ensureSearchLinks } from './search-links.ts';
 import { discoverIdeas, promoteIdeas } from './ideas.ts';
 import { live, newRunId } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
@@ -257,7 +258,10 @@ async function maintainLinks(steps: string[]): Promise<boolean> {
   try {
     const done = await ensureAnchors(loadPages());
     if (done.length) steps.push(`links internos: âncoras para ${done.join(', ')}`);
-    return done.length > 0;
+    // Buscas na Amazon (link com a nossa tag) para página no ar que ainda não tem: ~0,05 crédito cada.
+    const amz = await ensureSearchLinks(loadPages());
+    if (amz.length) steps.push(`buscas na Amazon para ${amz.join(', ')}`);
+    return done.length > 0 || amz.length > 0;
   } catch (e) {
     steps.push(`links internos: falhou (${(e as Error).message.slice(0, 80)})`);
     return false;
