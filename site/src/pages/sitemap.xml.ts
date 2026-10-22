@@ -7,6 +7,9 @@ export const GET: APIRoute = ({ site }) => {
   const urls = [
     { loc: '/', lastmod: pages.map((p) => p.updated_at).sort().at(-1) },
     { loc: '/como-trabalhamos/' },
+    { loc: '/sobre/' },
+    { loc: '/contato/' },
+    { loc: '/privacidade/' },
     ...CATEGORIES.filter((c) => pages.some((p) => categoryOf(p)?.id === c.id)).map((c) => ({ loc: `/categoria/${c.id}/`, lastmod: pages.filter((p) => categoryOf(p)?.id === c.id).map((p) => p.updated_at).sort().at(-1) })),
     ...pages.map((p) => ({ loc: `/${p.slug}/`, lastmod: p.updated_at })),
   ];

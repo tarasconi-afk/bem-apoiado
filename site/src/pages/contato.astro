@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { BRAND, href } from '../lib/content';
+const EMAIL = 'suporte@bemapoiado.com';
+---
+<Base title={`Contato | ${BRAND}`} description={`Como falar com o ${BRAND}: correções, dúvidas e pedidos sobre seus dados.`}>
+  <header class="page-hero">
+    <div class="wrap narrow">
+      <span class="chip">Contato</span>
+      <h1>Fale com o {BRAND}</h1>
+      <p class="dek">Escreva para <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+    </div>
+  </header>
+  <article class="wrap narrow page">
+    <h2>Encontrou um erro?</h2>
+    <p>Diga o endereço da página e o trecho. Se tiver uma fonte que mostre o contrário (ficha técnica, norma, página do fabricante), mande o link. Conferimos e, se o erro se confirmar, corrigimos o guia e atualizamos a data da página.</p>
+    <h2>Dúvidas sobre um guia</h2>
+    <p>Respondemos o que as fontes permitem responder. Não indicamos produto para condição de saúde: nesse caso, procure um profissional.</p>
+    <h2>Seus dados</h2>
+    <p>Pedidos sobre dados pessoais (acesso, correção ou exclusão) também vão para este e-mail. Veja a <a href={href('/privacidade/')}>Política de Privacidade</a>.</p>
+    <h2>Marcas e lojas</h2>
+    <p>Não vendemos espaço nos guias. Fabricantes podem enviar fichas técnicas e documentos públicos; eles só entram se puderem ser citados como fonte, como qualquer outro.</p>
+  </article>
+</Base>
+<style>
+  .page-hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); padding: 3rem 0 2.2rem; }
+  .dek { color: var(--muted); font-size: 1.15rem; }
+  .page { padding-top: 0.5rem; }
+</style>

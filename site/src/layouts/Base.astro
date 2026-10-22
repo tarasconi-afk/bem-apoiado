@@ -136,12 +136,17 @@ const liveCats = CATEGORIES.filter((c) => live.some((p) => categoryOf(p)?.id ===
           <ul class="foot-links">
             <li><a href={href('/#guias')}>Todos os guias</a></li>
             {liveCats.map((c) => <li><a href={href(`/categoria/${c.id}/`)}>{c.label}</a></li>)}
-            <li><a href={href('/como-trabalhamos/')}>Como trabalhamos</a></li>
           </ul>
         </div>
         <div>
           <h2>Transparência</h2>
           <p>Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas feitas por meio dos nossos links. Isso não muda o que escrevemos.</p>
+          <ul class="foot-links">
+            <li><a href={href('/sobre/')}>Sobre</a></li>
+            <li><a href={href('/como-trabalhamos/')}>Como trabalhamos</a></li>
+            <li><a href={href('/contato/')}>Contato</a></li>
+            <li><a href={href('/privacidade/')}>Política de Privacidade</a></li>
+          </ul>
         </div>
         <div class="foot-legal">
           <p>Nada aqui substitui orientação de profissional de saúde.</p>

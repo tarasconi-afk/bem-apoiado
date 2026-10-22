@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { BRAND, NICHE, href } from '../lib/content';
+---
+<Base title={`Sobre | ${BRAND}`} description={`O que é o ${BRAND}, para quem escrevemos e como cada guia é feito.`}>
+  <header class="page-hero">
+    <div class="wrap narrow">
+      <span class="chip">Sobre</span>
+      <h1>Sobre o {BRAND}</h1>
+      <p class="dek">{NICHE.site_tagline}</p>
+    </div>
+  </header>
+  <article class="wrap narrow page">
+    <h2>O que é</h2>
+    <p>O {BRAND} é um site de guias de compra sobre {NICHE.scope}. Cada guia responde a uma dúvida de quem está escolhendo, como "colchão firme ou macio" ou "cadeira ergonômica ou gamer", e diz o que conferir no anúncio antes de comprar.</p>
+    <h2>Para quem escrevemos</h2>
+    <p>Para quem não é especialista e quer decidir rápido. A resposta curta vem primeiro; os detalhes técnicos ficam mais abaixo, para quem quiser conferir.</p>
+    <h2>Como cada guia é feito</h2>
+    <p>Partimos do que fabricantes, normas técnicas e órgãos reguladores publicam. Arquivamos uma cópia de cada documento e cada afirmação do texto aponta para o trecho usado.</p>
+    <p>Os textos são redigidos com auxílio de inteligência artificial a partir dessas fontes. Antes de publicar, uma revisão confere, bloco por bloco, se o que está escrito é sustentado pelos trechos citados, e um editor humano lê e aprova a página.</p>
+    <p>Não testamos produtos fisicamente, não damos notas e não montamos rankings. Quando a informação vem do próprio fabricante, dizemos de quem ela é.</p>
+    <h2>Saúde</h2>
+    <p>Falamos de sono e postura, mas não damos orientação médica. Nenhum produto aqui é apresentado como tratamento. Se você sente dor ou tem um problema de saúde, procure um profissional.</p>
+    <h2>Como o site se mantém</h2>
+    <p>Alguns links levam à Amazon. Como participante do Programa de Associados da Amazon, recebemos uma comissão quando há compra qualificada, sem custo extra para você. Não aceitamos pagamento de marcas para aparecer nos guias.</p>
+    <h2>Fale com a gente</h2>
+    <p>Achou um erro, uma fonte desatualizada ou tem uma dúvida? Veja a página de <a href={href('/contato/')}>contato</a>. Mais detalhes sobre o método em <a href={href('/como-trabalhamos/')}>Como trabalhamos</a>.</p>
+  </article>
+</Base>
+<style>
+  .page-hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); padding: 3rem 0 2.2rem; }
+  .dek { color: var(--muted); font-size: 1.15rem; }
+  .page { padding-top: 0.5rem; }
+</style>

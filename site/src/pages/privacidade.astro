@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import { BRAND, href } from '../lib/content';
+const EMAIL = 'suporte@bemapoiado.com';
+const UPDATED = '22 de outubro de 2026';
+---
+<Base title={`Política de Privacidade | ${BRAND}`} description={`Que dados o ${BRAND} coleta, para quê, por quanto tempo e como exercer seus direitos pela LGPD.`}>
+  <header class="page-hero">
+    <div class="wrap narrow">
+      <span class="chip">Privacidade</span>
+      <h1>Política de Privacidade</h1>
+      <p class="dek">Coletamos o mínimo para saber quais guias são lidos. Atualizada em {UPDATED}.</p>
+    </div>
+  </header>
+  <article class="wrap narrow page">
+    <h2>Quem é o responsável</h2>
+    <p>O {BRAND} (bemapoiado.com) é o controlador dos dados descritos aqui, nos termos da Lei Geral de Proteção de Dados (Lei 13.709/2018). Contato: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+
+    <h2>O que coletamos e para quê</h2>
+    <h3>Contagem de leituras e de cliques</h3>
+    <p>Um contador próprio registra cada página vista e cada clique em link da Amazon, para sabermos quais guias são úteis. Registramos: a página, a data e hora, o site de origem (só o domínio, como google.com) e, no clique, qual link foi usado.</p>
+    <p>Não usamos cookies para isso e não guardamos o endereço IP. Cada visitante vira um código anônimo calculado a partir de um valor aleatório que muda todo dia e é descartado no dia seguinte: não dá para reconhecer a mesma pessoa de um dia para o outro. Não usamos Google Analytics, pixel de rede social nem publicidade direcionada.</p>
+    <h3>Registros técnicos do servidor</h3>
+    <p>Como qualquer site, o servidor pode registrar dados técnicos de uma requisição (como endereço IP e navegador) quando ocorre um erro. Esses registros servem só para segurança e diagnóstico e são apagados automaticamente pela rotação dos registros.</p>
+    <h3>E-mails</h3>
+    <p>Se você nos escreve, usamos seu endereço e sua mensagem só para responder e, se for o caso, corrigir o guia. Não entram em lista de envio.</p>
+
+    <h2>Base legal</h2>
+    <p>A contagem anônima e os registros técnicos se apoiam no legítimo interesse de manter o site seguro e saber quais conteúdos são úteis (art. 7º, IX, da LGPD). A resposta a e-mails se apoia no seu pedido.</p>
+
+    <h2>Links para a Amazon</h2>
+    <p>Somos participantes do Programa de Associados da Amazon. Ao clicar em um link para a Amazon, você sai do {BRAND}: a Amazon e parceiros dela podem usar cookies e coletar dados conforme a política de privacidade da própria Amazon, inclusive para identificar que a compra veio do nosso link. Não recebemos dados pessoais seus da Amazon, só relatórios agregados de vendas.</p>
+
+    <h2>Compartilhamento</h2>
+    <p>Não vendemos nem alugamos dados. Os dados ficam em servidor contratado na Hostinger, que atua como operadora (hospedagem).</p>
+
+    <h2>Por quanto tempo</h2>
+    <p>As contagens são guardadas enquanto forem úteis para avaliar os guias, sempre sem identificar ninguém. E-mails são guardados pelo tempo necessário para tratar o assunto.</p>
+
+    <h2>Seus direitos</h2>
+    <p>Pela LGPD você pode pedir confirmação de tratamento, acesso, correção, anonimização ou exclusão de dados, informação sobre compartilhamento e revisão desta política. Escreva para <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. Como a contagem é anônima, em geral não há dado que permita identificar você; nesse caso, explicamos isso na resposta. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+    <h2>Crianças</h2>
+    <p>O site não é dirigido a menores de 18 anos e não coleta dados de crianças de propósito.</p>
+
+    <h2>Mudanças nesta política</h2>
+    <p>Quando mudarmos o que coletamos, atualizamos esta página e a data no topo.</p>
+  </article>
+</Base>
+<style>
+  .page-hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); padding: 3rem 0 2.2rem; }
+  .dek { color: var(--muted); font-size: 1.15rem; }
+  .page { padding-top: 0.5rem; }
+</style>
