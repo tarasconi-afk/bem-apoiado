@@ -26,3 +26,13 @@ describe('produto escolhido pelo editor', () => {
     expect(JSON.parse(readFileSync(join(root, 'data/products/B0ABCDEFGH.json'), 'utf8')).editor.checked_at).toBe('2026-12-20');
   });
 });
+
+describe('ajuste que falhou trava o aprovar', () => {
+  it('só o último ajuste da página conta', async () => {
+    const { failedAdjust } = await import('../src/admin.ts');
+    const j = (slug: string, code: number, output: string) => ({ id: 'x', label: 'l', args: ['ajustar', 'main', slug, 'f'], started: '', ended: 'e', code, output });
+    expect(failedAdjust([j('a', 1, 'erro\najuste NÃO salvo (veja o motivo acima)')] as never, 'a')).toContain('NÃO salvo');
+    expect(failedAdjust([j('a', 0, 'texto ajustado'), j('a', 1, 'ajuste NÃO salvo')] as never, 'a')).toBeNull();
+    expect(failedAdjust([j('b', 1, 'ajuste NÃO salvo')] as never, 'a')).toBeNull();
+  });
+});

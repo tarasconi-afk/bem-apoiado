@@ -91,6 +91,19 @@ interface Job {
 }
 
 const jobs: Job[] = existsSync(JOBS_FILE) ? JSON.parse(readFileSync(JOBS_FILE, 'utf8')) : [];
+
+// Último pedido de ajuste da página falhou ("NÃO salvo")? Aprovar assim publicaria sem o que o editor pediu
+// (22/10: a D33 ou D45 foi aprovada sem a tabela porque o aviso passou despercebido). Os jobs vêm do mais novo.
+export function failedAdjust(list: Job[], slug: string): string | null {
+  const j = list.find((x) => x.args[0] === 'ajustar' && x.args[2] === slug);
+  if (!j || !j.ended || (j.code === 0 && !/NÃO salvo/.test(j.output))) return null;
+  return (j.output.split('\n').reverse().find((l) => /NÃO salvo|Error|motivo/.test(l)) ?? 'o ajuste falhou').slice(0, 200);
+}
+const failedNote = (slug: string) => {
+  const why = failedAdjust(jobs, slug);
+  return why ? `<p class="flash bad-flash">O último ajuste pedido para esta página <strong>não foi salvo</strong>: ${esc(why)}. Peça de novo antes de aprovar, ou marque "aprovar assim mesmo".</p>` : '';
+};
+const forceBox = (slug: string) => (failedAdjust(jobs, slug) ? '<label class="muted"><input type="checkbox" name="forcar" value="1"> aprovar assim mesmo, sem o ajuste</label>' : '');
 // Painel reiniciado no meio de uma ação: ela não tem mais processo; marca como interrompida.
 for (const j of jobs) if (!j.ended && !j.queued) Object.assign(j, { ended: new Date().toISOString(), code: -1, output: `${j.output}\n(interrompida: o painel reiniciou)` });
 const saveJobs = () => writeFileSync(JOBS_FILE, JSON.stringify(jobs.filter((j) => j.queued).concat(jobs.filter((j) => !j.queued).slice(0, 30)), null, 2));
@@ -292,9 +305,9 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
   const draftNew = query && !items.some((i) => i.id === `page:${slug}`);
   return `<div class="result" data-pending>
 <p class="result-head"><strong>Resultado do ciclo de ${esc(fmt(b.when))}</strong>${b.cost !== null ? ` <span class="muted">· custo ~${b.cost.toFixed(1)} créditos</span>` : ''}</p>
-${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">
+${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${failedNote(slug)}
 <div class="block"><p class="block-title">1. Mudanças no site para você decidir (${items.length})</p><p class="muted">Desmarque o que não quiser. O resto entra no site depois dos testes.</p>${groupHtml}</div>
-<button class="ok">Aplicar marcados</button></form>` : '<p class="muted">Nada muda no site: o aprendizado entra sozinho em até 5 min, depois dos testes e do build.</p>'}
+${forceBox(slug)}<button class="ok">Aplicar marcados</button></form>` : '<p class="muted">Nada muda no site: o aprendizado entra sozinho em até 5 min, depois dos testes e do build.</p>'}
 ${query ? `<div class="block"><p class="block-title">${items.length ? '2. ' : ''}Página nova tentada: "${esc(query)}"</p><p>${esc(outcome ?? b.subject)}${draftNew ? '. Ela entra como rascunho junto com este resultado (não vai ao ar) e passa a aparecer em "Páginas: seu veredito", onde você pode pedir ajuste ou aprovar.' : ''}</p>
 ${suggestionHtml(review)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever o rascunho? ~10 a 20 créditos; você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou neste rascunho (com pesquisa)</button></form>` : ''}${adjustForm(b.branch, slug)}</div>` : ''}
 <details><summary class="muted">o que o motor também guardou (não aparece no site)</summary><p class="muted">${esc(learning.join('; ') || 'registros do ciclo')}.</p></details>
@@ -330,7 +343,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   const verdicts = loadVerdicts();
   const lastFor = (p: (typeof pages)[number]) => verdicts.filter((v) => v.slug === p.slug && v.run_id === p.provenance.run_id).at(-1);
   const editLink = (p: (typeof pages)[number]) => `<a href="${BASE}editar/${esc(p.slug)}">Editar texto</a>`;
-  const box = (p: (typeof pages)[number], approve: boolean, label: string) => `<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo (obrigatório)">${approve ? '<button name="veredito" value="approve" class="ok">Aprovar</button>' : ''}<button name="veredito" value="reject" class="bad">${label}</button></form>`;
+  const box = (p: (typeof pages)[number], approve: boolean, label: string) => `<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo (obrigatório)">${approve ? `${forceBox(p.slug)}<button name="veredito" value="approve" class="ok">Aprovar</button>` : ''}<button name="veredito" value="reject" class="bad">${label}</button></form>`;
   const link = (p: (typeof pages)[number]) => `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a>`;
   const drafts = pages.filter((p) => p.status === 'draft');
   const waiting = drafts.filter((p) => !lastFor(p));
@@ -338,7 +351,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   const live = pages.filter((p) => p.status !== 'draft');
   return `<h2>Páginas: seu veredito ${waiting.length ? `<span class="b neutral">${waiting.length} aguardando</span>` : ''}</h2>
 ${waiting.length ? `<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a>. Aprovar publica; recusar volta ao motor com o motivo como instrução. Cada veredito calibra a revisão automática.</p>
-<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}${suggestionHtml(reviewFrom(readMain, p.slug))}</td><td>${box(p, true, 'Recusar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
+<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}${failedNote(p.slug)}${suggestionHtml(reviewFrom(readMain, p.slug))}</td><td>${box(p, true, 'Recusar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
 ${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor vai tentar de novo: ${rejected.map((p) => `${link(p)} <span class="muted">("${esc(lastFor(p)!.reason.slice(0, 80))}")</span>`).join(' · ')}</p>` : ''}
 <details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}<br>${editLink(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
@@ -564,7 +577,7 @@ const ADMIN_CSS = `<style>
 .tabs button{background:transparent;color:var(--muted);border:1px solid transparent;font-weight:600}
 .tabs button.on{background:var(--card);color:var(--ink);border-color:var(--line)}
 .tabs .count{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;background:var(--badbg);color:var(--bad);font-size:.75rem}
-.flash{background:var(--nbg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.flash{background:var(--nbg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}.bad-flash{background:var(--badbg);color:var(--bad);border-color:var(--bad)}
 form.inline{display:inline}form.verdict{display:flex;gap:6px;flex-wrap:wrap}form.verdict input{flex:1;min-width:180px}
 input{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
 button{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:7px;border:1px solid var(--line);cursor:pointer;background:var(--nbg);color:var(--n)}
@@ -595,6 +608,7 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const v = f.get('veredito');
     const motivo = clean(f.get('motivo'), 400);
     if (!Slug.safeParse(slug).success || (v !== 'approve' && v !== 'reject') || motivo.length < 3) return 'veredito inválido';
+    if (v === 'approve' && failedAdjust(jobs, slug) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
     return { label: `${v === 'approve' ? 'aprovar' : 'recusar'} ${slug}`, args: ['veredito', slug, v, motivo] };
   }
   if (acao === 'fila-adicionar' || acao === 'fila-remover') {
@@ -643,6 +657,7 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   if (acao === 'mesclar') {
     const ramo = f.get('ramo') ?? '';
     if (!BRANCH.test(ramo)) return 'ramo inválido';
+    if (failedAdjust(jobs, ramo.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
     // Os recusados são calculados aqui, a partir das mudanças reais do ramo: o formulário só diz o que manter.
     const keep = new Set(f.getAll('manter'));
     const all = gitChanges(`origin/${ramo}`).summary.items.map((i) => i.id);
