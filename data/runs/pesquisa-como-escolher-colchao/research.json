@@ -1,0 +1,164 @@
+{
+  "run_id": "pesquisa-como-escolher-colchao",
+  "topic": "como-escolher-colchao",
+  "accepted": [
+    {
+      "claim_id": "clm_08655139c897",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_94f7498a1c91",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d85772ef1052",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_94f7498a1c91",
+      "new": true
+    },
+    {
+      "claim_id": "clm_805c5b7bf8de",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_94f7498a1c91",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8b541d12adb0",
+      "question_id": "q_densidade_espuma_o_que_e",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_72cd0fc2a752",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_93d7bcc9bf18",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_883451344f68",
+      "question_id": "q_ajuste_13053b55",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_52b4b96eb53c",
+      "question_id": "q_ajuste_13053b55",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e38a995b69db",
+      "question_id": "q_ajuste_13053b55",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_416aef9efc06",
+      "question_id": "q_ajuste_13053b55",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bbf0c3461b86",
+      "question_id": "q_ajuste_13053b55",
+      "source_id": "src_4e4ad7ab8cfc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2728abc2f3c9",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4bfd5889a074",
+      "question_id": "q_tamanho_colchao_opcoes",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a14e357e5638",
+      "question_id": "q_colchao_tipos_estrutura",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e994b3cb3e0b",
+      "question_id": "q_firmeza_relacao_fatores",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_540315f65eb6",
+      "question_id": "q_densidade_espuma_o_que_e",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bd166d486d56",
+      "question_id": "q_firmeza_relacao_fatores",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_febd4b30d5f9",
+      "question_id": "q_informacoes_etiqueta_colchao",
+      "source_id": "src_18abb139dfc9",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_18abb139dfc9",
+      "question_id": "q_certificacao_inmetro_obrigatoria",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Registro da certificação compulsória do Inmetro para este colchão:"
+    }
+  ],
+  "coverage": {
+    "q_colchao_tipos_estrutura": 1,
+    "q_densidade_espuma_o_que_e": 2,
+    "q_certificacao_inmetro_obrigatoria": 0,
+    "q_informacoes_etiqueta_colchao": 1,
+    "q_firmeza_relacao_fatores": 2,
+    "q_tamanho_colchao_opcoes": 7,
+    "q_ajuste_13053b55": 5
+  },
+  "unanswered": [
+    "q_certificacao_inmetro_obrigatoria"
+  ],
+  "usage": {
+    "input_tokens": 9428,
+    "output_tokens": 2497,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_b156c16dbf8e"
+  ],
+  "triage": [
+    {
+      "source_id": "src_94f7498a1c91",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_4e4ad7ab8cfc",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.78
+    },
+    {
+      "source_id": "src_18abb139dfc9",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 1.7777676
+}

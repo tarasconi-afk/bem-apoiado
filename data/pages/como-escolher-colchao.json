@@ -3,18 +3,20 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Como escolher colchão: tipos, densidades e informações obrigatórias",
-  "description": "Conheça os tipos de estrutura de colchão, o que significa densidade, dimensões padronizadas e que informações a etiqueta deve trazer.",
+  "description": "Escolha colchão pelo tamanho da cama, densidade e capacidade de peso. Confira na ficha técnica o tipo, altura e estrutura para decidir.",
   "primary_query": "como escolher colchão",
-  "updated_at": "2026-10-21",
+  "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Segundo a Ortobom, há modelos com espuma D33 e estruturas de molas ensacadas individualmente ou de fios contínuos interconectados. Segundo a Probel, há densidades como D28 e D33 e tamanhos de solteiro a king.",
-    "basis": "evidence",
+    "text": "Escolha o tamanho pelo espaço do quarto: segundo a Probel, o casal mede 138 x 188 cm, o queen 158 x 198 cm e o king 193 x 203 cm. Depois, compare na ficha a estrutura (espuma ou molas ensacadas individualmente), a densidade da espuma (a Probel oferece D28, D33 e D45) e o peso suportado por pessoa.",
+    "basis": "reasoning",
     "claim_ids": [
-      "clm_1b3fe9afff25",
-      "clm_a7a19c58ca43",
-      "clm_fb875f7299b1",
       "clm_686ae84e8543",
-      "clm_d79dfd73a1db"
+      "clm_d85772ef1052",
+      "clm_80b18ef58aa1",
+      "clm_8b541d12adb0",
+      "clm_416aef9efc06",
+      "clm_a7a19c58ca43",
+      "clm_fb875f7299b1"
     ]
   },
   "sections": [
@@ -109,42 +111,121 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir qual colchão escolher",
+      "heading": "Como escolher o colchão certo para você",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Probel lista solteiro, viúva, casal, queen e king entre os principais tamanhos de cama, com colchões king medindo 193 cm por 203 cm.",
+          "text": "Segundo a Probel, os principais tamanhos de cama são solteiro, viúva, casal, queen e king. Para casal, as dimensões são 138 por 188 cm; queen, 158 por 198 cm; king, 193 por 203 cm, descrita como a maior opção entre os tamanhos padrão vendidos no Brasil.",
           "basis": "evidence",
           "claim_ids": [
             "clm_686ae84e8543",
+            "clm_d85772ef1052",
             "clm_80b18ef58aa1"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45, destinados a diferentes estilos de sono, com descrição de suporte equilibrado, adaptação ao corpo e conforto.",
+          "text": "A densidade da espuma influencia quem o colchão suporta melhor. Segundo a Probel, colchões de espuma estão disponíveis em densidades D28, D33 e D45, cada uma se adaptando a perfis variados de uso e oferecendo sustentação adequada.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_d79dfd73a1db"
+            "clm_8b541d12adb0"
+          ]
+        },
+        {
+          "kind": "table",
+          "caption": "Tamanhos padrão de cama e dimensões dos colchões",
+          "columns": [
+            "Tamanho",
+            "Largura × Comprimento",
+            "Indicado para"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "Casal",
+                  "claim_ids": [
+                    "clm_d85772ef1052"
+                  ]
+                },
+                {
+                  "text": "138 × 188 cm (Probel)",
+                  "claim_ids": [
+                    "clm_d85772ef1052"
+                  ]
+                },
+                {
+                  "text": "Quartos compactos (segundo Probel)",
+                  "claim_ids": [
+                    "clm_d85772ef1052"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Queen",
+                  "claim_ids": [
+                    "clm_d85772ef1052"
+                  ]
+                },
+                {
+                  "text": "158 × 198 cm (Probel)",
+                  "claim_ids": [
+                    "clm_d85772ef1052"
+                  ]
+                },
+                {
+                  "text": "Equilíbrio espaço e conforto (segundo Probel)",
+                  "claim_ids": [
+                    "clm_d85772ef1052"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "King",
+                  "claim_ids": [
+                    "clm_d85772ef1052",
+                    "clm_80b18ef58aa1"
+                  ]
+                },
+                {
+                  "text": "193 × 203 cm",
+                  "claim_ids": [
+                    "clm_d85772ef1052",
+                    "clm_80b18ef58aa1"
+                  ]
+                },
+                {
+                  "text": "Quartos amplos, máximo espaço; segundo a Probel, maior opção entre os tamanhos padrão vendidos no Brasil",
+                  "claim_ids": [
+                    "clm_d85772ef1052",
+                    "clm_80b18ef58aa1"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Ortobom, estruturas disponíveis incluem molas ensacadas individualmente e molas de fios contínuos interconectados com borda de aço.",
+          "text": "A Probel lista, em sua linha de colchões de espuma, capacidades de 50, 60, 90, 100, 120 e 150 kg por pessoa.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_416aef9efc06"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se está entre molas ou espuma, saiba que segundo a Ortobom há estruturas de molas Superpocket ensacadas individualmente e estruturas de molas de fios contínuos interconectados com borda de aço, apresentadas como opções distintas.",
           "basis": "evidence",
           "claim_ids": [
             "clm_a7a19c58ca43",
             "clm_fb875f7299b1"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Quando comparar produtos, procure na ficha técnica informações sobre as densidades de espuma utilizadas e os tipos de material em cada camada, como espuma viscoelástica ou espuma de poliuretano com densidade D33.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_1b3fe9afff25",
-            "clm_076751011313",
-            "clm_7b8c85091ae4"
           ]
         }
       ]
@@ -152,7 +233,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T142156_autopilot_7517+repeticao-removida",
+    "run_id": "20261021T142156_autopilot_7517+repeticao-removida+editor:pesquisa-como-escolher-colchao",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

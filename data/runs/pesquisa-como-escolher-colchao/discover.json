@@ -1,0 +1,178 @@
+{
+  "run_id": "pesquisa-como-escolher-colchao",
+  "topic": "como-escolher-colchao",
+  "queries": [
+    {
+      "q": "ficha técnica colchão densidade peso suportado tamanho medidas garantia",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "simmons.com.br",
+        "castor.ind.br",
+        "colchoescastor.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "colchão espuma molas características estrutura construção camadas núcleo",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "americanflex.com.br",
+        "duoflex.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "Inmetro colchão certificação obrigatória etiqueta informações densidade D28 D33 D45",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "colchão dimensões padrão solteiro casal queen king altura tamanho medidas",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "anjos.com.br",
+        "herval.com.br"
+      ],
+      "results": 8
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_94f7498a1c91",
+      "url": "https://blog.probel.com.br/cama-king-size-qual-o-tamanho-e-quanto-espaco-e-necessario-no-quarto",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_4e4ad7ab8cfc",
+      "url": "https://www.probel.com.br/colchao/colchao-espuma?page=3",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_18abb139dfc9",
+      "url": "https://www.ortobom.com.br/colchao/colchao-pro-forca/casal138",
+      "publisher": "Ortobom",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_b156c16dbf8e",
+      "url": "https://www.probel.com.br/base-box",
+      "publisher": "Probel",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 3,
+  "suggestions": [
+    {
+      "host": "ric.cps.sp.gov.br",
+      "url": "https://ric.cps.sp.gov.br/bitstream/123456789/1245/1/20132S_BERTIEJuarez_TCCTX0278.pdf",
+      "title": "FACULDADE DE TECNOLOGIA DE AMERICANA"
+    },
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/07551179000114/compras/2026/76/arquivos/2",
+      "title": "Anexo+-+Edital.pdf"
+    },
+    {
+      "host": "arquivos.camacari.ba.gov.br",
+      "url": "https://arquivos.camacari.ba.gov.br/compras/231225091231354618.pdf",
+      "title": "DADOS DO EDITAL"
+    },
+    {
+      "host": "www.tce.se.gov.br",
+      "url": "https://www.tce.se.gov.br/ReportsViewPDF/ViewLicitacao.aspx?id=142611",
+      "title": "estado de sergipe fundo municipal de assistência social de ..."
+    }
+  ],
+  "snapshot_errors": [
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "error": "The operation was aborted due to timeout"
+    }
+  ],
+  "tavily_credits_month": 292,
+  "triage": [
+    {
+      "url": "https://www.ortobom.com.br/colchao/colchao-pro-forca/casal138",
+      "p_useful": 0.93,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/duvidas-frequentes-new",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://www.colchoescastor.com.br/wp-content/uploads/2023/10/Manual-Certificado-de-Garantia-e-Manual-de-Uso_08082019.pdf",
+      "p_useful": 0.97,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br/i/teste-de-qualidade",
+      "p_useful": 0.83,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao",
+      "p_useful": 0.84,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br",
+      "p_useful": 0.52,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://blog.probel.com.br/cama-king-size-qual-o-tamanho-e-quanto-espaco-e-necessario-no-quarto",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma?page=3",
+      "p_useful": 0.73,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/base-box",
+      "p_useful": 0.52,
+      "keep": true
+    },
+    {
+      "url": "https://blog.probel.com.br/blog-tag-tamanhos-de-cama",
+      "p_useful": 0.97,
+      "keep": true
+    },
+    {
+      "url": "https://blog.probel.com.br/colchoes-5",
+      "p_useful": 0.97,
+      "keep": true
+    },
+    {
+      "url": "https://blog.probel.com.br/blog-tag-cama-grande",
+      "p_useful": 0.97,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br/cat/colchao/queen",
+      "p_useful": 0.11,
+      "keep": false
+    }
+  ],
+  "llm_credits": 0.2483742
+}
