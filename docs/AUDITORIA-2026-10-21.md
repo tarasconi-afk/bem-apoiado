@@ -49,7 +49,7 @@ rolagem); lê cópia só de leitura do main (não oscila); lições removíveis;
 - Motor: a página "colchão firme ou macio" (aprovada pelo editor como modelo) entra no pedido ao redator como
   exemplo de forma: resposta curta que começa pela ação do leitor com o dado que decide, e tabela no "Como decidir".
 - Repetição: detectada no código (sobreposição ≥ 80% das palavras, mínimo 8); quando cruza decisão e detalhe, sai
-  a cópia do detalhe (a decisão fica no topo). Removidas 8 repetições em 6 páginas no ar; vira regra de forma para
+  a cópia do detalhe (a decisão fica no topo). Removidas 8 repetições em 5 páginas no ar; vira regra de forma para
   páginas novas e manutenção por ciclo.
 - Reescrita do resumo mantém as tabelas que já existiam (a D28 perdeu a tabela D28 × D33 num teste; corrigido).
 - Resumos reescritos e revisados um a um: D28 ou D33 e base box aplicados; "como escolher colchão", travesseiro e
