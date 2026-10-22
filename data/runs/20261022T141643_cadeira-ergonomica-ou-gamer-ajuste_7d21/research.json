@@ -1,0 +1,172 @@
+{
+  "run_id": "20261022T141643_cadeira-ergonomica-ou-gamer-ajuste_7d21",
+  "topic": "cadeira-ergonomica-ou-gamer",
+  "accepted": [
+    {
+      "claim_id": "clm_f4eadc168e8c",
+      "question_id": "q_nr17_referencia",
+      "source_id": "src_fb4ddf1b9feb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0f2bc640bf0f",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bf89221a9925",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3a44b8895439",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7e670ce9c26c",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_51a82127f7a2",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_229303ecfd90",
+      "question_id": "q_materiais_estrutura",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0e0ef279365f",
+      "question_id": "q_materiais_estrutura",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3de9d4b47246",
+      "question_id": "q_materiais_estrutura",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1d0999632b9b",
+      "question_id": "q_garantia_o_que_cobre",
+      "source_id": "src_213a35245772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b4ff1abae03d",
+      "question_id": "q_termo_ergonomica_significado",
+      "source_id": "src_213a35245772",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_materiais_estrutura",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "estrutura interna reforçada em AÇO, revestimento em POLIÉSTER PREMIUM, PISTÃO CLASSE 4, base reforçada em FERRO e RODAS SILENCIOSAS de 60 mm em PU"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_diferenca_regulagens",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Encosto reclinável de 90º a 150º com trava no ngulo desejado"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_nr17_referencia",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Atende à NR-17"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_garantia_o_que_cobre",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "3 anos para estrutura metálica interna. 1 ano para demais componentes, já incluindo o prazo legal de garantia de 3 meses."
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_diferenca_regulagens",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Altura da cadeira Ajustável pela alavanca do mecanismo borboleta"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_diferenca_regulagens",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Sistema Relax Movimento sincronizado de assento e encosto com ajuste de tensão"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_diferenca_regulagens",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Apoio para pernas Retrátil"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_diferenca_regulagens",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Possuem regulagem em **3 DIMENSÕES**: **• ALTURA** **• FRENTE / TRÁS** **• ROTAÇÃO PARA DENTRO E PARA FORA**"
+    },
+    {
+      "source_id": "src_213a35245772",
+      "question_id": "q_termo_ergonomica_significado",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "A **Platinum W Style** atende à **NR-17** e possui diferentes possibilidades de regulagem."
+    }
+  ],
+  "coverage": {
+    "q_diferenca_regulagens": 4,
+    "q_peso_suportado": 1,
+    "q_materiais_estrutura": 3,
+    "q_nbr_cadeira_escritorio": 0,
+    "q_nr17_referencia": 1,
+    "q_termo_ergonomica_significado": 1,
+    "q_garantia_o_que_cobre": 1,
+    "q_ajuste_2c49fdce": 0,
+    "q_ajuste_f81a9a26": 0
+  },
+  "unanswered": [
+    "q_nbr_cadeira_escritorio",
+    "q_ajuste_2c49fdce",
+    "q_ajuste_f81a9a26"
+  ],
+  "usage": {
+    "input_tokens": 16069,
+    "output_tokens": 2225,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_fb4ddf1b9feb",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.88
+    },
+    {
+      "source_id": "src_213a35245772",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_213a35245772",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 1.6759278
+}

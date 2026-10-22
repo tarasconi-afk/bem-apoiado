@@ -3,17 +3,16 @@
   "page_type": "decision_compare",
   "status": "draft",
   "title": "Cadeira ergonômica ou gamer: qual escolher",
-  "description": "Compare regulagens na ficha: altura, apoio lombar, profundidade, mecanismo nomeado, densidade de espuma 45–55 kg/m³ e peso máximo suportado.",
+  "description": "Gamer e ergonômica: escolha pelas regulagens documentadas. Confira apoio lombar ajustável, profundidade do assento e peso máximo suportado.",
   "primary_query": "cadeira ergonômica ou gamer",
   "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Confira na ficha técnica as regulagens documentadas, o peso máximo suportado, a densidade da espuma e eventual conformidade com a ABNT NBR 13962. Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender à NR-17; a empresa também descreve regulagens associadas a parâmetros mínimos da norma.",
-    "basis": "reasoning",
+    "text": "Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, profundidade do assento e apoio lombar ajustáveis pode atender à NR-17 e funcionar bem em jornadas corporativas longas. Segundo a ergocadeiras, é ideal que a cadeira suporte pelo menos 20 kg a mais que o seu peso. A Flexform indica, para uso diário de 8 horas, espuma do assento entre 45 e 55 kg/m³.",
+    "basis": "evidence",
     "claim_ids": [
-      "clm_d7d95a312a2d",
-      "clm_04a5e310b9f4",
       "clm_e8cc2dafbc8c",
-      "clm_3a087de8207b"
+      "clm_094a46308551",
+      "clm_3cc0fef72b12"
     ]
   },
   "sections": [
@@ -143,7 +142,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Flexform, cadeira ergonômica é uma categoria técnica com regulagens documentadas: altura por pistão a gás, apoio lombar ajustável em altura e profundidade do assento. A Flexform descreve a cadeira gamer como uma categoria que combina proposta ergonômica com estética: encosto alto, apoio para nuca e assento reclinável para sessões longas. Segundo a Flexform, uma gamer com mecanismo sincronizado, profundidade do assento e apoio lombar ajustável pode atender à NR-17 e funcionar bem em jornadas corporativas longas.",
+          "text": "Segundo a Flexform, cadeira ergonômica é uma categoria técnica com regulagens documentadas: altura por pistão a gás, apoio lombar ajustável em altura, profundidade do assento e apoio de braços. A Flexform descreve cadeira gamer como uma categoria que combina proposta ergonômica com estética: encosto alto, apoio para nuca e assento reclinável para sessões longas. Segundo a Flexform, uma gamer com mecanismo sincronizado, profundidade do assento e apoio lombar ajustável pode atender aos parâmetros mínimos da NR-17 e funcionar bem em jornadas corporativas longas.",
           "basis": "evidence",
           "claim_ids": [
             "clm_3f60eab20165",
@@ -153,11 +152,10 @@
         },
         {
           "kind": "paragraph",
-          "text": "Confira na ficha técnica as regulagens com valores declarados: altura mínima e máxima do assento em centímetros, faixa de profundidade do assento e faixa de ajuste do apoio lombar. Verifique se a densidade da espuma está declarada: para uso diário de 8 horas, deve estar entre 45 e 55 kg/m³. Espuma abaixo de 40 kg/m³ deforma em meses de uso intenso. Confira também o peso máximo suportado, que idealmente deve ser pelo menos 20 kg acima do seu peso.",
+          "text": "Confira na ficha técnica as regulagens com valores declarados: altura mínima e máxima do assento em centímetros, faixa de profundidade do assento e faixa de ajuste do apoio lombar. Segundo a Flexform, para uso diário de 8 horas, a espuma deve estar entre 45 e 55 kg/m³; densidades abaixo de 40 kg/m³ podem deformar em meses de uso intenso. Segundo a ergocadeiras, é ideal que a cadeira suporte pelo menos 20 kg a mais que o seu peso.",
           "basis": "evidence",
           "claim_ids": [
             "clm_832b248a7da8",
-            "clm_338d4e70e583",
             "clm_3cc0fef72b12",
             "clm_094a46308551"
           ]
@@ -170,15 +168,6 @@
             "clm_094a46308551",
             "clm_3cc0fef72b12",
             "clm_0ee7da27eecc"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Confira o peso máximo suportado na ficha técnica. Segundo ergocadeiras, o ideal é que a cadeira suporte pelo menos 20 kg a mais que o seu peso para não sobrecarregar o pistão a gás. A fonte também recomenda usar pistões de classe 4.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_094a46308551",
-            "clm_cb13ab5cec1a"
           ]
         },
         {
@@ -259,22 +248,13 @@
               ]
             }
           ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Para uso intensivo de digitação, verifique se os braços são ajustáveis em altura: segundo a Flexform, apoios fixos raramente são adequados para todos os biótipos e alturas de mesa. Use como parâmetro uma distância de 2 a 4 dedos entre o encosto e a parte posterior do joelho.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_527fc3411062",
-            "clm_ff4871c7875f"
-          ]
         }
       ]
     }
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T122054_autopilot_10be+editor:20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527+editor:20261022T140419_cadeira-ergonomica-ou-gamer-ajuste_aada",
+    "run_id": "20261022T122054_autopilot_10be+editor:20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527+editor:20261022T140419_cadeira-ergonomica-ou-gamer-ajuste_aada+editor:20261022T141643_cadeira-ergonomica-ou-gamer-ajuste_7d21",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
