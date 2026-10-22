@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { Basis, checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
 import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
-import { styleIssues } from './page.ts';
+import { fixFormWithoutAI, styleIssues } from './page.ts';
 import { research } from './research.ts';
 import { applyPatches } from './patch.ts';
 import { join } from 'node:path';
@@ -157,6 +157,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const qid = `q_ajuste_${createHash('sha1').update(instruction).digest('hex').slice(0, 8)}`;
   const topicFile = join(TOPICS_DIR, `${slug}.json`);
   let fresh = 0;
+  let freshIds = new Set<string>();
   if (doResearch) {
     writeJson(topicFile, TopicBrief.parse({
       ...before,
@@ -166,6 +167,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     await discoverSources(slug, runId, { maxSearches: 4, maxSources: 5 });
     const r = await research(slug, runId, fetchImpl);
     fresh = r.accepted.filter((a) => a.new).length;
+    freshIds = new Set(r.accepted.filter((a) => a.new).map((a) => a.claim_id));
     // A lacuna temporária sai; a pergunta nova fica (as evidências achadas ficam ligadas a ela).
     writeJson(topicFile, TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: before.evidence_gaps }));
   }
@@ -173,6 +175,17 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   // segue com as evidências que a página já tem.
   const topic = loadTopic(slug);
   const idx = buildIndex();
+  // As evidências que a pesquisa deste pedido trouxe, com nome: sem isto o redator recebia ~150 evidências
+  // misturadas e "use as novas" não dizia quais (22/10: 10 da XT Racer lidas, nenhuma usada).
+  // Também contam as de marca que a página ainda não cita (a pesquisa de um pedido anterior as guardou).
+  const cited = new Set([page.verdict, ...page.sections.flatMap((x) => x.blocks.flatMap((b) => (b.kind === 'table' ? b.rows.flatMap((r) => r.cells) : [b])))].flatMap((b) => b.claim_ids).map((id) => idx.claims.get(id)?.source_id).map((sid) => (sid ? idx.sources.get(sid)?.publisher : undefined)));
+  const unusedBrand = claimsForTopic(topic, idx.claims.values()).filter((c) => idx.sources.get(c.source_id)?.source_class === 'manufacturer' && !cited.has(idx.sources.get(c.source_id)?.publisher));
+  // Revezando por marca (até 20): sem isto a ordem do id decidia quem aparecia.
+  const byBrand = new Map<string, typeof unusedBrand>();
+  for (const c of unusedBrand) { const k = idx.sources.get(c.source_id)?.publisher ?? ''; byBrand.set(k, [...(byBrand.get(k) ?? []), c]); }
+  const turns = [...byBrand.values()];
+  const rr = Array.from({ length: Math.max(0, ...turns.map((l) => l.length)) }, (_, i) => turns.map((l) => l[i])).flat().filter((c) => c !== undefined);
+  const freshNote = freshList(new Set([...freshIds, ...rr.slice(0, 20).map((c) => c.id)]), idx);
   const blocks = editableBlocks(page);
   const refs = blocks.map((b) => b.ref) as [string, ...string[]];
   const pick = await callJson(
@@ -195,14 +208,14 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   let base = draft as Draft;
   const touched = new Set(pick.data.refs);
   if (pick.data.rewrite_summary && decIdx >= 0) {
-    base = await rewriteSummary(base, decIdx, instruction, topic, idx, fetchImpl);
+    base = await rewriteSummary(base, decIdx, instruction + freshNote, topic, idx, fetchImpl);
     touched.add('verdict');
     // Cada linha de tabela nova é auditada como um bloco (ref secao#i.rN).
     base.sections[decIdx]!.blocks.forEach((b, i) => (b.kind === 'table' ? b.rows.forEach((_, ri) => touched.add(`${base.sections[decIdx]!.id}#${i}.r${ri}`)) : touched.add(`${base.sections[decIdx]!.id}#${i}`)));
   }
   const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
   const rest = pick.data.refs.filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
-  const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.` })), fetchImpl) : { data: { patches: [] } };
+  const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.${freshNote}` })), fetchImpl) : { data: { patches: [] } };
   let patched = applyPatches(base as never, p.data.patches) as Draft;
   // Regra de forma (parágrafo longo etc.) volta ao redator em vez de derrubar o ajuste (21/10: dois ajustes
   // com pesquisa perdidos por um parágrafo de 130 palavras).
@@ -240,6 +253,12 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '');
 }
 
+function freshList(ids: Set<string>, idx: ReturnType<typeof buildIndex>): string {
+  const list = [...ids].map((id) => idx.claims.get(id)).filter((c) => c !== undefined);
+  if (!list.length) return '';
+  return `\n\nEvidências NOVAS para a página (trazidas pela pesquisa ou de marca que a página ainda não cita; o editor quer vê-las: use as que respondem ao pedido e, se forem de outra marca, compare as marcas):\n${list.map((c) => `- ${c.id} (${idx.sources.get(c.source_id)?.publisher ?? '?'}): ${c.statement}`).join('\n')}`;
+}
+
 async function rewriteSummary(d: Draft, decIdx: number, instruction: string, topic: TopicBrief, idx: ReturnType<typeof buildIndex>, fetchImpl?: FetchLike): Promise<Draft> {
   const claims = claimsForTopic(topic, idx.claims.values());
   const ids = claims.map((c) => c.id) as [string, ...string[]];
@@ -260,7 +279,7 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
       role: 'writer',
       system: writerSystem(),
       user:
-        `Pedido do editor: ${instruction}\n\nSe as evidências cruzam duas grandezas (peso × densidade, tamanho × medida, perfil × o que conferir), devolva "table" com uma linha por faixa, cada célula com os claim_ids que a sustentam; o título ("caption") diz de quem são os dados (ex.: "Densidade indicada pela Castor para cada faixa de peso"); prefira 2 colunas e NUNCA acrescente coluna que a fonte não traz para todas as linhas (21/10: uma coluna "firmeza típica" inventada derrubou as linhas mais pesadas); senão table=null. "description": a frase que aparece no Google (50 a 160 caracteres, para leigo, sem número que a página não traga), ou null para manter.\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
+        `Pedido do editor: ${instruction}\n\nSe as evidências cruzam duas grandezas (peso × densidade, tamanho × medida, perfil × o que conferir), devolva "table" com uma linha por faixa, cada célula com os claim_ids que a sustentam; o título ("caption") diz de quem são os dados (ex.: "Densidade indicada pela Castor para cada faixa de peso"); prefira 2 colunas e NUNCA acrescente coluna que a fonte não traz para todas as linhas (21/10: uma coluna "firmeza típica" inventada derrubou as linhas mais pesadas); senão table=null. "description": a frase que aparece no Google (50 a 160 caracteres, para leigo, sem número que a página não traga), ou null para manter.\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido. A resposta curta RESPONDE à pergunta do título em até 2 frases: qual escolher e para quem, com o dado que decide ("Escolha pelo seu peso: até 60 kg…"; "Se você ___, escolha ___"); não é lista do que conferir, não cita norma e não abre com marca (22/10: "Confira na ficha técnica as regulagens…" foi recusada pelo editor). Depois: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
         `Resposta curta atual: ${d.verdict.text}\n## ${sec.heading} (atual)\n${sec.blocks.map((b) => (b.kind === 'table' ? '' : `- ${b.text}`)).join('\n')}\n\nResto da página (contexto):\n${others.slice(0, 6000)}\n\nEvidências:\n${formatClaims(claims, idx.sources)}`,
       schema: Out,
       schemaName: 'summary_rewrite',
@@ -308,6 +327,14 @@ async function fixUntilSupported(topic: TopicBrief, idx: ReturnType<typeof build
     const cand = applyPatches(draft as never, p.data.patches.filter((x) => x.ref === 'verdict')) as Draft;
     const a = await auditDraft(cand, idx.claims, idx.sources, fetchImpl, new Map(), new Set(['verdict']));
     if (a.findings.every((f) => f.verdict === 'SUPPORTED')) draft = cand;
+  }
+  // Ainda abre com a marca: a correção sem IA leva a atribuição para o fim da frase e audita (como no ciclo).
+  if (touched.has('verdict') && styleIssues(draft).some((i) => i.ref === 'verdict')) {
+    const f = fixFormWithoutAI(draft);
+    if (f.refs.includes('verdict')) {
+      const a = await auditDraft(f.draft, idx.claims, idx.sources, fetchImpl, new Map(), new Set(['verdict']));
+      if (a.findings.every((x) => x.verdict === 'SUPPORTED')) draft = { ...draft, verdict: f.draft.verdict };
+    }
   }
   const restore = bad.map((f) => {
     if (f.ref === 'verdict') return { ref: 'verdict', action: 'replace' as const, text: original.verdict.text, basis: original.verdict.basis, claim_ids: original.verdict.claim_ids };
