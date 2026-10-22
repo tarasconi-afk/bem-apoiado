@@ -136,8 +136,10 @@ export async function ensureImages(
   const briefsFile = imagePaths(root).briefs;
   const done: ImageRecord[] = [];
   for (const w of todo) {
-    const b = Brief.parse({ id: w.id, kind: w.kind, ...(await writeBrief(w.subject)) });
     const briefs = existsSync(briefsFile) ? z.array(Brief).parse(JSON.parse(readFileSync(briefsFile, 'utf8'))) : [];
+    // Pedido já escrito (pelo editor ou pelo desenvolvedor) vale; só o que falta é escrito pelo modelo.
+    const ready = briefs.find((x) => x.id === w.id);
+    const b = ready ?? Brief.parse({ id: w.id, kind: w.kind, ...(await writeBrief(w.subject)) });
     writeFileSync(briefsFile, JSON.stringify([...briefs.filter((x) => x.id !== b.id), b], null, 2) + '\n');
     done.push(await generateImage(b, root, opts));
   }
