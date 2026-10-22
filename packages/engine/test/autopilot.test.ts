@@ -45,3 +45,12 @@ describe('pauta sem fabricantes cadastrados', () => {
     expect(lacksMakers('x', topic(['mesa', 'cadeira']))).toBe(false);
   });
 });
+
+describe('teto diário e ciclo manual', () => {
+  it('manual com menos de 20 páginas no ar não tem teto diário; automático e manual a partir de 20 têm', async () => {
+    const { dailyCapFor, DAILY_CREDIT_CAP } = await import('../src/stages/autopilot.ts');
+    expect(dailyCapFor(true, 12)).toBe(Number.POSITIVE_INFINITY);
+    expect(dailyCapFor(false, 12)).toBe(DAILY_CREDIT_CAP);
+    expect(dailyCapFor(true, 20)).toBe(DAILY_CREDIT_CAP);
+  });
+});

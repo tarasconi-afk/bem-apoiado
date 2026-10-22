@@ -66,6 +66,11 @@ export function editQueue(op: 'add' | 'remove', query: string, now = new Date())
 
 // Teto diário de créditos de IA, somado entre ciclos (contador fora do git).
 export const DAILY_CREDIT_CAP = Number(process.env.BEM_DAILY_CREDIT_CAP ?? 150);
+// Ciclo manual (botão do painel) fora do teto diário até 20 páginas no ar; o limite por ciclo continua valendo.
+export const MANUAL_FREE_UNTIL_PAGES = 20;
+export function dailyCapFor(manual = process.env.BEM_MANUAL_RUN === '1', livePages = loadPages().filter((p) => p.status !== 'draft').length): number {
+  return manual && livePages < MANUAL_FREE_UNTIL_PAGES ? Number.POSITIVE_INFINITY : DAILY_CREDIT_CAP;
+}
 const LEDGER = join(STATE_DIR, 'llm-usage.json');
 const today = () => new Date().toISOString().slice(0, 10);
 export function creditsToday(): number {
@@ -420,7 +425,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     writePrSummary(result, runId);
     return result;
   };
-  if (creditsToday() >= DAILY_CREDIT_CAP) return { status: 'DAILY_CAP', steps: [`teto diário de ${DAILY_CREDIT_CAP} créditos já atingido`], credits: 0 };
+  if (creditsToday() >= dailyCapFor()) return { status: 'DAILY_CAP', steps: [`teto diário de ${DAILY_CREDIT_CAP} créditos já atingido (ciclo automático)`], credits: 0 };
 
   // Antes de produzir: se os vereditos do editor mostram limites melhores, a revisão passa a usá-los.
   const cal = calibrate(loadVerdicts());

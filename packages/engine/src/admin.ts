@@ -229,8 +229,8 @@ ${ideasHtml()}
 ${productsHtml()}
 
 <h2>Piloto automático</h2>
-<p class="muted">Roda sozinho às 04:00, 10:00, 16:00 e 22:00 (uma página por ciclo). Um ciclo gasta até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos, e os ciclos do dia somados até ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}.</p>
-${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', `Rodar um ciclo agora? Pode gastar até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos de IA (dentro do teto diário de ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}).`)}
+<p class="muted">Roda sozinho às 04:00, 10:00, 16:00 e 22:00 (uma página por ciclo). Um ciclo gasta até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos, e os ciclos automáticos do dia somados até ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}. O ciclo pedido aqui não conta esse teto diário enquanto houver menos de 20 páginas no ar.</p>
+${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', `Rodar um ciclo agora? Pode gastar até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos de IA (até 20 páginas no ar, fora do teto diário).`)}
 
 <h2>Google Search Console</h2>
 ${gscHtml()}

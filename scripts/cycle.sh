@@ -15,6 +15,9 @@ if ! flock -n 9; then
   flock -w 1800 9 || { echo "trava ocupada há 30 min; saindo"; rm -f /var/lib/bem-apoiado/run-now; exit 0; }
 fi
 
+# Ciclo pedido no painel ("Rodar um ciclo agora") é manual: até 20 páginas no ar ele não conta o teto diário
+# (decisão do editor, 22/10); o do horário automático conta.
+if [ -e /var/lib/bem-apoiado/run-now ]; then export BEM_MANUAL_RUN=1; else export BEM_MANUAL_RUN=0; fi
 rm -f /var/lib/bem-apoiado/run-now   # pedido do painel atendido
 LIVE=/var/lib/bem-apoiado/cycle-live.json
 printf '{"state":"rodando","started":"%s","updated":"%s","steps":[]}' "$(date -u +%FT%TZ)" "$(date -u +%FT%TZ)" > "$LIVE"
