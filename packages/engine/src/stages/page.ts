@@ -97,6 +97,9 @@ export async function buildPage(slug: string, runId: string, fetchImpl?: FetchLi
   const first = await buildPageOnce(slug, runId, fetchImpl);
   const doomed = first.status === 'SAFE_STOP' && /INSUFFICIENT_EVIDENCE|BUDGET/.test(first.reason);
   const costly = creditsSpent() - before > ESCALATION_MAX_FIRST_SPEND;
+  // Desligada por padrão (21/10: duas escaladas de 14 e 36,5 créditos terminaram em rascunho ou estouro do
+  // teto). Página que não passa fica rascunho e o editor ajusta (2–5 créditos). BEM_ESCALATION=1 religa.
+  if (process.env.BEM_ESCALATION !== '1') return first;
   if (first.status === 'PASS' || doomed || costly || process.env.BEM_MODEL_WRITER || creditsLeft() < ESCALATION_MIN_CREDITS) return first;
   const rid = newRunId(`${slug}-escalada`);
   writeStage(runId, 'escalation', { from: MODELS.writer.id, to: ESCALATION_WRITER, first: first.status, run: rid });

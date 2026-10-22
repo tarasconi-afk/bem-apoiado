@@ -141,6 +141,7 @@ describe('buildPage', () => {
   });
 
   it('redator barato não converge: segunda tentativa com o Sonnet passa', async () => {
+    process.env.BEM_ESCALATION = '1'; // desligada por padrão desde 21/10
     const { buildPage } = await import('../src/stages/page.ts');
     const r = await buildPage('pagina-teste', 'run_escala', router({ auditorRejectsAlways: false, rejectWhileWriter: 'claude-haiku-4.5', rejectRef: 'nenhum' }));
     expect(r.status).toBe('PASS');

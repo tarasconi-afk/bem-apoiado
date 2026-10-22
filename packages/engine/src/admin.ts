@@ -153,14 +153,15 @@ function startJob(label: string, args: string[]): string | null {
 pump();
 
 // Ramos do motor ainda não mesclados: resultado de ciclos esperando decisão.
-function pendingBranches(): { branch: string; subject: string; when: string; steps: string[] }[] {
+function pendingBranches(): { branch: string; subject: string; when: string; steps: string[]; cost: number | null }[] {
   try {
     const out = execFileSync('git', ['for-each-ref', '--no-merged=origin/main', '--sort=-committerdate', '--format=%(refname:short)%1f%(subject)%1f%(committerdate:iso-strict)%1f%(body)%1e', 'refs/remotes/origin/pagina/'], { cwd: ROOT, encoding: 'utf8' });
     return out.split('\x1e').map((x) => x.trim()).filter(Boolean).map((l) => {
       const [ref, subject, when, body] = l.split('\x1f');
       // Etapas do ciclo (linhas "- ..." do corpo do commit): o que o motor fez, inclusive quando não gerou página.
       const steps = (body ?? '').split('\n').filter((x) => x.startsWith('- ')).map((x) => x.slice(2));
-      return { branch: ref!.replace(/^origin\//, ''), subject: subject ?? '', when: when ?? '', steps };
+      const cost = /Custo do ciclo:\*\* ~([\d.]+)/.exec(body ?? '')?.[1];
+      return { branch: ref!.replace(/^origin\//, ''), subject: subject ?? '', when: when ?? '', steps, cost: cost ? Number(cost) : null };
     });
   } catch {
     return [];
@@ -243,28 +244,54 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
   }
   const ready = existsSync(join(PREVIAS, dir, 'index.html'));
   const prev = (path: string, label: string) => (ready ? ` <a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : ' <span class="muted">(prévia sendo montada, até 5 min)</span>');
+  const pages = loadPages();
   const topics = loadTopics();
-  const pageFor = (kind?: string) => loadPages().find((p) => p.status !== 'draft' && topics.find((t) => t.slug === p.slug)?.product_kinds.includes(kind ?? ''))?.slug;
+  const titleOf = (s?: string) => pages.find((p) => p.slug === s)?.title ?? s ?? '';
+  const pageFor = (kind?: string) => pages.find((p) => p.status !== 'draft' && topics.find((t) => t.slug === p.slug)?.product_kinds.includes(kind ?? ''))?.slug;
   const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
   const outcome = plainOutcome(b.steps);
   const review = reviewFrom(readBranch(b.branch), slug);
+  // Por que cada mudança está aqui, em uma frase para o editor.
+  const why = (it: ChangeItem): string => {
+    if (it.id.startsWith('page:')) {
+      const st = b.steps.find((x) => x.includes(it.slug ?? '¬'));
+      if (/^resumo de/.test(st ?? '')) return 'A resposta curta não passava na trava (longa, técnica ou abrindo por norma/marca): o motor reescreveu o resumo para leigo, com as mesmas fontes.';
+      if (/^re-auditoria/.test(st ?? '')) return 'A re-auditoria achou trechos que diziam mais do que as fontes e corrigiu só esses trechos.';
+      if (/^enriquecimento/.test(st ?? '')) return 'Fontes novas foram lidas e a página foi reescrita com elas.';
+      if (/Página nova no ar/.test(it.title)) return 'Página nova aprovada pela auditoria e pela revisão.';
+      return 'Mudança de texto feita pelo motor neste ciclo.';
+    }
+    if (it.id === 'anchors') return 'Quando outra página do site usar estas palavras, elas viram link para este guia (o texto não muda).';
+    if (it.id === 'search-links') return 'Botões de busca na Amazon com a nossa tag, embaixo dos exemplos à venda.';
+    if (it.id === 'images') return 'Imagens novas geradas por IA (sem marca).';
+    if (it.id.startsWith('product:')) return it.title.startsWith('Novo') ? 'Exemplo à venda novo para as páginas deste tipo.' : 'Exemplo retirado (motivo abaixo).';
+    if (it.id === 'theme') return 'Mudança de visual pedida por você.';
+    return '';
+  };
   const item = (it: ChangeItem) => {
     const where = it.slug ? prev(`${esc(it.slug)}/`, 'ver na prévia') : it.kind && pageFor(it.kind) ? prev(`${esc(pageFor(it.kind)!)}/#exemplos`, 'ver na prévia') : it.id === 'theme' || it.id === 'home' ? prev('', 'ver na prévia') : '';
     const amazon = it.asin && it.title.startsWith('Novo exemplo') ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : '';
-    const diffs = it.diffs?.length ? `<details><summary class="muted">antes → depois</summary>${it.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
-    // Imagem nova: miniatura aqui mesmo, para decidir sem abrir a prévia.
+    const diffs = it.diffs?.length ? `<details><summary class="muted">ver antes → depois (${it.diffs.length})</summary>${it.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
     const thumbs = it.paths.filter((x) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x)).map((x) => `<a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="imagem nova" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a>`).join('');
-    return `<li><label><input type="checkbox" name="manter" value="${esc(it.id)}" checked> <strong>${esc(it.title)}</strong></label>${where}${amazon}${it.detail ? `<div class="muted">${esc(it.detail)}</div>` : ''}${thumbs ? `<div class="thumbs">${thumbs}<span class="muted">imagem nova (gerada por IA): desmarque o item se não servir</span></div>` : ''}${diffs}</li>`;
+    const title = it.id.startsWith('page:') && !/Página nova/.test(it.title) ? `Texto: ${it.diffs?.length ?? 0} trecho(s) alterado(s)${it.detail?.includes('capa') ? ' + capa nova' : ''}` : it.title;
+    return `<li><label><input type="checkbox" name="manter" value="${esc(it.id)}" checked> <strong>${esc(title)}</strong></label>${where}${amazon}<div class="why">${esc(why(it))}</div>${it.detail && !it.id.startsWith('page:') ? `<div class="muted">${esc(it.detail)}</div>` : ''}${thumbs ? `<div class="thumbs">${thumbs}<span class="muted">capa nova (IA): desmarque se não servir</span></div>` : ''}${diffs}</li>`;
   };
-  const head = items.length ? `${items.length} mudança(s) no site para você decidir` : 'Só aprendizado: não muda nada no site';
+  // Agrupa por página: links e buscas que tocam uma página só vão para o grupo dela.
+  const target = (it: ChangeItem) => it.slug ?? (it.detail && /^([a-z0-9-]+):/.test(it.detail) && !it.detail.includes(' · ') ? /^([a-z0-9-]+):/.exec(it.detail)![1] : undefined) ?? (it.kind ? pageFor(it.kind) : undefined) ?? '';
+  const groups = new Map<string, ChangeItem[]>();
+  for (const it of items) groups.set(target(it), [...(groups.get(target(it)) ?? []), it]);
+  const groupHtml = [...groups].map(([s, its]) => `<div class="pg"><p class="pg-title">${s ? `<strong>${esc(titleOf(s))}</strong>${prev(`${esc(s)}/`, 'abrir prévia')}` : '<strong>Site todo</strong>'}</p><ul class="changes">${its.map(item).join('')}</ul></div>`).join('');
+  const draftNew = query && !items.some((i) => i.id === `page:${slug}`);
   return `<div class="result" data-pending>
-<p class="result-head"><strong>${esc(head)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}</span></p>
-${query ? `<p>Pauta "${esc(query)}": ${esc(outcome ?? b.subject)}</p>` : ''}
-${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><ul class="changes">${items.map(item).join('')}</ul>
-${learning.length ? `<p class="muted">Também guarda (não aparece no site): ${esc(learning.join('; '))}.</p>` : ''}<button class="ok">Aplicar marcados</button></form>` : `<p class="muted">Guarda: ${esc(learning.join('; ') || 'registros do ciclo')}. Entra sozinho em até 5 min, depois dos testes e do build.</p>`}
-<div class="actions">${form('descartar', { ramo: b.branch }, 'Descartar tudo', 'bad', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}${adjustForm(b.branch, slug)}</div>
-${suggestionHtml(review)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever a página? ~10 a 20 créditos; a prévia se refaz e você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou (com pesquisa)</button></form>` : ''}
+<p class="result-head"><strong>Resultado do ciclo de ${esc(fmt(b.when))}</strong>${b.cost !== null ? ` <span class="muted">· custo ~${b.cost.toFixed(1)} créditos</span>` : ''}</p>
+${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">
+<div class="block"><p class="block-title">1. Mudanças no site para você decidir (${items.length})</p><p class="muted">Desmarque o que não quiser. O resto entra no site depois dos testes.</p>${groupHtml}</div>
+<button class="ok">Aplicar marcados</button></form>` : '<p class="muted">Nada muda no site: o aprendizado entra sozinho em até 5 min, depois dos testes e do build.</p>'}
+${query ? `<div class="block"><p class="block-title">${items.length ? '2. ' : ''}Página nova tentada: "${esc(query)}"</p><p>${esc(outcome ?? b.subject)}${draftNew ? '. Ela entra como rascunho junto com este resultado (não vai ao ar) e passa a aparecer em "Páginas: seu veredito", onde você pode pedir ajuste ou aprovar.' : ''}</p>
+${suggestionHtml(review)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever o rascunho? ~10 a 20 créditos; você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou neste rascunho (com pesquisa)</button></form>` : ''}${adjustForm(b.branch, slug)}</div>` : ''}
+<details><summary class="muted">o que o motor também guardou (não aparece no site)</summary><p class="muted">${esc(learning.join('; ') || 'registros do ciclo')}.</p></details>
 <details><summary class="muted">detalhes técnicos</summary><ul class="muted">${b.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></details>
+<div class="actions">${form('descartar', { ramo: b.branch }, 'Descartar tudo', 'bad', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}</div>
 </div>`;
 }
 
@@ -520,6 +547,7 @@ const ADMIN_CSS = `<style>
 .adjust{margin-top:6px}.adjust input{min-width:160px}
 .restored{outline:2px solid var(--amber,#f0b252)}
 .result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
+.block{margin:10px 0;padding:10px 12px;border-radius:8px;background:var(--bg)}.block-title{margin:0 0 4px;font-weight:700}.pg{margin:8px 0 4px}.pg-title{margin:6px 0 2px}.why{font-size:.88rem;margin:2px 0}
 .changes{list-style:none;padding:0;margin:8px 0}.changes li{padding:6px 0;border-top:1px solid var(--line)}.changes li:first-child{border-top:0}
 .thumbs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}.thumb{width:180px;height:auto;border-radius:6px;border:1px solid var(--line)}
 .diff{margin:6px 0;font-size:.88rem}.diff del{display:block;background:var(--badbg);text-decoration:line-through;padding:2px 6px;border-radius:4px}.diff ins{display:block;background:var(--okbg);text-decoration:none;padding:2px 6px;border-radius:4px;margin-top:2px}

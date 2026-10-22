@@ -543,3 +543,13 @@ limite 70), que derrubava o ajuste antes de qualquer correção. Agora o bloco v
 (até 2 voltas). O pedido do editor vira lição antes do ajuste, independente do resultado; "já coberta" só quando
 uma regra diz a mesma coisa (o modelo descartou a regra de pesquisa por parecer com uma regra de texto; a lição
 foi registrada à mão, a pedido explícito "para todas as páginas").
+
+## 2026-10-21 — Escalada para o Sonnet desligada; resultado do ciclo em blocos
+"Colchão firme ou macio": a 1ª tentativa (Haiku, ~9 créditos) ficou rascunho e a escalada Sonnet 5 gastou 36,5
+e estourou o teto do ciclo (SAFE_STOP); ciclo inteiro 58,9. Com a base box (14 na escalada, rascunho igual),
+a escalada não pagou nenhuma vez. Desligada por padrão (BEM_ESCALATION=1 religa); a página fica rascunho e o
+editor ajusta (2–5 créditos).
+Painel: o resultado do ciclo vem em blocos: (1) mudanças no site agrupadas por página, cada uma com o "por quê"
+(resumo reescrito pela trava, re-auditoria, links internos, buscas na Amazon, capa nova), (2) página nova
+tentada, com o desfecho, a sugestão da revisão e os botões de ajuste daquele rascunho (antes pareciam valer
+para as melhorias), aprendizado e detalhes técnicos recolhidos; custo do ciclo no topo.
