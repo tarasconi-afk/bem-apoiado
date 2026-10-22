@@ -1,0 +1,37 @@
+{
+  "edits": [
+    {
+      "ref": "como-decidir-pelo-espaco#0",
+      "action": "rewrite",
+      "text": "Meça o espaço disponível, incluindo a área para abrir portas, gavetas e circular pelo quarto. Segundo a Probel, um quarto de pelo menos 3 × 3,5 m acomoda uma cama king com boa circulação; caso contrário, a queen tende a ser mais equilibrada.",
+      "claim_ids": [
+        "clm_663f7a471168",
+        "clm_b6b9713076f2",
+        "clm_524127560704"
+      ],
+      "absorbs": [
+        "como-decidir-pelo-espaco#1"
+      ],
+      "reason": "Junta as duas recomendações da Probel sobre medir o espaço e o tamanho do quarto, removendo a menção aos tamanhos padrão que já aparece na tabela de medidas declaradas."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#3",
+      "action": "remove",
+      "reason": "Repete a mesma informação sobre a estrutura da cama ocupar mais espaço que o colchão, já coberta em 'o-que-conferir-na-ficha#1'."
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#0",
+      "action": "rewrite",
+      "text": "Confira na ficha a largura, o comprimento e a altura do colchão.",
+      "claim_ids": [
+        "clm_9e7f1503f57c"
+      ],
+      "reason": "Remove a repetição da tolerância de ±1cm da Ortobom, já mencionada em 'altura-espessura-colchao#0'."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 6864,
+    "output_tokens": 3428
+  }
+}

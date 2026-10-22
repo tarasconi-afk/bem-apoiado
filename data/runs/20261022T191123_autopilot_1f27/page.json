@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 77932,
+    "output_tokens": 11946,
+    "calls": 18
+  },
+  "credits": 13.2477228,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-declaradas-por-fabricante#0"
+    ],
+    "decision_criteria": [
+      "Meça o espaço disponível e deixe área para abrir portas, gavetas e circular.",
+      "Use 88 × 188 cm como referência para solteiro, 138 × 188 cm para casal, 158 × 198 cm para queen e 193 × 203 cm para king.",
+      "Escolha queen em vez de king quando o quarto não tiver pelo menos cerca de 3 × 3,5 m para acomodar a cama com boa circulação.",
+      "Considere que a cama ou a base pode ocupar alguns centímetros a mais que o colchão; confira as duas medidas.",
+      "Compare largura e comprimento na ficha técnica, mesmo quando o nome do tamanho for igual.",
+      "Confira a altura do colchão na ficha, pois ela varia entre modelos, como 23 cm e 43 cm nos exemplos apresentados.",
+      "Considere a tolerância de medida informada pelo fabricante, de até mais ou menos 1 cm no exemplo da Ortobom.",
+      "Verifique nomes semelhantes que podem indicar medidas diferentes, como Queen Size de 158 × 198 cm e Queen Especial de 178 × 198 cm."
+    ],
+    "missing": [
+      "Uma tabela com outros tamanhos e nomes comuns, como viúva, solteiro especial e versões especiais, relacionando cada nome às medidas declaradas.",
+      "Mais exemplos de fabricantes ou fichas que mostrem variações reais de largura e comprimento para o mesmo nome de tamanho.",
+      "Uma orientação específica para conferir se a medida do colchão é compatível com o vão interno da cama ou da base já existente.",
+      "Informação sobre a tolerância de medida declarada por cada fabricante, em vez de apenas um exemplo."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde rapidamente com medidas concretas, relaciona o tamanho do colchão ao espaço do quarto e orienta o leitor a conferir largura, comprimento, altura, tolerância e medidas da estrutura. A comparação entre quatro fabricantes mostra que os tamanhos padrão apresentados coincidem, enquanto o exemplo Queen Especial alerta para nomes que podem esconder outra largura. O bloco sobre conferir a ficha é genérico e repetido por orientações mais práticas, mas isso não compromete a utilidade geral.",
+    "filler_ratio": 0.07142857142857142,
+    "model_opinion": true
+  }
+}

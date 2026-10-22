@@ -1,0 +1,295 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Meça o local onde a cama ficará, incluindo aberturas de portas, gavetas e circulação. Para um quarto de pelo menos 3 m × 3,5 m com folga, a king (193 × 203 cm) aproveita melhor o espaço; caso contrário, a queen (158 × 198 cm) é mais equilibrada. Confira sempre a largura e comprimento na ficha técnica antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_663f7a471168",
+        "clm_b6b9713076f2",
+        "clm_34c96754c13d",
+        "clm_55c366870be1"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Tamanhos de colchão: qual escolher pelo espaço disponível",
+    "description": "Meça o quarto antes de escolher. Confira na ficha as medidas exatas de largura e comprimento que cada fabricante declara para solteiro, casal, queen e king.",
+    "verdict": {
+      "text": "Meça o local onde a cama ficará, incluindo aberturas de portas, gavetas e circulação. Para um quarto de pelo menos 3 m × 3,5 m com folga, a king (193 × 203 cm) aproveita melhor o espaço; caso contrário, a queen (158 × 198 cm) é mais equilibrada. Confira sempre a largura e comprimento na ficha técnica antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_663f7a471168",
+        "clm_b6b9713076f2",
+        "clm_34c96754c13d",
+        "clm_55c366870be1"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-decidir-pelo-espaco",
+        "heading": "Como decidir pelo espaço do quarto",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, os tamanhos padrão são: solteiro 88 × 188 cm, casal 138 × 188 cm, queen 158 × 198 cm e king 193 × 203 cm. A Probel recomenda medir também o espaço para abrir portas, gavetas e circular pelo quarto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_34c96754c13d",
+              "clm_55c366870be1",
+              "clm_663f7a471168"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, um quarto de pelo menos 3 × 3,5 m acomoda uma cama king com boa circulação; a empresa diz que, caso contrário, a queen tende a ser mais equilibrada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_524127560704",
+              "clm_b6b9713076f2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a King Koil, o colchão king oferece 35 cm adicionais de largura em comparação com o queen, proporcionando mais espaço individual para o casal.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c5a0d3baa4db"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, as medidas da estrutura da cama podem variar conforme o fabricante e o modelo, e a estrutura costuma ocupar alguns centímetros a mais que o colchão; por isso, confira ambas as medidas antes da compra.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_cf4273458349"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-declaradas-por-fabricante",
+        "heading": "Medidas declaradas por cada fabricante",
+        "blocks": [
+          {
+            "text": "Confira a ficha técnica do modelo que você quer comprar.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Medidas de largura e comprimento (em cm) por tamanho e fabricante",
+            "columns": [
+              "Tamanho",
+              "Ortobom",
+              "Gazin",
+              "Simmons",
+              "King Koil"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "88 × 188",
+                    "claim_ids": [
+                      "clm_34c96754c13d",
+                      "clm_55c366870be1"
+                    ]
+                  },
+                  {
+                    "text": "88 × 188",
+                    "claim_ids": [
+                      "clm_0222495f509f"
+                    ]
+                  },
+                  {
+                    "text": "88 × 188",
+                    "claim_ids": [
+                      "clm_4e9380063582"
+                    ]
+                  },
+                  {
+                    "text": "88 × 188",
+                    "claim_ids": [
+                      "clm_404e8e613a70"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "138 × 188",
+                    "claim_ids": [
+                      "clm_34c96754c13d",
+                      "clm_55c366870be1"
+                    ]
+                  },
+                  {
+                    "text": "138 × 188",
+                    "claim_ids": [
+                      "clm_0222495f509f"
+                    ]
+                  },
+                  {
+                    "text": "138 × 188",
+                    "claim_ids": [
+                      "clm_4e9380063582"
+                    ]
+                  },
+                  {
+                    "text": "138 × 188",
+                    "claim_ids": [
+                      "clm_8cd2a9b4b397"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "158 × 198",
+                    "claim_ids": [
+                      "clm_34c96754c13d",
+                      "clm_55c366870be1"
+                    ]
+                  },
+                  {
+                    "text": "158 × 198",
+                    "claim_ids": [
+                      "clm_0222495f509f"
+                    ]
+                  },
+                  {
+                    "text": "158 × 198",
+                    "claim_ids": [
+                      "clm_4e9380063582"
+                    ]
+                  },
+                  {
+                    "text": "158 × 198",
+                    "claim_ids": [
+                      "clm_7d2040729fa7"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "193 × 203",
+                    "claim_ids": [
+                      "clm_34c96754c13d",
+                      "clm_55c366870be1"
+                    ]
+                  },
+                  {
+                    "text": "193 × 203",
+                    "claim_ids": [
+                      "clm_0222495f509f"
+                    ]
+                  },
+                  {
+                    "text": "193 × 203",
+                    "claim_ids": [
+                      "clm_4e9380063582"
+                    ]
+                  },
+                  {
+                    "text": "193 × 203",
+                    "claim_ids": [
+                      "clm_92840396526a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nomes-diferentes-mesma-medida",
+        "heading": "Quando o mesmo tamanho tem nomes diferentes",
+        "blocks": [
+          {
+            "text": "Segundo a Simmons, há Queen Size (158 × 198 cm) e Queen Especial (178 × 198 cm), uma diferença de 20 cm na largura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9e226f561cc9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "altura-espessura-colchao",
+        "heading": "Altura (espessura) do colchão declarada na ficha",
+        "blocks": [
+          {
+            "text": "A ficha da Gazin informa altura de 23 cm para o colchão Los Angeles Plus. Um documento da Simmons informa altura de 43 cm para o colchão Evolution Neo. Segundo a Ortobom, as dimensões finais do produto podem variar em mais ou menos 1 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9e7f1503f57c",
+              "clm_fb9dd49e3e89",
+              "clm_07edec6f3f44"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir-na-ficha",
+        "heading": "O que conferir na ficha técnica antes de comprar",
+        "blocks": [
+          {
+            "text": "Confira na ficha a largura, o comprimento e a altura do colchão. Segundo a Ortobom, as dimensões finais podem variar em mais ou menos 1 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9e7f1503f57c",
+              "clm_07edec6f3f44"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você vai comprar uma cama junto, meça o espaço considerando que a estrutura pode ocupar alguns centímetros a mais que o colchão, conforme o fabricante e o modelo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_cf4273458349"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ],
+  "usage": {
+    "input_tokens": 11726,
+    "output_tokens": 221
+  }
+}
