@@ -1,0 +1,77 @@
+{
+  "edits": [
+    {
+      "ref": "densidade-e-peso-suportado#0",
+      "action": "rewrite",
+      "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade do colchão: pessoas mais leves podem usar densidades menores (mais macias), enquanto pessoas mais pesadas precisam de densidades maiores, que evitam afundamento excessivo, dão suporte adequado, deixam o colchão mais firme e aumentam sua durabilidade.",
+      "claim_ids": [
+        "clm_20ba50c38123",
+        "clm_eb0b4f1fb0b2",
+        "clm_04fb4b3f25b0"
+      ],
+      "absorbs": [
+        "densidade-e-durabilidade#0"
+      ],
+      "reason": "Junta duas afirmações da Castor que repetiam a mesma ideia (peso determina densidade, densidade maior = mais firme, durável e com melhor suporte), evitando repetição entre blocos."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r0",
+      "action": "remove",
+      "reason": "Dado repetido de forma mais clara no bloco consolidado de 'Como decidir'."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r1",
+      "action": "remove",
+      "reason": "Dado repetido de forma mais clara no bloco consolidado de 'Como decidir'."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r2",
+      "action": "remove",
+      "reason": "Dado repetido de forma mais clara no bloco consolidado de 'Como decidir'."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r3",
+      "action": "remove",
+      "reason": "Dado repetido de forma mais clara no bloco consolidado de 'Como decidir'."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r4",
+      "action": "remove",
+      "reason": "Dado repetido de forma mais clara no bloco consolidado de 'Como decidir'."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r5",
+      "action": "remove",
+      "reason": "Dado repetido de forma mais clara no bloco consolidado de 'Como decidir'."
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Use seu peso para escolher a densidade, segundo a Castor: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 (varia conforme a preferência por firmeza); acima de 100 kg, D45 ou maior, o que também ajuda a evitar afundamento e aumenta a durabilidade.",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_9ac9012e162d",
+        "clm_04fb4b3f25b0",
+        "clm_eb0b4f1fb0b2"
+      ],
+      "absorbs": [
+        "como-decidir#1",
+        "como-decidir#2"
+      ],
+      "reason": "Unifica as três faixas de peso em um único guia prático, eliminando a repetição da mesma tabela já citada na seção anterior."
+    }
+  ],
+  "refused": [
+    "como-decidir#0: reescrita sem texto ou citando evidência que o bloco não tinha",
+    "densidade-e-peso-suportado#1: a seção ficaria vazia",
+    "densidade-e-peso-suportado#1: a seção ficaria vazia",
+    "densidade-e-peso-suportado#1: a seção ficaria vazia",
+    "densidade-e-peso-suportado#1: a seção ficaria vazia",
+    "densidade-e-peso-suportado#1: a seção ficaria vazia",
+    "densidade-e-durabilidade#0: a seção ficaria vazia"
+  ],
+  "usage": {
+    "input_tokens": 6601,
+    "output_tokens": 5482
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 107444,
+    "output_tokens": 14980,
+    "calls": 20
+  },
+  "credits": 13.839686399999998,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: a tabela da Castor indica D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; e de 71 a 80 kg, D33.",
+      "Entre 81 e 100 kg, a indicação varia de D33 a D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg, a Castor indica D45 ou maior.",
+      "Densidades maiores podem reduzir o afundamento excessivo e contribuir para a durabilidade, especialmente para pessoas mais pesadas.",
+      "A densidade não deve ser analisada isoladamente: a composição do colchão, com diferentes espumas e camadas, também participa da sensação de firmeza e do suporte.",
+      "Na ficha ou etiqueta, confira a densidade nominal das lâminas de espuma e, em colchões compostos ou mistos, as respectivas espessuras.",
+      "O selo do Inmetro não é uma garantia de conforto, postura ou benefício de saúde."
+    ],
+    "missing": [
+      "Uma explicação direta de que a tabela da Castor é uma referência daquela fabricante, e que o comprador deve conferir a tabela de peso do modelo específico no anúncio ou na ficha técnica.",
+      "A capacidade máxima de peso por pessoa ou por casal dos modelos D33 e D45, conforme informado pelos respectivos fabricantes.",
+      "Uma conclusão mais explícita sobre quais outros fatores, além da densidade, alteram a firmeza, como a combinação de camadas, espessuras e revestimentos.",
+      "Orientação para comparar D33 e D45 dentro de modelos equivalentes, evitando tratar a densidade como único critério de compra."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável e oferece uma resposta curta, uma tabela prática de peso e os principais limites da densidade como critério. Porém, responde apenas parcialmente à comparação D33 versus D45: repete a tabela na seção de decisão, depende de uma única fabricante e não orienta claramente o leitor a conferir a capacidade do modelo específico nem explica de forma direta quais fatores, além da densidade, definem a firmeza.",
+    "filler_ratio": 0.1875,
+    "model_opinion": true
+  }
+}
