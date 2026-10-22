@@ -23,113 +23,6 @@
       "heading": "Como decidir: escolha pela faixa de peso",
       "blocks": [
         {
-          "kind": "table",
-          "caption": "Densidade recomendada pela Castor para cada faixa de peso",
-          "columns": [
-            "Faixa de peso",
-            "Densidade recomendada"
-          ],
-          "rows": [
-            {
-              "cells": [
-                {
-                  "text": "Até 50 kg",
-                  "claim_ids": []
-                },
-                {
-                  "text": "D23",
-                  "claim_ids": [
-                    "clm_03538692a465",
-                    "clm_1205fed30228",
-                    "clm_7a0ddea8ecc1"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "51 a 60 kg",
-                  "claim_ids": []
-                },
-                {
-                  "text": "D26",
-                  "claim_ids": [
-                    "clm_03538692a465",
-                    "clm_1205fed30228",
-                    "clm_7a0ddea8ecc1"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "61 a 70 kg",
-                  "claim_ids": []
-                },
-                {
-                  "text": "D28",
-                  "claim_ids": [
-                    "clm_03538692a465",
-                    "clm_2a6f320398f2",
-                    "clm_63d975e3812e"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "71 a 80 kg",
-                  "claim_ids": []
-                },
-                {
-                  "text": "D33",
-                  "claim_ids": [
-                    "clm_03538692a465",
-                    "clm_2a6f320398f2",
-                    "clm_63d975e3812e"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "81 a 100 kg",
-                  "claim_ids": []
-                },
-                {
-                  "text": "D33 a D45 (conforme firmeza desejada)",
-                  "claim_ids": [
-                    "clm_03538692a465",
-                    "clm_1205fed30228",
-                    "clm_7a0ddea8ecc1"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Acima de 100 kg",
-                  "claim_ids": []
-                },
-                {
-                  "text": "D45 ou maior",
-                  "claim_ids": [
-                    "clm_03538692a465",
-                    "clm_1205fed30228",
-                    "clm_7a0ddea8ecc1",
-                    "clm_649ce4242126"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "kind": "paragraph",
           "text": "A Castor afirma que a D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, enquanto a D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado.",
           "basis": "evidence",
@@ -309,23 +202,130 @@
           "claim_ids": [
             "clm_63f752c5b69f"
           ]
+        },
+        {
+          "kind": "table",
+          "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+          "columns": [
+            "Faixa de peso",
+            "Densidade recomendada"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "Até 50 kg",
+                  "claim_ids": []
+                },
+                {
+                  "text": "D23",
+                  "claim_ids": [
+                    "clm_03538692a465",
+                    "clm_1205fed30228",
+                    "clm_7a0ddea8ecc1"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "51 a 60 kg",
+                  "claim_ids": []
+                },
+                {
+                  "text": "D26",
+                  "claim_ids": [
+                    "clm_03538692a465",
+                    "clm_1205fed30228",
+                    "clm_7a0ddea8ecc1"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "61 a 70 kg",
+                  "claim_ids": []
+                },
+                {
+                  "text": "D28",
+                  "claim_ids": [
+                    "clm_03538692a465",
+                    "clm_2a6f320398f2",
+                    "clm_63d975e3812e"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "71 a 80 kg",
+                  "claim_ids": []
+                },
+                {
+                  "text": "D33",
+                  "claim_ids": [
+                    "clm_03538692a465",
+                    "clm_2a6f320398f2",
+                    "clm_63d975e3812e"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "81 a 100 kg",
+                  "claim_ids": []
+                },
+                {
+                  "text": "D33 a D45 (conforme firmeza desejada)",
+                  "claim_ids": [
+                    "clm_03538692a465",
+                    "clm_1205fed30228",
+                    "clm_7a0ddea8ecc1"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Acima de 100 kg",
+                  "claim_ids": []
+                },
+                {
+                  "text": "D45 ou maior",
+                  "claim_ids": [
+                    "clm_03538692a465",
+                    "clm_1205fed30228",
+                    "clm_7a0ddea8ecc1",
+                    "clm_649ce4242126"
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T181817_autopilot_cd1f",
+    "run_id": "20261022T181817_autopilot_cd1f+editor:20261022T201129_guia-de-densidades-de-colchao-ajuste_6ee3",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.10526315789473684,
       "criteria": 10,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
