@@ -42,7 +42,7 @@ const Plan = z.object({ actions: z.array(Action).min(1).max(6), reply: z.string(
 const SYSTEM = `Você é o assistente do painel de um site de guias. Transforme o pedido do editor em ações. Ações possíveis:
 - add_topics: pautas novas (dúvidas de decisão, como o leitor busca).
 - redo_page: refazer uma página existente com uma instrução (vai para o motor, que reescreve e passa pela auditoria).
-- edit_text: ajustar o texto de uma página existente sem mudar as fontes (ex.: "resposta curta mais direta", "frase X mais simples").
+- edit_text: ajustar uma página existente com as fontes que ela já tem: resposta curta, blocos, títulos de seção, tirar repetições, transformar dados em tabela e trocar a descrição que aparece no Google (ex.: "resposta curta mais direta", "faixas de peso em tabela", "descrição para leigo"). Junte num ÚNICO edit_text tudo o que o editor pediu para a mesma página: cada edit_text é uma rodada paga.
 - unpublish: tirar uma página do ar (com motivo).
 - report: relatório sobre gastos, qualidade, paginas, fila ou visitas (visitas = dados do Google Search Console: cliques, impressões, posição).
 - theme: mudar o visual pelo tema (cores em hex, radius_px, text_scale, heading_scale, cta.label, cta.style "cheio"|"contorno", examples_position "inicio"|"meio"|"fim", texts.*). Em "changes", só as chaves que mudam, no mesmo formato do tema atual (objetos aninhados). A mudança vai para prévia e só vale com o aceite do editor.
@@ -197,7 +197,8 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   if (pick.data.rewrite_summary && decIdx >= 0) {
     base = await rewriteSummary(base, decIdx, instruction, topic, idx, fetchImpl);
     touched.add('verdict');
-    base.sections[decIdx]!.blocks.forEach((_, i) => touched.add(`${base.sections[decIdx]!.id}#${i}`));
+    // Cada linha de tabela nova é auditada como um bloco (ref secao#i.rN).
+    base.sections[decIdx]!.blocks.forEach((b, i) => (b.kind === 'table' ? b.rows.forEach((_, ri) => touched.add(`${base.sections[decIdx]!.id}#${i}.r${ri}`)) : touched.add(`${base.sections[decIdx]!.id}#${i}`)));
   }
   const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
   const rest = pick.data.refs.filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
@@ -233,7 +234,15 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
   const claims = claimsForTopic(topic, idx.claims.values());
   const ids = claims.map((c) => c.id) as [string, ...string[]];
   const Text = z.object({ text: z.string().min(20), basis: Basis, claim_ids: z.array(z.enum(ids)) });
-  const Out = z.object({ verdict: Text, blocks: z.array(Text).min(2).max(5) });
+  const Cell = z.object({ text: z.string().min(1), claim_ids: z.array(z.enum(ids)) });
+  // Tabela opcional (lição do editor: cruzamento de duas grandezas vira tabela) e descrição da página
+  // (o texto que aparece no Google): só quando o pedido ou as evidências pedem.
+  const Out = z.object({
+    verdict: Text,
+    blocks: z.array(Text).min(2).max(5),
+    table: z.object({ after_block: z.number().int().min(0).max(4), caption: z.string().min(5), columns: z.array(z.string()).min(2).max(4), rows: z.array(z.object({ cells: z.array(Cell) })).min(2).max(10) }).nullable().default(null),
+    description: z.string().min(50).max(160).nullable().default(null),
+  });
   const sec = d.sections[decIdx]!;
   const others = d.sections.filter((_, i) => i !== decIdx).map((x) => `## ${x.heading}\n${x.blocks.map((b) => (b.kind === 'table' ? `(tabela: ${b.caption})` : `- ${b.text}`)).join('\n')}`).join('\n');
   const r = await callJson(
@@ -241,7 +250,7 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
       role: 'writer',
       system: writerSystem(),
       user:
-        `Pedido do editor: ${instruction}\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
+        `Pedido do editor: ${instruction}\n\nSe as evidências cruzam duas grandezas (peso × densidade, tamanho × medida, perfil × o que conferir), devolva "table" com uma linha por faixa, cada célula com os claim_ids que a sustentam; prefira 2 colunas e NUNCA acrescente coluna que a fonte não traz para todas as linhas (21/10: uma coluna "firmeza típica" inventada derrubou as linhas mais pesadas); senão table=null. "description": a frase que aparece no Google (50 a 160 caracteres, para leigo, sem número que a página não traga), ou null para manter.\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
         `Resposta curta atual: ${d.verdict.text}\n## ${sec.heading} (atual)\n${sec.blocks.map((b) => (b.kind === 'table' ? '' : `- ${b.text}`)).join('\n')}\n\nResto da página (contexto):\n${others.slice(0, 6000)}\n\nEvidências:\n${formatClaims(claims, idx.sources)}`,
       schema: Out,
       schemaName: 'summary_rewrite',
@@ -251,7 +260,12 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
   );
   const out: Draft = structuredClone(d);
   out.verdict = { text: r.data.verdict.text, basis: r.data.verdict.basis, claim_ids: r.data.verdict.claim_ids };
-  out.sections[decIdx] = { ...sec, blocks: r.data.blocks.map((b) => ({ kind: 'paragraph' as const, text: b.text, basis: b.basis, claim_ids: b.claim_ids })) };
+  const paras = r.data.blocks.map((b) => ({ kind: 'paragraph' as const, text: b.text, basis: b.basis, claim_ids: b.claim_ids }));
+  const t = r.data.table;
+  const blocks: Draft['sections'][number]['blocks'] = [...paras];
+  if (t && t.rows.every((row) => row.cells.length === t.columns.length)) blocks.splice(Math.min(t.after_block + 1, blocks.length), 0, { kind: 'table', caption: t.caption, columns: t.columns, rows: t.rows });
+  out.sections[decIdx] = { ...sec, blocks };
+  if (r.data.description) out.description = r.data.description.replace(/\s+/g, ' ').trim();
   return out;
 }
 
@@ -268,8 +282,19 @@ async function fixUntilSupported(topic: TopicBrief, idx: ReturnType<typeof build
     bad = a.findings.filter((f) => f.verdict !== 'SUPPORTED' && pending.has(f.ref));
     pending = new Set(bad.map((f) => f.ref));
     if (!bad.length || round === FIX_ROUNDS) break;
-    const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, bad.map((f) => ({ ref: f.ref, msg: `O auditor reprovou: ${f.problem}${f.fix ? ` Versão que as fontes sustentam: "${f.fix}"` : ''}` })), fetchImpl);
+    const style = styleIssues(draft);
+    const formOf = (ref: string) => style.filter((i) => i.ref === ref).map((i) => i.msg).join(' ');
+    const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, bad.map((f) => ({ ref: f.ref, msg: `O auditor reprovou: ${f.problem}${f.fix ? ` Conteúdo que as fontes sustentam: "${f.fix}" (use o conteúdo, não a ordem das palavras).` : ''} Mantenha as regras de forma: ${formOf(f.ref) || 'resposta curta começa pela resposta prática, sem abrir com marca, norma ou regulador'}` })), fetchImpl);
     draft = applyPatches(draft as never, p.data.patches.filter((x) => pending.has(x.ref))) as Draft;
+  }
+  // Depois das correções do auditor, a resposta curta passa de novo pela regra de forma: uma volta de
+  // reescrita e auditoria só dela (21/10: a versão sustentada sugerida voltou a abrir com "Segundo a Castor").
+  const vStyle = styleIssues(draft).filter((i) => i.ref === 'verdict');
+  if (vStyle.length && touched.has('verdict') && !bad.some((f) => f.ref === 'verdict')) {
+    const p = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, draft as never, [{ ref: 'verdict', msg: `${vStyle.map((i) => i.msg).join(' ')} Mantenha as mesmas evidências e o mesmo conteúdo; mude só a forma.` }], fetchImpl);
+    const cand = applyPatches(draft as never, p.data.patches.filter((x) => x.ref === 'verdict')) as Draft;
+    const a = await auditDraft(cand, idx.claims, idx.sources, fetchImpl, new Map(), new Set(['verdict']));
+    if (a.findings.every((f) => f.verdict === 'SUPPORTED')) draft = cand;
   }
   const restore = bad.map((f) => {
     if (f.ref === 'verdict') return { ref: 'verdict', action: 'replace' as const, text: original.verdict.text, basis: original.verdict.basis, claim_ids: original.verdict.claim_ids };

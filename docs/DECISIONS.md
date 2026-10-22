@@ -560,3 +560,11 @@ ajustar e montar a prévia liam os dados da cópia atrasada (a prévia saiu sem 
 macio"; um ajuste gravaria na cópia errada). Desativado na VPS na hora e prévia refeita. Agora o painel passa
 BEM_ROOT=cópia de trabalho às ações e painel-acao.sh/cycle.sh fazem unset BEM_ROOT. Reativar o painel na cópia
 só de leitura depois deste envio.
+
+## 2026-10-22 — Ajuste cria tabela e troca a descrição; forma conferida depois da correção do auditor
+A edição direta da resposta curta falhou com razão: ela mantém as fontes do bloco, e o texto novo precisava
+de outras. Pelo "Pedir ao motor" (que escolhe as fontes), a reescrita do resumo agora pode criar tabela no "Como
+decidir" (cada linha auditada; 2 colunas, nunca coluna que a fonte não traz para todas as linhas) e trocar a
+descrição do Google. A correção do auditor passa a manter as regras de forma, e a resposta curta é conferida de
+novo no fim (a versão sustentada sugerida voltava a abrir com "Segundo a Castor"). O agente junta numa só
+edição tudo o que foi pedido para a mesma página (antes: 3 rodadas, 14,3 créditos; agora 1, 4,1).
