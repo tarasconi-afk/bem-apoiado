@@ -3,18 +3,16 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Molas ensacadas ou Bonnel: qual escolher",
-  "description": "Compare molas ensacadas e Bonnel pela quantidade de molas, densidade da camada de conforto, transferência de movimento e garantia declarada.",
+  "description": "Escolha entre molas ensacadas (menos movimento entre pessoas) e Bonnel (firmeza progressiva). Confira a quantidade de molas por m² no anúncio.",
   "primary_query": "colchão de molas ensacadas ou bonnel",
   "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Segundo fabricantes citados, molas ensacadas podem reduzir a transferência de movimento e o sistema Bonnel oferece resistência progressiva. Para comparar modelos, confira na ficha técnica a quantidade de molas por m².",
-    "basis": "reasoning",
+    "text": "Se você divide a cama, as molas ensacadas minimizam a transferência de movimento entre pessoas, segundo Simmons e Probel. O molejo Bonnel oferece resistência progressiva: quanto mais peso, maior a resistência.",
+    "basis": "evidence",
     "claim_ids": [
       "clm_2bfe0b0f071c",
       "clm_34f341d76049",
-      "clm_1b81a321a301",
-      "clm_35f99e380a90",
-      "clm_29704a6dcda4"
+      "clm_1b81a321a301"
     ]
   },
   "sections": [
@@ -83,34 +81,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo trechos da Castor, há registros de espuma convencional D26, D28, D33 e D45 kg/m³ e espuma viscoelástica com densidade D≥30 kg/m³ no estofamento superior, além de um registro de espuma látex D55 kg/m³.",
+          "text": "Segundo a Probel, as molas ensacadas se adaptam melhor às curvas do corpo e diminuem a vibração de um lado para o outro, sendo ideais para casais com pesos diferentes. No molejo Bonnel, a resistência é progressiva: quanto mais peso, maior a resistência.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_b90e28ac60ef",
-            "clm_06b006a31bac",
-            "clm_4297af1c743c",
-            "clm_f502add522c3",
-            "clm_9063a5e2f786",
-            "clm_e4be90eceb54"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Em um trecho da Castor, o estofamento superior aparece com espuma convencional D28 kg/m³; outro trecho informa D26 kg/m³ para a borda de espuma convencional em um colchão com molas Bonnel.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_cf7a2e2525d9",
-            "clm_29704a6dcda4"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Castor, há registros de espuma convencional D26 e D28 kg/m³ no estofamento superior; em uma especificação com molas Bonnell, a borda de espuma convencional é D26 kg/m³.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_b90e28ac60ef",
-            "clm_cf7a2e2525d9",
-            "clm_29704a6dcda4"
+            "clm_ad4126e9715c",
+            "clm_1b81a321a301"
           ]
         }
       ]
@@ -176,17 +151,17 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você dorme em casal ou costuma compartilhar o colchão: escolha molas ensacadas. Segundo fabricantes como Simmons e Probel, elas minimizam a transferência de movimento entre pessoas, evitando que os movimentos de um lado incomodem o outro.",
-          "basis": "reasoning",
+          "text": "Se você divide a cama ou dorme com um parceiro: escolha molas ensacadas. Segundo Simmons, Probel e Ortobom, cada mola ensacada trabalha individualmente e reduz a transferência de movimento entre os lados, evitando que o parceiro acorde com seus movimentos.",
+          "basis": "evidence",
           "claim_ids": [
             "clm_2bfe0b0f071c",
-            "clm_ad4126e9715c",
-            "clm_9b96fa4bfb80"
+            "clm_34f341d76049",
+            "clm_0522b96db922"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você prefere firmeza progressiva, o molejo Bonnel oferece resistência progressiva: quanto maior o peso, maior a resistência, segundo a Probel.",
+          "text": "Se você prefere uma superfície que oferece mais resistência conforme o peso: segundo a Probel, o Bonnel tem molas com formato bicônico e oferece resistência progressiva, com maior firmeza quanto maior o peso.",
           "basis": "evidence",
           "claim_ids": [
             "clm_1b81a321a301"
@@ -247,12 +222,12 @@
         },
         {
           "kind": "paragraph",
-          "text": "Os trechos mostram que fichas podem declarar a quantidade média de molas e a densidade nominal do estofamento. Colchões de molas estão sujeitos à certificação compulsória conforme os requisitos aplicáveis.",
+          "text": "Compare os modelos verificando na ficha a quantidade de molas por m². Segundo a Castor, molas ensacadas têm média de 230 molas por m², enquanto molas Bonnel têm média de 105 molas por m². A Americanflex informa 220 molas por m² em seus colchões com molas ensacadas.",
           "basis": "evidence",
           "claim_ids": [
             "clm_35f99e380a90",
             "clm_29704a6dcda4",
-            "clm_424592142915"
+            "clm_09a4138f8a28"
           ]
         }
       ]
@@ -260,17 +235,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T170427_autopilot_3e88+edit:20261022T170427_autopilot_3e88",
+    "run_id": "20261022T170427_autopilot_3e88+edit:20261022T170427_autopilot_3e88+editor:20261022T171620_colchao-de-molas-ensacadas-ou-bonnel-ajuste_00bc",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "partial",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.23809523809523808,
       "criteria": 7,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
