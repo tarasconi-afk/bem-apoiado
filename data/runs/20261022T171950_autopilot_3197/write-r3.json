@@ -1,0 +1,308 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha a densidade pelo seu peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior. O Inmetro exige que a densidade nominal da espuma conste entre as informações obrigatórias do produto e da embalagem.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_23c3ec49c618",
+        "clm_29c33cfe9a2e"
+      ]
+    },
+    {
+      "ref": "colchoes-molas-numero-densidade#0",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Guia de densidades de colchão: como escolher pela densidade",
+    "description": "Escolha a densidade de colchão pelo seu peso corporal. Confira o que aparece na etiqueta e como diferir densidade de firmeza.",
+    "verdict": {
+      "text": "Escolha a densidade pelo seu peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior. O Inmetro exige que a densidade nominal da espuma conste entre as informações obrigatórias do produto e da embalagem.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_23c3ec49c618",
+        "clm_29c33cfe9a2e"
+      ]
+    },
+    "sections": [
+      {
+        "id": "densidade-defini-o",
+        "heading": "O que é densidade de colchão",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, densidade é a quantidade de espuma por metro cúbico, representada pela letra D seguida de um número. A Castor exemplifica que D23 indica 23 kg de espuma por metro cúbico e informa uma variação de 18 a 45.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_920a272b5766"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-por-peso",
+        "heading": "Qual densidade escolher pelo seu peso corporal",
+        "blocks": [
+          {
+            "text": "A Castor apresenta recomendações de densidade conforme faixas de peso.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Faixa de peso",
+              "Densidade recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45 (conforme preferência de firmeza)",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Segundo a Castor, pessoas mais leves podem usar densidades menores (mais macias), enquanto pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo e garantir suporte adequado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d184f20b4f60"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-versus-firmeza",
+        "heading": "Diferença entre densidade e firmeza",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a densidade tem relação direta com a firmeza do colchão, e a firmeza está principalmente relacionada à densidade da espuma adequada ao peso e à altura da pessoa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1ad133d2b40c",
+              "clm_2d4e69b2d392"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, a densidade D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado, enquanto a densidade D28 oferece suporte mais macio e é melhor para pessoas de peso leve a médio.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_63d975e3812e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Simmons, os colchões variam entre três níveis de firmeza: Plush (mais macio e acolhedor), Intermediário (equilíbrio entre suporte e maciez) e Firme (maior sustentação estrutural).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04426077d722"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "colchoes-mistos-multiplas-camadas",
+        "heading": "Colchões mistos: como as densidades aparecem na etiqueta",
+        "blocks": [
+          {
+            "text": "Em colchões compostos ou mistos (espuma e molas), o Inmetro exige que a etiqueta informe a densidade nominal de cada lâmina de espuma em kg/m³ e suas respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Exemplo: um colchão misto da Probel informa separadamente a densidade da espuma do estofamento 1 (D28) e a espuma do estofamento 2 (≥D65), permitindo que você veja quais camadas compõem o colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_63f752c5b69f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Outro exemplo: um colchão da Ortobom lista, em sua composição, espumas de 26, 45 e 33 kg/m³, com espessuras explicitadas para as camadas de 45 e 33 kg/m³, além de EPS e estrutura de madeira.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4ae70d9850e3"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "colchoes-molas-numero-densidade",
+        "heading": "Colchões de molas: número de molas em vez de densidade",
+        "blocks": [
+          {
+            "text": "Exemplo: um colchão de molas da Probel especifica 196 molas por m² de bitola de 2 mm, enquanto outro da Plumatex informa 188 molas por m². Um modelo da Ortobom lista uma média de 180 molas por m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_305e295b0070",
+              "clm_95cff3b69423",
+              "clm_755ad94ba515"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir: confira na etiqueta antes de comprar",
+        "blocks": [
+          {
+            "text": "Se você pesa até 60 kg, segundo a Castor, procure densidades D23 a D26. De 61 a 80 kg, a recomendação é D28 a D33. Acima de 80 kg, de 81 a 100 kg a sugestão é D33 a D45 conforme preferência por firmeza; acima de 100 kg, D45 ou maior.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Em um colchão misto, verifique se a ficha ou a embalagem informa separadamente a densidade nominal e a espessura de cada lâmina de espuma.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, o Elite Pocket é um colchão de molas com o maior número de molas ensacadas por metro quadrado entre os modelos comparados, e a marca afirma que isso garante maior resistência e suporte de peso.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_4edc1e2016da"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira no produto ou na embalagem se a densidade nominal das lâminas de espuma está informada em kg/m³; para colchões compostos ou mistos, verifique também as respectivas espessuras.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_23c3ec49c618",
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando uma marca (\"Segundo a Ortobom...\"): comece pela resposta prática; a marca entra depois, se precisar."
+    },
+    {
+      "ref": "colchoes-molas-numero-densidade#0",
+      "msg": "repete o bloco como-decidir#2 (100% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16963,
+    "output_tokens": 253
+  }
+}
