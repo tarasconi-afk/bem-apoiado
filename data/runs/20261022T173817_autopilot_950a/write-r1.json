@@ -1,0 +1,820 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Há modelos de colchão que combinam camadas de espuma com molas ensacadas individualmente, enquanto outros usam apenas espuma. Ambos precisam de selo Inmetro obrigatório, que avalia a espuma, o revestimento e a chapa dura. Segundo a Castor, escolha a densidade conforme seu peso: a altura total varia entre modelos e deve caber no seu móvel.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_126cf1ac348c",
+        "clm_3c16f253d7b6",
+        "clm_1878dca29850",
+        "clm_571c2ce93e7d",
+        "clm_03538692a465",
+        "clm_3a482b049c77",
+        "clm_52b4b96eb53c",
+        "clm_6905cabae83b"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você pesa até 50 kg, segundo a Castor, procure densidade D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_1205fed30228"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você quer um colchão de espuma, confira na ficha a composição em camadas: segundo a Probel, um modelo traz densidade D40, D28 e D20 combinadas. O Inmetro exige que conste a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, suas respectivas espessuras.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0c4a89dd20b8",
+        "clm_29c33cfe9a2e",
+        "clm_51f7dcf0f813"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Confira a altura total na ficha antes de comprar: exemplos citados têm 20 cm e 28 cm em colchões de espuma, e 34 cm em um produto misto. Compare essa medida com o espaço disponível na base para garantir que o colchão caiba.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3a482b049c77",
+        "clm_52b4b96eb53c",
+        "clm_6905cabae83b"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Verifique a garantia na ficha: um modelo de espuma da Probel informa 12 meses para a espuma e 3 meses para o tecido; outro produto da Probel informa 6 meses para a estrutura e 3 meses para tecido e mecanismos; o modelo Orion da Ortobom informa 90 dias de garantia geral, 5 anos para as molas e 3 anos para a espuma.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4d8eea9bac5b",
+        "clm_be5060a5b60a",
+        "clm_2be3da30ecdb",
+        "clm_cfc6ede1c91a"
+      ]
+    },
+    {
+      "ref": "composicao-e-estrutura#0",
+      "action": "replace",
+      "text": "Segundo a Ortobom, há espuma de alta resiliência (HR) em densidade D45, espuma viscoelástica em densidade D60, e densidade D18 para recém-nascidos e crianças até 3 anos. A Probel informa que as densidades podem variar de D18 até D60 ou AG60.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1be9a28f0f73",
+        "clm_3659f2b0d80a"
+      ]
+    },
+    {
+      "ref": "composicao-e-estrutura#2",
+      "action": "replace",
+      "text": "A etiqueta deve informar as densidades nominais das lâminas de espuma em kg/m³. Segundo o Inmetro, no caso de colchões compostos ou mistos, devem constar também suas respectivas espessuras.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_29c33cfe9a2e",
+        "clm_51f7dcf0f813"
+      ]
+    },
+    {
+      "ref": "altura-total#0",
+      "action": "replace",
+      "text": "A Probel lista um colchão solteiro em espuma D45 com 20 cm de altura, um solteiro em D33 com 28 cm, e em um modelo casal com espumas D40, D28 e D20 indica 26 cm de altura total.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3a482b049c77",
+        "clm_52b4b96eb53c",
+        "clm_0c4a89dd20b8"
+      ]
+    },
+    {
+      "ref": "altura-total#1",
+      "action": "replace",
+      "text": "A Americanflex informa altura de 34 cm para um colchão misto com espuma e molas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6905cabae83b"
+      ]
+    },
+    {
+      "ref": "altura-total#2",
+      "action": "replace",
+      "text": "Os modelos citados têm alturas de 20 cm, 28 cm e 34 cm. Confira a altura informada na ficha do produto que você está analisando antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3a482b049c77",
+        "clm_52b4b96eb53c",
+        "clm_6905cabae83b"
+      ]
+    },
+    {
+      "ref": "garantia-comparacao#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Molas",
+          "claim_ids": []
+        },
+        {
+          "text": "não informado nos trechos",
+          "claim_ids": []
+        },
+        {
+          "text": "5 anos (Ortobom)",
+          "claim_ids": [
+            "clm_cfc6ede1c91a"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "garantia-comparacao#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Garantia geral",
+          "claim_ids": []
+        },
+        {
+          "text": "12 meses (Probel, conjunto box com colchão de mola)",
+          "claim_ids": [
+            "clm_0df13aa07122"
+          ]
+        },
+        {
+          "text": "90 dias (Ortobom)",
+          "claim_ids": [
+            "clm_cfc6ede1c91a"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "action": "replace",
+      "text": "O Inmetro regulamenta colchões de espuma e colchões de molas por meio de dois programas distintos. Colchões de espuma seguem a Portaria nº 35/2021; colchões de molas seguem a Portaria nº 75/2021.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_169ebeb22fb8",
+        "clm_564fe17f2af9",
+        "clm_6aa770dd7fd4",
+        "clm_a110c05a5573"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "action": "replace",
+      "text": "A certificação compulsória verifica requisitos de desempenho por meio de organismos de certificação de produto acreditados pelo Inmetro. Para colchões de espuma, o ciclo de implementação se completou em 7 de fevereiro de 2015; para colchões de molas, em 2 de fevereiro de 2021.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3c16f253d7b6",
+        "clm_1878dca29850",
+        "clm_633b35e30890",
+        "clm_424592142915"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "action": "replace",
+      "text": "O Selo de Identificação da Conformidade do Inmetro se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura. Demais propriedades e materiais declarados pelo fabricante, incluindo funcionalidades terapêuticas ou ortopédicas, não foram avaliados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_571c2ce93e7d",
+        "clm_12fe52564da9"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#3",
+      "action": "replace",
+      "text": "Confira as instruções de uso ou o manual do produto: se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas, deve constar o texto informando que essas características não foram avaliadas pelo processo de certificação do produto.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_571c2ce93e7d",
+        "clm_12fe52564da9"
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Até 50 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "D23 (Castor)",
+          "claim_ids": [
+            "clm_03538692a465"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "51 a 60 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "D26 (Castor)",
+          "claim_ids": [
+            "clm_03538692a465"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "61 a 70 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "D28 (Castor)",
+          "claim_ids": [
+            "clm_03538692a465"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "71 a 80 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "D33 (Castor)",
+          "claim_ids": [
+            "clm_03538692a465"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "81 a 100 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "D33 a D45, conforme preferência (Castor)",
+          "claim_ids": [
+            "clm_03538692a465"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r5",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Acima de 100 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "D45 ou maior (Castor)",
+          "claim_ids": [
+            "clm_03538692a465"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "densidade-conforme-peso#1",
+      "action": "replace",
+      "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade: pessoas mais leves podem usar densidades menores, enquanto pessoas mais pesadas precisam de densidades maiores para evitar que o colchão afunde demais, garantindo suporte adequado e maior durabilidade.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_20ba50c38123"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão de espuma ou misto: qual escolher",
+    "description": "Compare colchão 100% espuma e colchão misto (espuma + molas): composição, densidade, altura, garantia e selo Inmetro.",
+    "verdict": {
+      "text": "Há modelos de colchão que combinam camadas de espuma com molas ensacadas individualmente, enquanto outros usam apenas espuma. Ambos precisam de selo Inmetro obrigatório, que avalia a espuma, o revestimento e a chapa dura. Segundo a Castor, escolha a densidade conforme seu peso: a altura total varia entre modelos e deve caber no seu móvel.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_126cf1ac348c",
+        "clm_3c16f253d7b6",
+        "clm_1878dca29850",
+        "clm_571c2ce93e7d",
+        "clm_03538692a465",
+        "clm_3a482b049c77",
+        "clm_52b4b96eb53c",
+        "clm_6905cabae83b"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-decidir",
+        "heading": "Como escolher: espuma ou misto",
+        "blocks": [
+          {
+            "text": "Se você pesa até 50 kg, segundo a Castor, procure densidade D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer um colchão de espuma, confira na ficha a composição em camadas: segundo a Probel, um modelo traz densidade D40, D28 e D20 combinadas. O Inmetro exige que conste a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, suas respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0c4a89dd20b8",
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer colchão misto, confira se a ficha lista as densidades de espuma e quantas molas tem: segundo a Ortobom, um colchão misto pode conter espuma de 24 kg/m³ no bordado, 50 kg/m³ na camada de conforto, 33 kg/m³ na base, e molas ensacadas com média de 180 molas por metro quadrado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_126cf1ac348c",
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira a altura total na ficha antes de comprar: exemplos citados têm 20 cm e 28 cm em colchões de espuma, e 34 cm em um produto misto. Compare essa medida com o espaço disponível na base para garantir que o colchão caiba.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3a482b049c77",
+              "clm_52b4b96eb53c",
+              "clm_6905cabae83b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique a garantia na ficha: um modelo de espuma da Probel informa 12 meses para a espuma e 3 meses para o tecido; outro produto da Probel informa 6 meses para a estrutura e 3 meses para tecido e mecanismos; o modelo Orion da Ortobom informa 90 dias de garantia geral, 5 anos para as molas e 3 anos para a espuma.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4d8eea9bac5b",
+              "clm_be5060a5b60a",
+              "clm_2be3da30ecdb",
+              "clm_cfc6ede1c91a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ambos os tipos (espuma e misto) precisam de selo Inmetro obrigatório. O selo valida apenas a espuma, o revestimento e a estrutura de suporte, não funcionalidades como \"terapêutico\" ou \"ortopédico\" que o fabricante possa declarar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3c16f253d7b6",
+              "clm_1878dca29850",
+              "clm_571c2ce93e7d",
+              "clm_12fe52564da9"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "composicao-e-estrutura",
+        "heading": "O que diferencia a composição interna",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, há espuma de alta resiliência (HR) em densidade D45, espuma viscoelástica em densidade D60, e densidade D18 para recém-nascidos e crianças até 3 anos. A Probel informa que as densidades podem variar de D18 até D60 ou AG60.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1be9a28f0f73",
+              "clm_3659f2b0d80a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Colchão misto combina camadas de espuma com molas ensacadas individualmente. Segundo a Ortobom, um colchão misto pode ter bordado em espuma D24, lâmina de espuma de alta resiliência D50, lâmina de espuma convencional D33, isolante de não-tecido, molas ensacadas com 180 molas/m² e bitola de 2,0 mm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_126cf1ac348c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta deve informar as densidades nominais das lâminas de espuma em kg/m³. Segundo o Inmetro, no caso de colchões compostos ou mistos, devem constar também suas respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "altura-total",
+        "heading": "Diferença de altura entre espuma e misto",
+        "blocks": [
+          {
+            "text": "A Probel lista um colchão solteiro em espuma D45 com 20 cm de altura, um solteiro em D33 com 28 cm, e em um modelo casal com espumas D40, D28 e D20 indica 26 cm de altura total.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3a482b049c77",
+              "clm_52b4b96eb53c",
+              "clm_0c4a89dd20b8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Americanflex informa altura de 34 cm para um colchão misto com espuma e molas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6905cabae83b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Os modelos citados têm alturas de 20 cm, 28 cm e 34 cm. Confira a altura informada na ficha do produto que você está analisando antes de comprar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3a482b049c77",
+              "clm_52b4b96eb53c",
+              "clm_6905cabae83b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-comparacao",
+        "heading": "Prazos de garantia: espuma versus misto",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Garantia informada pelos fabricantes: colchão de espuma e colchão misto",
+            "columns": [
+              "Componente",
+              "Colchão de Espuma",
+              "Colchão Misto"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Espuma",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "12 meses (Probel)",
+                    "claim_ids": [
+                      "clm_4d8eea9bac5b"
+                    ]
+                  },
+                  {
+                    "text": "3 anos (Ortobom)",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Tecido",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "3 meses (Probel)",
+                    "claim_ids": [
+                      "clm_be5060a5b60a"
+                    ]
+                  },
+                  {
+                    "text": "3 meses (Probel)",
+                    "claim_ids": [
+                      "clm_2be3da30ecdb"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Molas",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "não informado nos trechos",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "5 anos (Ortobom)",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Garantia geral",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "12 meses (Probel, conjunto box com colchão de mola)",
+                    "claim_ids": [
+                      "clm_0df13aa07122"
+                    ]
+                  },
+                  {
+                    "text": "90 dias (Ortobom)",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Confira na ficha técnica de cada modelo os prazos específicos: fabricantes podem oferecer garantias diferentes para espuma, tecido e estrutura. A Ortobom, por exemplo, separa garantia geral, de molas e de espuma; a Probel oferece garantias por componente.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_4d8eea9bac5b",
+              "clm_be5060a5b60a",
+              "clm_2be3da30ecdb",
+              "clm_cfc6ede1c91a",
+              "clm_0df13aa07122"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "certificacao-inmetro",
+        "heading": "Selo Inmetro: o que é avaliado em cada tipo",
+        "blocks": [
+          {
+            "text": "O Inmetro regulamenta colchões de espuma e colchões de molas por meio de dois programas distintos. Colchões de espuma seguem a Portaria nº 35/2021; colchões de molas seguem a Portaria nº 75/2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_169ebeb22fb8",
+              "clm_564fe17f2af9",
+              "clm_6aa770dd7fd4",
+              "clm_a110c05a5573"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A certificação compulsória verifica requisitos de desempenho por meio de organismos de certificação de produto acreditados pelo Inmetro. Para colchões de espuma, o ciclo de implementação se completou em 7 de fevereiro de 2015; para colchões de molas, em 2 de fevereiro de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3c16f253d7b6",
+              "clm_1878dca29850",
+              "clm_633b35e30890",
+              "clm_424592142915"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Selo de Identificação da Conformidade do Inmetro se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura. Demais propriedades e materiais declarados pelo fabricante, incluindo funcionalidades terapêuticas ou ortopédicas, não foram avaliados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_571c2ce93e7d",
+              "clm_12fe52564da9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira as instruções de uso ou o manual do produto: se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas, deve constar o texto informando que essas características não foram avaliadas pelo processo de certificação do produto.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_571c2ce93e7d",
+              "clm_12fe52564da9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-conforme-peso",
+        "heading": "Qual densidade escolher conforme seu peso",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada conforme faixa de peso",
+            "columns": [
+              "Faixa de peso",
+              "Densidade recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D23 (Castor)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D26 (Castor)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D28 (Castor)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33 (Castor)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33 a D45, conforme preferência (Castor)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D45 ou maior (Castor)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade: pessoas mais leves podem usar densidades menores, enquanto pessoas mais pesadas precisam de densidades maiores para evitar que o colchão afunde demais, garantindo suporte adequado e maior durabilidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_20ba50c38123"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não sustentam a definição geral de colchão de espuma como feito apenas de espuma nem a afirmação de que todo colchão misto combina espuma com molas ensacadas; mostram apenas um modelo específico da Ortobom com camadas de espuma e molas ensacadas. Também não sustentam a recomendação de escolher pela altura adequada ao móvel. O Inmetro afirma certificação compulsória para colchões de espuma e de molas, mas o trecho sobre o selo diz que ele se refere à espuma, ao revestimento e à chapa dura, não à “estrutura de suporte”. A relação entre densidade e peso aparece como orientação da Castor e não como regra geral. Versão sustentável: Os trechos permitem dizer: “Há modelos que combinam camadas de espuma com molas ensacadas. O Inmetro informa que há certificação compulsória para colchões de espuma e de molas; no caso do selo citado, a avaliação se refere à espuma, ao revestimento e à chapa dura. A Castor apresenta faixas de densidade associadas ao peso como orientação de escolha.”"
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. As faixas de peso e densidade estão literalmente no trecho da Castor, mas os trechos citados não dizem que essa regra também vale para colchões mistos. Versão sustentável: Mantenha as faixas como recomendação da Castor e remova a generalização final, ou acrescente uma evidência que diga que a densidade se aplica também a colchões mistos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. O trecho que mostra a combinação D40, D28 e D20 é da Probel, não da Ortobom. Além disso, o Inmetro menciona as espessuras respectivas no caso de colchões compostos e/ou mistos, não afirma que todo colchão de espuma pura declara as espessuras de cada lâmina. Versão sustentável: Diga: “Segundo a Probel, um modelo de espuma traz D40, D28 e D20 combinadas. O Inmetro exige a indicação das densidades das lâminas e, para colchões compostos ou mistos, suas respectivas espessuras.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos mostram exemplos de alturas de 20 cm e 28 cm em colchões de espuma e de 34 cm em um produto Americanflex, mas não sustentam a faixa de 14 a 28 cm, a relação entre altura e densidade, nem a afirmação geral de que colchões mistos costumam ser mais altos. Também não há trecho que fundamente a recomendação de comparar com o móvel ou a base para garantir o encaixe. Versão sustentável: Diga: “Confira a altura total na ficha: os exemplos citados têm 20 cm e 28 cm em colchões de espuma, e 34 cm no modelo Americanflex. Compare essa medida com o espaço disponível na base antes da compra.”"
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. Os trechos mostram garantias específicas de determinados produtos, mas não sustentam que colchões de espuma “costumam” ter 12 meses na espuma e 3 meses no tecido, nem estabelecem esses prazos como padrão para colchões mistos. O trecho da Probel também não identifica expressamente o produto como colchão misto. Versão sustentável: Diga: “Verifique a garantia na ficha: um modelo de espuma da Probel informa 12 meses para a espuma e 3 meses para o tecido; outro produto da Probel informa 6 meses para a estrutura e 3 meses para tecido e mecanismos; o modelo Orion da Ortobom informa 90 dias de garantia geral, 5 anos para as molas e 3 anos para a espuma.”"
+    },
+    {
+      "ref": "composicao-e-estrutura#0",
+      "msg": "UNSUPPORTED. Os trechos não definem colchão de espuma como feito apenas de camadas de espuma. Também não sustentam que a Ortobom ofereça densidades convencionais de D18 a D45; o trecho da Ortobom menciona D45 para HR, D60 para viscoelástica e D18 para determinada indicação. Versão sustentável: Os trechos citados informam que a Ortobom menciona espuma HR em D45, espuma viscoelástica em D60 e densidade D18 para recém-nascidos e crianças até 3 anos. A Probel afirma que as densidades podem variar de D18 a D60 ou AG60."
+    },
+    {
+      "ref": "composicao-e-estrutura#2",
+      "msg": "OVERSTATED. O trecho do Inmetro informa as densidades nominais das lâminas de espuma e, para colchões compostos ou mistos, suas respectivas espessuras. Ele não sustenta que a espessura deva ser informada também para colchões exclusivamente de espuma, nem menciona especificamente que isso ocorra em uma ficha técnica. Versão sustentável: Segundo o Inmetro, devem ser informadas as densidades nominais das lâminas de espuma em kg/m³ e, no caso de colchões compostos ou mistos, suas respectivas espessuras."
+    },
+    {
+      "ref": "altura-total#0",
+      "msg": "OVERSTATED. Os trechos sustentam as alturas de 20 cm e 28 cm para dois modelos da Probel, mas não dizem que a altura varia conforme densidade e quantidade de camadas. O trecho do modelo D40 informa apenas a composição do estofamento, sem declarar 26 cm de altura. Versão sustentável: A Probel lista um colchão solteiro D45 com 20 cm e um colchão solteiro D33 com 28 cm; em um modelo casal D40, informa estofamento com espumas D40, D28 e D20."
+    },
+    {
+      "ref": "altura-total#1",
+      "msg": "OVERSTATED. O trecho sustenta que a Americanflex informa 34 cm de altura para o produto citado, mas não sustenta que colchões mistos costumam ser mais altos nem que isso ocorre por incluírem estrutura de molas. O trecho também não caracteriza explicitamente o produto como misto. Versão sustentável: A Americanflex informa altura de 34 cm para o produto citado."
+    },
+    {
+      "ref": "altura-total#2",
+      "msg": "UNSUPPORTED. Os trechos apenas informam alturas de modelos de colchão. Não mencionam ficha técnica, móveis, bases de cama ou a necessidade de verificar compatibilidade para garantir que o colchão caiba. Versão sustentável: Compare as alturas informadas dos modelos antes de escolher: 20 cm, 28 cm e 34 cm."
+    },
+    {
+      "ref": "garantia-comparacao#0.r2",
+      "msg": "UNSUPPORTED. Os trechos sustentam 5 anos de garantia para as molas do produto Ortobom, mas não dizem que a estrutura ou as molas “não se aplicam” ao colchão de espuma. Versão sustentável: Componente: Molas | Colchão de Espuma: não informado nos trechos citados | Colchão Misto: 5 anos (Ortobom)."
+    },
+    {
+      "ref": "garantia-comparacao#0.r3",
+      "msg": "MISATTRIBUTED. O trecho da Probel que informa 12 meses refere-se a um conjunto box com colchão de mola, não a um colchão de espuma. Assim, a garantia foi situada na categoria de produto que o trecho citado não mostra. Versão sustentável: Componente: Garantia geral | Produto Probel citado: 12 meses para o conjunto box com colchão de mola | Colchão Orion da Ortobom: 90 dias de garantia geral."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. Os trechos sustentam que existem dois programas distintos e indicam as Portarias nº 35/2021 e nº 75/2021, mas não dizem explicitamente que ambos têm certificação compulsória. Versão sustentável: O Inmetro regulamenta colchões de espuma e colchões de molas por meio de dois programas distintos. Colchões de espuma seguem a Portaria nº 35/2021; colchões de molas seguem a Portaria nº 75/2021."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "OVERSTATED. Os trechos dizem que o ciclo de implementação da compulsoriedade se completou em 7 de fevereiro de 2015 para espuma e em 2 de fevereiro de 2021 para molas. Eles não sustentam que a avaliação tenha sido iniciada ou implementada 'a partir de' essas datas. Versão sustentável: A certificação compulsória verifica requisitos de desempenho por meio de organismos de certificação de produto acreditados pelo Inmetro. Para colchões de espuma, o ciclo de implementação se completou em 7 de fevereiro de 2015; para colchões de molas, em 2 de fevereiro de 2021."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "msg": "UNSUPPORTED. Os trechos mencionam a espuma flexível de poliuretano, o revestimento e a chapa dura, mas não mencionam uma 'estrutura de molas' como objeto avaliado pelo selo. A inclusão dessa alternativa não é sustentada pelos trechos citados. Versão sustentável: O Selo de Identificação da Conformidade do Inmetro se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura. Demais propriedades e materiais declarados pelo fabricante, incluindo funcionalidades terapêuticas ou ortopédicas, não foram avaliados."
+    },
+    {
+      "ref": "certificacao-inmetro#3",
+      "msg": "OVERSTATED. O trecho citado exige a inclusão do texto nas instruções de uso ou nas informações ao usuário, como o manual do produto, quando o fornecedor declara voluntariamente funcionalidades. Ele não menciona ficha técnica como local obrigatório. Versão sustentável: Confira as instruções de uso ou o manual do produto: se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas, deve constar o texto informando que essas características não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r0",
+      "msg": "MISATTRIBUTED. A faixa e a densidade aparecem no trecho, mas como recomendação da fabricante Castor. O bloco apresenta a recomendação como regra geral, sem atribuí-la à Castor. Versão sustentável: Segundo a Castor, pessoas com até 50 kg podem usar colchão com densidade D23."
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r1",
+      "msg": "MISATTRIBUTED. A faixa e a densidade aparecem no trecho, mas como recomendação da fabricante Castor. O bloco apresenta a recomendação como regra geral, sem atribuí-la à Castor. Versão sustentável: Segundo a Castor, pessoas de 51 a 60 kg podem usar colchão com densidade D26."
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r2",
+      "msg": "MISATTRIBUTED. A faixa e a densidade aparecem no trecho, mas como recomendação da fabricante Castor. O bloco apresenta a recomendação como regra geral, sem atribuí-la à Castor. Versão sustentável: Segundo a Castor, pessoas de 61 a 70 kg podem usar colchão com densidade D28."
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r3",
+      "msg": "MISATTRIBUTED. A faixa e a densidade aparecem no trecho, mas como recomendação da fabricante Castor. O bloco apresenta a recomendação como regra geral, sem atribuí-la à Castor. Versão sustentável: Segundo a Castor, pessoas de 71 a 80 kg podem usar colchão com densidade D33."
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r4",
+      "msg": "MISATTRIBUTED. A faixa e a faixa de densidades aparecem no trecho, mas como recomendação da fabricante Castor, incluindo a variação conforme a preferência por firmeza. O bloco apresenta isso como regra geral, sem atribuí-lo à Castor. Versão sustentável: Segundo a Castor, pessoas de 81 a 100 kg podem usar densidade de D33 a D45, variando conforme a preferência por firmeza."
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r5",
+      "msg": "MISATTRIBUTED. A faixa e a densidade aparecem no trecho, mas como recomendação da fabricante Castor. O bloco apresenta a recomendação como regra geral, sem atribuí-la à Castor. Versão sustentável: Segundo a Castor, pessoas acima de 100 kg podem usar densidade D45 ou maior, para maior suporte."
+    },
+    {
+      "ref": "densidade-conforme-peso#1",
+      "msg": "MISATTRIBUTED. O trecho apoia apenas que o peso corporal é o principal fator, que pessoas mais leves podem usar densidades menores e que pessoas mais pesadas precisam de densidades maiores para evitar afundamento, obter suporte e ter maior durabilidade. Essas afirmações vêm da fabricante Castor, mas o bloco as apresenta como fatos gerais. Além disso, o trecho não diz que densidade em kg/m³ indica firmeza, não afirma que pessoas leves usam densidades menores para não afundar e não menciona colchões mistos. Versão sustentável: Segundo a Castor, o peso corporal é o principal fator para escolher a densidade: pessoas mais leves podem usar densidades menores, enquanto pessoas mais pesadas precisam de densidades maiores para evitar que o colchão afunde demais, garantindo suporte adequado e maior durabilidade."
+    }
+  ],
+  "usage": {
+    "input_tokens": 26165,
+    "output_tokens": 3562
+  }
+}
