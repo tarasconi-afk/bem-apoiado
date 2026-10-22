@@ -1,0 +1,40 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 158135,
+    "output_tokens": 24875,
+    "calls": 24
+  },
+  "credits": 16.159430399999998,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha a densidade da espuma conforme a faixa de peso indicada pela Castor: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "No colchão de espuma, confira na ficha a densidade nominal e a composição das camadas; há modelo citado com espumas D40, D28 e D20.",
+      "No colchão misto, confira as densidades, as espessuras das espumas, a quantidade de molas e a estrutura interna declarada na ficha.",
+      "Compare a altura total declarada: os exemplos citados têm 20 cm e 28 cm em colchões de espuma e 34 cm em um modelo misto; verifique se cabe na base.",
+      "Compare a garantia por componente, pois espuma, tecido, estrutura e molas podem ter prazos diferentes.",
+      "Confira o selo do Inmetro e leia o manual se o anúncio fizer alegações terapêuticas ou ortopédicas, pois essas funcionalidades não são avaliadas pela certificação."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma resposta direta sobre qual opção tende a servir a cada caso, com critérios concretos para escolher espuma ou misto, como preferência de firmeza, transferência de movimento, suporte e uso por casal, se houver fonte primária.",
+      "Indicação específica de peso e densidade separada para cada tipo de colchão, já que a tabela apresentada é uma recomendação geral da Castor e não distingue espuma de colchão misto.",
+      "A norma ABNT (NBR) aplicável a colchões de espuma e de molas e o que cada norma define, conforme fonte primária da ABNT.",
+      "Explicação simples da diferença prática entre as camadas de espuma e as molas ensacadas, além da composição dos modelos citados.",
+      "Uma comparação de garantia entre modelos equivalentes de espuma e misto; os prazos apresentados vêm de produtos e componentes diferentes."
+    ],
+    "publishable": false,
+    "summary": "A página reúne bons dados práticos de ficha técnica, densidade, altura, garantia e Inmetro, mas não responde de forma suficiente à decisão central entre colchão de espuma e misto. A resposta curta apenas descreve diferenças e não indica como escolher; também falta a parte sobre as normas ABNT. Deve ser revisada antes da publicação para incluir critérios de adequação por perfil e explicar, com fontes primárias, o que as normas definem.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

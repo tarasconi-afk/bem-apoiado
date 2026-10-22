@@ -1,0 +1,188 @@
+{
+  "findings": [
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-estrutura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-estrutura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-estrutura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta 5 anos para a garantia das molas, mas não identifica o produto como colchão misto. A tabela apresenta essa informação como se a classificação do produto como misto estivesse comprovada.",
+      "fix": "Componente: Molas | Colchão de espuma: não informado nos trechos | Garantia das molas: 5 anos (Ortobom)."
+    },
+    {
+      "ref": "garantia-comparacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-total#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-total#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-total#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 12 meses para um produto específico da Probel, que é um conjunto box com colchão de mola, não para a categoria “colchão de espuma”. Também sustentam 90 dias de garantia geral para o produto Orion da Ortobom, mas não estabelecem que isso seja a garantia geral de toda a categoria “colchão misto”.",
+      "fix": "Garantia informada para produtos específicos: a Probel informa 12 meses para o Conjunto Box Casal Mola Ensacada Cairo Ultra Gel; a Ortobom informa 90 dias de garantia geral para o Colchão Orion, além de garantias separadas para molas e espuma."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "garantia-comparacao#0.r2",
+      "msg": "OVERSTATED. O trecho sustenta 5 anos para a garantia das molas, mas não identifica o produto como colchão misto. A tabela apresenta essa informação como se a classificação do produto como misto estivesse comprovada. Versão sustentável: Componente: Molas | Colchão de espuma: não informado nos trechos | Garantia das molas: 5 anos (Ortobom)."
+    },
+    {
+      "ref": "garantia-comparacao#0.r3",
+      "msg": "OVERSTATED. Os trechos sustentam 12 meses para um produto específico da Probel, que é um conjunto box com colchão de mola, não para a categoria “colchão de espuma”. Também sustentam 90 dias de garantia geral para o produto Orion da Ortobom, mas não estabelecem que isso seja a garantia geral de toda a categoria “colchão misto”. Versão sustentável: Garantia informada para produtos específicos: a Probel informa 12 meses para o Conjunto Box Casal Mola Ensacada Cairo Ultra Gel; a Ortobom informa 90 dias de garantia geral para o Colchão Orion, além de garantias separadas para molas e espuma."
+    }
+  ]
+}

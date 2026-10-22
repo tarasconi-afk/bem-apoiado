@@ -1,0 +1,188 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-estrutura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-estrutura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-estrutura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-total#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-total#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-total#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforme-peso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-comparacao#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa explicitamente “Garantia da Espuma: 3 anos”; portanto, não sustenta dizer que a garantia da espuma não foi informada. A informação de 5 anos para molas é sustentada.",
+      "fix": "Componente: Molas | Colchão de Espuma: 3 anos | Colchão Misto: 5 anos para molas (Ortobom, colchão Orion)."
+    },
+    {
+      "ref": "garantia-comparacao#0.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel informa 12 meses para um “conjunto box” com “mola ensacada”, não para um colchão de espuma. A tabela atribui esse dado à categoria errada. Os 90 dias da garantia Ortobom são sustentados.",
+      "fix": "Garantia geral | Colchão de Espuma: não informado nos trechos citados; Probel: 12 meses para conjunto box com mola ensacada | Colchão Misto: 90 dias (Ortobom, colchão Orion)."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "garantia-comparacao#0.r2",
+      "msg": "UNSUPPORTED. O trecho citado informa explicitamente “Garantia da Espuma: 3 anos”; portanto, não sustenta dizer que a garantia da espuma não foi informada. A informação de 5 anos para molas é sustentada. Versão sustentável: Componente: Molas | Colchão de Espuma: 3 anos | Colchão Misto: 5 anos para molas (Ortobom, colchão Orion)."
+    },
+    {
+      "ref": "garantia-comparacao#0.r3",
+      "msg": "MISATTRIBUTED. O trecho da Probel informa 12 meses para um “conjunto box” com “mola ensacada”, não para um colchão de espuma. A tabela atribui esse dado à categoria errada. Os 90 dias da garantia Ortobom são sustentados. Versão sustentável: Garantia geral | Colchão de Espuma: não informado nos trechos citados; Probel: 12 meses para conjunto box com mola ensacada | Colchão Misto: 90 dias (Ortobom, colchão Orion)."
+    }
+  ]
+}
