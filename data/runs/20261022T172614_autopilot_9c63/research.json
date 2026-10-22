@@ -1,0 +1,172 @@
+{
+  "run_id": "20261022T172614_autopilot_9c63",
+  "topic": "mesa-regulavel-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_792e6ba64993",
+      "question_id": "q_altura_ajuste",
+      "source_id": "src_be5ba357516e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_141c803d3b5a",
+      "question_id": "q_capacidade_carga",
+      "source_id": "src_be5ba357516e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_079bfac410eb",
+      "question_id": "q_dimensoes_tampo",
+      "source_id": "src_be5ba357516e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1b3df9eb1f7d",
+      "question_id": "q_mecanismo_regulagem",
+      "source_id": "src_be5ba357516e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_086ee7d7c72b",
+      "question_id": "q_garantia_itens",
+      "source_id": "src_be5ba357516e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_43b35090a32e",
+      "question_id": "q_altura_ajuste",
+      "source_id": "src_21f8915db581",
+      "new": true
+    },
+    {
+      "claim_id": "clm_79cd9a7c6048",
+      "question_id": "q_capacidade_carga",
+      "source_id": "src_21f8915db581",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8313e1224588",
+      "question_id": "q_dimensoes_tampo",
+      "source_id": "src_21f8915db581",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e7bed88b7853",
+      "question_id": "q_mecanismo_regulagem",
+      "source_id": "src_21f8915db581",
+      "new": true
+    },
+    {
+      "claim_id": "clm_18e014269f64",
+      "question_id": "q_garantia_itens",
+      "source_id": "src_21f8915db581",
+      "new": true
+    },
+    {
+      "claim_id": "clm_345f6fc0b45a",
+      "question_id": "q_altura_ajuste",
+      "source_id": "src_0f9d4d4931f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_42c3048b761c",
+      "question_id": "q_capacidade_carga",
+      "source_id": "src_0f9d4d4931f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f51ff36cf9ac",
+      "question_id": "q_dimensoes_tampo",
+      "source_id": "src_0f9d4d4931f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b4a95ca006c9",
+      "question_id": "q_mecanismo_regulagem",
+      "source_id": "src_0f9d4d4931f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9822b65347e7",
+      "question_id": "q_garantia_itens",
+      "source_id": "src_0f9d4d4931f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0774510f9152",
+      "question_id": "q_altura_ajuste",
+      "source_id": "src_62a807fd012c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b0f4f0d9925e",
+      "question_id": "q_mecanismo_regulagem",
+      "source_id": "src_62a807fd012c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e9f2cf8c9eb0",
+      "question_id": "q_capacidade_carga",
+      "source_id": "src_62a807fd012c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d9262bfeacb7",
+      "question_id": "q_dimensoes_tampo",
+      "source_id": "src_62a807fd012c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c5db0bb7bfce",
+      "question_id": "q_garantia_itens",
+      "source_id": "src_62a807fd012c",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_altura_ajuste": 4,
+    "q_capacidade_carga": 4,
+    "q_dimensoes_tampo": 4,
+    "q_mecanismo_regulagem": 4,
+    "q_garantia_itens": 4,
+    "q_referencia_nr17": 0
+  },
+  "unanswered": [
+    "q_referencia_nr17"
+  ],
+  "usage": {
+    "input_tokens": 7049,
+    "output_tokens": 2189,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_be5ba357516e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_21f8915db581",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_0f9d4d4931f1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_62a807fd012c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 8.6057964
+}

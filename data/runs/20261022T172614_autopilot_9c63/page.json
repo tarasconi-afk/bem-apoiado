@@ -1,0 +1,66 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 112229,
+    "output_tokens": 17275,
+    "calls": 24
+  },
+  "credits": 15.0820524,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A resposta curta não diz se uma mesa regulável vale a pena nem para qual perfil de usuário; apenas repete que é preciso compatibilizar altura e atividade.",
+      "A relação entre estatura e faixa de regulagem é pouco útil: a mesma faixa de 72 a 116 cm é apresentada para pessoas de 1,60 m a 1,80 m e acima de 1,80 m, sem explicar como conferir a altura correta.",
+      "O texto usa referências de teleatendimento e termos pouco explicados, como regulador, superfície de trabalho e campo de trabalho, em vez de orientar principalmente quem está escolhendo um produto para comprar.",
+      "A página menciona apenas modelos Flexform, embora a pauta peça comparação de fabricantes e de mecanismos.",
+      "Não informa o que está incluído na capacidade de 80 kg nem quais acessórios vêm na compra."
+    ],
+    "filler_refs": [
+      "verdict",
+      "altura-regulagem#0",
+      "altura-regulagem#1.r0",
+      "altura-regulagem#1.r1",
+      "capacidade-carga#1",
+      "dimensoes-tampo#1",
+      "mecanismo-ajuste#1",
+      "garantia-incluso#1",
+      "como-decidir#0",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Se o usuário pretende alternar entre trabalho sentado e em pé, a regulagem de altura pode ser útil; a página recomenda conferir se o ajuste é fácil de acionar.",
+      "Nos modelos citados da Flexform, conferir se a faixa de 72 a 116 cm atende à altura de trabalho desejada.",
+      "Conferir a capacidade declarada de até 80 kg para verificar se ela comporta o tampo, monitores, notebook e demais equipamentos; a página, porém, não esclarece o que está incluído nesse limite.",
+      "Conferir se o tampo de 120 cm por 60 cm cabe no espaço disponível.",
+      "Nos modelos citados, o ajuste elétrico tem painel, memória para quatro posições, ajuste de 1 cm por acionamento e indicação da altura em centímetros.",
+      "Conferir na ficha a altura mínima e máxima, a capacidade em quilogramas, as posições memorizáveis e o prazo de garantia.",
+      "Os modelos citados Mesa Tech 120, Mesa Tech Black 120 e Mesa Tech Max 140 informam um ano de garantia."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A resposta curta não diz se uma mesa regulável vale a pena nem para qual perfil de usuário; apenas repete que é preciso compatibilizar altura e atividade.",
+      "Para o leitor leigo: A relação entre estatura e faixa de regulagem é pouco útil: a mesma faixa de 72 a 116 cm é apresentada para pessoas de 1,60 m a 1,80 m e acima de 1,80 m, sem explicar como conferir a altura correta.",
+      "Para o leitor leigo: O texto usa referências de teleatendimento e termos pouco explicados, como regulador, superfície de trabalho e campo de trabalho, em vez de orientar principalmente quem está escolhendo um produto para comprar.",
+      "Para o leitor leigo: A página menciona apenas modelos Flexform, embora a pauta peça comparação de fabricantes e de mecanismos.",
+      "Para o leitor leigo: Não informa o que está incluído na capacidade de 80 kg nem quais acessórios vêm na compra.",
+      "Uma resposta curta explicando em que casos a mesa regulável vale a pena e em que casos uma mesa fixa pode ser suficiente.",
+      "Uma relação baseada em fonte primária entre altura do usuário ou, preferencialmente, altura do cotovelo sentado e em pé e a faixa de regulagem necessária.",
+      "Comparação de faixas de regulagem, capacidades, dimensões e preços ou posicionamento entre mais de um fabricante e mais de um modelo.",
+      "Informação do fabricante sobre o que os 80 kg incluem, como tampo, monitores, suporte, notebook e outros equipamentos, além de eventual diferença entre carga estática e dinâmica.",
+      "Lista de opções de largura e profundidade de tampo e orientação prática para relacioná-las ao espaço disponível e aos equipamentos usados.",
+      "Dados primários sobre mecanismos manual com manivela e pneumático, já que a página só detalha o mecanismo elétrico.",
+      "Detalhes da cobertura da garantia e confirmação dos itens incluídos, como estrutura, tampo, kit de montagem, suporte para monitor e acessórios.",
+      "Explicação clara do que a NR-17 efetivamente define, a quem se aplica e como usar a referência normativa sem tratá-la como recomendação geral de compra."
+    ],
+    "publishable": false,
+    "summary": "A página oferece alguns critérios concretos de conferência, principalmente para modelos Flexform, mas não responde diretamente se a mesa regulável vale a pena. A resposta curta falha na dúvida principal, a relação entre estatura e regulagem é insuficiente, há repetição e foco excessivo em teleatendimento, e faltam comparações, informações sobre carga e itens incluídos. Não publicaria sem reestruturar a resposta e acrescentar orientação de compra baseada em fontes primárias.",
+    "filler_ratio": 0.5882352941176471,
+    "model_opinion": false
+  }
+}
