@@ -4,6 +4,8 @@ import { Basis, checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@b
 import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
+import { reviewPage } from './review.ts';
+import { writeStage } from '../runs.ts';
 import { research } from './research.ts';
 import { applyPatches } from './patch.ts';
 import { join } from 'node:path';
@@ -247,10 +249,24 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const final = PageSpec.parse({ ...page, ...fixed.draft });
   const gate2 = checkPage(final, idx);
   if (gate2.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate2.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
-  writeJson(join(PAGES_DIR, `${slug}.json`), PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } }));
+  const saved = PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } });
+  writeJson(join(PAGES_DIR, `${slug}.json`), saved);
+  // Revisão de leitor da versão ajustada (antes ela só existia na criação da página): o cartão do painel
+  // mostra as 4 perguntas da página como ficou (22/10: a resposta curta da cadeira deixou de responder ao
+  // título depois de um ajuste e ninguém viu). Falha aqui não desfaz o ajuste.
+  let reviewNote = '';
+  try {
+    const rv = await reviewPage(saved, topic, fetchImpl);
+    writeStage(runId, 'page', { status: 'EDITOR_ADJUST', review: rv.review });
+    const yes = (b: boolean | undefined) => (b === false ? 'não' : 'sim');
+    reviewNote = `\nrevisão de leitor: responde à dúvida ${rv.review.answers_primary_query === 'yes' ? 'sim' : rv.review.answers_primary_query === 'partial' ? 'em parte' : 'não'} · resposta rápida ${yes(rv.review.quick_answer)} · leigo ${yes(rv.review.reader_fit)} · leva à compra ${yes(rv.review.purchase_path)}`;
+  } catch {
+    reviewNote = '\nrevisão de leitor: não rodou (o ajuste vale assim mesmo)';
+  }
 
   return `${lessonNote}texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
-    (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '');
+    (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '') +
+    reviewNote;
 }
 
 function freshList(ids: Set<string>, idx: ReturnType<typeof buildIndex>): string {

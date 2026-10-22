@@ -161,3 +161,19 @@ describe('buildPage', () => {
     }
   });
 });
+
+describe('célula de tabela sem dado', () => {
+  it('cobra célula que só manda conferir; aceita a que traz número', async () => {
+    const { styleIssues } = await import('../src/stages/page.ts');
+    const cell = (text: string) => ({ text, claim_ids: ['clm_x'] });
+    const d = {
+      title: 't', description: 'd'.repeat(60), verdict: { text: 'Escolha pelo peso.', basis: 'evidence', claim_ids: ['clm_x'] },
+      sections: [{ id: 'como-decidir', heading: 'Como decidir', blocks: [{ kind: 'table', caption: 'Fichas', columns: ['Item', 'A', 'B'], rows: [
+        { cells: [cell('Peso'), cell('120 kg'), cell('Confira no Diretor')] },
+        { cells: [cell('Garantia'), cell('3 anos'), cell('5 anos')] },
+      ] }] }],
+    };
+    const refs = styleIssues(d as never).filter((x) => x.msg.startsWith('célula')).map((x) => x.ref);
+    expect(refs).toEqual(['como-decidir#0.r0']);
+  });
+});

@@ -65,6 +65,15 @@ export function styleIssues(draft: Draft): Issue[] {
     if (u.basis === 'framing' && n < 6) out.push({ ref: u.ref, msg: 'frase de transição incompleta; escreva uma frase completa ou remova o bloco.' });
     if (!u.ref.includes('.r') && n > 90) out.push({ ref: u.ref, msg: `parágrafo com ${n} palavras; encurte para no máximo 70.` });
   }
+  // Tabela de comparação: cada célula traz o dado daquele modelo. Célula que só manda "conferir" não compara
+  // nada (22/10, cadeira: "confira no Diretor" em 3 linhas, e na coluna do Diretor o dado de outro modelo).
+  for (const sec of draft.sections) sec.blocks.forEach((b, i) => {
+    if (b.kind !== 'table') return;
+    b.rows.forEach((r, ri) => {
+      if (r.cells.slice(1).some((c) => /^\s*(confira|verifique|consulte|veja)\b/i.test(c.text) && !/\d/.test(c.text)))
+        out.push({ ref: `${sec.id}#${i}.r${ri}`, msg: 'célula da tabela só manda conferir, sem dado: traga o que a ficha daquele modelo informa ou tire a linha. Uma coluna é um modelo só; nunca ponha dado de outro modelo nela.' });
+    });
+  });
   // Resposta curta (a frase mais lida da página e a que a busca com IA cita): no máximo 3 frases, começa pela
   // resposta prática e nunca por norma ou regulador. "Trechos citados" é jargão do motor, não do leitor.
   const v = draft.verdict.text.trim();
