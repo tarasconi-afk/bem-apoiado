@@ -1,0 +1,57 @@
+{
+  "edits": [
+    {
+      "ref": "densidade-espuma-conforto#0",
+      "action": "rewrite",
+      "text": "Segundo a Castor, o estofamento superior de colchões com molas ensacadas aparece com espuma convencional em densidades que variam de D26 a D45 kg/m³, além de espuma viscoelástica (D≥30 kg/m³) e espuma látex (D55 kg/m³) em alguns modelos. Em colchões com molas Bonnell, a borda de espuma convencional é D26 kg/m³ e o estofamento superior pode ser D28 kg/m³.",
+      "claim_ids": [
+        "clm_b90e28ac60ef",
+        "clm_06b006a31bac",
+        "clm_4297af1c743c",
+        "clm_f502add522c3",
+        "clm_9063a5e2f786",
+        "clm_e4be90eceb54",
+        "clm_cf7a2e2525d9",
+        "clm_29704a6dcda4"
+      ],
+      "absorbs": [
+        "densidade-espuma-conforto#1",
+        "densidade-espuma-conforto#2"
+      ],
+      "reason": "Os três blocos repetiam os mesmos valores de densidade em combinações variadas; unificados em um só, sem perder nenhuma densidade citada."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "action": "rewrite",
+      "text": "O Inmetro exige certificação compulsória para colchões de molas desde 2 de fevereiro de 2021, mediante avaliação dos requisitos de desempenho por um Organismo de Certificação de Produto (OCP) acreditado.",
+      "claim_ids": [
+        "clm_424592142915",
+        "clm_1878dca29850"
+      ],
+      "absorbs": [
+        "certificacao-inmetro#2"
+      ],
+      "reason": "Os blocos #0 e #2 traziam a mesma informação sobre certificação compulsória e OCP; unificados em um único bloco."
+    },
+    {
+      "ref": "diferenca-construcao#2",
+      "action": "rewrite",
+      "text": "Segundo Simmons, Probel e Ortobom, colchões com molas ensacadas individualmente reduzem a transferência de movimento e as vibrações entre os lados do colchão, o que pode ser útil para casais, inclusive com pesos diferentes.",
+      "claim_ids": [
+        "clm_2bfe0b0f071c",
+        "clm_34f341d76049",
+        "clm_ad4126e9715c",
+        "clm_0522b96db922"
+      ],
+      "absorbs": [
+        "diferenca-construcao#3"
+      ],
+      "reason": "Os blocos #2 e #3 repetiam a mesma ideia (redução de movimento/vibração para casais) citando fabricantes diferentes; unificados em um único bloco mais direto."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 10094,
+    "output_tokens": 4290
+  }
+}
