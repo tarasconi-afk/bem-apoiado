@@ -79,7 +79,9 @@ export function styleIssues(draft: Draft): Issue[] {
   const v = draft.verdict.text.trim();
   const sentences = v.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9])/).filter((x) => x.trim().length > 3).length;
   if (sentences > 3) out.push({ ref: 'verdict', msg: `resposta curta com ${sentences} frases; deixe em até 3, começando pela resposta prática para quem vai comprar.` });
-  if (/^([Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s+((a|o|os|as)\s+)?\p{Lu}/u.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir citando uma marca ("Segundo a Ortobom..."): comece pela resposta prática; a marca entra depois, se precisar.' });
+  // Qualquer abertura por atribuição, com marca ou genérica (22/10: "Segundo fabricantes citados, molas
+  // ensacadas podem…" passou porque a regra só via nome próprio).
+  if (/^([Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s/u.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir citando a fonte ("Segundo a Ortobom...", "Segundo fabricantes..."): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar.' });
   if (/^(segundo|conforme|de acordo com|no|na|nos|nas|o|a|os|as)?\s*(inmetro|abnt|nbr|nr[- ]?\d|anvisa|portaria|norma|regulamento|regula[cç][aã]o|trecho|anexo)/i.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir.' });
   for (const u of blockRefs(draft)) if (/\b(nos|os|segundo os|dos) trechos? citados?\b/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trechos citados" (é termo do motor): diga quem afirma ("segundo a Ortobom") ou o que não foi informado ("a ficha não informa").' });
   for (const sec of draft.sections) {

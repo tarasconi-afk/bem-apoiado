@@ -181,3 +181,14 @@ describe('célula de tabela sem dado', () => {
     expect(refs).toEqual(['como-decidir#0.r0']);
   });
 });
+
+describe('resposta curta não abre com atribuição', () => {
+  it('pega marca e atribuição genérica', async () => {
+    const { styleIssues } = await import('../src/stages/page.ts');
+    const d = (text: string) => ({ title: 't', description: 'd'.repeat(60), verdict: { text, basis: 'evidence', claim_ids: ['c'] }, sections: [] });
+    const hit = (text: string) => styleIssues(d(text) as never).some((i) => i.ref === 'verdict' && i.msg.includes('abrir citando'));
+    expect(hit('Segundo fabricantes citados, molas ensacadas reduzem a transferência.')).toBe(true);
+    expect(hit('Segundo a Castor, escolha D33.')).toBe(true);
+    expect(hit('Se você divide a cama, escolha molas ensacadas, segundo a Probel.')).toBe(false);
+  });
+});
