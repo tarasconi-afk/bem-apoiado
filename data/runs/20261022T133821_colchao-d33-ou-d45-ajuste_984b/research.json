@@ -1,0 +1,87 @@
+{
+  "run_id": "20261022T133821_colchao-d33-ou-d45-ajuste_984b",
+  "topic": "colchao-d33-ou-d45",
+  "accepted": [
+    {
+      "claim_id": "clm_51f7dcf0f813",
+      "question_id": "q_o_que_inmetro_exige_na_etiqueta",
+      "source_id": "src_e911a8cf66c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bfc90125a1c4",
+      "question_id": "q_o_que_inmetro_nao_avalia",
+      "source_id": "src_e911a8cf66c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_12fe52564da9",
+      "question_id": "q_o_que_inmetro_nao_avalia",
+      "source_id": "src_e911a8cf66c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_63011d17cff2",
+      "question_id": "q_o_que_significa_d33_d45",
+      "source_id": "src_d90161f13fd8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_03538692a465",
+      "question_id": "q_como_fabricante_relaciona_densidade_peso",
+      "source_id": "src_d90161f13fd8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f669e3cbf391",
+      "question_id": "q_o_que_fabricante_diz_sobre_durabilidade",
+      "source_id": "src_d90161f13fd8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_63c721d2f374",
+      "question_id": "q_densidade_determina_firmeza_sozinha",
+      "source_id": "src_d90161f13fd8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_03538692a465",
+      "question_id": "q_ajuste_5c23ba64",
+      "source_id": "src_d90161f13fd8",
+      "new": false
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_o_que_significa_d33_d45": 1,
+    "q_como_fabricante_relaciona_densidade_peso": 1,
+    "q_o_que_fabricante_diz_sobre_durabilidade": 1,
+    "q_densidade_determina_firmeza_sozinha": 1,
+    "q_o_que_inmetro_exige_na_etiqueta": 1,
+    "q_o_que_inmetro_nao_avalia": 2,
+    "q_ajuste_5c23ba64": 1
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 6076,
+    "output_tokens": 1602,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_e911a8cf66c8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_d90161f13fd8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 1.3965432
+}

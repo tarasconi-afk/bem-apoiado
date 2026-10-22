@@ -3,15 +3,14 @@
   "page_type": "explainer",
   "status": "approved",
   "title": "D33 ou D45: o que significam no colchão de espuma?",
-  "description": "D33 e D45 indicam a densidade da espuma em kg/m³. Saiba como relacionar isso ao seu peso e à durabilidade do colchão.",
+  "description": "Escolha a densidade do colchão de espuma pelo seu peso: até 80 kg D33 basta; de 81 a 100 kg, D33 ou D45 conforme a firmeza que prefere.",
   "primary_query": "colchão D33 ou D45",
   "updated_at": "2026-10-22",
   "verdict": {
-    "text": "D33 e D45 indicam a quantidade de espuma por metro cúbico: 33 e 45 quilos, respectivamente. Para escolher entre elas, considere seu peso: segundo a Castor, pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo e garantir suporte adequado e durabilidade.",
+    "text": "A densidade ideal depende do seu peso: até 70 kg as densidades indicadas variam de D23 a D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; e acima de 100 kg, D45 ou maior. Densidades maiores ajudam a evitar afundamento excessivo e aumentam a durabilidade, segundo a Castor.",
     "basis": "evidence",
     "claim_ids": [
-      "clm_b373c5bc496d",
-      "clm_20ba50c38123",
+      "clm_03538692a465",
       "clm_04fb4b3f25b0"
     ]
   },
@@ -107,28 +106,142 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você pesa até 80 kg, segundo a Castor, a densidade indicada varia: D23 para até 50 kg, D26 para 51 a 60 kg, D28 para 61 a 70 kg e D33 para 71 a 80 kg.",
+          "text": "Se você pesa até 80 kg, a Castor indica densidades diferentes conforme sua faixa de peso: veja na tabela abaixo qual é a recomendação para o seu intervalo.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1205fed30228"
+            "clm_03538692a465"
+          ]
+        },
+        {
+          "kind": "table",
+          "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+          "columns": [
+            "Seu peso",
+            "Densidade indicada (Castor)"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "Até 50 kg",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                },
+                {
+                  "text": "D23",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "51 a 60 kg",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                },
+                {
+                  "text": "D26",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "61 a 70 kg",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                },
+                {
+                  "text": "D28",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "71 a 80 kg",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                },
+                {
+                  "text": "D33",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "81 a 100 kg",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                },
+                {
+                  "text": "D33 a D45, conforme sua preferência por firmeza",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Acima de 100 kg",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                },
+                {
+                  "text": "D45 ou maior",
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você pesa entre 81 e 100 kg, segundo a Castor, a densidade indicada varia de D33 a D45 conforme a preferência por firmeza.",
+          "text": "Se você pesa entre 81 e 100 kg, a Castor indica densidade de 33 a 45, variando conforme sua preferência por firmeza.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1205fed30228",
-            "clm_9ac9012e162d"
+            "clm_03538692a465"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você pesa acima de 100 kg, segundo a Castor, a densidade indicada é D45 ou maior, associada a maior suporte; o fabricante também relaciona densidades maiores a maior durabilidade e a evitar que o colchão afunde demais.",
+          "text": "Se você pesa acima de 100 kg, segundo a Castor, a densidade deve ser D45 ou maior para evitar que o colchão afunde demais e dure mais tempo.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1205fed30228",
+            "clm_03538692a465",
             "clm_04fb4b3f25b0"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confira na etiqueta a densidade nominal de cada lâmina de espuma, em kg/m³, e, para colchões compostos ou mistos, as respectivas espessuras.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_29c33cfe9a2e",
+            "clm_93c578f71f46"
           ]
         }
       ]
@@ -136,17 +249,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T130233_autopilot_62ca+edit:20261022T130233_autopilot_62ca",
+    "run_id": "20261022T130233_autopilot_62ca+edit:20261022T130233_autopilot_62ca+editor:20261022T133821_colchao-d33-ou-d45-ajuste_984b",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "partial",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.1875,
       "criteria": 7,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
