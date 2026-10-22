@@ -1,0 +1,119 @@
+{
+  "_comment": "Nota do juiz ATUAL nas páginas com veredito do editor (o painel mede a concordância com ela; a nota guardada em cada veredito é a do juiz da época).",
+  "at": "2026-10-22T20:18:19.730Z",
+  "model": "gpt-5.6-luna",
+  "pages": {
+    "colchao-d28-ou-d33": {
+      "metrics": {
+        "answers_primary_query": "partial",
+        "concrete_guidance": true,
+        "reader_fit": false,
+        "quick_answer": false,
+        "filler_ratio": 0.2857142857142857,
+        "criteria": 7,
+        "rule_publishable": false
+      },
+      "editor": "approve",
+      "judge_publish": false,
+      "page_updated_at": "2026-10-22"
+    },
+    "travesseiro-alto-ou-baixo": {
+      "metrics": {
+        "answers_primary_query": "partial",
+        "concrete_guidance": true,
+        "reader_fit": true,
+        "quick_answer": false,
+        "filler_ratio": 0.2222222222222222,
+        "criteria": 5,
+        "rule_publishable": false
+      },
+      "editor": "reject",
+      "judge_publish": false,
+      "page_updated_at": "2026-10-20"
+    },
+    "como-escolher-colchao": {
+      "metrics": {
+        "answers_primary_query": "partial",
+        "concrete_guidance": true,
+        "reader_fit": true,
+        "quick_answer": false,
+        "filler_ratio": 0.4666666666666667,
+        "criteria": 6,
+        "rule_publishable": false
+      },
+      "editor": "approve",
+      "judge_publish": false,
+      "page_updated_at": "2026-10-22"
+    },
+    "base-para-cama-box-o-que-conferir": {
+      "metrics": {
+        "answers_primary_query": "yes",
+        "concrete_guidance": true,
+        "reader_fit": true,
+        "quick_answer": true,
+        "filler_ratio": 0,
+        "criteria": 7,
+        "rule_publishable": true
+      },
+      "editor": "approve",
+      "judge_publish": true,
+      "page_updated_at": "2026-10-22"
+    },
+    "colchao-firme-ou-macio": {
+      "metrics": {
+        "answers_primary_query": "yes",
+        "concrete_guidance": true,
+        "reader_fit": true,
+        "quick_answer": true,
+        "filler_ratio": 0,
+        "criteria": 7,
+        "rule_publishable": true
+      },
+      "editor": "approve",
+      "judge_publish": true,
+      "page_updated_at": "2026-10-22"
+    },
+    "cadeira-ergonomica-ou-gamer": {
+      "metrics": {
+        "answers_primary_query": "partial",
+        "concrete_guidance": true,
+        "reader_fit": false,
+        "quick_answer": false,
+        "filler_ratio": 0.25,
+        "criteria": 8,
+        "rule_publishable": false
+      },
+      "editor": "approve",
+      "judge_publish": false,
+      "page_updated_at": "2026-10-22"
+    },
+    "colchao-misto-ou-de-espuma-diferenca": {
+      "metrics": {
+        "answers_primary_query": "partial",
+        "concrete_guidance": true,
+        "reader_fit": true,
+        "quick_answer": true,
+        "filler_ratio": 0.1111111111111111,
+        "criteria": 7,
+        "rule_publishable": true
+      },
+      "editor": "reject",
+      "judge_publish": true,
+      "page_updated_at": "2026-10-22"
+    },
+    "mesa-regulavel-vale-a-pena": {
+      "metrics": {
+        "answers_primary_query": "partial",
+        "concrete_guidance": true,
+        "reader_fit": true,
+        "quick_answer": false,
+        "filler_ratio": 0.23529411764705882,
+        "criteria": 6,
+        "rule_publishable": false
+      },
+      "editor": "reject",
+      "judge_publish": false,
+      "page_updated_at": "2026-10-22"
+    }
+  }
+}
