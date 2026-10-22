@@ -20,6 +20,7 @@ describe('resposta curta', () => {
   it('recusa mais de 3 frases, abertura por norma e "trechos citados"', () => {
     expect(msgs(draft('Uma. Duas frases. Três frases aqui. Quatro frases.'))).toMatch(/4 frases/);
     expect(msgs(draft('O Inmetro exclui bases não acopladas do regulamento.'))).toMatch(/não pode abrir com norma/);
+    expect(msgs(draft('Segundo Simmons e Castor, pessoas leves preferem macio.'))).toMatch(/citando uma marca/);
     expect(msgs(draft('Depende do uso.', 'Nos trechos citados, não há medida de comprimento.'))).toMatch(/trechos citados/);
   });
 });
