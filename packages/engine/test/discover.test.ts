@@ -104,3 +104,19 @@ describe('ordem dos fabricantes', () => {
     expect(again.at(-1)!.publisher).toBe('Flexform');
   });
 });
+
+describe('site que bloqueia a VPS', () => {
+  it('403 tenta pela Tavily; outro erro não', async () => {
+    const { snapshotOrTavily } = await import('../src/stages/discover.ts');
+    const calls: (string | undefined)[] = [];
+    const snap = (async (i: { url: string; via?: string }) => {
+      calls.push(i.via);
+      if (!i.via) throw new Error(i.url.includes('bloq') ? `HTTP 403 em ${i.url}` : `HTTP 404 em ${i.url}`);
+      return { source: { id: 'src_x' }, created: true };
+    }) as never;
+    const base = { publisher: 'XT Racer', sourceClass: 'manufacturer' as const };
+    expect((await snapshotOrTavily({ url: 'https://bloq.com.br/a', ...base }, snap)).source.id).toBe('src_x');
+    expect(calls).toEqual([undefined, 'tavily']);
+    await expect(snapshotOrTavily({ url: 'https://x.com.br/a', ...base }, snap)).rejects.toThrow('404');
+  });
+});

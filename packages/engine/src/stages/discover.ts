@@ -55,6 +55,17 @@ Cubra as perguntas da pauta. No máximo o número de consultas pedido.${editorLe
 // Só conta como coberta a busca restrita ao site daquele fabricante. Uma busca com os 5 sites juntos devolve
 // só o maior: em 22/10 o planejador juntou Flexform, Cavaletti, Frisokar… numa consulta, as buscas por
 // fabricante foram puladas e a cadeira saiu de novo só com Flexform.
+// Site que bloqueia a VPS (403): lê pela Tavily. Em 22/10 as 4 fichas da XT Racer aprovadas na triagem
+// voltaram 403 e a cadeira seguiu só com Flexform.
+export async function snapshotOrTavily(input: Parameters<typeof snapshot>[0], snap = snapshot) {
+  try {
+    return await snap(input);
+  } catch (e) {
+    if (!/^HTTP (401|403|429) /.test((e as Error).message)) throw e;
+    return snap({ ...input, via: 'tavily' });
+  }
+}
+
 export function makerQueries(queries: { q: string; include_domains?: string[] }[], makers: { host: string }[], primary: string, max = 3) {
   return makers
     .filter((m) => !queries.some((q) => q.include_domains?.length === 1 && q.include_domains[0] === m.host))
@@ -199,7 +210,7 @@ export async function discoverSources(
 
   for (const c of chosen) {
     try {
-      const { source, created } = await snapshot({ url: c.url, publisher: c.publisher, sourceClass: c.source_class });
+      const { source, created } = await snapshotOrTavily({ url: c.url, publisher: c.publisher, sourceClass: c.source_class });
       report.added.push({ source_id: source.id, url: source.final_url, publisher: c.publisher, source_class: c.source_class, created });
     } catch (e) {
       report.snapshot_errors.push({ url: c.url, error: (e as Error).message.slice(0, 160) });
