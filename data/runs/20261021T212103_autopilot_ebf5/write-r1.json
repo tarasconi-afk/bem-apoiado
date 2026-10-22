@@ -1,0 +1,217 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A firmeza depende principalmente da densidade da espuma (medida em kg/m³). Fabricantes classificam colchões como macio, intermediário ou firme, e relacionam densidade ao peso corporal. Procure um profissional de saúde se acha que firmeza específica trata dor nas costas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1ad133d2b40c",
+        "clm_3659f2b0d80a",
+        "clm_9d95131021e4"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão firme ou macio: como escolher pela densidade",
+    "description": "Fabricantes usam densidade de espuma para classificar firmeza. Inmetro não avalia conforto ou firmeza: apenas desempenho físico.",
+    "verdict": {
+      "text": "A firmeza depende principalmente da densidade da espuma (medida em kg/m³). Fabricantes classificam colchões como macio, intermediário ou firme, e relacionam densidade ao peso corporal. Procure um profissional de saúde se acha que firmeza específica trata dor nas costas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1ad133d2b40c",
+        "clm_3659f2b0d80a",
+        "clm_9d95131021e4"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-firmeza-varia",
+        "heading": "Como a firmeza varia nos colchões de espuma",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a densidade da espuma (quantidade de espuma por metro cúbico) tem relação direta com a firmeza do colchão. Quanto maior a densidade, mais firme e resistente é o colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1ad133d2b40c",
+              "clm_94dcc33f58b6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel define três níveis de firmeza. Intermediário é o equilíbrio entre macio e firme, com conforto médio que se ajusta aos pontos de pressão do corpo. Firme alcança maior sustentação da pressão exercida na superfície.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_06a1ede67b4e",
+              "clm_59415671d398"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Simmons, colchão firme tem nível de firmeza menor que extra firme, com suporte reforçado mas mantendo um toque de conforto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_762261aaf868"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "componentes-espuma-firmeza",
+        "heading": "Quais componentes de espuma definem a firmeza",
+        "blocks": [
+          {
+            "text": "A Probel indica que densidade D28 oferece firmeza intermediária, D33 oferece firmeza firme com durabilidade, e D40 proporciona firmeza ainda mais elevada. Densidades variam de D18 (ideal para crianças) até D60 ou AG60 (para pessoas com maior peso ou que preferem superfície mais firme).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04789db60329",
+              "clm_29cdd640b362",
+              "clm_3659f2b0d80a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom relaciona espumas viscoelástica, HR (High Resilience) e espumas de diferentes densidades (26, 33, 45 kg/m³) como componentes que trabalham juntos: a viscoelástica se adapta ao corpo, enquanto espumas macia e extra firme garantem suporte e estabilidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_076751011313",
+              "clm_1597b8075648",
+              "clm_24abae38612d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, colchões com sistema de duplo molejo combinam dois tipos de molas (ensacadas e prolastic) para oferecer resistência progressiva. A Castor descreve molas Pocket® como molas ensacadas individualmente, componente que afeta a sensação de conforto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_34cbbd4e5c34",
+              "clm_486a2910e3f1"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "peso-corporal-densidade",
+        "heading": "O que o fabricante diz sobre peso corporal e firmeza",
+        "blocks": [
+          {
+            "text": "Segundo a Castor (baseada em informações do INER), a densidade recomendada varia conforme o peso: até 50 kg escolha densidade 23; de 51 a 60 kg densidade 26; de 61 a 70 kg densidade 28; de 71 a 80 kg densidade 33; de 81 a 100 kg densidade 33 a 45; acima de 100 kg densidade 45 ou maior para maior suporte.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_73d2f4e03662"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel relaciona suporte de peso a seus colchões: alguns suportam até 90 kg por pessoa, outros até 120 kg ou 150 kg por pessoa. A Ortobom declara que é preciso considerar peso e altura de quem usará o colchão na escolha da densidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04e2adda967a",
+              "clm_11e2aebdb8ec",
+              "clm_2556a5f88a24"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Castor e a Ortobom indicam que peso e altura são fatores principais para escolher a densidade, mas afirmam isso como referência para o leitor conferir, não como regra fixa de uso.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2d4e69b2d392",
+              "clm_62d3df3a22de",
+              "clm_11e2aebdb8ec"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "inmetro-nao-avalia-firmeza",
+        "heading": "O que o Inmetro avalia em colchões",
+        "blocks": [
+          {
+            "text": "A Portaria Inmetro nº 35/2021 (colchões de espuma) e nº 75/2021 (colchões de molas) estabelecem certificação compulsória focada em desempenho físico, através de organismos certificadores acreditados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_564fe17f2af9",
+              "clm_6aa770dd7fd4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A certificação do Inmetro avalia apenas a espuma flexível de poliuretano, revestimento e chapa dura. Demais propriedades e materiais declarados pelo fabricante não foram avaliados pelo regulador.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_571c2ce93e7d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro não padroniza ou avalia firmeza ou conforto. Essas propriedades ficam fora do escopo da certificação obrigatória.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_571c2ce93e7d",
+              "clm_3a2242197a7b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre firme e macio",
+        "blocks": [
+          {
+            "text": "Se você prefere colchão mais macio, procure densidade menor (D23 a D28). Se prefere colchão mais firme, busque densidade maior (D33 acima). Verifique na ficha técnica ou anúncio a classificação do fabricante (macio, intermediário ou firme) e a densidade em kg/m³.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3659f2b0d80a",
+              "clm_9d95131021e4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você é mais leve (até 60 kg), densidade 23 a 26 pode ser confortável. Se está entre 61 e 100 kg, densidade 28 a 45 é usualmente recomendada pelo fabricante. Se pesa acima de 100 kg, o fabricante sugere densidade 45 ou maior. Use essas faixas como referência, não como regra.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_73d2f4e03662",
+              "clm_20ba50c38123",
+              "clm_62d3df3a22de"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se um fabricante associar firmeza específica a benefício terapêutico (aliviar dor, corrigir postura ou problema de coluna), saiba que o Inmetro não avalia essas propriedades. Procure um profissional de saúde para orientação sobre qual firmeza serve ao seu caso.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_571c2ce93e7d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira no anúncio ou ficha técnica os componentes internos: tipo de espuma, densidade (D), e se há camadas de espuma viscoelástica, molas ou outras estruturas. Colchões com múltiplas densidades oferecem sensação de firmeza variável (toque macio na superfície com firmeza na base).",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_24abae38612d",
+              "clm_147c8fca8fbc",
+              "clm_25639583d21a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "resposta curta com 4 frases; deixe em até 3, começando pela resposta prática para quem vai comprar."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16735,
+    "output_tokens": 176
+  }
+}

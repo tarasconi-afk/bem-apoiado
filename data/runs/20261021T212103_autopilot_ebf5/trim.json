@@ -1,0 +1,74 @@
+{
+  "removed": [
+    "peso-corporal-densidade#2",
+    "inmetro-nao-avalia-firmeza#2"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "peso-corporal-densidade#2",
+      "inmetro-nao-avalia-firmeza#2"
+    ],
+    "decision_criteria": [
+      "Densidades maiores tendem a resultar em colchões mais firmes e resistentes, segundo a Castor.",
+      "Confira a densidade indicada pelo fabricante para o peso e a altura do usuário.",
+      "Verifique o limite de peso por pessoa informado na ficha técnica do modelo.",
+      "Compare a classificação declarada pelo fabricante, como macio, intermediário, firme ou extra firme.",
+      "Considere que um colchão pode combinar uma camada de contato macia com uma base mais estável; confira todas as camadas e materiais do modelo.",
+      "Espumas viscoelásticas podem se adaptar mais ao corpo, enquanto outras camadas são apresentadas pelo fabricante como responsáveis por suporte e estabilidade.",
+      "O selo do Inmetro não deve ser usado como indicação de conforto ou de nível de firmeza.",
+      "Não trate uma promessa de benefício terapêutico associada à firmeza como critério validado pelo Inmetro."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma resposta curta e direta indicando, em termos práticos, quando faz sentido preferir um colchão macio, intermediário, firme ou extra firme.",
+      "Definição oficial dos fabricantes para cada nível de firmeza e explicação de como a classificação é medida ou comparada entre modelos.",
+      "Informação oficial sobre a relação entre firmeza, posição de dormir e preferência pessoal, sem recorrer a promessa terapêutica.",
+      "Resposta sobre a existência de norma NBR da ABNT que padronize classificação, teste ou terminologia de firmeza para colchões no Brasil.",
+      "Declaração oficial de fabricantes sobre período de adaptação ou amaciamento que altere a percepção inicial de firmeza.",
+      "Orientação para não comparar apenas densidades de espumas diferentes, já que estrutura, camadas, espessura e tipo de colchão também podem mudar a sensação."
+    ],
+    "publishable": false,
+    "summary": "A página reúne critérios úteis sobre densidade, peso, camadas e escopo do Inmetro, mas não responde rapidamente se o leitor deve escolher firme ou macio. A densidade é apresentada como principal caminho de decisão, sem explicar seus limites nem relacionar claramente a escolha à posição de dormir, à preferência e à classificação declarada na ficha técnica.",
+    "filler_ratio": 0.125,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira a densidade informada na ficha técnica e relacione-a ao seu peso, usando as faixas indicadas pelo fabricante como referência, não como regra.",
+      "Até 60 kg, a referência apresentada é densidade 23 a 26; entre 61 e 100 kg, 28 a 45; acima de 100 kg, 45 ou maior.",
+      "Verifique o limite de peso por pessoa informado para o modelo, pois ele varia entre colchões.",
+      "Confira as camadas e os materiais: viscoelástica tende a proporcionar uma sensação mais adaptável ao corpo, enquanto espumas de suporte e maior densidade contribuem para estabilidade.",
+      "Em colchões com molas, confira o tipo de sistema, como molas ensacadas ou duplo molejo, e a descrição de suporte fornecida pelo fabricante.",
+      "Considere que um colchão pode ter toque inicial macio e estrutura mais estável por combinar camadas de materiais ou densidades diferentes.",
+      "Não use alegações de aliviar dor, corrigir postura ou tratar problemas de coluna como critério validado pelo Inmetro; para uma necessidade específica, procure orientação profissional."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma resposta curta e direta explicando quando faz sentido escolher uma superfície firme, intermediária ou macia conforme preferência, peso e posição de dormir.",
+      "Informação sobre como cada fabricante define os rótulos macio, médio, firme e extra firme, e se há escala ou método próprio.",
+      "Resposta sobre a existência de norma NBR da ABNT que padronize classificação, teste ou terminologia de firmeza.",
+      "Declarações oficiais dos fabricantes sobre a relação entre firmeza e posição de dormir.",
+      "Informação oficial sobre eventual período de adaptação ou amaciamento que altere a percepção inicial de firmeza.",
+      "Orientação para conferir no anúncio ou na ficha a firmeza declarada do modelo específico, e não apenas a densidade da espuma.",
+      "Critérios específicos para comparar colchões de molas, híbridos e de espuma, já que densidade não descreve sozinha todos os componentes desses produtos."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios práticos de compra, especialmente densidade, peso suportado, camadas e tipo de mola, mas responde apenas parcialmente à dúvida principal. A resposta curta não diz claramente qual opção serve para cada caso e a página deixa sem resposta questões centrais da pauta, como a padronização dos termos de firmeza, a existência de norma NBR, a posição de dormir e o período de adaptação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
