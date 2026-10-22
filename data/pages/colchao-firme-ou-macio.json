@@ -3,16 +3,15 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Colchão firme ou macio: como escolher pela densidade",
-  "description": "Firme ou macio? Veja qual densidade combina com o seu peso e a sua posição de dormir, com base na tabela dos fabricantes",
+  "description": "Descubra qual densidade de colchão combina com seu peso e posição de dormir para escolher entre macios, intermediários e firmes.",
   "primary_query": "colchão firme ou macio",
   "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Segundo a Simmons, alguém muito leve tende a se sentir mais confortável em um colchão macio, enquanto alguém mais pesado pode se sentir confortável em um colchão mais firme. Segundo a King Koil, quem dorme de lado pode preferir uma superfície que minimize pressão em ombros e quadris; quem dorme de costas ou de bruços pode se beneficiar de uma superfície mais rígida.",
-    "basis": "evidence",
+    "text": "Escolha a densidade pelo seu peso: até 60 kg, a Castor indica densidades 23 a 26; de 61 a 80 kg, 28 a 33; acima de 80 kg, 33 a 45 ou mais. Quem dorme de lado pode buscar uma superfície que alivie a pressão em ombros e quadris, segundo a King Koil.",
+    "basis": "reasoning",
     "claim_ids": [
-      "clm_4ed8801cb674",
-      "clm_8375684de149",
-      "clm_de5ef377abd9"
+      "clm_73d2f4e03662",
+      "clm_8375684de149"
     ]
   },
   "sections": [
@@ -134,32 +133,120 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Escolha por peso, posição de dormir e preferência pessoal",
+      "heading": "Escolha pela densidade (peso), posição e preferência",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Segundo a Castor, a densidade recomendada varia conforme o peso corporal. Confira na tabela abaixo qual densidade escolher para o seu peso.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_73d2f4e03662"
+          "kind": "table",
+          "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+          "columns": [
+            "Faixa de peso",
+            "Densidade recomendada"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "Até 50 kg",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                },
+                {
+                  "text": "D23",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "51 a 60 kg",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                },
+                {
+                  "text": "D26",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "61 a 70 kg",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                },
+                {
+                  "text": "D28",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "71 a 80 kg",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                },
+                {
+                  "text": "D33",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "81 a 100 kg",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                },
+                {
+                  "text": "D33 a D45 (conforme preferência)",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Acima de 100 kg",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                },
+                {
+                  "text": "D45 ou maior",
+                  "claim_ids": [
+                    "clm_73d2f4e03662"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a King Koil, quem dorme de lado pode se beneficiar de uma superfície que minimize pressão em ombros e quadris. Quem dorme de costas ou de bruços pode se beneficiar de uma superfície mais rígida que evite curvatura excessiva da região lombar.",
+          "text": "Segundo a King Koil, quem dorme preferencialmente de lado pode precisar de uma superfície que minimize a pressão em pontos como ombros e quadris.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_8375684de149",
-            "clm_de5ef377abd9"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Confira na ficha do colchão o peso suportado declarado pelo fabricante como uma referência prática. Segundo a Probel, capacidades variam de 60 a 150 kg por pessoa. O Inmetro avalia apenas a espuma flexível de poliuretano, o revestimento e a chapa dura dos colchões de espuma; demais propriedades declaradas não foram avaliadas pelo regulador.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_571c2ce93e7d",
-            "clm_04e2adda967a"
+            "clm_8375684de149"
           ]
         }
       ]
@@ -167,7 +254,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T212103_autopilot_ebf5+editor:20261022T003150_colchao-firme-ou-macio-ajuste_57c6+editor:20261022T003658_colchao-firme-ou-macio-ajuste_1c87+editor:20261022T004041_colchao-firme-ou-macio-ajuste_af0c+editor:20261022T011253_pedido_e54d",
+    "run_id": "20261021T212103_autopilot_ebf5+editor:20261022T003150_colchao-firme-ou-macio-ajuste_57c6+editor:20261022T003658_colchao-firme-ou-macio-ajuste_1c87+editor:20261022T004041_colchao-firme-ou-macio-ajuste_af0c+editor:20261022T011253_pedido_e54d+editor:20261022T012727_pedido_2a2c+editor:20261022T012840_pedido_cea0+editor:finalizacao-tabela",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
