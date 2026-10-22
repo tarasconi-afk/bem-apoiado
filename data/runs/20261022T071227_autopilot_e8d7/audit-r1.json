@@ -1,0 +1,244 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O bloco apresenta como fatos gerais afirmações que os trechos atribuem apenas à Flexform, como a definição de cadeira ergonômica, a conformidade com NR-17 e ABNT NBR 13962 e a faixa de espuma de 45–55 kg/m³. Além disso, os trechos não sustentam que cadeiras ergonômicas e gamers diferem principalmente nas regulagens, que 45–55 kg/m³ seja um padrão geral, nem a recomendação de comparar peso máximo suportado e cobertura de garantia.",
+      "fix": "Segundo a Flexform, uma cadeira ergonômica é descrita por regulagens documentadas, como altura, profundidade, apoio lombar e braços. A empresa também informa que sua linha gamer usa espuma na faixa de 45–55 kg/m³ e declara conformidade com NR-17 e ABNT NBR 13962. Ao comparar modelos, verifique as regulagens e as especificações declaradas; não trate essa faixa de espuma, a conformidade ou a garantia como regras gerais."
+    },
+    {
+      "ref": "o-que-significa-ergonomico#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-significa-ergonomico#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho afirma que as regulagens são declaradas com valores, mas não estabelece que o fabricante tenha obrigação de declará-las.",
+      "fix": "Segundo a Flexform, as regulagens podem ser declaradas com valores específicos: altura mínima e máxima do assento, faixa de profundidade e faixa de ajuste do apoio lombar."
+    },
+    {
+      "ref": "o-que-significa-ergonomico#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora seja apresentado como enquadramento, o bloco afirma fatos sobre o termo “ergonômico”, sua relação com saúde e o conteúdo das fichas de produto, sem trechos citados que os sustentem.",
+      "fix": "A seguir, veja o que as fontes citadas dizem sobre as regulagens técnicas associadas ao termo “ergonômico”."
+    },
+    {
+      "ref": "regulagens-comparacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos não dizem que o modelo 3D tem regulagem lateral; dizem que ele é regulável em altura, avanço e ângulo. Além disso, para os modelos SL, SL New PU e SL New PP, o trecho informa opção de regulagem lateral, mas não especifica que essa regulagem é em altura.",
+      "fix": "A Cavaletti informa braços reguláveis nos modelos SL, SL New PU e SL New PP, com opção de regulagem lateral, e no modelo 3D, com regulagem de altura, avanço e ângulo; Americano e Loop têm braços fixos. Também informa apoio lombar com ajuste de altura em 4 estágios e 40 mm de curso."
+    },
+    {
+      "ref": "regulagens-comparacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a variação entre mecanismo datillo com regulagem de altura e mecanismo sincronizado com 5 posições, além de braços com regulagens em quatro dimensões. Porém, não especificam que essas dimensões são altura, avanço, ângulo e largura, nem mencionam encosto com regulagem de altura do apoio lombar.",
+      "fix": "A Flexform oferece mecanismos que vão do tipo datillo, com contato permanente e regulagem de altura, a mecanismos sincronizados com 5 posições, além de braços com regulagens em quatro dimensões."
+    },
+    {
+      "ref": "regulagens-comparacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados descrevem o modelo Alpha 2 Pro Black, não a linha gamer inteira. Atribuir essas características à linha gamer generaliza além da evidência.",
+      "fix": "No modelo Alpha 2 Pro Black, a Flexform declara encosto regulável em altura para posicionamento do apoio lombar, regulagem de inclinação com 5 posições de bloqueio e base com resistência de 1100 kg conforme a NBR 13962."
+    },
+    {
+      "ref": "o-que-nr17-pede#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-nr17-pede#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho cita uma regra do Anexo II, específica para trabalho em teleatendimento/telemarketing, mas o bloco a apresenta como exigência geral da NR-17 e recomenda aplicá-la a qualquer cadeira.",
+      "fix": "No contexto de trabalho em teleatendimento/telemarketing, o Anexo II da NR-17 prevê base do assento estofada com material de densidade entre 40 e 50 kg/m³. Esse dado pode ser conferido na ficha técnica de cadeiras destinadas a esse contexto."
+    },
+    {
+      "ref": "o-que-nr17-pede#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a faixa ajustável de 37 a 50 cm e dizem que a altura deve ser definida para que os pés fiquem bem apoiados, mas não dizem que 37 cm garante esse apoio nem que 50 cm acomoda pessoas de maior estatura.",
+      "fix": "No contexto de teleatendimento/telemarketing, a superfície superior do assento deve ser ajustável entre 37 e 50 cm em relação ao piso. O manual orienta que a altura seja definida de modo que os pés fiquem bem apoiados; confira essa faixa de regulagem na ficha técnica."
+    },
+    {
+      "ref": "densidade-espuma-materiais#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a faixa de 45–55 kg/m³ para as linhas corporativa e gamer e mencionam ensaios no Laboratório Galileo, mas não dizem que o laboratório é acreditado pela CGCRE.",
+      "fix": "A Flexform utiliza espuma na faixa de 45 a 55 kg/m³ em suas linhas corporativa e gamer, com ensaios no Laboratório Galileo."
+    },
+    {
+      "ref": "densidade-espuma-materiais#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-espuma-materiais#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a verificação de densidade da espuma, materiais de alguns componentes, material e resistência da base e revestimento, mas não mencionam conferir dimensões dos rodízios nem compatibilidade com tipos de piso. Também não apresentam essa lista como uma orientação explícita de ficha técnica.",
+      "fix": "Confira a ficha técnica quanto à densidade da espuma, aos materiais dos componentes, ao material e à resistência da base e ao revestimento; os trechos citados não sustentam incluir dimensões ou compatibilidade dos rodízios."
+    },
+    {
+      "ref": "peso-maximo-suportado#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a Flexform declara resistência de 1100 kg para a base e mencionam a NBR 13962, mas não dizem que essa norma é um padrão para cadeiras de escritório e gamer.",
+      "fix": "A Flexform declara que a base injetada em alumínio tem resistência de 1100 kg, segundo a NBR 13962."
+    },
+    {
+      "ref": "peso-maximo-suportado#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa apenas 1100 kg para a base de um produto da Flexform. Não sustenta a faixa geral de 800 kg a 1200 kg, a dependência do mecanismo e da estrutura, nem que o dado geralmente não apareça claramente.",
+      "fix": "Em um produto da Flexform, o trecho informa resistência de 1100 kg para a base. Consulte a ficha técnica ou o fabricante para confirmar o limite do produto específico."
+    },
+    {
+      "ref": "peso-maximo-suportado#2",
+      "verdict": "OVERSTATED",
+      "problem": "A fonte da Flexform menciona espuma de 45 a 55 kg/m³ e garantia de até 7 anos, mas não relaciona essa faixa de espuma à duração da garantia nem diz que a garantia cobre estrutura e mecanismos. O trecho independente menciona cinco anos para estrutura e mecanismos, mas não sustenta a afirmação sobre a garantia da Flexform. A recomendação sobre conferir a cobertura também não aparece nos trechos.",
+      "fix": "A Flexform menciona espuma de 45 a 55 kg/m³ e garantia de até 7 anos. Em outro documento, é mencionada garantia contratual mínima de 5 anos para estrutura e mecanismos."
+    },
+    {
+      "ref": "peso-maximo-suportado#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram um caso de garantia mínima de um ano, sem especificar estrutura e mecanismos, e outro caso de cinco anos para estrutura e mecanismos. Portanto, não sustentam dizer que todo o intervalo de 1 a 5 anos se refere a estrutura e mecanismos. A recomendação de solicitar o documento de garantia não é dita nos trechos.",
+      "fix": "Os documentos citados mencionam garantias mínimas de um ano em um caso e de cinco anos para estrutura e mecanismos em outro. Verifique no documento de garantia quais itens estão cobertos."
+    },
+    {
+      "ref": "norma-abnt-nbr-13962#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que a ABNT NBR 13962 é uma norma técnica para cadeiras de trabalho giratórias, nem explicam que a CGCRE é um órgão de credenciamento de laboratórios. Eles apenas registram, segundo a Flexform, ensaios no Laboratório Galileo, acreditado pela CGCRE, e conformidade com a norma.",
+      "fix": "Segundo a Flexform, sua linha declara conformidade com a ABNT NBR 13962 e foi submetida a ensaios no Laboratório Galileo, acreditado pela CGCRE."
+    },
+    {
+      "ref": "norma-abnt-nbr-13962#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não estabelecem que a norma trata de durabilidade, estabilidade, segurança ou resistência de componentes em geral; mencionam apenas a resistência de 1100 kg da base de alguns modelos. Também não há evidência de garantia de 5–7 anos nem de que a combinação entre citar ensaios e oferecer garantia indique conformidade com todos esses testes.",
+      "fix": "A Flexform informa, para determinados modelos, base de alumínio com resistência de 1100 kg associada à NBR 13962, e informa ensaios no Laboratório Galileo e garantia de até 7 anos em seu guia."
+    },
+    {
+      "ref": "norma-abnt-nbr-13962#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado não diz que a norma não certifica alegações de conforto ou benefício à postura, nem especifica que ela verifica durabilidade, resistência mecânica e segurança. Embora mencione um laboratório acreditado e a conformidade com a norma, não sustenta a recomendação geral de procurar o nome do laboratório, exigir acreditação ou buscar um número de conformidade.",
+      "fix": "A Flexform informa que realiza ensaios no Laboratório Galileo, acreditado pela CGCRE (CLF 0056), conforme a ABNT NBR 13962."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a faixa de espuma para uso diário de 8 horas, um ajuste de tensão em mecanismos sincronizados e uma garantia mínima de 5 anos para estrutura e mecanismos. Porém, não sustentam que todo mecanismo de reclinação tenha esse ajuste nem que tanto cadeiras corporativas quanto gamers possam oferecer essas especificações.",
+      "fix": "Para uso diário de 8 horas, considere espuma de 45 a 55 kg/m³ e verifique se o mecanismo sincronizado tem ajuste de tensão; confira também se há garantia mínima de 5 anos para estrutura e mecanismos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam braços reguláveis, opções específicas da Cavaletti e ajuste de altura do apoio lombar em 4 estágios e 40 mm. Eles não dizem que o encosto inteiro permite ajuste de altura em milímetros ou estágios; o trecho de valores também apenas recomenda verificar regulagens declaradas, sem confirmar sua presença em um modelo específico.",
+      "fix": "Confira se os braços são reguláveis e se o apoio lombar tem ajuste de altura; na ficha técnica, procure valores declarados para altura, profundidade do assento e ajuste lombar e compare os modelos."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A resistência de 1100 kg aparece nos trechos como especificação de dois modelos da Flexform, não como padrão geral para bases de alumínio. O texto transforma essa especificação do fabricante em regra geral e também não encontra apoio nos trechos para a recomendação de solicitar informação ou não comprar quando ela faltar.",
+      "fix": "Para os modelos citados, a ficha informa base de alumínio com resistência de 1100 kg; verifique na ficha técnica do modelo escolhido a capacidade ou resistência máxima informada."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os três valores são apresentados em trechos do Anexo II, aplicável a trabalho em teleatendimento/telemarketing. O bloco os transforma em referência geral para qualquer ambiente de escritório ou educacional e afirma, sem apoio, que valem igualmente para cadeiras ergonômicas e gamers. Além disso, o trecho fala em base estofada, não simplesmente em qualquer base.",
+      "fix": "Para postos de teleatendimento/telemarketing abrangidos pelo Anexo II, os trechos indicam assento entre 37 e 50 cm, apoio de braços regulável entre 20 e 25 cm e base estofada com densidade de 40 a 50 kg/m³."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado sustenta verificar na ficha valores de altura do assento, profundidade e ajuste lombar. Não sustenta que a ficha deva listar todos os itens enumerados, nem que cadeiras sem essas informações públicas sejam necessariamente de maior risco.",
+      "fix": "Solicite uma ficha técnica com os valores de regulagem declarados, incluindo a altura mínima e máxima do assento, a profundidade e o ajuste do apoio lombar."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O bloco apresenta como fatos gerais afirmações que os trechos atribuem apenas à Flexform, como a definição de cadeira ergonômica, a conformidade com NR-17 e ABNT NBR 13962 e a faixa de espuma de 45–55 kg/m³. Além disso, os trechos não sustentam que cadeiras ergonômicas e gamers diferem principalmente nas regulagens, que 45–55 kg/m³ seja um padrão geral, nem a recomendação de comparar peso máximo suportado e cobertura de garantia. Versão sustentável: Segundo a Flexform, uma cadeira ergonômica é descrita por regulagens documentadas, como altura, profundidade, apoio lombar e braços. A empresa também informa que sua linha gamer usa espuma na faixa de 45–55 kg/m³ e declara conformidade com NR-17 e ABNT NBR 13962. Ao comparar modelos, verifique as regulagens e as especificações declaradas; não trate essa faixa de espuma, a conformidade ou a garantia como regras gerais."
+    },
+    {
+      "ref": "o-que-significa-ergonomico#1",
+      "msg": "OVERSTATED. O trecho afirma que as regulagens são declaradas com valores, mas não estabelece que o fabricante tenha obrigação de declará-las. Versão sustentável: Segundo a Flexform, as regulagens podem ser declaradas com valores específicos: altura mínima e máxima do assento, faixa de profundidade e faixa de ajuste do apoio lombar."
+    },
+    {
+      "ref": "o-que-significa-ergonomico#2",
+      "msg": "FACT_IN_FRAMING. Embora seja apresentado como enquadramento, o bloco afirma fatos sobre o termo “ergonômico”, sua relação com saúde e o conteúdo das fichas de produto, sem trechos citados que os sustentem. Versão sustentável: A seguir, veja o que as fontes citadas dizem sobre as regulagens técnicas associadas ao termo “ergonômico”."
+    },
+    {
+      "ref": "regulagens-comparacao#0",
+      "msg": "OVERSTATED. Os trechos não dizem que o modelo 3D tem regulagem lateral; dizem que ele é regulável em altura, avanço e ângulo. Além disso, para os modelos SL, SL New PU e SL New PP, o trecho informa opção de regulagem lateral, mas não especifica que essa regulagem é em altura. Versão sustentável: A Cavaletti informa braços reguláveis nos modelos SL, SL New PU e SL New PP, com opção de regulagem lateral, e no modelo 3D, com regulagem de altura, avanço e ângulo; Americano e Loop têm braços fixos. Também informa apoio lombar com ajuste de altura em 4 estágios e 40 mm de curso."
+    },
+    {
+      "ref": "regulagens-comparacao#1",
+      "msg": "OVERSTATED. Os trechos sustentam a variação entre mecanismo datillo com regulagem de altura e mecanismo sincronizado com 5 posições, além de braços com regulagens em quatro dimensões. Porém, não especificam que essas dimensões são altura, avanço, ângulo e largura, nem mencionam encosto com regulagem de altura do apoio lombar. Versão sustentável: A Flexform oferece mecanismos que vão do tipo datillo, com contato permanente e regulagem de altura, a mecanismos sincronizados com 5 posições, além de braços com regulagens em quatro dimensões."
+    },
+    {
+      "ref": "regulagens-comparacao#2",
+      "msg": "OVERSTATED. Os trechos citados descrevem o modelo Alpha 2 Pro Black, não a linha gamer inteira. Atribuir essas características à linha gamer generaliza além da evidência. Versão sustentável: No modelo Alpha 2 Pro Black, a Flexform declara encosto regulável em altura para posicionamento do apoio lombar, regulagem de inclinação com 5 posições de bloqueio e base com resistência de 1100 kg conforme a NBR 13962."
+    },
+    {
+      "ref": "o-que-nr17-pede#1",
+      "msg": "OVERSTATED. O trecho cita uma regra do Anexo II, específica para trabalho em teleatendimento/telemarketing, mas o bloco a apresenta como exigência geral da NR-17 e recomenda aplicá-la a qualquer cadeira. Versão sustentável: No contexto de trabalho em teleatendimento/telemarketing, o Anexo II da NR-17 prevê base do assento estofada com material de densidade entre 40 e 50 kg/m³. Esse dado pode ser conferido na ficha técnica de cadeiras destinadas a esse contexto."
+    },
+    {
+      "ref": "o-que-nr17-pede#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam a faixa ajustável de 37 a 50 cm e dizem que a altura deve ser definida para que os pés fiquem bem apoiados, mas não dizem que 37 cm garante esse apoio nem que 50 cm acomoda pessoas de maior estatura. Versão sustentável: No contexto de teleatendimento/telemarketing, a superfície superior do assento deve ser ajustável entre 37 e 50 cm em relação ao piso. O manual orienta que a altura seja definida de modo que os pés fiquem bem apoiados; confira essa faixa de regulagem na ficha técnica."
+    },
+    {
+      "ref": "densidade-espuma-materiais#0",
+      "msg": "OVERSTATED. Os trechos sustentam a faixa de 45–55 kg/m³ para as linhas corporativa e gamer e mencionam ensaios no Laboratório Galileo, mas não dizem que o laboratório é acreditado pela CGCRE. Versão sustentável: A Flexform utiliza espuma na faixa de 45 a 55 kg/m³ em suas linhas corporativa e gamer, com ensaios no Laboratório Galileo."
+    },
+    {
+      "ref": "densidade-espuma-materiais#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam a verificação de densidade da espuma, materiais de alguns componentes, material e resistência da base e revestimento, mas não mencionam conferir dimensões dos rodízios nem compatibilidade com tipos de piso. Também não apresentam essa lista como uma orientação explícita de ficha técnica. Versão sustentável: Confira a ficha técnica quanto à densidade da espuma, aos materiais dos componentes, ao material e à resistência da base e ao revestimento; os trechos citados não sustentam incluir dimensões ou compatibilidade dos rodízios."
+    },
+    {
+      "ref": "peso-maximo-suportado#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Flexform declara resistência de 1100 kg para a base e mencionam a NBR 13962, mas não dizem que essa norma é um padrão para cadeiras de escritório e gamer. Versão sustentável: A Flexform declara que a base injetada em alumínio tem resistência de 1100 kg, segundo a NBR 13962."
+    },
+    {
+      "ref": "peso-maximo-suportado#1",
+      "msg": "UNSUPPORTED. O trecho citado informa apenas 1100 kg para a base de um produto da Flexform. Não sustenta a faixa geral de 800 kg a 1200 kg, a dependência do mecanismo e da estrutura, nem que o dado geralmente não apareça claramente. Versão sustentável: Em um produto da Flexform, o trecho informa resistência de 1100 kg para a base. Consulte a ficha técnica ou o fabricante para confirmar o limite do produto específico."
+    },
+    {
+      "ref": "peso-maximo-suportado#2",
+      "msg": "OVERSTATED. A fonte da Flexform menciona espuma de 45 a 55 kg/m³ e garantia de até 7 anos, mas não relaciona essa faixa de espuma à duração da garantia nem diz que a garantia cobre estrutura e mecanismos. O trecho independente menciona cinco anos para estrutura e mecanismos, mas não sustenta a afirmação sobre a garantia da Flexform. A recomendação sobre conferir a cobertura também não aparece nos trechos. Versão sustentável: A Flexform menciona espuma de 45 a 55 kg/m³ e garantia de até 7 anos. Em outro documento, é mencionada garantia contratual mínima de 5 anos para estrutura e mecanismos."
+    },
+    {
+      "ref": "peso-maximo-suportado#3",
+      "msg": "OVERSTATED. Os trechos mostram um caso de garantia mínima de um ano, sem especificar estrutura e mecanismos, e outro caso de cinco anos para estrutura e mecanismos. Portanto, não sustentam dizer que todo o intervalo de 1 a 5 anos se refere a estrutura e mecanismos. A recomendação de solicitar o documento de garantia não é dita nos trechos. Versão sustentável: Os documentos citados mencionam garantias mínimas de um ano em um caso e de cinco anos para estrutura e mecanismos em outro. Verifique no documento de garantia quais itens estão cobertos."
+    },
+    {
+      "ref": "norma-abnt-nbr-13962#0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que a ABNT NBR 13962 é uma norma técnica para cadeiras de trabalho giratórias, nem explicam que a CGCRE é um órgão de credenciamento de laboratórios. Eles apenas registram, segundo a Flexform, ensaios no Laboratório Galileo, acreditado pela CGCRE, e conformidade com a norma. Versão sustentável: Segundo a Flexform, sua linha declara conformidade com a ABNT NBR 13962 e foi submetida a ensaios no Laboratório Galileo, acreditado pela CGCRE."
+    },
+    {
+      "ref": "norma-abnt-nbr-13962#1",
+      "msg": "UNSUPPORTED. Os trechos não estabelecem que a norma trata de durabilidade, estabilidade, segurança ou resistência de componentes em geral; mencionam apenas a resistência de 1100 kg da base de alguns modelos. Também não há evidência de garantia de 5–7 anos nem de que a combinação entre citar ensaios e oferecer garantia indique conformidade com todos esses testes. Versão sustentável: A Flexform informa, para determinados modelos, base de alumínio com resistência de 1100 kg associada à NBR 13962, e informa ensaios no Laboratório Galileo e garantia de até 7 anos em seu guia."
+    },
+    {
+      "ref": "norma-abnt-nbr-13962#2",
+      "msg": "UNSUPPORTED. O trecho citado não diz que a norma não certifica alegações de conforto ou benefício à postura, nem especifica que ela verifica durabilidade, resistência mecânica e segurança. Embora mencione um laboratório acreditado e a conformidade com a norma, não sustenta a recomendação geral de procurar o nome do laboratório, exigir acreditação ou buscar um número de conformidade. Versão sustentável: A Flexform informa que realiza ensaios no Laboratório Galileo, acreditado pela CGCRE (CLF 0056), conforme a ABNT NBR 13962."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos sustentam a faixa de espuma para uso diário de 8 horas, um ajuste de tensão em mecanismos sincronizados e uma garantia mínima de 5 anos para estrutura e mecanismos. Porém, não sustentam que todo mecanismo de reclinação tenha esse ajuste nem que tanto cadeiras corporativas quanto gamers possam oferecer essas especificações. Versão sustentável: Para uso diário de 8 horas, considere espuma de 45 a 55 kg/m³ e verifique se o mecanismo sincronizado tem ajuste de tensão; confira também se há garantia mínima de 5 anos para estrutura e mecanismos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam braços reguláveis, opções específicas da Cavaletti e ajuste de altura do apoio lombar em 4 estágios e 40 mm. Eles não dizem que o encosto inteiro permite ajuste de altura em milímetros ou estágios; o trecho de valores também apenas recomenda verificar regulagens declaradas, sem confirmar sua presença em um modelo específico. Versão sustentável: Confira se os braços são reguláveis e se o apoio lombar tem ajuste de altura; na ficha técnica, procure valores declarados para altura, profundidade do assento e ajuste lombar e compare os modelos."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. A resistência de 1100 kg aparece nos trechos como especificação de dois modelos da Flexform, não como padrão geral para bases de alumínio. O texto transforma essa especificação do fabricante em regra geral e também não encontra apoio nos trechos para a recomendação de solicitar informação ou não comprar quando ela faltar. Versão sustentável: Para os modelos citados, a ficha informa base de alumínio com resistência de 1100 kg; verifique na ficha técnica do modelo escolhido a capacidade ou resistência máxima informada."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os três valores são apresentados em trechos do Anexo II, aplicável a trabalho em teleatendimento/telemarketing. O bloco os transforma em referência geral para qualquer ambiente de escritório ou educacional e afirma, sem apoio, que valem igualmente para cadeiras ergonômicas e gamers. Além disso, o trecho fala em base estofada, não simplesmente em qualquer base. Versão sustentável: Para postos de teleatendimento/telemarketing abrangidos pelo Anexo II, os trechos indicam assento entre 37 e 50 cm, apoio de braços regulável entre 20 e 25 cm e base estofada com densidade de 40 a 50 kg/m³."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. O trecho citado sustenta verificar na ficha valores de altura do assento, profundidade e ajuste lombar. Não sustenta que a ficha deva listar todos os itens enumerados, nem que cadeiras sem essas informações públicas sejam necessariamente de maior risco. Versão sustentável: Solicite uma ficha técnica com os valores de regulagem declarados, incluindo a altura mínima e máxima do assento, a profundidade e o ajuste do apoio lombar."
+    }
+  ]
+}
