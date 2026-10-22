@@ -36,3 +36,14 @@ describe('ajuste que falhou trava o aprovar', () => {
     expect(failedAdjust([j('b', 1, 'ajuste NÃO salvo')] as never, 'a')).toBeNull();
   });
 });
+
+describe('aviso de anúncio suspeito', () => {
+  it('título com outra marca ou sem a marca informada', async () => {
+    const { listingWarnings } = await import('../src/stages/products.ts');
+    const u = 'https://www.amazon.com.br/Escritorio-Ergonomica-Escrit%C3%B3rio-Escrivaninha-Flexform/dp/B0D8BHB5KG?tag=x';
+    expect(listingWarnings(u, 'Namoat', ['Flexform', 'XT Racer']).join(' ')).toContain('cita Flexform');
+    expect(listingWarnings(u, 'Namoat', ['Flexform']).join(' ')).toContain('não cita Namoat');
+    expect(listingWarnings('https://www.amazon.com.br/XT-Racer-Cadeira-Platinum/dp/B0DHF6Q2T7', 'XT Racer', ['Flexform', 'XT Racer'])).toEqual([]);
+    expect(listingWarnings('https://www.amazon.com.br/dp/B0DHF6Q2T7', 'XT Racer', ['Flexform'])).toEqual([]);
+  });
+});

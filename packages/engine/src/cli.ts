@@ -261,9 +261,12 @@ async function main(): Promise<number> {
         console.error('uso: product-pick <link|ASIN> <tipo> <marca> <nome do produto>');
         return 2;
       }
-      const { editorPick } = await import('./stages/products.ts');
+      const { editorPick, listingWarnings } = await import('./stages/products.ts');
+      const { loadRegistry } = await import('./stages/discover.ts');
       const p = editorPick({ url, kind, brand, label: name.join(' ') });
       console.log(`produto do editor: ${p.label} (${p.asin}, ${p.kind})`);
+      const known = [...loadProducts().map((x) => x.brand), ...loadRegistry().allow.filter((a) => a.source_class === 'manufacturer').map((a) => a.publisher)];
+      for (const w of listingWarnings(url, brand, known)) console.log(`⚠ atenção: ${w}`);
       return 0;
     }
     case 'product-recheck': {

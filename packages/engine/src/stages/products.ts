@@ -492,3 +492,23 @@ export function editorRecheck(asin: string, now = new Date()): Product {
   writeJson(join(PRODUCTS_DIR, `${asin}.json`), up);
   return up;
 }
+
+// Aviso ao editor ao cadastrar (22/10: um anúncio da Namoat usava "Cadeira Flexform" no título como isca de
+// busca). Só o endereço é lido, a Amazon bloqueia a página: título que cita outra marca conhecida, ou que não
+// cita a marca informada, pede conferir o campo "Marca" do anúncio. Não impede o cadastro.
+export function listingWarnings(url: string, brand: string, knownBrands: string[]): string[] {
+  let slug = '';
+  try {
+    slug = decodeURIComponent(new URL(url).pathname.split('/dp/')[0] ?? '').replace(/[-/]+/g, ' ').toLowerCase();
+  } catch {
+    return [];
+  }
+  if (!slug.trim()) return [];
+  const norm = (t: string) => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const s = norm(slug);
+  const out: string[] = [];
+  const others = [...new Set(knownBrands)].filter((b) => norm(b) !== norm(brand) && b.length >= 3 && new RegExp(`\\b${norm(b).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(s));
+  if (others.length) out.push(`o título do anúncio cita ${others.join(', ')}: confira o campo "Marca" no anúncio (revendedor às vezes usa nome de marca como palavra-chave)`);
+  if (!s.includes(norm(brand))) out.push(`o título do anúncio não cita ${brand}: confira o campo "Marca" no anúncio`);
+  return out;
+}
