@@ -36,5 +36,7 @@ describe('padrão da ilustração de anúncio', () => {
     const prods = ['B01', 'B02', 'B03'].map((asin) => ({ asin, kind: 'cadeira', brand: 'X', label: 'X Cadeira' }));
     const w = wantedImages(root, [], [], prods).map((x) => /Cena: ([^.]+)\./.exec(x.subject)![1]);
     expect(new Set(w).size).toBe(3);
+    const bed = wantedImages(root, [], [], [{ asin: 'B09', kind: 'espuma', brand: 'X', label: 'X Colchão' }])[0]!.subject;
+    expect(bed).toMatch(/Cena: [^.]*bedroom/);
   });
 });

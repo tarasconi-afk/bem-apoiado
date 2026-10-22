@@ -118,22 +118,35 @@ export interface Wanted {
 // Padrão da ilustração de anúncio (aprovado pelo editor em 22/10 nas 5 cadeiras): UM produto genérico do tipo,
 // com a cor e o material que o anúncio descreve, num cômodo e num ângulo próprios, sem marca nem modelo
 // reconhecível. A luz e a paleta da casa (HOUSE_STYLE) entram depois, iguais para todas.
-export const PRODUCT_SCENES = [
-  'calm home office corner beside a light oak desk',
-  'bright minimalist room with a light rug and a tall window',
-  'cozy study with wooden shelves and a desk lamp',
-  'white desk by a large window with green plants',
-  'compact home office corner with a light grey wall and a small bookshelf',
-  'airy bedroom with linen curtains and a wooden nightstand',
-  'sunlit living room corner with a woven basket and a ceramic vase',
-  'quiet reading nook with a sage-green wall and a floor lamp',
-];
+// Cômodo por família de produto (22/10: colchão ao lado de mesa de escritório e travesseiro no chão da sala
+// destoavam): o que é de dormir fica no quarto, o que é de trabalho fica no home office.
+export const OFFICE_KINDS = ['cadeira', 'mesa', 'suporte_notebook'];
+export const PRODUCT_SCENES: Record<'sleep' | 'office', string[]> = {
+  office: [
+    'calm home office corner beside a light oak desk',
+    'bright minimalist home office with a light rug and a tall window',
+    'cozy study with wooden shelves and a desk lamp',
+    'white desk by a large window with green plants',
+    'compact home office corner with a light grey wall and a small bookshelf',
+    'quiet work nook with a sage-green wall and a floor lamp',
+  ],
+  sleep: [
+    'airy bedroom with linen curtains and a wooden nightstand',
+    'bright bedroom with a tall window and green plants by the wall',
+    'calm bedroom with a sage-green wall and a woven rug',
+    'cozy bedroom with a light oak headboard area and a reading lamp',
+    'minimalist bedroom with white walls and a ceramic vase on the nightstand',
+    'warm bedroom corner with a wooden bench and a folded throw',
+  ],
+};
+export const sceneFamily = (kind: string): 'sleep' | 'office' => (OFFICE_KINDS.includes(kind) ? 'office' : 'sleep');
 export const PRODUCT_VIEWS = ['three-quarter view', 'side view', 'front three-quarter view', 'rear three-quarter view'];
 export function productSubject(kindLabel: string, label: string, brand: string, scene: string, view: string): string {
   const desc = label.replace(new RegExp(brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '').replace(/\s+/g, ' ').trim();
   return (
     `ilustração de anúncio: UM único ${kindLabel} genérico com o formato, a cor e o material descritos em "${desc}" ` +
-    `(ignore nomes de modelo e de marca). Cena: ${scene}. Enquadramento: ${view}, o produto inteiro e em destaque. ` +
+    `(ignore nomes de modelo e de marca). Cena: ${scene}. Enquadramento: ${view}, o produto inteiro e em destaque, no lugar onde é usado ` +
+    `(colchão e base de cama montados no quarto; travesseiro sobre a cama arrumada; cadeira junto à mesa). ` +
     `Termine o prompt com "Generic design, no recognizable model." O alt começa com "Ilustração: " e descreve tipo, cor e material.`
   );
 }
@@ -157,7 +170,7 @@ export function wantedImages(
     // Cena e ângulo em rodízio dentro do mesmo tipo: dois anúncios de cadeira nunca caem no mesmo cômodo.
     const sameKind = products.filter((x) => x.kind === p.kind).map((x) => x.asin).sort();
     const i = sameKind.indexOf(p.asin) + [...p.kind].reduce((t, c) => t + c.charCodeAt(0), 0);
-    out.push({ id: `produto-${p.asin.toLowerCase()}`, subject: productSubject(kindLabel.get(p.kind) ?? p.kind, p.label, p.brand, PRODUCT_SCENES[i % PRODUCT_SCENES.length]!, PRODUCT_VIEWS[i % PRODUCT_VIEWS.length]!) });
+    out.push({ id: `produto-${p.asin.toLowerCase()}`, subject: productSubject(kindLabel.get(p.kind) ?? p.kind, p.label, p.brand, PRODUCT_SCENES[sceneFamily(p.kind)][i % PRODUCT_SCENES[sceneFamily(p.kind)].length]!, PRODUCT_VIEWS[i % PRODUCT_VIEWS.length]!) });
   }
   return out;
 }
