@@ -82,7 +82,7 @@ export function styleIssues(draft: Draft): Issue[] {
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
   // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.
   const last = draft.sections.at(-1);
-  if (!last || !/decidir|escolher|antes de comprar|na pr[aá]tica|o que (verificar|conferir)/i.test(last.heading)) out.push({ ref: null, msg: 'a última seção tem de ser "Como decidir", com 2 a 4 orientações condicionais ("se você..., ...") sustentadas pelas evidências.' });
+  if (!last || !/decidir|escolh|antes de comprar|na pr[aá]tica|o que (verificar|conferir)/i.test(last.heading)) out.push({ ref: null, msg: 'a última seção tem de ser "Como decidir", com 2 a 4 orientações condicionais ("se você..., ...") sustentadas pelas evidências.' });
   if (draft.sections.length < 3) out.push({ ref: null, msg: 'a página ficou com menos de 3 seções.' });
   return out;
 }
