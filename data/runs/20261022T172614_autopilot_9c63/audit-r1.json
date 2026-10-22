@@ -1,0 +1,142 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram que modelos específicos têm regulagem, faixa de altura, capacidade de carga e mecanismo eletrônico, mas não sustentam a generalização sobre todas as mesas reguláveis nem a recomendação de que, ao avaliar qualquer modelo, se deve conferir necessariamente esses três itens. A compatibilidade da altura com a atividade e o assento é sustentada pelo trecho do regulador.",
+      "fix": "Nos modelos citados, as fichas informam a faixa de regulagem, a capacidade de carga e o mecanismo; além disso, a altura e as características da superfície devem ser compatíveis com o tipo de atividade e com a altura do assento."
+    },
+    {
+      "ref": "altura-regulagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-regulagem#1.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos confirmam apenas que os quatro modelos têm faixa de 72 a 116 cm. Não sustentam que essa faixa seja adequada ou cubra pessoas de até 1,60 m, nem a relação com a estatura.",
+      "fix": "Para os modelos listados, os fabricantes declaram regulagem de 72 a 116 cm; verifique a adequação da faixa ao seu uso e à sua estatura conforme o modelo."
+    },
+    {
+      "ref": "altura-regulagem#1.r1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a faixa de 72 a 116 cm e, por cálculo, o intervalo de 44 cm, mas não dizem que essa faixa é recomendada para pessoas de 1,60 m a 1,80 m.",
+      "fix": "Os modelos listados têm, segundo os fabricantes, regulagem de 72 a 116 cm, uma faixa de 44 cm; verifique se ela atende à sua estatura."
+    },
+    {
+      "ref": "altura-regulagem#1.r2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que os dois modelos têm regulagem de 72 a 116 cm, mas não estabelecem que, para pessoas acima de 1,80 m, seja necessário verificar se a faixa máxima atende.",
+      "fix": "Para pessoas acima de 1,80 m, verifique se a faixa declarada de 72 a 116 cm atende; os dois modelos citados têm essa faixa segundo os fabricantes."
+    },
+    {
+      "ref": "altura-regulagem#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta o limite de até 80 kg de carga, mas não diz que se trata de carga total nem orienta a verificar a ficha técnica do modelo.",
+      "fix": "A Flexform informa que a mesa suporta até 80 kg de carga."
+    },
+    {
+      "ref": "dimensoes-tampo#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-tampo#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "mecanismo-ajuste#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "mecanismo-ajuste#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco de framing não apenas introduz o conteúdo: ele recomenda verificar o tipo de mecanismo e a existência de posições memorizáveis nos modelos, fazendo afirmações sobre produtos sem qualquer trecho citado.",
+      "fix": "Consulte a ficha técnica do modelo escolhido."
+    },
+    {
+      "ref": "garantia-incluso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-incluso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados comprovam a faixa de regulagem de dois modelos, mas não dizem que ela deve ser comparada com as alturas necessárias dos usuários nem fundamentam especificamente o caso de uma mesa compartilhada.",
+      "fix": "Confira na ficha técnica a faixa de regulagem do modelo; nos modelos citados, ela é de 72 a 116 cm."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos mostram que modelos específicos têm regulagem, faixa de altura, capacidade de carga e mecanismo eletrônico, mas não sustentam a generalização sobre todas as mesas reguláveis nem a recomendação de que, ao avaliar qualquer modelo, se deve conferir necessariamente esses três itens. A compatibilidade da altura com a atividade e o assento é sustentada pelo trecho do regulador. Versão sustentável: Nos modelos citados, as fichas informam a faixa de regulagem, a capacidade de carga e o mecanismo; além disso, a altura e as características da superfície devem ser compatíveis com o tipo de atividade e com a altura do assento."
+    },
+    {
+      "ref": "altura-regulagem#1.r0",
+      "msg": "UNSUPPORTED. Os trechos confirmam apenas que os quatro modelos têm faixa de 72 a 116 cm. Não sustentam que essa faixa seja adequada ou cubra pessoas de até 1,60 m, nem a relação com a estatura. Versão sustentável: Para os modelos listados, os fabricantes declaram regulagem de 72 a 116 cm; verifique a adequação da faixa ao seu uso e à sua estatura conforme o modelo."
+    },
+    {
+      "ref": "altura-regulagem#1.r1",
+      "msg": "OVERSTATED. Os trechos sustentam a faixa de 72 a 116 cm e, por cálculo, o intervalo de 44 cm, mas não dizem que essa faixa é recomendada para pessoas de 1,60 m a 1,80 m. Versão sustentável: Os modelos listados têm, segundo os fabricantes, regulagem de 72 a 116 cm, uma faixa de 44 cm; verifique se ela atende à sua estatura."
+    },
+    {
+      "ref": "altura-regulagem#1.r2",
+      "msg": "OVERSTATED. Os trechos sustentam que os dois modelos têm regulagem de 72 a 116 cm, mas não estabelecem que, para pessoas acima de 1,80 m, seja necessário verificar se a faixa máxima atende. Versão sustentável: Para pessoas acima de 1,80 m, verifique se a faixa declarada de 72 a 116 cm atende; os dois modelos citados têm essa faixa segundo os fabricantes."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "msg": "OVERSTATED. O trecho sustenta o limite de até 80 kg de carga, mas não diz que se trata de carga total nem orienta a verificar a ficha técnica do modelo. Versão sustentável: A Flexform informa que a mesa suporta até 80 kg de carga."
+    },
+    {
+      "ref": "mecanismo-ajuste#1",
+      "msg": "FACT_IN_FRAMING. O bloco de framing não apenas introduz o conteúdo: ele recomenda verificar o tipo de mecanismo e a existência de posições memorizáveis nos modelos, fazendo afirmações sobre produtos sem qualquer trecho citado. Versão sustentável: Consulte a ficha técnica do modelo escolhido."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos citados comprovam a faixa de regulagem de dois modelos, mas não dizem que ela deve ser comparada com as alturas necessárias dos usuários nem fundamentam especificamente o caso de uma mesa compartilhada. Versão sustentável: Confira na ficha técnica a faixa de regulagem do modelo; nos modelos citados, ela é de 72 a 116 cm."
+    }
+  ]
+}
