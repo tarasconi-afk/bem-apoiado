@@ -184,7 +184,7 @@ function pendingBranches(): { branch: string; subject: string; when: string; ste
   }
 }
 
-const stateBadge = (st?: string) => (st ? `<span class="b ${st === 'próxima' ? 'ok' : st === 'no ar' ? 'neutral' : st === 'esgotada' || st === 'falhou no planejamento' ? 'bad' : 'neutral'}">${esc(st)}</span>` : '');
+const stateBadge = (st?: string) => (st ? `<span class="b ${st === 'próxima' ? 'ok' : st === 'no ar' ? 'neutral' : st === 'esgotada' || st === 'falhou no planejamento' || st === 'faltam fabricantes' ? 'bad' : 'neutral'}">${esc(st)}</span>` : '');
 
 function queueItems(): string[] {
   const f = join(DATA, 'queue.json');

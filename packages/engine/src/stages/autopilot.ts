@@ -19,7 +19,7 @@ import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, 
 import { TopicBrief, type PageSpec, type Product } from '@bem-apoiado/core';
 import { findProductsFromAmazon } from './products.ts';
 import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
-import { discoverSources } from './discover.ts';
+import { discoverSources, loadRegistry, makersFor } from './discover.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
@@ -89,6 +89,28 @@ export interface CycleResult {
 
 export const slugOf = (q: string) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
 
+// Pauta de um tipo sem pelo menos 2 fabricantes cadastrados não anda (22/10: "mesa regulável vale a pena" saiu
+// só com Flexform achada em busca aberta e regras de teleatendimento; o juiz reprovou com razão). Tipos: os da
+// pauta, se já planejada; senão, os cujo nome aparece na dúvida ("mesa", "suporte", "colchão"...). Sem tipo
+// reconhecido, não bloqueia. O painel mostra "faltam fabricantes" para o editor aprovar domínios.
+export const MIN_MAKERS = 2;
+export function lacksMakers(query: string, topic?: TopicBrief): boolean {
+  try {
+    return lacksMakersOrThrow(query, topic);
+  } catch {
+    return false; // sem nicho ou cadastro legível (instalação nova, teste): não bloqueia
+  }
+}
+function lacksMakersOrThrow(query: string, topic?: TopicBrief): boolean {
+  const norm = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const kinds = topic?.product_kinds.length
+    ? topic.product_kinds
+    : loadNiche().product_kinds.filter((k) => k.id !== 'outro' && norm(query).includes(norm(k.label).split(' ')[0]!)).map((k) => k.id);
+  if (!kinds.length) return false;
+  const reg = loadRegistry();
+  return kinds.every((k) => new Set(makersFor([k], reg).map((m) => m.publisher)).size < MIN_MAKERS);
+}
+
 // Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas.
 export function nextQuery(): string | null {
   const path = join(DATA, 'queue.json');
@@ -106,13 +128,14 @@ export function nextQuery(): string | null {
     if (approved.has(slug) || pending.has(slug)) continue;
     const t = topics.get(slug);
     if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) continue;
+    if (lacksMakers(item.query, t)) continue;
     return item.query;
   }
   return null;
 }
 
 // Situação de cada pauta da fila, pela mesma regra do nextQuery (para o painel mostrar o que anda e o que não).
-export type QueueState = 'no ar' | 'rascunho' | 'esperando você' | 'esgotada' | 'falhou no planejamento' | 'próxima' | 'na fila';
+export type QueueState = 'no ar' | 'rascunho' | 'esperando você' | 'esgotada' | 'falhou no planejamento' | 'faltam fabricantes' | 'próxima' | 'na fila';
 export function queueStatus(pendingSlugs: Set<string>): { query: string; state: QueueState }[] {
   const path = join(DATA, 'queue.json');
   if (!existsSync(path)) return [];
@@ -130,6 +153,7 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     else if (pendingSlugs.has(slug)) state = 'esperando você';
     else if ((planFails[item.query] ?? 0) >= 2) state = 'falhou no planejamento';
     else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) state = page ? 'rascunho' : 'esgotada';
+    else if (lacksMakers(item.query, t)) state = 'faltam fabricantes';
     else if (!next) { state = 'próxima'; next = true; }
     else state = 'na fila';
     return { query: item.query, state };

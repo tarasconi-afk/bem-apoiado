@@ -26,3 +26,22 @@ describe('nextQuery', () => {
     delete process.env.BEM_PENDING_SLUGS;
   });
 });
+
+describe('pauta sem fabricantes cadastrados', () => {
+  it('tipo com menos de 2 fabricantes não anda; sem tipo reconhecido não bloqueia', async () => {
+    const { mkdirSync, writeFileSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const root = process.env.BEM_ROOT!;
+    mkdirSync(join(root, 'data/registry'), { recursive: true });
+    writeFileSync(join(root, 'data/registry/domains.json'), JSON.stringify({ allow: [
+      { host: 'a.com.br', publisher: 'A', source_class: 'manufacturer', kinds: ['cadeira'] },
+      { host: 'b.com.br', publisher: 'B', source_class: 'manufacturer', kinds: ['cadeira'] },
+      { host: 'c.com.br', publisher: 'C', source_class: 'manufacturer', kinds: ['mesa'] },
+    ], block: [] }));
+    const { lacksMakers } = await import('../src/stages/autopilot.ts');
+    const topic = (kinds: string[]) => ({ product_kinds: kinds }) as never;
+    expect(lacksMakers('x', topic(['mesa']))).toBe(true);
+    expect(lacksMakers('x', topic(['cadeira']))).toBe(false);
+    expect(lacksMakers('x', topic(['mesa', 'cadeira']))).toBe(false);
+  });
+});
