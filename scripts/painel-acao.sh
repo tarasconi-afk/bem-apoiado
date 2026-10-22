@@ -15,6 +15,8 @@
 #   painel-acao.sh mesclar <ramo pagina/...> [ids]  # aceita o resultado; ids = itens desmarcados (não entram)
 #   painel-acao.sh descartar <ramo pagina/...> # apaga o ramo; a pauta volta para a fila
 set -euo pipefail
+# Sempre a cópia de trabalho: o painel roda com BEM_ROOT apontando para a cópia só de leitura.
+unset BEM_ROOT
 REPO=/opt/bem-apoiado/repo
 PREVIEW=/var/www/bem-apoiado
 export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes"

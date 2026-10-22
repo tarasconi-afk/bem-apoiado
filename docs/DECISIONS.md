@@ -553,3 +553,10 @@ Painel: o resultado do ciclo vem em blocos: (1) mudanças no site agrupadas por 
 (resumo reescrito pela trava, re-auditoria, links internos, buscas na Amazon, capa nova), (2) página nova
 tentada, com o desfecho, a sugestão da revisão e os botões de ajuste daquele rascunho (antes pareciam valer
 para as melhorias), aprendizado e detalhes técnicos recolhidos; custo do ciclo no topo.
+
+## 2026-10-21 — Correção: ações herdavam a cópia só de leitura do painel
+Com o painel lendo /opt/bem-apoiado/view (BEM_ROOT), as ações disparadas por ele herdavam o BEM_ROOT: aplicar,
+ajustar e montar a prévia liam os dados da cópia atrasada (a prévia saiu sem o rascunho "colchão firme ou
+macio"; um ajuste gravaria na cópia errada). Desativado na VPS na hora e prévia refeita. Agora o painel passa
+BEM_ROOT=cópia de trabalho às ações e painel-acao.sh/cycle.sh fazem unset BEM_ROOT. Reativar o painel na cópia
+só de leitura depois deste envio.

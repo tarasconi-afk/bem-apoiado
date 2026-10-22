@@ -2,6 +2,8 @@
 # Um ciclo do piloto automático na VPS (usuário bemapoiado). O git é operado AQUI, por código;
 # o LLM nunca executa git. Resultado vai para um ramo pagina/* e o Action abre o PR.
 set -euo pipefail
+# Sempre a cópia de trabalho: o painel roda com BEM_ROOT apontando para a cópia só de leitura.
+unset BEM_ROOT
 REPO=/opt/bem-apoiado/repo
 export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes"
 exec 9>/var/lib/bem-apoiado/cycle.lock

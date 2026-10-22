@@ -126,7 +126,9 @@ function run(job: Job): void {
   job.queued = false;
   job.ran_at = new Date().toISOString();
   saveJobs();
-  const p = spawn('bash', [SCRIPT, ...job.args], { cwd: REPO, stdio: ['ignore', 'pipe', 'pipe'] });
+  // A ação trabalha na cópia de trabalho: o BEM_ROOT do painel (cópia só de leitura) não pode vazar para ela
+  // (21/10: aplicar/prévia leram a cópia atrasada e a prévia saiu sem o rascunho novo).
+  const p = spawn('bash', [SCRIPT, ...job.args], { cwd: REPO, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, BEM_ROOT: REPO } });
   const add = (b: Buffer) => { job.output = (job.output + b.toString()).slice(-4000); };
   p.stdout.on('data', add);
   p.stderr.on('data', add);
