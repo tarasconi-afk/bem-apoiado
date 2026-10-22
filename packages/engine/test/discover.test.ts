@@ -98,5 +98,9 @@ describe('ordem dos fabricantes', () => {
     const makers = [m('Flexform', 'flexform.com.br'), m('Frisokar', 'frisokar.com.br'), m('Funcional', 'funcional.com.br'), m('XT Racer', 'xtracer.com.br'), m('ThunderX3', 'thunderx3.com.br')];
     const out = orderMakers(makers, { named: 'Pesquise na XT Racer e na ThunderX3', withEvidence: new Set(['Flexform']), tried: new Set(['frisokar.com.br']) });
     expect(out.map((x) => x.publisher)).toEqual(['XT Racer', 'ThunderX3', 'Funcional', 'Frisokar', 'Flexform']);
+    // citar a marca que já é fonte não a põe na frente
+    const again = orderMakers(makers, { named: 'usa quase só a Flexform; pesquise na XT Racer', withEvidence: new Set(['Flexform']), tried: new Set() });
+    expect(again[0]!.publisher).toBe('XT Racer');
+    expect(again.at(-1)!.publisher).toBe('Flexform');
   });
 });

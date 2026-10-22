@@ -186,7 +186,9 @@ export async function discoverSources(
   const perPublisher = new Map<string, number>();
   const chosen = [...candidates.values()]
     // Classe da fonte primeiro; dentro dela, o que o histórico mostrou que rende (yield) pesa junto do score da busca.
-    .sort((a, b) => weight[b.source_class]! - weight[a.source_class]! || rank(b) - rank(a))
+    // Na mesma classe, marca que a pauta ainda não tem vem antes: em 22/10 uma ficha da XT Racer passou na
+    // triagem (0,98) e perdeu a vaga para a 4ª página da Flexform, e a cadeira seguiu com uma marca só.
+    .sort((a, b) => weight[b.source_class]! - weight[a.source_class]! || Number(withEvidence.has(a.publisher)) - Number(withEvidence.has(b.publisher)) || rank(b) - rank(a))
     .filter((c) => {
       const n = perPublisher.get(c.publisher) ?? 0;
       if (n >= 4) return false;
@@ -241,7 +243,9 @@ const NOISE = /(\.(ac|al|am|ap|ba|ce|df|es|go|ma|mg|ms|mt|pa|pb|pe|pi|pr|rj|rn|r
 export function orderMakers<M extends { host: string; publisher: string }>(makers: M[], o: { named: string; withEvidence: Set<string>; tried: Set<string> }): M[] {
   const text = o.named.toLowerCase();
   const rank = (m: M) =>
-    text.includes(m.publisher.toLowerCase()) || text.includes(m.host.split('.')[0]!) ? 0 : o.withEvidence.has(m.publisher) ? 3 : o.tried.has(m.host) ? 2 : 1;
+    // Marca que já é fonte não sobe por ser citada: em 22/10 o pedido dizia "usa quase só a Flexform" e a
+    // Flexform ganhou a primeira busca de novo.
+    o.withEvidence.has(m.publisher) ? 3 : text.includes(m.publisher.toLowerCase()) || text.includes(m.host.split('.')[0]!) ? 0 : o.tried.has(m.host) ? 2 : 1;
   return makers.map((m, i) => ({ m, i })).sort((a, b) => rank(a.m) - rank(b.m) || a.i - b.i).map((x) => x.m);
 }
 
