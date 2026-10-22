@@ -46,12 +46,6 @@
       "heading": "Medidas declaradas por cada fabricante",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Confira a ficha técnica do modelo que você quer comprar.",
-          "basis": "framing",
-          "claim_ids": []
-        },
-        {
           "kind": "table",
           "caption": "Medidas de largura e comprimento (em cm) por tamanho e fabricante",
           "columns": [
@@ -234,19 +228,27 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Confira na ficha a largura, o comprimento e a altura do colchão.",
+          "text": "Confira na ficha técnica a largura, o comprimento e a altura do colchão. As medidas variam conforme o fabricante, então verifique os dados específicos do modelo que vai comprar.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_9e7f1503f57c"
+            "clm_9e7f1503f57c",
+            "clm_cf4273458349"
           ]
         },
         {
           "kind": "callout",
           "tone": "info",
-          "text": "Se você vai comprar uma cama junto, meça o espaço considerando que a estrutura pode ocupar alguns centímetros a mais que o colchão, conforme o fabricante e o modelo.",
+          "text": "Medidas de largura e comprimento (em cm) por tamanho e fabricante",
           "basis": "evidence",
           "claim_ids": [
-            "clm_cf4273458349"
+            "clm_34c96754c13d",
+            "clm_55c366870be1",
+            "clm_0222495f509f",
+            "clm_4e9380063582",
+            "clm_404e8e613a70",
+            "clm_8cd2a9b4b397",
+            "clm_7d2040729fa7",
+            "clm_92840396526a"
           ]
         }
       ]
@@ -254,17 +256,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T191123_autopilot_1f27+edit:20261022T191123_autopilot_1f27",
+    "run_id": "20261022T191123_autopilot_1f27+edit:20261022T191123_autopilot_1f27+editor:20261022T195455_guia-de-tamanhos-de-colchao-ajuste_cfd7",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.07142857142857142,
       "criteria": 8,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
