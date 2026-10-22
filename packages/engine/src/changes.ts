@@ -43,8 +43,20 @@ export function textDiffs(before: PageSpec, after: PageSpec): { where: string; b
   const a = blockTexts(before);
   const b = blockTexts(after);
   const out: { where: string; before: string; after: string }[] = [];
-  for (const [k, v] of b) if (a.get(k)?.text !== v.text) out.push({ where: v.where, before: a.get(k)?.text ?? '(novo)', after: v.text });
-  for (const [k, v] of a) if (!b.has(k)) out.push({ where: v.where, before: v.text, after: '(removido)' });
+  // Bloco ou tabela que só mudou de lugar: "movido", não "removido" + "novo" (22/10: mover a tabela de tamanhos
+  // para o Como decidir aparecia como 6 trechos alterados).
+  const posOf = (m: typeof a, text: string) => [...m].find(([, v]) => v.text === text)?.[0];
+  const moved = new Set<string>();
+  for (const [k, v] of b) {
+    const from = posOf(a, v.text);
+    if (from && from !== k && !['title', 'description', 'verdict'].includes(k)) {
+      const sec = (key: string, m: typeof a) => m.get(key)!.where.split(' · ')[0];
+      if (sec(from, a) !== sec(k, b)) out.push({ where: v.where.includes('· tabela') ? 'Tabela movida' : 'Bloco movido', before: `em "${sec(from, a)}"`, after: `em "${sec(k, b)}"` });
+      moved.add(v.text);
+    }
+  }
+  for (const [k, v] of b) if (a.get(k)?.text !== v.text && !moved.has(v.text)) out.push({ where: v.where, before: a.get(k)?.text ?? '(novo)', after: v.text });
+  for (const [k, v] of a) if (!b.has(k) && ![...b.values()].some((x) => x.text === v.text)) out.push({ where: v.where, before: v.text, after: '(removido)' });
   return out;
 }
 

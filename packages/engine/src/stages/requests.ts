@@ -9,6 +9,7 @@ import { withoutDuplicates } from './duplicates.ts';
 import { applyMoves, dropClaimless } from './structure.ts';
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
+import { textDiffs } from '../changes.ts';
 import { research } from './research.ts';
 import { applyPatches } from './patch.ts';
 import { join } from 'node:path';
@@ -232,6 +233,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     const g0 = checkPage(spec0, idx);
     if (g0.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${g0.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
     writeJson(join(PAGES_DIR, `${slug}.json`), spec0);
+    recordAdjust(runId, instruction, page, spec0);
     return `${lessonNote}página reorganizada em ${slug}${moveNote}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}${unsupportedNote}`;
   }
   // Pedido sobre o resumo como um todo: a resposta curta e o "Como decidir" são reescritos do zero (o
@@ -298,6 +300,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   if (gate2.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate2.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
   const saved = PageSpec.parse({ ...final, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } });
   writeJson(join(PAGES_DIR, `${slug}.json`), saved);
+  recordAdjust(runId, instruction, page, saved);
   // Revisão de leitor da versão ajustada (antes ela só existia na criação da página): o cartão do painel
   // mostra as 4 perguntas da página como ficou (22/10: a resposta curta da cadeira deixou de responder ao
   // título depois de um ajuste e ninguém viu). Falha aqui não desfaz o ajuste.
@@ -317,6 +320,14 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     (cl.dropped.length ? `; ${cl.dropped.length} bloco(s) sem fonte descartado(s)` : '') +
     unsupportedNote +
     reviewNote;
+}
+
+// Antes × depois de cada ajuste, com o pedido, nos registros da execução (vai no commit): o painel mostra em
+// qualquer cartão da página, inclusive rascunho e página nova, onde a comparação com o site não diz o que o
+// pedido mudou (22/10, pedido do editor: "ajuda a visualizar a melhora").
+export const ADJUST_DIFF_STAGE = 'adjust-diff';
+function recordAdjust(runId: string, instruction: string, before: PageSpec, after: PageSpec): void {
+  writeStage(runId, ADJUST_DIFF_STAGE, { at: new Date().toISOString(), instruction: instruction.slice(0, 600), diffs: textDiffs(before, after) });
 }
 
 function freshList(ids: Set<string>, idx: ReturnType<typeof buildIndex>): string {

@@ -65,3 +65,16 @@ describe('mudanças de um resultado do motor', () => {
     expect(plainOutcome(['page: NOT_PUBLISHABLE'])).toMatch(/rascunho/);
   });
 });
+
+describe('antes × depois reconhece bloco movido', () => {
+  it('tabela que mudou de seção aparece como movida, não como removida e nova', async () => {
+    const { textDiffs } = await import('../src/changes.ts');
+    const tab = { kind: 'table', caption: 'Medidas', columns: ['a'], rows: [{ cells: [{ text: '88 × 188', claim_ids: ['c'] }] }] };
+    const txt = (text: string) => ({ kind: 'paragraph', text, basis: 'evidence', claim_ids: ['c'] });
+    const pg = (sections: unknown[]) => ({ title: 't', description: 'd', verdict: { text: 'v', basis: 'evidence', claim_ids: ['c'] }, sections }) as never;
+    const before = pg([{ id: 'medidas', heading: 'Medidas', blocks: [txt('A'), tab] }, { id: 'decidir', heading: 'Como decidir', blocks: [txt('B')] }]);
+    const after = pg([{ id: 'medidas', heading: 'Medidas', blocks: [txt('A')] }, { id: 'decidir', heading: 'Como decidir', blocks: [txt('B'), tab] }]);
+    const d = textDiffs(before, after);
+    expect(d).toEqual([{ where: 'Tabela movida', before: 'em "Medidas"', after: 'em "Como decidir"' }]);
+  });
+});

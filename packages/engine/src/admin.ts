@@ -308,8 +308,9 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
 ${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${failedNote(slug)}
 <div class="block"><p class="block-title">1. Mudanças no site para você decidir (${items.length})</p><p class="muted">Desmarque o que não quiser. O resto entra no site depois dos testes.</p>${groupHtml}</div>
 ${forceBox(slug)}<button class="ok">Aplicar marcados</button></form>` : '<p class="muted">Nada muda no site: o aprendizado entra sozinho em até 5 min, depois dos testes e do build.</p>'}
+${!query ? adjustDiffsHtml(readBranch(b.branch), slug) : ''}
 ${query ? `<div class="block"><p class="block-title">${items.length ? '2. ' : ''}Página nova tentada: "${esc(query)}"</p><p>${esc(outcome ?? b.subject)}${draftNew ? '. Ela entra como rascunho junto com este resultado (não vai ao ar) e passa a aparecer em "Páginas: seu veredito", onde você pode pedir ajuste ou aprovar.' : ''}</p>
-${suggestionHtml(review)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever o rascunho? ~10 a 20 créditos; você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou neste rascunho (com pesquisa)</button></form>` : ''}${adjustForm(b.branch, slug)}</div>` : ''}
+${suggestionHtml(review)}${adjustDiffsHtml(readBranch(b.branch), slug)}${review?.review.missing.length ? `<form method="post" action="acao" class="verdict adjust" onsubmit="return confirm('Pesquisar fontes para o que faltou e reescrever o rascunho? ~10 a 20 créditos; você decide depois.')"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(b.branch)}"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="pesquisar" value="1"><input type="hidden" name="pedido" value="${esc(('Complete o que a revisão disse que faltou, só com o que as fontes sustentarem: ' + review.review.missing.join(' | ')).slice(0, 600))}"><button>Completar o que faltou neste rascunho (com pesquisa)</button></form>` : ''}${adjustForm(b.branch, slug)}</div>` : ''}
 <details><summary class="muted">o que o motor também guardou (não aparece no site)</summary><p class="muted">${esc(learning.join('; ') || 'registros do ciclo')}.</p></details>
 <details><summary class="muted">detalhes técnicos</summary><ul class="muted">${b.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="muted" href="${REPO_URL}/compare/main...${esc(b.branch)}" target="_blank" rel="noopener">diferenças no GitHub</a></details>
 <div class="actions">${form('descartar', { ramo: b.branch }, 'Descartar tudo', 'bad', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}</div>
@@ -352,7 +353,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   return `<h2>Páginas: seu veredito ${waiting.length ? `<span class="b neutral">${waiting.length} aguardando</span>` : ''}</h2>
 ${waiting.length ? `<p class="muted">Leia na <a href="${PREVIEW}/" target="_blank" rel="noopener">prévia</a>. Aprovar publica; recusar volta ao motor com o motivo como instrução. Cada veredito calibra a revisão automática.</p>
 <p class="muted">Ao pedir ajuste: para mover uma tabela, cite o título dela ("mova a tabela 'Medidas por tamanho' para o Como decidir"), sem colar o conteúdo. A última linha da resposta diz o que não foi feito por falta de fonte. Motivo concreto na recusa vira lição para todas as páginas.</p>
-<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}${failedNote(p.slug)}${suggestionHtml(reviewFrom(readMain, p.slug))}</td><td>${box(p, true, 'Recusar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
+<div class="tw"><table><tbody>${waiting.map((p) => `<tr data-pending><td>${link(p)}${failedNote(p.slug)}${suggestionHtml(reviewFrom(readMain, p.slug))}${adjustDiffsHtml(readMain, p.slug)}</td><td>${box(p, true, 'Recusar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nada aguardando o seu veredito.</p>'}
 ${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor vai tentar de novo: ${rejected.map((p) => `${link(p)} <span class="muted">("${esc(lastFor(p)!.reason.slice(0, 80))}")</span>`).join(' · ')}</p>` : ''}
 <details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}<br>${editLink(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
@@ -520,6 +521,26 @@ const readBranch = (branch: string) => (path: string) => {
     return null;
   }
 };
+// Antes × depois de cada ajuste pedido para a página (data/runs/<execução>/adjust-diff.json), do mais novo para
+// o mais antigo: vale para rascunho, página nova e página no ar (22/10, editor: "ajuda a visualizar a melhora").
+function adjustDiffsHtml(read: (path: string) => string | null, slug: string): string {
+  try {
+    const page = JSON.parse(read(`data/pages/${slug}.json`) ?? 'null');
+    if (!page) return '';
+    const runs = String(page.provenance.run_id).split('+').filter((x: string) => x.startsWith('editor:')).map((x: string) => x.slice(7)).reverse();
+    const recs = runs
+      .map((r: string) => JSON.parse(read(`data/runs/${r}/adjust-diff.json`) ?? 'null') as { instruction: string; diffs: { where: string; before: string; after: string }[] } | null)
+      .filter((x): x is NonNullable<typeof x> => !!x && x.diffs.length > 0)
+      .slice(0, 3);
+    if (!recs.length) return '';
+    return `<details class="sug"><summary class="muted">antes → depois dos seus ajustes (${recs.length})</summary>${recs
+      .map((x) => `<p class="muted"><strong>Pedido:</strong> ${esc(x.instruction.slice(0, 240))}</p>${x.diffs.slice(0, 10).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before.slice(0, 600))}</del><ins>${esc(d.after.slice(0, 600))}</ins></div>`).join('')}`)
+      .join('')}</details>`;
+  } catch {
+    return '';
+  }
+}
+
 function suggestionHtml(x: { review: FullReview; writer: string } | null): string {
   if (!x) return '';
   const r = x.review;
