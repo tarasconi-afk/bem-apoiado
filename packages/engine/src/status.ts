@@ -76,7 +76,10 @@ function cycleLiveHtml(now: Date): string {
   if (!c) return '';
   const mins = (iso?: string) => (iso ? Math.max(0, Math.round((now.getTime() - Date.parse(iso)) / 60000)) : 0);
   const STAGE: Record<string, string> = { discover: 'procurando fontes', research: 'lendo fontes e extraindo trechos', audit: 'auditando', write: 'escrevendo', trim: 'cortando enchimento', page: 'revisão editorial', edit: 'edição final', escalation: 'segunda tentativa com o Sonnet', salvage: 'salvando a página', 'refresh-products': 'renovando produtos' };
-  const stage = c.stage ? (STAGE[c.stage.replace(/-r\d+$/, '').replace(/^reaudit-.*/, 'audit')] ?? c.stage) + (/-r(\d+)$/.exec(c.stage) ? ` (rodada ${Number(/-r(\d+)$/.exec(c.stage)![1]) + 1})` : '') : 'começando';
+  // Diz o que e de qual página: "re-auditando <página> (rodada 3)"; a última etapa concluída mostra a pauta da vez.
+  const round = c.stage && /-r(\d+)$/.exec(c.stage) ? ` (rodada ${Number(/-r(\d+)$/.exec(c.stage)![1]) + 1})` : '';
+  const reaudit = c.stage ? /^reaudit-(.+?)(-r\d+)?$/.exec(c.stage) : null;
+  const stage = !c.stage ? 'começando' : reaudit ? `re-auditando ${reaudit[1]}${round}` : (STAGE[c.stage.replace(/-r\d+$/, '')] ?? c.stage) + round;
   const last = (c.steps ?? []).slice(-3).map((s) => `<li>${esc(s)}</li>`).join('');
   if (c.state === 'rodando' && mins(c.updated) < 90) return `<div class="flash" style="border-color:var(--ok)"><strong>Ciclo em andamento</strong> há ${mins(c.started)} min · agora: ${esc(stage)} <span class="muted">(última atividade há ${mins(c.updated)} min)</span>${last ? `<ul class="muted">${last}</ul>` : ''}</div>`;
   const log = existsSync(join(STATE_DIR, 'cycle-last.log')) ? readFileSync(join(STATE_DIR, 'cycle-last.log'), 'utf8') : '';
