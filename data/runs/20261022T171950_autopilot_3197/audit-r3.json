@@ -1,0 +1,144 @@
+{
+  "findings": [
+    {
+      "ref": "densidade-por-peso#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#1.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#1.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#1.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-versus-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-versus-firmeza#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos-multiplas-camadas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos-multiplas-camadas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As faixas de densidade por peso são apresentadas como uma regra geral de escolha, mas o trecho citado é uma recomendação da Castor, fonte fabricante. O trecho do Inmetro sustenta apenas que a densidade nominal deve constar nas informações do produto e da embalagem.",
+      "fix": "Segundo a Castor, recomenda-se: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior. O Inmetro exige que a densidade nominal da espuma conste entre as informações obrigatórias do produto e da embalagem."
+    },
+    {
+      "ref": "densidade-defini-o#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-por-peso#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora marcado como framing, afirma um fato sobre a Castor e suas recomendações, mas não há nenhum trecho citado que o sustente.",
+      "fix": "A seguir, veja informações sobre densidade e peso nas fontes citadas."
+    },
+    {
+      "ref": "densidade-versus-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos-multiplas-camadas#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-molas-numero-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a informação das densidades nominais e das espessuras respectivas das lâminas em colchões compostos ou mistos, mas não mencionam uma “ficha” nem dizem que a verificação deve ser feita nela ou na embalagem.",
+      "fix": "Em um colchão misto, verifique se estão informadas as densidades nominais das lâminas de espuma e as respectivas espessuras."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As faixas de densidade por peso são apresentadas como uma regra geral de escolha, mas o trecho citado é uma recomendação da Castor, fonte fabricante. O trecho do Inmetro sustenta apenas que a densidade nominal deve constar nas informações do produto e da embalagem. Versão sustentável: Segundo a Castor, recomenda-se: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior. O Inmetro exige que a densidade nominal da espuma conste entre as informações obrigatórias do produto e da embalagem."
+    },
+    {
+      "ref": "densidade-por-peso#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, afirma um fato sobre a Castor e suas recomendações, mas não há nenhum trecho citado que o sustente. Versão sustentável: A seguir, veja informações sobre densidade e peso nas fontes citadas."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a informação das densidades nominais e das espessuras respectivas das lâminas em colchões compostos ou mistos, mas não mencionam uma “ficha” nem dizem que a verificação deve ser feita nela ou na embalagem. Versão sustentável: Em um colchão misto, verifique se estão informadas as densidades nominais das lâminas de espuma e as respectivas espessuras."
+    }
+  ]
+}
