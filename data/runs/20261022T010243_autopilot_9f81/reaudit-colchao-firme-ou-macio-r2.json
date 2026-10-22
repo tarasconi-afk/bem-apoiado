@@ -1,0 +1,21 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A escolha entre colchão firme ou macio depende principalmente do seu peso, altura e preferência pessoal. Pessoas mais leves tendem a se sentir mais confortáveis em colchões macios, enquanto pessoas mais pesadas podem preferir colchões mais firmes, que oferecem maior suporte e resistência.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4ed8801cb674",
+        "clm_20ba50c38123",
+        "clm_2d4e69b2d392"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": null,
+      "msg": "a última seção tem de ser \"Como decidir\", com 2 a 4 orientações condicionais (\"se você..., ...\") sustentadas pelas evidências."
+    }
+  ]
+}

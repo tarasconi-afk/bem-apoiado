@@ -5,17 +5,15 @@
   "title": "Colchão de molas ou espuma: como decidir sem chutar",
   "description": "Como cada tipo é construído, o que muda para casais, o que a densidade (D) significa e o que o selo do Inmetro avalia (e o que não avalia).",
   "primary_query": "colchão de molas ou espuma",
-  "updated_at": "2026-10-21",
+  "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Depende de quem divide a cama e do que você prioriza. Fabricantes como Probel e Simmons afirmam que molas ensacadas individualmente reduzem a transferência de movimento entre os lados. Para espuma simples, a Ortobom orienta escolher a densidade pelo peso e pela altura de quem usa. A Simmons acrescenta que o conforto vem de toda a composição, não só do tipo. O Inmetro tem portarias distintas para cada tipo.",
-    "basis": "reasoning",
+    "text": "Considere colchões com molas ensacadas individualmente — incluindo os modelos superpocket mencionados pela Ortobom — se quiser reduzir a transferência de movimento entre pessoas, conforme Simmons e Ortobom. Para colchões de espuma, a escolha da densidade pode considerar o peso e as preferências pessoais de conforto; a Ortobom também diz que é preciso levar em conta o peso e a altura de quem usará o colchão.",
+    "basis": "evidence",
     "claim_ids": [
-      "clm_34f341d76049",
       "clm_2bfe0b0f071c",
-      "clm_d0f1fb1d4d17",
-      "clm_11e2aebdb8ec",
-      "clm_96e33c071559",
-      "clm_ffc3e603dc7f"
+      "clm_0522b96db922",
+      "clm_3659f2b0d80a",
+      "clm_11e2aebdb8ec"
     ]
   },
   "sections": [
@@ -345,13 +343,16 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir",
+      "heading": "Como escolher seu colchão",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Junte o que importa para o seu caso e use as regras abaixo como filtro.",
-          "basis": "framing",
-          "claim_ids": []
+          "text": "Segundo Simmons e Ortobom, colchões com molas ensacadas individualmente são recomendados para casais porque podem reduzir a transferência de movimentos e vibrações entre os lados da cama.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_2bfe0b0f071c",
+            "clm_0522b96db922"
+          ]
         },
         {
           "kind": "paragraph",
@@ -365,27 +366,25 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se escolher um colchão de espuma simples, considere a densidade. Segundo a Ortobom, a escolha da densidade aplica-se apenas a colchões de espuma simples, e é preciso considerar o peso e a altura de quem vai usá-lo. A Probel associa densidades maiores a pessoas com maior peso ou que preferem uma superfície mais firme.",
-          "basis": "reasoning",
+          "text": "Se quer mais ou menos firmeza, não considere apenas o tipo de colchão: colchões de mola ensacada podem ter diferentes níveis de firmeza. Por isso, compare os modelos individualmente.",
+          "basis": "evidence",
           "claim_ids": [
-            "clm_d0f1fb1d4d17",
-            "clm_11e2aebdb8ec",
-            "clm_3659f2b0d80a"
+            "clm_38dd22b16ba1",
+            "clm_43f5f25cce28"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se o que você busca é um ponto de firmeza específico, não decida só pelo tipo. A Simmons afirma que o conforto é definido pela composição completa do colchão, e a mesma empresa observa que pessoas mais leves tendem a preferir modelos macios, enquanto pessoas mais pesadas podem preferir os mais firmes.",
-          "basis": "reasoning",
+          "text": "Se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas em um colchão misto, o manual ou as informações ao usuário devem avisar que essas características não foram avaliadas pelo processo de certificação. O selo refere-se às avaliações da espuma, do revestimento e da chapa dura.",
+          "basis": "evidence",
           "claim_ids": [
-            "clm_96e33c071559",
-            "clm_6b31ea67e2ea",
-            "clm_4ed8801cb674"
+            "clm_890b15b7e995",
+            "clm_571c2ce93e7d",
+            "clm_72880258ff40"
           ]
         },
         {
-          "kind": "callout",
-          "tone": "info",
+          "kind": "paragraph",
           "text": "Se o fornecedor declarar voluntariamente funcionalidades terapêuticas ou ortopédicas em colchões mistos, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto.",
           "basis": "evidence",
           "claim_ids": [
@@ -397,7 +396,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261020T172047_colchao-de-molas-ou-espuma_dae4+edit:20261020T182719_colchao-de-molas-ou-espuma-edit_7079+reaudit:20261021T142156_autopilot_7517",
+    "run_id": "20261020T172047_colchao-de-molas-ou-espuma_dae4+edit:20261020T182719_colchao-de-molas-ou-espuma-edit_7079+reaudit:20261021T142156_autopilot_7517+editor:20261022T010243_autopilot_9f81",
     "writer_model": "claude-opus-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass"
