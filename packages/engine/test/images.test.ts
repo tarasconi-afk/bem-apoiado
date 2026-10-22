@@ -20,3 +20,21 @@ describe('imagens no piloto automático', () => {
     expect(w[0]!.kind).toBe('boneca');
   });
 });
+
+describe('padrão da ilustração de anúncio', () => {
+  it('sem marca, com cena e ângulo; anúncios do mesmo tipo em cômodos diferentes', async () => {
+    const { productSubject, wantedImages } = await import('../src/images.ts');
+    const sub = productSubject('Cadeira', 'XT Racer Platinum W Cadeira Gamer Marrom', 'XT Racer', 'cozy study', 'side view');
+    expect(sub).not.toContain('XT Racer');
+    expect(sub).toContain('Cena: cozy study');
+    const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const root = mkdtempSync(join(tmpdir(), 'img-'));
+    mkdirSync(join(root, 'data/images'), { recursive: true });
+    writeFileSync(join(root, 'data/images/registry.json'), '[]');
+    const prods = ['B01', 'B02', 'B03'].map((asin) => ({ asin, kind: 'cadeira', brand: 'X', label: 'X Cadeira' }));
+    const w = wantedImages(root, [], [], prods).map((x) => /Cena: ([^.]+)\./.exec(x.subject)![1]);
+    expect(new Set(w).size).toBe(3);
+  });
+});

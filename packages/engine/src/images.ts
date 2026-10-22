@@ -115,6 +115,29 @@ export interface Wanted {
   subject: string;
 }
 
+// Padrão da ilustração de anúncio (aprovado pelo editor em 22/10 nas 5 cadeiras): UM produto genérico do tipo,
+// com a cor e o material que o anúncio descreve, num cômodo e num ângulo próprios, sem marca nem modelo
+// reconhecível. A luz e a paleta da casa (HOUSE_STYLE) entram depois, iguais para todas.
+export const PRODUCT_SCENES = [
+  'calm home office corner beside a light oak desk',
+  'bright minimalist room with a light rug and a tall window',
+  'cozy study with wooden shelves and a desk lamp',
+  'white desk by a large window with green plants',
+  'compact home office corner with a light grey wall and a small bookshelf',
+  'airy bedroom with linen curtains and a wooden nightstand',
+  'sunlit living room corner with a woven basket and a ceramic vase',
+  'quiet reading nook with a sage-green wall and a floor lamp',
+];
+export const PRODUCT_VIEWS = ['three-quarter view', 'side view', 'front three-quarter view', 'rear three-quarter view'];
+export function productSubject(kindLabel: string, label: string, brand: string, scene: string, view: string): string {
+  const desc = label.replace(new RegExp(brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '').replace(/\s+/g, ' ').trim();
+  return (
+    `ilustração de anúncio: UM único ${kindLabel} genérico com o formato, a cor e o material descritos em "${desc}" ` +
+    `(ignore nomes de modelo e de marca). Cena: ${scene}. Enquadramento: ${view}, o produto inteiro e em destaque. ` +
+    `Termine o prompt com "Generic design, no recognizable model." O alt começa com "Ilustração: " e descreve tipo, cor e material.`
+  );
+}
+
 // Cada anúncio do catálogo também ganha a sua (22/10: o editor achou repetitivo o mesmo desenho do tipo em
 // todos os cartões). Mostra o tipo com o formato, a cor e o material que o anúncio descreve, sem a marca
 // (que sai do texto do pedido) e sem copiar o modelo.
@@ -131,8 +154,10 @@ export function wantedImages(
   const kindLabel = new Map(kinds.map((k) => [k.id, k.label]));
   for (const p of products) {
     if (have.has(`produto-${p.asin.toLowerCase()}`)) continue;
-    const desc = p.label.replace(new RegExp(p.brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '').replace(/\s+/g, ' ').trim();
-    out.push({ id: `produto-${p.asin.toLowerCase()}`, subject: `ilustração genérica de ${kindLabel.get(p.kind) ?? p.kind} com o formato, a cor e o material descritos em "${desc}". Um único produto, sem marca, sem logotipo, sem reproduzir um modelo específico; ambiente diferente a cada imagem.` });
+    // Cena e ângulo em rodízio dentro do mesmo tipo: dois anúncios de cadeira nunca caem no mesmo cômodo.
+    const sameKind = products.filter((x) => x.kind === p.kind).map((x) => x.asin).sort();
+    const i = sameKind.indexOf(p.asin) + [...p.kind].reduce((t, c) => t + c.charCodeAt(0), 0);
+    out.push({ id: `produto-${p.asin.toLowerCase()}`, subject: productSubject(kindLabel.get(p.kind) ?? p.kind, p.label, p.brand, PRODUCT_SCENES[i % PRODUCT_SCENES.length]!, PRODUCT_VIEWS[i % PRODUCT_VIEWS.length]!) });
   }
   return out;
 }
@@ -164,5 +189,7 @@ export const BRIEF_SYSTEM =
   'Você escreve pedidos para um gerador de imagens de um site editorial brasileiro. Devolva "prompt" em inglês ' +
   '(uma cena fotográfica realista, concreta, com materiais e enquadramento) e "alt" em português (descrição curta ' +
   'do que a imagem mostra). Proibido: pessoas, texto, números, logotipos, marcas, embalagens, produto identificável. ' +
-  'O estilo de luz e paleta é acrescentado depois; não repita.';
+  'O estilo de luz e paleta é acrescentado depois; não repita. Exemplo aprovado de ilustração de anúncio: ' +
+  '"A single generic high-back racing-style gaming chair in warm brown upholstery with contrasting stitching, head and lumbar ' +
+  'cushions, padded armrests, in a cozy study with wooden shelves and a desk lamp. Front three-quarter view. Generic design, no recognizable model."';
 export { BriefOut };

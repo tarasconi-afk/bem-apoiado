@@ -587,3 +587,11 @@ resposta curta vai para o fim da primeira frase e travessão vira vírgula, sem 
 versão com a forma certa é auditada (ela nunca tinha sido, porque a forma barrava antes); se o auditor apontar
 conteúdo, adota a versão sustentada dele, conserta a forma de novo e audita uma última vez. No rascunho real,
 a resposta curta passou. A pauta tinha esgotado as 2 tentativas por esses defeitos do motor: volta para 1.
+
+## 22/10/2026: padrão da ilustração de anúncio
+
+Cada anúncio do catálogo tem a sua ilustração gerada por IA (`produto-<asin>`), aprovada pelo editor nas 5 cadeiras:
+um único produto genérico do tipo, com a cor e o material que o anúncio descreve, num cômodo e num ângulo próprios
+(rodízio dentro do mesmo tipo, `PRODUCT_SCENES` e `PRODUCT_VIEWS` em `packages/engine/src/images.ts`), sem marca,
+logotipo nem modelo reconhecível; luz e paleta da casa iguais para todas. Foto real de produto só pela PA-API.
+Anúncio novo ganha a sua no ciclo (até 2 imagens por ciclo, capas de página primeiro).
