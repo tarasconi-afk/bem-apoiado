@@ -5,6 +5,7 @@ import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
 import { reviewPage } from './review.ts';
+import { withoutDuplicates } from './duplicates.ts';
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { research } from './research.ts';
@@ -246,6 +247,10 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     fixed.kept = fixed.kept.filter((r) => r !== 'verdict' && !r.startsWith(`${sid}#`));
     fixed.dropped.push({ ref: sid, problem: 'o auditor recusou a tabela inteira; a resposta curta e a seção de decisão voltaram ao texto anterior' });
   }
+  // Bloco repetido que o ajuste criou sai (22/10, colchão misto ou de espuma: a reescrita deixou a mesma faixa
+  // de densidade em 3 blocos). Mesmo corte da criação de página; tabela e resposta curta não entram.
+  const dedup = withoutDuplicates(fixed.draft);
+  if (dedup.removed.length) fixed.draft = dedup.draft;
   if (!fixed.kept.length) return lessonNote + `ajuste NÃO salvo (o auditor não sustentou nenhum bloco alterado depois de ${FIX_ROUNDS} correções): ${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
   const final = PageSpec.parse({ ...page, ...fixed.draft });
   const gate2 = checkPage(final, idx);

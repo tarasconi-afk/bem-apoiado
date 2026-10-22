@@ -21,3 +21,16 @@ describe('parágrafos repetidos', () => {
     expect(w.draft.sections.find((s) => s.id === 'inmetro')!.blocks).toHaveLength(1);
   });
 });
+
+describe('mesmo dado com outras palavras', () => {
+  it('blocos com os mesmos 5+ números são repetição; números diferentes não', async () => {
+    const { duplicateBlocks } = await import('../src/stages/duplicates.ts');
+    const blk = (text: string) => ({ kind: 'text', text, basis: 'evidence', claim_ids: ['c'] });
+    const d = (a: string, b: string) => ({ title: 't', description: 'd', verdict: { text: 'v', basis: 'evidence', claim_ids: ['c'] }, sections: [
+      { id: 'detalhe', heading: 'Detalhe', blocks: [blk(a)] }, { id: 'outra', heading: 'Outra', blocks: [blk('Texto qualquer sem números relevantes aqui para a seção.')] }, { id: 'como-decidir', heading: 'Como decidir', blocks: [blk(b)] }] });
+    const a = 'Segundo a Castor, as densidades indicadas por faixa de peso são: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28.';
+    const b = 'Se você pesa até 50 kg, procure D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28.';
+    expect(duplicateBlocks(d(a, b) as never).map((x) => x.ref)).toEqual(['detalhe#0']);
+    expect(duplicateBlocks(d(a, 'Se você pesa de 81 a 100 kg, procure D33 a D45; acima de 100 kg, D45 ou maior.') as never)).toEqual([]);
+  });
+});

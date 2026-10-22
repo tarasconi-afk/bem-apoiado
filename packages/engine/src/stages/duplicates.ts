@@ -8,20 +8,29 @@ const STOP = new Set(['segundo', 'sobre', 'para', 'como', 'mais', 'menos', 'pela
 const words = (t: string) => new Set(normalizeForMatch(t).replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter((w) => w.length >= 4 && !STOP.has(w)));
 
 export const DUPLICATE_MIN_OVERLAP = 0.8;
+// Mesmo dado com outras palavras (22/10, colchão misto ou de espuma: a faixa de densidade por peso da Castor em
+// 3 blocos redigidos de jeitos diferentes). Números e códigos ("d23", "50", "100") de um bloco com 5+ deles,
+// quase todos repetidos noutro bloco, são repetição mesmo que as palavras mudem.
+const data = (t: string) => new Set(normalizeForMatch(t).replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter((w) => /\d/.test(w)));
+export const DUPLICATE_MIN_DATA = 5;
 
 export function duplicateBlocks(d: Draft, min = DUPLICATE_MIN_OVERLAP): { ref: string; of: string; overlap: number }[] {
   const lastId = d.sections.at(-1)?.id ?? '';
-  const units: { ref: string; w: Set<string> }[] = [];
-  for (const s of d.sections) s.blocks.forEach((b, i) => { if (b.kind !== 'table') units.push({ ref: `${s.id}#${i}`, w: words(b.text) }); });
+  const units: { ref: string; w: Set<string>; n: Set<string> }[] = [];
+  for (const s of d.sections) s.blocks.forEach((b, i) => { if (b.kind !== 'table') units.push({ ref: `${s.id}#${i}`, w: words(b.text), n: data(b.text) }); });
   const out: { ref: string; of: string; overlap: number }[] = [];
   for (let j = 0; j < units.length; j++) {
     const b = units[j]!;
-    if (b.w.size < 8 || out.some((o) => o.ref === b.ref)) continue;
+    if ((b.w.size < 8 && b.n.size < DUPLICATE_MIN_DATA) || out.some((o) => o.ref === b.ref)) continue;
     for (let i = 0; i < j; i++) {
       const a = units[i]!;
-      if (a.w.size < 8 || out.some((o) => o.ref === a.ref)) continue;
+      if ((a.w.size < 8 && a.n.size < DUPLICATE_MIN_DATA) || out.some((o) => o.ref === a.ref)) continue;
       const inter = [...b.w].filter((x) => a.w.has(x)).length;
-      const overlap = inter / Math.min(a.w.size, b.w.size);
+      const wordOverlap = a.w.size >= 8 && b.w.size >= 8 ? inter / Math.min(a.w.size, b.w.size) : 0;
+      const small = a.n.size <= b.n.size ? a.n : b.n;
+      const big = small === a.n ? b.n : a.n;
+      const dataOverlap = small.size >= DUPLICATE_MIN_DATA ? [...small].filter((x) => big.has(x)).length / small.size : 0;
+      const overlap = Math.max(wordOverlap, dataOverlap >= 0.9 ? dataOverlap : 0);
       if (overlap >= min) {
         // O "Como decidir" (última seção) aparece no topo da página: quando a repetição cruza decisão e
         // detalhe, sai a cópia do detalhe; dentro da mesma seção, sai a que vem depois.
