@@ -1,0 +1,163 @@
+
+
+<html>
+<head>
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="/imagens/style1.css" type="text/css" />
+<script type="text/javascript" src="/includes/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="/includes/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=2022014&modprp=5&coduasg=10001&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=10001&numprp=2022014&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" frameborder="0" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tr><td class="cabecbox">Aguarde!</td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2"><img src="/imagens/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="/imagens/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="/imagens/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="1" cellpadding="2">
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p>PODER LEGISLATIVO</p></td></tr><tr><td class='tex3'><p>Câmara dos Deputados</p></td></tr><tr><td class='tex3'><p>Código da UASG: 10001</p></td></tr></table><br></td>
+        </tr>
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p><span class='tex3b'>Pregão Eletrônico Nº  202/2014</span><span class='mensagem'> - (Decreto Nº 5.450/2005)</span><br><b>Objeto:</b>&nbsp;Objeto: Pregão Eletrônico -  Aquisição de colchões para imóveis funcionais da Câmara dos Deputados.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <br><b>Edital a partir de:</b>&nbsp;29/10/2014 das 08:00 às 17:59 Hs <br><b>Endereço:</b>&nbsp;Camara Dos Deputados Edif. Anexo 1 - 14 Andar                                        - Zona Cívico-administrativa               - BRASÍLIA                                 (DF)<br><b>Telefone:</b>&nbsp;(0xx61) 32164920<br><b>Fax:</b>&nbsp;(0xx61) 32164915      <br><b>Entrega da Proposta:</b>&nbsp;29/10/2014 às 08:00Hs<br></p></td></tr></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td>
+		    <td class='tex3'>
+		    <span class='tex3b'>Itens de Material</span><table width='100%'><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>1 - ´COLCHÃO´</span><br><span class='tex3'>COLCHÃO DE SOLTEIRO 88 cm  CARACTERÍSTICA(S):colchão de solteiro; miolo em espuma flexível de poliuretano D-33 (densidade 33 kg/m ); revestimento em tecido matelassado, com tratamento antialérgico contra ácaros e fungos; que suporte pessoas com até 100 kg. Conforme ABNT NBR 13579-1:2011; exigido selo de certificação do INMETRO.  MEDIDA(S):88 cm x 188 cm x 17 cm, de largura x comprimento x altura, com tolerância de 1cm para mais ou para menos na altura.  GARANTIA MÍNIMA:de 6 (seis) meses para a espuma e de 90 (noventa) dias para o tecido, contados da data do recebimento definitivo.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: -<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 50<br>Unidade de fornecimento: unidade             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>2 - ´COLCHÃO´</span><br><span class='tex3'>COLCHÃO DE SOLTEIRO 78 cm  CARACTERÍSTICA(S):colchão de solteiro; miolo em espuma flexível de poliuretano D-33 (densidade 33 kg/m ); revestimento em tecido matelassado, com tratamento antialérgico contra ácaros e fungos; que suporte pessoas com até 100 kg; conforme (ABNT-NBR 13579-1:2011; exigido selo de certificação do INMETRO).  MEDIDA(S):78 cm x 188 cm x 17 cm, de largura x comprimento x altura, com tolerância de 1cm para mais ou para menos na altura.  GARANTIA MÍNIMA:de 6 (seis) meses para a espuma e de 90 (noventa) dias para o tecido, contados da data do recebimento definitivo.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: -<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 30<br>Unidade de fornecimento: unidade             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'><br>Grupos</span><br><span class='tex3b'>G1</span><br><span class='tex3'>1 - ´COLCHÃO´</span><br><span class='tex3'>2 - ´COLCHÃO´</span></td></tr></table>
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td valign="top" align="right" width="23">
+			     <img src="/imagens/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td valign="top" align="right" width="23">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onClick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onClick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

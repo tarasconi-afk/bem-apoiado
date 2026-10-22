@@ -1,0 +1,130 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações de medir o espaço e escolher king ou queen são apresentadas como regra geral, mas os trechos citados são orientações de fabricantes. Além disso, a afirmação de que as medidas variam entre fabricantes não é dita nos trechos.",
+      "fix": "Segundo a Probel, meça o local da cama, as aberturas de portas e gavetas e a circulação; a marca indica um quarto de pelo menos 3 × 3,5 m para uma king e diz que, caso contrário, a queen tende a ser mais equilibrada. Segundo a Ortobom, as medidas listadas são 193 × 203 cm para king e 158 × 198 cm para queen."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas e recomendações aparecem como afirmações gerais, mas os trechos são de fabricantes específicos (Ortobom e Probel).",
+      "fix": "Segundo a Ortobom, os tamanhos citados são: solteiro 88 × 188 cm, casal 138 × 188 cm, queen 158 × 198 cm e king 193 × 203 cm. A Probel recomenda medir também o espaço para abrir portas e gavetas e circular pelo quarto."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A recomendação sobre o tamanho do quarto e a escolha entre king e queen reproduz a posição da Probel, mas o bloco a apresenta como regra geral sem atribuição.",
+      "fix": "Segundo a Probel, um quarto de pelo menos 3 × 3,5 m acomoda uma cama king com boa circulação; a empresa diz que, caso contrário, a queen tende a ser mais equilibrada."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A informação dos 35 cm adicionais de largura vem de um fabricante (King Koil) e é apresentada como fato geral. Além disso, o trecho citado não afirma a condição sobre o quarto comportar as dimensões.",
+      "fix": "Segundo a King Koil, o colchão king oferece 35 cm adicionais de largura em comparação com o queen, proporcionando mais espaço individual para o casal."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação sobre a variação das medidas e os centímetros adicionais da estrutura reproduz a informação da Probel, mas é apresentada como fato geral sem atribuição. O trecho também fala em estrutura da cama, não especificamente em qualquer cama ou base.",
+      "fix": "Segundo a Probel, as medidas da estrutura da cama podem variar conforme o fabricante e o modelo, e a estrutura costuma ocupar alguns centímetros a mais que o colchão; por isso, confira ambas as medidas antes da compra."
+    },
+    {
+      "ref": "medidas-declaradas-por-fabricante#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco afirma como fato que as medidas variam entre fabricantes, mas não cita nenhum trecho que sustente essa afirmação.",
+      "fix": "Confira a ficha técnica do modelo que você quer comprar."
+    },
+    {
+      "ref": "medidas-declaradas-por-fabricante#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-declaradas-por-fabricante#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-declaradas-por-fabricante#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-declaradas-por-fabricante#1.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "nomes-diferentes-mesma-medida#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas que a Simmons usa os nomes Queen Size e Queen Especial para medidas de 158 × 198 cm e 178 × 198 cm. Não sustenta a generalização sobre “alguns fabricantes” nem a recomendação de conferir a ficha antes de comprar.",
+      "fix": "Segundo a Simmons, há Queen Size (158 × 198 cm) e Queen Especial (178 × 198 cm), uma diferença de 20 cm na largura."
+    },
+    {
+      "ref": "altura-espessura-colchao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram alturas específicas de um produto da Gazin e de um produto da Simmons, além da tolerância dimensional informada pela Ortobom, mas não sustentam a afirmação geral de que a altura varia conforme o modelo e o fabricante nem a recomendação para conferir a ficha técnica. Também não mostram que a Gazin declara 23 cm para seus colchões em geral ou que a Simmons oferece vários modelos com 43 cm.",
+      "fix": "A página da Gazin informa altura de 23 cm para o produto Los Angeles Plus, um documento da Simmons informa altura de 43 cm para o colchão Evolution Neo, e a Ortobom informa que as dimensões finais do produto podem variar em mais ou menos 1 cm."
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram medidas do colchão e uma tolerância de ±1 cm informada pela Ortobom, mas não dizem explicitamente que largura e comprimento estão em centímetros nem sustentam que a tolerância varia conforme o fabricante.",
+      "fix": "Confira na ficha a largura, o comprimento e a altura do colchão. Segundo a Ortobom, as dimensões finais podem variar em mais ou menos 1 cm."
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado fala da estrutura de uma cama, que pode ocupar alguns centímetros a mais que o colchão conforme o fabricante e o modelo. Ele não menciona bases separadamente.",
+      "fix": "Se você vai comprar uma cama junto, meça o espaço considerando que a estrutura pode ocupar alguns centímetros a mais que o colchão, conforme o fabricante e o modelo."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As recomendações de medir o espaço e escolher king ou queen são apresentadas como regra geral, mas os trechos citados são orientações de fabricantes. Além disso, a afirmação de que as medidas variam entre fabricantes não é dita nos trechos. Versão sustentável: Segundo a Probel, meça o local da cama, as aberturas de portas e gavetas e a circulação; a marca indica um quarto de pelo menos 3 × 3,5 m para uma king e diz que, caso contrário, a queen tende a ser mais equilibrada. Segundo a Ortobom, as medidas listadas são 193 × 203 cm para king e 158 × 198 cm para queen."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#0",
+      "msg": "MISATTRIBUTED. As medidas e recomendações aparecem como afirmações gerais, mas os trechos são de fabricantes específicos (Ortobom e Probel). Versão sustentável: Segundo a Ortobom, os tamanhos citados são: solteiro 88 × 188 cm, casal 138 × 188 cm, queen 158 × 198 cm e king 193 × 203 cm. A Probel recomenda medir também o espaço para abrir portas e gavetas e circular pelo quarto."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#1",
+      "msg": "MISATTRIBUTED. A recomendação sobre o tamanho do quarto e a escolha entre king e queen reproduz a posição da Probel, mas o bloco a apresenta como regra geral sem atribuição. Versão sustentável: Segundo a Probel, um quarto de pelo menos 3 × 3,5 m acomoda uma cama king com boa circulação; a empresa diz que, caso contrário, a queen tende a ser mais equilibrada."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#2",
+      "msg": "MISATTRIBUTED. A informação dos 35 cm adicionais de largura vem de um fabricante (King Koil) e é apresentada como fato geral. Além disso, o trecho citado não afirma a condição sobre o quarto comportar as dimensões. Versão sustentável: Segundo a King Koil, o colchão king oferece 35 cm adicionais de largura em comparação com o queen, proporcionando mais espaço individual para o casal."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#3",
+      "msg": "MISATTRIBUTED. A afirmação sobre a variação das medidas e os centímetros adicionais da estrutura reproduz a informação da Probel, mas é apresentada como fato geral sem atribuição. O trecho também fala em estrutura da cama, não especificamente em qualquer cama ou base. Versão sustentável: Segundo a Probel, as medidas da estrutura da cama podem variar conforme o fabricante e o modelo, e a estrutura costuma ocupar alguns centímetros a mais que o colchão; por isso, confira ambas as medidas antes da compra."
+    },
+    {
+      "ref": "medidas-declaradas-por-fabricante#0",
+      "msg": "FACT_IN_FRAMING. O bloco afirma como fato que as medidas variam entre fabricantes, mas não cita nenhum trecho que sustente essa afirmação. Versão sustentável: Confira a ficha técnica do modelo que você quer comprar."
+    },
+    {
+      "ref": "nomes-diferentes-mesma-medida#0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que a Simmons usa os nomes Queen Size e Queen Especial para medidas de 158 × 198 cm e 178 × 198 cm. Não sustenta a generalização sobre “alguns fabricantes” nem a recomendação de conferir a ficha antes de comprar. Versão sustentável: Segundo a Simmons, há Queen Size (158 × 198 cm) e Queen Especial (178 × 198 cm), uma diferença de 20 cm na largura."
+    },
+    {
+      "ref": "altura-espessura-colchao#0",
+      "msg": "UNSUPPORTED. Os trechos mostram alturas específicas de um produto da Gazin e de um produto da Simmons, além da tolerância dimensional informada pela Ortobom, mas não sustentam a afirmação geral de que a altura varia conforme o modelo e o fabricante nem a recomendação para conferir a ficha técnica. Também não mostram que a Gazin declara 23 cm para seus colchões em geral ou que a Simmons oferece vários modelos com 43 cm. Versão sustentável: A página da Gazin informa altura de 23 cm para o produto Los Angeles Plus, um documento da Simmons informa altura de 43 cm para o colchão Evolution Neo, e a Ortobom informa que as dimensões finais do produto podem variar em mais ou menos 1 cm."
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#0",
+      "msg": "OVERSTATED. Os trechos mostram medidas do colchão e uma tolerância de ±1 cm informada pela Ortobom, mas não dizem explicitamente que largura e comprimento estão em centímetros nem sustentam que a tolerância varia conforme o fabricante. Versão sustentável: Confira na ficha a largura, o comprimento e a altura do colchão. Segundo a Ortobom, as dimensões finais podem variar em mais ou menos 1 cm."
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#1",
+      "msg": "OVERSTATED. O trecho citado fala da estrutura de uma cama, que pode ocupar alguns centímetros a mais que o colchão conforme o fabricante e o modelo. Ele não menciona bases separadamente. Versão sustentável: Se você vai comprar uma cama junto, meça o espaço considerando que a estrutura pode ocupar alguns centímetros a mais que o colchão, conforme o fabricante e o modelo."
+    }
+  ]
+}
