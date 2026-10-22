@@ -119,7 +119,7 @@ const jsonLd = [
             b.kind === 'table' ? (
               <figure class="table-wrap">
                 <div class="table-scroll" tabindex="0">
-                  <table>
+                  <table class={b.columns.length > 3 ? 'wide' : undefined}>
                     <thead><tr>{b.columns.map((c) => <th scope="col">{c}</th>)}</tr></thead>
                     <tbody>
                       {b.rows.map((r) => (
@@ -147,9 +147,9 @@ const jsonLd = [
           <section id="exemplos" class="examples">
             <h2>{products.length ? T.examples_title : 'Opções na Amazon'}</h2>
             {products.length > 0 && <p class="examples-note">
-              Exemplos à venda, sem ordem de preferência. Antes de comprar, confira neles os pontos do resumo acima; os detalhes técnicos estão logo abaixo.{' '}
-              {products.some((c) => !c.listingQuote) && 'Quando há ficha oficial, as características vêm do fabricante. '}
-              {products.some((c) => c.listingQuote) && 'Quando não há, mostramos só como o vendedor descreve o produto na Amazon. '}
+              Exemplos à venda, sem ordem de preferência: confira em cada um os pontos do resumo acima.{' '}
+              {products.some((c) => c.specs.length) && 'Quando há ficha oficial, as características vêm do fabricante. '}
+              {products.some((c) => c.listingQuote) && (products.some((c) => c.specs.length) ? 'Quando não há, mostramos como o vendedor descreve o produto na Amazon. ' : 'Mostramos como o vendedor descreve cada produto na Amazon. ')}
             </p>}
             {products.length > 0 && <ul class="product-list">
               {products.map((card) => (
@@ -254,6 +254,12 @@ const jsonLd = [
   .types-grid.n1 { grid-template-columns: minmax(0, 1fr); }
   .types-grid.n1 { max-width: 19rem; }
   .types-grid.n2 { max-width: 44rem; }
+  /* Celular: os tipos viram uma faixa compacta (4 miniaturas), para a resposta curta aparecer logo (22/10). */
+  @media (max-width: 47.99rem) {
+    .types-grid:not(.n1) { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.4rem; }
+    .types-grid:not(.n1) span { padding: 0.3rem 0.25rem 0.35rem; font-size: 0.66rem; }
+    .types-grid:not(.n1) :global(.type-img) { aspect-ratio: 1 / 1; }
+  }
   .types-grid li { overflow: hidden; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); text-align: center; }
   .types-grid :global(.type-img) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
   .types-grid :global(svg.type-img) { padding: 0.8rem 0.7rem 0; aspect-ratio: auto; }
@@ -292,8 +298,10 @@ const jsonLd = [
 
   .table-wrap { margin: 1.8rem 0; }
   .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-  table { width: 100%; min-width: 36rem; border-collapse: collapse; font-size: 0.93rem; line-height: 1.5; }
+  table { width: 100%; min-width: 0; border-collapse: collapse; font-size: 0.93rem; line-height: 1.5; }
+  table.wide { min-width: 36rem; }
   th, td { padding: 0.8rem 0.9rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  @media (max-width: 47.99rem) { th, td { padding: 0.6rem 0.65rem; font-size: 0.9rem; overflow-wrap: anywhere; } thead th { font-size: 0.7rem; } }
   thead th { background: var(--sand); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
   tbody th { font-weight: 650; background: #fdfcf9; }
   tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
