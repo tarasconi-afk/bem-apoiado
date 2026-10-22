@@ -1,0 +1,718 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Flexform, cadeiras ergonômicas podem incluir regulagem de altura, profundidade do assento, apoio lombar e tensão do mecanismo. Uma cadeira gamer com determinados recursos pode atender à NR-17. Confira na ficha técnica do modelo a altura do assento, densidade da espuma e os demais dados efetivamente informados pelo fabricante.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04a5e310b9f4",
+        "clm_e8cc2dafbc8c",
+        "clm_832b248a7da8"
+      ]
+    },
+    {
+      "ref": "como-cada-tipo-funciona#0",
+      "action": "replace",
+      "text": "Segundo a Flexform, uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado. Um modelo operativo pode possuir apenas regulagem de altura, sem essas opções.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04a5e310b9f4",
+        "clm_a6ef0f759457"
+      ]
+    },
+    {
+      "ref": "como-cada-tipo-funciona#2",
+      "action": "replace",
+      "text": "Segundo a Flexform, mecanismos sincronizados têm ajuste de tensão que permite calibrar a resistência da mola ao peso do usuário. Usuários com pesos diferentes podem precisar de tensões diferentes para controlar a reclinação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0ee7da27eecc"
+      ]
+    },
+    {
+      "ref": "regulagens-declaradas#0",
+      "action": "replace",
+      "text": "Segundo a Flexform, podem ser declarados: altura mínima e máxima do assento, faixa de profundidade do assento e faixa de ajuste do apoio lombar, em centímetros.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_832b248a7da8"
+      ]
+    },
+    {
+      "ref": "regulagens-declaradas#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Altura do assento",
+          "claim_ids": []
+        },
+        {
+          "text": "Sim, em cm (mín. e máx.)",
+          "claim_ids": [
+            "clm_832b248a7da8"
+          ]
+        },
+        {
+          "text": "Não informado nos trechos",
+          "claim_ids": []
+        },
+        {
+          "text": "Valores em centímetros",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "regulagens-declaradas#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Apoio lombar ajustável",
+          "claim_ids": []
+        },
+        {
+          "text": "Sim, em altura (em cm)",
+          "claim_ids": [
+            "clm_d7d95a312a2d"
+          ]
+        },
+        {
+          "text": "Regulável em altura (modelo citado)",
+          "claim_ids": [
+            "clm_5dd063f37653"
+          ]
+        },
+        {
+          "text": "Faixa de ajuste em cm",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "regulagens-declaradas#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Profundidade do assento",
+          "claim_ids": []
+        },
+        {
+          "text": "Sim, regulável (em cm)",
+          "claim_ids": [
+            "clm_d7d95a312a2d"
+          ]
+        },
+        {
+          "text": "Pode ser regulável (modelo citado)",
+          "claim_ids": [
+            "clm_e8cc2dafbc8c"
+          ]
+        },
+        {
+          "text": "Faixa de ajuste em cm",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "regulagens-declaradas#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Mecanismo de reclinação",
+          "claim_ids": []
+        },
+        {
+          "text": "Pode ter tensão ajustável",
+          "claim_ids": [
+            "clm_04a5e310b9f4"
+          ]
+        },
+        {
+          "text": "5 posições de bloqueio (modelo citado)",
+          "claim_ids": [
+            "clm_5dd063f37653"
+          ]
+        },
+        {
+          "text": "Número de posições ou ângulos (graus)",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "regulagens-declaradas#1.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Apoio de braços",
+          "claim_ids": []
+        },
+        {
+          "text": "Regulável em altura",
+          "claim_ids": [
+            "clm_d7d95a312a2d"
+          ]
+        },
+        {
+          "text": "Não informado nos trechos",
+          "claim_ids": []
+        },
+        {
+          "text": "Para teleatendimento: 20-25 cm",
+          "claim_ids": [
+            "clm_000ce47bb169"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "peso-e-materiais#0",
+      "action": "replace",
+      "text": "Segundo a Flexform, um modelo gamer tem estrutura injetada em alumínio com acabamento anticorrosão e resistência de 1100 kg conforme a NBR 13962. Confira na ficha técnica se o fabricante informa peso máximo suportado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_706653e66a3c"
+      ]
+    },
+    {
+      "ref": "peso-e-materiais#1",
+      "action": "replace",
+      "text": "Segundo a Flexform, a linha gamer, baseada na mesma base técnica corporativa, usa espuma na faixa de 45 a 55 kg/m³. A empresa indica essa faixa como mínima para durabilidade compatível com garantia de 5 a 7 anos em uso diário de 8 horas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2a1de75fe1c2",
+        "clm_793039315aaf"
+      ]
+    },
+    {
+      "ref": "peso-e-materiais#3",
+      "action": "replace",
+      "text": "Segundo a Flexform, a linha corporativa tem rodízios para diferentes tipos de piso. Em outro contexto, a empresa informa rodízios de 65 mm. Confira na ficha técnica se a medida dos rodízios e o tipo de piso são especificados para o modelo que você está considerando.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_791709653410",
+        "clm_bb8122f9b168"
+      ]
+    },
+    {
+      "ref": "norma-abnt-e-nr17#0",
+      "action": "replace",
+      "text": "Segundo a Flexform, seus produtos são submetidos a ensaios no Laboratório Galileo, acreditado pela CGCRE, conforme parâmetros da NR-17 e a ABNT NBR 13962. Esses ensaios verificam se as regulagens, materiais e mecanismos funcionam conforme especificado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4588e6d3292e",
+        "clm_64e4a5ecc3ac"
+      ]
+    },
+    {
+      "ref": "norma-abnt-e-nr17#1",
+      "action": "replace",
+      "text": "No Anexo II da NR-17, para trabalho em teleatendimento ou telemarketing, são estabelecidos parâmetros como altura ajustável de 37 a 50 cm, encosto ajustável com forma adaptada para proteção da região lombar, apoio de braços regulável de 20 a 25 cm, base estofada com densidade entre 40 e 50 kg/m³ e apoio em cinco pés com rodízios. Use esses parâmetros como referência ao conferir a ficha técnica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_41a4004759fb",
+        "clm_0e1f55dc4e65",
+        "clm_22c1d3abba51",
+        "clm_013706bfb3ee",
+        "clm_24102364e5e1"
+      ]
+    },
+    {
+      "ref": "garantia#0",
+      "action": "replace",
+      "text": "Segundo a Flexform, há cadeiras com garantia de até 7 anos. Em documentos de compras públicas, aparecem exigências de garantia mínima de 1 ano para alguns produtos e de 5 anos para estrutura e mecanismos em outros.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_8c21a540e6a1",
+        "clm_3ffd00568d40",
+        "clm_6490de4f9c2b"
+      ]
+    },
+    {
+      "ref": "garantia#1",
+      "action": "replace",
+      "text": "Confira na ficha técnica quais itens são cobertos pela garantia, especialmente estrutura e mecanismos. Procure também informações sobre assistência técnica durante o prazo de garantia.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3ffd00568d40",
+        "clm_1feaebfd1c2b"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você vai usar a cadeira 8 horas por dia em trabalho de escritório, confira se ela declara regulagem de profundidade do assento e apoio lombar ajustável em altura com valores documentados em centímetros. Segundo a Flexform, essas regulagens documentadas atendem a parâmetros mínimos da NR-17.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_d7d95a312a2d",
+        "clm_832b248a7da8"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você alterna entre ficar sentado e reclinar para descanso, procure uma cadeira que declare reclinação com múltiplas posições de bloqueio e mecanismo sincronizado. Segundo a Flexform, uma cadeira com mecanismo sincronizado, profundidade do assento e apoio lombar ajustável pode atender à NR-17.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5dd063f37653",
+        "clm_e8cc2dafbc8c"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Para trabalho em teleatendimento ou telemarketing, verifique se a ficha técnica informa altura da superfície superior ajustável de 37 a 50 cm. Se você é mais alto ou mais baixo que a média, confira se o modelo alcança a faixa de que você precisa.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_41a4004759fb",
+        "clm_be7789c3d30e"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "Verifique a cobertura da garantia antes de comprar e procure informações sobre quantos anos ela cobre, inclusive para estrutura e mecanismos. As evidências citadas mencionam garantia de até 7 anos e garantia mínima de 5 anos para estrutura e mecanismos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_8c21a540e6a1",
+        "clm_3ffd00568d40"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Cadeira ergonômica ou gamer: qual escolher",
+    "description": "Compare regulagens, peso suportado, materiais e garantia entre cadeiras ergonômicas e gamer conforme as fichas técnicas.",
+    "verdict": {
+      "text": "Segundo a Flexform, cadeiras ergonômicas podem incluir regulagem de altura, profundidade do assento, apoio lombar e tensão do mecanismo. Uma cadeira gamer com determinados recursos pode atender à NR-17. Confira na ficha técnica do modelo a altura do assento, densidade da espuma e os demais dados efetivamente informados pelo fabricante.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04a5e310b9f4",
+        "clm_e8cc2dafbc8c",
+        "clm_832b248a7da8"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-cada-tipo-funciona",
+        "heading": "Como cadeiras ergonômicas e gamer diferem na prática",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado. Um modelo operativo pode possuir apenas regulagem de altura, sem essas opções.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04a5e310b9f4",
+              "clm_a6ef0f759457"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender aos parâmetros da NR-17 e funcionar bem em jornadas corporativas longas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e8cc2dafbc8c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, mecanismos sincronizados têm ajuste de tensão que permite calibrar a resistência da mola ao peso do usuário. Usuários com pesos diferentes podem precisar de tensões diferentes para controlar a reclinação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ee7da27eecc"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "regulagens-declaradas",
+        "heading": "Quais regulagens conferir na ficha técnica",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, podem ser declarados: altura mínima e máxima do assento, faixa de profundidade do assento e faixa de ajuste do apoio lombar, em centímetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_832b248a7da8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Regulagens que fabricantes declaram em cadeiras ergonômicas e gamer",
+            "columns": [
+              "Regulagem",
+              "Cadeira Ergonômica",
+              "Cadeira Gamer",
+              "Conferir na ficha"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Altura do assento",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Sim, em cm (mín. e máx.)",
+                    "claim_ids": [
+                      "clm_832b248a7da8"
+                    ]
+                  },
+                  {
+                    "text": "Não informado nos trechos",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Valores em centímetros",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Apoio lombar ajustável",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Sim, em altura (em cm)",
+                    "claim_ids": [
+                      "clm_d7d95a312a2d"
+                    ]
+                  },
+                  {
+                    "text": "Regulável em altura (modelo citado)",
+                    "claim_ids": [
+                      "clm_5dd063f37653"
+                    ]
+                  },
+                  {
+                    "text": "Faixa de ajuste em cm",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Profundidade do assento",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Sim, regulável (em cm)",
+                    "claim_ids": [
+                      "clm_d7d95a312a2d"
+                    ]
+                  },
+                  {
+                    "text": "Pode ser regulável (modelo citado)",
+                    "claim_ids": [
+                      "clm_e8cc2dafbc8c"
+                    ]
+                  },
+                  {
+                    "text": "Faixa de ajuste em cm",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Mecanismo de reclinação",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Pode ter tensão ajustável",
+                    "claim_ids": [
+                      "clm_04a5e310b9f4"
+                    ]
+                  },
+                  {
+                    "text": "5 posições de bloqueio (modelo citado)",
+                    "claim_ids": [
+                      "clm_5dd063f37653"
+                    ]
+                  },
+                  {
+                    "text": "Número de posições ou ângulos (graus)",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Apoio de braços",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Regulável em altura",
+                    "claim_ids": [
+                      "clm_d7d95a312a2d"
+                    ]
+                  },
+                  {
+                    "text": "Não informado nos trechos",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Para teleatendimento: 20-25 cm",
+                    "claim_ids": [
+                      "clm_000ce47bb169"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "peso-e-materiais",
+        "heading": "Peso máximo suportado e materiais",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, um modelo gamer tem estrutura injetada em alumínio com acabamento anticorrosão e resistência de 1100 kg conforme a NBR 13962. Confira na ficha técnica se o fabricante informa peso máximo suportado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_706653e66a3c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, a linha gamer, baseada na mesma base técnica corporativa, usa espuma na faixa de 45 a 55 kg/m³. A empresa indica essa faixa como mínima para durabilidade compatível com garantia de 5 a 7 anos em uso diário de 8 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a1de75fe1c2",
+              "clm_793039315aaf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "De acordo com a NR-17 (regulação de postos de teleatendimento), a base estofada deve ter densidade entre 40 e 50 kg/m³. Use essa faixa como referência ao conferir a ficha de uma cadeira.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_013706bfb3ee"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, a linha corporativa tem rodízios para diferentes tipos de piso. Em outro contexto, a empresa informa rodízios de 65 mm. Confira na ficha técnica se a medida dos rodízios e o tipo de piso são especificados para o modelo que você está considerando.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_791709653410",
+              "clm_bb8122f9b168"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "norma-abnt-e-nr17",
+        "heading": "O que a NBR 13962 e a NR-17 efetivamente regem",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, seus produtos são submetidos a ensaios no Laboratório Galileo, acreditado pela CGCRE, conforme parâmetros da NR-17 e a ABNT NBR 13962. Esses ensaios verificam se as regulagens, materiais e mecanismos funcionam conforme especificado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4588e6d3292e",
+              "clm_64e4a5ecc3ac"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Anexo II da NR-17, para trabalho em teleatendimento ou telemarketing, são estabelecidos parâmetros como altura ajustável de 37 a 50 cm, encosto ajustável com forma adaptada para proteção da região lombar, apoio de braços regulável de 20 a 25 cm, base estofada com densidade entre 40 e 50 kg/m³ e apoio em cinco pés com rodízios. Use esses parâmetros como referência ao conferir a ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_41a4004759fb",
+              "clm_0e1f55dc4e65",
+              "clm_22c1d3abba51",
+              "clm_013706bfb3ee",
+              "clm_24102364e5e1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Use esses parâmetros como referência ao conferir a ficha técnica da cadeira que você está considerando.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "garantia",
+        "heading": "O que a garantia de cada tipo cobre",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, há cadeiras com garantia de até 7 anos. Em documentos de compras públicas, aparecem exigências de garantia mínima de 1 ano para alguns produtos e de 5 anos para estrutura e mecanismos em outros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8c21a540e6a1",
+              "clm_3ffd00568d40",
+              "clm_6490de4f9c2b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na ficha técnica quais itens são cobertos pela garantia, especialmente estrutura e mecanismos. Procure também informações sobre assistência técnica durante o prazo de garantia.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3ffd00568d40",
+              "clm_1feaebfd1c2b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como escolher entre ergonômica e gamer",
+        "blocks": [
+          {
+            "text": "Se você vai usar a cadeira 8 horas por dia em trabalho de escritório, confira se ela declara regulagem de profundidade do assento e apoio lombar ajustável em altura com valores documentados em centímetros. Segundo a Flexform, essas regulagens documentadas atendem a parâmetros mínimos da NR-17.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_d7d95a312a2d",
+              "clm_832b248a7da8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você alterna entre ficar sentado e reclinar para descanso, procure uma cadeira que declare reclinação com múltiplas posições de bloqueio e mecanismo sincronizado. Segundo a Flexform, uma cadeira com mecanismo sincronizado, profundidade do assento e apoio lombar ajustável pode atender à NR-17.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_5dd063f37653",
+              "clm_e8cc2dafbc8c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para trabalho em teleatendimento ou telemarketing, verifique se a ficha técnica informa altura da superfície superior ajustável de 37 a 50 cm. Se você é mais alto ou mais baixo que a média, confira se o modelo alcança a faixa de que você precisa.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_41a4004759fb",
+              "clm_be7789c3d30e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Procure informações sobre a densidade da espuma. Segundo a Flexform, espuma de 45 a 55 kg/m³ é o mínimo para durabilidade compatível com garantia de 5 a 7 anos em uso diário intenso. Densidades abaixo de 40 kg/m³ perdem firmeza rapidamente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_793039315aaf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique a cobertura da garantia antes de comprar e procure informações sobre quantos anos ela cobre, inclusive para estrutura e mecanismos. As evidências citadas mencionam garantia de até 7 anos e garantia mínima de 5 anos para estrutura e mecanismos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8c21a540e6a1",
+              "clm_3ffd00568d40"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O bloco apresenta como fatos gerais afirmações provenientes de fabricante, sem indicar que são da Flexform. Além disso, os trechos não sustentam a comparação completa com cadeiras gamer, nem as alegações sobre múltiplas posições de reclinação, base reforçada, densidade da espuma, garantia ou peso máximo suportado. A possibilidade de atender à NR-17 é apresentada de forma ampla, enquanto o trecho regulatório citado é específico para apoio de braços em teleatendimento/telemarketing; os trechos do fabricante apenas dizem que certos modelos ou categorias podem atender à NR-17. Versão sustentável: Segundo a Flexform, cadeiras com especificações técnicas completas podem incluir regulagem de altura, profundidade do assento, apoio lombar e tensão do mecanismo, e uma cadeira gamer com determinados recursos pode atender à NR-17. Verifique na ficha técnica do modelo a altura do assento e os demais dados efetivamente informados pelo fabricante; a exigência regulatória deve ser conferida conforme o contexto de uso aplicável."
+    },
+    {
+      "ref": "como-cada-tipo-funciona#0",
+      "msg": "OVERSTATED. Os trechos dizem que uma cadeira com especificação técnica mais completa pode reunir esses recursos e que um modelo operativo pode possuir apenas regulagem de altura. O bloco transforma possibilidades e exemplos de modelos em características gerais de todas as cadeiras ergonômicas e básicas. Versão sustentável: Segundo a Flexform, uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado. Um modelo operativo pode possuir apenas regulagem de altura, sem essas opções."
+    },
+    {
+      "ref": "como-cada-tipo-funciona#2",
+      "msg": "OVERSTATED. O trecho citado se refere a mecanismos sincronizados, não a todas as cadeiras ergonômicas. Além disso, diz que o ajuste permite calibrar a resistência ao peso, mas não estabelece que a tensão deve ser calibrada como regra geral. Versão sustentável: Segundo a Flexform, mecanismos sincronizados têm ajuste de tensão que permite calibrar a resistência da mola ao peso do usuário; usuários com pesos diferentes podem precisar de tensões diferentes para controlar a reclinação."
+    },
+    {
+      "ref": "regulagens-declaradas#0",
+      "msg": "OVERSTATED. O trecho diz que a Flexform descreve regulagens declaradas com esses valores, mas não estabelece que o fabricante tenha uma obrigação de declarar esses dados. A palavra “deve” transforma uma descrição em exigência. Versão sustentável: Segundo a Flexform, podem ser declarados: altura mínima e máxima do assento, faixa de profundidade do assento e faixa de ajuste do apoio lombar, em centímetros."
+    },
+    {
+      "ref": "regulagens-declaradas#1.r0",
+      "msg": "UNSUPPORTED. Os trechos não sustentam a afirmação de que cadeiras gamer tenham altura do assento declarada em centímetros, nem apresentam uma tabela comparativa entre as duas categorias. O trecho regulatório citado trata da altura do apoio de braços em postos de teleatendimento, não da altura do assento. Versão sustentável: Na ficha citada da Flexform, conferir a altura mínima e máxima do assento em centímetros; não concluir, com esses trechos, que isso vale para cadeiras gamer."
+    },
+    {
+      "ref": "regulagens-declaradas#1.r1",
+      "msg": "MISATTRIBUTED. A tabela apresenta como regra geral dos fabricantes uma afirmação baseada apenas em trechos da Flexform. Além disso, o trecho do produto gamer fala em encosto regulável para posicionar o apoio lombar, mas não informa uma faixa de ajuste em centímetros nem diz que toda cadeira gamer oferece esse recurso. Versão sustentável: Segundo a Flexform, uma cadeira ergonômica pode ter apoio lombar ajustável em altura; no produto gamer citado, o encosto é regulável em altura e há posicionamento do apoio lombar. Os trechos não informam uma faixa em centímetros nem sustentam a generalização para cadeiras gamer."
+    },
+    {
+      "ref": "regulagens-declaradas#1.r2",
+      "msg": "MISATTRIBUTED. A tabela transforma afirmações condicionais e específicas da Flexform em regra geral para fabricantes e para toda a categoria gamer. Os trechos não informam valores em centímetros nem uma faixa de ajuste; no caso gamer, dizem apenas que uma cadeira com esse recurso pode atender à NR17. Versão sustentável: Segundo a Flexform, a profundidade do assento aparece entre as regulagens documentadas de uma cadeira ergonômica, e uma cadeira gamer com regulagem de profundidade pode atender à NR17. A faixa em centímetros deve ser verificada na ficha do produto."
+    },
+    {
+      "ref": "regulagens-declaradas#1.r3",
+      "msg": "MISATTRIBUTED. A tabela apresenta como característica geral de categorias afirmações provenientes de produtos e textos da Flexform. O trecho sobre cadeiras ergonômicas diz que uma especificação técnica mais completa pode incluir tensão ajustável, não que toda cadeira ergonômica a tenha; o trecho gamer informa cinco posições apenas para o produto Alpha 2 Pro Black. Versão sustentável: Segundo a Flexform, uma especificação técnica mais completa pode incluir mecanismo com tensão ajustável ou sincronizado; no Alpha 2 Pro Black, a inclinação tem cinco posições de bloqueio."
+    },
+    {
+      "ref": "regulagens-declaradas#1.r4",
+      "msg": "MISATTRIBUTED. Os trechos não sustentam que toda cadeira ergonômica ou gamer tenha apoio de braços regulável em altura. O trecho da Flexform apenas inclui apoio de braços entre as regulagens documentadas, e o trecho regulatório estabelece 20 a 25 cm somente para o contexto de teleatendimento/telemarketing, não como regra geral nem para cadeiras gamer. Versão sustentável: No contexto de teleatendimento/telemarketing, o trecho regulatório citado exige apoio de braços regulável de 20 a 25 cm a partir do assento. Para outros produtos ou categorias, os trechos não comprovam regulagem de altura nem valores em centímetros."
+    },
+    {
+      "ref": "peso-e-materiais#0",
+      "msg": "OVERSTATED. O trecho sustenta que um modelo específico da Flexform tem alumínio com acabamento anticorrosão e resistência de 1100 kg conforme a NBR 13962, mas não diz que isso vale para cadeiras gamer em geral nem identifica explicitamente a peça como a base. Versão sustentável: Segundo a Flexform, o modelo Sigma 2 Pro tem estrutura injetada em alumínio com acabamento anticorrosão e resistência de 1100 kg, conforme a NBR 13962. Confira na ficha técnica se o fabricante informa o peso máximo suportado."
+    },
+    {
+      "ref": "peso-e-materiais#1",
+      "msg": "OVERSTATED. Os trechos sustentam a faixa de espuma de 45 a 55 kg/m³ e sua relação, segundo a Flexform, com uso diário de 8 horas e garantia de 5 a 7 anos. Não especificam que a faixa se aplica simultaneamente ao assento e ao encosto. Versão sustentável: Segundo a Flexform, a linha gamer, baseada na mesma base técnica corporativa, usa espuma na faixa de 45 a 55 kg/m³; a empresa indica essa faixa como mínima para durabilidade compatível com garantia de 5 a 7 anos em uso diário de 8 horas."
+    },
+    {
+      "ref": "peso-e-materiais#3",
+      "msg": "MISATTRIBUTED. O trecho sobre a linha corporativa menciona rodízios para diferentes tipos de piso, mas não informa o tamanho de 65 mm. O trecho que informa rodízios de 65 mm não mostra que essa medida se aplica às cadeiras corporativas. Versão sustentável: Segundo a Flexform, a linha corporativa tem rodízios para diferentes tipos de piso. Em outro trecho, a empresa informa rodízios de 65 mm; confira na ficha técnica se essa medida e o tipo de piso são especificados para o modelo escolhido."
+    },
+    {
+      "ref": "norma-abnt-e-nr17#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Flexform afirma realizar ensaios em laboratório acreditado pela CGCRE conforme a NR-17 e a ABNT NBR 13962, mas não dizem que a norma especifica requisitos técnicos para cadeiras, que não certifica efeitos sobre dor ou postura, nem que verifica regulagens, materiais e mecanismos conforme declarado. Versão sustentável: Segundo a Flexform, seus produtos ou sua linha são submetidos a ensaios no Laboratório Galileo, acreditado pela CGCRE, conforme parâmetros da NR-17 e a ABNT NBR 13962."
+    },
+    {
+      "ref": "norma-abnt-e-nr17#1",
+      "msg": "OVERSTATED. Os trechos citados mostram requisitos do Anexo II para trabalho em teleatendimento/telemarketing, não uma regulação geral da NR-17 aplicável a cadeiras em todos os postos de trabalho. Os parâmetros específicos de teleatendimento estão sustentados. Versão sustentável: No Anexo II da NR-17, para trabalho em teleatendimento ou telemarketing, são previstos parâmetros como altura ajustável entre 37 e 50 cm, encosto ajustável com adaptação para proteção da região lombar, apoio de braços regulável entre 20 e 25 cm, base estofada com densidade entre 40 e 50 kg/m³ e apoio em cinco pés com rodízios."
+    },
+    {
+      "ref": "garantia#0",
+      "msg": "OVERSTATED. Os trechos não dizem que a garantia de até 7 anos é típica de cadeiras corporativas, nem condicionam esse prazo ao uso de espuma de 45 a 55 kg/m³ e jornada de 8 horas. Também não qualificam os produtos de 1 ano como básicos nem os de 5 anos como modelos mais robustos. Versão sustentável: Segundo a Flexform, há cadeiras com espuma de 45 a 55 kg/m³ e garantia de até 7 anos. Em documentos de compras públicas citados, aparecem exigências de garantia mínima de 1 ano para um produto e de 5 anos para estrutura e mecanismos em outro caso."
+    },
+    {
+      "ref": "garantia#1",
+      "msg": "OVERSTATED. Os trechos sustentam garantia para estrutura e mecanismos e assistência técnica durante o prazo de garantia, mas não dizem que garantias mais longas geralmente cobrem esses itens, nem mencionam rodízios, espuma ou revestimento como componentes cobertos ou como peças de desgaste. Versão sustentável: Confira na ficha técnica quais itens são cobertos pela garantia, especialmente estrutura e mecanismos, e verifique também se há informações sobre outros componentes e sobre a assistência técnica durante o prazo de garantia."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam regulagem de profundidade do assento e apoio lombar ajustável, mas não mencionam mecanismo com tensão ajustável. Portanto, a conclusão sobre cadeiras com todas essas regulagens não é inteiramente sustentada. Versão sustentável: Se você vai usar a cadeira 8 horas por dia em trabalho de escritório, confira se ela declara regulagem de profundidade do assento e apoio lombar ajustável em altura, com valores documentados. Segundo a Flexform, essas regulagens documentadas atendem a parâmetros mínimos da NR-17."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam reclinação com 5 posições de bloqueio, mecanismo sincronizado, profundidade do assento e apoio lombar ajustável, além da possibilidade de atender à NR-17. Eles não sustentam que esse uso seja comum entre gamers ou em home office. Versão sustentável: Se você alterna entre ficar sentado e reclinar para descanso, procure uma cadeira que declare reclinação com múltiplas posições de bloqueio e mecanismo sincronizado. Segundo a Flexform, uma cadeira com mecanismo sincronizado, profundidade do assento e apoio lombar ajustável pode atender à NR-17."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho da NR-17 citado fala em altura da superfície superior ajustável entre 37 e 50 cm para trabalho em teleatendimento/telemarketing; ele não diz literalmente que se trata da altura mínima e máxima do assento. Além disso, o alcance é específico desse contexto, não uma regra geral. Versão sustentável: Para trabalho em teleatendimento/telemarketing, verifique se a ficha técnica informa altura da superfície superior ajustável entre 37 e 50 cm. Se você é mais alto ou mais baixo que a média, confira se o modelo alcança a faixa de que você precisa."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. O único trecho citado trata da regulagem de altura do apoio de braços, entre 20 e 25 cm, e não menciona peso máximo suportado, resistência de base de 1100 kg, comparação com peso corporal ou durabilidade. Versão sustentável: Remova este bloco ou cite uma evidência que informe o peso máximo suportado e a resistência da base. Com os trechos atuais, só seria possível recomendar verificar a regulagem de altura do apoio de braços entre 20 e 25 cm no contexto de teleatendimento/telemarketing."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "UNSUPPORTED. Os trechos sustentam a existência de garantia de até 7 anos e de garantia contratual mínima de 5 anos para estrutura e mecanismos, mas não dizem que uma garantia de 5 a 7 anos geralmente indica que o fabricante espera maior durabilidade. Essa relação causal não está nos trechos. Versão sustentável: Verifique a cobertura da garantia antes de comprar e procure informações sobre quantos anos ela cobre, inclusive para estrutura e mecanismos. As evidências citadas mencionam garantia de até 7 anos e garantia contratual mínima de 5 anos para estrutura e mecanismos."
+    }
+  ],
+  "usage": {
+    "input_tokens": 24389,
+    "output_tokens": 3250
+  }
+}
