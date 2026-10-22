@@ -3,7 +3,7 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Cadeira ergonômica ou gamer: qual escolher",
-  "description": "Compare XT Racer Platinum W e Flexform Dot: capacidade, regulagens e garantia para escolher a cadeira certa para seu peso e uso.",
+  "description": "Comparação entre XT Racer Platinum W e Flexform Dot: capacidade de peso, regulagens e garantia para escolher a cadeira certa.",
   "primary_query": "cadeira ergonômica ou gamer",
   "updated_at": "2026-10-22",
   "verdict": {
@@ -142,14 +142,12 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A XT Racer Platinum W tem encosto reclinável de 90º a 150º e almofadas removíveis. A Flexform Dot tem encosto injetado com apoio lombar regulável. Segundo as fichas técnicas, a XT Racer declara 3 anos de garantia para a estrutura metálica e 1 ano para os demais componentes; a Flexform Dot declara 5 anos de garantia.",
+          "text": "As fichas citadas informam capacidade de 120 kg para a XT Racer e 136 kg para a Flexform Dot. Segundo a fonte citada, recomenda-se uma capacidade pelo menos 20 kg acima do peso do usuário; confira a capacidade na ficha antes da compra.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_51a82127f7a2",
-            "clm_3a44b8895439",
-            "clm_9a3e4bb74c8d",
-            "clm_1d0999632b9b",
-            "clm_845d4ec3b96a"
+            "clm_0f2bc640bf0f",
+            "clm_00a8a70a7b3d",
+            "clm_094a46308551"
           ]
         },
         {
@@ -246,23 +244,34 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você pesa até 120 kg, ambas têm capacidade de peso declarada para esse limite. Se pesa entre 120 e 136 kg, apenas a Flexform Dot tem capacidade declarada nesse intervalo. Confira sempre o peso máximo na ficha antes de comprar.",
-          "basis": "reasoning",
+          "text": "Segundo as fichas citadas, a XT Racer informa encosto reclinável de 90º a 150º e almofadas removíveis com preenchimento de espuma viscoelástica. A Flexform informa encosto injetado com apoio lombar regulável e braços reguláveis em altura. Compare quais regulagens importam mais para seu uso.",
+          "basis": "evidence",
           "claim_ids": [
-            "clm_0f2bc640bf0f",
-            "clm_00a8a70a7b3d",
-            "clm_094a46308551"
+            "clm_51a82127f7a2",
+            "clm_3a44b8895439",
+            "clm_3de9d4b47246",
+            "clm_9a3e4bb74c8d",
+            "clm_e1fe7ea63907"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "A Flexform Dot declara apoio lombar regulável e apoia-braços reguláveis em altura. A XT Racer declara braços 3D com revestimento em PU macio. Compare quais desses ajustes são mais importantes para seu uso.",
+          "text": "Segundo as fichas técnicas, a XT Racer Platinum W declara 3 anos de garantia para a estrutura metálica e 1 ano para os demais componentes. A Flexform Dot declara 5 anos de garantia. Verifique na ficha qual cobertura você prefere.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_9a3e4bb74c8d",
+            "clm_1d0999632b9b",
+            "clm_845d4ec3b96a"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Segundo as fichas citadas, a Flexform Dot oferece braços reguláveis em altura, enquanto a XT Racer tem braços 3D com revestimento em PU macio. A ficha da XT Racer informa reclinação do encosto de 90º a 150º.",
+          "basis": "evidence",
+          "claim_ids": [
             "clm_e1fe7ea63907",
             "clm_bf89221a9925",
-            "clm_0e0ef279365f"
+            "clm_0e0ef279365f",
+            "clm_51a82127f7a2"
           ]
         }
       ]
@@ -270,7 +279,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T122054_autopilot_10be+editor:20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527+editor:20261022T140419_cadeira-ergonomica-ou-gamer-ajuste_aada+editor:20261022T141643_cadeira-ergonomica-ou-gamer-ajuste_7d21+editor:20261022T143602_cadeira-ergonomica-ou-gamer-ajuste_823b+editor:20261022T150721_cadeira-ergonomica-ou-gamer-ajuste_0fe5",
+    "run_id": "20261022T122054_autopilot_10be+editor:20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527+editor:20261022T140419_cadeira-ergonomica-ou-gamer-ajuste_aada+editor:20261022T141643_cadeira-ergonomica-ou-gamer-ajuste_7d21+editor:20261022T143602_cadeira-ergonomica-ou-gamer-ajuste_823b+editor:20261022T150721_cadeira-ergonomica-ou-gamer-ajuste_0fe5+editor:20261022T151053_cadeira-ergonomica-ou-gamer-ajuste_ec00",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
