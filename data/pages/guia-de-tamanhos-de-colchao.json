@@ -42,9 +42,53 @@
       ]
     },
     {
-      "id": "medidas-declaradas-por-fabricante",
-      "heading": "Medidas declaradas por cada fabricante",
+      "id": "nomes-diferentes-mesma-medida",
+      "heading": "Quando o mesmo tamanho tem nomes diferentes",
       "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Segundo a Simmons, há Queen Size (158 × 198 cm) e Queen Especial (178 × 198 cm), uma diferença de 20 cm na largura.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_9e226f561cc9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "altura-espessura-colchao",
+      "heading": "Altura (espessura) do colchão declarada na ficha",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A ficha da Gazin informa altura de 23 cm para o colchão Los Angeles Plus. Um documento da Simmons informa altura de 43 cm para o colchão Evolution Neo. Segundo a Ortobom, as dimensões finais do produto podem variar em mais ou menos 1 cm.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_9e7f1503f57c",
+            "clm_fb9dd49e3e89",
+            "clm_07edec6f3f44"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o-que-conferir-na-ficha",
+      "heading": "O que conferir na ficha técnica antes de comprar",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Confira na ficha a largura, o comprimento e a altura do colchão.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_9e7f1503f57c"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confira a ficha técnica do modelo que você quer comprar.",
+          "basis": "framing",
+          "claim_ids": []
+        },
         {
           "kind": "table",
           "caption": "Medidas de largura e comprimento (em cm) por tamanho e fabricante",
@@ -189,66 +233,14 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "nomes-diferentes-mesma-medida",
-      "heading": "Quando o mesmo tamanho tem nomes diferentes",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Simmons, há Queen Size (158 × 198 cm) e Queen Especial (178 × 198 cm), uma diferença de 20 cm na largura.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_9e226f561cc9"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "altura-espessura-colchao",
-      "heading": "Altura (espessura) do colchão declarada na ficha",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A ficha da Gazin informa altura de 23 cm para o colchão Los Angeles Plus. Um documento da Simmons informa altura de 43 cm para o colchão Evolution Neo. Segundo a Ortobom, as dimensões finais do produto podem variar em mais ou menos 1 cm.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_9e7f1503f57c",
-            "clm_fb9dd49e3e89",
-            "clm_07edec6f3f44"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "o-que-conferir-na-ficha",
-      "heading": "O que conferir na ficha técnica antes de comprar",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Confira na ficha técnica a largura, o comprimento e a altura do colchão. As medidas variam conforme o fabricante, então verifique os dados específicos do modelo que vai comprar.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_9e7f1503f57c",
-            "clm_cf4273458349"
-          ]
         },
         {
           "kind": "callout",
           "tone": "info",
-          "text": "Medidas de largura e comprimento (em cm) por tamanho e fabricante",
+          "text": "Se você vai comprar uma cama junto, meça o espaço considerando que a estrutura pode ocupar alguns centímetros a mais que o colchão, conforme o fabricante e o modelo.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_34c96754c13d",
-            "clm_55c366870be1",
-            "clm_0222495f509f",
-            "clm_4e9380063582",
-            "clm_404e8e613a70",
-            "clm_8cd2a9b4b397",
-            "clm_7d2040729fa7",
-            "clm_92840396526a"
+            "clm_cf4273458349"
           ]
         }
       ]
@@ -256,7 +248,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T191123_autopilot_1f27+edit:20261022T191123_autopilot_1f27+editor:20261022T195455_guia-de-tamanhos-de-colchao-ajuste_cfd7",
+    "run_id": "20261022T191123_autopilot_1f27+edit:20261022T191123_autopilot_1f27+editor:20261022T201137_guia-de-tamanhos-de-colchao-ajuste_b40f",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
