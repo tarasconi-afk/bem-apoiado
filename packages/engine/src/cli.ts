@@ -397,7 +397,9 @@ async function main(): Promise<number> {
       const msg = await adjustWithResearch(slug, text, newRunId(`${slug}-ajuste`), undefined, { research: pesquisar });
       console.log(`→ ${msg}`);
       console.log(`~${creditsSpent().toFixed(2)} créditos`);
-      return msg.startsWith('texto ajustado') ? 0 : 1;
+      // Sucesso = não diz "NÃO salvo": a mensagem pode começar por "lição nova…" ou "página reorganizada…"
+      // (22/10: mover tabela salvava a página e o script tratava como falha, sem commit).
+      return /NÃO salvo/.test(msg) ? 1 : 0;
     }
     case 'request': {
       // Pedido em texto livre (painel): request <arquivo.txt>
