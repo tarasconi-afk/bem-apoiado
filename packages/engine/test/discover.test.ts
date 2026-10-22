@@ -67,3 +67,12 @@ describe('fabricantes por tipo', () => {
     expect(makersFor(['mesa'], r)).toEqual([]);
   });
 });
+
+describe('buscas por fabricante', () => {
+  it('busca com vários sites juntos não conta como busca no site de cada um', async () => {
+    const { makerQueries } = await import('../src/stages/discover.ts');
+    const makers = [{ host: 'a.com.br' }, { host: 'b.com.br' }, { host: 'c.com.br' }, { host: 'd.com.br' }];
+    const planned = [{ q: 'x', include_domains: ['a.com.br', 'b.com.br', 'c.com.br'] }, { q: 'y', include_domains: ['b.com.br'] }];
+    expect(makerQueries(planned, makers, 'cadeira').map((q) => q.include_domains[0])).toEqual(['a.com.br', 'c.com.br', 'd.com.br']);
+  });
+});

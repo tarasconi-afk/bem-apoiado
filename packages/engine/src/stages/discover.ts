@@ -52,6 +52,16 @@ Cubra as perguntas da pauta. No máximo o número de consultas pedido.${editorLe
 
 // Fabricantes do cadastro que fazem os tipos da pauta (campo "kinds"). Sem isto o planejador buscou
 // cadeira de escritório no site da Probel (colchões) e ignorou Cavaletti, Flexform e Frisokar (21/10).
+// Só conta como coberta a busca restrita ao site daquele fabricante. Uma busca com os 5 sites juntos devolve
+// só o maior: em 22/10 o planejador juntou Flexform, Cavaletti, Frisokar… numa consulta, as buscas por
+// fabricante foram puladas e a cadeira saiu de novo só com Flexform.
+export function makerQueries(queries: { q: string; include_domains?: string[] }[], makers: { host: string }[], primary: string, max = 3) {
+  return makers
+    .filter((m) => !queries.some((q) => q.include_domains?.length === 1 && q.include_domains[0] === m.host))
+    .slice(0, max)
+    .map((m) => ({ q: `${primary} ficha técnica especificações`, include_domains: [m.host] }));
+}
+
 export function makersFor(kinds: string[], reg: Registry): Registry['allow'] {
   return reg.allow.filter((a) => a.source_class === 'manufacturer' && a.kinds?.some((k) => kinds.includes(k)));
 }
@@ -118,7 +128,7 @@ export async function discoverSources(
   const srcs = new Map(loadSources().map((x) => [x.id, x]));
   const withEvidence = new Set(topic.source_ids.map((id) => srcs.get(id)).filter((x) => x?.source_class === 'manufacturer').map((x) => x!.publisher));
   const fresh = [...makers.filter((m) => !withEvidence.has(m.publisher)), ...makers.filter((m) => withEvidence.has(m.publisher))];
-  for (const m of fresh.slice(0, 3)) if (!queries.some((q) => q.include_domains?.includes(m.host))) queries.push({ q: `${topic.primary_query} ficha técnica especificações`, include_domains: [m.host] });
+  queries.push(...makerQueries(queries, fresh, topic.primary_query));
   // Menos de 2 fabricantes com fonte na pauta (ou nenhum cadastrado): 2 buscas abertas. O que vier de fora do
   // cadastro não entra como fonte; vira sugestão em "Domínios novos" para o editor aprovar.
   if (withEvidence.size < 2) {
