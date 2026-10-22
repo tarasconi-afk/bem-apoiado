@@ -48,6 +48,10 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `Para a dúvida dada, gere de 4 a 7 perguntas que, respondidas, permitem ao leitor DECIDIR. Prefira perguntas que um ` +
         `fabricante, uma norma ou um regulador costumam responder por escrito (definições, requisitos, especificações, ` +
         `o que a etiqueta deve informar). Evite perguntas que dependem de teste prático, preço ou opinião.\n` +
+        `A PRIMEIRA pergunta é sempre a do dado que decide: qual medida ou característica de quem compra (peso, altura, ` +
+        `posição de dormir, horas de uso, tamanho do quarto) indica cada opção, e com quais valores ou faixas segundo o ` +
+        `fabricante ou a norma. É ela que vira a resposta curta e a tabela do "Como decidir" (22/10: as páginas que o ` +
+        `editor aprovou de primeira cruzam duas grandezas, como peso e densidade).\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
         `"product_kinds": só os tipos do vocabulário que a página vai explicar.` +
         editorLessonsPrompt(),
