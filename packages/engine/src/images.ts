@@ -115,11 +115,25 @@ export interface Wanted {
   subject: string;
 }
 
-export function wantedImages(root: string, kinds: { id: string; label: string }[], pages: { slug: string; title: string; status: string }[]): Wanted[] {
+// Cada anúncio do catálogo também ganha a sua (22/10: o editor achou repetitivo o mesmo desenho do tipo em
+// todos os cartões). Mostra o tipo com o formato, a cor e o material que o anúncio descreve, sem a marca
+// (que sai do texto do pedido) e sem copiar o modelo.
+export function wantedImages(
+  root: string,
+  kinds: { id: string; label: string }[],
+  pages: { slug: string; title: string; status: string }[],
+  products: { asin: string; kind: string; brand: string; label: string }[] = [],
+): Wanted[] {
   const have = new Set(loadRegistry(root).map((r) => r.id));
   const out: Wanted[] = [];
   for (const k of kinds) if (!have.has(k.id)) out.push({ id: k.id, kind: k.id, subject: `tipo de produto: ${k.label}. Mostrar como esse tipo é construído ou o que o distingue visualmente dos outros tipos.` });
   for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: `capa de um guia intitulado "${p.title}". Cena que ilustre o tema do guia, sem mostrar produto de marca.` });
+  const kindLabel = new Map(kinds.map((k) => [k.id, k.label]));
+  for (const p of products) {
+    if (have.has(`produto-${p.asin}`)) continue;
+    const desc = p.label.replace(new RegExp(p.brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '').replace(/\s+/g, ' ').trim();
+    out.push({ id: `produto-${p.asin}`, subject: `ilustração genérica de ${kindLabel.get(p.kind) ?? p.kind} com o formato, a cor e o material descritos em "${desc}". Um único produto, sem marca, sem logotipo, sem reproduzir um modelo específico; ambiente diferente a cada imagem.` });
+  }
   return out;
 }
 
@@ -130,9 +144,9 @@ export async function ensureImages(
   kinds: { id: string; label: string }[],
   pages: { slug: string; title: string; status: string }[],
   writeBrief: (subject: string) => Promise<{ alt: string; prompt: string }>,
-  opts: GenerateOptions & { max?: number } = {},
+  opts: GenerateOptions & { max?: number; products?: { asin: string; kind: string; brand: string; label: string }[] } = {},
 ): Promise<ImageRecord[]> {
-  const todo = wantedImages(root, kinds, pages).slice(0, opts.max ?? 2);
+  const todo = wantedImages(root, kinds, pages, opts.products).slice(0, opts.max ?? 2);
   const briefsFile = imagePaths(root).briefs;
   const done: ImageRecord[] = [];
   for (const w of todo) {

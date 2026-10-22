@@ -81,11 +81,15 @@ export function productsFor(page: PageSpec): ProductCard[] {
   const topic = loadTopics().find((t) => t.slug === page.slug);
   if (!topic || topic.product_kinds.length === 0) return [];
   const idx = buildIndex();
+  const text = [page.verdict.text, ...page.sections.flatMap((x) => x.blocks.map((b) => (b.kind === 'table' ? [...b.columns, ...b.rows.flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text)))].join(' ').toLowerCase();
+  const cites = (brand: string) => text.includes(brand.toLowerCase());
   return loadProducts()
     .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0)
     // Com ficha oficial antes de "só anúncio" e da escolha do editor.
     .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : b.evidence === 'manufacturer' ? 1 : 0))
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))
+    // Marca que o texto da página cita vem primeiro: o leitor acha à venda o modelo que acabou de comparar.
+    .sort((a, b) => Number(cites(b.brand)) - Number(cites(a.brand)))
     .map((p) => ({
       product: p,
       url: affiliateUrl(p.asin),

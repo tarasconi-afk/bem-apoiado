@@ -166,7 +166,7 @@ async function maintainImages(steps: string[]): Promise<boolean> {
   try {
     const writeBrief = async (subject: string) =>
       (await callJson({ role: 'extractor', system: BRIEF_SYSTEM, user: subject, schema: BriefOut, schemaName: 'image_brief', maxTokens: 600 })).data;
-    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, { max: 2 });
+    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, { max: 2, products: loadProducts() });
     if (made.length) steps.push(`imagens: ${made.map((m) => m.id).join(', ')} (~${made.reduce((t, m) => t + m.credits, 0).toFixed(1)} créditos)`);
     return made.length > 0;
   } catch (e) {
