@@ -8,6 +8,7 @@ import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, selectClaims, type Draft } from './draft-schema.ts';
 import { duplicateBlocks, withoutDuplicates } from './duplicates.ts';
+import { decisionLast } from './structure.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
@@ -41,7 +42,8 @@ export function toPageSpec(draft: Draft, topic: TopicBrief, runId: string, audit
     primary_query: topic.primary_query,
     updated_at: new Date().toISOString().slice(0, 10),
     verdict: draft.verdict,
-    sections: draft.sections,
+    // "Como decidir" é sempre a última seção (a que o site mostra no topo), mesmo que o redator a ponha antes.
+    sections: decisionLast(draft).sections,
     products: [],
     provenance: {
       run_id: runId,

@@ -6,6 +6,7 @@ import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
 import { reviewPage } from './review.ts';
 import { withoutDuplicates } from './duplicates.ts';
+import { applyMoves, dropClaimless } from './structure.ts';
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { research } from './research.ts';
@@ -192,25 +193,63 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const freshNote = freshList(new Set([...freshIds, ...rr.slice(0, 20).map((c) => c.id)]), idx);
   const blocks = editableBlocks(page);
   const refs = blocks.map((b) => b.ref) as [string, ...string[]];
+  // Tabelas inteiras também aparecem (para mover); o seletor antes só via textos e não tinha como mover tabela.
+  const tables = page.sections.flatMap((x) => x.blocks.map((b, i) => (b.kind === 'table' ? { ref: `${x.id}#${i}`, caption: b.caption, sec: x.heading } : null)).filter((t) => t !== null));
+  const movable = [...refs.filter((r) => r !== 'verdict'), ...tables.map((t) => t.ref)] as [string, ...string[]];
+  const secIds = page.sections.map((x) => x.id) as [string, ...string[]];
   const pick = await callJson(
     {
       role: 'extractor',
-      system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta). "rewrite_summary": true quando o pedido é sobre a resposta curta ou o "Como decidir" COMO UM TODO (linguagem para leigo, tirar jargão, mudar o ponto de vista, foco no comprador), e não sobre um dado pontual.',
-      user: `Pedido: ${instruction}\n\nSeções: ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`,
-      schema: z.object({ rewrite_summary: z.boolean().default(false), refs: z.array(z.enum(refs)).min(1).max(5), headings: z.array(z.object({ id: z.enum(page.sections.map((x) => x.id) as [string, ...string[]]), heading: z.string().min(3).max(70) })).default([]) }),
+      system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta). "rewrite_summary": true quando o pedido é sobre a resposta curta ou o "Como decidir" COMO UM TODO (linguagem para leigo, tirar jargão, mudar o ponto de vista, foco no comprador), e não sobre um dado pontual. ' +
+        '"moves": quando o pedido manda MOVER, transferir, subir ou descer uma tabela ou bloco para outra seção, diga qual (ref) e para qual seção (to), com position "start", "after_first" (depois do 1º bloco) ou "end"; o conteúdo não muda, então NÃO ponha esse bloco em "refs" só por causa da mudança de lugar. A seção que o site mostra no topo, logo depois da resposta curta, é a ÚLTIMA da lista ("Como decidir"); tabela que ajuda a decidir fica nela. Se o trecho citado pelo editor começa com o parágrafo que apresenta a tabela, mova a TABELA (o parágrafo vai junto). "refs" pode ficar vazio se o pedido for só mover. "unsupported": o que o pedido pede e não dá para fazer com reescrita, títulos ou movimentação (ex.: inventar dado sem fonte), ou vazio.',
+      user: `Pedido: ${instruction}\n\nSeções (a última aparece no topo da página): ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}\n\nTabelas:\n${tables.map((t) => `- ${t.ref} (na seção "${t.sec}"): ${t.caption}`).join('\n') || '(nenhuma)'}`,
+      schema: z.object({
+        rewrite_summary: z.boolean().default(false),
+        refs: z.array(z.enum(refs)).max(5).default([]),
+        headings: z.array(z.object({ id: z.enum(secIds), heading: z.string().min(3).max(70) })).default([]),
+        moves: z.array(z.object({ ref: z.enum(movable), to: z.enum(secIds), position: z.enum(['start', 'after_first', 'end']).default('after_first') })).max(3).default([]),
+        unsupported: z.string().default(''),
+      }),
       schemaName: 'pick_blocks',
-      maxTokens: 600,
+      maxTokens: 700,
     },
     fetchImpl,
   );
   // Título de seção que o pedido torna enganoso ("O que a NR-17 exige" quando os números são de um anexo).
   const heads = new Map(pick.data.headings.map((h) => [h.id, h.heading.replace(/\s+/g, ' ').trim()]));
-  const draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections.map((x) => (heads.has(x.id) ? { ...x, heading: heads.get(x.id)! } : x)) };
+  const draft0 = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections.map((x) => (heads.has(x.id) ? { ...x, heading: heads.get(x.id)! } : x)) };
+  // Movimentação primeiro (sem IA, sem auditoria): o resto do pedido trabalha sobre a página já reorganizada.
+  const moved = applyMoves(draft0 as Draft, pick.data.moves);
+  const draft = moved.draft;
+  const moveNote = moved.done.length ? `; movido: ${moved.done.join(', ')}` : '';
+  const unsupportedNote =
+    (pick.data.unsupported.trim() ? `\nnão feito (o motor não sabe fazer ou não há fonte): ${pick.data.unsupported.trim().slice(0, 200)}` : '') +
+    (pick.data.moves.length && !moved.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '');
+  // Só movimentação (e títulos): grava sem reescrever nada.
+  if (!pick.data.refs.length && !pick.data.rewrite_summary) {
+    if (!moved.done.length && !heads.size) return lessonNote + `ajuste NÃO salvo: não entendi o que mudar na página${unsupportedNote}`;
+    const spec0 = PageSpec.parse({ ...page, ...draft, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } });
+    const g0 = checkPage(spec0, idx);
+    if (g0.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${g0.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
+    writeJson(join(PAGES_DIR, `${slug}.json`), spec0);
+    return `${lessonNote}página reorganizada em ${slug}${moveNote}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}${unsupportedNote}`;
+  }
   // Pedido sobre o resumo como um todo: a resposta curta e o "Como decidir" são reescritos do zero (o
   // remendo bloco a bloco mantinha as palavras das fontes: "datilo", "Anexo II", 21/10). Resto: remendo.
-  const decIdx = draft.sections.findLastIndex((x) => /decidir|escolher/i.test(`${x.id} ${x.heading}`));
+  // A seção de decisão é a que o site mostra no topo: a última (22/10, tamanhos: o título "Como decidir pelo espaço"
+  // da 1ª seção fazia a reescrita mexer na seção errada).
+  const decIdx = draft.sections.length - 1;
   let base = draft as Draft;
-  const touched = new Set(pick.data.refs);
+  // Depois de mover, o mesmo bloco pode ter outro ref: segue o bloco (mesmo objeto), não a posição.
+  const where = new Map<object, string>();
+  draft.sections.forEach((x) => x.blocks.forEach((b, i) => where.set(b, `${x.id}#${i}`)));
+  const remap = (r: string) => {
+    if (r === 'verdict') return r;
+    const [sid, i] = r.split('#');
+    const b = (draft0 as Draft).sections.find((x) => x.id === sid)?.blocks[Number(i)];
+    return b ? where.get(b) : undefined;
+  };
+  const touched = new Set(pick.data.refs.map(remap).filter((r): r is string => !!r));
   if (pick.data.rewrite_summary && decIdx >= 0) {
     base = await rewriteSummary(base, decIdx, instruction + freshNote, topic, idx, fetchImpl);
     touched.add('verdict');
@@ -218,7 +257,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     base.sections[decIdx]!.blocks.forEach((b, i) => (b.kind === 'table' ? b.rows.forEach((_, ri) => touched.add(`${base.sections[decIdx]!.id}#${i}.r${ri}`)) : touched.add(`${base.sections[decIdx]!.id}#${i}`)));
   }
   const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
-  const rest = pick.data.refs.filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
+  const rest = pick.data.refs.map(remap).filter((r): r is string => !!r).filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
   const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.${freshNote}` })), fetchImpl) : { data: { patches: [] } };
   let patched = applyPatches(base as never, p.data.patches) as Draft;
   // Regra de forma (parágrafo longo etc.) volta ao redator em vez de derrubar o ajuste (21/10: dois ajustes
@@ -229,6 +268,8 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     const p2 = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, patched as never, st.map((i) => ({ ref: i.ref!, msg: i.msg })), fetchImpl);
     patched = applyPatches(patched as never, p2.data.patches) as Draft;
   }
+  const cl = dropClaimless(patched, touched);
+  patched = cl.draft;
   const spec = PageSpec.parse({ ...page, ...patched });
   const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
   if (gate.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
@@ -272,6 +313,9 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
 
   return `${lessonNote}texto ajustado em ${slug}${fresh ? ` com ${fresh} evidência(s) nova(s)` : ' com as evidências que a página já tinha'}: ${fixed.kept.join(', ')}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}` +
     (fixed.dropped.length ? `; ${fixed.dropped.length} bloco(s) voltaram ao texto anterior porque o auditor não sustentou a nova versão (${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 120)}`).join(' | ')})` : '') +
+    moveNote +
+    (cl.dropped.length ? `; ${cl.dropped.length} bloco(s) sem fonte descartado(s)` : '') +
+    unsupportedNote +
     reviewNote;
 }
 
