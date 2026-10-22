@@ -6,9 +6,9 @@ const inmetro = 'A certificação do Inmetro avalia apenas a espuma flexível de
 const d = {
   title: 't', description: 'd', verdict: { text: 'v', basis: 'reasoning' as const, claim_ids: [] },
   sections: [
-    { id: 'detalhe', heading: 'Detalhe', blocks: [para('Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45 para estilos de sono diferentes.'), para('Outro assunto bem diferente sobre garantias de fabricantes e prazos de troca das peças.')] },
+    { id: 'detalhe', heading: 'Detalhe', blocks: [para('Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45 para estilos de sono diferentes, com suporte equilibrado e adaptação ao corpo.'), para('Outro assunto bem diferente sobre garantias de fabricantes e prazos de troca das peças.')] },
     { id: 'inmetro', heading: 'Inmetro', blocks: [para(`O Inmetro avalia por certificação compulsória. ${inmetro}`), para(inmetro)] },
-    { id: 'como-decidir', heading: 'Como decidir', blocks: [para('Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45 para estilos de sono diferentes; confira.')] },
+    { id: 'como-decidir', heading: 'Como decidir', blocks: [para('Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45 para estilos de sono diferentes, com suporte equilibrado e adaptação ao corpo. confira.')] },
   ],
 };
 
