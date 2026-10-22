@@ -472,7 +472,7 @@ const draftsJs = (secs: number, version: string) => `<script>
 })();
 </script>`;
 
-// Pedir ajuste antes de decidir: o texto muda no próprio resultado (ou no main), com as mesmas fontes e
+// Pedir ajuste antes de decidir: o texto muda no próprio resultado (página no ar: num resultado novo, que volta para aprovação), com as mesmas fontes e
 // auditoria; a prévia se refaz. Só para resultado que tem página.
 function adjustForm(ramo: string, slug: string): string {
   const hasPage = ramo === 'main' || readBranch(ramo)(`data/pages/${slug}.json`) !== null;

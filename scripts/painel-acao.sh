@@ -176,33 +176,35 @@ case "$action" in
     ;;
   ajustar)
     # ajustar <ramo pagina/...|main> <slug> <pedido.txt>: ajusta o texto da página no próprio resultado do
-    # motor (antes do aceite) ou no main; a prévia se refaz e o editor decide depois.
+    # motor (antes do aceite) ou, se for página no ar, num resultado novo; nos dois casos o editor aprova.
     fresh
-    if [ "$2" != main ]; then
-      git checkout -q -B "$2" "origin/$2"
+    B="$2"
+    if [ "$B" = main ]; then
+      # Ajuste em página no ar volta para aprovação com prévia (22/10: o editor pediu melhoria e ela foi
+      # direto ao site). Se a página já tem um resultado pendente, o ajuste entra nele.
+      B=$(git for-each-ref --no-merged=origin/main --sort=-committerdate --format='%(refname:short)' "refs/remotes/origin/pagina/$3-[0-9]*" | head -1)
+      B=${B#origin/}
+      [ -n "$B" ] || B="pagina/$3-$(date +%Y%m%d-%H%M)"
+    fi
+    if git rev-parse -q --verify "origin/$B" >/dev/null; then
+      git checkout -q -B "$B" "origin/$B"
       # Dados do ramo, código do main: o ramo tem o motor da hora em que foi criado, e o ajuste rodava com
       # ele (21/10: a correção do ajuste já estava no main e não valeu). Só na cópia de trabalho; o commit
       # abaixo leva só data/. scripts/ fica de fora (este script está rodando).
       git restore --source=origin/main --worktree -- packages site package.json package-lock.json
+    else
+      git checkout -q -B "$B" origin/main
     fi
     if ! npm run -s engine -- adjust "$3" "$4" ${5:+--pesquisar}; then
       git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; exit 1
     fi
     git add data/
     git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3${5:+ (com pesquisa)}"$'\n\n'"$(head -c 300 "$4")"
-    if [ "$2" = main ]; then
-      npm run -s engine -- validate >/dev/null
-      # O main andou durante o ajuste (21/10: push do editor no meio, envio recusado e ajuste perdido): refaz
-      # sobre o main novo e envia de novo, como o publish.
-      if ! git push -q origin HEAD:main; then
-        git fetch -q origin main && git rebase -q origin/main && npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
-      fi
-      preview   # a prévia do site mostra o ajuste já (antes esperava o próximo sync)
-    else
-      git push -q origin "HEAD:$2"
-    fi
+    npm run -s engine -- validate >/dev/null
+    git push -q origin "HEAD:$B"
     git checkout -q -f main
-    echo "ajuste salvo em $2: $3"
+    branch_previews 2>/dev/null || true   # a prévia do resultado aparece já (antes esperava o próximo sync)
+    echo "ajuste salvo para aprovação ($B): $3; confira a prévia em Decisões"
     ;;
   pedido)
     fresh
