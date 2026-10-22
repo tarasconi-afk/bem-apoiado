@@ -1,7 +1,7 @@
 import { writerLessons } from '../lessons.ts';
 import { editorialChecklist, type Claim, type NicheProfile, type Source, type TopicBrief } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
-import { sourceText } from '../store.ts';
+import { loadProducts, sourceText } from '../store.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { makeDraftSchema, type Draft } from './draft-schema.ts';
 
@@ -90,6 +90,15 @@ export function formatClaims(claims: Claim[], sources: Map<string, Source>): str
     .join('\n');
 }
 
+// Modelos à venda no catálogo para os tipos da pauta: quando a página compara modelos, compara os que o leitor
+// consegue comprar (22/10: a cadeira comparava a Cavaletti Diretor, que não está à venda, e os exemplos
+// à venda eram outros modelos, que o texto nunca citava).
+export function catalogNote(topic: TopicBrief): string {
+  const list = loadProducts().filter((p) => topic.product_kinds.includes(p.kind));
+  if (!list.length) return '';
+  return `\nModelos à venda no catálogo do site (${list.length}): ${list.map((p) => `${p.brand}: ${p.label}`).join(' | ')}.\nAo comparar modelos, prefira os destes fabricantes quando houver evidência deles; modelo citado que não está à venda não serve de exemplo de compra. Uma coluna de tabela é um modelo só.\n`;
+}
+
 export async function writeDraft(
   topic: TopicBrief,
   claims: Claim[],
@@ -102,6 +111,7 @@ export async function writeDraft(
     `Pauta: "${topic.primary_query}" (tipo ${topic.page_type})\n` +
     `Perguntas a responder:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n` +
     (topic.editorial_notes.length ? `Notas editoriais:\n${topic.editorial_notes.map((n) => `- ${n}`).join('\n')}\n` : '') +
+    catalogNote(topic) +
     `\nEvidências disponíveis (${claims.length}):\n${formatClaims(claims, sources)}`;
   const user = fix
     ? `${brief}\n\nVocê já escreveu o rascunho abaixo, mas ele tem problemas. Corrija TODOS os problemas listados, mexendo só no necessário (pode reescrever, encolher ou remover o bloco). Devolva o rascunho completo corrigido.\n\nProblemas:\n${fix.issues.map((i) => `- ${i}`).join('\n')}\n\nRascunho anterior:\n${JSON.stringify(fix.previous)}`
