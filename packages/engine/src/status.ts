@@ -251,10 +251,14 @@ export function goalsCard(pages: Pick<PageSpec, 'status' | 'provenance'>[], spen
   const live = pages.filter((p) => p.status !== 'draft');
   const drafts = pages.length - live.length;
   const clean = live.filter((p) => !/\+editor:(?!\d{8}T\d{6}_autopilot_)/.test(String(p.provenance.run_id))).length; // manutenção automática não conta
+  // Concordância do juiz automático com o editor nos últimos 10 vereditos: é o número que diz quando a revisão
+  // pode passar a decidir sozinha (modo sombra antes de qualquer publicação automática).
+  const judged = loadVerdicts().filter((v) => v.review).sort((a, b) => b.at.localeCompare(a.at)).slice(0, 10);
+  const agree = judged.filter((v) => (v.verdict === 'approve') === v.review!.rule_publishable).length;
   const approved7d = loadVerdicts().filter((v) => v.verdict === 'approve' && now.getTime() - new Date(v.at).getTime() < 7 * 86_400_000).length;
   const goal = live.length < 20 ? 20 : 200;
   const pct = Math.min(100, Math.round((100 * live.length) / goal));
   return `<div class="card" style="grid-column:span 2"><div class="v">${live.length} <span style="font-size:.9rem;font-weight:500">de ${goal} páginas no ar${goal === 20 ? ' (meta final 200)' : ''}</span></div>
 <div style="height:8px;background:var(--nbg);border-radius:999px;margin:6px 0"><div style="height:8px;width:${pct}%;background:var(--ok);border-radius:999px"></div></div>
-<div class="l">${drafts} em rascunho · ${clean} de ${live.length} no ar sem ajuste seu · ${approved7d ? `~${Math.round(spent7d / approved7d)} créditos por página aprovada (7 dias)` : 'sem aprovação nos últimos 7 dias'}</div></div>`;
+<div class="l">${drafts} em rascunho · ${clean} de ${live.length} no ar sem ajuste seu · juiz automático concorda com você em ${agree} de ${judged.length} vereditos · ${approved7d ? `~${Math.round(spent7d / approved7d)} créditos por página aprovada (7 dias)` : 'sem aprovação nos últimos 7 dias'}</div></div>`;
 }

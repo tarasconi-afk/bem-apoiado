@@ -5,6 +5,7 @@ import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
 import { reviewPage } from './review.ts';
+import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { research } from './research.ts';
 import { applyPatches } from './patch.ts';
@@ -296,7 +297,7 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
       system: writerSystem(),
       user:
         `Pedido do editor: ${instruction}\n\nSe as evidências cruzam duas grandezas (peso × densidade, tamanho × medida, perfil × o que conferir), devolva "table" com uma linha por faixa, cada célula com os claim_ids que a sustentam; o título ("caption") diz de quem são os dados (ex.: "Densidade indicada pela Castor para cada faixa de peso"); prefira 2 colunas e NUNCA acrescente coluna que a fonte não traz para todas as linhas (21/10: uma coluna "firmeza típica" inventada derrubou as linhas mais pesadas); senão table=null. "description": a frase que aparece no Google (50 a 160 caracteres, para leigo, sem número que a página não traga), ou null para manter.\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido. A resposta curta RESPONDE à pergunta do título em até 2 frases: qual escolher e para quem, com o dado que decide ("Escolha pelo seu peso: até 60 kg…"; "Se você ___, escolha ___"); não é lista do que conferir, não cita norma e não abre com marca (22/10: "Confira na ficha técnica as regulagens…" foi recusada pelo editor). Depois: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
-        catalogNote(topic) + `Resposta curta atual: ${d.verdict.text}\n## ${sec.heading} (atual)\n${sec.blocks.map((b) => (b.kind === 'table' ? '' : `- ${b.text}`)).join('\n')}\n\nResto da página (contexto):\n${others.slice(0, 6000)}\n\nEvidências:\n${formatClaims(claims, idx.sources)}`,
+        catalogNote(topic) + examplesPrompt('writer', { pageType: topic.page_type, exclude: topic.slug }) + `Resposta curta atual: ${d.verdict.text}\n## ${sec.heading} (atual)\n${sec.blocks.map((b) => (b.kind === 'table' ? '' : `- ${b.text}`)).join('\n')}\n\nResto da página (contexto):\n${others.slice(0, 6000)}\n\nEvidências:\n${formatClaims(claims, idx.sources)}`,
       schema: Out,
       schemaName: 'summary_rewrite',
       maxTokens: 3000,

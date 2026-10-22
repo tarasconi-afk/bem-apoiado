@@ -2,6 +2,7 @@ import { writerLessons } from '../lessons.ts';
 import { editorialChecklist, type Claim, type NicheProfile, type Source, type TopicBrief } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
 import { loadProducts, sourceText } from '../store.ts';
+import { examplesPrompt } from '../exemplars.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { makeDraftSchema, type Draft } from './draft-schema.ts';
 
@@ -112,6 +113,7 @@ export async function writeDraft(
     `Perguntas a responder:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n` +
     (topic.editorial_notes.length ? `Notas editoriais:\n${topic.editorial_notes.map((n) => `- ${n}`).join('\n')}\n` : '') +
     catalogNote(topic) +
+    examplesPrompt('writer', { pageType: topic.page_type, exclude: topic.slug }) +
     `\nEvidências disponíveis (${claims.length}):\n${formatClaims(claims, sources)}`;
   const user = fix
     ? `${brief}\n\nVocê já escreveu o rascunho abaixo, mas ele tem problemas. Corrija TODOS os problemas listados, mexendo só no necessário (pode reescrever, encolher ou remover o bloco). Devolva o rascunho completo corrigido.\n\nProblemas:\n${fix.issues.map((i) => `- ${i}`).join('\n')}\n\nRascunho anterior:\n${JSON.stringify(fix.previous)}`

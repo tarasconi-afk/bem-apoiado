@@ -5,6 +5,7 @@ import { loadNiche } from '../niche.ts';
 import { callJson, type FetchLike } from '../llm.ts';
 import { blockRefs } from './draft-schema.ts';
 import { loadThresholds, ruleDecides } from '../feedback.ts';
+import { examplesPrompt } from '../exemplars.ts';
 
 // Revisão editorial: a auditoria garante que cada frase tem prova; esta etapa julga se a página
 // SERVE para quem buscou. Página correta mas inútil (não responde, não orienta) não vai ao ar.
@@ -64,7 +65,8 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
       user:
         `Dúvida principal: "${topic.primary_query}"\nPerguntas da pauta:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n\n` +
         `Página: ${page.title}\n` +
-        units.map((u) => `[${u.ref}] ${u.text}`).join('\n'),
+        units.map((u) => `[${u.ref}] ${u.text}`).join('\n') +
+        examplesPrompt('judge', { pageType: page.page_type, exclude: page.slug, max: 3 }),
       schema: Out,
       schemaName: 'editorial_review',
       maxTokens: 2500,
