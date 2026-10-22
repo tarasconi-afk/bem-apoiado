@@ -22,3 +22,10 @@ describe('webSearch', () => {
     expect(calls).toBe(2);
   });
 });
+
+describe('domínios da busca', () => {
+  it('link vira host; o que não é domínio sai', async () => {
+    const { cleanDomains } = await import('../src/search.ts');
+    expect(cleanDomains(['https://bemapoiado.com/como-escolher-colchao/', 'www.Castor.com.br', 'castor.com.br', 'Castor', '*.gov.br'])).toEqual(['bemapoiado.com', 'castor.com.br', '*.gov.br']);
+  });
+});

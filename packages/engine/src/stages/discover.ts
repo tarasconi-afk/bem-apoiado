@@ -8,7 +8,7 @@ import { loadNiche } from '../niche.ts';
 import { computeLearning, plannerHints } from '../learning.ts';
 import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
 import { writeStage } from '../runs.ts';
-import { creditsThisMonth, webSearch, type SearchResult } from '../search.ts';
+import { creditsThisMonth, SearchError, webSearch, type SearchResult } from '../search.ts';
 import { snapshot } from '../snapshot.ts';
 import { DATA, loadSources, loadTopics, TOPICS_DIR, writeJson } from '../store.ts';
 import { loadTopic } from './research.ts';
@@ -136,7 +136,15 @@ export async function discoverSources(
     queries.push({ q: `${label} fabricante ficha técnica especificações` }, { q: `${label} norma técnica requisitos Brasil` });
   }
   for (const q of queries) {
-    const results = await webSearch(q.q, { maxResults: 8, ...(q.include_domains?.length ? { includeDomains: q.include_domains } : {}) });
+    // Uma consulta recusada pela Tavily (HTTP 4xx) não derruba a descoberta inteira; teto e chave derrubam.
+    let results: SearchResult[];
+    try {
+      results = await webSearch(q.q, { maxResults: 8, ...(q.include_domains?.length ? { includeDomains: q.include_domains } : {}) });
+    } catch (e) {
+      if (!(e instanceof SearchError) || e.code !== 'HTTP') throw e;
+      report.snapshot_errors.push({ url: `busca: ${q.q}`, error: e.message.slice(0, 200) });
+      results = [];
+    }
     report.queries.push({ q: q.q, ...(q.include_domains ? { include_domains: q.include_domains } : {}), results: results.length });
     for (const r of results) {
       const c = classify(r.url, reg);

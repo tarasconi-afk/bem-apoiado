@@ -47,6 +47,21 @@ export interface SearchOptions {
   excludeDomains?: string[];
 }
 
+// A Tavily recusa a busca inteira (HTTP 400) se um item de include_domains não for domínio. Em 22/10 o
+// planejador copiou do pedido do editor um link (https://bemapoiado.com/como-escolher-colchao/) e o ajuste
+// morreu antes de escrever. Aqui vira só o host; o que não for host some.
+export function cleanDomains(list: string[] | undefined): string[] {
+  const out = (list ?? []).map((d) => {
+    const t = d.trim().toLowerCase();
+    try {
+      return new URL(/^[a-z]+:\/\//.test(t) ? t : `https://${t}`).hostname.replace(/^www\./, '');
+    } catch {
+      return '';
+    }
+  });
+  return [...new Set(out.filter((h) => /^(\*\.)?([a-z0-9-]+\.)+[a-z]{2,}$/.test(h)))];
+}
+
 export async function webSearch(query: string, opts: SearchOptions = {}, fetchImpl: typeof fetch = fetch): Promise<SearchResult[]> {
   const key = process.env.TAVILY_API_KEY;
   if (!key) throw new SearchError('TAVILY_API_KEY ausente', 'NO_KEY');
@@ -54,6 +69,7 @@ export async function webSearch(query: string, opts: SearchOptions = {}, fetchIm
   if (creditsThisMonth() + 1 > MONTHLY_CREDIT_CAP) {
     throw new SearchError(`teto mensal de ${MONTHLY_CREDIT_CAP} créditos Tavily atingido`, 'MONTHLY_CAP');
   }
+  const includeDomains = cleanDomains(opts.includeDomains);
   const res = await fetchImpl('https://api.tavily.com/search', {
     method: 'POST',
     headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
@@ -65,7 +81,7 @@ export async function webSearch(query: string, opts: SearchOptions = {}, fetchIm
       include_raw_content: false,
       include_usage: true,
       country: 'brazil',
-      ...(opts.includeDomains?.length ? { include_domains: opts.includeDomains } : {}),
+      ...(includeDomains.length ? { include_domains: includeDomains } : {}),
       ...(opts.excludeDomains?.length ? { exclude_domains: opts.excludeDomains } : {}),
     }),
     signal: AbortSignal.timeout(30_000),
