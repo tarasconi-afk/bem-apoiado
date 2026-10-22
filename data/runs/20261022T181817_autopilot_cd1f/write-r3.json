@@ -1,0 +1,462 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha a densidade pelo seu peso: até 50 kg, densidade D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45 conforme a firmeza desejada; acima de 100 kg, D45 ou maior, segundo a Castor. Em colchões compostos ou mistos, confira na etiqueta as densidades nominais de cada lâmina, em kg/m³, e as respectivas espessuras, conforme exige o Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_1205fed30228",
+        "clm_7a0ddea8ecc1",
+        "clm_29c33cfe9a2e",
+        "clm_51f7dcf0f813"
+      ]
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "action": "replace",
+      "text": "Segundo a Castor, D28 significa que foram utilizados 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_8cbcbafcff04",
+        "clm_1ad133d2b40c"
+      ]
+    },
+    {
+      "ref": "molas-especificacao#0",
+      "action": "replace",
+      "text": "Em produtos específicos de molas ensacadas da Americanflex e da Ortobom, as páginas informam a média de molas por metro quadrado e a bitola do arame como características do molejo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_09a4138f8a28",
+        "clm_126cf1ac348c"
+      ]
+    },
+    {
+      "ref": "molas-especificacao#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Número médio de molas",
+          "claim_ids": []
+        },
+        {
+          "text": "Nos produtos citados, 180 a 220 molas/m²",
+          "claim_ids": [
+            "clm_126cf1ac348c",
+            "clm_09a4138f8a28"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "molas-especificacao#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Bitola do arame",
+          "claim_ids": []
+        },
+        {
+          "text": "Nos dois produtos: 2,0 mm; borda de aço (Americanflex): 4,6 mm",
+          "claim_ids": [
+            "clm_126cf1ac348c",
+            "clm_09a4138f8a28"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "action": "replace",
+      "text": "Exemplo: na página da Probel, um colchão informa \"Espuma do Estofamento 1: D28\" e \"Espuma do Estofamento 2: Espuma de Alta Densidade ≥ D65\", correspondendo às densidades de 28 kg/m³ e de pelo menos 65 kg/m³.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_63f752c5b69f"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Densidade de colchão: qual escolher pelo seu peso",
+    "description": "Tabelas e orientações para escolher densidade de espuma (D23 a D45) conforme peso corporal, posição de dormir e tipo de colchão.",
+    "verdict": {
+      "text": "Escolha a densidade pelo seu peso: até 50 kg, densidade D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45 conforme a firmeza desejada; acima de 100 kg, D45 ou maior, segundo a Castor. Em colchões compostos ou mistos, confira na etiqueta as densidades nominais de cada lâmina, em kg/m³, e as respectivas espessuras, conforme exige o Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_1205fed30228",
+        "clm_7a0ddea8ecc1",
+        "clm_29c33cfe9a2e",
+        "clm_51f7dcf0f813"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir: escolha pela faixa de peso",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Faixa de peso",
+              "Densidade recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_03538692a465",
+                      "clm_1205fed30228",
+                      "clm_7a0ddea8ecc1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_03538692a465",
+                      "clm_1205fed30228",
+                      "clm_7a0ddea8ecc1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_03538692a465",
+                      "clm_2a6f320398f2",
+                      "clm_63d975e3812e"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_03538692a465",
+                      "clm_2a6f320398f2",
+                      "clm_63d975e3812e"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33 a D45 (conforme firmeza desejada)",
+                    "claim_ids": [
+                      "clm_03538692a465",
+                      "clm_1205fed30228",
+                      "clm_7a0ddea8ecc1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465",
+                      "clm_1205fed30228",
+                      "clm_7a0ddea8ecc1",
+                      "clm_649ce4242126"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "A Castor afirma que a D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, enquanto a D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a6f320398f2",
+              "clm_63d975e3812e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-e-densidade",
+        "heading": "O que é densidade do colchão",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, D28 significa que foram utilizados 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8cbcbafcff04",
+              "clm_1ad133d2b40c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro informa como obrigatória a indicação da densidade nominal das lâminas de espuma em kg/m³ e, nos colchões compostos ou mistos, de suas respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29c33cfe9a2e",
+              "clm_51f7dcf0f813"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "colchoes-mistos",
+        "heading": "Densidade em colchões mistos (espuma e molas)",
+        "blocks": [
+          {
+            "text": "No exemplo do colchão misto Pró Força Casal da Ortobom, o fabricante informa separadamente a densidade e a espessura de cada camada de espuma.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_68dc934e738d",
+              "clm_b0b0eac6846b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Exemplo de composição em colchão misto (Ortobom Pró Força Casal)",
+            "columns": [
+              "Camada",
+              "Densidade (kg/m³)",
+              "Espessura"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Lâmina de alta resiliência",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "33",
+                    "claim_ids": [
+                      "clm_68dc934e738d"
+                    ]
+                  },
+                  {
+                    "text": "5 cm",
+                    "claim_ids": [
+                      "clm_68dc934e738d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Lâmina convencional",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "33",
+                    "claim_ids": [
+                      "clm_68dc934e738d"
+                    ]
+                  },
+                  {
+                    "text": "10 cm",
+                    "claim_ids": [
+                      "clm_68dc934e738d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Placa de aglomerado",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "80",
+                    "claim_ids": [
+                      "clm_68dc934e738d"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_68dc934e738d"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "densidade-e-firmeza",
+        "heading": "Densidade e firmeza: qual a diferença",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a densidade 28 oferece suporte mais macio, enquanto a densidade 33 oferece mais firmeza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a6f320398f2",
+              "clm_63d975e3812e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A firmeza de um colchão de espuma está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura da pessoa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_17a232b2109c",
+              "clm_2d4e69b2d392"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "molas-especificacao",
+        "heading": "Colchões de molas: como o fabricante informa o suporte",
+        "blocks": [
+          {
+            "text": "Em produtos específicos de molas ensacadas da Americanflex e da Ortobom, as páginas informam a média de molas por metro quadrado e a bitola do arame como características do molejo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_09a4138f8a28",
+              "clm_126cf1ac348c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Especificação de molas em colchões mistos",
+            "columns": [
+              "Especificação",
+              "Valor"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Número médio de molas",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Nos produtos citados, 180 a 220 molas/m²",
+                    "claim_ids": [
+                      "clm_126cf1ac348c",
+                      "clm_09a4138f8a28"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Bitola do arame",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Nos dois produtos: 2,0 mm; borda de aço (Americanflex): 4,6 mm",
+                    "claim_ids": [
+                      "clm_126cf1ac348c",
+                      "clm_09a4138f8a28"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir-na-etiqueta",
+        "heading": "O que conferir na etiqueta ou ficha técnica antes de comprar",
+        "blocks": [
+          {
+            "text": "As marcações no produto ou na embalagem devem informar as densidades nominais das lâminas de espuma, em kg/m³ e, nos colchões compostos ou mistos, suas respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_51f7dcf0f813",
+              "clm_29c33cfe9a2e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Exemplo: na página da Probel, um colchão informa \"Espuma do Estofamento 1: D28\" e \"Espuma do Estofamento 2: Espuma de Alta Densidade ≥ D65\", correspondendo às densidades de 28 kg/m³ e de pelo menos 65 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_63f752c5b69f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "molas-especificacao#1.r0",
+      "msg": "OVERSTATED. Os valores de 180 e 220 molas/m² aparecem em dois produtos específicos. Os trechos não sustentam uma especificação geral para colchões mistos; além disso, apenas um dos produtos é claramente descrito no trecho com camadas de espuma e molas. Versão sustentável: Nos produtos citados, o número médio de molas varia de 180 a 220 molas/m²."
+    },
+    {
+      "ref": "molas-especificacao#1.r1",
+      "msg": "OVERSTATED. A bitola de 2,0 mm é informada para as molas dos dois produtos citados, mas os trechos não sustentam que esse seja um valor geral para colchões mistos. O trecho da Americanflex também menciona uma borda de aço com bitola diferente, de 4,6 mm. Versão sustentável: Nos dois produtos citados, a bitola informada para o arame das molas é de 2,0 mm; no produto Americanflex, a borda de aço é indicada separadamente com bitola de 4,6 mm."
+    },
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos do Inmetro dizem que as densidades nominais devem ser informadas em kg/m³ e que as espessuras correspondentes também devem ser informadas, mas não dizem que as espessuras são expressas em kg/m³. Essa unidade se aplica à densidade, não à espessura. Versão sustentável: Escolha a densidade pelo seu peso: até 50 kg, densidade D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45 conforme a firmeza desejada; acima de 100 kg, D45 ou maior, segundo a Castor. Em colchões compostos ou mistos, confira na etiqueta as densidades nominais de cada lâmina, em kg/m³, e as respectivas espessuras, conforme exige o Inmetro."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam o exemplo D28 e a relação direta entre densidade e firmeza, mas não afirmam que a densidade é indicada pela letra D seguida de um número como regra geral. Versão sustentável: Segundo a Castor, D28 significa que foram utilizados 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão."
+    },
+    {
+      "ref": "molas-especificacao#0",
+      "msg": "OVERSTATED. Os trechos mostram que Americanflex e Ortobom informam esses dados em produtos específicos, mas não sustentam a generalização de que os fabricantes de colchões de molas ensacadas fazem isso em geral. Além disso, os trechos apresentam os dados como características do produto; não dizem expressamente que sejam “especificações de suporte”. Versão sustentável: Em produtos específicos de molas ensacadas da Americanflex e da Ortobom, as páginas informam a média de molas por metro quadrado e a bitola do arame como características do molejo."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "msg": "MISATTRIBUTED. O exemplo é retirado de uma página da Probel, mas o bloco o apresenta como se fosse uma possibilidade geral de qualquer colchão, sem atribuir a informação à marca. Além disso, o trecho fala em “Estofamento 1” e “Estofamento 2”, não explicitamente em camadas. Versão sustentável: Exemplo: na página da Probel, um colchão informa “Espuma do Estofamento 1: D28” e “Espuma do Estofamento 2: Espuma de Alta Densidade ≥ D65”, correspondendo às densidades de 28 kg/m³ e de pelo menos 65 kg/m³."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19519,
+    "output_tokens": 999
+  }
+}

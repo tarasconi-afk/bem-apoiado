@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 117646,
+    "output_tokens": 14001,
+    "calls": 24
+  },
+  "credits": 11.3688066,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "densidade-e-firmeza#1"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23.",
+      "De 51 a 60 kg: conferir D26.",
+      "De 61 a 70 kg: conferir D28.",
+      "De 71 a 80 kg: conferir D33.",
+      "De 81 a 100 kg: conferir D33 a D45, de acordo com a firmeza desejada.",
+      "Acima de 100 kg: conferir D45 ou maior.",
+      "Em colchões mistos, conferir a densidade nominal e a espessura de cada lâmina de espuma na etiqueta ou ficha técnica.",
+      "Para escolher entre opções de firmeza, considerar que a Castor associa D28 a suporte mais macio e D33 a maior firmeza.",
+      "Em colchões de molas, conferir também a média de molas por metro quadrado e a bitola do arame.",
+      "Verificar se o anúncio informa separadamente as camadas e suas densidades em kg/m³."
+    ],
+    "missing": [
+      "Uma tabela de fabricante relacionando densidade, posição de dormir e peso corporal.",
+      "Informação primária sobre o peso máximo suportado por cada densidade e se o limite vale por pessoa ou para o casal.",
+      "Explicação de fabricante sobre a diferença entre densidade e firmeza e se as duas informações aparecem juntas na etiqueta.",
+      "Indicação explícita de que colchões de molas usam especificações como número de molas e bitola, em vez de densidade da espuma, para descrever o suporte.",
+      "Exemplos de fichas técnicas de diferentes fabricantes mostrando como a densidade é informada em colchões mistos."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente ao guia de densidades com faixas de peso, mostra o que conferir na etiqueta e inclui critérios práticos para colchões mistos e de molas. Há alguma repetição nas explicações sobre firmeza, mas os blocos técnicos acrescentam utilidade para a compra.",
+    "filler_ratio": 0.10526315789473684,
+    "model_opinion": true
+  }
+}

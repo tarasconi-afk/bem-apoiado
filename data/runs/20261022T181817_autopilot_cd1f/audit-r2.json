@@ -1,0 +1,156 @@
+{
+  "findings": [
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "molas-especificacao#1.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os valores de 180 e 220 molas/m² aparecem em dois produtos específicos. Os trechos não sustentam uma especificação geral para colchões mistos; além disso, apenas um dos produtos é claramente descrito no trecho com camadas de espuma e molas.",
+      "fix": "Nos produtos citados, o número médio de molas varia de 180 a 220 molas/m²."
+    },
+    {
+      "ref": "molas-especificacao#1.r1",
+      "verdict": "OVERSTATED",
+      "problem": "A bitola de 2,0 mm é informada para as molas dos dois produtos citados, mas os trechos não sustentam que esse seja um valor geral para colchões mistos. O trecho da Americanflex também menciona uma borda de aço com bitola diferente, de 4,6 mm.",
+      "fix": "Nos dois produtos citados, a bitola informada para o arame das molas é de 2,0 mm; no produto Americanflex, a borda de aço é indicada separadamente com bitola de 4,6 mm."
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos do Inmetro dizem que as densidades nominais devem ser informadas em kg/m³ e que as espessuras correspondentes também devem ser informadas, mas não dizem que as espessuras são expressas em kg/m³. Essa unidade se aplica à densidade, não à espessura.",
+      "fix": "Escolha a densidade pelo seu peso: até 50 kg, densidade D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45 conforme a firmeza desejada; acima de 100 kg, D45 ou maior, segundo a Castor. Em colchões compostos ou mistos, confira na etiqueta as densidades nominais de cada lâmina, em kg/m³, e as respectivas espessuras, conforme exige o Inmetro."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam o exemplo D28 e a relação direta entre densidade e firmeza, mas não afirmam que a densidade é indicada pela letra D seguida de um número como regra geral.",
+      "fix": "Segundo a Castor, D28 significa que foram utilizados 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão."
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "molas-especificacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram que Americanflex e Ortobom informam esses dados em produtos específicos, mas não sustentam a generalização de que os fabricantes de colchões de molas ensacadas fazem isso em geral. Além disso, os trechos apresentam os dados como características do produto; não dizem expressamente que sejam “especificações de suporte”.",
+      "fix": "Em produtos específicos de molas ensacadas da Americanflex e da Ortobom, as páginas informam a média de molas por metro quadrado e a bitola do arame como características do molejo."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O exemplo é retirado de uma página da Probel, mas o bloco o apresenta como se fosse uma possibilidade geral de qualquer colchão, sem atribuir a informação à marca. Além disso, o trecho fala em “Estofamento 1” e “Estofamento 2”, não explicitamente em camadas.",
+      "fix": "Exemplo: na página da Probel, um colchão informa “Espuma do Estofamento 1: D28” e “Espuma do Estofamento 2: Espuma de Alta Densidade ≥ D65”, correspondendo às densidades de 28 kg/m³ e de pelo menos 65 kg/m³."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "molas-especificacao#1.r0",
+      "msg": "OVERSTATED. Os valores de 180 e 220 molas/m² aparecem em dois produtos específicos. Os trechos não sustentam uma especificação geral para colchões mistos; além disso, apenas um dos produtos é claramente descrito no trecho com camadas de espuma e molas. Versão sustentável: Nos produtos citados, o número médio de molas varia de 180 a 220 molas/m²."
+    },
+    {
+      "ref": "molas-especificacao#1.r1",
+      "msg": "OVERSTATED. A bitola de 2,0 mm é informada para as molas dos dois produtos citados, mas os trechos não sustentam que esse seja um valor geral para colchões mistos. O trecho da Americanflex também menciona uma borda de aço com bitola diferente, de 4,6 mm. Versão sustentável: Nos dois produtos citados, a bitola informada para o arame das molas é de 2,0 mm; no produto Americanflex, a borda de aço é indicada separadamente com bitola de 4,6 mm."
+    },
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos do Inmetro dizem que as densidades nominais devem ser informadas em kg/m³ e que as espessuras correspondentes também devem ser informadas, mas não dizem que as espessuras são expressas em kg/m³. Essa unidade se aplica à densidade, não à espessura. Versão sustentável: Escolha a densidade pelo seu peso: até 50 kg, densidade D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45 conforme a firmeza desejada; acima de 100 kg, D45 ou maior, segundo a Castor. Em colchões compostos ou mistos, confira na etiqueta as densidades nominais de cada lâmina, em kg/m³, e as respectivas espessuras, conforme exige o Inmetro."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam o exemplo D28 e a relação direta entre densidade e firmeza, mas não afirmam que a densidade é indicada pela letra D seguida de um número como regra geral. Versão sustentável: Segundo a Castor, D28 significa que foram utilizados 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão."
+    },
+    {
+      "ref": "molas-especificacao#0",
+      "msg": "OVERSTATED. Os trechos mostram que Americanflex e Ortobom informam esses dados em produtos específicos, mas não sustentam a generalização de que os fabricantes de colchões de molas ensacadas fazem isso em geral. Além disso, os trechos apresentam os dados como características do produto; não dizem expressamente que sejam “especificações de suporte”. Versão sustentável: Em produtos específicos de molas ensacadas da Americanflex e da Ortobom, as páginas informam a média de molas por metro quadrado e a bitola do arame como características do molejo."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "msg": "MISATTRIBUTED. O exemplo é retirado de uma página da Probel, mas o bloco o apresenta como se fosse uma possibilidade geral de qualquer colchão, sem atribuir a informação à marca. Além disso, o trecho fala em “Estofamento 1” e “Estofamento 2”, não explicitamente em camadas. Versão sustentável: Exemplo: na página da Probel, um colchão informa “Espuma do Estofamento 1: D28” e “Espuma do Estofamento 2: Espuma de Alta Densidade ≥ D65”, correspondendo às densidades de 28 kg/m³ e de pelo menos 65 kg/m³."
+    }
+  ]
+}

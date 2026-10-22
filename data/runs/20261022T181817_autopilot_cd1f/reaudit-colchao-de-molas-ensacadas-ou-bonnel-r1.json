@@ -1,0 +1,54 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se você divide a cama, as molas ensacadas podem reduzir a transferência de movimento entre pessoas, segundo Simmons e Probel. Segundo a Probel, o molejo Bonnel, de formato bicônico, oferece resistência progressiva: quanto mais peso, maior a resistência.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2bfe0b0f071c",
+        "clm_34f341d76049",
+        "clm_1b81a321a301"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você divide a cama ou dorme com um parceiro: Simmons, Probel e Ortobom recomendam considerar molas ensacadas. Segundo essas marcas, elas podem reduzir a transferência de movimentos e contribuir para um sono mais tranquilo para ambos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2bfe0b0f071c",
+        "clm_34f341d76049",
+        "clm_0522b96db922"
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Bitola do arame",
+          "claim_ids": []
+        },
+        {
+          "text": "2 mm (Castor)",
+          "claim_ids": [
+            "clm_35f99e380a90"
+          ]
+        },
+        {
+          "text": "2,2 mm (Castor)",
+          "claim_ids": [
+            "clm_29704a6dcda4"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-funciona-cada-mola#1",
+      "msg": "repete o bloco como-decidir#1 (92% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ]
+}
