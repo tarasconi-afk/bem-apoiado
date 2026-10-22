@@ -7,7 +7,7 @@ import { writeStage } from '../runs.ts';
 import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, selectClaims, type Draft } from './draft-schema.ts';
-import { duplicateBlocks } from './duplicates.ts';
+import { duplicateBlocks, withoutDuplicates } from './duplicates.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
@@ -85,6 +85,19 @@ export function styleIssues(draft: Draft): Issue[] {
   if (!last || !/decidir|escolh|antes de comprar|na pr[aá]tica|o que (verificar|conferir)/i.test(last.heading)) out.push({ ref: null, msg: 'a última seção tem de ser "Como decidir", com 2 a 4 orientações condicionais ("se você..., ...") sustentadas pelas evidências.' });
   if (draft.sections.length < 3) out.push({ ref: null, msg: 'a página ficou com menos de 3 seções.' });
   return out;
+}
+
+// Troca o texto de cada bloco reprovado pela versão sustentada que o auditor propôs, mantendo as fontes e o
+// tipo do bloco. Linha de tabela e bloco sem proposta ficam como estão.
+export function adoptAuditorFixes(draft: Draft, findings: { ref: string; verdict: string; fix: string }[]): { draft: Draft; refs: string[] } {
+  const patches = findings
+    .filter((f) => f.verdict !== 'SUPPORTED' && f.fix && f.fix.trim().length >= 15 && !f.ref.includes('.r'))
+    .map((f) => {
+      const u = blockRefs(draft).find((b) => b.ref === f.ref);
+      return u ? { ref: f.ref, action: 'replace' as const, text: f.fix.trim().replace(/\s*—\s*/g, ', '), basis: u.basis as never, claim_ids: u.claim_ids } : null;
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null);
+  return { draft: applyPatches(draft, patches as never), refs: patches.map((p) => p.ref) };
 }
 
 const show = (i: Issue) => (i.ref ? `${i.ref}: ${i.msg}` : i.msg);
@@ -178,6 +191,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   const cache: AuditCache = new Map();
   let draft: Draft | null = null;
   let issues: Issue[] = [];
+  let lastFindings: AuditFinding[] = [];
   for (let round = 0; round <= MAX_FIX_ROUNDS; round++) {
     // Primeira rodada e problema de página inteira: reescrita completa. Senão: remendos só nos blocos
     // apontados; o que já foi aprovado fica trancado, então cada rodada só pode reduzir os problemas.
@@ -205,6 +219,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       const a = await auditDraft(draft, idx.claims, idx.sources, fetchImpl, cache);
       add(a.usage, a.usage.calls);
       findings = a.findings;
+      lastFindings = findings;
       issues = findings
         .filter((f) => f.verdict !== 'SUPPORTED')
         .map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}${f.fix ? ` Versão sustentável: ${f.fix}` : ''}` }));
@@ -212,6 +227,39 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     writeStage(runId, `audit-r${round}`, { findings, open_issues: issues });
 
     if (issues.length === 0) return finish(draft, round + 1);
+  }
+  // Não convergiu: adota a versão que o próprio auditor disse que as fontes sustentam (mesmas fontes do
+  // bloco) e audita só esses blocos. 22/10: a cadeira gamer parou duas vezes com 6 exageros que tinham, cada
+  // um, a versão sustentada pronta; o redator reescrevia e errava de novo.
+  if (draft && issues.length > 0) {
+    const adopted = adoptAuditorFixes(draft, lastFindings);
+    if (adopted.refs.length) {
+      // Bloco que a adoção deixou repetido sai (remoção); resposta curta fora da forma ganha um remendo só de
+      // forma, com as mesmas fontes, e volta para a auditoria junto com os outros.
+      const secs = new Set(adopted.refs.filter((r) => r !== 'verdict').map((r) => r.split('#')[0]));
+      const hadVerdict = adopted.refs.includes('verdict');
+      adopted.draft = withoutDuplicates(adopted.draft).draft;
+      // A remoção desloca a numeração: audita as seções tocadas inteiras (e a resposta curta, se mudou).
+      adopted.refs = [...(hadVerdict ? ['verdict'] : []), ...blockRefs(adopted.draft).map((u) => u.ref).filter((r) => r !== 'verdict' && secs.has(r.split('#')[0]))];
+      const vStyle = styleIssues(adopted.draft).filter((i) => i.ref === 'verdict');
+      if (vStyle.length) {
+        const pv = await writePatches(topic, claims, idx.sources, adopted.draft, [{ ref: 'verdict', msg: `${vStyle.map((i) => i.msg).join(' ')} Mantenha o conteúdo e as fontes; mude só a forma.` }], fetchImpl);
+        add(pv.usage);
+        adopted.draft = applyPatches(adopted.draft, pv.data.patches.filter((x) => x.ref === 'verdict'));
+        if (!adopted.refs.includes('verdict')) adopted.refs.push('verdict');
+      }
+      adopted.refs = adopted.refs.filter((r) => blockRefs(adopted.draft).some((u) => u.ref === r));
+      const st = [...checkPage(toPageSpec(adopted.draft, topic, runId, 'pending'), idx).map((v) => ({ ref: refFromWhere(v.where), msg: `${v.code} ${v.detail}` })), ...styleIssues(adopted.draft)];
+      if (!st.some((i) => i.ref === null || adopted.refs.includes(i.ref!))) {
+        const a = await auditDraft(adopted.draft, idx.claims, idx.sources, fetchImpl, cache, new Set(adopted.refs));
+        add(a.usage, a.usage.calls);
+        const still = a.findings.filter((f) => f.verdict !== 'SUPPORTED');
+        writeStage(runId, 'adopt-fixes', { adopted: adopted.refs, still: still.map((f) => `${f.ref}: ${f.verdict}`) });
+        draft = adopted.draft;
+        issues = [...issues.filter((i) => i.ref && !adopted.refs.includes(i.ref)), ...still.map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}` }))];
+        if (issues.length === 0) return finish(draft, MAX_FIX_ROUNDS + 1);
+      }
+    }
   }
   // Não convergiu, mas sobraram poucos blocos sem prova: remove esses blocos (remover nunca acrescenta
   // fato) e, se o gate passar, segue para a revisão editorial como qualquer página. Antes, 1 bloco ruim

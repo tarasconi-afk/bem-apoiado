@@ -35,3 +35,20 @@ describe('evidências para o redator', () => {
     expect(out.map((c: { id: string }) => c.id)).toContain('clm_000000000039');
   });
 });
+
+describe('adotar a versão sustentada do auditor', () => {
+  it('troca o texto do bloco reprovado pela proposta do auditor, mantendo as fontes; tira travessão', async () => {
+    const { adoptAuditorFixes } = await import('../src/stages/page.ts');
+    const d = draft('Depende do uso.', 'Se você divide a cama, prefira molas ensacadas sempre.');
+    d.sections[2]!.blocks[0]!.claim_ids = ['clm_aaaaaaaaaaaa'] as never;
+    const r = adoptAuditorFixes(d as never, [
+      { ref: 'como-decidir#0', verdict: 'OVERSTATED', fix: 'Se você divide a cama, a Probel indica molas ensacadas — que reduzem movimento.' },
+      { ref: 'a#0', verdict: 'SUPPORTED', fix: '' },
+      { ref: 'b#0', verdict: 'UNSUPPORTED', fix: '' },
+    ]);
+    expect(r.refs).toEqual(['como-decidir#0']);
+    const b = r.draft.sections[2]!.blocks[0] as { text: string; claim_ids: string[] };
+    expect(b.text).toBe('Se você divide a cama, a Probel indica molas ensacadas, que reduzem movimento.');
+    expect(b.claim_ids).toEqual(['clm_aaaaaaaaaaaa']);
+  });
+});
