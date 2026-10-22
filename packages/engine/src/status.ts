@@ -247,9 +247,15 @@ ${Object.entries(MODELS).map(([role, m]) => `<tr><td>${esc(role)}</td><td><code>
 // Metas do editor (22/10): 20 páginas para ganhar tração, 200 no fim. "Sem ajuste" = página no ar sem pedido de
 // ajuste do editor (o que mede se o motor acerta de primeira); créditos por página = gasto de 7 dias dividido
 // pelas aprovações dos mesmos 7 dias.
-export function goalsCard(pages: Pick<PageSpec, 'status' | 'provenance'>[], spent7d: number, now: Date): string {
+export function goalsCard(pages: Pick<PageSpec, 'status' | 'provenance' | 'slug'>[], spent7d: number, now: Date): string {
   const live = pages.filter((p) => p.status !== 'draft');
-  const drafts = pages.length - live.length;
+  // Rascunho que o editor recusou não espera decisão: o cartão separa os dois (22/10: "3 em rascunho" eram as 3
+  // recusadas, e o editor procurou onde aprovar).
+  const lastVerdict = new Map<string, string>();
+  for (const v of loadVerdicts().sort((a, b) => a.at.localeCompare(b.at))) lastVerdict.set(v.slug, v.verdict);
+  const draftSlugs = pages.filter((p) => p.status === 'draft').map((p) => p.slug);
+  const rejected = draftSlugs.filter((s) => lastVerdict.get(s) === 'reject').length;
+  const waitingYou = draftSlugs.length - rejected;
   const clean = live.filter((p) => !/\+editor:(?!\d{8}T\d{6}_autopilot_)/.test(String(p.provenance.run_id))).length; // manutenção automática não conta
   // Concordância do juiz automático com o editor nos últimos 10 vereditos: é o número que diz quando a revisão
   // pode passar a decidir sozinha (modo sombra antes de qualquer publicação automática).
@@ -267,5 +273,5 @@ export function goalsCard(pages: Pick<PageSpec, 'status' | 'provenance'>[], spen
   const pct = Math.min(100, Math.round((100 * live.length) / goal));
   return `<div class="card" style="grid-column:span 2"><div class="v">${live.length} <span style="font-size:.9rem;font-weight:500">de ${goal} páginas no ar${goal === 20 ? ' (meta final 200)' : ''}</span></div>
 <div style="height:8px;background:var(--nbg);border-radius:999px;margin:6px 0"><div style="height:8px;width:${pct}%;background:var(--ok);border-radius:999px"></div></div>
-<div class="l">${drafts} em rascunho · ${clean} de ${live.length} no ar sem ajuste seu · juiz automático concorda com você em ${agree} de ${judged.length} vereditos${rescore ? ' (juiz atual)' : ''} · ${approved7d ? `~${Math.round(spent7d / approved7d)} créditos por página aprovada (7 dias)` : 'sem aprovação nos últimos 7 dias'}</div></div>`;
+<div class="l">${waitingYou ? `${waitingYou} rascunho(s) esperando seu veredito · ` : ''}${rejected ? `${rejected} recusada(s) que o motor vai refazer · ` : ''}${clean} de ${live.length} no ar sem ajuste seu · juiz automático concorda com você em ${agree} de ${judged.length} vereditos${rescore ? ' (juiz atual)' : ''} · ${approved7d ? `~${Math.round(spent7d / approved7d)} créditos por página aprovada (7 dias)` : 'sem aprovação nos últimos 7 dias'}</div></div>`;
 }
