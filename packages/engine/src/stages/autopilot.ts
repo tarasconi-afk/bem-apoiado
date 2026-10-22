@@ -380,7 +380,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     recordCredits(creditsSpent());
     return { status: 'NOTHING_TO_DO', steps, credits: creditsSpent() };
   }
-  steps.push(planned.created ? `pauta planejada (${planned.topic.questions.length} perguntas)` : 'pauta já existia');
+  steps.push(planned.created ? `pauta nova: "${query}" (${planned.topic.questions.length} perguntas)` : `pauta "${query}": nova tentativa (já existia)`);
   // Evidência já verificada em pautas vizinhas entra antes da pesquisa nova (mais completa, mais barata).
   try {
     const re = await reuseEvidence(planned.topic.slug);
