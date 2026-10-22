@@ -1,0 +1,186 @@
+{
+  "run_id": "20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527",
+  "topic": "cadeira-ergonomica-ou-gamer",
+  "queries": [
+    {
+      "q": "ficha técnica cadeira ergonômica regulagens altura assento apoio lombar reclinação XT Racer ThunderX3",
+      "include_domains": [
+        "xtracer.com.br",
+        "tx3brasil.com.br",
+        "thunderx3.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "cadeira gamer especificações técnicas peso máximo suportado materiais estofamento base rodízios XT Racer ThunderX3",
+      "include_domains": [
+        "xtracer.com.br",
+        "tx3brasil.com.br",
+        "thunderx3.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "NBR 13962 cadeira escritório ergonômica o que regula certifica ABNT",
+      "include_domains": [
+        "gov.br",
+        "inmetro.gov.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "NR-17 norma regulamentadora cadeira escritório regulagens altura assento apoio lombar especificações",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "flexform.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "xtracer.com.br"
+      ],
+      "results": 3
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "thunderx3.com.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_852502e1bfaf",
+      "url": "http://comprasnet.gov.br/ConsultaLicitacoes/download/download_editais_detalhe.asp?coduasg=160393&modprp=5&numprp=102017",
+      "publisher": "Comprasnet",
+      "source_class": "independent_test",
+      "created": false
+    },
+    {
+      "source_id": "src_40120c3c69fd",
+      "url": "https://www.flexform.com.br/guias/cadeiras",
+      "publisher": "Flexform",
+      "source_class": "manufacturer",
+      "created": false
+    },
+    {
+      "source_id": "src_083c47847855",
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/cadeira-de-escritorio-ou-cadeira-ergonomica-qual-a-diferenca",
+      "publisher": "Flexform",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_bfac4878d26d",
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/cadeira-de-escritorio-para-home-office-o-que-avaliar-antes-de-comprar",
+      "publisher": "Flexform",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_f42a43f524cb",
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/cadeira-de-escritorio-ergonomica-o-que-significa-e-como-escolher",
+      "publisher": "Flexform",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 0,
+  "suggestions": [
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76105600000186/compras/2026/2/arquivos/3",
+      "title": "ETP---MOBILIARIO-REGIONAL-SUL.pdf"
+    },
+    {
+      "host": "transparencia.sobral.ce.gov.br",
+      "url": "https://transparencia.sobral.ce.gov.br/arquivo/nome:85a04efe2daa67f21b9930b7b8c55d9f.pdf",
+      "title": "Certificado di Conformidade emiti"
+    },
+    {
+      "host": "portal.tce.go.gov.br",
+      "url": "https://portal.tce.go.gov.br/documents/20181/60623/TR-ANEXO1_ESPECIFICACOES/691d8a43-44c6-45c0-a719-dc8180f9980a?version=1.0",
+      "title": "tribunal de contas do estado de goiás"
+    },
+    {
+      "host": "www.jaciara.mt.gov.br",
+      "url": "https://www.jaciara.mt.gov.br/arquivos/2026/a36d3a4362f2a33d7540ca7913345581.pdf",
+      "title": "MILANFLEX IND. E COM. DE MÓVEIS E EQUIP. LTDA"
+    }
+  ],
+  "snapshot_errors": [],
+  "tavily_credits_month": 336,
+  "triage": [
+    {
+      "url": "http://comprasnet.gov.br/ConsultaLicitacoes/download/download_editais_detalhe.asp?coduasg=160393&modprp=5&numprp=102017",
+      "p_useful": 0.96,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras",
+      "p_useful": 1,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/cadeira-de-escritorio-ou-cadeira-ergonomica-qual-a-diferenca",
+      "p_useful": 0.98,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/cadeira-de-escritorio-para-home-office-o-que-avaliar-antes-de-comprar",
+      "p_useful": 0.5,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/cadeira-de-escritorio-ergonomica-o-que-significa-e-como-escolher",
+      "p_useful": 0.97,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-ergonomica/cadeira-ergonomica-para-pessoas-pesadas",
+      "p_useful": 0.92,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-ergonomica/cadeira-ergonomica-para-pessoas-altas",
+      "p_useful": 0.77,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-de-escritorio/Cadeira-de-escritorio-para-pessoas-altas-o-que-verificar-na-ficha-tecnica",
+      "p_useful": 0.9,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/guia-de-cadeiras-de-escritorio-flexform",
+      "p_useful": 0.81,
+      "keep": true
+    },
+    {
+      "url": "https://www.xtracer.com.br/cadeiras-gamer?pg=5",
+      "p_useful": 0.16,
+      "keep": false
+    },
+    {
+      "url": "https://www.xtracer.com.br/cadeiras-gamer/platinum-w-style/cadeira-gamer-e-escritorio-xt-racer-platinum-w-style-preta",
+      "p_useful": 0.98,
+      "keep": true
+    },
+    {
+      "url": "https://www.xtracer.com.br/cadeiras-office?pg=2",
+      "p_useful": 0,
+      "keep": false
+    }
+  ],
+  "llm_credits": 0.33685499999999996
+}

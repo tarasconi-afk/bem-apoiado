@@ -3,7 +3,7 @@
   "page_type": "decision_compare",
   "status": "draft",
   "title": "Cadeira ergonômica ou gamer: qual escolher",
-  "description": "Compare regulagens, peso suportado, materiais e o que NR-17 e ABNT exigem para cada tipo de cadeira.",
+  "description": "Como escolher entre cadeira ergonômica e gamer: compare regulagens, peso suportado, espuma e garantia na ficha técnica.",
   "primary_query": "cadeira ergonômica ou gamer",
   "updated_at": "2026-10-22",
   "verdict": {
@@ -31,10 +31,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Flexform, a ficha pode declarar a altura mínima e máxima do assento, a faixa de profundidade do assento e a faixa de ajuste do apoio lombar, todos em centímetros.",
+          "text": "Segundo a Flexform, uma cadeira de escritório ergonômica pode apresentar na ficha técnica valores declarados para altura mínima e máxima do assento, faixa de profundidade do assento e faixa de ajuste do apoio lombar. A marca descreve a cadeira gamer como categoria de proposta ergonômica cujo formato inclui encosto alto, apoio para nuca e assento reclinável, associado a sessões longas de uso estático.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_832b248a7da8"
+            "clm_832b248a7da8",
+            "clm_7b1f2ad4d9e8"
           ]
         },
         {
@@ -112,11 +113,12 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A NR-17 estabelece requisitos para assentos, incluindo altura ajustável, características da base, borda frontal arredondada e encosto adaptado ao corpo. No trabalho de teleatendimento/telemarketing, o Anexo II também prevê apoio de braços regulável entre 20 e 25 cm a partir do assento.",
+          "text": "A NR-17 estabelece para cadeiras de trabalho altura ajustável, pouca ou nenhuma conformação na base do assento, borda frontal arredondada e encosto levemente adaptado ao corpo para proteção da região lombar. Para trabalho em teleatendimento/telemarketing, o apoio de braços deve ser regulável entre 20 e 25 centímetros a partir do assento. Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender aos parâmetros da NR-17.",
           "basis": "evidence",
           "claim_ids": [
             "clm_11fcb7102cbd",
-            "clm_000ce47bb169"
+            "clm_000ce47bb169",
+            "clm_e8cc2dafbc8c"
           ]
         }
       ]
@@ -141,11 +143,12 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Flexform, um modelo operativo pode ter apenas regulagem de altura, sem apoio lombar ajustável, profundidade regulável ou mecanismo com tensão ajustável. Confira se essa configuração atende ao seu uso.",
-          "basis": "reasoning",
+          "text": "Segundo a Flexform, uma cadeira ergonômica pode incluir regulagens como altura por pistão a gás, apoio lombar ajustável, profundidade do assento e mecanismo de inclinação do encosto. A empresa indica que o mecanismo datilo é adequado para jornadas de 8 horas, o relax para 8 horas ou mais, e o sincronizado para jornadas longas. A Flexform também descreve cadeira gamer como categoria com encosto alto, apoio para nuca e assento reclinável.",
+          "basis": "evidence",
           "claim_ids": [
-            "clm_a6ef0f759457",
-            "clm_832b248a7da8"
+            "clm_3c8923e99ac3",
+            "clm_4950261b6f9f",
+            "clm_491098b99a9a"
           ]
         },
         {
@@ -158,11 +161,101 @@
         },
         {
           "kind": "paragraph",
-          "text": "Confira na ficha técnica o peso máximo suportado declarado pelo fabricante. Segundo a Flexform, o ajuste de tensão do mecanismo deve ser calibrado ao peso do usuário; usuários de 60 kg e 90 kg precisam de tensões diferentes para reclinação controlada.",
+          "text": "Verifique se a cadeira suporta pelo menos 20 quilogramas a mais que seu peso. Para uso diário de 8 horas, segundo a Flexform, a espuma deve estar entre 45 e 55 kg/m³; espuma abaixo de 40 kg/m³ pode deformar em meses de uso intenso. Em mecanismos sincronizados, a tensão pode ser calibrada ao peso do usuário.",
           "basis": "reasoning",
           "claim_ids": [
-            "clm_0ee7da27eecc",
-            "clm_1abb25b91b5f"
+            "clm_094a46308551",
+            "clm_3cc0fef72b12",
+            "clm_0ee7da27eecc"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confira na ficha as faixas de altura, profundidade do assento e ajuste do apoio lombar. Para postos de teleatendimento/telemarketing, a NR-17 usa como referência altura entre 37 e 50 centímetros. Um documento de especificação exige garantia contratual mínima de 5 anos para estrutura e mecanismos; a Flexform informa garantia de até 7 anos em sua linha corporativa.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_832b248a7da8",
+            "clm_41a4004759fb",
+            "clm_3ffd00568d40",
+            "clm_0aaa6b6a32f0"
+          ]
+        },
+        {
+          "kind": "table",
+          "caption": "O que conferir na ficha técnica: comparação entre ergonômica e gamer",
+          "columns": [
+            "O que conferir na ficha",
+            "Cadeira Ergonômica",
+            "Cadeira Gamer"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "Apoio lombar",
+                  "claim_ids": [
+                    "clm_3c8923e99ac3"
+                  ]
+                },
+                {
+                  "text": "Confira se é ajustável em altura; segundo a Flexform, é uma característica de cadeiras com especificação técnica mais completa",
+                  "claim_ids": [
+                    "clm_3c8923e99ac3"
+                  ]
+                },
+                {
+                  "text": "Confira se tem ajuste de altura; a Flexform menciona essa regulagem em cadeiras gamer com atendimento à NR-17",
+                  "claim_ids": [
+                    "clm_e8cc2dafbc8c"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Peso máximo suportado",
+                  "claim_ids": [
+                    "clm_094a46308551"
+                  ]
+                },
+                {
+                  "text": "Segundo ergocadeiras, o ideal é que a cadeira suporte pelo menos 20 kg a mais que o seu peso; calibrar tensão do mecanismo ao seu peso se tiver ajuste",
+                  "claim_ids": [
+                    "clm_094a46308551",
+                    "clm_0ee7da27eecc"
+                  ]
+                },
+                {
+                  "text": "Verificar se cobre seu peso com margem; o modelo Flexform Alpha 2 Pro citado informa suporte de 136 kg",
+                  "claim_ids": [
+                    "clm_0ac471fb7745"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Densidade de espuma declarada",
+                  "claim_ids": [
+                    "clm_3cc0fef72b12"
+                  ]
+                },
+                {
+                  "text": "Segundo a Flexform, para uso diário de 8 horas deve estar entre 45 e 55 kg/m³; espuma abaixo de 40 kg/m³ pode deformar em meses de uso intenso",
+                  "claim_ids": [
+                    "clm_3cc0fef72b12"
+                  ]
+                },
+                {
+                  "text": "Segundo a Flexform, sua linha gamer usa espuma na faixa de 45 a 55 kg/m³",
+                  "claim_ids": [
+                    "clm_2a1de75fe1c2"
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -170,17 +263,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T122054_autopilot_10be",
+    "run_id": "20261022T122054_autopilot_10be+editor:20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "partial",
       "concrete_guidance": true,
-      "reader_fit": false,
-      "quick_answer": false,
       "filler_ratio": 0.36363636363636365,
       "criteria": 9,
+      "reader_fit": false,
+      "quick_answer": false,
       "rule_publishable": false
     }
   }
