@@ -274,6 +274,9 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
   const t = r.data.table;
   const blocks: Draft['sections'][number]['blocks'] = [...paras];
   if (t && t.rows.every((row) => row.cells.length === t.columns.length)) blocks.splice(Math.min(t.after_block + 1, blocks.length), 0, { kind: 'table', caption: t.caption, columns: t.columns, rows: t.rows });
+  // Sem tabela nova, as tabelas que a seção já tinha ficam (22/10: a D28 perdeu a tabela D28 × D33 numa
+  // reescrita do resumo). Voltam na posição em que estavam.
+  if (!(t && blocks.some((b) => b.kind === 'table'))) sec.blocks.forEach((b, i) => { if (b.kind === 'table') blocks.splice(Math.min(i, blocks.length), 0, structuredClone(b)); });
   out.sections[decIdx] = { ...sec, blocks };
   if (r.data.description) out.description = r.data.description.replace(/\s+/g, ' ').trim();
   return out;

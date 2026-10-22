@@ -3,12 +3,12 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Base de cama box: o que conferir antes de comprar",
-  "description": "Saiba quais dimensões, materiais, capacidade de carga e garantia verificar na ficha técnica de uma base box antes de comprar.",
+  "description": "Confira largura, comprimento e altura da base box na ficha técnica. Leia como o fabricante descreve o peso máximo: com colchão ou além do colchão.",
   "primary_query": "base para cama box: o que conferir",
-  "updated_at": "2026-10-21",
+  "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Confira na ficha técnica a largura, comprimento e altura da base, além de como o fabricante descreve o peso máximo (se é além do colchão ou inclui o colchão). As dimensões variam entre modelos e tamanhos, e a diferença no cálculo do peso suportado depende dessa descrição.",
-    "basis": "reasoning",
+    "text": "Confira na ficha técnica a largura, comprimento e altura da base, além de como o fabricante descreve o peso máximo: alguns informam o limite por pessoa com colchão sobre a base, outros indicam peso além do colchão. As dimensões variam entre modelos, e essa diferença na descrição do peso muda o cálculo do total suportado.",
+    "basis": "evidence",
     "claim_ids": [
       "clm_bf78229b8d8b",
       "clm_130a08f7c1a0",
@@ -38,15 +38,6 @@
           "claim_ids": [
             "clm_d6adb6e64d6e",
             "clm_64cc5dc5ca19"
-          ]
-        },
-        {
-          "kind": "callout",
-          "tone": "warning",
-          "text": "As dimensões finais do produto podem variar em mais ou menos 1,0 cm, mesmo em produtos feitos sob medida, segundo a Ortobom.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_07edec6f3f44"
           ]
         },
         {
@@ -191,18 +182,6 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Os prazos variam conforme a marca e a parte do produto. Segundo a Probel, algumas bases cobrem 6 meses para a estrutura e 3 meses para tecido e mecanismos. Segundo a Ortobom, a estrutura de madeira da maioria das linhas tem 1 ano de garantia (a linha Arte oferece 5 anos); componentes como amortecedores, pés e parafusos têm cobertura de 3 meses.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_1b99b17cf337",
-            "clm_2be3da30ecdb",
-            "clm_f166bdd80c44",
-            "clm_5a2a8e2e5f7f",
-            "clm_ac0d02067042"
-          ]
-        },
-        {
-          "kind": "paragraph",
           "text": "Segundo a Ortobom, o certificado menciona como situação de posicionamento inadequado o produto ser menor ou maior que o colchão e imperfeições no piso que afetem a estabilidade. Consulte o certificado para verificar outras situações mencionadas pelo fabricante.",
           "basis": "evidence",
           "claim_ids": [
@@ -213,11 +192,11 @@
     },
     {
       "id": "como-decidir",
-      "heading": "O que conferir antes de comprar uma base box",
+      "heading": "O que conferir antes de comprar",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você está escolhendo o tamanho, confira na ficha técnica. Nos produtos citados, a base Casal mede 138 x 188 x 26 cm e a base King mede 193 x 203 x 26 cm. Um documento da Ortobom informa que as dimensões finais podem variar em até 1 cm para mais ou para menos.",
+          "text": "Se você está escolhendo o tamanho, confira na ficha as medidas de largura, comprimento e altura. Segundo a Probel, uma base Casal tem 138 cm de largura, 188 cm de comprimento e 26 cm de altura; uma King tem 193 cm de largura, 203 cm de comprimento e 26 cm de altura. Segundo a Ortobom, as dimensões finais do produto podem variar em mais ou menos 1 cm, mesmo em produtos sob medida.",
           "basis": "evidence",
           "claim_ids": [
             "clm_bf78229b8d8b",
@@ -227,7 +206,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você precisa saber o peso máximo permitido, procure na ficha técnica como o fabricante descreve a capacidade de carga. Segundo a Probel, algumas bases indicam \"150 kg por pessoa desde que haja um colchão sobre a base\"; segundo a Ortobom, outras afirmam \"150 kg além do peso do colchão\". A diferença muda o cálculo do peso total suportado.",
+          "text": "Se precisa saber o peso máximo permitido, leia com cuidado na ficha técnica. Alguns fabricantes indicam 150 kg por pessoa desde que haja um colchão sobre a base (o peso do colchão pode estar ou não incluso nesse limite). Outros afirmam 150 kg além do peso do colchão. Essa diferença muda o cálculo total suportado.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0a6ef01c4834",
@@ -236,21 +215,22 @@
         },
         {
           "kind": "paragraph",
-          "text": "Compare os certificados do produto específico. No kit Probel citado, constam 6 meses para a estrutura e 3 meses para tecido e mecanismos. No certificado Ortobom, há uma tabela com prazos de garantia para estrutura de madeira, incluindo 5 anos para a linha Arte e prazos de 1 ano em outras linhas exibidas.",
+          "text": "Se a base tem dois módulos, confira como os pés se fixam. Segundo a Ortobom, os pés grandes são rosqueados nos pontos de encaixe, e os dois módulos são unidos com uma chapa fixada por parafusos. Aperte as porcas apenas o suficiente para o encaixe, sem forçar.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1b99b17cf337",
-            "clm_5a2a8e2e5f7f"
+            "clm_3753f00ce551",
+            "clm_146d7bb49554",
+            "clm_57e3a5544cc9"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se a base tiver dois módulos, confira como os pés se fixam. Segundo a Ortobom, os pés grandes são rosqueados nos pontos de encaixe, e os dois módulos são unidos com uma chapa fixada por parafusos. Aperte as porcas apenas o suficiente para o encaixe, sem forçar.",
+          "text": "Compare os prazos de garantia antes de escolher. Segundo a Probel, algumas bases cobrem 6 meses para a estrutura e 3 meses para tecido e mecanismos. Segundo a Ortobom, a estrutura de madeira da maioria das linhas tem 1 ano (a linha Arte oferece 5 anos); componentes como pés e parafusos têm cobertura de 3 meses.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_3753f00ce551",
-            "clm_57e3a5544cc9",
-            "clm_146d7bb49554"
+            "clm_1b99b17cf337",
+            "clm_5a2a8e2e5f7f",
+            "clm_ac0d02067042"
           ]
         }
       ]
@@ -258,7 +238,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida",
+    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

@@ -3,16 +3,18 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Colchão D28 ou D33: qual densidade de espuma escolher?",
-  "description": "Entenda o que significa D28 e D33, como a etiqueta do Inmetro mostra a densidade e o que considerar antes de decidir.",
+  "description": "Como escolher entre D28 e D33: compare peso suportado, firmeza e se o modelo é indicado para casais com biotipos diferentes.",
   "primary_query": "colchão D28 ou D33",
-  "updated_at": "2026-10-20",
+  "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Segundo a Ortobom, para escolher um colchão de espuma deve-se considerar a densidade, o peso e a altura de quem vai usá-lo. A Probel descreve sua espuma D28 como de firmeza intermediária.",
-    "basis": "reasoning",
+    "text": "D28 e D33 diferem no suporte de peso e firmeza. Segundo a Probel, D28 suporta até 90 kg por pessoa com firmeza intermediária, enquanto D33 suporta até 100 kg por pessoa com firmeza firme. Se você dorme com alguém de peso diferente, confira se o modelo escolhido indica uso para casais com biotipos diferentes.",
+    "basis": "evidence",
     "claim_ids": [
-      "clm_6a5fe535ce38",
-      "clm_795c4d8bb735",
-      "clm_04789db60329"
+      "clm_6bca363f18b4",
+      "clm_cc535a99581c",
+      "clm_a917fb3cfba7",
+      "clm_291c683c65bc",
+      "clm_78c1ea85ff79"
     ]
   },
   "sections": [
@@ -289,29 +291,25 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se o critério principal for firmeza, vale conferir modelos que o fabricante descreve como firmes e com suporte robusto, como faz a Probel nos trechos citados.",
+          "text": "Segundo as descrições citadas da Probel, um modelo D33 oferece suporte robusto, enquanto um modelo D28 tem firmeza intermediária. Uma descrição de modelo Probel também indica uso para casais com biotipos diferentes; confira essa indicação no anúncio.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_958d6ab22f55",
-            "clm_bef6a4951704"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Se os moradores têm biotipos diferentes, confira a indicação da Probel para casais com biotipos diferentes. A Ortobom, por sua vez, disponibiliza uma tabela para indicar o colchão de espuma mais recomendado.",
-          "basis": "reasoning",
-          "claim_ids": [
+            "clm_bef6a4951704",
+            "clm_04789db60329",
+            "clm_cc535a99581c",
             "clm_78c1ea85ff79",
-            "clm_6a3c8fe5f464"
+            "clm_9396da81cc19"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Antes de comparar modelos, confira a densidade nominal em kg/m³ e o tipo do colchão, informações enumeradas pelo Inmetro nos trechos citados.",
-          "basis": "reasoning",
+          "text": "Antes de comprar, confira no produto ou na embalagem a densidade nominal da espuma, o tipo e a classificação do colchão e a composição dos componentes internos.",
+          "basis": "evidence",
           "claim_ids": [
-            "clm_a1f44696e40e",
-            "clm_03f4e6488b5d"
+            "clm_23c3ec49c618",
+            "clm_03f4e6488b5d",
+            "clm_e982860c6405",
+            "clm_29c33cfe9a2e"
           ]
         }
       ]
@@ -319,7 +317,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261020T185119_colchao-d28-ou-d33-improve_bcec",
+    "run_id": "20261020T185119_colchao-d28-ou-d33-improve_bcec+editor:reescrita-colchao-d28-ou-d33",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-sol",
     "audit_verdict": "pass"
