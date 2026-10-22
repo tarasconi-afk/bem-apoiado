@@ -33,6 +33,9 @@ export async function improveTopic(slug: string, runId: string): Promise<Improve
   const newClaims = r.accepted.filter((a) => a.new).length;
   if (newClaims === 0) return stop(`NO_NEW_EVIDENCE: ${fresh.length} fontes novas sem trecho útil`);
 
+  const steps: string[] = [];
+  const { readyOrResearch } = await import('./autopilot.ts');
+  if (!(await readyOrResearch(slug, runId, steps))) return stop(`NOT_READY: ${steps.at(-1) ?? 'sem regra de escolha'}`);
   const p = await buildPage(slug, runId);
   const result: ImproveOutcome = { status: 'DONE', page: p.status, new_sources: fresh.length, new_claims: newClaims, credits: creditsSpent() };
   writeStage(runId, 'improve', result);

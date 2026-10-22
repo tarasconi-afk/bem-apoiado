@@ -20,6 +20,7 @@ import { TopicBrief, type PageSpec, type Product } from '@bem-apoiado/core';
 import { findProductsFromAmazon } from './products.ts';
 import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources, loadRegistry, makersFor } from './discover.ts';
+import { decisionReadiness, logReadiness, saveRules } from './readiness.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
@@ -481,6 +482,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
     const r = await research(topic.slug, runId);
     steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
+    // Só escreve com regra de escolha sustentada; senão, uma busca dirigida ao que falta e nova checagem; ainda
+    // sem regra, a pauta é adiada com o que falta como lacuna (sem gastar redação nem o tempo do editor).
+    const gate = await readyOrResearch(topic.slug, runId, steps);
+    if (!gate) return done({ status: 'STOPPED', slug: topic.slug, query, steps });
     const p = await buildPage(topic.slug, runId);
     steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : ''}`);
     // Parou sem página e sem lacuna registrada: as perguntas sem resposta viram lacunas, senão a fila trata
@@ -506,6 +511,31 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     await maintainImages(steps);
   }
   return done({ status, slug: topic.slug, query, steps });
+}
+
+// Checagem do dado que decide antes da redação (readiness.ts). true = pode escrever (regras gravadas como nota
+// da pauta para o redator); false = pauta adiada, com o que falta registrado como lacuna.
+export async function readyOrResearch(slug: string, runId: string, steps: string[]): Promise<boolean> {
+  let r = await decisionReadiness(slug, loadTopic(slug));
+  logReadiness(runId, 0, r);
+  if (!r.ready) {
+    steps.push(`checagem antes de escrever: falta ${r.missing[0]?.slice(0, 140) ?? 'regra de escolha'}; busca dirigida`);
+    const t = loadTopic(slug);
+    writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: [...new Set([...r.missing, ...r.queries])].slice(0, 5) }));
+    const d = await discoverSources(slug, runId, { maxSearches: 4, maxSources: 6 });
+    if (d.added.length) await research(slug, runId);
+    r = await decisionReadiness(slug, loadTopic(slug));
+    logReadiness(runId, 1, r);
+    if (!r.ready) {
+      const t2 = loadTopic(slug);
+      writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t2, evidence_gaps: r.missing.length ? r.missing : t2.evidence_gaps }));
+      steps.push(`pauta adiada antes da redação: as evidências não dizem o que escolher (${r.missing[0]?.slice(0, 140) ?? 'sem regra de escolha'})`);
+      return false;
+    }
+  }
+  saveRules(slug, loadTopic(slug), r.rules);
+  steps.push(`checagem antes de escrever: ${r.rules.length} regras de escolha sustentadas`);
+  return true;
 }
 
 // Resumo que o script de ciclo usa como título e corpo do PR.
