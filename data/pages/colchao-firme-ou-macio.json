@@ -5,14 +5,14 @@
   "title": "Colchão firme ou macio: como escolher pela densidade",
   "description": "Fabricantes usam densidade de espuma para classificar firmeza. Inmetro não avalia conforto ou firmeza: apenas desempenho físico.",
   "primary_query": "colchão firme ou macio",
-  "updated_at": "2026-10-21",
+  "updated_at": "2026-10-22",
   "verdict": {
-    "text": "Segundo a Castor, a firmeza está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura da pessoa. A Castor também relaciona densidades menores a colchões mais macios e confortáveis. Procure um profissional de saúde se você acredita precisar de uma firmeza específica.",
-    "basis": "evidence",
+    "text": "Segundo a Simmons, pessoas muito leves tendem a se sentir mais confortáveis em colchões macios, enquanto pessoas mais pesadas podem preferir colchões mais firmes. A Castor relaciona faixas de peso a densidades específicas: densidade 26 para 51 a 60 kg e densidade 45 ou maior acima de 100 kg. Confira na ficha técnica o suporte de peso por pessoa e a densidade do colchão que você escolher.",
+    "basis": "reasoning",
     "claim_ids": [
-      "clm_1ad133d2b40c",
-      "clm_9d95131021e4",
-      "clm_20ba50c38123"
+      "clm_4ed8801cb674",
+      "clm_73d2f4e03662",
+      "clm_04e2adda967a"
     ]
   },
   "sections": [
@@ -89,20 +89,21 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Castor, a densidade indicada varia conforme o peso: até 50 kg, densidade 23; de 51 a 60 kg, 26; de 61 a 70 kg, 28; de 71 a 80 kg, 33; de 81 a 100 kg, de 33 a 45; acima de 100 kg, 45 ou maior para maior suporte.",
+          "text": "Segundo a Castor, pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo e garantir suporte adequado, enquanto pessoas mais leves podem usar densidades menores.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_73d2f4e03662"
+            "clm_20ba50c38123"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "A Probel relaciona suporte de peso a seus colchões: alguns suportam até 90 kg por pessoa, outros até 120 kg ou 150 kg por pessoa. A Ortobom declara que é preciso considerar peso e altura de quem usará o colchão na escolha da densidade.",
+          "text": "A Probel lista capacidades de suporte de 60, 90, 100, 120 e 150 kg por pessoa em seus produtos, enquanto a Ortobom diz que é preciso considerar o peso e a altura de quem usará o colchão. A Castor também relaciona a firmeza à densidade adequada ao peso e à altura.",
           "basis": "evidence",
           "claim_ids": [
             "clm_04e2adda967a",
             "clm_11e2aebdb8ec",
-            "clm_2556a5f88a24"
+            "clm_2d4e69b2d392",
+            "clm_bbbedd76ffd0"
           ]
         }
       ]
@@ -132,33 +133,40 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir entre firme e macio",
+      "heading": "Como escolher entre firme e macio pelo seu peso",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você é mais leve (até 60 kg), densidade 23 a 26 pode ser confortável. Se está entre 61 e 100 kg, densidade 28 a 45 é usualmente recomendada pelo fabricante. Se pesa acima de 100 kg, o fabricante sugere densidade 45 ou maior. Use essas faixas como referência, não como regra.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_73d2f4e03662",
-            "clm_20ba50c38123",
-            "clm_62d3df3a22de"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Se um fabricante associar firmeza específica a benefício terapêutico (aliviar dor, corrigir postura ou problema de coluna), saiba que o Inmetro não avalia essas propriedades. Procure um profissional de saúde para orientação sobre qual firmeza serve ao seu caso.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_571c2ce93e7d"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Alguns colchões combinam camadas de diferentes densidades ou materiais. Por exemplo, segundo a Castor, um modelo pode combinar espuma de densidade 33 com uma camada HiperSoft, oferecendo toque macio no primeiro contato e estabilidade. Verifique no anúncio ou na ficha técnica quais camadas e estruturas o modelo específico que você quer possui.",
+          "text": "A Castor apresenta estas referências: até 60 kg, densidades 23 ou 26; de 61 a 80 kg, densidades 28 ou 33; de 81 a 100 kg, densidade de 33 a 45 conforme a preferência por firmeza; acima de 100 kg, densidade 45 ou maior.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_147c8fca8fbc",
-            "clm_25639583d21a"
+            "clm_73d2f4e03662"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A densidade tem relação direta com a firmeza do colchão; segundo a Castor, pessoas mais leves podem usar densidades menores, que são mais macias e confortáveis, enquanto pessoas mais pesadas precisam de densidades maiores.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_1ad133d2b40c",
+            "clm_20ba50c38123"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confira na página do produto quantos quilos por pessoa o colchão suporta, pois essa informação pode estar indicada ali.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_04e2adda967a",
+            "clm_2d15af98c12e"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Um modelo citado pela Castor combina, em um lado, uma espuma de densidade 33 com uma camada superior HiperSoft, oferecendo toque macio no primeiro contato e estabilidade.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_147c8fca8fbc"
           ]
         }
       ]
@@ -166,17 +174,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T212103_autopilot_ebf5",
+    "run_id": "20261021T212103_autopilot_ebf5+editor:20261022T003150_colchao-firme-ou-macio-ajuste_57c6",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "partial",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": false,
       "filler_ratio": 0,
       "criteria": 7,
+      "reader_fit": true,
+      "quick_answer": false,
       "rule_publishable": false
     }
   }
