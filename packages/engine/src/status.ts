@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { trafficSummary } from './hits.ts';
 import { auditStats } from './lessons.ts';
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
+import type { PageSpec } from '@bem-apoiado/core';
 import { balanceNow, ledger, spendBy } from './credits.ts';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -157,7 +158,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <h1>Painel do motor · Bem Apoiado</h1>
 <p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}${versionLine()}</p>
 <div class="grid">
-<div class="card"><div class="v">${pages.filter((p) => p.status !== 'draft').length}</div><div class="l">páginas no ar (${pages.filter((p) => p.status === 'draft').length} em rascunho)</div></div>
+${goalsCard(pages, sum(since(24 * 7)), now)}
 <div class="card"><div class="v">${cr(creditsToday())} <span style="font-size:.9rem;font-weight:500">de ${DAILY_CREDIT_CAP}</span></div><div class="l">créditos hoje (teto do dia; zera à meia-noite)</div></div>
 <div class="card"><div class="v">${topics.length}</div><div class="l">pautas cadastradas</div></div>
 <div class="card"><div class="v">${cr(sum(since(24 * 7)))}</div><div class="l">créditos em 7 dias (${cr(sum(since(24)))} nas últimas 24 h)</div></div>
@@ -241,4 +242,19 @@ ${[...computeLearning().domains.values()].sort((a, b) => b.claims - a.claims).ma
 ${Object.entries(MODELS).map(([role, m]) => `<tr><td>${esc(role)}</td><td><code>${esc(m.id)}</code></td><td class="num">${m.price[0]}</td><td class="num">${m.price[1]}</td></tr>`).join('')}
 </tbody></table></div>
 </main></body></html>`;
+}
+
+// Metas do editor (22/10): 20 páginas para ganhar tração, 200 no fim. "Sem ajuste" = página no ar sem pedido de
+// ajuste do editor (o que mede se o motor acerta de primeira); créditos por página = gasto de 7 dias dividido
+// pelas aprovações dos mesmos 7 dias.
+export function goalsCard(pages: Pick<PageSpec, 'status' | 'provenance'>[], spent7d: number, now: Date): string {
+  const live = pages.filter((p) => p.status !== 'draft');
+  const drafts = pages.length - live.length;
+  const clean = live.filter((p) => !/\+editor:(?!\d{8}T\d{6}_autopilot_)/.test(String(p.provenance.run_id))).length; // manutenção automática não conta
+  const approved7d = loadVerdicts().filter((v) => v.verdict === 'approve' && now.getTime() - new Date(v.at).getTime() < 7 * 86_400_000).length;
+  const goal = live.length < 20 ? 20 : 200;
+  const pct = Math.min(100, Math.round((100 * live.length) / goal));
+  return `<div class="card" style="grid-column:span 2"><div class="v">${live.length} <span style="font-size:.9rem;font-weight:500">de ${goal} páginas no ar${goal === 20 ? ' (meta final 200)' : ''}</span></div>
+<div style="height:8px;background:var(--nbg);border-radius:999px;margin:6px 0"><div style="height:8px;width:${pct}%;background:var(--ok);border-radius:999px"></div></div>
+<div class="l">${drafts} em rascunho · ${clean} de ${live.length} no ar sem ajuste seu · ${approved7d ? `~${Math.round(spent7d / approved7d)} créditos por página aprovada (7 dias)` : 'sem aprovação nos últimos 7 dias'}</div></div>`;
 }
