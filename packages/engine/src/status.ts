@@ -1,3 +1,4 @@
+import { creditsToday, DAILY_CREDIT_CAP } from './stages/autopilot.ts';
 import { execFileSync } from 'node:child_process';
 import { trafficSummary } from './hits.ts';
 import { auditStats } from './lessons.ts';
@@ -142,6 +143,7 @@ export function renderStatus(now = new Date(), opts: { adminHtml?: string; refre
 <title>Painel do motor</title>
 <style>
 :root{--bg:#f6f5f1;--card:#fff;--ink:#1f2421;--muted:#626862;--line:#e3ded4;--ok:#2d6a4f;--okbg:#e5f2ea;--bad:#a23b2a;--badbg:#fbe9e5;--n:#5d5a52;--nbg:#efede7}
+a{color:var(--ok)}a:visited{color:var(--ok)}
 @media (prefers-color-scheme:dark){:root{--bg:#161817;--card:#1f2220;--ink:#e8eae6;--muted:#a3aaa3;--line:#333834;--okbg:#1d3328;--ok:#7fd1a3;--badbg:#3a1f1a;--bad:#f0a191;--nbg:#2a2c29;--n:#c9c6bc}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
 main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.4rem;margin:0 0 4px}h2{font-size:1.05rem;margin:28px 0 10px}
@@ -155,10 +157,10 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 <h1>Painel do motor · Bem Apoiado</h1>
 <p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}${versionLine()}</p>
 <div class="grid">
-<div class="card"><div class="v">${pages.filter((p) => p.status !== 'draft').length}</div><div class="l">páginas aprovadas</div></div>
+<div class="card"><div class="v">${pages.filter((p) => p.status !== 'draft').length}</div><div class="l">páginas no ar (${pages.filter((p) => p.status === 'draft').length} em rascunho)</div></div>
+<div class="card"><div class="v">${cr(creditsToday())} <span style="font-size:.9rem;font-weight:500">de ${DAILY_CREDIT_CAP}</span></div><div class="l">créditos hoje (teto do dia; zera à meia-noite)</div></div>
 <div class="card"><div class="v">${topics.length}</div><div class="l">pautas cadastradas</div></div>
-<div class="card"><div class="v">${cr(sum(since(24)))}</div><div class="l">créditos nas últimas 24 h</div></div>
-<div class="card"><div class="v">${cr(sum(since(24 * 7)))}</div><div class="l">créditos em 7 dias</div></div>
+<div class="card"><div class="v">${cr(sum(since(24 * 7)))}</div><div class="l">créditos em 7 dias (${cr(sum(since(24)))} nas últimas 24 h)</div></div>
 <div class="card"><div class="v">${idx.sources.size} / ${idx.claims.size}</div><div class="l">fontes / evidências</div></div>
 <div class="card"><div class="v">${products.length}</div><div class="l">produtos no catálogo</div></div>
 <div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>

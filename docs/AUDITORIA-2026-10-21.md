@@ -44,3 +44,22 @@ rolagem); lê cópia só de leitura do main (não oscila); lições removíveis;
 4. Registro de mudanças por página ("Atualizações"), como Sleep Foundation e RTINGS.
 5. Renovação mensal das fontes; Search Console quando houver dados; calibração com 8 vereditos.
 6. Hub por perfil na home ("dorme de lado", "home office pequeno"), sem temas de saúde vetados.
+
+## Adendo de 21/10 à noite (auto-auditoria: admin, leitor, Google, monetização)
+- Motor: a página "colchão firme ou macio" (aprovada pelo editor como modelo) entra no pedido ao redator como
+  exemplo de forma: resposta curta que começa pela ação do leitor com o dado que decide, e tabela no "Como decidir".
+- Repetição: detectada no código (sobreposição ≥ 80% das palavras, mínimo 8); quando cruza decisão e detalhe, sai
+  a cópia do detalhe (a decisão fica no topo). Removidas 8 repetições em 6 páginas no ar; vira regra de forma para
+  páginas novas e manutenção por ciclo.
+- Reescrita do resumo mantém as tabelas que já existiam (a D28 perdeu a tabela D28 × D33 num teste; corrigido).
+- Resumos reescritos e revisados um a um: D28 ou D33 e base box aplicados; "como escolher colchão", travesseiro e
+  cadeira mantidos (o resultado não era melhor: o problema dessas três é de pesquisa, não de texto).
+- Leitor no celular: tipos em faixa compacta (a resposta curta aparece na primeira tela), tabela de 2–3 colunas sem
+  rolagem lateral, texto dos exemplos à venda conforme o tipo de cartão.
+- Admin: aba Decisões abre pelo que pede decisão (pedido ao motor por último), cartão de créditos de hoje contra o
+  teto do dia, páginas no ar e em rascunho no mesmo cartão, links legíveis no modo escuro.
+- Google: sem pendência técnica (sem link quebrado, imagem sem alt ou JSON-LD inválido; dateModified presente).
+- Monetização: buscas na Amazon em todas as páginas no ar; cartões dos colchões renovados pelo índice de busca;
+  cadeira com 2 escolhas do editor.
+- Ainda pendente: "como escolher colchão" e "como escolher travesseiro" precisam de pesquisa nova (pouca evidência
+  útil); cadeira de escritório ainda abre pelo teleatendimento; títulos de seção em pergunta só nas páginas novas.

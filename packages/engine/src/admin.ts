@@ -195,13 +195,13 @@ ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.ran_at ?? job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
 ${queuedJobs().length ? `<p class="flash">Na fila (${queuedJobs().length}): ${queuedJobs().map((j) => esc(j.label)).join(' · ')}${cycleRunning() ? '. Começam quando o ciclo em andamento terminar.' : '.'}</p>` : ''}
 
-<h2>Pedir ao motor</h2>
-${requestsHtml()}
-
 <h2>Esperando sua decisão: resultados do motor</h2>
 ${branches.length ? branches.map(pendingHtml).join('') + '<p class="muted">Aplicar roda testes, gate e build aqui antes de ir ao main. Resultado que só traz aprendizado (nada que o leitor veja) entra sozinho em até 5 min.</p>' : '<p class="muted">Nenhum resultado pendente.</p>'}
 
 ${verdictsHtml(pages)}
+
+<h2>Pedir ao motor</h2>
+${requestsHtml()}
 
 <h2>Domínios novos encontrados nas buscas</h2>
 ${domainsHtml()}
