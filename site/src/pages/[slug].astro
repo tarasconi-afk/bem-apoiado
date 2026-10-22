@@ -155,7 +155,7 @@ const jsonLd = [
               {products.map((card) => (
                 <li class="product">
                   <div class="product-art">
-                    <KindImage id={imageFor(`produto-${card.product.asin}`) ? `produto-${card.product.asin}` : card.product.kind} class="product-img" sizes="(min-width: 66rem) 14rem, 92vw" />
+                    <KindImage id={imageFor(`produto-${card.product.asin.toLowerCase()}`) ? `produto-${card.product.asin.toLowerCase()}` : card.product.kind} class="product-img" sizes="(min-width: 66rem) 14rem, 92vw" />
                     <a class="art-note" href="#nota-imagens" aria-label="Sobre a imagem">*</a>
                   </div>
                   <div class="product-body">

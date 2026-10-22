@@ -130,9 +130,9 @@ export function wantedImages(
   for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: `capa de um guia intitulado "${p.title}". Cena que ilustre o tema do guia, sem mostrar produto de marca.` });
   const kindLabel = new Map(kinds.map((k) => [k.id, k.label]));
   for (const p of products) {
-    if (have.has(`produto-${p.asin}`)) continue;
+    if (have.has(`produto-${p.asin.toLowerCase()}`)) continue;
     const desc = p.label.replace(new RegExp(p.brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '').replace(/\s+/g, ' ').trim();
-    out.push({ id: `produto-${p.asin}`, subject: `ilustração genérica de ${kindLabel.get(p.kind) ?? p.kind} com o formato, a cor e o material descritos em "${desc}". Um único produto, sem marca, sem logotipo, sem reproduzir um modelo específico; ambiente diferente a cada imagem.` });
+    out.push({ id: `produto-${p.asin.toLowerCase()}`, subject: `ilustração genérica de ${kindLabel.get(p.kind) ?? p.kind} com o formato, a cor e o material descritos em "${desc}". Um único produto, sem marca, sem logotipo, sem reproduzir um modelo específico; ambiente diferente a cada imagem.` });
   }
   return out;
 }
