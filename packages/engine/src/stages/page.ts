@@ -72,6 +72,10 @@ export function styleIssues(draft: Draft): Issue[] {
   if (/^([Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s+((a|o|os|as)\s+)?\p{Lu}/u.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir citando uma marca ("Segundo a Ortobom..."): comece pela resposta prática; a marca entra depois, se precisar.' });
   if (/^(segundo|conforme|de acordo com|no|na|nos|nas|o|a|os|as)?\s*(inmetro|abnt|nbr|nr[- ]?\d|anvisa|portaria|norma|regulamento|regula[cç][aã]o|trecho|anexo)/i.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir.' });
   for (const u of blockRefs(draft)) if (/\b(nos|os|segundo os|dos) trechos? citados?\b/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trechos citados" (é termo do motor): diga quem afirma ("segundo a Ortobom") ou o que não foi informado ("a ficha não informa").' });
+  for (const sec of draft.sections) {
+    if (sec.blocks.some((b) => b.kind === 'table')) continue;
+    sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && /tabela (abaixo|acima|a seguir|seguinte)/i.test(b.text)) out.push({ ref: `${sec.id}#${i}`, msg: 'o texto cita uma tabela que não existe nesta seção: traga a tabela ou escreva os dados no texto.' }); });
+  }
   if (draft.title.includes('—')) out.push({ ref: null, msg: 'title: remova o travessão (—).' });
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
   // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.

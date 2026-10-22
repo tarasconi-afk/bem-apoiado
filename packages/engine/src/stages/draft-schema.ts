@@ -76,7 +76,9 @@ export function blockRefs(d: Draft): { ref: string; text: string; claim_ids: str
         b.rows.forEach((r, ri) =>
           out.push({
             ref: `${s.id}#${i}.r${ri}`,
-            text: b.columns.map((col, ci) => `${col}: ${r.cells[ci]?.text ?? ''}`).join(' | '),
+            // O título da tabela vai junto de cada linha: é nele que fica de quem são os dados ("Densidade indicada
+            // pela Castor"); sem ele o auditor via a linha solta e a tratava como regra geral (22/10).
+            text: `[tabela: ${b.caption}] ` + b.columns.map((col, ci) => `${col}: ${r.cells[ci]?.text ?? ''}`).join(' | '),
             claim_ids: [...new Set(r.cells.flatMap((c) => c.claim_ids))],
             basis: 'evidence',
           }),

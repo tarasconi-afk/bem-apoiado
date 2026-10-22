@@ -568,3 +568,14 @@ decidir" (cada linha auditada; 2 colunas, nunca coluna que a fonte não traz par
 descrição do Google. A correção do auditor passa a manter as regras de forma, e a resposta curta é conferida de
 novo no fim (a versão sustentada sugerida voltava a abrir com "Segundo a Castor"). O agente junta numa só
 edição tudo o que foi pedido para a mesma página (antes: 3 rodadas, 14,3 créditos; agora 1, 4,1).
+
+## 2026-10-22 — Tabela que some, pauta parada na auditoria, situação da fila
+"Colchão firme ou macio": o pedido ao motor criou a tabela peso × densidade, o auditor recusou todas as linhas
+(via cada linha solta, sem o título "segundo a Castor") e a tabela caiu, mas o texto "confira na tabela abaixo"
+ficou e as faixas da Castor sumiram. Agora: o título da tabela vai junto de cada linha na auditoria; o título
+diz de quem são os dados; texto que cita tabela inexistente é regra de forma; e se a tabela cair inteira, a
+resposta curta e a seção de decisão voltam ao original (o ajuste não apaga conteúdo bom).
+"Cadeira ergonômica ou gamer" parou na auditoria (AUDIT_NOT_CONVERGED) com 55 evidências e 0 lacunas, e a fila a
+trataria como esgotada para sempre: agora os problemas abertos do auditor viram lacunas e a pauta volta.
+Painel: cada pauta da fila mostra a situação (no ar, esperando você, rascunho, esgotada, próxima, na fila).
+Fila: saem "colchão magnético" e "colchão com massagem" (promessa de saúde; vetados pela regra do nicho).

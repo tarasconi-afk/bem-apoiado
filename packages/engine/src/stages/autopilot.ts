@@ -74,7 +74,7 @@ export interface CycleResult {
   review?: unknown;
 }
 
-const slugOf = (q: string) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+export const slugOf = (q: string) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
 
 // Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas.
 export function nextQuery(): string | null {
@@ -96,6 +96,31 @@ export function nextQuery(): string | null {
     return item.query;
   }
   return null;
+}
+
+// Situação de cada pauta da fila, pela mesma regra do nextQuery (para o painel mostrar o que anda e o que não).
+export type QueueState = 'no ar' | 'rascunho' | 'esperando você' | 'esgotada' | 'falhou no planejamento' | 'próxima' | 'na fila';
+export function queueStatus(pendingSlugs: Set<string>): { query: string; state: QueueState }[] {
+  const path = join(DATA, 'queue.json');
+  if (!existsSync(path)) return [];
+  const q = Queue.parse(JSON.parse(readFileSync(path, 'utf8')));
+  const topics = new Map(loadTopics().map((t) => [t.slug, t]));
+  const pages = new Map(loadPages().map((p) => [p.slug, p]));
+  const planFails = readState<Record<string, number>>('plan-failures.json', {});
+  let next = false;
+  return q.items.map((item) => {
+    const slug = slugOf(item.query);
+    const page = pages.get(slug);
+    const t = topics.get(slug);
+    let state: QueueState;
+    if (page && page.status !== 'draft') state = 'no ar';
+    else if (pendingSlugs.has(slug)) state = 'esperando você';
+    else if ((planFails[item.query] ?? 0) >= 2) state = 'falhou no planejamento';
+    else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) state = page ? 'rascunho' : 'esgotada';
+    else if (!next) { state = 'próxima'; next = true; }
+    else state = 'na fila';
+    return { query: item.query, state };
+  });
 }
 
 // Produtos para páginas no ar: página aprovada (pelo motor ou pelo editor no painel) cuja pauta tem
@@ -408,6 +433,10 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     const t = loadTopic(topic.slug);
     if (p.status === 'SAFE_STOP' && t.evidence_gaps.length === 0 && r.unanswered.length) {
       writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: t.questions.filter((q) => r.unanswered.includes(q.id)).map((q) => q.text) }));
+    } else if (p.status === 'SAFE_STOP' && /AUDIT_NOT_CONVERGED/.test(p.reason) && t.evidence_gaps.length === 0 && p.open_issues.length) {
+      // Parou na auditoria com as perguntas respondidas (22/10, cadeira ergonômica ou gamer: 55 evidências): o
+      // que o auditor não aceitou vira lacuna, e a próxima tentativa vai atrás só disso, sem refazer a pauta.
+      writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: p.open_issues.slice(0, 5).map((x) => `Sustentar com fonte ou tirar: ${x.slice(0, 220)}`) }));
     }
     if (p.status === 'PASS') {
       const e = await editPage(p.page, runId);

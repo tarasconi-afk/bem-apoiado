@@ -220,6 +220,16 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const secs = new Set([...touched].map((r) => r.split('#')[0]));
   const scope = new Set([...touched, ...editableBlocks({ ...page, ...patched } as never).map((b) => b.ref).filter((r) => secs.has(r.split('#')[0]))]);
   const fixed = await fixUntilSupported(topic, idx, draft as Draft, patched, scope, fetchImpl);
+  // Tabela recusada inteira: bloco que manda "conferir na tabela" ficaria apontando para nada e as faixas
+  // sumiriam (22/10, colchão firme ou macio). A seção de decisão e a resposta curta voltam ao original.
+  const orphan = (d: Draft) => d.sections.some((sec) => !sec.blocks.some((b) => b.kind === 'table') && sec.blocks.some((b) => b.kind !== 'table' && /tabela (abaixo|acima|a seguir|seguinte)/i.test(b.text)));
+  if (orphan(fixed.draft) && !orphan(draft as Draft) && decIdx >= 0) {
+    const sid = (draft as Draft).sections[decIdx]!.id;
+    fixed.draft.sections = fixed.draft.sections.map((sec) => (sec.id === sid ? structuredClone((draft as Draft).sections[decIdx]!) : sec));
+    fixed.draft.verdict = structuredClone((draft as Draft).verdict);
+    fixed.kept = fixed.kept.filter((r) => r !== 'verdict' && !r.startsWith(`${sid}#`));
+    fixed.dropped.push({ ref: sid, problem: 'o auditor recusou a tabela inteira; a resposta curta e a seção de decisão voltaram ao texto anterior' });
+  }
   if (!fixed.kept.length) return lessonNote + `ajuste NÃO salvo (o auditor não sustentou nenhum bloco alterado depois de ${FIX_ROUNDS} correções): ${fixed.dropped.map((f) => `${f.ref}: ${f.problem.slice(0, 160)}`).join(' | ')}`;
   const final = PageSpec.parse({ ...page, ...fixed.draft });
   const gate2 = checkPage(final, idx);
@@ -250,7 +260,7 @@ async function rewriteSummary(d: Draft, decIdx: number, instruction: string, top
       role: 'writer',
       system: writerSystem(),
       user:
-        `Pedido do editor: ${instruction}\n\nSe as evidências cruzam duas grandezas (peso × densidade, tamanho × medida, perfil × o que conferir), devolva "table" com uma linha por faixa, cada célula com os claim_ids que a sustentam; prefira 2 colunas e NUNCA acrescente coluna que a fonte não traz para todas as linhas (21/10: uma coluna "firmeza típica" inventada derrubou as linhas mais pesadas); senão table=null. "description": a frase que aparece no Google (50 a 160 caracteres, para leigo, sem número que a página não traga), ou null para manter.\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
+        `Pedido do editor: ${instruction}\n\nSe as evidências cruzam duas grandezas (peso × densidade, tamanho × medida, perfil × o que conferir), devolva "table" com uma linha por faixa, cada célula com os claim_ids que a sustentam; o título ("caption") diz de quem são os dados (ex.: "Densidade indicada pela Castor para cada faixa de peso"); prefira 2 colunas e NUNCA acrescente coluna que a fonte não traz para todas as linhas (21/10: uma coluna "firmeza típica" inventada derrubou as linhas mais pesadas); senão table=null. "description": a frase que aparece no Google (50 a 160 caracteres, para leigo, sem número que a página não traga), ou null para manter.\n\nReescreva DO ZERO a resposta curta ("verdict") e os blocos da seção "${sec.heading}", seguindo o padrão editorial e o pedido: para quem vai comprar, em palavras do dia a dia, cada bloco de "Como decidir" começando por "Se você..." e dizendo o que conferir. O que é técnico continua nas outras seções da página: não repita, só traduza o que importa para a escolha. Medida que vem de regra de um setor específico entra como REFERÊNCIA para o leitor conferir, não como condição de uso (ex.: "Como referência, uma regra do Ministério do Trabalho para quem trabalha sentado no atendimento por telefone pede assento de 37 a 50 cm do chão: veja se a cadeira alcança isso"). Não comece frase por "Para trabalho em...". Use só as evidências abaixo (claim_ids); não afirme nada além dos trechos.\n\n` +
         `Resposta curta atual: ${d.verdict.text}\n## ${sec.heading} (atual)\n${sec.blocks.map((b) => (b.kind === 'table' ? '' : `- ${b.text}`)).join('\n')}\n\nResto da página (contexto):\n${others.slice(0, 6000)}\n\nEvidências:\n${formatClaims(claims, idx.sources)}`,
       schema: Out,
       schemaName: 'summary_rewrite',

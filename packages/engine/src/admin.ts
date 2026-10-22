@@ -9,6 +9,7 @@ import { renderStatus } from './status.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
+import { queueStatus } from './stages/autopilot.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
@@ -170,6 +171,8 @@ function pendingBranches(): { branch: string; subject: string; when: string; ste
   }
 }
 
+const stateBadge = (st?: string) => (st ? `<span class="b ${st === 'próxima' ? 'ok' : st === 'no ar' ? 'neutral' : st === 'esgotada' || st === 'falhou no planejamento' ? 'bad' : 'neutral'}">${esc(st)}</span>` : '');
+
 function queueItems(): string[] {
   const f = join(DATA, 'queue.json');
   return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')).items.map((i: { query: string }) => i.query) : [];
@@ -185,6 +188,8 @@ function adminHtml(msg: string | null): string {
   const pages = loadPages();
   const branches = pendingBranches();
   const queue = queueItems();
+  const pendingSlugs = new Set(branches.map((b) => b.branch.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')));
+  const qstate = new Map(queueStatus(pendingSlugs).map((x) => [x.query, x.state]));
   return `
 ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.ran_at ?? job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
@@ -202,7 +207,8 @@ ${verdictsHtml(pages)}
 ${domainsHtml()}
 
 <h2>Fila de pautas</h2>
-<div class="tw"><table><tbody>${queue.map((q, i) => `<tr><td class="num">${i + 1}</td><td>${esc(q)}</td><td class="actions">${form('fila-remover', { consulta: q }, 'Remover', 'bad', `Remover "${q}" da fila?`)}</td></tr>`).join('')}</tbody></table></div>
+<p class="muted">A fila não perde itens: o motor pega a primeira pauta marcada como <b>próxima</b> e pula as que já estão no ar, esperando você ou esgotadas (sem lacuna nova para pesquisar).</p>
+<div class="tw"><table><tbody>${queue.map((q, i) => `<tr><td class="num">${i + 1}</td><td>${esc(q)}</td><td>${stateBadge(qstate.get(q))}</td><td class="actions">${form('fila-remover', { consulta: q }, 'Remover', 'bad', `Remover "${q}" da fila?`)}</td></tr>`).join('')}</tbody></table></div>
 ${ideasHtml()}
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="fila-adicionar"><input name="consulta" required minlength="3" maxlength="120" placeholder="nova dúvida, como o leitor busca (ex.: colchão firme ou macio)"><button class="ok">Adicionar ao fim</button></form>
 
