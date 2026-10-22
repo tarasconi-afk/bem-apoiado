@@ -61,22 +61,29 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
     publishable: z.boolean(),
     summary: z.string(),
   });
-  const r = await callJson(
-    {
-      role: 'auditor',
-      system: system(),
-      user:
-        `Dúvida principal: "${topic.primary_query}"\nPerguntas da pauta:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n\n` +
-        `Página: ${page.title}\n` +
-        units.map((u) => `[${u.ref}] ${u.text}`).join('\n') +
-        examplesPrompt('judge', { pageType: page.page_type, exclude: page.slug, max: 3 }) +
-        judgeCalibration(page.slug),
-      schema: Out,
-      schemaName: 'editorial_review',
-      maxTokens: 2500,
-    },
-    fetchImpl,
-  );
+  const ask = () =>
+    callJson(
+      {
+        role: 'auditor',
+        system: system(),
+        user:
+          `Dúvida principal: "${topic.primary_query}"\nPerguntas da pauta:\n${topic.questions.map((q) => `- ${q.text}`).join('\n')}\n\n` +
+          `Página: ${page.title}\n` +
+          units.map((u) => `[${u.ref}] ${u.text}`).join('\n') +
+          examplesPrompt('judge', { pageType: page.page_type, exclude: page.slug, max: 3 }) +
+          judgeCalibration(page.slug),
+        schema: Out,
+        schemaName: 'editorial_review',
+        maxTokens: 2500,
+      },
+      fetchImpl,
+    );
+  // 3 avaliações, vale a maioria em cada pergunta (22/10: o mesmo juiz, na mesma página sem mudança, deu
+  // "publicar" numa rodada e "não" na seguinte; o modelo não aceita fixar a aleatoriedade). Falha de uma
+  // chamada não derruba: decide com as que voltaram.
+  const runs = (await Promise.allSettled([ask(), ask(), ask()])).flatMap((x) => (x.status === 'fulfilled' ? [x.value] : []));
+  if (!runs.length) throw new Error('revisão: nenhuma das 3 avaliações voltou');
+  const r = { data: majority(runs.map((x) => x.data)), usage: runs.map((x) => x.usage).reduce((a, b) => ({ ...a, input_tokens: a.input_tokens + b.input_tokens, output_tokens: a.output_tokens + b.output_tokens })) };
   // Decisão determinística: o modelo descreve, a regra decide. Os limites vêm da calibração contra os
   // vereditos do editor (data/calibration.json; sem ela, 25% de enchimento e 2 critérios).
   // A opinião "publishable" do modelo é só registrada. Partial é aceito: fonte primária tem limite.
@@ -95,4 +102,22 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
 
 export function reviewMetrics(r: ReviewResult): ReviewMetrics {
   return { answers_primary_query: r.answers_primary_query, concrete_guidance: r.concrete_guidance, ...(r.reader_fit === undefined ? {} : { reader_fit: r.reader_fit }), ...(r.quick_answer === undefined ? {} : { quick_answer: r.quick_answer }), filler_ratio: r.filler_ratio, criteria: r.decision_criteria.length, rule_publishable: r.publishable };
+}
+
+type Vote = { answers_primary_query: 'yes' | 'partial' | 'no'; concrete_guidance: boolean; reader_fit: boolean; quick_answer: boolean; purchase_path: boolean; reader_problems: string[]; filler_refs: string[]; decision_criteria: string[]; missing: string[]; publishable: boolean; summary: string };
+// Maioria por campo; enchimento = bloco apontado pela maioria; o texto (resumo, critérios, faltas) vem da
+// avaliação mais alinhada com a maioria.
+export function majority<T extends Vote>(vs: T[]): T {
+  const half = vs.length / 2;
+  const yes = (k: keyof Vote) => vs.filter((v) => v[k] === true).length > half;
+  const order = ['yes', 'partial', 'no'] as const;
+  const counts = order.map((o) => vs.filter((v) => v.answers_primary_query === o).length);
+  // Empate (3 respostas diferentes): o meio, "partial".
+  const best = Math.max(...counts);
+  const answers = counts.filter((c) => c === best).length > 1 ? 'partial' : order[counts.indexOf(best)]!;
+  const filler = [...new Set(vs.flatMap((v) => v.filler_refs))].filter((ref) => vs.filter((v) => v.filler_refs.includes(ref)).length > half);
+  const agg = { answers_primary_query: answers, concrete_guidance: yes('concrete_guidance'), reader_fit: yes('reader_fit'), quick_answer: yes('quick_answer'), purchase_path: yes('purchase_path'), publishable: yes('publishable') };
+  const score = (v: T) => (Object.keys(agg) as (keyof typeof agg)[]).filter((k) => v[k] === agg[k]).length;
+  const rep = [...vs].sort((a, b) => score(b) - score(a))[0]!;
+  return { ...rep, ...agg, filler_refs: filler };
 }

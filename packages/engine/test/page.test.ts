@@ -75,7 +75,7 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
           : draft(opts.rejectRef ? 'Depende do uso, segundo as fontes citadas.' : 'Colchão de espuma sempre dura mais em qualquer caso.');
     } else if (body.response_format.json_schema.name === 'editorial_review') {
       reviews++;
-      if (opts.nearMiss && reviews === 1) {
+      if (opts.nearMiss && reviews <= 3) { // 1ª revisão = 3 avaliações (maioria)
         // 1ª revisão: quase lá, com 1 bloco de enchimento apontado
         content = { answers_primary_query: 'partial', concrete_guidance: true, filler_refs: ['tipos#0', 'etiqueta#0'], decision_criteria: ['a', 'b'], missing: [], publishable: false, summary: 'quase' };
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 10, completion_tokens: 5 } }));
