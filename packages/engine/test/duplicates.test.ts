@@ -1,0 +1,23 @@
+import { describe, expect, it } from 'vitest';
+import { duplicateBlocks, withoutDuplicates } from '../src/stages/duplicates.ts';
+
+const para = (text: string) => ({ kind: 'paragraph' as const, text, basis: 'claim' as const, claim_ids: [] });
+const inmetro = 'A certificação do Inmetro avalia apenas a espuma flexível de poliuretano, revestimento e chapa dura dos colchões vendidos.';
+const d = {
+  title: 't', description: 'd', verdict: { text: 'v', basis: 'reasoning' as const, claim_ids: [] },
+  sections: [
+    { id: 'detalhe', heading: 'Detalhe', blocks: [para('Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45 para estilos de sono diferentes.'), para('Outro assunto bem diferente sobre garantias de fabricantes e prazos de troca das peças.')] },
+    { id: 'inmetro', heading: 'Inmetro', blocks: [para(`O Inmetro avalia por certificação compulsória. ${inmetro}`), para(inmetro)] },
+    { id: 'como-decidir', heading: 'Como decidir', blocks: [para('Segundo a Probel, há colchões de espuma nas densidades D28, D33 e D45 para estilos de sono diferentes; confira.')] },
+  ],
+};
+
+describe('parágrafos repetidos', () => {
+  it('acha a cópia; entre decisão e detalhe, sai a do detalhe; dentro da seção, sai a de depois', () => {
+    const r = duplicateBlocks(d as never).map((x) => x.ref).sort();
+    expect(r).toEqual(['detalhe#0', 'inmetro#1']);
+    const w = withoutDuplicates(d as never);
+    expect(w.draft.sections.find((s) => s.id === 'como-decidir')!.blocks).toHaveLength(1);
+    expect(w.draft.sections.find((s) => s.id === 'inmetro')!.blocks).toHaveLength(1);
+  });
+});

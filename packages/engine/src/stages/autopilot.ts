@@ -24,6 +24,7 @@ import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
 import { adjustWithResearch } from './requests.ts';
+import { withoutDuplicates } from './duplicates.ts';
 import { planTopic } from './plan.ts';
 import { loadTopic, research } from './research.ts';
 
@@ -301,6 +302,23 @@ async function maintainSummary(runId: string, steps: string[]): Promise<boolean>
   }
 }
 
+// Parágrafos repetidos em páginas no ar: remove a cópia (determinístico, sem custo de IA). Sai como resultado
+// para o editor aceitar, com o antes → depois. Até 3 páginas por ciclo.
+async function maintainDuplicates(steps: string[]): Promise<boolean> {
+  let changed = false;
+  for (const p of loadPages().filter((x) => x.status !== 'draft').slice(0)) {
+    const d = { title: p.title, description: p.description, verdict: p.verdict, sections: p.sections };
+    const r = withoutDuplicates(d as never);
+    if (!r.removed.length) continue;
+    const spec = { ...p, ...r.draft };
+    writeJson(join(DATA, 'pages', `${p.slug}.json`), spec);
+    steps.push(`repetição em ${p.slug}: ${r.removed.length} parágrafo(s) que repetiam outro saíram (${r.removed.join(', ')})`);
+    changed = true;
+    if (steps.filter((x) => x.startsWith('repetição em')).length >= 3) break;
+  }
+  return changed;
+}
+
 // Âncoras dos links internos para páginas no ar que ainda não têm (até 5 por ciclo, ~0,1 crédito cada).
 // O site liga a primeira ocorrência delas no texto das outras páginas; o texto não muda.
 async function maintainLinks(steps: string[]): Promise<boolean> {
@@ -380,7 +398,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m6 = await maintainIdeas(steps);
   const m7 = await maintainLinks(steps);
   const m8 = await maintainSummary(runId, steps);
-  const maintained = m1 || m2 || m3 || m4 || m5 || m6 || m7 || m8;
+  const m9 = await maintainDuplicates(steps);
+  const maintained = m1 || m2 || m3 || m4 || m5 || m6 || m7 || m8 || m9;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.

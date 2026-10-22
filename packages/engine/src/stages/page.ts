@@ -7,6 +7,7 @@ import { writeStage } from '../runs.ts';
 import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, selectClaims, type Draft } from './draft-schema.ts';
+import { duplicateBlocks } from './duplicates.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
@@ -76,6 +77,7 @@ export function styleIssues(draft: Draft): Issue[] {
     if (sec.blocks.some((b) => b.kind === 'table')) continue;
     sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && /tabela (abaixo|acima|a seguir|seguinte)/i.test(b.text)) out.push({ ref: `${sec.id}#${i}`, msg: 'o texto cita uma tabela que não existe nesta seção: traga a tabela ou escreva os dados no texto.' }); });
   }
+  for (const d of duplicateBlocks(draft)) out.push({ ref: d.ref, msg: `repete o bloco ${d.of} (${Math.round(d.overlap * 100)}% das palavras): corte este bloco ou diga só o que ele acrescenta.` });
   if (draft.title.includes('—')) out.push({ ref: null, msg: 'title: remova o travessão (—).' });
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
   // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.

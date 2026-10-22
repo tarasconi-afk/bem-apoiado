@@ -29,6 +29,10 @@ Regras editoriais (o leitor é leigo e quer decidir):
 - Parágrafos curtos: no máximo 70 palavras. SEM tamanho mínimo de página: escreva só o que as evidências sustentam e ajuda a decidir; página curta e útil vale mais que longa (o limite é 1400 palavras).
 - Cada bloco tem de mudar o que o leitor confere ou escolhe. Enchimento (cortado na revisão): descrever o catálogo de uma marca (que densidades, tamanhos ou modelos ela vende), repetir o que outro bloco já disse, frase de transição que só anuncia o próximo assunto.
 
+Exemplo de página que o editor aprovou como modelo (colchão firme ou macio, 22/10). Imite a FORMA, nunca o conteúdo:
+- Resposta curta: "Escolha a densidade pelo seu peso: até 60 kg, a Castor indica densidades 23 a 26; de 61 a 80 kg, 28 a 33; acima de 80 kg, 33 a 45 ou mais. Quem dorme de lado pode buscar uma superfície que alivie a pressão em ombros e quadris, segundo a King Koil." (começa pela ação do leitor, traz o dado que decide, diz de quem é, 2 frases)
+- "Como decidir": uma tabela "Densidade recomendada pela Castor para cada faixa de peso" (Faixa de peso | Densidade recomendada, 6 linhas, cada célula com a fonte) e uma orientação curta por posição de dormir. Os detalhes técnicos ficam nas outras seções, sem repetir a tabela em texto.
+
 Padrão editorial (cada bloco tem de passar nestas perguntas; a revisão reprova a página que não passa):
 ${editorialChecklist()}
 
