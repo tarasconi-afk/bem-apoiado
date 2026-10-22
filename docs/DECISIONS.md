@@ -579,3 +579,11 @@ resposta curta e a seção de decisão voltam ao original (o ajuste não apaga c
 trataria como esgotada para sempre: agora os problemas abertos do auditor viram lacunas e a pauta volta.
 Painel: cada pauta da fila mostra a situação (no ar, esperando você, rascunho, esgotada, próxima, na fila).
 Fila: saem "colchão magnético" e "colchão com massagem" (promessa de saúde; vetados pela regra do nicho).
+
+## 2026-10-22 — Forma consertada sem IA; cadeira gamer ganha mais uma tentativa
+3ª parada da cadeira gamer: os problemas de conteúdo foram resolvidos, mas a resposta curta abria com "Segundo a
+Ortobom/Flexform" em 4 rodadas (o redator ignorou a regra). Agora, antes de parar: a atribuição que abre a
+resposta curta vai para o fim da primeira frase e travessão vira vírgula, sem IA (mesmo conteúdo e fontes); a
+versão com a forma certa é auditada (ela nunca tinha sido, porque a forma barrava antes); se o auditor apontar
+conteúdo, adota a versão sustentada dele, conserta a forma de novo e audita uma última vez. No rascunho real,
+a resposta curta passou. A pauta tinha esgotado as 2 tentativas por esses defeitos do motor: volta para 1.

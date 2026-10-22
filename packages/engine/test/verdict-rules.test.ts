@@ -52,3 +52,13 @@ describe('adotar a versão sustentada do auditor', () => {
     expect(b.claim_ids).toEqual(['clm_aaaaaaaaaaaa']);
   });
 });
+
+describe('conserto de forma sem IA', () => {
+  it('leva a atribuição para o fim da primeira frase e tira travessão', async () => {
+    const { fixFormWithoutAI, styleIssues: si } = await import('../src/stages/page.ts');
+    const d = draft('Segundo a Ortobom, cadeiras gamer têm encosto alto e reclinável. Confira a regulagem — e o peso suportado.');
+    const r = fixFormWithoutAI(d as never);
+    expect(r.draft.verdict.text).toBe('Cadeiras gamer têm encosto alto e reclinável, segundo a Ortobom. Confira a regulagem, e o peso suportado.');
+    expect(si(r.draft as never).filter((i) => i.ref === 'verdict')).toEqual([]);
+  });
+});

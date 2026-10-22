@@ -87,6 +87,25 @@ export function styleIssues(draft: Draft): Issue[] {
   return out;
 }
 
+// Conserto de forma sem IA (22/10: o redator recebeu 4 vezes a regra e reescreveu sempre "Segundo a
+// Ortobom, ..."): a atribuição que abre a resposta curta vai para o fim da primeira frase; travessão vira
+// vírgula. Mesmo conteúdo e mesmas fontes; a resposta volta para o auditor.
+export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] } {
+  const out: Draft = structuredClone(draft);
+  const refs: string[] = [];
+  const v = out.verdict.text.trim();
+  const m = /^((?:[Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s+(?:(?:a|o|os|as)\s+)?[^,]{2,60}),\s+(.+?)([.!?])(\s|$)([\s\S]*)$/.exec(v);
+  if (m) {
+    const attrib = m[1]!.charAt(0).toLowerCase() + m[1]!.slice(1);
+    const first = m[2]!.charAt(0).toUpperCase() + m[2]!.slice(1);
+    out.verdict = { ...out.verdict, text: `${first}, ${attrib}${m[3]}${m[5] ? ` ${m[5].trim()}` : ''}`.trim() };
+    refs.push('verdict');
+  }
+  if (out.verdict.text.includes('—')) { out.verdict = { ...out.verdict, text: out.verdict.text.replace(/\s*—\s*/g, ', ') }; if (!refs.includes('verdict')) refs.push('verdict'); }
+  for (const sec of out.sections) sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && b.text.includes('—')) { b.text = b.text.replace(/\s*—\s*/g, ', '); refs.push(`${sec.id}#${i}`); } });
+  return { draft: out, refs };
+}
+
 // Troca o texto de cada bloco reprovado pela versão sustentada que o auditor propôs, mantendo as fontes e o
 // tipo do bloco. Linha de tabela e bloco sem proposta ficam como estão.
 export function adoptAuditorFixes(draft: Draft, findings: { ref: string; verdict: string; fix: string }[]): { draft: Draft; refs: string[] } {
@@ -258,6 +277,34 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
         draft = adopted.draft;
         issues = [...issues.filter((i) => i.ref && !adopted.refs.includes(i.ref)), ...still.map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}` }))];
         if (issues.length === 0) return finish(draft, MAX_FIX_ROUNDS + 1);
+      }
+    }
+  }
+  // Só sobrou problema de forma que dá para consertar sem IA: conserta, confere a forma e audita os blocos tocados.
+  if (draft && issues.length > 0) {
+    const ff = fixFormWithoutAI(draft);
+    if (ff.refs.length) {
+      const left = [...checkPage(toPageSpec(ff.draft, topic, runId, 'pending'), idx).map((v) => ({ ref: refFromWhere(v.where), msg: `${v.code} ${v.detail}` })), ...styleIssues(ff.draft)];
+      const formOnly = issues.every((i) => i.ref && ff.refs.includes(i.ref) && !/^(OVERSTATED|UNSUPPORTED|MISATTRIBUTED|SAFETY_CLAIM|FACT_IN_FRAMING)/.test(i.msg));
+      if (formOnly && left.length === 0) {
+        const a = await auditDraft(ff.draft, idx.claims, idx.sources, fetchImpl, cache, new Set(ff.refs));
+        add(a.usage, a.usage.calls);
+        writeStage(runId, 'form-fix', { refs: ff.refs, findings: a.findings });
+        if (a.findings.every((f) => f.verdict === 'SUPPORTED')) return finish(ff.draft, MAX_FIX_ROUNDS + 1);
+        // A versão com a forma certa nunca tinha sido auditada (a forma barrava antes) e pode ter problema de
+        // conteúdo: adota a versão sustentada do auditor, conserta a forma de novo e audita uma última vez.
+        const ad = adoptAuditorFixes(ff.draft, a.findings);
+        if (ad.refs.length) {
+          const ff2 = fixFormWithoutAI(ad.draft);
+          const refs2 = [...new Set([...ad.refs, ...ff2.refs])];
+          const left2 = [...checkPage(toPageSpec(ff2.draft, topic, runId, 'pending'), idx), ...styleIssues(ff2.draft)];
+          if (left2.length === 0) {
+            const a2 = await auditDraft(ff2.draft, idx.claims, idx.sources, fetchImpl, cache, new Set(refs2));
+            add(a2.usage, a2.usage.calls);
+            writeStage(runId, 'form-fix-2', { refs: refs2, findings: a2.findings });
+            if (a2.findings.every((f) => f.verdict === 'SUPPORTED')) return finish(ff2.draft, MAX_FIX_ROUNDS + 1);
+          }
+        }
       }
     }
   }
