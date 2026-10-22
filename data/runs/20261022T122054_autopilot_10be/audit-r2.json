@@ -1,0 +1,154 @@
+{
+  "findings": [
+    {
+      "ref": "regulagens-que-importam#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "regulagens-que-importam#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "materiais-e-peso-maximo#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "materiais-e-peso-maximo#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas a resistência de 1100 kg da cadeira gamer. Não informa que a resistência da cadeira corporativa não foi encontrada nas fontes.",
+      "fix": "Resistência de base: cadeira gamer (Flexform): 1100 kg, conforme a norma NBR 13962. Para a cadeira corporativa, a resistência não é informada no trecho citado."
+    },
+    {
+      "ref": "materiais-e-peso-maximo#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta que a linha corporativa tem rodízios para diferentes tipos de piso, mas não sustenta a afirmação de que essa informação não foi encontrada para a cadeira gamer.",
+      "fix": "Rodízios: cadeira ergonômica corporativa (Flexform): para diferentes tipos de piso. Não há informação sobre a cadeira gamer no trecho citado."
+    },
+    {
+      "ref": "materiais-e-peso-maximo#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "materiais-e-peso-maximo#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A conclusão de que cadeiras ergonômicas e gamers podem atender à NR-17 é apresentada como fato geral, mas os trechos citados são posições da Flexform. Além disso, o trecho sobre cadeiras gamers inclui também mecanismo sincronizado, não apenas as regulagens mencionadas no bloco.",
+      "fix": "Confira na ficha técnica as regulagens documentadas, o peso máximo suportado, a densidade da espuma e eventual conformidade com a ABNT NBR 13962. Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender à NR-17; a empresa também descreve regulagens associadas a parâmetros mínimos da norma."
+    },
+    {
+      "ref": "regulagens-que-importam#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado é uma afirmação da Flexform, fabricante, mas o bloco a apresenta como regra ou fato geral, sem atribuição à marca.",
+      "fix": "Segundo a Flexform, a ficha pode declarar a altura mínima e máxima do assento, a faixa de profundidade do assento e a faixa de ajuste do apoio lombar, todos em centímetros."
+    },
+    {
+      "ref": "materiais-e-peso-maximo#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacoes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacoes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacoes#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado do Anexo II sustenta especificamente a exigência de apoio de braços regulável entre 20 e 25 cm, mas não menciona outras dimensões mínimas. A expressão “dimensões mínimas” amplia o conteúdo do trecho.",
+      "fix": "A NR-17 estabelece requisitos para assentos, incluindo altura ajustável, características da base, borda frontal arredondada e encosto adaptado ao corpo. No trabalho de teleatendimento/telemarketing, o Anexo II também prevê apoio de braços regulável entre 20 e 25 cm a partir do assento."
+    },
+    {
+      "ref": "garantia-cobertura#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta garantia de até 7 anos para uma cadeira de escritório giratória, mas o bloco generaliza para as cadeiras corporativas da Flexform em geral.",
+      "fix": "A Flexform informa, em conteúdo sobre cadeiras de escritório giratórias, garantia de até 7 anos."
+    },
+    {
+      "ref": "garantia-cobertura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-cobertura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a afirmação atribuída à Flexform sobre a cadeira gamer, mas não dizem para comparar as fichas técnicas. Essa recomendação foi acrescentada sem apoio no trecho citado.",
+      "fix": "Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade e apoio lombar ajustável pode atender à NR17 e funcionar bem em jornadas corporativas longas."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "materiais-e-peso-maximo#0.r1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas a resistência de 1100 kg da cadeira gamer. Não informa que a resistência da cadeira corporativa não foi encontrada nas fontes. Versão sustentável: Resistência de base: cadeira gamer (Flexform): 1100 kg, conforme a norma NBR 13962. Para a cadeira corporativa, a resistência não é informada no trecho citado."
+    },
+    {
+      "ref": "materiais-e-peso-maximo#0.r2",
+      "msg": "UNSUPPORTED. O trecho citado sustenta que a linha corporativa tem rodízios para diferentes tipos de piso, mas não sustenta a afirmação de que essa informação não foi encontrada para a cadeira gamer. Versão sustentável: Rodízios: cadeira ergonômica corporativa (Flexform): para diferentes tipos de piso. Não há informação sobre a cadeira gamer no trecho citado."
+    },
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A conclusão de que cadeiras ergonômicas e gamers podem atender à NR-17 é apresentada como fato geral, mas os trechos citados são posições da Flexform. Além disso, o trecho sobre cadeiras gamers inclui também mecanismo sincronizado, não apenas as regulagens mencionadas no bloco. Versão sustentável: Confira na ficha técnica as regulagens documentadas, o peso máximo suportado, a densidade da espuma e eventual conformidade com a ABNT NBR 13962. Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender à NR-17; a empresa também descreve regulagens associadas a parâmetros mínimos da norma."
+    },
+    {
+      "ref": "regulagens-que-importam#1",
+      "msg": "MISATTRIBUTED. O trecho citado é uma afirmação da Flexform, fabricante, mas o bloco a apresenta como regra ou fato geral, sem atribuição à marca. Versão sustentável: Segundo a Flexform, a ficha pode declarar a altura mínima e máxima do assento, a faixa de profundidade do assento e a faixa de ajuste do apoio lombar, todos em centímetros."
+    },
+    {
+      "ref": "normas-certificacoes#2",
+      "msg": "OVERSTATED. O trecho citado do Anexo II sustenta especificamente a exigência de apoio de braços regulável entre 20 e 25 cm, mas não menciona outras dimensões mínimas. A expressão “dimensões mínimas” amplia o conteúdo do trecho. Versão sustentável: A NR-17 estabelece requisitos para assentos, incluindo altura ajustável, características da base, borda frontal arredondada e encosto adaptado ao corpo. No trabalho de teleatendimento/telemarketing, o Anexo II também prevê apoio de braços regulável entre 20 e 25 cm a partir do assento."
+    },
+    {
+      "ref": "garantia-cobertura#0",
+      "msg": "OVERSTATED. O trecho sustenta garantia de até 7 anos para uma cadeira de escritório giratória, mas o bloco generaliza para as cadeiras corporativas da Flexform em geral. Versão sustentável: A Flexform informa, em conteúdo sobre cadeiras de escritório giratórias, garantia de até 7 anos."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam a afirmação atribuída à Flexform sobre a cadeira gamer, mas não dizem para comparar as fichas técnicas. Essa recomendação foi acrescentada sem apoio no trecho citado. Versão sustentável: Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade e apoio lombar ajustável pode atender à NR17 e funcionar bem em jornadas corporativas longas."
+    }
+  ]
+}

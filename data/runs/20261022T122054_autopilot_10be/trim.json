@@ -1,0 +1,105 @@
+{
+  "removed": [
+    "materiais-e-peso-maximo#1",
+    "materiais-e-peso-maximo#2",
+    "normas-certificacoes#0",
+    "normas-certificacoes#1",
+    "garantia-cobertura#0",
+    "garantia-cobertura#1",
+    "garantia-cobertura#2",
+    "como-decidir#0"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "materiais-e-peso-maximo#1",
+      "materiais-e-peso-maximo#2",
+      "normas-certificacoes#0",
+      "normas-certificacoes#1",
+      "garantia-cobertura#0",
+      "garantia-cobertura#1",
+      "garantia-cobertura#2",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Confira se a ficha informa a faixa de altura do assento, a profundidade do assento, o ajuste do apoio lombar, o ajuste dos braços e a reclinação.",
+      "Para postos de teleatendimento, compare a altura do assento de 37 a 50 cm e o apoio de braços regulável entre 20 e 25 cm acima do assento, conforme a referência citada da NR-17.",
+      "Prefira uma configuração com apoio lombar e profundidade ajustáveis quando o encaixe do corpo ou o uso prolongado exigirem esses ajustes.",
+      "Confira se o mecanismo permite regular a tensão da reclinação de acordo com o peso do usuário.",
+      "Confira na ficha o peso máximo suportado pelo fabricante antes da compra.",
+      "Compare a densidade da espuma declarada; a página apresenta 45 a 55 kg/m³ nos modelos Flexform citados.",
+      "Não escolha apenas pelo rótulo “ergonômica” ou “gamer”: compare as regulagens efetivamente listadas na ficha técnica."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma resposta curta e direta dizendo em quais casos a cadeira ergonômica é mais indicada e em quais casos a gamer pode ser suficiente.",
+      "Comparação entre modelos reais de mais de um fabricante, com nome do modelo e links ou referências às fichas técnicas primárias.",
+      "Peso máximo suportado declarado para cada modelo comparado e indicação de onde essa informação aparece na ficha ou no manual.",
+      "Materiais especificados para estofamento, estrutura, base, rodízios, pistão e mecanismo de cada modelo.",
+      "Explicação primária e independente sobre o que a ABNT NBR 13962 regula e se há certificação ou avaliação do Inmetro aplicável ao produto.",
+      "Esclarecimento de que a NR-17 se aplica principalmente ao posto de trabalho e não transforma automaticamente uma cadeira comercial em “ergonômica”.",
+      "Declaração oficial de cada fabricante explicando quais especificações sustentam o uso do termo “ergonômica”.",
+      "Condições de garantia por fabricante e modelo, separando estrutura, espuma, revestimento, mecanismo e demais peças."
+    ],
+    "publishable": false,
+    "summary": "A página oferece alguns critérios práticos de regulagem, espuma e referência à NR-17, mas não responde de forma direta qual opção escolher. Falta a comparação prometida entre fabricantes e modelos, especialmente peso máximo, materiais, significado de “ergonômica” e cobertura de garantia; além disso, a resposta curta usa jargão e se apoia quase exclusivamente na Flexform.",
+    "filler_ratio": 0.4444444444444444,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página se apoia praticamente apenas em informações da Flexform, embora a dúvida peça comparar categorias e fabricantes.",
+      "Usa termos de ficha técnica, como mecanismo sincronizado, Datillo e regulagem de tensão, sem explicar claramente o que significam para o comprador.",
+      "Não apresenta uma recomendação direta sobre quando escolher uma cadeira ergonômica ou gamer.",
+      "Não informa modelos, pesos máximos, materiais completos ou coberturas de garantia suficientes para comparar opções reais."
+    ],
+    "filler_refs": [
+      "materiais-e-peso-maximo#0.r0",
+      "normas-certificacoes#0",
+      "garantia-cobertura#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Conferir na ficha a altura mínima e máxima do assento.",
+      "Conferir a faixa de ajuste da profundidade do assento.",
+      "Verificar se o apoio lombar tem ajuste de altura e qual é a faixa de ajuste.",
+      "Verificar se os apoios de braço são reguláveis; para a referência citada da NR-17, conferir a faixa de 20 a 25 cm acima do assento.",
+      "Conferir se o encosto permite ajuste de altura e se a reclinação tem bloqueio e ajuste de tensão.",
+      "Comparar a densidade da espuma declarada pelo fabricante.",
+      "Conferir o peso máximo suportado no anúncio, na ficha técnica ou no manual.",
+      "Preferir uma configuração com mais ajustes quando a cadeira será usada por muitas horas ou por pessoas de diferentes estaturas.",
+      "Não presumir que o nome gamer ou ergonômica, sozinho, indique conformidade com a NR-17 ou melhor adequação."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página se apoia praticamente apenas em informações da Flexform, embora a dúvida peça comparar categorias e fabricantes.",
+      "Para o leitor leigo: Usa termos de ficha técnica, como mecanismo sincronizado, Datillo e regulagem de tensão, sem explicar claramente o que significam para o comprador.",
+      "Para o leitor leigo: Não apresenta uma recomendação direta sobre quando escolher uma cadeira ergonômica ou gamer.",
+      "Para o leitor leigo: Não informa modelos, pesos máximos, materiais completos ou coberturas de garantia suficientes para comparar opções reais.",
+      "Uma comparação direta entre modelos ergonômicos e gamer de mais de um fabricante, com links ou referências às fichas técnicas primárias.",
+      "O peso máximo declarado para cada modelo comparado e a forma como cada fabricante apresenta esse limite.",
+      "A lista completa de materiais de estofamento, estrutura, base, rodízios, pistão e mecanismo de cada modelo.",
+      "Uma explicação primária sobre o que a ABNT NBR 13962 regula e se cada modelo tem conformidade declarada ou certificação aplicável.",
+      "A relação oficial entre o uso do termo ergonômica e as especificações técnicas declaradas por cada fabricante.",
+      "Detalhes da garantia por modelo, incluindo cobertura de estrutura, espuma, mecanismo, peças e exclusões.",
+      "Uma regra de decisão simples, como quais ajustes priorizar para trabalho prolongado, maior estatura, compartilhamento da cadeira ou preferência por visual gamer.",
+      "Explicação em linguagem leiga dos mecanismos de reclinação e do ajuste de tensão."
+    ],
+    "publishable": false,
+    "summary": "A página oferece alguns critérios úteis para conferir na ficha, mas responde apenas parcialmente à dúvida e não permite escolher entre uma cadeira ergonômica e uma gamer. Falta uma comparação concreta de modelos e fabricantes, além de pesos, materiais, garantias e uma recomendação simples para diferentes usos; por isso, não está pronta para publicação.",
+    "filler_ratio": 0.36363636363636365,
+    "model_opinion": false
+  }
+}
