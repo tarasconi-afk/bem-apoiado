@@ -127,7 +127,11 @@ export async function discoverSources(
   // e cadeira ficaram presas a Ortobom/Probel e a Flexform).
   const srcs = new Map(loadSources().map((x) => [x.id, x]));
   const withEvidence = new Set(topic.source_ids.map((id) => srcs.get(id)).filter((x) => x?.source_class === 'manufacturer').map((x) => x!.publisher));
-  const fresh = [...makers.filter((m) => !withEvidence.has(m.publisher)), ...makers.filter((m) => withEvidence.has(m.publisher))];
+  // Entre os não lidos, primeiro os que a pauta nunca buscou sozinhos: senão os 3 primeiros do cadastro
+  // voltam toda vez e marca cadastrada depois (XT Racer, ThunderX3, 22/10) nunca é buscada.
+  // Marca citada pelo editor no pedido (chega como lacuna) vai na frente de tudo.
+  const tried = searchedAlone(join(DATA, 'runs'), slug);
+  const fresh = orderMakers(makers, { named: topic.evidence_gaps.join(' '), withEvidence, tried });
   queries.push(...makerQueries(queries, fresh, topic.primary_query));
   // Menos de 2 fabricantes com fonte na pauta (ou nenhum cadastrado): 2 buscas abertas. O que vier de fora do
   // cadastro não entra como fonte; vira sugestão em "Domínios novos" para o editor aprovar.
@@ -233,6 +237,31 @@ export const isPublicSuffix = (h: string) => SUFFIX_2.test(h) || /^[a-z]{2,}$/.t
 
 // Prefeituras, estados e diários oficiais (licitação, edital): aparecem muito na busca e nunca são fonte.
 const NOISE = /(\.(ac|al|am|ap|ba|ce|df|es|go|ma|mg|ms|mt|pa|pb|pe|pi|pr|rj|rn|ro|rr|rs|sc|se|sp|to)\.gov\.br|^pncp\.gov\.br|imprensaoficial|diario|licitac)/;
+
+export function orderMakers<M extends { host: string; publisher: string }>(makers: M[], o: { named: string; withEvidence: Set<string>; tried: Set<string> }): M[] {
+  const text = o.named.toLowerCase();
+  const rank = (m: M) =>
+    text.includes(m.publisher.toLowerCase()) || text.includes(m.host.split('.')[0]!) ? 0 : o.withEvidence.has(m.publisher) ? 3 : o.tried.has(m.host) ? 2 : 1;
+  return makers.map((m, i) => ({ m, i })).sort((a, b) => rank(a.m) - rank(b.m) || a.i - b.i).map((x) => x.m);
+}
+
+// Sites que já tiveram uma busca só deles nesta pauta (relatórios de descoberta anteriores).
+export function searchedAlone(runsDir: string, slug: string): Set<string> {
+  const out = new Set<string>();
+  if (!existsSync(runsDir)) return out;
+  for (const run of readdirSync(runsDir)) {
+    const f = join(runsDir, run, 'discover.json');
+    if (!existsSync(f)) continue;
+    try {
+      const d = JSON.parse(readFileSync(f, 'utf8')) as { topic?: string; queries?: { include_domains?: string[] }[] };
+      if (d.topic !== slug) continue;
+      for (const q of d.queries ?? []) if (q.include_domains?.length === 1) out.add(q.include_domains[0]!);
+    } catch {
+      continue;
+    }
+  }
+  return out;
+}
 
 // Domínios que apareceram nas buscas mas não estão no cadastro: candidatos para o editor aprovar.
 export function domainCandidates(runsDir: string, reg: Registry): { host: string; hits: number; topics: string[]; example: { url: string; title: string } }[] {

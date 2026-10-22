@@ -76,3 +76,27 @@ describe('buscas por fabricante', () => {
     expect(makerQueries(planned, makers, 'cadeira').map((q) => q.include_domains[0])).toEqual(['a.com.br', 'c.com.br', 'd.com.br']);
   });
 });
+
+describe('sites já buscados sozinhos', () => {
+  it('conta só busca de um site, só desta pauta', async () => {
+    const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const { searchedAlone } = await import('../src/stages/discover.ts');
+    const dir = mkdtempSync(join(tmpdir(), 'runs-'));
+    const put = (run: string, v: unknown) => { mkdirSync(join(dir, run)); writeFileSync(join(dir, run, 'discover.json'), JSON.stringify(v)); };
+    put('r1', { topic: 'cadeira', queries: [{ include_domains: ['a.com.br'] }, { include_domains: ['b.com.br', 'c.com.br'] }, {}] });
+    put('r2', { topic: 'outra', queries: [{ include_domains: ['d.com.br'] }] });
+    expect([...searchedAlone(dir, 'cadeira')]).toEqual(['a.com.br']);
+  });
+});
+
+describe('ordem dos fabricantes', () => {
+  it('citado no pedido, depois nunca buscado, depois já buscado, por último os que já têm fonte', async () => {
+    const { orderMakers } = await import('../src/stages/discover.ts');
+    const m = (publisher: string, host: string) => ({ publisher, host });
+    const makers = [m('Flexform', 'flexform.com.br'), m('Frisokar', 'frisokar.com.br'), m('Funcional', 'funcional.com.br'), m('XT Racer', 'xtracer.com.br'), m('ThunderX3', 'thunderx3.com.br')];
+    const out = orderMakers(makers, { named: 'Pesquise na XT Racer e na ThunderX3', withEvidence: new Set(['Flexform']), tried: new Set(['frisokar.com.br']) });
+    expect(out.map((x) => x.publisher)).toEqual(['XT Racer', 'ThunderX3', 'Funcional', 'Frisokar', 'Flexform']);
+  });
+});
