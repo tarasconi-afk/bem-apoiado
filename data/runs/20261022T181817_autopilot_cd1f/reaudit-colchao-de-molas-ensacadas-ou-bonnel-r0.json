@@ -1,0 +1,107 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação sobre o molejo Bonnel é apresentada como fato geral, mas o trecho citado é uma afirmação da Probel, fabricante, e o texto não a atribui à marca.",
+      "fix": "Segundo a Probel, o molejo Bonnel, de formato bicônico, oferece resistência progressiva: quanto mais peso, maior a resistência."
+    },
+    {
+      "ref": "como-funciona-cada-mola#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-funciona-cada-mola#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-construcao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-construcao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-construcao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-espuma-conforto#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-durabilidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-durabilidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-durabilidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que molas ensacadas são recomendadas para casais e reduzem ou evitam a transferência de movimentos, mas não dizem literalmente que cada mola “trabalha individualmente” nem que isso evita especificamente que o parceiro acorde. “Escolha” também é mais categórico do que a recomendação apresentada pelas fontes.",
+      "fix": "Se você divide a cama ou dorme com um parceiro, as três marcas recomendam considerar molas ensacadas: elas podem reduzir a transferência de movimentos e contribuir para um sono mais tranquilo para ambos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores são apresentados na tabela como características gerais de molas ensacadas e Bonnel, mas os trechos citados são especificações da Castor. Sem atribuição, a tabela transforma dados de um fabricante em regra geral para todos os produtos desses tipos.",
+      "fix": "Segundo a ficha/manual da Castor citado, as molas ensacadas usam arame de 2 mm e as molas Bonnel usam arame de 2,2 mm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

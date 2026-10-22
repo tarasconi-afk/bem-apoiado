@@ -1,0 +1,180 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As faixas de peso e densidade são apresentadas como regra geral, mas os trechos citados as atribuem apenas à Castor. Além disso, o trecho do Inmetro sustenta a declaração das densidades e espessuras no produto e na embalagem, não especificamente que uma ficha técnica informe esses dados.",
+      "fix": "Segundo a Castor, as faixas sugeridas são: até 50 kg, D23; 51–60 kg, D26; 61–70 kg, D28; 71–80 kg, D33; 81–100 kg, D33 a D45 conforme a firmeza desejada; e acima de 100 kg, D45 ou maior. Para colchões compostos ou mistos, o Inmetro exige a indicação das densidades nominais de cada lâmina e das respectivas espessuras, em kg/m³."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados dizem que a D28 é melhor para pessoas de peso leve a médio e que a D33 é adequada para pessoas de peso médio a elevado, mas não vinculam explicitamente essas densidades às faixas exatas de 61 a 70 kg e 71 a 80 kg.",
+      "fix": "A Castor afirma que a D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, enquanto a D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As duas afirmações aparecem nos trechos como conteúdo da Castor, fabricante, mas o bloco as apresenta como fatos gerais, sem atribuição à marca.",
+      "fix": "Segundo a Castor, a densidade é indicada pela letra D seguida de um número; por exemplo, D28 corresponde a 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão."
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a informação obrigatória sobre densidade nominal em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras, mas não especificam que isso deve constar em “etiqueta ou ficha técnica”.",
+      "fix": "O Inmetro informa como obrigatória a indicação da densidade nominal das lâminas de espuma em kg/m³ e, nos colchões compostos ou mistos, de suas respectivas espessuras."
+    },
+    {
+      "ref": "colchoes-mistos#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho mostra uma especificação de um produto da Ortobom, mas o bloco generaliza para colchões mistos e não identifica a Ortobom como a fonte da informação.",
+      "fix": "No exemplo do colchão misto Pró Força Casal da Ortobom, o fabricante informa separadamente a densidade e a espessura de cada camada de espuma."
+    },
+    {
+      "ref": "colchoes-mistos#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "colchoes-mistos#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que, segundo a Castor, a densidade 33 oferece mais firmeza e a 28 oferece suporte mais macio, mas não afirmam que a densidade, de modo geral, determina a firmeza do colchão.",
+      "fix": "Segundo a Castor, a densidade 28 oferece suporte mais macio, enquanto a densidade 33 oferece mais firmeza."
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos dizem apenas que a firmeza está principalmente relacionada à densidade da espuma, adequada ao peso e à altura da pessoa. Não sustentam a regra de que toda densidade maior implique maior firmeza nem a classificação específica de D23, D26, D28, D33 e D45.",
+      "fix": "A firmeza de um colchão de espuma está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura da pessoa."
+    },
+    {
+      "ref": "molas-especificacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram apenas dois produtos de molas ensacadas, de dois fabricantes, que informam número médio de molas e bitola. Eles não sustentam a generalização sobre todos os colchões de molas ensacadas ou interligadas, nem a afirmação de que o fabricante não usa densidade.",
+      "fix": "Nos dois produtos citados de molas ensacadas, os fabricantes informam o número médio de molas por metro quadrado e a bitola do arame; os trechos não mostram se usam ou não densidade."
+    },
+    {
+      "ref": "molas-especificacao#1.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os valores de 180 e 220 molas/m² aparecem em dois produtos específicos. Os trechos não sustentam uma especificação geral para colchões mistos; além disso, apenas um dos produtos é claramente descrito no trecho com camadas de espuma e molas.",
+      "fix": "Nos produtos citados, o número médio de molas varia de 180 a 220 molas/m²."
+    },
+    {
+      "ref": "molas-especificacao#1.r1",
+      "verdict": "OVERSTATED",
+      "problem": "A bitola de 2,0 mm é informada para as molas dos dois produtos citados, mas os trechos não sustentam que esse seja um valor geral para colchões mistos. O trecho da Americanflex também menciona uma borda de aço com bitola diferente, de 4,6 mm.",
+      "fix": "Nos dois produtos citados, a bitola informada para o arame das molas é de 2,0 mm; no produto Americanflex, a borda de aço é indicada separadamente com bitola de 4,6 mm."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam informações obrigatórias no produto e na embalagem, mas não mencionam ficha técnica. Além disso, a formulação deve refletir que as espessuras são exigidas para colchões compostos ou mistos.",
+      "fix": "As marcações no produto ou na embalagem devem informar as densidades nominais das lâminas de espuma, em kg/m³ e, nos colchões compostos ou mistos, suas respectivas espessuras."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa “D65” como “densidade ≥ D65”, portanto não sustenta afirmar exatamente 65 kg/m³. O trecho também não identifica explicitamente o produto como colchão misto.",
+      "fix": "Exemplo, segundo a ficha do produto citado: “Estofamento 1: D28” e “Estofamento 2: densidade ≥ D65”, indicando uma camada D28 e outra com densidade de pelo menos 65 kg/m³."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As faixas de peso e densidade são apresentadas como regra geral, mas os trechos citados as atribuem apenas à Castor. Além disso, o trecho do Inmetro sustenta a declaração das densidades e espessuras no produto e na embalagem, não especificamente que uma ficha técnica informe esses dados. Versão sustentável: Segundo a Castor, as faixas sugeridas são: até 50 kg, D23; 51–60 kg, D26; 61–70 kg, D28; 71–80 kg, D33; 81–100 kg, D33 a D45 conforme a firmeza desejada; e acima de 100 kg, D45 ou maior. Para colchões compostos ou mistos, o Inmetro exige a indicação das densidades nominais de cada lâmina e das respectivas espessuras, em kg/m³."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos citados dizem que a D28 é melhor para pessoas de peso leve a médio e que a D33 é adequada para pessoas de peso médio a elevado, mas não vinculam explicitamente essas densidades às faixas exatas de 61 a 70 kg e 71 a 80 kg. Versão sustentável: A Castor afirma que a D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, enquanto a D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "MISATTRIBUTED. As duas afirmações aparecem nos trechos como conteúdo da Castor, fabricante, mas o bloco as apresenta como fatos gerais, sem atribuição à marca. Versão sustentável: Segundo a Castor, a densidade é indicada pela letra D seguida de um número; por exemplo, D28 corresponde a 28 kg de espuma por m³, e a densidade tem relação direta com a firmeza do colchão."
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "msg": "OVERSTATED. Os trechos sustentam a informação obrigatória sobre densidade nominal em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras, mas não especificam que isso deve constar em “etiqueta ou ficha técnica”. Versão sustentável: O Inmetro informa como obrigatória a indicação da densidade nominal das lâminas de espuma em kg/m³ e, nos colchões compostos ou mistos, de suas respectivas espessuras."
+    },
+    {
+      "ref": "colchoes-mistos#0",
+      "msg": "MISATTRIBUTED. O trecho mostra uma especificação de um produto da Ortobom, mas o bloco generaliza para colchões mistos e não identifica a Ortobom como a fonte da informação. Versão sustentável: No exemplo do colchão misto Pró Força Casal da Ortobom, o fabricante informa separadamente a densidade e a espessura de cada camada de espuma."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "msg": "OVERSTATED. Os trechos sustentam que, segundo a Castor, a densidade 33 oferece mais firmeza e a 28 oferece suporte mais macio, mas não afirmam que a densidade, de modo geral, determina a firmeza do colchão. Versão sustentável: Segundo a Castor, a densidade 28 oferece suporte mais macio, enquanto a densidade 33 oferece mais firmeza."
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "msg": "UNSUPPORTED. Os trechos dizem apenas que a firmeza está principalmente relacionada à densidade da espuma, adequada ao peso e à altura da pessoa. Não sustentam a regra de que toda densidade maior implique maior firmeza nem a classificação específica de D23, D26, D28, D33 e D45. Versão sustentável: A firmeza de um colchão de espuma está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura da pessoa."
+    },
+    {
+      "ref": "molas-especificacao#0",
+      "msg": "OVERSTATED. Os trechos mostram apenas dois produtos de molas ensacadas, de dois fabricantes, que informam número médio de molas e bitola. Eles não sustentam a generalização sobre todos os colchões de molas ensacadas ou interligadas, nem a afirmação de que o fabricante não usa densidade. Versão sustentável: Nos dois produtos citados de molas ensacadas, os fabricantes informam o número médio de molas por metro quadrado e a bitola do arame; os trechos não mostram se usam ou não densidade."
+    },
+    {
+      "ref": "molas-especificacao#1.r0",
+      "msg": "OVERSTATED. Os valores de 180 e 220 molas/m² aparecem em dois produtos específicos. Os trechos não sustentam uma especificação geral para colchões mistos; além disso, apenas um dos produtos é claramente descrito no trecho com camadas de espuma e molas. Versão sustentável: Nos produtos citados, o número médio de molas varia de 180 a 220 molas/m²."
+    },
+    {
+      "ref": "molas-especificacao#1.r1",
+      "msg": "OVERSTATED. A bitola de 2,0 mm é informada para as molas dos dois produtos citados, mas os trechos não sustentam que esse seja um valor geral para colchões mistos. O trecho da Americanflex também menciona uma borda de aço com bitola diferente, de 4,6 mm. Versão sustentável: Nos dois produtos citados, a bitola informada para o arame das molas é de 2,0 mm; no produto Americanflex, a borda de aço é indicada separadamente com bitola de 4,6 mm."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam informações obrigatórias no produto e na embalagem, mas não mencionam ficha técnica. Além disso, a formulação deve refletir que as espessuras são exigidas para colchões compostos ou mistos. Versão sustentável: As marcações no produto ou na embalagem devem informar as densidades nominais das lâminas de espuma, em kg/m³ e, nos colchões compostos ou mistos, suas respectivas espessuras."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "msg": "OVERSTATED. O trecho informa “D65” como “densidade ≥ D65”, portanto não sustenta afirmar exatamente 65 kg/m³. O trecho também não identifica explicitamente o produto como colchão misto. Versão sustentável: Exemplo, segundo a ficha do produto citado: “Estofamento 1: D28” e “Estofamento 2: densidade ≥ D65”, indicando uma camada D28 e outra com densidade de pelo menos 65 kg/m³."
+    }
+  ]
+}
