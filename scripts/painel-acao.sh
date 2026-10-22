@@ -191,7 +191,12 @@ case "$action" in
     git add data/
     git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3${5:+ (com pesquisa)}"$'\n\n'"$(head -c 300 "$4")"
     if [ "$2" = main ]; then
-      npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
+      npm run -s engine -- validate >/dev/null
+      # O main andou durante o ajuste (21/10: push do editor no meio, envio recusado e ajuste perdido): refaz
+      # sobre o main novo e envia de novo, como o publish.
+      if ! git push -q origin HEAD:main; then
+        git fetch -q origin main && git rebase -q origin/main && npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
+      fi
       preview   # a prévia do site mostra o ajuste já (antes esperava o próximo sync)
     else
       git push -q origin "HEAD:$2"
