@@ -1,0 +1,160 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As afirmações sobre o peso determinar a densidade, a maior firmeza e a necessidade de densidades maiores são apresentadas como fatos gerais, mas os trechos citados são posicionamentos da fabricante Castor. Além disso, a fonte diz que o peso é o principal fator, não necessariamente o único determinante.",
+      "fix": "Segundo a Castor, D33 e D45 representam 33 e 45 quilos de espuma por metro cúbico, respectivamente. A fabricante afirma que densidades maiores tendem a ser indicadas para pessoas mais pesadas, para reduzir o afundamento excessivo; o peso é apontado como o principal fator na escolha."
+    },
+    {
+      "ref": "o-que-significam-d33-d45#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sustentam o significado da letra D, da quantidade de espuma por m³ e a informação sobre densidades nominais e espessuras de lâminas em colchões compostos ou mistos. Porém, o trecho do Inmetro não diz que a informação deve estar especificamente na etiqueta nem que se trata de um colchão certificado pelo Inmetro; ele menciona marcações e informações obrigatórias no produto e na embalagem. Além disso, “abreviação” é mais forte que “representada pela letra”.",
+      "fix": "D33 e D45 usam a letra D para representar a densidade da espuma; o número indica a quantidade de espuma, em kg, por metro cúbico. Entre as informações obrigatórias do produto ou da embalagem estão as densidades nominais das lâminas de espuma utilizadas, em kg/m³, e, no caso de colchão composto ou misto, suas respectivas espessuras."
+    },
+    {
+      "ref": "densidade-e-peso-suportado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-peso-suportado#1.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-durabilidade#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados são ambos da Castor; nenhum trecho da Probel sustenta a atribuição à Probel. As demais ideias estão apoiadas pelo trecho da Castor.",
+      "fix": "Segundo a Castor, maior densidade resulta em colchão mais firme e resistente. Densidades maiores podem ser necessárias para pessoas mais pesadas, ajudando a evitar que o colchão afunde demais e contribuindo para maior durabilidade."
+    },
+    {
+      "ref": "densidade-e-durabilidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-nao-determina-sozinha-firmeza#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a firmeza está principalmente relacionada à densidade adequada ao peso e à altura e que, para 81–100 kg, a densidade indicada varia de D33 a D45 conforme a preferência por firmeza. Porém, não dizem que fabricantes em geral indicam essa variação nem que outros componentes influenciam a sensação final; essa última conclusão excede os trechos.",
+      "fix": "Segundo a Castor, a firmeza está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura. Para pessoas de 81 a 100 kg, a Castor indica densidades de D33 a D45, variando conforme a preferência por firmeza."
+    },
+    {
+      "ref": "densidade-nao-determina-sozinha-firmeza#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram um produto da Probel com Pillow, matelassê, fibra siliconada e espumas D40, D28 e D20 em sua composição, mas não sustentam a generalização sobre colchões com as mesmas densidades, não dizem que a D40 fica na base e não afirmam explicitamente que essa combinação altera a firmeza em relação a uma densidade principal.",
+      "fix": "Segundo a descrição de um colchão da Probel, a composição inclui Pillow e matelassê com fibra siliconada, além de espumas D40, D28 e D20; a fabricante diz que essas espumas trabalham em conjunto para proporcionar toque firme, sustentação e durabilidade."
+    },
+    {
+      "ref": "o-que-inmetro-nao-avalia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-inmetro-nao-avalia#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas que colchões com indicação de prevenção, tratamento ou reabilitação em seres humanos ficam abrangidos pela regulamentação da Anvisa e não pela regulamentação do Inmetro. Ele não afirma que o Inmetro não avalia propriedades terapêuticas, benefícios de saúde ou alinhamento de postura, nem menciona dor.",
+      "fix": "O trecho citado sustenta: \"Colchões com indicação de uso para prevenção, tratamento ou reabilitação em seres humanos são abrangidos pela regulamentação da Anvisa, e não pela regulamentação do Inmetro.\""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho lista densidades específicas para faixas de peso, mas não afirma que qualquer densidade entre D23 e D33 oferece suporte adequado. Também não menciona etiqueta, densidade nominal em kg/m³ ou validação pelo peso.",
+      "fix": "Segundo a Castor, a tabela indica D23 para até 50 kg, D26 para 51 a 60 kg, D28 para 61 a 70 kg e D33 para 71 a 80 kg."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "A faixa de D33 a D45 e a relação com a preferência por firmeza estão no trecho. Porém, o trecho não sustenta a recomendação de verificar a densidade na etiqueta nem de testar a sensação de maciez antes da compra.",
+      "fix": "Segundo a Castor, para pessoas de 81 a 100 kg, a densidade indicada varia de D33 a D45 conforme a preferência por firmeza."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta D45 ou maior para pessoas acima de 100 kg e relaciona densidades maiores a suporte, durabilidade e menor afundamento. Contudo, não menciona conferir a densidade na etiqueta, e a formulação acrescenta a ideia específica de evitar afundamento 'ao longo do tempo'.",
+      "fix": "Segundo a Castor, para pessoas acima de 100 kg, a densidade indicada é D45 ou maior, associada a maior suporte; o fabricante também relaciona densidades maiores a maior durabilidade e a evitar que o colchão afunde demais."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho mostra apenas que um produto específico tem uma segunda camada com espumas D40, D28 e D20. Não sustenta afirmações gerais sobre a firmeza total, uso de pillow ou outros materiais, nem recomenda comparar colchões semelhantes pela etiqueta.",
+      "fix": "Um exemplo citado pela Probel informa que determinado colchão tem uma segunda camada composta por espumas D40, D28 e D20, associadas pela fabricante a toque firme, sustentação e durabilidade."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As afirmações sobre o peso determinar a densidade, a maior firmeza e a necessidade de densidades maiores são apresentadas como fatos gerais, mas os trechos citados são posicionamentos da fabricante Castor. Além disso, a fonte diz que o peso é o principal fator, não necessariamente o único determinante. Versão sustentável: Segundo a Castor, D33 e D45 representam 33 e 45 quilos de espuma por metro cúbico, respectivamente. A fabricante afirma que densidades maiores tendem a ser indicadas para pessoas mais pesadas, para reduzir o afundamento excessivo; o peso é apontado como o principal fator na escolha."
+    },
+    {
+      "ref": "o-que-significam-d33-d45#0",
+      "msg": "MISATTRIBUTED. Os trechos sustentam o significado da letra D, da quantidade de espuma por m³ e a informação sobre densidades nominais e espessuras de lâminas em colchões compostos ou mistos. Porém, o trecho do Inmetro não diz que a informação deve estar especificamente na etiqueta nem que se trata de um colchão certificado pelo Inmetro; ele menciona marcações e informações obrigatórias no produto e na embalagem. Além disso, “abreviação” é mais forte que “representada pela letra”. Versão sustentável: D33 e D45 usam a letra D para representar a densidade da espuma; o número indica a quantidade de espuma, em kg, por metro cúbico. Entre as informações obrigatórias do produto ou da embalagem estão as densidades nominais das lâminas de espuma utilizadas, em kg/m³, e, no caso de colchão composto ou misto, suas respectivas espessuras."
+    },
+    {
+      "ref": "densidade-e-durabilidade#0",
+      "msg": "MISATTRIBUTED. Os trechos citados são ambos da Castor; nenhum trecho da Probel sustenta a atribuição à Probel. As demais ideias estão apoiadas pelo trecho da Castor. Versão sustentável: Segundo a Castor, maior densidade resulta em colchão mais firme e resistente. Densidades maiores podem ser necessárias para pessoas mais pesadas, ajudando a evitar que o colchão afunde demais e contribuindo para maior durabilidade."
+    },
+    {
+      "ref": "densidade-nao-determina-sozinha-firmeza#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a firmeza está principalmente relacionada à densidade adequada ao peso e à altura e que, para 81–100 kg, a densidade indicada varia de D33 a D45 conforme a preferência por firmeza. Porém, não dizem que fabricantes em geral indicam essa variação nem que outros componentes influenciam a sensação final; essa última conclusão excede os trechos. Versão sustentável: Segundo a Castor, a firmeza está principalmente relacionada à densidade da espuma, que deve ser adequada ao peso e à altura. Para pessoas de 81 a 100 kg, a Castor indica densidades de D33 a D45, variando conforme a preferência por firmeza."
+    },
+    {
+      "ref": "densidade-nao-determina-sozinha-firmeza#1",
+      "msg": "OVERSTATED. Os trechos mostram um produto da Probel com Pillow, matelassê, fibra siliconada e espumas D40, D28 e D20 em sua composição, mas não sustentam a generalização sobre colchões com as mesmas densidades, não dizem que a D40 fica na base e não afirmam explicitamente que essa combinação altera a firmeza em relação a uma densidade principal. Versão sustentável: Segundo a descrição de um colchão da Probel, a composição inclui Pillow e matelassê com fibra siliconada, além de espumas D40, D28 e D20; a fabricante diz que essas espumas trabalham em conjunto para proporcionar toque firme, sustentação e durabilidade."
+    },
+    {
+      "ref": "o-que-inmetro-nao-avalia#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que colchões com indicação de prevenção, tratamento ou reabilitação em seres humanos ficam abrangidos pela regulamentação da Anvisa e não pela regulamentação do Inmetro. Ele não afirma que o Inmetro não avalia propriedades terapêuticas, benefícios de saúde ou alinhamento de postura, nem menciona dor. Versão sustentável: O trecho citado sustenta: \"Colchões com indicação de uso para prevenção, tratamento ou reabilitação em seres humanos são abrangidos pela regulamentação da Anvisa, e não pela regulamentação do Inmetro.\""
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. O trecho lista densidades específicas para faixas de peso, mas não afirma que qualquer densidade entre D23 e D33 oferece suporte adequado. Também não menciona etiqueta, densidade nominal em kg/m³ ou validação pelo peso. Versão sustentável: Segundo a Castor, a tabela indica D23 para até 50 kg, D26 para 51 a 60 kg, D28 para 61 a 70 kg e D33 para 71 a 80 kg."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. A faixa de D33 a D45 e a relação com a preferência por firmeza estão no trecho. Porém, o trecho não sustenta a recomendação de verificar a densidade na etiqueta nem de testar a sensação de maciez antes da compra. Versão sustentável: Segundo a Castor, para pessoas de 81 a 100 kg, a densidade indicada varia de D33 a D45 conforme a preferência por firmeza."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho sustenta D45 ou maior para pessoas acima de 100 kg e relaciona densidades maiores a suporte, durabilidade e menor afundamento. Contudo, não menciona conferir a densidade na etiqueta, e a formulação acrescenta a ideia específica de evitar afundamento 'ao longo do tempo'. Versão sustentável: Segundo a Castor, para pessoas acima de 100 kg, a densidade indicada é D45 ou maior, associada a maior suporte; o fabricante também relaciona densidades maiores a maior durabilidade e a evitar que o colchão afunde demais."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. O trecho mostra apenas que um produto específico tem uma segunda camada com espumas D40, D28 e D20. Não sustenta afirmações gerais sobre a firmeza total, uso de pillow ou outros materiais, nem recomenda comparar colchões semelhantes pela etiqueta. Versão sustentável: Um exemplo citado pela Probel informa que determinado colchão tem uma segunda camada composta por espumas D40, D28 e D20, associadas pela fabricante a toque firme, sustentação e durabilidade."
+    }
+  ]
+}
