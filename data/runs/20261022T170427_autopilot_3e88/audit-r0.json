@@ -1,0 +1,234 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A redução da transferência de movimento e a resistência progressiva aparecem nos trechos como afirmações de fabricantes, mas o bloco as apresenta como fatos gerais, sem atribuição. Além disso, os trechos não sustentam que Bonnel tenha custo menor, nem recomendam conferir a densidade da espuma de conforto ou a garantia; o trecho citado menciona apenas uma densidade de espuma de borda e não informa garantia.",
+      "fix": "Segundo fabricantes citados, molas ensacadas podem reduzir a transferência de movimento e o sistema Bonnel oferece resistência progressiva. Para comparar modelos, confira na ficha técnica a quantidade de molas por m²; não inclua custo menor, densidade da espuma de conforto ou garantia sem evidência específica."
+    },
+    {
+      "ref": "como-funciona-cada-mola#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos de fabricantes sustentam que as molas são ensacadas individualmente e envolvidas por tecido, mas o bloco apresenta isso como regra geral sem atribuição. Além disso, os trechos não dizem que as molas não se tocam nem que cada uma trabalha de forma independente.",
+      "fix": "Segundo a Castor, as molas Pocket são ensacadas individualmente, e cada mola é envolvida por um tecido próprio. A Probel também descreve o molejo como formado por molas ensacadas individualmente."
+    },
+    {
+      "ref": "como-funciona-cada-mola#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Probel sustenta o formato bicônico e a resistência progressiva, mas não afirma que as molas Bonnel estão conectadas entre si. A parte sobre resistência está corretamente atribuída à Probel.",
+      "fix": "Molas Bonnel têm formato bicônico. Segundo a Probel, oferecem resistência progressiva: quanto mais peso, maior a resistência."
+    },
+    {
+      "ref": "diferenca-construcao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam médias de 230 molas/m² para ensacadas e 105 molas/m² para Bonnel, segundo a Castor, mas não sustentam a faixa de 220 a 230 molas/m². Além disso, a formulação não identifica claramente a Castor como fonte.",
+      "fix": "Segundo a Castor, molas ensacadas têm média de 230 molas por m², enquanto molas Bonnel têm média de 105 molas por m²."
+    },
+    {
+      "ref": "diferenca-construcao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores de 2 mm e 2,2 mm aparecem em trechos da Castor, mas o bloco os apresenta como características gerais das molas ensacadas e Bonnel, sem atribuir a informação à marca. A comparação de que 2,2 mm é mais espesso decorre diretamente dos valores citados.",
+      "fix": "Segundo a Castor, as molas ensacadas descritas usam arame de aço de 2 mm, enquanto as molas Bonnel descritas usam arame de 2,2 mm, que é mais espesso."
+    },
+    {
+      "ref": "diferenca-construcao#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos de Simmons, Probel e Castor sustentam menor transferência de movimento e a recomendação ou adequação para casais, mas o primeiro período apresenta isso como fato geral sem atribuição. A afirmação sobre casais com pesos diferentes está atribuída à Probel e é sustentada pelo trecho citado.",
+      "fix": "Segundo Simmons, colchões de molas ensacadas individualmente são mais recomendados para casais porque evitam a transferência de movimento. Segundo a Probel, são ideais para casais com pesos diferentes."
+    },
+    {
+      "ref": "diferenca-construcao#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam, em fontes de fabricantes, que molas ensacadas podem diminuir vibrações, ruídos e transferência de movimentos, mas não sustentam que molas Bonnel estejam conectadas nem que transmitam movimentos de um lado para o outro. A parte sobre ensacadas também deveria ser atribuída às respectivas fontes.",
+      "fix": "Segundo a Ortobom, colchões com molas ensacadas individualmente diminuem as vibrações; segundo a Probel, minimizam o ruído e a transferência de movimentos."
+    },
+    {
+      "ref": "densidade-espuma-conforto#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram valores de densidade listados pela Castor, mas não informam que eles se aplicam a modelos com molas ensacadas ou Bonnel, nem sustentam a afirmação geral de variação conforme o modelo.",
+      "fix": "Segundo trechos da Castor, há registros de espuma convencional D26, D28, D33 e D45 kg/m³, espuma látex D55 kg/m³ e espuma viscoelástica D≥30 kg/m³ no estofamento superior."
+    },
+    {
+      "ref": "densidade-espuma-conforto#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Embora a atribuição à Castor esteja correta, o trecho que informa D26 kg/m³ identifica esse valor como densidade da borda de espuma convencional, não do estofamento superior. Apenas o trecho D28 sustenta estofamento superior.",
+      "fix": "Em um trecho da Castor, o estofamento superior aparece com espuma convencional D28 kg/m³; outro trecho informa D26 kg/m³ para a borda de espuma convencional em um colchão com molas Bonnel."
+    },
+    {
+      "ref": "densidade-espuma-conforto#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos apenas apresentam exemplos de densidade D26 e D28 kg/m³ para espuma convencional. Não dizem que a densidade afeta a sensação de maciez ou firmeza, não sustentam a independência em relação ao tipo de mola e não recomendam consultar uma ficha técnica.",
+      "fix": "Os trechos citados apresentam exemplos de espuma convencional com densidades D26 e D28 kg/m³; a especificação da densidade deve ser verificada para o modelo avaliado somente se essa informação estiver disponível em sua documentação."
+    },
+    {
+      "ref": "garantia-e-durabilidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que colchões de molas duram normalmente de 5 anos, no molejo tradicional Bonnell, a 10 anos nos demais molejos. Ele não identifica especificamente as molas ensacadas como aquelas que duram até 10 anos.",
+      "fix": "Segundo a Probel, colchões de molas normalmente duram de cerca de 5 anos, no molejo tradicional Bonnell, a até 10 anos nos demais molejos. A empresa não estipula prazo fixo e recomenda avaliar o colchão após 5 anos."
+    },
+    {
+      "ref": "garantia-e-durabilidade#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Ortobom fala em estabilidade, conforto, resiliência e durabilidade, mas não declara garantia de 1 ano para colchões com molas ensacadas. Além disso, o trecho da Probel informa os prazos de garantia, mas não diz que houve uma mudança nem que esses prazos são os atuais.",
+      "fix": "A Gazin informa garantia de 1 ano para o produto citado. Segundo a Probel, a garantia de 10 anos era apenas para as molas; para espumas, era de um ano, e para tecido, de três meses."
+    },
+    {
+      "ref": "garantia-e-durabilidade#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta tratamento térmico, pré-compressão de 20% e associação com maior resistência, performance e durabilidade, mas o trecho literal não identifica que essas características se referem especificamente às molas Pocket® ensacadas.",
+      "fix": "Segundo a Castor, determinadas molas passam por tratamento térmico e são pré-comprimidas em 20%, características associadas pela fabricante a maior resistência, performance e durabilidade."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas o índice de 0,32% de irregularidades em colchões de molas nos últimos cinco anos. Não diz que o Inmetro não diferencia molas ensacadas e Bonnel nem que ambas passam pela mesma certificação.",
+      "fix": "As fiscalizações encontraram irregularidades em 0,32% dos colchões de molas nos últimos cinco anos."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta que a certificação é compulsória e que a implementação dos prazos se completou em 2 de fevereiro de 2021, mas não informa que o certificado deve ser verificado na ficha ou no rótulo. Também não afirma literalmente que todos os colchões comercializados possuem esse certificado.",
+      "fix": "A certificação dos colchões de molas é compulsória, mediante avaliação dos requisitos de desempenho por um Organismo de Certificação de Produto acreditado pelo Inmetro."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas que o molejo Bonnel oferece resistência progressiva. Não sustenta que seja suficiente para quem dorme sozinho, nem as condições sobre vibração e ruído.",
+      "fix": "Se você prefere firmeza progressiva, o molejo Bonnel oferece resistência progressiva: quanto maior o peso, maior a resistência, segundo a Probel."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados sustentam uma média de 230 molas por m² para as ensacadas, não a faixa de 220 a 230. Os 105 molas por m² para Bonnel são sustentados.",
+      "fix": "Característica: quantidade média de molas por m² | Molas ensacadas: 230 | Molas Bonnel: 105, conforme os trechos citados da Castor."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que as molas ensacadas minimizam a transferência de movimento, mas não afirmam que as molas Bonnel têm transferência maior nem que são conectadas.",
+      "fix": "Característica: transferência de movimento | Molas ensacadas: minimizada, segundo os trechos citados."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram densidades D26, D45 e D28 no estofamento superior, mas não vinculam esses valores aos tipos de mola nem dizem que se trata especificamente de uma camada de conforto. Portanto, não sustentam as faixas atribuídas a ensacadas e Bonnel.",
+      "fix": "Os trechos citados da Castor apresentam exemplos de densidade nominal do estofamento superior de D26, D45 e D28 kg/m³, sem permitir atribuir esses valores, pelos excertos fornecidos, a cada tipo de mola."
+    },
+    {
+      "ref": "como-decidir#2.r4",
+      "verdict": "OVERSTATED",
+      "problem": "A Probel afirma que colchões de molas normalmente duram de 5 anos no molejo tradicional Bonnell a 10 anos nos demais molejos. O trecho não especifica molas ensacadas nem sustenta diretamente a tabela com 'até 10 anos' para essa categoria.",
+      "fix": "Segundo a Probel, colchões de molas normalmente duram de 5 anos, no molejo tradicional Bonnell, a 10 anos nos demais molejos."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam exemplos de quantidade média de molas e densidade nominal, além de informar que a certificação de colchões de molas é compulsória. Não sustentam a recomendação de conferir sempre a ficha, a consulta à garantia declarada, a exigência de quantidade exata ou a conclusão de que esses dados permitem uma comparação real entre modelos.",
+      "fix": "Os trechos mostram que fichas podem declarar a quantidade média de molas e a densidade nominal do estofamento. Também informam que colchões de molas estão sujeitos à certificação compulsória conforme os requisitos aplicáveis."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A redução da transferência de movimento e a resistência progressiva aparecem nos trechos como afirmações de fabricantes, mas o bloco as apresenta como fatos gerais, sem atribuição. Além disso, os trechos não sustentam que Bonnel tenha custo menor, nem recomendam conferir a densidade da espuma de conforto ou a garantia; o trecho citado menciona apenas uma densidade de espuma de borda e não informa garantia. Versão sustentável: Segundo fabricantes citados, molas ensacadas podem reduzir a transferência de movimento e o sistema Bonnel oferece resistência progressiva. Para comparar modelos, confira na ficha técnica a quantidade de molas por m²; não inclua custo menor, densidade da espuma de conforto ou garantia sem evidência específica."
+    },
+    {
+      "ref": "como-funciona-cada-mola#0",
+      "msg": "MISATTRIBUTED. Os trechos de fabricantes sustentam que as molas são ensacadas individualmente e envolvidas por tecido, mas o bloco apresenta isso como regra geral sem atribuição. Além disso, os trechos não dizem que as molas não se tocam nem que cada uma trabalha de forma independente. Versão sustentável: Segundo a Castor, as molas Pocket são ensacadas individualmente, e cada mola é envolvida por um tecido próprio. A Probel também descreve o molejo como formado por molas ensacadas individualmente."
+    },
+    {
+      "ref": "como-funciona-cada-mola#1",
+      "msg": "UNSUPPORTED. O trecho da Probel sustenta o formato bicônico e a resistência progressiva, mas não afirma que as molas Bonnel estão conectadas entre si. A parte sobre resistência está corretamente atribuída à Probel. Versão sustentável: Molas Bonnel têm formato bicônico. Segundo a Probel, oferecem resistência progressiva: quanto mais peso, maior a resistência."
+    },
+    {
+      "ref": "diferenca-construcao#0",
+      "msg": "OVERSTATED. Os trechos sustentam médias de 230 molas/m² para ensacadas e 105 molas/m² para Bonnel, segundo a Castor, mas não sustentam a faixa de 220 a 230 molas/m². Além disso, a formulação não identifica claramente a Castor como fonte. Versão sustentável: Segundo a Castor, molas ensacadas têm média de 230 molas por m², enquanto molas Bonnel têm média de 105 molas por m²."
+    },
+    {
+      "ref": "diferenca-construcao#1",
+      "msg": "MISATTRIBUTED. Os valores de 2 mm e 2,2 mm aparecem em trechos da Castor, mas o bloco os apresenta como características gerais das molas ensacadas e Bonnel, sem atribuir a informação à marca. A comparação de que 2,2 mm é mais espesso decorre diretamente dos valores citados. Versão sustentável: Segundo a Castor, as molas ensacadas descritas usam arame de aço de 2 mm, enquanto as molas Bonnel descritas usam arame de 2,2 mm, que é mais espesso."
+    },
+    {
+      "ref": "diferenca-construcao#2",
+      "msg": "MISATTRIBUTED. Os trechos de Simmons, Probel e Castor sustentam menor transferência de movimento e a recomendação ou adequação para casais, mas o primeiro período apresenta isso como fato geral sem atribuição. A afirmação sobre casais com pesos diferentes está atribuída à Probel e é sustentada pelo trecho citado. Versão sustentável: Segundo Simmons, colchões de molas ensacadas individualmente são mais recomendados para casais porque evitam a transferência de movimento. Segundo a Probel, são ideais para casais com pesos diferentes."
+    },
+    {
+      "ref": "diferenca-construcao#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam, em fontes de fabricantes, que molas ensacadas podem diminuir vibrações, ruídos e transferência de movimentos, mas não sustentam que molas Bonnel estejam conectadas nem que transmitam movimentos de um lado para o outro. A parte sobre ensacadas também deveria ser atribuída às respectivas fontes. Versão sustentável: Segundo a Ortobom, colchões com molas ensacadas individualmente diminuem as vibrações; segundo a Probel, minimizam o ruído e a transferência de movimentos."
+    },
+    {
+      "ref": "densidade-espuma-conforto#0",
+      "msg": "UNSUPPORTED. Os trechos mostram valores de densidade listados pela Castor, mas não informam que eles se aplicam a modelos com molas ensacadas ou Bonnel, nem sustentam a afirmação geral de variação conforme o modelo. Versão sustentável: Segundo trechos da Castor, há registros de espuma convencional D26, D28, D33 e D45 kg/m³, espuma látex D55 kg/m³ e espuma viscoelástica D≥30 kg/m³ no estofamento superior."
+    },
+    {
+      "ref": "densidade-espuma-conforto#1",
+      "msg": "MISATTRIBUTED. Embora a atribuição à Castor esteja correta, o trecho que informa D26 kg/m³ identifica esse valor como densidade da borda de espuma convencional, não do estofamento superior. Apenas o trecho D28 sustenta estofamento superior. Versão sustentável: Em um trecho da Castor, o estofamento superior aparece com espuma convencional D28 kg/m³; outro trecho informa D26 kg/m³ para a borda de espuma convencional em um colchão com molas Bonnel."
+    },
+    {
+      "ref": "densidade-espuma-conforto#2",
+      "msg": "UNSUPPORTED. Os trechos apenas apresentam exemplos de densidade D26 e D28 kg/m³ para espuma convencional. Não dizem que a densidade afeta a sensação de maciez ou firmeza, não sustentam a independência em relação ao tipo de mola e não recomendam consultar uma ficha técnica. Versão sustentável: Os trechos citados apresentam exemplos de espuma convencional com densidades D26 e D28 kg/m³; a especificação da densidade deve ser verificada para o modelo avaliado somente se essa informação estiver disponível em sua documentação."
+    },
+    {
+      "ref": "garantia-e-durabilidade#0",
+      "msg": "OVERSTATED. O trecho sustenta que colchões de molas duram normalmente de 5 anos, no molejo tradicional Bonnell, a 10 anos nos demais molejos. Ele não identifica especificamente as molas ensacadas como aquelas que duram até 10 anos. Versão sustentável: Segundo a Probel, colchões de molas normalmente duram de cerca de 5 anos, no molejo tradicional Bonnell, a até 10 anos nos demais molejos. A empresa não estipula prazo fixo e recomenda avaliar o colchão após 5 anos."
+    },
+    {
+      "ref": "garantia-e-durabilidade#1",
+      "msg": "UNSUPPORTED. O trecho da Ortobom fala em estabilidade, conforto, resiliência e durabilidade, mas não declara garantia de 1 ano para colchões com molas ensacadas. Além disso, o trecho da Probel informa os prazos de garantia, mas não diz que houve uma mudança nem que esses prazos são os atuais. Versão sustentável: A Gazin informa garantia de 1 ano para o produto citado. Segundo a Probel, a garantia de 10 anos era apenas para as molas; para espumas, era de um ano, e para tecido, de três meses."
+    },
+    {
+      "ref": "garantia-e-durabilidade#2",
+      "msg": "OVERSTATED. O trecho sustenta tratamento térmico, pré-compressão de 20% e associação com maior resistência, performance e durabilidade, mas o trecho literal não identifica que essas características se referem especificamente às molas Pocket® ensacadas. Versão sustentável: Segundo a Castor, determinadas molas passam por tratamento térmico e são pré-comprimidas em 20%, características associadas pela fabricante a maior resistência, performance e durabilidade."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas o índice de 0,32% de irregularidades em colchões de molas nos últimos cinco anos. Não diz que o Inmetro não diferencia molas ensacadas e Bonnel nem que ambas passam pela mesma certificação. Versão sustentável: As fiscalizações encontraram irregularidades em 0,32% dos colchões de molas nos últimos cinco anos."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "msg": "UNSUPPORTED. O trecho sustenta que a certificação é compulsória e que a implementação dos prazos se completou em 2 de fevereiro de 2021, mas não informa que o certificado deve ser verificado na ficha ou no rótulo. Também não afirma literalmente que todos os colchões comercializados possuem esse certificado. Versão sustentável: A certificação dos colchões de molas é compulsória, mediante avaliação dos requisitos de desempenho por um Organismo de Certificação de Produto acreditado pelo Inmetro."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas que o molejo Bonnel oferece resistência progressiva. Não sustenta que seja suficiente para quem dorme sozinho, nem as condições sobre vibração e ruído. Versão sustentável: Se você prefere firmeza progressiva, o molejo Bonnel oferece resistência progressiva: quanto maior o peso, maior a resistência, segundo a Probel."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "OVERSTATED. Os trechos citados sustentam uma média de 230 molas por m² para as ensacadas, não a faixa de 220 a 230. Os 105 molas por m² para Bonnel são sustentados. Versão sustentável: Característica: quantidade média de molas por m² | Molas ensacadas: 230 | Molas Bonnel: 105, conforme os trechos citados da Castor."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "msg": "UNSUPPORTED. Os trechos sustentam que as molas ensacadas minimizam a transferência de movimento, mas não afirmam que as molas Bonnel têm transferência maior nem que são conectadas. Versão sustentável: Característica: transferência de movimento | Molas ensacadas: minimizada, segundo os trechos citados."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "msg": "UNSUPPORTED. Os trechos mostram densidades D26, D45 e D28 no estofamento superior, mas não vinculam esses valores aos tipos de mola nem dizem que se trata especificamente de uma camada de conforto. Portanto, não sustentam as faixas atribuídas a ensacadas e Bonnel. Versão sustentável: Os trechos citados da Castor apresentam exemplos de densidade nominal do estofamento superior de D26, D45 e D28 kg/m³, sem permitir atribuir esses valores, pelos excertos fornecidos, a cada tipo de mola."
+    },
+    {
+      "ref": "como-decidir#2.r4",
+      "msg": "OVERSTATED. A Probel afirma que colchões de molas normalmente duram de 5 anos no molejo tradicional Bonnell a 10 anos nos demais molejos. O trecho não especifica molas ensacadas nem sustenta diretamente a tabela com 'até 10 anos' para essa categoria. Versão sustentável: Segundo a Probel, colchões de molas normalmente duram de 5 anos, no molejo tradicional Bonnell, a 10 anos nos demais molejos."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam exemplos de quantidade média de molas e densidade nominal, além de informar que a certificação de colchões de molas é compulsória. Não sustentam a recomendação de conferir sempre a ficha, a consulta à garantia declarada, a exigência de quantidade exata ou a conclusão de que esses dados permitem uma comparação real entre modelos. Versão sustentável: Os trechos mostram que fichas podem declarar a quantidade média de molas e a densidade nominal do estofamento. Também informam que colchões de molas estão sujeitos à certificação compulsória conforme os requisitos aplicáveis."
+    }
+  ]
+}

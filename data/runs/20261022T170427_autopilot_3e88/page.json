@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 129498,
+    "output_tokens": 20931,
+    "calls": 22
+  },
+  "credits": 17.324279999999995,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "diferenca-construcao#3",
+      "densidade-espuma-conforto#1",
+      "densidade-espuma-conforto#2",
+      "certificacao-inmetro#1",
+      "certificacao-inmetro#2"
+    ],
+    "decision_criteria": [
+      "Se o colchão será compartilhado, prefira molas ensacadas quando a prioridade for reduzir a transferência de movimento entre as pessoas.",
+      "Se a preferência for por resistência progressiva, em que a resistência aumenta conforme o peso aplicado, o sistema Bonnel pode atender melhor.",
+      "Compare na ficha técnica a quantidade média de molas por m²: os exemplos citados informam 230 para ensacadas e 105 para Bonnel.",
+      "Confira a bitola do arame informada na ficha: os exemplos citados usam 2 mm nas ensacadas e 2,2 mm nas Bonnel.",
+      "Compare a densidade e a composição das camadas de espuma do modelo, pois a página cita densidades diferentes de espuma convencional, viscoelástica e látex.",
+      "Confira o prazo e o escopo da garantia, separando a cobertura das molas, das espumas e do tecido.",
+      "Verifique se o colchão tem certificação compulsória conforme os requisitos aplicáveis do Inmetro."
+    ],
+    "missing": [
+      "Faixas de peso corporal ou limites de uso que fabricantes ou normas associem especificamente às molas ensacadas e Bonnel.",
+      "Explicação da interligação das molas Bonnel e da forma como o revestimento individual das ensacadas altera a construção do colchão.",
+      "Número e conteúdo das normas ABNT aplicáveis a cada tipo de mola, incluindo classificação, resistência e métodos de teste.",
+      "Orientação prática sobre o que conferir no anúncio ou na embalagem para identificar a certificação do Inmetro.",
+      "Comparação equivalente das camadas de conforto entre modelos ensacados e Bonnel, com espessura, densidade e posição de cada camada.",
+      "Dados de durabilidade ou resistência ao uso separados por tipo de mola, além de estimativas gerais e declarações de garantia."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável, mas responde apenas parcialmente à pauta. A resposta curta é direta e o texto oferece critérios concretos — transferência de movimento, firmeza progressiva, quantidade de molas, arame, espuma e garantia — que ajudam na compra. Faltam, porém, dados de peso por usuário, normas ABNT, detalhes práticos da certificação do Inmetro e uma comparação consistente de conforto e durabilidade entre os dois sistemas.",
+    "filler_ratio": 0.23809523809523808,
+    "model_opinion": true
+  }
+}

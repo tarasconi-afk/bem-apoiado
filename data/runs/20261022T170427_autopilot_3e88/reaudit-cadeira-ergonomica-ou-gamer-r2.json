@@ -1,0 +1,21 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Depende do seu peso e das regulagens que você precisa. Verifique na ficha técnica a capacidade de peso declarada: segundo a ergocadeiras, a cadeira deve suportar pelo menos 20 kg a mais que seu peso para não sobrecarregar o pistão. Compare também se o modelo oferece regulagem de altura do assento por pistão a gás, apoio lombar ajustável e mecanismo de inclinação, que são as regulagens essenciais em qualquer cadeira de trabalho.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_094a46308551",
+        "clm_04a5e310b9f4",
+        "clm_53bde72caca1"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos da Flexform, uma fabricante, apresentam características de especificação e regulagens, mas o bloco transforma essa posição em regra geral ao dizer que são regulagens essenciais em qualquer cadeira de trabalho. Além disso, os trechos não dizem que a escolha depende das regulagens de que o usuário precisa."
+    }
+  ]
+}

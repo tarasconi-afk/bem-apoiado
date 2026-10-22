@@ -1,0 +1,43 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha pela capacidade de peso: a XT Racer Platinum W suporta até 120 kg e a Flexform Dot, 136 kg. Use como referência que a cadeira suporte pelo menos 20 kg a mais que seu peso e consulte as fichas técnicas para comparar as regulagens disponíveis.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0f2bc640bf0f",
+        "clm_00a8a70a7b3d",
+        "clm_094a46308551"
+      ]
+    },
+    {
+      "ref": "materiais-e-peso-maximo#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Mecanismo de reclinação",
+          "claim_ids": []
+        },
+        {
+          "text": "Datillo (contato permanente) ou mecanismo sincronizado",
+          "claim_ids": [
+            "clm_566fc753d88c"
+          ]
+        },
+        {
+          "text": "5 posições de bloqueio com regulagem de altura do encosto",
+          "claim_ids": [
+            "clm_5dd063f37653"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As capacidades de 120 kg e 136 kg vêm de páginas dos próprios fabricantes, mas o bloco as apresenta como fatos gerais, sem indicar que são informações da XT Racer e da Flexform. A recomendação dos 20 kg a mais também vem de uma fonte classificada como fabricante e é apresentada sem atribuição. Além disso, os trechos não sustentam a orientação de comparar as regulagens disponíveis nas fichas técnicas."
+    }
+  ]
+}
