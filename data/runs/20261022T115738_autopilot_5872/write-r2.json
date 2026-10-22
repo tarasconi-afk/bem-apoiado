@@ -1,0 +1,377 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "norma-abnt-e-nr17#2",
+      "action": "replace",
+      "text": "Use esses parâmetros como referência ao conferir a ficha técnica da cadeira que você está considerando.",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "draft": {
+    "title": "Cadeira ergonômica ou gamer: qual escolher",
+    "description": "Compare regulagens, peso suportado, materiais e garantia entre cadeiras ergonômicas e gamer conforme as fichas técnicas.",
+    "verdict": {
+      "text": "Cadeiras ergonômicas e gamer diferem principalmente nas regulagens declaradas: ergonômicas listam altura de assento, profundidade, apoio lombar ajustável e mecanismo de tensão; gamers enfatizam reclinação com múltiplas posições e base reforçada. Ambas podem atender à NR-17 se declararem as regulagens com valores específicos. Confira na ficha técnica do fabricante a altura mínima e máxima do assento, peso máximo suportado, densidade da espuma e o que a garantia cobre.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04a5e310b9f4",
+        "clm_a6ef0f759457",
+        "clm_832b248a7da8",
+        "clm_d7d95a312a2d",
+        "clm_e8cc2dafbc8c",
+        "clm_4f2607815f3b",
+        "clm_706653e66a3c"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-cada-tipo-funciona",
+        "heading": "Como cadeiras ergonômicas e gamer diferem na prática",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, cadeiras ergonômicas têm regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado. Cadeiras de escritório básicas possuem apenas regulagem de altura, sem essas opções.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04a5e310b9f4",
+              "clm_a6ef0f759457"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender aos parâmetros da NR-17 e funcionar bem em jornadas corporativas longas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e8cc2dafbc8c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A tensão do mecanismo de reclinação em cadeiras ergonômicas é ajustável e deve ser calibrada de acordo com o peso do usuário. Usuários com pesos diferentes precisam de tensões diferentes para que a reclinação seja controlada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ee7da27eecc"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "regulagens-declaradas",
+        "heading": "Quais regulagens conferir na ficha técnica",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, o fabricante deve declarar regulagens com valores específicos: altura mínima e máxima do assento em centímetros, faixa de profundidade do assento em centímetros e faixa de ajuste do apoio lombar em centímetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_832b248a7da8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Regulagens que fabricantes declaram em cadeiras ergonômicas e gamer",
+            "columns": [
+              "Regulagem",
+              "Cadeira Ergonômica",
+              "Cadeira Gamer",
+              "Conferir na ficha"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Altura do assento",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Sim, em cm (mín. e máx.)",
+                    "claim_ids": [
+                      "clm_832b248a7da8"
+                    ]
+                  },
+                  {
+                    "text": "Sim, em cm (mín. e máx.)",
+                    "claim_ids": [
+                      "clm_4f2607815f3b"
+                    ]
+                  },
+                  {
+                    "text": "Valores em centímetros",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Apoio lombar ajustável",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Sim, em altura (em cm)",
+                    "claim_ids": [
+                      "clm_d7d95a312a2d"
+                    ]
+                  },
+                  {
+                    "text": "Sim, em altura (em cm)",
+                    "claim_ids": [
+                      "clm_5dd063f37653"
+                    ]
+                  },
+                  {
+                    "text": "Faixa de ajuste em cm",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Profundidade do assento",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Sim, regulável (em cm)",
+                    "claim_ids": [
+                      "clm_d7d95a312a2d"
+                    ]
+                  },
+                  {
+                    "text": "Sim, regulável",
+                    "claim_ids": [
+                      "clm_e8cc2dafbc8c"
+                    ]
+                  },
+                  {
+                    "text": "Faixa de ajuste em cm",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Mecanismo de reclinação",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Com tensão ajustável",
+                    "claim_ids": [
+                      "clm_04a5e310b9f4"
+                    ]
+                  },
+                  {
+                    "text": "Múltiplas posições de bloqueio",
+                    "claim_ids": [
+                      "clm_5dd063f37653"
+                    ]
+                  },
+                  {
+                    "text": "Número de posições ou ângulos (graus)",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Apoio de braços",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Regulável em altura",
+                    "claim_ids": [
+                      "clm_d7d95a312a2d"
+                    ]
+                  },
+                  {
+                    "text": "Regulável em altura",
+                    "claim_ids": [
+                      "clm_4f2607815f3b"
+                    ]
+                  },
+                  {
+                    "text": "Valores em cm acima do assento",
+                    "claim_ids": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "peso-e-materiais",
+        "heading": "Peso máximo suportado e materiais",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, cadeiras gamer declaram resistência de base de 1100 kg conforme norma NBR 13962. A estrutura usa alumínio com acabamento anti-corrosão. Confira se o fabricante declara peso máximo suportado na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f2607815f3b",
+              "clm_706653e66a3c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, suas linhas corporativa e gamer usam espuma de 45 a 55 kg/m³ em assento e encosto. Essa densidade é indicada como mínima para durabilidade compatível com garantia de 5 a 7 anos em uso diário de 8 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a1de75fe1c2",
+              "clm_793039315aaf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "De acordo com a NR-17 (regulação de postos de teleatendimento), a base estofada deve ter densidade entre 40 e 50 kg/m³. Use essa faixa como referência ao conferir a ficha de uma cadeira.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_013706bfb3ee"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, suas cadeiras corporativas utilizam rodízios para diferentes tipos de piso, com tamanho de 65 mm. Confira a ficha se ela especifica o tipo de piso (madeira, carpete, cerâmica) em que os rodízios funcionam.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_791709653410",
+              "clm_bb8122f9b168"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "norma-abnt-e-nr17",
+        "heading": "O que a NBR 13962 e a NR-17 efetivamente regem",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, a ABNT NBR 13962 é uma norma que especifica requisitos técnicos para cadeiras. A Flexform submete seus modelos a ensaios conforme essa norma em laboratório acreditado pela CGCRE. A norma não certifica que a cadeira alivia dor ou melhora postura; ela verifica se as regulagens, materiais e mecanismos funcionam conforme declarado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4588e6d3292e",
+              "clm_3a087de8207b",
+              "clm_64e4a5ecc3ac"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A NR-17 é uma regulação de segurança e saúde ocupacional que estabelece parâmetros mínimos para cadeiras em postos de trabalho. Para teleatendimento, ela exige: assento com altura ajustável entre 37 e 50 cm, encosto ajustável em altura e inclinação com forma para proteção da região lombar, apoio de braços regulável em altura entre 20 e 25 cm, base com 5 pés com rodízios, e estofamento de densidade entre 40 e 50 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_41a4004759fb",
+              "clm_0e1f55dc4e65",
+              "clm_22c1d3abba51",
+              "clm_013706bfb3ee",
+              "clm_24102364e5e1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Use esses parâmetros como referência ao conferir a ficha técnica da cadeira que você está considerando.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "garantia",
+        "heading": "O que a garantia de cada tipo cobre",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, a garantia típica para cadeiras ergonômicas corporativas é de até 7 anos quando se usa espuma de 45 a 55 kg/m³ e em jornada de 8 horas diárias. Segundo editais públicos, garantias mínimas podem ser de 1 ano para produtos básicos ou 5 anos para estrutura e mecanismos em modelos mais robustos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8c21a540e6a1",
+              "clm_3ffd00568d40",
+              "clm_6490de4f9c2b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na ficha técnica do fabricante o que a garantia cobre: estrutura, mecanismos, rodízios, espuma e revestimento. Garantias mais longas geralmente cobrem pelo menos estrutura e mecanismos; verificar se cobrem peças de desgaste (rodízios, espuma) é importante.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3ffd00568d40",
+              "clm_1feaebfd1c2b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como escolher entre ergonômica e gamer",
+        "blocks": [
+          {
+            "text": "Se você vai usar a cadeira 8 horas por dia em trabalho de escritório, confira se ela declara regulagem de profundidade de assento, apoio lombar ajustável em altura (em centímetros) e mecanismo com tensão ajustável. Segundo a Flexform, cadeiras com essas regulagens documentadas atendem aos parâmetros mínimos da NR-17.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_d7d95a312a2d",
+              "clm_832b248a7da8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você alterna entre estar sentado em trabalho e ficar reclinado para descanso (comum em gamers ou home office), procure uma cadeira que declare reclinação com múltiplas posições de bloqueio (ex.: 5 posições) e mecanismo sincronizado. Segundo a Flexform, esse tipo de cadeira pode atender à NR-17 se também tiver profundidade de assento e apoio lombar ajustável.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_5dd063f37653",
+              "clm_e8cc2dafbc8c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique se a ficha técnica menciona a altura mínima e máxima do assento (em centímetros). Segundo a NR-17, para teleatendimento essa faixa deve ser de 37 a 50 cm. Se você é mais alto ou mais baixo que a média, confira se o modelo alcança sua faixa.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_41a4004759fb",
+              "clm_be7789c3d30e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Procure informações sobre a densidade da espuma. Segundo a Flexform, espuma de 45 a 55 kg/m³ é o mínimo para durabilidade compatível com garantia de 5 a 7 anos em uso diário intenso. Densidades abaixo de 40 kg/m³ perdem firmeza rapidamente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_793039315aaf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira se o fabricante declara peso máximo suportado. Para cadeiras gamer, é comum ver resistência de base de 1100 kg. Compare com seu peso corporal e considere a durabilidade esperada.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_4f2607815f3b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique a cobertura da garantia antes de comprar. Procure informações sobre quantos anos cobre estrutura e mecanismos. Modelos com garantia de 5 a 7 anos geralmente indicam que o fabricante espera durabilidade maior.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_8c21a540e6a1",
+              "clm_3ffd00568d40"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "norma-abnt-e-nr17#2",
+      "msg": "FRAMING_HAS_NUMBER Use os parâmetros da NR-17 como referência para conferir se a cadeira que você e"
+    }
+  ],
+  "usage": {
+    "input_tokens": 17431,
+    "output_tokens": 103
+  }
+}

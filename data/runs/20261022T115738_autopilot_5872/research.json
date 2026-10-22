@@ -1,0 +1,139 @@
+{
+  "run_id": "20261022T115738_autopilot_5872",
+  "topic": "cadeira-ergonomica-ou-gamer",
+  "accepted": [
+    {
+      "claim_id": "clm_3f60eab20165",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_40120c3c69fd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_491098b99a9a",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_40120c3c69fd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e8cc2dafbc8c",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_40120c3c69fd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cccd1650d3bc",
+      "question_id": "q_materiais_estrutura",
+      "source_id": "src_40120c3c69fd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_eac425ec796a",
+      "question_id": "q_nbr_cadeira_escritorio",
+      "source_id": "src_40120c3c69fd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d1229239622e",
+      "question_id": "q_termo_ergonomica_significado",
+      "source_id": "src_40120c3c69fd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_04a5e310b9f4",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_19922dccb6bd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a6ef0f759457",
+      "question_id": "q_diferenca_regulagens",
+      "source_id": "src_19922dccb6bd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_906b8160e051",
+      "question_id": "q_materiais_estrutura",
+      "source_id": "src_19922dccb6bd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7a18608c26c0",
+      "question_id": "q_termo_ergonomica_significado",
+      "source_id": "src_19922dccb6bd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_45acb3ed440a",
+      "question_id": "q_garantia_o_que_cobre",
+      "source_id": "src_19922dccb6bd",
+      "new": true
+    },
+    {
+      "claim_id": "clm_791709653410",
+      "question_id": "q_materiais_estrutura",
+      "source_id": "src_19922dccb6bd",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_40120c3c69fd",
+      "question_id": "q_nr17_referencia",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Cadeira ergonômica é uma categoria técnica. Define um assento com regulagens documentadas — altura por pistão a gás, apoio lombar ajustável em altura, profundidade do assento, apoio de braços — que at"
+    },
+    {
+      "source_id": "src_40120c3c69fd",
+      "question_id": "q_termo_ergonomica_significado",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Cadeira ergonômica é uma categoria técnica. Define um assento com regulagens documentadas — altura por pistão a gás, apoio lombar ajustável em altura, profundidade do assento, apoio de braços — que at"
+    },
+    {
+      "source_id": "src_19922dccb6bd",
+      "question_id": "q_nr17_referencia",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Uma cadeira de escritório com regulagens, atendimento aos parâmetros mínimos da NR-17, densidade de espuma declarada na faixa de 45 a 55 kg/m³, mecanismo funcional para a jornada do usuário e ensaios "
+    },
+    {
+      "source_id": "src_19922dccb6bd",
+      "question_id": "q_nbr_cadeira_escritorio",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "além de modelos em conformidade com a NR-17 e a ABNT NBR 13962"
+    }
+  ],
+  "coverage": {
+    "q_diferenca_regulagens": 5,
+    "q_peso_suportado": 0,
+    "q_materiais_estrutura": 3,
+    "q_nbr_cadeira_escritorio": 1,
+    "q_nr17_referencia": 0,
+    "q_termo_ergonomica_significado": 2,
+    "q_garantia_o_que_cobre": 1
+  },
+  "unanswered": [
+    "q_peso_suportado",
+    "q_nr17_referencia"
+  ],
+  "usage": {
+    "input_tokens": 7949,
+    "output_tokens": 2518,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_40120c3c69fd",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_19922dccb6bd",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    }
+  ],
+  "credits": 1.9412934
+}
