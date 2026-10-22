@@ -48,6 +48,18 @@ export function editQueue(op: 'add' | 'remove', query: string, now = new Date())
     ? [...q.items, { query: query.trim(), added_at: now.toISOString().slice(0, 10), origin: 'painel' }]
     : q.items.filter((i) => slugOf(i.query) !== key);
   writeFileSync(path, JSON.stringify({ ...raw, items }, null, 2) + '\n');
+  // Tirada da fila pelo editor: a ideia correspondente vira "descartada" e some da lista de sugestões (22/10:
+  // duas pautas tiradas da fila voltaram pelo botão "adicionar" das ideias, que ainda as mostrava como novas).
+  if (op === 'remove') {
+    const f = join(DATA, 'ideas.json');
+    if (existsSync(f)) {
+      const d = JSON.parse(readFileSync(f, 'utf8'));
+      const list = Array.isArray(d) ? d : d.ideas ?? [];
+      let touched = false;
+      for (const i of list) if (slugOf(i.query) === key && i.status !== 'descartada') { i.status = 'descartada'; i.reason = 'tirada da fila pelo editor'; touched = true; }
+      if (touched) writeFileSync(f, JSON.stringify(d, null, 2) + '\n');
+    }
+  }
   return true;
 }
 

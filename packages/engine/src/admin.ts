@@ -609,6 +609,10 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const classe = f.get('classe') ?? '';
     const pub = clean(f.get('publicador'), 60);
     if (!['manufacturer', 'regulator', 'standard_body', 'independent_test'].includes(classe) || pub.length < 2) return 'classe ou nome inválido';
+    // Regulador no Brasil é órgão público (.gov.br). 22/10: um catálogo de normas e um organismo certificador
+    // entraram como "regulador", a classe de maior peso.
+    if (classe === 'regulator' && !/\.gov\.br$/.test(host)) return `"${host}" não é órgão público: regulador é quem cria ou fiscaliza regra (gov.br). Organismo certificador ou laboratório: "Teste independente"; quem publica norma: "Norma técnica"; marca: "Fabricante".`;
+    if (!/[A-ZÀ-Ú]/.test(pub)) return 'escreva o nome do publicador como ele aparece no texto (ex.: "Cavaletti", "BRICS OCP"), com maiúscula';
     return { label: `aprovar domínio ${host} (${pub})`, args: ['dominio-aprovar', host, classe, pub] };
   }
   if (acao === 'produto-adicionar') {
