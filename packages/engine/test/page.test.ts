@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, unlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -121,6 +121,9 @@ describe('buildPage', () => {
   });
 
   it('página quase aprovada: corta o enchimento apontado e passa na 2ª revisão', async () => {
+    // Limite calibrado em 25%: com o padrão (50%) a página de 40% já passaria de primeira, sem corte.
+    mkdirSync(join(root, 'data'), { recursive: true });
+    writeFileSync(join(root, 'data/calibration.json'), JSON.stringify({ max_filler_ratio: 0.25, min_criteria: 2 }));
     const { buildPage } = await import('../src/stages/page.ts');
     const r = await buildPage('pagina-teste', 'run_trim', router({ auditorRejectsAlways: false, nearMiss: true }));
     expect(r.status).toBe('PASS');
@@ -131,6 +134,7 @@ describe('buildPage', () => {
       expect(r.page.sections.find((s) => s.id === 'tipos')!.blocks).toHaveLength(1);
       expect(r.page.sections.find((s) => s.id === 'etiqueta')!.blocks).toHaveLength(1);
     }
+    unlinkSync(join(root, 'data/calibration.json'));
   });
 
   it('para em SAFE_STOP quando a auditoria não converge, sem gravar página', async () => {

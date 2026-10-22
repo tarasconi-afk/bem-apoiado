@@ -41,3 +41,24 @@ export function examplesPrompt(purpose: 'writer' | 'judge', o: { pageType?: stri
       : 'Páginas que o editor aprovou e publicou: são a referência de "publicável" deste site. Julgue a página nova com o mesmo padrão; ela não precisa ser igual a elas.';
   return `\n\n${head}\n${ex.map(exampleText).join('\n\n')}\n`;
 }
+
+// Vereditos do editor como rótulos, pergunta por pergunta (22/10: o juiz disse que a página modelo não tinha
+// resposta rápida e marcou 63% a 73% de enchimento em páginas aprovadas). Aprovar = o editor respondeu "sim"
+// às 4 perguntas; recusar vem com o motivo dele. A página julgada nunca entra (sem cola).
+export function judgeCalibration(exclude: string, pages: PageSpec[] = loadPages(), max = 5): string {
+  const latest = new Map<string, { verdict: string; reason: string; at: string }>();
+  for (const v of loadVerdicts().sort((a, b) => a.at.localeCompare(b.at))) latest.set(v.slug, v);
+  const rows = [...latest.entries()]
+    .filter(([slug]) => slug !== exclude)
+    .sort((a, b) => b[1].at.localeCompare(a[1].at))
+    .slice(0, max)
+    .map(([slug, v]) => {
+      const p = pages.find((x) => x.slug === slug);
+      if (!p) return null;
+      return v.verdict === 'approve'
+        ? `- "${p.title}": o editor APROVOU (responde à dúvida: sim; resposta rápida: sim; leigo: sim; leva à compra: sim; nenhum bloco de enchimento). Resposta curta: ${p.verdict.text}`
+        : `- "${p.title}": o editor RECUSOU. Motivo: ${v.reason.slice(0, 200)}`;
+    })
+    .filter(Boolean);
+  return rows.length ? `\n\nComo o editor julgou outras páginas deste site (seja coerente com ele; ele é a referência):\n${rows.join('\n')}\n` : '';
+}

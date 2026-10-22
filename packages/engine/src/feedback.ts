@@ -17,7 +17,9 @@ export const MIN_LABELS = 8;
 
 export const Thresholds = z.object({ max_filler_ratio: z.number(), min_criteria: z.number().int() });
 export type Thresholds = z.infer<typeof Thresholds>;
-export const DEFAULT_THRESHOLDS: Thresholds = { max_filler_ratio: 0.25, min_criteria: 2 };
+// Enchimento só reprova página que é majoritariamente enchimento (22/10: o editor aprovou páginas em que o juiz
+// marcou 36% a 40%; enchimento não está entre as 4 perguntas dele e a repetição tem etapa própria de corte).
+export const DEFAULT_THRESHOLDS: Thresholds = { max_filler_ratio: 0.5, min_criteria: 2 };
 
 const Calibration = Thresholds.extend({ labels: z.number().int(), agreement: z.number(), updated_at: z.iso.datetime() });
 
@@ -98,7 +100,7 @@ export function calibrate(verdicts: HumanVerdict[], current: Thresholds = loadTh
   const agree = (t: Thresholds) => labeled.filter((v) => ruleDecides(v.review!, t) === (v.verdict === 'approve')).length;
   const dist = (t: Thresholds) => Math.abs(t.max_filler_ratio - current.max_filler_ratio) * 10 + Math.abs(t.min_criteria - current.min_criteria);
   let best = { ...current, agree: agree(current) };
-  for (let f = 0.1; f <= 0.5001; f += 0.05) {
+  for (let f = 0.1; f <= 0.7001; f += 0.05) {
     for (let c = 1; c <= 5; c++) {
       const t = { max_filler_ratio: Math.round(f * 100) / 100, min_criteria: c };
       const a = agree(t);

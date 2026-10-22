@@ -22,7 +22,7 @@ describe('calibração da revisão', () => {
   });
 
   it('amostra pequena mede mas não muda a regra', () => {
-    const r = calibrate([v('approve', m(0.3, 3)), v('approve', m(0.35, 4))], DEFAULT_THRESHOLDS);
+    const r = calibrate([v('approve', m(0.3, 3)), v('approve', m(0.35, 4))], { max_filler_ratio: 0.25, min_criteria: 2 });
     expect(r.labels).toBe(2);
     expect(r.current.agree).toBe(0);
     expect(r.disagreements).toHaveLength(2);
