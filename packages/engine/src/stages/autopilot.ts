@@ -260,7 +260,10 @@ export const SUMMARY_FIX = 'Reescreva a resposta curta e o "Como decidir" para q
 async function maintainSummary(runId: string, steps: string[]): Promise<boolean> {
   const tried = readState<Record<string, string>>('summary-fix.json', {});
   const weak = (p: PageSpec) => (p.provenance.review as { quick_answer?: boolean } | undefined)?.quick_answer === false || styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || /trechos citados/.test(i.msg));
-  const page = loadPages().find((p) => p.status !== 'draft' && weak(p) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
+  // Aprovação do editor depois da última mudança vale mais que a regra: não reescreve o que ele aprovou.
+  const verdicts = loadVerdicts();
+  const approvedByEditor = (p: PageSpec) => verdicts.some((v) => v.slug === p.slug && v.verdict === 'approve' && v.at.slice(0, 10) >= p.updated_at);
+  const page = loadPages().find((p) => p.status !== 'draft' && weak(p) && !approvedByEditor(p) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
   if (!page || creditsLeft() < 10) return false;
   writeState('summary-fix.json', { ...tried, [page.slug]: new Date().toISOString() });
   try {
