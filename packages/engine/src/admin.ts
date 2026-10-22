@@ -524,8 +524,13 @@ function suggestionHtml(x: { review: FullReview; writer: string } | null): strin
   const r = x.review;
   const t = loadThresholds();
   const ok = r.publishable;
+  // As 4 perguntas do padrão editorial primeiro (decide? leva à compra? leigo? rápida?), depois as métricas.
+  const yn = (b: boolean | undefined) => (b === false ? 'não ✗' : 'sim');
   const why = [
-    `responde à dúvida: ${r.answers_primary_query === 'yes' ? 'sim' : r.answers_primary_query === 'partial' ? 'em parte' : 'não'}`,
+    `decide: ${r.answers_primary_query === 'yes' ? 'sim' : r.answers_primary_query === 'partial' ? 'em parte' : 'não ✗'}`,
+    `leva à compra: ${yn((r as { purchase_path?: boolean }).purchase_path)}`,
+    `leigo: ${yn((r as { reader_fit?: boolean }).reader_fit)}`,
+    `resposta rápida: ${yn((r as { quick_answer?: boolean }).quick_answer)}`,
     `enchimento ${Math.round(100 * r.filler_ratio)}% (limite ${Math.round(100 * t.max_filler_ratio)}%)${r.filler_ratio > t.max_filler_ratio ? ' ✗' : ''}`,
     `${r.decision_criteria.length} critérios de decisão (mínimo ${t.min_criteria})${r.decision_criteria.length < t.min_criteria ? ' ✗' : ''}`,
     r.concrete_guidance ? 'orienta o que fazer' : 'não orienta o que fazer ✗',
