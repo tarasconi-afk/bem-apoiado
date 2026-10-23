@@ -3,19 +3,16 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Colchão solteirão ou viúva: qual tamanho escolher",
-  "description": "Comparação de dimensões, capacidade de carga e garantia entre colchões solteirão e viúva para ajudar na escolha pelo espaço disponível.",
+  "description": "Escolha entre solteiro (88 × 188 cm), solteirão (100 × 200 cm) e viúva (128 × 188 cm) pelo espaço disponível. Meça a base ou o quarto.",
   "primary_query": "colchão solteirão ou viúva",
   "updated_at": "2026-10-23",
   "verdict": {
-    "text": "A escolha depende do espaço disponível. Os trechos mostram modelos de solteiro e solteirão com 88 × 188 cm e 100 × 200 cm, e modelos viúva com 128 × 188 cm. Confira as dimensões exatas no anúncio do modelo que vai comprar.",
+    "text": "Solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Viúva mede 128 × 188 cm, segundo a Probel. Confira na ficha técnica do modelo exatamente qual é a largura e o comprimento antes de comprar.",
     "basis": "evidence",
     "claim_ids": [
-      "clm_1bb80e023c3e",
       "clm_0222495f509f",
-      "clm_0afbaf2ef53d",
-      "clm_be598e65da36",
-      "clm_e5ee1b7717e8",
-      "clm_e62f10174a0b"
+      "clm_34c96754c13d",
+      "clm_be598e65da36"
     ]
   },
   "sections": [
@@ -95,117 +92,57 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir entre solteirão e viúva",
+      "heading": "Como escolher entre solteirão e viúva",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se a base tiver 88 × 188 cm, confira no anúncio se o produto declara largura e comprimento de 88 × 188 cm.",
+          "text": "Se você tem espaço para 88 cm de largura no quarto ou na base: o colchão solteiro mede 88 × 188 cm. Confira na ficha do produto que o modelo declara exatamente essa medida antes de comprar.",
           "basis": "evidence",
           "claim_ids": [
+            "clm_0222495f509f",
             "clm_1bb80e023c3e"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você precisa de mais largura e dispõe de 128 cm, escolha um colchão viúva; confira se o comprimento de 188 cm cabe no espaço ou na base, segundo a Probel.",
+          "text": "Se você tem espaço para 88 cm de largura: o colchão solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Verifique na ficha técnica do modelo as dimensões exatas de largura e comprimento antes de comprar.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_0222495f509f",
+            "clm_34c96754c13d"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se você tem 128 cm de largura disponível: o colchão viúva mede 128 × 188 cm, segundo a Probel. Confira se o comprimento de 188 cm cabe na base ou no espaço do quarto.",
           "basis": "evidence",
           "claim_ids": [
             "clm_be598e65da36",
-            "clm_e5ee1b7717e8",
-            "clm_e62f10174a0b"
+            "clm_e5ee1b7717e8"
           ]
         },
         {
           "kind": "table",
-          "caption": "Dimensões declaradas pelos fabricantes",
+          "caption": "Medidas padrão por tamanho de colchão",
           "columns": [
             "Tamanho",
-            "Largura",
-            "Comprimento",
-            "Altura"
+            "Largura × Comprimento"
           ],
           "rows": [
             {
               "cells": [
                 {
-                  "text": "Modelo no Compras.gov.br",
-                  "claim_ids": []
-                },
-                {
-                  "text": "78 cm",
+                  "text": "Solteiro",
                   "claim_ids": [
-                    "clm_011b20257d8a"
+                    "clm_0222495f509f",
+                    "clm_34c96754c13d"
                   ]
                 },
                 {
-                  "text": "188 cm",
+                  "text": "88 × 188 cm, conforme informado por Gazin e Ortobom",
                   "claim_ids": [
-                    "clm_011b20257d8a"
-                  ]
-                },
-                {
-                  "text": "17 cm",
-                  "claim_ids": [
-                    "clm_011b20257d8a"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Modelo no Compras.gov.br",
-                  "claim_ids": []
-                },
-                {
-                  "text": "88 cm",
-                  "claim_ids": [
-                    "clm_1bb80e023c3e"
-                  ]
-                },
-                {
-                  "text": "188 cm",
-                  "claim_ids": [
-                    "clm_1bb80e023c3e"
-                  ]
-                },
-                {
-                  "text": "17 cm",
-                  "claim_ids": [
-                    "clm_1bb80e023c3e"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Viúva",
-                  "claim_ids": []
-                },
-                {
-                  "text": "128 cm",
-                  "claim_ids": [
-                    "clm_be598e65da36",
-                    "clm_e5ee1b7717e8",
-                    "clm_e62f10174a0b"
-                  ]
-                },
-                {
-                  "text": "188 cm",
-                  "claim_ids": [
-                    "clm_be598e65da36",
-                    "clm_e5ee1b7717e8",
-                    "clm_e62f10174a0b"
-                  ]
-                },
-                {
-                  "text": "17 a 26 cm",
-                  "claim_ids": [
-                    "clm_be598e65da36",
-                    "clm_3fcb417cb522",
-                    "clm_9bf3f9e93086",
-                    "clm_cc110a1c336f"
+                    "clm_0222495f509f",
+                    "clm_34c96754c13d"
                   ]
                 }
               ]
@@ -217,17 +154,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261023T170213_autopilot_e69c",
+    "run_id": "20261023T170213_autopilot_e69c+editor:20261023T172931_colchao-solteirao-ou-viuva-ajuste_72fb",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "partial",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.09090909090909091,
       "criteria": 4,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
