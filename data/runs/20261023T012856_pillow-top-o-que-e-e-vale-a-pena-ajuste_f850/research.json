@@ -1,0 +1,136 @@
+{
+  "run_id": "20261023T012856_pillow-top-o-que-e-e-vale-a-pena-ajuste_f850",
+  "topic": "pillow-top-o-que-e-e-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_3ea0e231a90d",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_2bb1bd05a0ae",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3ea0e231a90d",
+      "question_id": "q_altura_total",
+      "source_id": "src_2bb1bd05a0ae",
+      "new": false
+    },
+    {
+      "claim_id": "clm_5cd1fceec535",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_2bb1bd05a0ae",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0a884026fbd3",
+      "question_id": "q_garantia_pillowtop",
+      "source_id": "src_2bb1bd05a0ae",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f30ecd80554e",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_d8600faa633a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1b6b4dde091c",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_d8600faa633a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f30ecd80554e",
+      "question_id": "q_altura_total",
+      "source_id": "src_d8600faa633a",
+      "new": false
+    },
+    {
+      "claim_id": "clm_9f1174c22e9e",
+      "question_id": "q_garantia_pillowtop",
+      "source_id": "src_d8600faa633a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f6437c33da65",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_d8600faa633a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_879e4f90256a",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_4f1c08030694",
+      "new": true
+    },
+    {
+      "claim_id": "clm_55023bc601fc",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_615772348664",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_4f1c08030694",
+      "question_id": "q_altura_total",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Altura10 cm"
+    },
+    {
+      "source_id": "src_615772348664",
+      "question_id": "q_altura_total",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Altura10 cm"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_pillowtop": 0,
+    "q_definicao_pillowtop": 3,
+    "q_fixo_ou_removivel": 4,
+    "q_altura_total": 2,
+    "q_certificacao_inmetro": 0,
+    "q_garantia_pillowtop": 2,
+    "q_ajuste_fe3336ff": 0,
+    "q_ajuste_c9c3cbbc": 0
+  },
+  "unanswered": [
+    "q_peso_densidade_pillowtop",
+    "q_certificacao_inmetro",
+    "q_ajuste_fe3336ff",
+    "q_ajuste_c9c3cbbc"
+  ],
+  "usage": {
+    "input_tokens": 8551,
+    "output_tokens": 1391,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_2bb1bd05a0ae",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_d8600faa633a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_4f1c08030694",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.76
+    },
+    {
+      "source_id": "src_615772348664",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.75
+    }
+  ],
+  "credits": 1.252857
+}
