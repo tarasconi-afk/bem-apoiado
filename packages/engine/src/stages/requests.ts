@@ -159,9 +159,9 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
         done.push(r.added.length ? `${a.slug}: ${r.added.length} exemplo(s) à venda encontrado(s) (${r.added.map((x: { label?: string; asin?: string }) => x.label ?? x.asin).join(', ')}); confira e aceite no quadro` : `${a.slug}: nenhum anúncio passou nas travas (${r.candidates} conferido(s)); se você conhecer um, cole o link em "Produtos à venda"`);
       } else if (a.type === 'new_image') {
         const page = loadPages().find((p) => p.slug === a.slug)!;
-        const { BRIEF_SYSTEM, BriefOut, Brief, generateImage } = await import('../images.ts');
+        const { BRIEF_SYSTEM, BriefOut, Brief, COVER_FRAMING, generateImage } = await import('../images.ts');
         const { ROOT } = await import('../store.ts');
-        const subject = `capa de um guia intitulado "${page.title}". ${a.instruction || 'Cena que ilustre o tema do guia.'} Sem produto de marca.`;
+        const subject = `capa de um guia intitulado "${page.title}". ${a.instruction || 'Cena que ilustre o tema do guia.'} Sem produto de marca. ${COVER_FRAMING}`;
         const b = (await callJson({ role: 'extractor', system: BRIEF_SYSTEM, user: subject, schema: BriefOut, schemaName: 'image_brief', maxTokens: 600 }, fetchImpl)).data;
         const rec = await generateImage(Brief.parse({ id: `pagina-${a.slug}`, ...b }), ROOT);
         done.push(`${a.slug}: capa nova gerada ("${rec.alt}"); confira e aceite no quadro`);

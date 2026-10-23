@@ -163,7 +163,7 @@ export function wantedImages(
   const have = new Set(loadRegistry(root).map((r) => r.id));
   const out: Wanted[] = [];
   for (const k of kinds) if (!have.has(k.id)) out.push({ id: k.id, kind: k.id, subject: `tipo de produto: ${k.label}. Mostrar como esse tipo é construído ou o que o distingue visualmente dos outros tipos.` });
-  for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: `capa de um guia intitulado "${p.title}". Cena que ilustre o tema do guia, sem mostrar produto de marca.` });
+  for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: `capa de um guia intitulado "${p.title}". Cena que ilustre o tema do guia, sem mostrar produto de marca. ${COVER_FRAMING}` });
   const kindLabel = new Map(kinds.map((k) => [k.id, k.label]));
   for (const p of products) {
     if (have.has(`produto-${p.asin.toLowerCase()}`)) continue;
@@ -197,6 +197,10 @@ export async function ensureImages(
   }
   return done;
 }
+
+// Capa da página aparece em faixa 32:9 (23/10, editor): a imagem 3:2 é cortada em cima e embaixo, então o assunto
+// tem de caber na faixa do meio.
+export const COVER_FRAMING = 'Enquadramento para faixa larga: o assunto inteiro na faixa horizontal do meio da imagem, plano aberto e horizontal, com piso ou parede livres acima e abaixo (a capa é cortada em 32:9).';
 
 export const BRIEF_SYSTEM =
   'Você escreve pedidos para um gerador de imagens de um site editorial brasileiro. Devolva "prompt" em inglês ' +

@@ -595,3 +595,10 @@ um único produto genérico do tipo, com a cor e o material que o anúncio descr
 (rodízio dentro do mesmo tipo, `PRODUCT_SCENES` e `PRODUCT_VIEWS` em `packages/engine/src/images.ts`), sem marca,
 logotipo nem modelo reconhecível; luz e paleta da casa iguais para todas. Foto real de produto só pela PA-API.
 Anúncio novo ganha a sua no ciclo (até 2 imagens por ciclo, capas de página primeiro).
+
+## 2026-10-23 · Capa da página em faixa (32:9) no topo
+O editor comparou três topos na página do solteirão (capa 21:9, capa em faixa 32:9, resposta curta antes da capa) e
+escolheu a faixa: a resposta curta aparece já na primeira tela, que é a 4ª pergunta do padrão editorial ("responde
+rapidamente?"). Regra: toda página com capa própria mostra a capa em 32:9 no topo; a grade de tipos fica só nas
+páginas cuja pergunta compara tipos (`comparesKinds`, site/src/lib/content.ts). A capa é gerada em 3:2, então o
+pedido da imagem manda compor o assunto na faixa do meio (`COVER_FRAMING`, packages/engine/src/images.ts).
