@@ -1,0 +1,77 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações e medidas são apresentadas como fatos gerais, mas os trechos citados são de fabricantes. Além disso, os trechos de medidas citam colchões king e queen, enquanto o bloco fala em cama king e queen.",
+      "fix": "Segundo a Probel, antes da compra é recomendável medir o local da cama, o espaço para abrir portas e gavetas e a circulação; a empresa indica um quarto de pelo menos 3 × 3,5 m para uma cama king com boa circulação. Segundo a King Koil, o colchão king mede 193 × 203 cm e o colchão queen mede 158 × 198 cm."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "nomes-diferentes-mesma-medida#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-espessura-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, marcado como framing, dá uma instrução sobre conferir a ficha técnica sem ser apenas uma transição sobre o conteúdo da própria página e sem evidência citada para sustentá-la.",
+      "fix": "A seguir, veja as informações apresentadas nesta página sobre o modelo que você quer comprar."
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
