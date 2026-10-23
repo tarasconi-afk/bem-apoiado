@@ -34,7 +34,10 @@ export async function reuseEvidence(slug: string, fetchImpl?: FetchLike): Promis
   if (!candidates.length) return { reused: 0, sources: 0 };
   const qids = topic.questions.map((q) => q.id) as [string, ...string[]];
   const ids = candidates.map((c) => c.id) as [string, ...string[]];
-  const Out = z.object({ links: z.array(z.object({ claim_id: z.enum(ids), question_ids: z.array(z.enum(qids)) })) });
+  // Id inventado pelo modelo é descartado (o código abaixo só usa ids da lista), em vez de derrubar o reuso
+  // inteiro (23/10, cadeira de tela ou estofada: um id fora da lista invalidava as 2 tentativas).
+  void ids;
+  const Out = z.object({ links: z.array(z.object({ claim_id: z.string(), question_ids: z.array(z.string()) })) });
   const r = await callJson(
     {
       role: 'extractor',
@@ -55,8 +58,9 @@ export async function reuseEvidence(slug: string, fetchImpl?: FetchLike): Promis
   let reused = 0;
   for (const l of r.data.links) {
     const c = byId.get(l.claim_id);
-    if (!c || !l.question_ids.length) continue;
-    const merged = [...new Set([...c.question_ids, ...l.question_ids])];
+    const qs = l.question_ids.filter((q) => (qids as string[]).includes(q));
+    if (!c || !qs.length) continue;
+    const merged = [...new Set([...c.question_ids, ...qs])];
     if (merged.length === c.question_ids.length) continue;
     writeJson(join(CLAIMS_DIR, `${c.id}.json`), Claim.parse({ ...c, question_ids: merged }));
     newSources.add(c.source_id);

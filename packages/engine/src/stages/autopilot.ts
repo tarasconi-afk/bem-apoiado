@@ -562,7 +562,9 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
     steps.push(`checagem antes de escrever: falta ${r.missing[0]?.slice(0, 140) ?? 'regra de escolha'}; busca dirigida`);
     const t = loadTopic(slug);
     writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: [...new Set([...r.missing, ...r.queries])].slice(0, 5) }));
-    const d = await discoverSources(slug, runId, { maxSearches: 4, maxSources: 6 });
+    // Busca dirigida mais larga antes de desistir: mais fabricantes do tipo, um a um (23/10: "pena ou fibra" foi
+    // adiada depois de buscar em 2 dos 18 fabricantes de travesseiro cadastrados).
+    const d = await discoverSources(slug, runId, { maxSearches: 5, maxSources: 8, makerSearches: 6 });
     if (d.added.length) await research(slug, runId);
     r = await decisionReadiness(slug, loadTopic(slug));
     logReadiness(runId, 1, r);

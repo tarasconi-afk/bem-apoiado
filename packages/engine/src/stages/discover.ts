@@ -93,7 +93,7 @@ export interface DiscoverReport {
 export async function discoverSources(
   slug: string,
   runId: string,
-  opts: { maxSearches?: number; maxSources?: number } = {},
+  opts: { maxSearches?: number; maxSources?: number; makerSearches?: number } = {},
   fetchImpl?: FetchLike,
   decide: Decider | null = jevDecide,
 ): Promise<DiscoverReport> {
@@ -143,7 +143,7 @@ export async function discoverSources(
   // Marca citada pelo editor no pedido (chega como lacuna) vai na frente de tudo.
   const tried = searchedAlone(join(DATA, 'runs'), slug);
   const fresh = orderMakers(makers, { named: topic.evidence_gaps.join(' '), withEvidence, tried });
-  queries.push(...makerQueries(queries, fresh, topic.primary_query));
+  queries.push(...makerQueries(queries, fresh, topic.primary_query, opts.makerSearches ?? 3));
   // Menos de 2 fabricantes com fonte na pauta (ou nenhum cadastrado): 2 buscas abertas. O que vier de fora do
   // cadastro não entra como fonte; vira sugestão em "Domínios novos" para o editor aprovar.
   if (withEvidence.size < 2) {
