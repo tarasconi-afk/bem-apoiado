@@ -31,6 +31,8 @@ Fonte única no código: `packages/core/src/editorial.ts` (redator e revisão us
 
 ## Onde ler antes de mudar algo
 
+- `docs/RECUPERACAO.md`: onde está cada coisa, o que fica fora do git e como retomar o projeto do zero.
+- `docs/RECUPERACAO.md`: onde está cada coisa, o que fica fora do git e como retomar o projeto do zero.
 - `docs/ARCHITECTURE.md`: peças e fluxo.
 - `docs/DECISIONS.md`: por que cada escolha foi feita (inclui lições do projeto anterior).
 - `docs/ROADMAP.md`: fase atual e próximo passo.

@@ -15,7 +15,7 @@
 - Credenciais do motor: `/etc/bem-apoiado/env` (root:bemapoiado 640) com `NEXOS_API_KEY` e `NEXOS_BASE_URL`.
 - Código do motor: `/opt/bem-apoiado/app` (dono `bemapoiado`).
 - Firewall: só 22, 80 e 443.
-- `bem-apoiado-cycle.{service,timer}` → piloto automático diário às 04:00 (America/Sao_Paulo): roda
+- `bem-apoiado-cycle.{service,timer}` → piloto automático às 04:00, 10:00, 16:00 e 22:00 (America/Sao_Paulo): roda
   `scripts/cycle.sh` em `/opt/bem-apoiado/repo` (clone pela chave de deploy `/opt/bem-apoiado/.ssh/github_deploy`).
   Rodar um ciclo agora: `systemctl start bem-apoiado-cycle.service`; log: `journalctl -u bem-apoiado-cycle -o cat`.
 - Cada ciclo começa pela manutenção do catálogo: recaptura anúncios com prova de disponibilidade com 7+ dias
@@ -23,6 +23,6 @@
   página aprovada sem produto (uma tentativa por página por semana, se sobrarem 20+ créditos). Sem pauta na
   fila, só a manutenção vira ramo `pagina/manutencao-produtos-*`. Tentativas ficam em
   `/var/lib/bem-apoiado/products-{refresh,attempts}.json`.
-- Tetos: 40 créditos/ciclo (nunca acima do que resta no dia), 100/dia em 4 ciclos (04:00, 10:00, 16:00, 22:00) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
+- Tetos: 60 créditos/ciclo (`BEM_CYCLE_BUDGET`, nunca acima do que resta no dia), 250/dia nos ciclos automáticos (`BEM_DAILY_CREDIT_CAP`; o ciclo pedido no painel não conta enquanto houver menos de 20 páginas no ar) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
 - `bem-apoiado-hits.service`: contador de visitas sem cookie (`npm run engine -- hits-server`, 127.0.0.1:8788);
   o Caddy publica só `POST /c` em `t.bemapoiado.com`. Dados em `/var/lib/bem-apoiado/hits/AAAA-MM-DD.jsonl`.
