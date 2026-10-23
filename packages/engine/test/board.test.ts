@@ -14,6 +14,13 @@ describe('quadro de decisões', () => {
     expect(c.correction).toContain('1) A resposta curta não diz qual escolher');
     expect(c.why).toContain('resposta rápida: não');
   });
+  it('ajuste em página no ar: aplicar se a revisão aprova; corrigir com texto pronto se ainda fraca', () => {
+    const items = [{ id: 'page:x', title: 'Texto de "X": 3 trecho(s) alterado(s)' }];
+    expect(classifyBranch({ slug: 'x', items, outcome: null, steps: [], review: rv(true), failedAdjust: false }).suggestion).toBe('aplicar');
+    const c = classifyBranch({ slug: 'x', items, outcome: null, steps: [], review: rv(false, { answers_primary_query: 'partial', reader_problems: ['Não diz quando escolher cada tipo'] }), failedAdjust: false });
+    expect([c.kind, c.suggestion]).toEqual(['ajuste-no-ar', 'corrigir']);
+    expect(c.correction).toContain('Não diz quando escolher cada tipo');
+  });
   it('só capa e produtos: manutenção para aplicar', () => {
     const c = classifyBranch({ slug: 'y', items: [{ id: 'images', title: 'Imagens' }, { id: 'product:B01', title: 'Novo exemplo' }], outcome: null, steps: [], review: null, failedAdjust: false });
     expect([c.kind, c.suggestion]).toEqual(['manutencao', 'aplicar']);

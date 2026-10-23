@@ -99,6 +99,9 @@ export function classifyBranch(b: {
           ? 'Fontes novas foram lidas e a página foi reescrita com elas.'
           : 'O seu ajuste está pronto para conferir.';
     if (b.failedAdjust) return { kind: 'ajuste-no-ar', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo; a página no ar continua como estava.', correction };
+    // Passou na auditoria mas a revisão de leitor ainda acha fraca (23/10: cadeira gamer 0,5 → 0,5 sugeria "Aplicar"
+    // e o campo de correção vinha vazio): sugere corrigir, com o texto pronto.
+    if (b.review && !b.review.publishable) return { kind: 'ajuste-no-ar', situation: `${situation} A revisão de leitor ainda acha a página fraca.`, suggestion: 'corrigir', why: fourQuestions(b.review), correction };
     return { kind: 'ajuste-no-ar', situation, suggestion: 'aplicar', why: 'A mudança passou na auditoria; confira o antes × depois.', correction: '' };
   }
   if (b.items.length) {
