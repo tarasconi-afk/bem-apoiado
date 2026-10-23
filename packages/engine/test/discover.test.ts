@@ -49,6 +49,14 @@ describe('cadastro de domínios pelo painel', () => {
     expect(saved.block).toEqual(['loja.com.br']);
     wf(j(runs, 'r1', 'discover.json'), JSON.stringify({ topic: 'x', suggestions: [{ host: 'licitacao.maceio.al.gov.br', url: 'https://licitacao.maceio.al.gov.br/a', title: 'Pregão' }] }));
     expect(domainCandidates(runs, { allow: [], block: [] } as never)).toEqual([]);
+    // Só vira sugestão o domínio com página sobre o produto (23/10: artigos de ERP sobre "o que é ficha técnica").
+    wf(j(runs, 'r1', 'discover.json'), JSON.stringify({ topic: 'x', suggestions: [
+      { host: 'korp.com.br', url: 'https://korp.com.br/ficha-tecnica', title: 'Ficha Técnica: O Que É, Como Fazer e Modelos na Indústria' },
+      { host: 'colchoesy.com.br', url: 'https://colchoesy.com.br/sobre', title: 'Sobre nós' },
+      { host: 'colchoesy.com.br', url: 'https://colchoesy.com.br/linha', title: 'Colchão de espuma D33' },
+    ] }));
+    const only = domainCandidates(runs, { allow: [], block: [] } as never, ['colchao', 'espuma']);
+    expect(only.map((x) => [x.host, x.example.title])).toEqual([['colchoesy.com.br', 'Colchão de espuma D33']]);
   });
 });
 

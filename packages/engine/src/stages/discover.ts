@@ -48,6 +48,7 @@ Reguladores e normas típicos deste tema:
 ${loadNiche().regulator_hints.map((h) => `- ${h}`).join('\n')}
 Gere consultas em português do Brasil que tendem a trazer ESSAS fontes, não lojas, blogs ou vídeos.
 Use "include_domains" quando a consulta mira um domínio específico (ex.: ["gov.br"] para um órgão federal, ou os domínios de fabricantes).
+Consulta sem "include_domains" sempre com o nome do produto (ex.: "colchão de espuma densidade fabricante"): "ficha técnica", "especificações" ou "norma técnica" sem o produto trazem artigos de indústria e de sistemas de gestão, que o editor bloqueia.
 Cubra as perguntas da pauta. No máximo o número de consultas pedido.${editorLessonsPrompt()}`;
 
 // Fabricantes do cadastro que fazem os tipos da pauta (campo "kinds"). Sem isto o planejador buscou
@@ -279,8 +280,30 @@ export function searchedAlone(runsDir: string, slug: string): Set<string> {
 }
 
 // Domínios que apareceram nas buscas mas não estão no cadastro: candidatos para o editor aprovar.
-export function domainCandidates(runsDir: string, reg: Registry): { host: string; hits: number; topics: string[]; example: { url: string; title: string } }[] {
-  const out = new Map<string, { host: string; hits: number; topics: Set<string>; example: { url: string; title: string } }>();
+// Palavras do nicho (tipos de produto e categorias): um domínio só vira sugestão se alguma página dele que apareceu
+// nas buscas fala do produto. 23/10: o editor bloqueou um a um sites de ERP e indústria com "Ficha técnica: o que é,
+// como fazer e modelos", que vinham das buscas por "<pauta> ficha técnica especificações".
+const NICHE_STOP = new Set(['trabalho', 'suporte', 'outro', 'office', 'avulso', 'para', 'home', 'como', 'qual']);
+export function nicheTerms(): string[] {
+  try {
+    const n = loadNiche();
+    const norm = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return [...new Set([...n.product_kinds.map((k) => k.label), ...n.categories.map((c) => c.label)].flatMap((l) => norm(l).split(/[^a-z0-9]+/)).filter((w) => w.length >= 4 && !NICHE_STOP.has(w)))];
+  } catch {
+    return []; // sem nicho legível: não filtra
+  }
+}
+
+export function domainCandidates(runsDir: string, reg: Registry, terms: string[] = nicheTerms()): { host: string; hits: number; topics: string[]; example: { url: string; title: string } }[] {
+  const out = new Map<string, { host: string; hits: number; topics: Set<string>; example: { url: string; title: string }; relevant: boolean }>();
+  // Menção a norma, regulador ou mobiliário conta como do nicho: o título de documento oficial raramente cita o produto
+  // ("NR17 - Tudo o que você precisa saber", "Volume VII - Mobiliário e Equipamento Escolar"). Órgão público inteiro não
+  // conta: ANTT e Cofeci também aparecem nas buscas.
+  const about = (s: { url: string; title: string }) => {
+    if (!terms.length || /\b(nr[\s-]?17|nbr|abnt|inmetro|anvisa|mobili[aá]rio)\b/i.test(`${s.title} ${s.url}`)) return true;
+    const t = `${s.title} ${s.url}`.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return terms.some((w) => t.includes(w));
+  };
   if (!existsSync(runsDir)) return [];
   for (const run of readdirSync(runsDir)) {
     const f = join(runsDir, run, 'discover.json');
@@ -290,11 +313,13 @@ export function domainCandidates(runsDir: string, reg: Registry): { host: string
     for (const s of d.suggestions ?? []) {
       const host = s.host.replace(/^www\./, '');
       if (classify(`https://${host}/`, reg) !== 'unknown' || NOISE.test(host) || isPublicSuffix(host)) continue;
-      const c = out.get(host) ?? { host, hits: 0, topics: new Set<string>(), example: { url: s.url, title: s.title } };
+      const c = out.get(host) ?? { host, hits: 0, topics: new Set<string>(), example: { url: s.url, title: s.title }, relevant: false };
       c.hits++;
+      // Exemplo mostrado ao editor: a página que fala do produto, se houver.
+      if (!c.relevant && about(s)) { c.relevant = true; c.example = { url: s.url, title: s.title }; }
       if (d.topic) c.topics.add(d.topic);
       out.set(host, c);
     }
   }
-  return [...out.values()].map((c) => ({ ...c, topics: [...c.topics] })).sort((a, b) => b.topics.length - a.topics.length || b.hits - a.hits);
+  return [...out.values()].filter((c) => c.relevant).map(({ relevant: _, ...c }) => ({ ...c, topics: [...c.topics] })).sort((a, b) => b.topics.length - a.topics.length || b.hits - a.hits);
 }
