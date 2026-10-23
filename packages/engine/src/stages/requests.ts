@@ -6,7 +6,7 @@ import { discoverSources } from './discover.ts';
 import { decisionIssues, fixFormWithoutAI, styleIssues } from './page.ts';
 import { readerScore, reviewPage } from './review.ts';
 import { withoutDuplicates } from './duplicates.ts';
-import { applyMoves, attributeSingleSource, dropClaimless } from './structure.ts';
+import { applyMoves, applyRemovals, attributeSingleSource, dropClaimless } from './structure.ts';
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { textDiffs } from '../changes.ts';
@@ -284,13 +284,14 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     {
       role: 'extractor',
       system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta). "rewrite_summary": true quando o pedido é sobre a resposta curta ou o "Como decidir" COMO UM TODO (linguagem para leigo, tirar jargão, mudar o ponto de vista, foco no comprador), e não sobre um dado pontual. ' +
-        '"moves": quando o pedido manda MOVER, transferir, subir ou descer uma tabela ou bloco para outra seção, diga qual (ref) e para qual seção (to), com position "start", "after_first" (depois do 1º bloco) ou "end"; o conteúdo não muda, então NÃO ponha esse bloco em "refs" só por causa da mudança de lugar. A seção que o site mostra no topo, logo depois da resposta curta, é a ÚLTIMA da lista ("Como decidir"); tabela que ajuda a decidir fica nela. Se o trecho citado pelo editor começa com o parágrafo que apresenta a tabela, mova a TABELA (o parágrafo vai junto). "refs" pode ficar vazio se o pedido for só mover. "unsupported": o que o pedido pede e não dá para fazer com reescrita, títulos ou movimentação (ex.: inventar dado sem fonte), ou vazio.',
+        '"moves": quando o pedido manda MOVER, transferir, subir ou descer uma tabela ou bloco para outra seção, diga qual (ref) e para qual seção (to), com position "start", "after_first" (depois do 1º bloco) ou "end"; o conteúdo não muda, então NÃO ponha esse bloco em "refs" só por causa da mudança de lugar. A seção que o site mostra no topo, logo depois da resposta curta, é a ÚLTIMA da lista ("Como decidir"); tabela que ajuda a decidir fica nela. Se o trecho citado pelo editor começa com o parágrafo que apresenta a tabela, mova a TABELA (o parágrafo vai junto). "removes": os blocos ou tabelas que o pedido manda TIRAR, cortar ou apagar (ex.: "tire o bloco de garantia"); não os ponha em "refs". "refs" pode ficar vazio se o pedido for só mover ou tirar. "unsupported": o que o pedido pede e não dá para fazer com reescrita, títulos ou movimentação (ex.: inventar dado sem fonte), ou vazio.',
       user: `Pedido: ${instruction}\n\nSeções (a última aparece no topo da página): ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}\n\nTabelas:\n${tables.map((t) => `- ${t.ref} (na seção "${t.sec}"): ${t.caption}`).join('\n') || '(nenhuma)'}`,
       schema: z.object({
         rewrite_summary: z.boolean().default(false),
         refs: z.array(z.enum(refs)).max(5).default([]),
         headings: z.array(z.object({ id: z.enum(secIds), heading: z.string().min(3).max(70) })).default([]),
         moves: z.array(z.object({ ref: z.enum(movable), to: z.enum(secIds), position: z.enum(['start', 'after_first', 'end']).default('after_first') })).max(3).default([]),
+        removes: z.array(z.enum(movable)).max(6).default([]),
         unsupported: z.string().default(''),
       }),
       schemaName: 'pick_blocks',
@@ -302,12 +303,22 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const heads = new Map(pick.data.headings.map((h) => [h.id, h.heading.replace(/\s+/g, ' ').trim()]));
   const draft0 = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections.map((x) => (heads.has(x.id) ? { ...x, heading: heads.get(x.id)! } : x)) };
   // Movimentação primeiro (sem IA, sem auditoria): o resto do pedido trabalha sobre a página já reorganizada.
-  const moved = applyMoves(draft0 as Draft, pick.data.moves);
+  const moved0 = applyMoves(draft0 as Draft, pick.data.moves);
+  // Remoção pedida, depois da movimentação (os refs do seletor são da página original: só remove o que não se moveu).
+  const after = new Map<object, string>();
+  moved0.draft.sections.forEach((x) => x.blocks.forEach((b, i) => after.set(b, `${x.id}#${i}`)));
+  const toRemove = pick.data.removes
+    .filter((r) => !pick.data.moves.some((m) => m.ref === r))
+    .map((r) => { const [sid, i] = r.split('#'); const b = (draft0 as Draft).sections.find((x) => x.id === sid)?.blocks[Number(i)]; return b ? after.get(b) : undefined; })
+    .filter((r): r is string => !!r);
+  const removed = applyRemovals(moved0.draft, toRemove);
+  const moved = { draft: removed.draft, done: [...moved0.done, ...removed.done.map((r) => `tirado ${r}`)] };
   const draft = moved.draft;
-  const moveNote = moved.done.length ? `; movido: ${moved.done.join(', ')}` : '';
+  const moveNote = moved.done.length ? `; ${moved.done.map((x) => (x.startsWith('tirado ') ? x : `movido ${x}`)).join(', ')}` : '';
   const unsupportedNote =
     (pick.data.unsupported.trim() ? `\nnão feito (o motor não sabe fazer ou não há fonte): ${pick.data.unsupported.trim().slice(0, 200)}` : '') +
-    (pick.data.moves.length && !moved.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '');
+    (pick.data.moves.length && !moved0.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '') +
+    (removed.refused.length ? `\nnão tirado: ${removed.refused.join('; ')}` : '');
   // O que ficou de fora por falta de fonte vira lacuna da pauta e entra na busca semanal (23/10: o pedido sem pesquisa
   // no solteirão não achou a medida do solteirão nas fontes). Só quando o ajuste entendeu o pedido e salvou algo:
   // "não achei a tabela" não é falta de fonte (virou lacuna lixo no mesmo dia).

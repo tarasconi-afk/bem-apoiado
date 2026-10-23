@@ -122,3 +122,27 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   });
   return { draft: out, refs };
 }
+
+// Remover bloco ou tabela por pedido do editor (23/10: "tire os blocos de garantia e o que vem incluso" no solteirão
+// era ignorado; o ajuste só sabia reescrever, mover e trocar título). Sem IA e sem auditoria, porque tirar não afirma
+// nada. Seção que fica vazia sai, mas nunca a última ("Como decidir"), e a página nunca fica com menos de 3 seções:
+// nesse caso a remoção daquela seção não é feita e o motivo volta na resposta.
+export function applyRemovals(d: Draft, refs: string[]): { draft: Draft; done: string[]; refused: string[] } {
+  const sections = d.sections.map((x) => ({ ...x, blocks: [...x.blocks] }));
+  const done: string[] = [];
+  const refused: string[] = [];
+  const valid = [...new Set(refs)].filter((r) => {
+    const [sid, i] = r.split('#');
+    return sections.find((x) => x.id === sid)?.blocks[Number(i)] !== undefined;
+  });
+  for (const r of valid.sort((a, b) => Number(b.split('#')[1]) - Number(a.split('#')[1]))) {
+    const [sid, i] = r.split('#');
+    const sec = sections.find((x) => x.id === sid)!;
+    const last = sections.at(-1)!.id === sid;
+    const nonEmpty = sections.filter((x) => x.blocks.length > 0).length;
+    if (sec.blocks.length === 1 && (last || nonEmpty <= 3)) { refused.push(`${r} (a seção "${sec.heading}" ficaria vazia ${last ? 'e ela é a do "Como decidir"' : 'e a página teria menos de 3 seções'})`); continue; }
+    sec.blocks.splice(Number(i), 1);
+    done.push(r);
+  }
+  return { draft: { ...d, sections: sections.filter((x) => x.blocks.length > 0) }, done, refused };
+}

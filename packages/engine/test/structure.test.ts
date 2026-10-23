@@ -129,3 +129,24 @@ describe('atribuição genérica vira com nomes', () => {
     expect((attributeSingleSource(d, (id) => src[id]).draft as any).verdict.text).toBe('A escolha considera o peso, segundo fabricantes como Castor, Ortobom e Probel. Confira a ficha.');
   });
 });
+
+describe('tirar bloco por pedido do editor', () => {
+  it('tira bloco e tabela, apaga seção vazia, mas nunca esvazia o "Como decidir" nem deixa menos de 3 seções', async () => {
+    const { applyRemovals } = await import('../src/stages/structure.ts');
+    const p = (t: string) => ({ kind: 'paragraph' as const, text: t, basis: 'evidence' as const, claim_ids: ['c'] });
+    const d = { title: 't', description: 'd', verdict: { text: 'v', basis: 'evidence', claim_ids: ['c'] }, sections: [
+      { id: 'a', heading: 'A', blocks: [p('a0')] },
+      { id: 'garantia', heading: 'Garantia', blocks: [p('g0')] },
+      { id: 'incluso', heading: 'O que vem incluso', blocks: [p('i0')] },
+      { id: 'b', heading: 'B', blocks: [p('b0'), p('b1')] },
+      { id: 'como-decidir', heading: 'Como decidir', blocks: [p('d0')] },
+    ] } as never;
+    const r = applyRemovals(d, ['garantia#0', 'incluso#0', 'b#1']);
+    expect(r.done.sort()).toEqual(['b#1', 'garantia#0', 'incluso#0']);
+    expect((r.draft as { sections: { id: string }[] }).sections.map((x) => x.id)).toEqual(['a', 'b', 'como-decidir']);
+    const r2 = applyRemovals(r.draft, ['como-decidir#0', 'a#0']);
+    expect(r2.done).toEqual([]);
+    expect(r2.refused.join(' ')).toMatch(/Como decidir/);
+    expect(r2.refused.join(' ')).toMatch(/menos de 3 seções/);
+  });
+});
