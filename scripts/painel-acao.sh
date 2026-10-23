@@ -136,7 +136,13 @@ merge_branch() {
   npm test >/tmp/painel-test.log 2>&1 || { tail -30 /tmp/painel-test.log; git reset -q --hard origin/main; echo "testes falharam; nada foi enviado" >&2; return 3; }
   npm run -s typecheck || { git reset -q --hard origin/main; echo "typecheck falhou; nada foi enviado" >&2; return 3; }
   npm run -s build >/dev/null || { git reset -q --hard origin/main; echo "build/validate falhou; nada foi enviado" >&2; return 3; }
-  git push -q origin HEAD:main || { git reset -q --hard origin/main; echo "envio ao GitHub falhou; nada foi enviado" >&2; return 5; }
+  # O main andou durante a mesclagem (22/10: uma mudança de fila chegou no meio e o editor viu "envio falhou"):
+  # refaz sobre o main novo, valida e envia de novo, como o publish; só desiste se isso também falhar.
+  if ! git push -q origin HEAD:main; then
+    if ! { git fetch -q origin main && git rebase -q origin/main && npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main; }; then
+      git rebase --abort 2>/dev/null || true; git reset -q --hard origin/main; echo "envio ao GitHub falhou mesmo depois de atualizar; nada foi enviado, tente de novo" >&2; return 5
+    fi
+  fi
   git push -q origin --delete "$ramo" || true
   echo "mesclado: $ramo"
 }
