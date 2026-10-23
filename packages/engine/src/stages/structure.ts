@@ -91,6 +91,11 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   const who = (pubs: string[]) => (pubs.length <= 2 ? pubs.map((p) => `a ${p}`).join(' e ') : `fabricantes como ${pubs.slice(0, 2).join(', ')} e ${pubs[2]}`);
   const attribute = (text: string, pubs: string[]) => {
     if (pubs.some((p) => norm(text).includes(norm(p)))) return text;
+    // Atribuição genérica já escrita ("segundo os fabricantes citados") vira a com nomes, sem duplicar (23/10:
+    // "segundo os fabricantes citados, segundo fabricantes como Castor, Ortobom e Probel").
+    const generic = /(segundo|conforme|de acordo com) (os |as )?(fabricantes|marcas|fontes)( citad[oa]s)?/i;
+    if (generic.test(text)) return text.replace(generic, (m0) => `${m0.split(' ')[0]!.toLowerCase() === 'segundo' ? 'segundo' : m0.split(' ')[0]!} ${who(pubs)}`.replace(/^(\w)/, (c) => (m0[0] === m0[0]!.toUpperCase() ? c.toUpperCase() : c)));
+    if (/\bsegundo (a|o|os|as) \p{Lu}/u.test(text)) return text; // já atribui a alguém pelo nome
     const m = /^([\s\S]*?)([.!?])(\s|$)/.exec(text);
     return m ? `${m[1]}, segundo ${who(pubs)}${m[2]}${text.slice(m[0].length - m[3]!.length)}` : `${text.replace(/[.\s]*$/, '')}, segundo ${who(pubs)}.`;
   };

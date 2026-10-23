@@ -120,3 +120,12 @@ describe('resposta curta a partir das regras', () => {
     expect(verdictFromRules(['Regra de decisão sustentada: sem evidência válida aqui (evidências: clm_x)'], claims)).toBeNull();
   });
 });
+
+describe('atribuição genérica vira com nomes', () => {
+  it('não duplica "segundo"', async () => {
+    const { attributeSingleSource } = await import('../src/stages/structure.ts');
+    const src: Record<string, { publisher: string; source_class: string }> = { a: { publisher: 'Castor', source_class: 'manufacturer' }, b: { publisher: 'Ortobom', source_class: 'manufacturer' }, c: { publisher: 'Probel', source_class: 'manufacturer' } };
+    const d = { title: 't', description: 'd', verdict: { text: 'A escolha considera o peso, segundo os fabricantes citados. Confira a ficha.', basis: 'evidence', claim_ids: ['a', 'b', 'c'] }, sections: [] } as never;
+    expect((attributeSingleSource(d, (id) => src[id]).draft as any).verdict.text).toBe('A escolha considera o peso, segundo fabricantes como Castor, Ortobom e Probel. Confira a ficha.');
+  });
+});
