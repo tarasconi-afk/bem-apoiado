@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Links dos produtos</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1f2328; --muted: #656d76; --link: #0b57d0; --card: #f6f8fa; --border: #d0d7de; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --link: #6ea8fe; --card: #161b22; --border: #30363d; }
+  }
+  :root[data-theme="dark"] { --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --link: #6ea8fe; --card: #161b22; --border: #30363d; }
+  body { font-family: system-ui, sans-serif; max-width: 560px; margin: 32px auto; padding: 0 16px; background: var(--bg); color: var(--fg); }
+  h1 { font-size: 1.3rem; }
+  ol { padding-left: 0; list-style: none; counter-reset: n; }
+  li { counter-increment: n; margin: 10px 0; }
+  li a { display: block; padding: 14px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--link); text-decoration: none; font-weight: 600; }
+  li a::before { content: counter(n) ". "; color: var(--muted); }
+  p.nota { font-size: .85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>Links dos produtos</h1>
+<ol>
+  <li><a href="https://www.amazon.com.br/gp/product/B0H5KNZK8Q?smid=A30WQ69SAENRHA&amp;psc=1&amp;linkCode=ll2&amp;tag=bemapoiado-20&amp;linkId=7fd1d2d1db6b8f225f4ea26a005ef05a&amp;ref_=as_li_ss_tl" target="_blank" rel="sponsored noopener">Produto B0H5KNZK8Q na Amazon</a></li>
+  <li><a href="https://www.amazon.com.br/gp/product/B07SHYN9Q1?smid=A1ZZFT5FULY4LN&amp;psc=1&amp;linkCode=ll2&amp;tag=bemapoiado-20&amp;linkId=52b57f2b31a0fe33ff213eefc1a11a76&amp;ref_=as_li_ss_tl" target="_blank" rel="sponsored noopener">Produto B07SHYN9Q1 na Amazon</a></li>
+  <li><a href="https://www.amazon.com.br/gp/product/B0GQQRZJRB?smid=A1USVSWMG2KXTI&amp;psc=1&amp;linkCode=ll2&amp;tag=bemapoiado-20&amp;linkId=a7b17d8b455f8d16543b85f20a68b4cb&amp;ref_=as_li_ss_tl" target="_blank" rel="sponsored noopener">Produto B0GQQRZJRB na Amazon</a></li>
+  <li><a href="https://www.amazon.com.br/gp/product/B0FCH81LW5?smid=A1DN2YCRMO9F99&amp;psc=1&amp;linkCode=ll2&amp;tag=bemapoiado-20&amp;linkId=6ed199dba3b7552e2bbd079f1979b830&amp;ref_=as_li_ss_tl" target="_blank" rel="sponsored noopener">Produto B0FCH81LW5 na Amazon</a></li>
+  <li><a href="https://www.amazon.com.br/gp/product/B08664PNRY?smid=A1ZZFT5FULY4LN&amp;psc=1&amp;linkCode=ll2&amp;tag=bemapoiado-20&amp;linkId=85320b6b4659972af904a804af48e2bf&amp;ref_=as_li_ss_tl" target="_blank" rel="sponsored noopener">Produto B08664PNRY na Amazon</a></li>
+  <li><a href="https://www.amazon.com.br/gp/product/B09Q4JK85H?smid=A1ZZFT5FULY4LN&amp;psc=1&amp;linkCode=ll2&amp;tag=bemapoiado-20&amp;linkId=98e89bff716461a4ce8d2e7ad9070eee&amp;ref_=as_li_ss_tl" target="_blank" rel="sponsored noopener">Produto B09Q4JK85H na Amazon</a></li>
+</ol>
+<p class="nota">Links de afiliado da Amazon: compras por eles podem gerar comissão, sem custo extra para quem compra.</p>
+</body>
+</html>
