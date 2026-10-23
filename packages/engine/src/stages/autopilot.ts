@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { callJson, creditsLeft, creditsSpent } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
-import { creditsThisMonth } from '../search.ts';
+import { creditsThisMonth, SearchError } from '../search.ts';
 import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, writeJson, writeState } from '../store.ts';
 import { TopicBrief, type PageSpec, type Product } from '@bem-apoiado/core';
 import { findProductsFromAmazon } from './products.ts';
@@ -519,39 +519,47 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   }
   const topic = loadTopics().find((t) => t.slug === planned.topic.slug) ?? planned.topic;
 
-  if (topic.researched_source_ids.length > 0 && topic.evidence_gaps.length > 0) {
-    // Já tentada e reprovada: nova tentativa dirigida às lacunas.
-    const r = await improveTopic(topic.slug, runId);
-    steps.push(`improve: ${r.status === 'DONE' ? `página ${r.page} (+${r.new_sources} fontes, +${r.new_claims} evidências)` : r.reason}`);
-    if (r.status === 'DONE' && r.page === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
-  } else {
-    const d = await discoverSources(topic.slug, runId);
-    steps.push(`discover: ${d.added.length} fontes (${d.queries.length} buscas)`);
-    // Sem fonte nova, ainda pode haver evidência reaproveitada suficiente: só para se não houver nenhuma fonte.
-    if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
-    const r = await research(topic.slug, runId);
-    steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
-    // Só escreve com regra de escolha sustentada; senão, uma busca dirigida ao que falta e nova checagem; ainda
-    // sem regra, a pauta é adiada com o que falta como lacuna (sem gastar redação nem o tempo do editor).
-    const gate = await readyOrResearch(topic.slug, runId, steps);
-    if (!gate) return done({ status: 'STOPPED', slug: topic.slug, query, steps });
-    const p = await buildPage(topic.slug, runId);
-    steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : ''}`);
-    // Parou sem página e sem lacuna registrada: as perguntas sem resposta viram lacunas, senão a fila trata
-    // a pauta como esgotada e nunca volta a ela (cadeira de escritório, 21/10: 0 evidências, 0 lacunas).
-    const t = loadTopic(topic.slug);
-    if (p.status === 'SAFE_STOP' && t.evidence_gaps.length === 0 && r.unanswered.length) {
-      writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: t.questions.filter((q) => r.unanswered.includes(q.id)).map((q) => q.text) }));
-    } else if (p.status === 'SAFE_STOP' && /AUDIT_NOT_CONVERGED/.test(p.reason) && t.evidence_gaps.length === 0 && p.open_issues.length) {
-      // Parou na auditoria com as perguntas respondidas (22/10, cadeira ergonômica ou gamer: 55 evidências): o
-      // que o auditor não aceitou vira lacuna, e a próxima tentativa vai atrás só disso, sem refazer a pauta.
-      writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: p.open_issues.slice(0, 5).map((x) => `Sustentar com fonte ou tirar: ${x.slice(0, 220)}`) }));
+  // Cota de busca esgotada no meio da pauta (teto mensal ou plano do Tavily): para limpo, sem adiar a pauta nem
+  // registrar "sem fonte" (seria aprendizado falso); a manutenção já feita sai normalmente.
+  try {
+    if (topic.researched_source_ids.length > 0 && topic.evidence_gaps.length > 0) {
+      // Já tentada e reprovada: nova tentativa dirigida às lacunas.
+      const r = await improveTopic(topic.slug, runId);
+      steps.push(`improve: ${r.status === 'DONE' ? `página ${r.page} (+${r.new_sources} fontes, +${r.new_claims} evidências)` : r.reason}`);
+      if (r.status === 'DONE' && r.page === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
+    } else {
+      const d = await discoverSources(topic.slug, runId);
+      steps.push(`discover: ${d.added.length} fontes (${d.queries.length} buscas)`);
+      // Sem fonte nova, ainda pode haver evidência reaproveitada suficiente: só para se não houver nenhuma fonte.
+      if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
+      const r = await research(topic.slug, runId);
+      steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
+      // Só escreve com regra de escolha sustentada; senão, uma busca dirigida ao que falta e nova checagem; ainda
+      // sem regra, a pauta é adiada com o que falta como lacuna (sem gastar redação nem o tempo do editor).
+      const gate = await readyOrResearch(topic.slug, runId, steps);
+      if (!gate) return done({ status: 'STOPPED', slug: topic.slug, query, steps });
+      const p = await buildPage(topic.slug, runId);
+      steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : ''}`);
+      // Parou sem página e sem lacuna registrada: as perguntas sem resposta viram lacunas, senão a fila trata
+      // a pauta como esgotada e nunca volta a ela (cadeira de escritório, 21/10: 0 evidências, 0 lacunas).
+      const t = loadTopic(topic.slug);
+      if (p.status === 'SAFE_STOP' && t.evidence_gaps.length === 0 && r.unanswered.length) {
+        writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: t.questions.filter((q) => r.unanswered.includes(q.id)).map((q) => q.text) }));
+      } else if (p.status === 'SAFE_STOP' && /AUDIT_NOT_CONVERGED/.test(p.reason) && t.evidence_gaps.length === 0 && p.open_issues.length) {
+        // Parou na auditoria com as perguntas respondidas (22/10, cadeira ergonômica ou gamer: 55 evidências): o
+        // que o auditor não aceitou vira lacuna, e a próxima tentativa vai atrás só disso, sem refazer a pauta.
+        writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: p.open_issues.slice(0, 5).map((x) => `Sustentar com fonte ou tirar: ${x.slice(0, 220)}`) }));
+      }
+      if (p.status === 'PASS') {
+        const e = await editPage(p.page, runId);
+        steps.push(`edit: ${e.status}`);
+      }
+      if (p.status === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
     }
-    if (p.status === 'PASS') {
-      const e = await editPage(p.page, runId);
-      steps.push(`edit: ${e.status}`);
-    }
-    if (p.status === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
+  } catch (e) {
+    if (!(e instanceof SearchError) || e.code !== 'MONTHLY_CAP') throw e;
+    steps.push(`cota de busca do Tavily esgotada: a pauta "${query}" espera a cota voltar (nada foi adiado). ${(e as Error).message.slice(0, 120)}`);
+    return done(maintained ? { status: 'MAINTENANCE', slug: 'manutencao', steps } : { status: 'STOPPED', slug: topic.slug, query, steps });
   }
   const page = loadPages().find((p) => p.slug === topic.slug);
   const status = page && page.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT';

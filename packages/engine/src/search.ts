@@ -16,6 +16,15 @@ export interface SearchResult {
   score: number;
 }
 
+// Cota do plano Tavily esgotada (432 plano, 433 pague-pelo-uso; 401 chave sem crédito também aparece assim): é o
+// mesmo que o teto mensal, e não "busca sem resultado". Tratada como HTTP, cada busca falhava calada, a descoberta
+// achava 0 fontes e o motor adiava pautas e gastava tentativas de lacuna como se não houvesse fonte (23/10).
+async function httpError(res: Response): Promise<SearchError> {
+  const text = (await res.text()).slice(0, 200);
+  const quota = res.status === 432 || res.status === 433 || (res.status === 429 && /limit|quota|credit/i.test(text));
+  return new SearchError(`${quota ? 'cota do plano Tavily esgotada: ' : ''}HTTP ${res.status} ${text}`, quota ? 'MONTHLY_CAP' : 'HTTP');
+}
+
 export class SearchError extends Error {
   constructor(
     message: string,
@@ -86,7 +95,7 @@ export async function webSearch(query: string, opts: SearchOptions = {}, fetchIm
     }),
     signal: AbortSignal.timeout(30_000),
   });
-  if (!res.ok) throw new SearchError(`HTTP ${res.status} ${(await res.text()).slice(0, 200)}`, 'HTTP');
+  if (!res.ok) throw await httpError(res);
   const body = (await res.json()) as { results?: SearchResult[]; usage?: { credits?: number } };
   charge(body.usage?.credits ?? 1);
   return (body.results ?? []).map((r) => ({ title: r.title, url: r.url, content: r.content, score: r.score }));
@@ -106,7 +115,7 @@ export async function webExtract(url: string, fetchImpl: typeof fetch = fetch, d
     body: JSON.stringify({ urls: [url], extract_depth: depth, include_usage: true }),
     signal: AbortSignal.timeout(60_000),
   });
-  if (!res.ok) throw new SearchError(`HTTP ${res.status} ${(await res.text()).slice(0, 200)}`, 'HTTP');
+  if (!res.ok) throw await httpError(res);
   const body = (await res.json()) as { results?: { raw_content?: string }[]; usage?: { credits?: number } };
   charge(body.usage?.credits ?? 0);
   const text = body.results?.[0]?.raw_content ?? '';
