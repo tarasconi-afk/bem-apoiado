@@ -298,6 +298,11 @@ case "$action" in
     npm run -s engine -- registry block "$2"
     publish "Painel: domínio bloqueado $2"
     ;;
+  dominio-desfazer)
+    fresh
+    npm run -s engine -- registry undo "$2"
+    publish "Painel: decisão sobre o domínio $2 desfeita"
+    ;;
   mesclar)
     merge_branch "$2" "${3:-}"
     preview

@@ -343,8 +343,14 @@ async function main(): Promise<number> {
       const { editRegistry } = await import('./stages/discover.ts');
       if (op === 'allow' && host && cls && pub.length) console.log(editRegistry('allow', host, pub.join(' '), cls as never) ? `cadastrado: ${host} (${cls}, ${pub.join(' ')})` : `${host} já estava no cadastro`);
       else if (op === 'block' && host) console.log(editRegistry('block', host) ? `bloqueado: ${host}` : `${host} já estava no cadastro`);
-      else {
-        console.error('uso: registry allow <host> <manufacturer|regulator|standard_body|independent_test> <publicador> | registry block <host>');
+      else if (op === 'undo' && host) {
+        // Desfaz a decisão (do motor ou do editor): o domínio volta à lista de domínios novos.
+        const { forgetDomain, recordDecision } = await import('./stages/domains.ts');
+        const ok = forgetDomain(host);
+        if (ok) recordDecision({ host, action: 'undo', reason: 'desfeito pelo editor no painel', at: new Date().toISOString(), by: 'editor' });
+        console.log(ok ? `desfeito: ${host} volta para domínios novos` : `${host} não estava no cadastro`);
+      } else {
+        console.error('uso: registry allow <host> <manufacturer|regulator|standard_body|independent_test> <publicador> | registry block <host> | registry undo <host>');
         return 2;
       }
       return 0;

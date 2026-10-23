@@ -17,6 +17,7 @@ import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
 import { setReportedBalance } from './credits.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
+import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
 import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
@@ -617,9 +618,14 @@ function domainsHtml(): string {
   } catch {
     return '<p class="muted">não foi possível ler os candidatos agora</p>';
   }
-  if (!cands.length) return '<p class="muted">Nenhum domínio fora do cadastro apareceu nas buscas.</p>';
+  // Decisões do motor (avaliação automática + revogação de aprovado que não rende), com desfazer.
+  const LABEL: Record<string, string> = { allow: 'aprovado', block: 'bloqueado', unsure: 'em dúvida: decida você', revoke: 'revogado (não rendia)', undo: 'desfeito' };
+  const CLS: Record<string, string> = { manufacturer: 'fabricante', regulator: 'órgão regulador', standard_body: 'norma técnica', independent_test: 'teste independente' };
+  const dec = loadDecisions().filter((d) => d.by !== 'editor' && Date.now() - Date.parse(d.at) < 30 * 86_400_000).reverse().slice(0, 20);
+  const decHtml = dec.length ? `<details class="fold" open><summary><strong>Decisões do motor</strong> <span class="muted">(últimos 30 dias; ele aprova ou bloqueia só com confiança alta e revoga aprovado que não rende)</span></summary><div class="tw" style="margin-top:8px"><table><thead><tr><th>Domínio</th><th>Decisão</th><th>Motivo</th><th></th></tr></thead><tbody>${dec.map((d) => `<tr><td><code>${esc(d.host)}</code>${d.publisher ? `<span class="sub">${esc(d.publisher)}</span>` : ''}</td><td><span class="b ${d.action === 'allow' ? 'ok' : d.action === 'unsure' ? 'warn' : 'bad'}">${esc(LABEL[d.action] ?? d.action)}</span>${d.source_class ? `<span class="sub">${esc(CLS[d.source_class] ?? d.source_class)}</span>` : ''}</td><td class="muted">${esc(d.reason)}${d.confidence !== undefined ? ` (confiança ${Math.round(d.confidence * 100)}%)` : ''}</td><td class="actions">${d.action === 'allow' || d.action === 'block' || d.action === 'revoke' ? form('dominio-desfazer', { host: d.host }, 'Desfazer', '', `Desfazer a decisão sobre ${d.host}? Ele volta para a lista de domínios novos.`) : ''}</td></tr>`).join('')}</tbody></table></div></details>` : '';
+  if (!cands.length) return `${decHtml}<p class="muted">Nenhum domínio fora do cadastro esperando você.</p>`;
   const opts = [['manufacturer', 'Fabricante'], ['regulator', 'Órgão regulador'], ['standard_body', 'Norma técnica'], ['independent_test', 'Teste independente']].map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
-  return `<p class="muted">A busca só usa domínios aprovados. <b>Fabricante</b>: site oficial de uma marca (ex.: ortobom.com.br). <b>Órgão regulador</b>: quem cria ou fiscaliza regra (Inmetro, Anvisa, Diário Oficial da União). <b>Norma técnica</b>: quem publica normas (ABNT). <b>Teste independente</b>: laboratório ou associação que testa produto (Proteste). Todo o resto (loja, blog, ranking, reclamação de consumidor, prefeitura, notícia): <b>bloquear</b>.</p>
+  return `${decHtml}<p class="muted">O motor avalia os domínios novos sozinho e só deixa aqui os casos em que ficou em dúvida (ou que ainda não avaliou). A busca só usa domínios aprovados. <b>Fabricante</b>: site oficial de uma marca (ex.: ortobom.com.br). <b>Órgão regulador</b>: quem cria ou fiscaliza regra (Inmetro, Anvisa, Diário Oficial da União). <b>Norma técnica</b>: quem publica normas (ABNT). <b>Teste independente</b>: laboratório ou associação que testa produto (Proteste). Todo o resto (loja, blog, ranking, reclamação de consumidor, prefeitura, notícia): <b>bloquear</b>.</p>
 <div class="tw"><table><thead><tr><th>Domínio</th><th>Visto em</th><th>Exemplo</th><th></th></tr></thead><tbody>${cands.map((c) => `<tr><td><code>${esc(c.host)}</code></td><td class="muted">${c.topics.length} pauta(s), ${c.hits}x</td><td><a href="${esc(c.example.url)}" target="_blank" rel="noopener noreferrer">${esc(c.example.title.slice(0, 70))}</a></td><td>
 <form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="dominio-aprovar"><input type="hidden" name="host" value="${esc(c.host)}"><input name="publicador" required maxlength="60" placeholder="nome (ex.: Cavaletti)" style="min-width:120px"><select name="classe">${opts}</select><button class="ok">Aprovar</button></form>
 ${form('dominio-bloquear', { host: c.host }, 'Bloquear', 'bad')}</td></tr>`).join('')}</tbody></table></div>`;
@@ -970,6 +976,11 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const q = clean(f.get('consulta'), 120);
     if (q.length < 3) return 'consulta inválida';
     return { label: `${acao === 'fila-adicionar' ? 'adicionar à' : 'remover da'} fila: ${q}`, args: [acao, q] };
+  }
+  if (acao === 'dominio-desfazer') {
+    const host = clean(f.get('host'), 100).toLowerCase();
+    if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(host)) return 'domínio inválido';
+    return { label: `desfazer decisão sobre ${host}`, args: ['dominio-desfazer', host] };
   }
   if (acao === 'dominio-aprovar' || acao === 'dominio-bloquear') {
     const host = clean(f.get('host'), 100).toLowerCase();

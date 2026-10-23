@@ -151,6 +151,10 @@ Feito em 22/10:
       palavras do endereço; Tavily só onde o mapa não acha nada. Brave Search como reserva quando a cota da Tavily
       acaba ou ela cai; cota esgotada para a página nova limpo, sem adiar pauta
 
+- [x] domínios novos avaliados pelo motor (23/10, pedido do dono): aprova ou bloqueia só com confiança ≥ 85%, deixa
+      a dúvida para o editor, registra motivo em data/registry/decisions.json, revoga depois de 14 dias o que aprovou
+      e não rendeu; "Desfazer" no painel
+
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais

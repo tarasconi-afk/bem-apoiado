@@ -388,6 +388,24 @@ async function maintainSummary(runId: string, steps: string[]): Promise<boolean>
 
 // Parágrafos repetidos em páginas no ar: remove a cópia (determinístico, sem custo de IA). Sai como resultado
 // para o editor aceitar, com o antes → depois. Até 3 páginas por ciclo.
+// Domínios novos: o motor avalia até 5 por ciclo (~0,1 crédito cada) e decide só com confiança alta; depois revoga
+// o que ele aprovou e não rendeu. Tudo vai para o cadastro (aprendizado, entra sozinho) com motivo e desfazer no painel.
+async function maintainDomains(steps: string[]): Promise<boolean> {
+  if (creditsLeft() < 10) return false;
+  try {
+    const { evaluateDomains, auditApprovedDomains } = await import('./domains.ts');
+    const revoked = auditApprovedDomains();
+    const ds = await evaluateDomains({ max: 5 });
+    const say = (a: string) => ds.filter((d) => d.action === a).map((d) => d.host);
+    const parts = [say('allow').length ? `aprovados ${say('allow').join(', ')}` : '', say('block').length ? `bloqueados ${say('block').join(', ')}` : '', say('unsure').length ? `em dúvida (ficam para você) ${say('unsure').join(', ')}` : '', revoked.length ? `revogados ${revoked.map((r) => r.host).join(', ')}` : ''].filter(Boolean);
+    if (parts.length) steps.push(`domínios novos: ${parts.join('; ')}`);
+    return ds.length > 0 || revoked.length > 0;
+  } catch (e) {
+    steps.push(`domínios novos: avaliação falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
+
 async function maintainDuplicates(steps: string[]): Promise<boolean> {
   let changed = false;
   for (const p of loadPages().filter((x) => x.status !== 'draft').slice(0)) {
@@ -484,7 +502,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m7 = await maintainLinks(steps);
   const m8 = await maintainSummary(runId, steps);
   const m9 = await maintainDuplicates(steps);
-  const maintained = m1 || m2 || m3 || m4a || m4 || m5 || m6 || m7 || m8 || m9;
+  const m10 = await maintainDomains(steps);
+  const maintained = m1 || m2 || m3 || m4a || m4 || m5 || m6 || m7 || m8 || m9 || m10;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
