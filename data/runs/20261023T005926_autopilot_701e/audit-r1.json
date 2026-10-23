@@ -1,0 +1,108 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o pillow top é uma camada extra de conforto e mostram um modelo específico com espuma de 5 cm, além da recomendação do fabricante para quando a prioridade é conforto extra. Porém, não sustentam que todo pillow top seja costurado, que seja geralmente feito de espuma, nem que todo pillow top acrescente 5 cm de altura. A recomendação também se refere ao modelo citado, não necessariamente à categoria inteira.",
+      "fix": "Pillow top é uma camada extra de conforto. No modelo Pillow Top HR Gel citado, ela é uma lâmina de espuma de poliuretano de 5 cm. Segundo a Ortobom, esse modelo é recomendado quando a prioridade é conforto extra para dormir; portanto, verifique a altura específica do produto antes de usá-lo em uma cama, baú ou com o lençol disponível."
+    },
+    {
+      "ref": "o-que-e-pillow-top#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o pillow top é uma camada extra de conforto com elástico nas laterais e sustentam as descrições dos materiais atribuídas a cada fabricante. Porém, não dizem que a espuma High Resilience Gel é poliuretano com partículas de gel; esse detalhe não aparece nos trechos citados.",
+      "fix": "Pillow top é uma camada extra de conforto com elástico nas laterais para fixação ao colchão. Os materiais variam conforme o fabricante: a Ortobom oferece espuma High Resilience Gel ou espuma viscoelástica com células de memória; a Simmons utiliza algodão nobre com fibra siliconada; e a Americanflex usa espuma tradicional."
+    },
+    {
+      "ref": "altura-e-medidas#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam que existe uma lâmina de espuma de 5,0 cm, mas não dizem que ela acrescenta 5,0 cm à altura total do colchão. Também não sustentam que a medida deve constar na ficha técnica nem que varia conforme modelo e marca.",
+      "fix": "Segundo páginas da Ortobom para os modelos King, Queen e Solteiro, o pillow top contém uma lâmina de espuma de 5,0 cm."
+    },
+    {
+      "ref": "altura-e-medidas#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta uma tolerância de ±1,0 cm para as dimensões finais do produto, mas não mostra que essa regra se aplica especificamente a um pillow top de 5 cm. A faixa de 4 a 6 cm só pode ser apresentada como consequência condicional se a tolerância citada for aplicável a esse produto.",
+      "fix": "O documento citado informa que as dimensões finais do produto podem variar em ±1,0 cm. Se essa tolerância se aplicar a um pillow top nominal de 5 cm, a medida poderá ficar entre 4 e 6 cm."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados não dizem que um colchão com pillow top segue as mesmas regras que um colchão sem essa camada. Eles apenas informam que há certificação compulsória e que o selo se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura.",
+      "fix": "A certificação compulsória verifica requisitos de desempenho, e o selo do Inmetro refere-se somente às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a informação sobre densidades nominais e, para colchão composto e/ou misto, respectivas espessuras, mas não mostram que a exigência se aplica especificamente a qualquer colchão com pillow top nem que deve ser informada na etiqueta pelo fabricante.",
+      "fix": "Para colchões compostos e/ou mistos, o Inmetro lista as densidades nominais das lâminas de espuma e suas respectivas espessuras entre as informações a serem apresentadas."
+    },
+    {
+      "ref": "garantia-pillow-top#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a Ortobom informa garantia de 90 dias para o Pillow Top HR Gel, mas não dizem que a garantia do pillow top pode ser diferente da garantia do colchão.",
+      "fix": "Segundo a Ortobom, o Pillow Top HR Gel tem garantia de 90 dias."
+    },
+    {
+      "ref": "garantia-pillow-top#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram prazos diferentes para categorias como estrutura, tecido e mecanismos, além de 90 dias para um pillow top da Ortobom, mas não afirmam que um fabricante ofereça prazos distintos especificamente para a estrutura interna e o pillow top de um mesmo colchão.",
+      "fix": "Ao comprar um colchão com pillow top, consulte a ficha técnica para verificar os prazos de garantia informados para cada componente; eles podem variar, como nos exemplos citados."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que o pillow top HR Gel da Ortobom tem densidade de 50 kg/m³ e espessura de 5,0 cm. Eles não dizem que, ao comparar marcas, o consumidor deve conferir esses dados na ficha técnica.",
+      "fix": "O pillow top HR Gel da Ortobom tem 50 kg/m³ de densidade e 5,0 cm de espessura, conforme a ficha técnica citada."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que o pillow top é uma camada extra de conforto e mostram um modelo específico com espuma de 5 cm, além da recomendação do fabricante para quando a prioridade é conforto extra. Porém, não sustentam que todo pillow top seja costurado, que seja geralmente feito de espuma, nem que todo pillow top acrescente 5 cm de altura. A recomendação também se refere ao modelo citado, não necessariamente à categoria inteira. Versão sustentável: Pillow top é uma camada extra de conforto. No modelo Pillow Top HR Gel citado, ela é uma lâmina de espuma de poliuretano de 5 cm. Segundo a Ortobom, esse modelo é recomendado quando a prioridade é conforto extra para dormir; portanto, verifique a altura específica do produto antes de usá-lo em uma cama, baú ou com o lençol disponível."
+    },
+    {
+      "ref": "o-que-e-pillow-top#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o pillow top é uma camada extra de conforto com elástico nas laterais e sustentam as descrições dos materiais atribuídas a cada fabricante. Porém, não dizem que a espuma High Resilience Gel é poliuretano com partículas de gel; esse detalhe não aparece nos trechos citados. Versão sustentável: Pillow top é uma camada extra de conforto com elástico nas laterais para fixação ao colchão. Os materiais variam conforme o fabricante: a Ortobom oferece espuma High Resilience Gel ou espuma viscoelástica com células de memória; a Simmons utiliza algodão nobre com fibra siliconada; e a Americanflex usa espuma tradicional."
+    },
+    {
+      "ref": "altura-e-medidas#0",
+      "msg": "UNSUPPORTED. Os trechos informam que existe uma lâmina de espuma de 5,0 cm, mas não dizem que ela acrescenta 5,0 cm à altura total do colchão. Também não sustentam que a medida deve constar na ficha técnica nem que varia conforme modelo e marca. Versão sustentável: Segundo páginas da Ortobom para os modelos King, Queen e Solteiro, o pillow top contém uma lâmina de espuma de 5,0 cm."
+    },
+    {
+      "ref": "altura-e-medidas#1",
+      "msg": "OVERSTATED. O trecho sustenta uma tolerância de ±1,0 cm para as dimensões finais do produto, mas não mostra que essa regra se aplica especificamente a um pillow top de 5 cm. A faixa de 4 a 6 cm só pode ser apresentada como consequência condicional se a tolerância citada for aplicável a esse produto. Versão sustentável: O documento citado informa que as dimensões finais do produto podem variar em ±1,0 cm. Se essa tolerância se aplicar a um pillow top nominal de 5 cm, a medida poderá ficar entre 4 e 6 cm."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "UNSUPPORTED. Os trechos citados não dizem que um colchão com pillow top segue as mesmas regras que um colchão sem essa camada. Eles apenas informam que há certificação compulsória e que o selo se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura. Versão sustentável: A certificação compulsória verifica requisitos de desempenho, e o selo do Inmetro refere-se somente às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "OVERSTATED. Os trechos sustentam a informação sobre densidades nominais e, para colchão composto e/ou misto, respectivas espessuras, mas não mostram que a exigência se aplica especificamente a qualquer colchão com pillow top nem que deve ser informada na etiqueta pelo fabricante. Versão sustentável: Para colchões compostos e/ou mistos, o Inmetro lista as densidades nominais das lâminas de espuma e suas respectivas espessuras entre as informações a serem apresentadas."
+    },
+    {
+      "ref": "garantia-pillow-top#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Ortobom informa garantia de 90 dias para o Pillow Top HR Gel, mas não dizem que a garantia do pillow top pode ser diferente da garantia do colchão. Versão sustentável: Segundo a Ortobom, o Pillow Top HR Gel tem garantia de 90 dias."
+    },
+    {
+      "ref": "garantia-pillow-top#1",
+      "msg": "OVERSTATED. Os trechos mostram prazos diferentes para categorias como estrutura, tecido e mecanismos, além de 90 dias para um pillow top da Ortobom, mas não afirmam que um fabricante ofereça prazos distintos especificamente para a estrutura interna e o pillow top de um mesmo colchão. Versão sustentável: Ao comprar um colchão com pillow top, consulte a ficha técnica para verificar os prazos de garantia informados para cada componente; eles podem variar, como nos exemplos citados."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que o pillow top HR Gel da Ortobom tem densidade de 50 kg/m³ e espessura de 5,0 cm. Eles não dizem que, ao comparar marcas, o consumidor deve conferir esses dados na ficha técnica. Versão sustentável: O pillow top HR Gel da Ortobom tem 50 kg/m³ de densidade e 5,0 cm de espessura, conforme a ficha técnica citada."
+    }
+  ]
+}
