@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html pt>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="ctOb4eVlggsGKJ1n5IVFR6ioeIJD0IznGBwacdOI">
+    <title>Cavaletti             :: Produtos            </title>
+    <link rel="shortcut icon" href="https://www.cavaletti.com.br/images/favicon.png" type="image/x-icon">
+    <script>
+        // Evita o salto nativo da âncora antes do layout da página de produto
+        (function () {
+            if (!/^\/produtos\/[^\/?#]+/.test(location.pathname)) return
+            if (!location.hash) return
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+            window.__cavalettiPendingProductHash = location.hash
+            history.replaceState(null, '', location.pathname + location.search)
+        })()
+    </script>
+    <!-- Incluindo jQuery -->
+    <script src="https://www.cavaletti.com.br/vendor/jquery-3.6.0.min.js"></script>
+
+    <!-- DearFlip CSS, Icons -->
+    <link rel="stylesheet" href="https://www.cavaletti.com.br/vendor/dearflip-js-flipbook-master/dflip/css/dflip.min.css">
+    <link rel="stylesheet" href="https://www.cavaletti.com.br/vendor/dearflip-js-flipbook-master/dflip/css/themify-icons.min.css">
+
+    <!-- Fancybox Carousel -->
+    <link rel="stylesheet"
+        href="https://www.cavaletti.com.br/vendor/fancybox-carousel-5.0.36/css/fancybox-carousel.min.css" />
+
+    <!-- Fancybox -->
+    <link rel="stylesheet"
+        href="https://www.cavaletti.com.br/vendor/fancybox-5.0.36/css/fancybox.min.css" />
+
+    <!-- Fancybox Thumbs -->
+    <link rel="stylesheet"
+        href="https://www.cavaletti.com.br/vendor/fancybox-carousel-5.0.36/css/carousel.thumbs.min.css" />
+
+    <!-- CSS do Toastr -->
+    <link href="https://www.cavaletti.com.br/vendor/toastr/css/toastr.min.css" rel="stylesheet" />
+
+    <!-- JS do Toastr -->
+    <script src="https://www.cavaletti.com.br/vendor/toastr/js/toastr.min.js"></script>
+    <script>
+        if (typeof toastr !== 'undefined') {
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 4000,
+                extendedTimeOut: 1500,
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var raw = sessionStorage.getItem('cavaletti_flash_alerts');
+            if (!raw) {
+                return;
+            }
+
+            sessionStorage.removeItem('cavaletti_flash_alerts');
+
+            try {
+                JSON.parse(raw).forEach(function(alert) {
+                    if (typeof toastr !== 'undefined' && typeof toastr[alert.type] === 'function') {
+                        toastr[alert.type](alert.message);
+                    }
+                });
+            } catch (e) {}
+        });
+    </script>
+
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="https://www.cavaletti.com.br/vendor/slick-carousel-1.8.1/css/slick.min.css" />
+
+    <link rel="preload" as="style" href="https://www.cavaletti.com.br/build/assets/tailwind-a88bfd29.css" /><link rel="preload" as="style" href="https://www.cavaletti.com.br/build/assets/app-cfe64dad.css" /><link rel="preload" as="style" href="https://www.cavaletti.com.br/build/assets/app-4d2ff9cb.css" /><link rel="modulepreload" href="https://www.cavaletti.com.br/build/assets/app-64b218b6.js" /><link rel="stylesheet" href="https://www.cavaletti.com.br/build/assets/tailwind-a88bfd29.css" /><link rel="stylesheet" href="https://www.cavaletti.com.br/build/assets/app-cfe64dad.css" /><link rel="stylesheet" href="https://www.cavaletti.com.br/build/assets/app-4d2ff9cb.css" /><script type="module" src="https://www.cavaletti.com.br/build/assets/app-64b218b6.js"></script></head>
+
+<body>
+    <!-- menu responsivo -->
+    <div id="menu-responsivo" class="">
+    <div class="left-side">
+        <div class="menu-drawer-header">
+            <h2>Menu</h2>
+            <button type="button"
+                class="menu-drawer-close"
+                aria-label="Fechar menu">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="content menu-drawer">
+            <a rel="noopener noreferrer" class="menu-drawer__logo" href="https://www.cavaletti.com.br">
+                <img loading="lazy" src="https://www.cavaletti.com.br/images/logo_pt.png" alt="Cavaletti">
+            </a>
+
+            <nav class="menu-drawer__nav menu-drawer__nav--top" aria-label="Menu principal">
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--top"
+                    href="https://www.cavaletti.com.br/fale-conosco">
+                    Fale Conosco
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--top"
+                    href="https://www.cavaletti.com.br/representantes">
+                    Representantes
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--top" target="_blank"
+                    href="https://cavaletti.portaldetalentos.senior.com.br/">
+                    Trabalhe Conosco
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--top menu-drawer__link--warehouse"
+                    target="_blank" href="https://3dwarehouse.sketchup.com/by/Cavaletti?tab=collections">
+                    <span class="menu-drawer__warehouse-inner">
+                        <img loading="lazy" src="https://www.cavaletti.com.br/images/ico3dwarehouse.png" alt="">
+                        <span class="menu-drawer__warehouse-label">3D Warehouse</span>
+                    </span>
+                </a>
+            </nav>
+
+            <nav class="menu-drawer__nav menu-drawer__nav--site" aria-label="Navegação do site">
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--site is-active"
+                    href="https://www.cavaletti.com.br/produtos">
+                    Produtos
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--site "
+                    href="https://www.cavaletti.com.br/worklab">
+                    Worklab
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--site "
+                    href="https://www.cavaletti.com.br/inspiracao">
+                    Inspiração
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--site "
+                    href="https://www.cavaletti.com.br/recursos">
+                    Downloads
+                </a>
+
+                <div class="menu-accordion " data-menu-accordion>
+                    <button type="button" class="menu-accordion__trigger menu-drawer__link menu-drawer__link--site "
+                        aria-expanded="false">
+                        <span>A Cavaletti</span>
+                        <span class="menu-accordion__icon" aria-hidden="true">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="menu-accordion__panel">
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/nossa-historia">
+                            Nossa História
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/gestao-de-pessoas">
+                            Gestão de Pessoas
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/ergonomia">
+                            Ergonomia
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/sustentabilidade">
+                            Sustentabilidade
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/certificacoes">
+                            Certificações
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/a-cavaletti">
+                            A Cavaletti
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/noticias">
+                            Notícias
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/clipping">
+                            Clipping
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/info-cavaletti">
+                            Info Cavaletti
+                        </a>
+                        <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--sub"
+                            href="https://www.cavaletti.com.br/institucional/lgpd">
+                            LGPD
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <hr class="menu-drawer__divider">
+
+            <nav class="menu-drawer__nav menu-drawer__nav--legal" aria-label="Políticas e privacidade">
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--legal"
+                    href="https://www.cavaletti.com.br/institucional/politica-de-direitos">
+                    Política de Direitos do Titular de Dados
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--legal"
+                    href="https://www.cavaletti.com.br/institucional/aviso-de-privacidade">
+                    Aviso de Privacidade
+                </a>
+                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--legal"
+                    href="https://www.cavaletti.com.br/institucional/cookies">
+                    Política de Cookies
+                </a>
+
+                                    <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--legal"
+                        href="https://www.cavaletti.com.br/institucional/canal-de-etica">
+                        Canal de Ética e Conduta
+                    </a>
+                
+                                                                                <a rel="noopener noreferrer" class="menu-drawer__link menu-drawer__link--legal" target="_blank"
+                            href="https://www.cavaletti.com.br/storage/codigo-etica/May2026/Sb9Den2ZhcHdiYhAXk2H.pdf">
+                            Código de Ética e Conduta
+                        </a>
+                                                </nav>
+
+            <div class="menu-drawer__social">
+                <span class="menu-drawer__social-label">Siga-nos</span>
+                <div class="menu-drawer__social-icons">
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/Cavaletti/" class="menu-drawer__social-link menu-drawer__social-link--facebook" aria-label="Facebook"></a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/cavaletti/" class="menu-drawer__social-link menu-drawer__social-link--linkedin" aria-label="LinkedIn"></a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/cavalettisa/?hl=pt-br" class="menu-drawer__social-link menu-drawer__social-link--instagram" aria-label="Instagram"></a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCZpzqGS5VoaoIxkbIGHE_qw" class="menu-drawer__social-link menu-drawer__social-link--youtube" aria-label="YouTube"></a>
+                </div>
+            </div>
+
+            <div class="lang-switcher menu-drawer__lang" data-selected="pt">
+                <div class="lang-selected">
+                    <img src="/images/flags/pt.jpg" alt="BR" class="lang-flag">
+                    <span>BR</span>
+                </div>
+                <ul class="lang-list">
+                                                                                                                    <li class="lang-item" data-lang="en">
+                                <img src="/images/flags/en.jpg" alt="EN" class="lang-flag">
+                                <span>EN</span>
+                            </li>
+                                                                                                <li class="lang-item" data-lang="es">
+                                <img src="/images/flags/es.jpg" alt="ES" class="lang-flag">
+                                <span>ES</span>
+                            </li>
+                                                            </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-side" role="button" tabindex="0" aria-label="Fechar menu"></div>
+</div>
+
+    <!-- inclusão do menu top -->
+    <header id="first-header">
+    <div class="top-side">
+        <div class="content">
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br">
+                                <img loading="lazy" src="https://www.cavaletti.com.br/images/logo_pt.png">
+            </a>
+
+            <!-- right content -->
+            <div class="right-top">
+                <a rel="noopener noreferrer" class="dwarehouse-header"
+                    target="_blank" href="https://3dwarehouse.sketchup.com/by/Cavaletti?tab=collections">
+                    <img loading="lazy" src="https://www.cavaletti.com.br/images/ico3dwarehousewhite.png">
+                    3D Warehouse
+                </a>
+                <a rel="noopener noreferrer"
+                    class=""
+                    href="https://www.cavaletti.com.br/fale-conosco">
+                    Fale Conosco
+                </a>
+                <a rel="noopener noreferrer"
+                    class=""
+                    href="https://www.cavaletti.com.br/representantes">
+                    Representantes
+                </a>
+                <a rel="noopener noreferrer" target="_blank"
+                    href="https://cavaletti.portaldetalentos.senior.com.br/">
+                    Trabalhe Conosco
+                </a>
+
+                <!-- ícones redes sociais -->
+                <div class="redes">
+                    <div class="flexes-redes">
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/Cavaletti/"
+                            class="facebook-header"></a>
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/cavaletti/"
+                            class="linkedin-header"></a>
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/cavalettisa/?hl=pt-br"
+                            class="instagram-header"></a>
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCZpzqGS5VoaoIxkbIGHE_qw"
+                            class="youtube-header"></a>
+                    </div>
+                </div>
+
+                <!-- linguagens -->
+                <div class="lang-switcher" data-selected="pt">
+                    
+                    <!-- Botão que mostra o idioma selecionado -->
+                    <div class="lang-selected">
+                        <img src="/images/flags/pt.jpg" alt="BR"
+                            class="lang-flag">
+                        <span>BR</span>
+                    </div>
+
+                    <!-- Lista de opções -->
+                    <ul class="lang-list">
+                                                                                                                                        <li class="lang-item" data-lang="en">
+                                    <img src="/images/flags/en.jpg" alt="EN" class="lang-flag">
+                                    <span>EN</span>
+                                </li>
+                                                                                                                <li class="lang-item" data-lang="es">
+                                    <img src="/images/flags/es.jpg" alt="ES" class="lang-flag">
+                                    <span>ES</span>
+                                </li>
+                                                                        </ul>
+                </div>
+
+                <div class="search-bar search-bar--top">
+    <form role="search" method="get" id="searchform-mobile" class="searchform"
+        action="https://www.cavaletti.com.br/recursos/search-menu-top"
+        data-suggest-url="https://www.cavaletti.com.br/recursos/search-menu-top/suggest"
+        autocomplete="off">
+        <label class="sr-only" for="s-mobile">Digite a palavra chave</label>
+        <input
+            type="search"
+            name="busca"
+            id="s-mobile"
+            minlength="2"
+            placeholder="Digite a palavra chave"
+            autocomplete="off"
+            aria-autocomplete="list"
+            aria-controls="search-suggest-mobile"
+            aria-expanded="false"
+            required
+        >
+        <button type="submit" aria-label="Pesquisar"></button>
+    </form>
+    <div id="search-suggest-mobile" class="search-suggest" role="listbox" hidden></div>
+</div>
+            </div>
+
+            <!-- ícone do menu hamburguer -->
+            <button type="button"
+    class="hamburguer-bt"
+    aria-label="Abrir menu"
+    aria-expanded="false"
+    aria-controls="menu-responsivo">
+    <span class="hamburguer-bt__bars" aria-hidden="true">
+        <span class="hamburguer-bt__line"></span>
+        <span class="hamburguer-bt__line"></span>
+        <span class="hamburguer-bt__line"></span>
+    </span>
+</button>
+
+        </div>
+    </div>
+</header>
+
+<header id="header" class="fixed-header">
+    <div class="button-side">
+        <a class="fixed-header-logo" rel="noopener noreferrer" href="https://www.cavaletti.com.br">
+                        <img loading="lazy" src="https://www.cavaletti.com.br/images/logo_pt.png">
+        </a>
+
+        <div class="menu-s" style="border-color: rgb(33, 18, 18);">
+            <a rel="noopener noreferrer"
+                class="produtos active" href="https://www.cavaletti.com.br/produtos"
+                style="color: rgb(33, 18, 18);">
+                Produtos
+            </a>
+            <a rel="noopener noreferrer"
+                class="worklab " href="https://www.cavaletti.com.br/worklab"
+                style="color: rgb(33, 18, 18);">
+                Worklab
+            </a>
+            <a rel="noopener noreferrer"
+                class="inspiracao " href="https://www.cavaletti.com.br/inspiracao"
+                style="color: rgb(33, 18, 18);">
+                Inspiração
+            </a>
+            <a rel="noopener noreferrer"
+                class="downloads "
+                href="https://www.cavaletti.com.br/recursos" style="color: rgb(33, 18, 18);">
+                Downloads
+            </a>
+
+            
+            <a rel="noopener noreferrer"
+                class="cavaletti " href="javascript:void(0)"
+                style="color: rgb(33, 18, 18);">
+                A Cavaletti
+            </a>
+
+            <div class="search-bar search-bar--menu">
+    <form role="search" method="get" id="searchform" class="searchform"
+        action="https://www.cavaletti.com.br/recursos/search-menu-top"
+        data-suggest-url="https://www.cavaletti.com.br/recursos/search-menu-top/suggest"
+        autocomplete="off">
+        <label class="sr-only" for="s">Digite a palavra chave</label>
+        <input
+            type="search"
+            name="busca"
+            id="s"
+            minlength="2"
+            placeholder="Digite a palavra chave"
+            autocomplete="off"
+            aria-autocomplete="list"
+            aria-controls="search-suggest"
+            aria-expanded="false"
+            required
+        >
+        <button type="submit" aria-label="Pesquisar"></button>
+    </form>
+    <div id="search-suggest" class="search-suggest" role="listbox" hidden></div>
+</div>
+        </div>
+
+        <button type="button"
+    class="hamburguer-bt"
+    aria-label="Abrir menu"
+    aria-expanded="false"
+    aria-controls="menu-responsivo">
+    <span class="hamburguer-bt__bars" aria-hidden="true">
+        <span class="hamburguer-bt__line"></span>
+        <span class="hamburguer-bt__line"></span>
+        <span class="hamburguer-bt__line"></span>
+    </span>
+</button>
+    </div>
+    <div class="bottom-side-open-hover">
+        <div class="content">
+
+            <!-- ao passar o mouse sobre o item de menu 'PRODUTOS' -->
+            <div class="produtos">
+                <!-- lançamentos -->
+                <div class="list">
+                    <a href="https://www.cavaletti.com.br/produtos?news=1">
+                        <span class="title-footer">Lançamentos</span>
+                    </a>
+                    <div class="list-prds">
+                                                                                <div class="item">
+                                <a rel="noopener noreferrer"
+                                    href="https://www.cavaletti.com.br/produtos/inaut">
+                                    <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas/March2026/mljR5srqIKs8MXfePdao.jpg">
+                                    <h3>Inaut</h3>
+                                </a>
+                            </div>
+                                                                                <div class="item">
+                                <a rel="noopener noreferrer"
+                                    href="https://www.cavaletti.com.br/produtos/domos">
+                                    <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas/February2026/APE5YAVbdGvmfnCNUWS9.jpg">
+                                    <h3>Domos</h3>
+                                </a>
+                            </div>
+                                                                                <div class="item">
+                                <a rel="noopener noreferrer"
+                                    href="https://www.cavaletti.com.br/produtos/nuna">
+                                    <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas/February2026/GRcMTqrDMXPPiPo3XW6G.jpg">
+                                    <h3>Nuna</h3>
+                                </a>
+                            </div>
+                                                                                <div class="item">
+                                <a rel="noopener noreferrer"
+                                    href="https://www.cavaletti.com.br/produtos/spero">
+                                    <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas/February2026/QeAiPQolX4NZzOMUc2M2.jpg">
+                                    <h3>Spero</h3>
+                                </a>
+                            </div>
+                                                                                <div class="item">
+                                <a rel="noopener noreferrer"
+                                    href="https://www.cavaletti.com.br/produtos/artis">
+                                    <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas/October2025/SYUyHyG8kv0Qe6URDz9S.jpg">
+                                    <h3>Artis</h3>
+                                </a>
+                            </div>
+                                                                                <div class="item">
+                                <a rel="noopener noreferrer"
+                                    href="https://www.cavaletti.com.br/produtos/blokz">
+                                    <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas/August2025/NtwGWZPNfeNDfBPZH6EI.jpg">
+                                    <h3>Blokz</h3>
+                                </a>
+                            </div>
+                                            </div>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/produtos?news=1" class="seeall-infos prod1">
+                        Todos os Lançamentos
+                    </a>
+                </div>
+
+                <!-- categorias (produtos) -->
+                <div class="list filter-categories">
+                    <a href="https://www.cavaletti.com.br/produtos">
+                        <span class="title-footer">Produtos</span>
+                    </a>
+                    <div>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=18">Acessórios</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=6">Aproximação</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=14">Assentos área externa</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=19">Auditórios</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=8">Banquetas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=3">Colaborativas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=4">Coletivas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=2">Diretivas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=13">Empilháveis</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=15">Extras 140 kg</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=5">Gamer</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=9">Longarinas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=17">Mesas/Apoio</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=16">Obesos 250 kg</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=1">Operativas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=11">Poltronas</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=12">Puffs</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=10">Sofás</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos?category=7">Treinamento</a>
+                                            </div>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/produtos" class="seeall-infos prod1">Todos os Produtos</a>
+                </div>
+
+                <!-- linhas -->
+                <div class="list lines-flex">
+                    <a href="https://www.cavaletti.com.br/produtos">
+                        <span class="title-footer">Linhas</span>
+                    </a>
+                    <div>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/air">Air</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/artis">Artis</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/aura">Aura</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/bee">Bee</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/blokz">Blokz</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/boldy">Boldy</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/box">Box</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/c3">C3</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/c4">C4</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/coletiva">Coletiva</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/connect">Connect</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/domos">Domos</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/duo">Duo</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/essence">Essence</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/flip">Flip</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/float">Float</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/fun">Fun</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/go">Go</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/idea">Idea</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/inaut">Inaut</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/joy">Joy</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/leef">Leef</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/mais">Mais</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/match">Match</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/moov">Moov</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/newnet-soft">NewNet/Soft</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/nuna">Nuna</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/pibou">Pibou</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/prime-e-master">Prime e Master</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/pro">Pro</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/raya">Raya</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/rimeva">Rimeva</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/slim">Slim</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/solo">Solo</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/spero">Spero</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/spin">Spin</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/spot">Spot</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/start">Start</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/start-plus">Start Plus</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/stay">Stay</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/stilo">Stilo</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/stretch">Stretch</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/talk">Talk</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/velo">Vélo</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/viva">Viva</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/way">Way</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/way-gamer">Way Gamer</a>
+                                                    <a rel="noopener noreferrer"
+                                href="https://www.cavaletti.com.br/produtos/yon">Yon</a>
+                                            </div>
+                    <a rel="noopener noreferrer"
+                        class="seeall-infos prod3" href="https://www.cavaletti.com.br/produtos">Todas as Linhas</a>
+                </div>
+            </div>
+
+            <!-- ao passar o mouse sobre o item de menu 'A CAVALETTI' -->
+            <div class="cavaletti">
+                <div class="list">
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/nossa-historia">Nossa História</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/gestao-de-pessoas">Gestão de Pessoas</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/ergonomia">Ergonomia</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/sustentabilidade">Sustentabilidade</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/certificacoes">Certificações</a>
+                </div>
+                <div class="list">
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/a-cavaletti">A Cavaletti</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/noticias">Notícias</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/clipping">Clipping</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/info-cavaletti">Info Cavaletti</a>
+                    <a rel="noopener noreferrer"
+                        href="https://www.cavaletti.com.br/institucional/lgpd"
+                        class="title-footer">LGPD</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <section id="produtos-list" class="page-standard">
+        
+        <div class="page-list-header">
+            <div class="breadcrumbs">
+    <div class="wrapper-breadcrumbs">
+                                    <span style="font-weight: bold;">Produtos</span>
+            
+                    
+            </div>
+</div>
+            <div class="mobile-filter-bar">
+    <button type="button"
+        class="mobile-filter-trigger"
+        aria-expanded="false"
+        aria-controls="filter-drawer"
+        aria-label="Filtros">
+        <span class="mobile-filter-trigger__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4.5H16M4.5 9H13.5M7 13.5H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </span>
+        <span class="mobile-filter-trigger__label">Filtros</span>
+        <span class="mobile-filter-trigger__badge" hidden>0</span>
+    </button>
+</div>
+        </div>
+
+        <div class="content">
+            <!-- filtros -->
+            <div class="left-side filter-drawer" id="filter-drawer">
+
+                <div class="filter-drawer-header">
+    <h2>Filtros</h2>
+    <button type="button"
+        class="filter-drawer-close"
+        aria-label="Fechar filtros">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+    </button>
+</div>
+
+                <!-- formulário de pesquisa -->
+                <div class="busca">
+    <span>Buscar Produto</span>
+    <form role="search" method="get" action="https://www.cavaletti.com.br/produtos/search">
+        <input type="text" value="" placeholder="Digite a palavra-chave" name="busca"
+            id="s" minlength="2" required>
+        <button type="submit"></button>
+    </form>
+
+    <div class="btn">
+        <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos" class="btn">limpar filtros</a>
+    </div>
+</div>
+
+                <div class="separador">
+                    Filtros
+                </div>
+
+                <div class="categorias" id="filter-news">
+                    <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="news" data-value="1"
+                        class="">
+                        Lançamentos
+                        <div class="circle"></div>
+                    </a>
+                </div>
+
+                <div class="categorias" id="filter-lines">
+                    <span>Linhas</span>
+                    <ul>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="1">
+                                    Air
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="48">
+                                    Artis
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="2">
+                                    Aura
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="3">
+                                    Bee
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="47">
+                                    Blokz
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="4">
+                                    Boldy
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="5">
+                                    Box
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="6">
+                                    C3
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="7">
+                                    C4
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="8">
+                                    Coletiva
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="9">
+                                    Connect
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="51">
+                                    Domos
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="40">
+                                    Duo
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="39">
+                                    Essence
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="38">
+                                    Flip
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="37">
+                                    Float
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="36">
+                                    Fun
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="35">
+                                    Go
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="34">
+                                    Idea
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="52">
+                                    Inaut
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="33">
+                                    Joy
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="32">
+                                    Leef
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="31">
+                                    Mais
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="30">
+                                    Match
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="29">
+                                    Moov
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="28">
+                                    NewNet/Soft
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="50">
+                                    Nuna
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="42">
+                                    Pibou
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="27">
+                                    Prime e Master
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="26">
+                                    Pro
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="25">
+                                    Raya
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="46">
+                                    Rimeva
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="24">
+                                    Slim
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="23">
+                                    Solo
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="49">
+                                    Spero
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="22">
+                                    Spin
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="21">
+                                    Spot
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="20">
+                                    Start
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="19">
+                                    Start Plus
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="18">
+                                    Stay
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="17">
+                                    Stilo
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="16">
+                                    Stretch
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="15">
+                                    Talk
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="14">
+                                    Vélo
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="13">
+                                    Viva
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="12">
+                                    Way
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="11">
+                                    Way Gamer
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="line"
+                                    data-value="10">
+                                    Yon
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+
+                <div class="categorias" id="filter-categories">
+                    <span>Produtos</span>
+                    <ul>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="18">
+                                    Acessórios
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="6">
+                                    Aproximação
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="14">
+                                    Assentos área externa
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="19">
+                                    Auditórios
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="8">
+                                    Banquetas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="3">
+                                    Colaborativas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="4">
+                                    Coletivas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="2">
+                                    Diretivas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="13">
+                                    Empilháveis
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="15">
+                                    Extras 140 kg
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="5">
+                                    Gamer
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="9">
+                                    Longarinas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="17">
+                                    Mesas/Apoio
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="active">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="16">
+                                    Obesos 250 kg
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="1">
+                                    Operativas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="11">
+                                    Poltronas
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="12">
+                                    Puffs
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="10">
+                                    Sofás
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="category"
+                                    data-value="7">
+                                    Treinamento
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+
+                <div class="categorias" id="filter-environments">
+                    <span>Ambientes</span>
+                    <ul>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="1">
+                                    Connect
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="4">
+                                    Create
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="8">
+                                    Embrace
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="7">
+                                    Join
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="10">
+                                    Lead &amp; Mind
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="2">
+                                    Learn &amp; Make
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="5">
+                                    Meet
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="3">
+                                    Process
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="6">
+                                    Refresh
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a rel="noopener noreferrer" href="javascript:void(0)" data-filter="environment"
+                                    data-value="9">
+                                    Share
+                                    <div class="circle"></div>
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+            </div>
+
+            <!-- produtos -->
+            <div class="right-side">
+                <ul>
+            <h2>Obesos 250 kg</h2>
+                <div class="itens-produto">
+                            
+                <div class="item">
+                    <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos/bee#configuracoes">
+                        <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas-componentes/November2025/IEw71TmLJMOhJTQnVoX7.jpg" alt="Poltrona Obeso">
+                    </a>
+                    <div class="item-produto-body">
+                        <div class="item-produto-meta">
+                                                            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos/bee#configuracoes" class="produto-linha-tag">Bee</a>
+                                                        <button
+        type="button"
+        class="product-download-trigger"
+        aria-haspopup="dialog"
+        aria-label="Abrir opções de download de Poltrona Obeso"
+        data-action-modal-title="Poltrona Obeso"
+        data-action-modal-actions='[{"label":"Baixar Imagem","href":"https:\/\/www.cavaletti.com.br\/storage\/linhas-componentes\/November2025\/IEw71TmLJMOhJTQnVoX7.jpg","download":true},{"label":"Downloads","href":"https:\/\/www.cavaletti.com.br\/produtos\/bee#downloads"}]'
+    ></button>
+                        </div>
+                        <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos/bee#configuracoes" class="item-produto-body-link">
+                            <h3>Poltrona Obeso</h3>
+                                                            <span class="produto-codigo">Cod. 36.703*</span>
+                                                    </a>
+                    </div>
+                </div>
+                            
+                <div class="item">
+                    <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos/rimeva#configuracoes">
+                        <img loading="lazy" src="https://www.cavaletti.com.br/storage/linhas-componentes/August2025/yHw05PYIpxDqqlh0Hq7M.jpg" alt="Poltrona Obeso*">
+                    </a>
+                    <div class="item-produto-body">
+                        <div class="item-produto-meta">
+                                                            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos/rimeva#configuracoes" class="produto-linha-tag">Rimeva</a>
+                                                        <button
+        type="button"
+        class="product-download-trigger"
+        aria-haspopup="dialog"
+        aria-label="Abrir opções de download de Poltrona Obeso*"
+        data-action-modal-title="Poltrona Obeso*"
+        data-action-modal-actions='[{"label":"Baixar Imagem","href":"https:\/\/www.cavaletti.com.br\/storage\/linhas-componentes\/August2025\/yHw05PYIpxDqqlh0Hq7M.jpg","download":true},{"label":"Downloads","href":"https:\/\/www.cavaletti.com.br\/produtos\/rimeva#downloads"}]'
+    ></button>
+                        </div>
+                        <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/produtos/rimeva#configuracoes" class="item-produto-body-link">
+                            <h3>Poltrona Obeso*</h3>
+                                                            <span class="produto-codigo">Cod. 26.503</span>
+                                                    </a>
+                    </div>
+                </div>
+                    </div>
+
+            </ul>
+            </div>
+        </div>
+
+        <div class="filter-drawer-backdrop" aria-hidden="true"></div>
+    </section>
+
+    <!-- inclusão do footer -->
+    <footer id="footer">
+    <!-- Hotjar Tracking Code for Cavaletti Institucional -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6741100,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <div class="content">
+        <section class="footer-brand">
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br">
+                                <img loading="lazy" src="https://www.cavaletti.com.br/images/logo_pt_branco.png" alt="Cavaletti">
+            </a>
+            <div class="redes">
+                <span>Siga-nos</span>
+                <div class="flexes-redes">
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/Cavaletti/" class="facebook" aria-label="Facebook"></a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/cavaletti/" class="linkedin" aria-label="LinkedIn"></a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/cavalettisa/?hl=pt-br" class="instagram" aria-label="Instagram"></a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCZpzqGS5VoaoIxkbIGHE_qw" class="youtube" aria-label="YouTube"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="links links--institutional">
+            <span class="footer-section-title">A Cavaletti</span>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/nossa-historia" class="link-footer">
+                Nossa História
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/gestao-de-pessoas" class="link-footer">
+                Gestão de Pessoas
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/ergonomia" class="link-footer">
+                Ergonomia
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/sustentabilidade" class="link-footer">
+                Sustentabilidade
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/certificacoes" class="link-footer">
+                Certificações
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/a-cavaletti" class="link-footer">
+                A Cavaletti
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/noticias" class="link-footer">
+                Notícias
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/clipping" class="link-footer">
+                Clipping
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/info-cavaletti" class="link-footer">
+                Info Cavaletti
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/lgpd" class="link-footer">
+                LGPD
+            </a>
+
+                            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/nossos-valores" class="link-footer">
+                    Nossos Valores
+                </a>
+                    </section>
+
+        <section class="links links--secondary">
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/fale-conosco" class="link-footer link-footer--emphasis">
+                Fale Conosco
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/representantes" class="link-footer link-footer--emphasis">
+                Representantes
+            </a>
+            <a rel="noopener noreferrer" target="_blank" href="https://cavaletti.portaldetalentos.senior.com.br/" class="link-footer link-footer--emphasis">
+                Trabalhe Conosco
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/politica-de-direitos" class="link-footer link-footer--emphasis">
+                Política de Direitos do Titular de Dados
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/aviso-de-privacidade" class="link-footer link-footer--emphasis">
+                Aviso de Privacidade
+            </a>
+            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/cookies" class="link-footer link-footer--emphasis">
+                Política de Cookies
+            </a>
+
+                            <a rel="noopener noreferrer" href="https://www.cavaletti.com.br/institucional/canal-de-etica" class="link-footer link-footer--emphasis">
+                    Canal de Ética e Conduta
+                </a>
+            
+                                                                <a rel="noopener noreferrer" class="link-footer link-footer--emphasis" target="_blank"
+                        href="https://www.cavaletti.com.br/storage/codigo-etica/May2026/Sb9Den2ZhcHdiYhAXk2H.pdf">
+                        Código de Ética e Conduta
+                    </a>
+                                    </section>
+
+        <section class="texts">
+            <div>
+                <p>
+                    <strong>Cavaletti S/A Cadeiras Profissionais</strong><br />
+                    <span>Rua Dr. Hiram Sampaio, 550</span><br>
+                    <span>Erechim/RS | Brasil | CEP 99706-461</span><br />
+                    <span>Fone/Fax: (54) 3520.4100 | 2107.4100</span><br />
+                    <span>atendimento@cavaletti.com.br</span>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <strong>Worklab</strong><br />
+                    <span>Avenida das Nações Unidas, 12901</span><br />
+                    <span>Torre Oeste | 24º andar</span><br />
+                    <span>Brooklin Paulista</span><br />
+                    <span>São Paulo | SP | Brasil</span>
+                </p>
+                <p class="footer-representante-note">
+                    Agende sua visita com um representante da sua região. <a rel="noopener noreferrer"
+                        id="clique-aqui-footer" href="https://www.cavaletti.com.br/representantes">Clique aqui.</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div class="bottom-footer-logos">
+        <span>© Copyright 2026 Cavaletti S.A. - Todos os direitos reservados - Proibido o uso de qualquer imagem ou conteúdo sem prévia autorização de acordo com lei n. 9610/98 - referente aos direitos autorais.</span>
+        <div class="ap-dv-ds">
+            <a rel="noopener noreferrer" alt="AstrusDigital" target="_blank" href="https://www.astrus.digital">
+                <img loading="lazy" src="https://www.cavaletti.com.br/images/astrusdigital.png" alt="Astrus Digital">
+            </a>
+            <div></div>
+            <a rel="noopener noreferrer" alt="R4 Design" target="_blank" href="http://www.r4design.com.br/">
+                <img loading="lazy" src="https://www.cavaletti.com.br/images/r4design.png" alt="R4 Design">
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <button
+    type="button"
+    id="back-to-top"
+    class="back-to-top"
+    aria-label="Voltar ao topo"
+    aria-hidden="true"
+    tabindex="-1"
+>
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+    <div class="cavaletti-action-modal" id="cavaletti-action-modal" hidden aria-hidden="true">
+    <div class="cavaletti-action-modal__backdrop" data-action-modal-close></div>
+    <div
+        class="cavaletti-action-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cavaletti-action-modal-title"
+    >
+        <button
+            type="button"
+            class="cavaletti-action-modal__close"
+            data-action-modal-close
+            aria-label="Fechar"
+        >
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p class="cavaletti-action-modal__eyebrow" id="cavaletti-action-modal-eyebrow">
+            Opções de download
+        </p>
+        <h2 class="cavaletti-action-modal__title" id="cavaletti-action-modal-title"></h2>
+        <div class="cavaletti-action-modal__body" id="cavaletti-action-modal-body" hidden></div>
+        <nav
+            class="cavaletti-action-modal__actions"
+            id="cavaletti-action-modal-actions"
+            aria-label="Opções de download"
+        ></nav>
+    </div>
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Fancybox.bind("[data-fancybox='inspiracao-gallery'], [data-fancybox='inspiracao-revisao']", {
+                Carousel: {
+                    // Carrega só o slide atual e o próximo ao navegar.
+                    preload: 1,
+                },
+                Thumbs: {
+                    autoStart: true,
+                    type: "classic",
+                },
+            });
+
+            Fancybox.bind("[data-fancybox]:not([data-fancybox='inspiracao-gallery']):not([data-fancybox='inspiracao-revisao'])", {
+                Thumbs: {
+                    autoStart: true,
+                },
+            });
+        });
+    </script>
+
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX8D2TTKES"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QX8D2TTKES');
+        </script>
+    
+    <script src="https://www.cavaletti.com.br/js/vendor.js"></script>
+
+    <!-- DearFlip JS -->
+    <script src="https://www.cavaletti.com.br/vendor/dearflip-js-flipbook-master/dflip/js/dflip.min.js"></script>
+
+    <!-- Fancybox Carousel -->
+    <script src="https://www.cavaletti.com.br/vendor/fancybox-carousel-5.0.36/js/carousel.umd.min.js"></script>
+
+    <!-- Fancybox -->
+    <script src="https://www.cavaletti.com.br/vendor/fancybox-5.0.36/js/fancybox.umd.min.js"></script>
+
+    <!-- Slick Carousel -->
+    <script src="https://www.cavaletti.com.br/vendor/slick-carousel-1.8.1/js/slick.min.js" ></script>
+
+    <script src="https://www.cavaletti.com.br/js/js.js?v=1791463893"></script>
+    <script src="https://www.cavaletti.com.br/js/default.js?v=1791463893"></script>
+
+</body>
+
+</html>
