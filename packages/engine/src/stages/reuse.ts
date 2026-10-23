@@ -30,7 +30,8 @@ export function siblingClaims(topic: TopicBrief, topics: TopicBrief[], claims: C
 export async function reuseEvidence(slug: string, fetchImpl?: FetchLike): Promise<{ reused: number; sources: number }> {
   const topic = loadTopic(slug);
   const all = loadClaims();
-  const candidates = siblingClaims(topic, loadTopics(), all);
+  // No máximo 150 candidatas: com centenas, a resposta passava do tamanho e chegava cortada (23/10, cadeira de tela).
+  const candidates = siblingClaims(topic, loadTopics(), all).slice(0, 150);
   if (!candidates.length) return { reused: 0, sources: 0 };
   const qids = topic.questions.map((q) => q.id) as [string, ...string[]];
   const ids = candidates.map((c) => c.id) as [string, ...string[]];
@@ -48,7 +49,7 @@ export async function reuseEvidence(slug: string, fetchImpl?: FetchLike): Promis
         candidates.map((c) => `- ${c.id}: ${c.statement} | trecho: "${c.quote.slice(0, 160)}"`).join('\n'),
       schema: Out,
       schemaName: 'evidence_reuse',
-      maxTokens: 4000,
+      maxTokens: 8000,
     },
     fetchImpl,
   );

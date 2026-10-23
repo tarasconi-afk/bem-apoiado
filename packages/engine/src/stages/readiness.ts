@@ -42,7 +42,8 @@ export async function decisionReadiness(slug: string, topic: TopicBrief, fetchIm
   if (!claims.length) return { ready: false, rules: [], missing: ['nenhuma evidência para a pauta'], queries: [] };
   const ids = claims.map((c) => c.id) as [string, ...string[]];
   const Out = z.object({
-    rules: z.array(z.object({ rule: z.string().min(10), claim_ids: z.array(z.enum(ids)).min(1) })).max(5),
+    // Id fora da lista é descartado depois (23/10: um id inventado derrubava a checagem inteira).
+    rules: z.array(z.object({ rule: z.string().min(10), claim_ids: z.array(z.string()).min(1) })).max(5),
     ready: z.boolean(),
     missing: z.array(z.string()).max(3).default([]),
     queries: z.array(z.string()).max(3).default([]),
@@ -61,7 +62,9 @@ export async function decisionReadiness(slug: string, topic: TopicBrief, fetchIm
   // O modelo diz; a regra decide. Conta só regra com ao menos uma evidência de fabricante, teste independente ou
   // norma técnica e sem linguagem de posto de trabalho: no teste de 22/10 o modelo aprovou a mesa regulável com
   // duas regras tiradas só da NR-17 ("a NR-17 orienta que o posto favoreça a alternância").
-  const rules = buyerRules(r.data.rules, (id) => idx.sources.get(idx.claims.get(id)?.source_id ?? '')?.source_class);
+  const known = new Set<string>(ids);
+  const cleaned = r.data.rules.map((x) => ({ ...x, claim_ids: x.claim_ids.filter((id) => known.has(id)) })).filter((x) => x.claim_ids.length);
+  const rules = buyerRules(cleaned, (id) => idx.sources.get(idx.claims.get(id)?.source_id ?? '')?.source_class);
   const ready = r.data.ready && rules.length >= 2;
   const missing = ready || r.data.missing.length ? r.data.missing : ['regras de escolha para quem compra, de fabricante ou norma técnica (não de posto de trabalho)'];
   return { ...r.data, rules, missing, ready };
