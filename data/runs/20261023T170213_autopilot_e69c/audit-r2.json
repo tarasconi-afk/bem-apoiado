@@ -1,0 +1,98 @@
+{
+  "findings": [
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado da Probel informa apenas suporte de peso. Ele não informa largura de 100 cm, comprimento de 200 cm ou altura de 24 cm.",
+      "fix": "Remova as dimensões ou cite um trecho da Probel que declare 100 × 200 × 24 cm para o colchão solteirão."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "compatibilidade-base#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "itens-inclusos#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que há títulos de produtos Probel contendo “Kit Box” e “Conjunto Box”, mas não dizem que é preciso consultar o anúncio específico para saber quais itens acompanham cada produto.",
+      "fix": "Os títulos citados de produtos Probel incluem “Kit Box” e “Conjunto Box”, como mostram os anúncios apresentados."
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho comprova apenas as medidas de 88 cm × 188 cm × 17 cm; não menciona “tamanho solteiro”, anúncio nem que esse tamanho caiba na base.",
+      "fix": "Se a base tiver 88 × 188 cm, confira no anúncio se o produto declara largura e comprimento de 88 × 188 cm."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas de 78 × 188 × 17 cm aparecem no documento do Compras.gov.br, mas o trecho não diz que foram declaradas por fabricantes. A tabela atribui a informação a uma fonte que o trecho não identifica.",
+      "fix": "[tabela: Dimensões no documento do Compras.gov.br] Modelo: documento do Compras.gov.br | Largura: 78 cm | Comprimento: 188 cm | Altura: 17 cm"
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas de 88 × 188 × 17 cm aparecem no documento do Compras.gov.br, mas o trecho não diz que foram declaradas por fabricantes. A tabela atribui a informação a uma fonte que o trecho não identifica.",
+      "fix": "[tabela: Dimensões no documento do Compras.gov.br] Modelo: documento do Compras.gov.br | Largura: 88 cm | Comprimento: 188 cm | Altura: 17 cm"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "UNSUPPORTED. O trecho citado da Probel informa apenas suporte de peso. Ele não informa largura de 100 cm, comprimento de 200 cm ou altura de 24 cm. Versão sustentável: Remova as dimensões ou cite um trecho da Probel que declare 100 × 200 × 24 cm para o colchão solteirão."
+    },
+    {
+      "ref": "itens-inclusos#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que há títulos de produtos Probel contendo “Kit Box” e “Conjunto Box”, mas não dizem que é preciso consultar o anúncio específico para saber quais itens acompanham cada produto. Versão sustentável: Os títulos citados de produtos Probel incluem “Kit Box” e “Conjunto Box”, como mostram os anúncios apresentados."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. O trecho comprova apenas as medidas de 88 cm × 188 cm × 17 cm; não menciona “tamanho solteiro”, anúncio nem que esse tamanho caiba na base. Versão sustentável: Se a base tiver 88 × 188 cm, confira no anúncio se o produto declara largura e comprimento de 88 × 188 cm."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "msg": "MISATTRIBUTED. As medidas de 78 × 188 × 17 cm aparecem no documento do Compras.gov.br, mas o trecho não diz que foram declaradas por fabricantes. A tabela atribui a informação a uma fonte que o trecho não identifica. Versão sustentável: [tabela: Dimensões no documento do Compras.gov.br] Modelo: documento do Compras.gov.br | Largura: 78 cm | Comprimento: 188 cm | Altura: 17 cm"
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "msg": "MISATTRIBUTED. As medidas de 88 × 188 × 17 cm aparecem no documento do Compras.gov.br, mas o trecho não diz que foram declaradas por fabricantes. A tabela atribui a informação a uma fonte que o trecho não identifica. Versão sustentável: [tabela: Dimensões no documento do Compras.gov.br] Modelo: documento do Compras.gov.br | Largura: 88 cm | Comprimento: 188 cm | Altura: 17 cm"
+    }
+  ]
+}

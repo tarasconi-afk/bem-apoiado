@@ -1,0 +1,183 @@
+{
+  "run_id": "20261023T170213_autopilot_e69c",
+  "topic": "colchao-solteirao-ou-viuva",
+  "accepted": [
+    {
+      "claim_id": "clm_cc110a1c336f",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_a1600d45c428",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9bf3f9e93086",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_8d9b8c480669",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3fcb417cb522",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_d995e07ad27b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b3c4efbe6622",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_4d9ff6e3557d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6e863ff340ca",
+      "question_id": "q_itens_inclusos",
+      "source_id": "src_4d9ff6e3557d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_06155831397a",
+      "question_id": "q_garantia",
+      "source_id": "src_4d9ff6e3557d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6fb2381e8265",
+      "question_id": "q_base_compativel",
+      "source_id": "src_4d9ff6e3557d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_be598e65da36",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_35dd1b9b346c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ca0907292e88",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_35dd1b9b346c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e62f10174a0b",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_14b7ea2c7208",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6597412bf9ed",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_14b7ea2c7208",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d6714cc9114",
+      "question_id": "q_itens_inclusos",
+      "source_id": "src_14b7ea2c7208",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e5ee1b7717e8",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_1368593c29c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7b7e657e2033",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_1368593c29c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6f3dea2d6ef9",
+      "question_id": "q_medida_decisiva",
+      "source_id": "src_1368593c29c8",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_4d9ff6e3557d",
+      "question_id": "q_dimensoes_exatas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho\n\nViúva\n\nLargura\n\n128 cm\n\nComprimento\n\n188 cm"
+    },
+    {
+      "source_id": "src_35dd1b9b346c",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_14b7ea2c7208",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses colchão, 3 Meses box"
+    },
+    {
+      "source_id": "src_1368593c29c8",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Estrutura, 3 Meses Tecido"
+    }
+  ],
+  "coverage": {
+    "q_medida_decisiva": 1,
+    "q_dimensoes_exatas": 6,
+    "q_peso_suportado": 4,
+    "q_base_compativel": 1,
+    "q_itens_inclusos": 2,
+    "q_garantia": 1
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 14058,
+    "output_tokens": 2063,
+    "calls": 7
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_a1600d45c428",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.89
+    },
+    {
+      "source_id": "src_8d9b8c480669",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.86
+    },
+    {
+      "source_id": "src_d995e07ad27b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.87
+    },
+    {
+      "source_id": "src_4d9ff6e3557d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_35dd1b9b346c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_14b7ea2c7208",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_1368593c29c8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    }
+  ],
+  "credits": 17.397747
+}

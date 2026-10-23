@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 107476,
+    "output_tokens": 21325,
+    "calls": 33
+  },
+  "credits": 23.8821222,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página não identifica claramente qual medida corresponde ao colchão solteirão: mistura 88 × 188 cm, 100 × 200 cm e medidas de solteiro sem estabelecer uma comparação direta com o viúva.",
+      "O leitor sabe que deve medir o espaço, mas não recebe uma regra completa para escolher o solteirão quando dispõe de medidas diferentes de 88 cm ou 128 cm."
+    ],
+    "filler_refs": [
+      "itens-inclusos#0"
+    ],
+    "decision_criteria": [
+      "Meça o espaço ou a base e compare com a largura e o comprimento exatos informados no anúncio.",
+      "Se a base tiver 88 × 188 cm, confira se o colchão anunciado declara essas mesmas medidas.",
+      "Se for necessária mais largura e houver 128 cm disponíveis, escolha um modelo viúva e confirme se os 188 cm de comprimento cabem no espaço ou na base.",
+      "Confira a capacidade de peso declarada pelo fabricante e compare-a com o peso de cada pessoa que usará o colchão."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página não identifica claramente qual medida corresponde ao colchão solteirão: mistura 88 × 188 cm, 100 × 200 cm e medidas de solteiro sem estabelecer uma comparação direta com o viúva.",
+      "Para o leitor leigo: O leitor sabe que deve medir o espaço, mas não recebe uma regra completa para escolher o solteirão quando dispõe de medidas diferentes de 88 cm ou 128 cm.",
+      "Comparação direta e claramente rotulada entre as medidas de um colchão solteirão e de um viúva, incluindo a explicação sobre quando aparecem as medidas 88 × 188 cm e 100 × 200 cm.",
+      "Dimensões do solteirão e do viúva em fichas técnicas de pelo menos dois fabricantes, sem misturar medidas de solteiro e solteirão.",
+      "Regra baseada no número de pessoas e no espaço disponível para orientar quando escolher solteirão ou viúva.",
+      "Capacidade de peso correspondente a cada tamanho, com indicação dos modelos e fabricantes usados na comparação.",
+      "Compatibilidade de base ou estrado para o solteirão, além da informação já apresentada para o viúva.",
+      "Descrição do que realmente vem incluído na compra; o título “Kit Box” ou “Conjunto Box” não comprova quais itens acompanham o produto.",
+      "Comparação dos prazos de garantia do solteirão e do viúva."
+    ],
+    "publishable": true,
+    "summary": "A página oferece critérios úteis de medir o espaço e conferir as dimensões, mas responde apenas parcialmente à comparação entre solteirão e viúva. Falta identificar claramente as medidas do solteirão e dizer qual opção serve para cada situação; por isso, o leitor ainda pode sair sem saber o que comprar.",
+    "filler_ratio": 0.09090909090909091,
+    "model_opinion": false
+  }
+}

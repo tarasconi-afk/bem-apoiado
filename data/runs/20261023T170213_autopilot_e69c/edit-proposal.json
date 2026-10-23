@@ -1,0 +1,27 @@
+{
+  "edits": [
+    {
+      "ref": "capacidade-carga#0",
+      "action": "rewrite",
+      "text": "Segundo fabricantes como a Probel, o colchão solteirão suporta 120 kg por pessoa, e os modelos viúva suportam entre 110 kg e 150 kg por pessoa. Esse peso se refere a quem dorme no colchão, não ao peso do colchão em si.",
+      "claim_ids": [
+        "clm_0afbaf2ef53d",
+        "clm_b3c4efbe6622",
+        "clm_ca0907292e88",
+        "clm_6597412bf9ed",
+        "clm_7b7e657e2033",
+        "clm_6f3dea2d6ef9",
+        "clm_0a6ef01c4834"
+      ],
+      "absorbs": [
+        "capacidade-carga#1"
+      ],
+      "reason": "Une a informação de capacidade de carga com a explicação de que o peso se refere ao usuário, evitando dois blocos curtos e repetitivos sobre o mesmo tema."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 6254,
+    "output_tokens": 2351
+  }
+}

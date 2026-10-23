@@ -1,0 +1,114 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam modelos com 88 cm x 188 cm e um modelo chamado solteirão com 100 cm x 200 cm, mas não demonstram que a categoria solteirão tenha, de modo geral, a faixa de 88 a 100 cm por 188 a 200 cm. Já 128 x 188 cm é demonstrado para modelos viúva específicos, não necessariamente como regra universal da categoria.",
+      "fix": "A escolha depende do espaço disponível; os trechos mostram modelos de solteiro/solteirão com 88 x 188 cm e 100 x 200 cm, e modelos viúva com 128 x 188 cm. Confira as dimensões exatas no anúncio do modelo."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 120 kg por pessoa para um modelo específico de colchão solteirão e valores de 110 kg, 120 kg e 150 kg para modelos específicos de colchão viúva. O texto generaliza esses dados para todos os colchões dessas categorias.",
+      "fix": "Segundo modelos da Probel, o colchão solteirão citado suporta 120 kg por pessoa; os modelos de colchão viúva citados têm suporte declarado entre 110 kg e 150 kg por pessoa."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "compatibilidade-base#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram um kit box viúva da Probel e as medidas de um conjunto box viúva (128 cm por 188 cm), mas não dizem que a empresa oferece estrados, nem estabelecem uma regra geral de compatibilidade com colchões viúva. A recomendação para conferir se uma base ou estrado já existente cabe nas medidas também não aparece nos trechos.",
+      "fix": "A Probel lista um conjunto box viúva com 128 cm de largura e 188 cm de comprimento."
+    },
+    {
+      "ref": "itens-inclusos#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos apenas mostram títulos de produtos Probel com “Kit Box” ou “Conjunto Box” e uma descrição da base Box Baú; não dizem que as fichas técnicas listam itens inclusos, nem que não informam sobre capa, travesseiro ou acessórios de fixação. Também não sustentam a atribuição “segundo a Probel” nem a recomendação baseada nessa suposta ausência.",
+      "fix": "Os títulos citados identificam produtos Probel vendidos como “Kit Box” ou “Conjunto Box”, e um trecho descreve a base Box Baú Probel Luxo. Para saber quais itens acompanham cada produto, consulte o anúncio específico do modelo."
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos no produto de viúva. Porém, nenhum trecho citado menciona colchões solteirão nem sustenta que eles sigam o mesmo padrão.",
+      "fix": "Segundo a Probel, o produto de viúva citado possui garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não sustentam a faixa de 88 a 100 cm por 188 a 200 cm nem a classificação como “solteirão”. Um trecho mostra 88 × 188 cm como “Solteiro”, e o trecho da Probel citado informa apenas suporte de peso, não dimensões.",
+      "fix": "Se a base tiver 88 × 188 cm, o trecho da Gazin associa essa medida ao tamanho solteiro. Para afirmar uma faixa ou recomendar o tamanho solteirão, cite trechos que mostrem essas dimensões e essa classificação."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado da Probel informa apenas suporte de peso. Ele não informa largura de 100 cm, comprimento de 200 cm ou altura de 24 cm.",
+      "fix": "Remova as dimensões ou cite um trecho da Probel que declare 100 × 200 × 24 cm para o colchão solteirão."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho é do Comprasnet/Compras.gov.br, classificado como teste independente, e não mostra que as dimensões foram declaradas por fabricantes. Além disso, o trecho não identifica o produto como “Solteiro”.",
+      "fix": "Use uma descrição como “Dimensões registradas no documento do Compras.gov.br: 78 × 188 × 17 cm; o trecho não informa o tamanho comercial”."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho é do Comprasnet/Compras.gov.br, classificado como teste independente, e não mostra que as dimensões foram declaradas por fabricantes. Embora informe 88 × 188 × 17 cm, não identifica o produto como “Solteiro”.",
+      "fix": "Use uma descrição como “Dimensões registradas no documento do Compras.gov.br: 88 × 188 × 17 cm; o trecho não informa o tamanho comercial”."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam modelos com 88 cm x 188 cm e um modelo chamado solteirão com 100 cm x 200 cm, mas não demonstram que a categoria solteirão tenha, de modo geral, a faixa de 88 a 100 cm por 188 a 200 cm. Já 128 x 188 cm é demonstrado para modelos viúva específicos, não necessariamente como regra universal da categoria. Versão sustentável: A escolha depende do espaço disponível; os trechos mostram modelos de solteiro/solteirão com 88 x 188 cm e 100 x 200 cm, e modelos viúva com 128 x 188 cm. Confira as dimensões exatas no anúncio do modelo."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "msg": "OVERSTATED. Os trechos sustentam 120 kg por pessoa para um modelo específico de colchão solteirão e valores de 110 kg, 120 kg e 150 kg para modelos específicos de colchão viúva. O texto generaliza esses dados para todos os colchões dessas categorias. Versão sustentável: Segundo modelos da Probel, o colchão solteirão citado suporta 120 kg por pessoa; os modelos de colchão viúva citados têm suporte declarado entre 110 kg e 150 kg por pessoa."
+    },
+    {
+      "ref": "compatibilidade-base#0",
+      "msg": "OVERSTATED. Os trechos mostram um kit box viúva da Probel e as medidas de um conjunto box viúva (128 cm por 188 cm), mas não dizem que a empresa oferece estrados, nem estabelecem uma regra geral de compatibilidade com colchões viúva. A recomendação para conferir se uma base ou estrado já existente cabe nas medidas também não aparece nos trechos. Versão sustentável: A Probel lista um conjunto box viúva com 128 cm de largura e 188 cm de comprimento."
+    },
+    {
+      "ref": "itens-inclusos#0",
+      "msg": "UNSUPPORTED. Os trechos apenas mostram títulos de produtos Probel com “Kit Box” ou “Conjunto Box” e uma descrição da base Box Baú; não dizem que as fichas técnicas listam itens inclusos, nem que não informam sobre capa, travesseiro ou acessórios de fixação. Também não sustentam a atribuição “segundo a Probel” nem a recomendação baseada nessa suposta ausência. Versão sustentável: Os títulos citados identificam produtos Probel vendidos como “Kit Box” ou “Conjunto Box”, e um trecho descreve a base Box Baú Probel Luxo. Para saber quais itens acompanham cada produto, consulte o anúncio específico do modelo."
+    },
+    {
+      "ref": "garantia#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos no produto de viúva. Porém, nenhum trecho citado menciona colchões solteirão nem sustenta que eles sigam o mesmo padrão. Versão sustentável: Segundo a Probel, o produto de viúva citado possui garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos não sustentam a faixa de 88 a 100 cm por 188 a 200 cm nem a classificação como “solteirão”. Um trecho mostra 88 × 188 cm como “Solteiro”, e o trecho da Probel citado informa apenas suporte de peso, não dimensões. Versão sustentável: Se a base tiver 88 × 188 cm, o trecho da Gazin associa essa medida ao tamanho solteiro. Para afirmar uma faixa ou recomendar o tamanho solteirão, cite trechos que mostrem essas dimensões e essa classificação."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "UNSUPPORTED. O trecho citado da Probel informa apenas suporte de peso. Ele não informa largura de 100 cm, comprimento de 200 cm ou altura de 24 cm. Versão sustentável: Remova as dimensões ou cite um trecho da Probel que declare 100 × 200 × 24 cm para o colchão solteirão."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "msg": "MISATTRIBUTED. O trecho é do Comprasnet/Compras.gov.br, classificado como teste independente, e não mostra que as dimensões foram declaradas por fabricantes. Além disso, o trecho não identifica o produto como “Solteiro”. Versão sustentável: Use uma descrição como “Dimensões registradas no documento do Compras.gov.br: 78 × 188 × 17 cm; o trecho não informa o tamanho comercial”."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "msg": "MISATTRIBUTED. O trecho é do Comprasnet/Compras.gov.br, classificado como teste independente, e não mostra que as dimensões foram declaradas por fabricantes. Embora informe 88 × 188 × 17 cm, não identifica o produto como “Solteiro”. Versão sustentável: Use uma descrição como “Dimensões registradas no documento do Compras.gov.br: 88 × 188 × 17 cm; o trecho não informa o tamanho comercial”."
+    }
+  ]
+}
