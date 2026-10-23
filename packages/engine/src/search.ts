@@ -83,9 +83,11 @@ export async function webSearch(query: string, opts: SearchOptions = {}, fetchIm
   }
 }
 
-// Brave Search API (plano grátis: 1 busca por segundo, ~2.000 por mês). Não tem include_domains: vira "site:" na
-// consulta e o resultado é filtrado pelo domínio. O resumo é curto (descrição), então a triagem tem menos texto.
-export const BRAVE_MONTHLY_CAP = Number(process.env.BRAVE_MONTHLY_CAP ?? 1800);
+// Brave Search API (pré-pago: US$ 5 por 1.000 buscas, com US$ 5 grátis por mês; o dono não quer pagar). Teto de 900
+// por mês para nunca passar do crédito grátis. Não tem include_domains: vira "site:" na consulta e o resultado é
+// filtrado pelo domínio. Na Amazon rende menos que a Tavily (23/10: 4 anúncios contra 9, resumo de 200 letras contra
+// 1.100, e não acha anúncio pelo código), então fica só como reserva.
+export const BRAVE_MONTHLY_CAP = Number(process.env.BRAVE_MONTHLY_CAP ?? 900);
 const BRAVE_LEDGER = join(STATE_DIR, 'brave-usage.json');
 export function braveThisMonth(): number {
   if (!existsSync(BRAVE_LEDGER)) return 0;

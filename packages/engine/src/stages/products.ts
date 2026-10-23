@@ -6,7 +6,7 @@ import { jevDecide, type Decider } from '../jev.ts';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
 import { writeStage } from '../runs.ts';
-import { webSearch } from '../search.ts';
+import { webExtract, webSearch } from '../search.ts';
 import { SEARCH_INDEX_NOTE, snapshot, snapshotFromSearch } from '../snapshot.ts';
 const sourceNote = (s: Source) => s.note;
 import { buildIndex, CLAIMS_DIR, DATA, loadPages, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
@@ -496,6 +496,50 @@ export function editorPick(input: { url: string; kind: string; brand: string; la
   if (problems.length) throw new Error(problems.map((x) => `${x.code}: ${x.detail}`).join('; '));
   writeJson(join(PRODUCTS_DIR, `${asin}.json`), p);
   return p;
+}
+
+// "Ler anúncio" do painel (23/10, editor: "colar apenas o link e o sistema preencher o restante"): lê o anúncio pela
+// extração da Tavily (a Amazon bloqueia a leitura direta) ou, se falhar, pelo índice de busca; o modelo tira marca,
+// modelo e tipo. Não grava nada: só preenche o formulário, e o editor confere e clica em Adicionar.
+export interface ListingRead { asin: string; link: string; brand: string; label: string; kind: string; title: string; via: 'anúncio' | 'índice de busca'; warnings: string[] }
+export async function readListingInfo(url: string, fetchImpl?: FetchLike, extract: (u: string) => Promise<string> = (u) => webExtract(u), search = webSearch): Promise<ListingRead> {
+  const asin = /\/(?:dp|gp\/product)\/([A-Z0-9]{10})/.exec(url)?.[1] ?? (/^[A-Z0-9]{10}$/.test(url.trim()) ? url.trim() : null);
+  if (!asin) throw new Error('link sem código de produto da Amazon (/dp/XXXXXXXXXX)');
+  const link = `https://www.amazon.com.br/dp/${asin}`;
+  let text = '';
+  let via: ListingRead['via'] = 'anúncio';
+  try {
+    text = (await extract(link)).slice(0, 6000);
+  } catch {
+    /* anúncio bloqueado: tenta o índice de busca */
+  }
+  if (text.length < 200) {
+    const h = (await search(asin, { maxResults: 8, includeDomains: ['amazon.com.br'] }).catch(() => [])).find((x) => x.url.includes(`/dp/${asin}`) || x.url.includes(`/gp/product/${asin}`));
+    if (h) { text = `${h.title}\n${h.content}`.slice(0, 6000); via = 'índice de busca'; }
+  }
+  if (text.length < 40) throw new Error('não consegui ler o anúncio (a Amazon bloqueou e o índice de busca não tem este código); preencha à mão');
+  const kinds = loadNiche().product_kinds;
+  const Out = z.object({ title: z.string(), brand: z.string(), model: z.string(), kind: z.enum(kinds.map((k) => k.id) as [string, ...string[]]) });
+  const r = await callJson(
+    {
+      role: 'extractor',
+      system: `Do texto de um anúncio da Amazon, extraia: "title" (título do anúncio), "brand" (o fabricante, ex.: campo "Marca"/"Nome da marca"; vazio se o anúncio não diz), "model" (nome comercial curto do modelo, sem marca e sem medida) e "kind", o tipo do produto, um destes: ${kinds.map((k) => `${k.id} = ${k.label}${k.accessory ? ' (vendido avulso)' : ''}`).join('; ')}. Use "outro" se nenhum servir. Colchão com pillow top embutido é colchão, não pillow top.`,
+      user: text,
+      schema: Out,
+      schemaName: 'listing_read',
+      maxTokens: 300,
+    },
+    fetchImpl,
+  );
+  const brand = r.data.brand.trim();
+  const kindLabel = kinds.find((k) => k.id === r.data.kind)?.label ?? r.data.kind;
+  const model = r.data.model.replace(new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i'), '').trim();
+  const label = `${brand} ${model}`.replace(/\s+/g, ' ').trim().slice(0, 80);
+  const warnings: string[] = [];
+  const bad = brandProblem(brand, kindLabel);
+  if (bad) warnings.push(`${bad}: confira a marca no anúncio`);
+  if (r.data.kind === 'outro') warnings.push('o tipo não bateu com nenhum do site: escolha à mão');
+  return { asin, link, brand, label, kind: r.data.kind, title: r.data.title.slice(0, 160), via, warnings };
 }
 
 export function editorRecheck(asin: string, now = new Date()): Product {

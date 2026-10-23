@@ -10,7 +10,7 @@
 #   painel-acao.sh ajustar <ramo|main> <slug> <pedido.txt>  # ajuste de texto antes de aceitar
 #   painel-acao.sh pedido <arquivo.txt>         # pedido em texto livre (agente do painel)
 #   painel-acao.sh editar <slug> <edits.json>   # edição manual de texto (só grava se o auditor sustentar)
-#   painel-acao.sh produto-adicionar <link> <tipo> <marca> <nome> | produto-reconferir <ASIN> | produto-remover <ASIN>
+#   painel-acao.sh produto-ler <link> | produto-adicionar <link> <tipo> <marca> <nome> | produto-reconferir <ASIN> | produto-remover <ASIN>
 #   painel-acao.sh dominio-aprovar <host> <classe> <publicador> | dominio-bloquear <host>
 #   painel-acao.sh mesclar <ramo pagina/...> [ids]  # aceita o resultado; ids = itens desmarcados (não entram)
 #   painel-acao.sh descartar <ramo pagina/...> # apaga o ramo; a pauta volta para a fila
@@ -260,6 +260,10 @@ case "$action" in
     fi
     publish "Painel: edição manual em $2"
     preview
+    ;;
+  produto-ler)
+    # produto-ler <link>: lê o anúncio e devolve o formulário preenchido (nada é gravado; o editor confere e adiciona).
+    npm run -s engine -- product-read "$2"
     ;;
   produto-adicionar)
     # produto-adicionar <link> <tipo> <marca> <nome>: escolha do editor (o clique é a aprovação humana).

@@ -255,6 +255,16 @@ async function main(): Promise<number> {
       for (const t of applyExclusions(ref, ids.split(',').filter(Boolean))) console.log(`recusado: ${t}`);
       return 0;
     }
+    case 'product-read': {
+      // product-read <link|ASIN>: lê o anúncio e imprime o formulário preenchido (linha LEITURA <json>); não grava nada.
+      const { readListingInfo } = await import('./stages/products.ts');
+      try {
+        console.log(`LEITURA ${JSON.stringify(await readListingInfo(rest[0] ?? ''))}`);
+      } catch (e) {
+        console.log(`LEITURA ${JSON.stringify({ error: (e as Error).message.slice(0, 200), link: rest[0] ?? '' })}`);
+      }
+      return 0;
+    }
     case 'product-pick': {
       // product-pick <link|ASIN> <tipo> <marca> <nome...>: produto escolhido pelo editor no painel.
       const [url, kind, brand, ...name] = rest;

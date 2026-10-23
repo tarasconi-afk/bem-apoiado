@@ -458,6 +458,32 @@ ${cards.length ? cards.map((c) => c.html).join('') : '<p class="muted">Nada pedi
 
 // Catálogo de exemplos à venda + produto escolhido pelo editor (link colado; a Amazon bloqueia a leitura
 // automática dos anúncios). Escolha do editor sai do site se passar de EDITOR_PICK_MAX_AGE_DAYS sem reconferir.
+// Adicionar produto em dois passos (23/10): colar o link e "Ler anúncio"; o motor devolve o formulário preenchido
+// (tipo, marca, nome) e o editor confere e adiciona. A leitura é um job do painel; o resultado vem da saída dele.
+function addProductHtml(kinds: { id: string; label: string }[]): string {
+  const job = jobs.find((j) => j.label.startsWith('ler anúncio:'));
+  const recent = job && Date.now() - Date.parse(job.started) < 2 * 3600_000;
+  let read: { asin?: string; link?: string; brand?: string; label?: string; kind?: string; title?: string; via?: string; warnings?: string[]; error?: string } | null = null;
+  if (recent && job!.ended) {
+    try { read = JSON.parse(/^LEITURA (.+)$/m.exec(job!.output)?.[1] ?? 'null'); } catch { read = null; }
+  }
+  const opts = (sel?: string) => kinds.map((k) => `<option value="${esc(k.id)}"${k.id === sel ? ' selected' : ''}>${esc(k.label)}</option>`).join('');
+  const full = (r: typeof read, open: boolean) => `<form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="produto-adicionar">
+<input name="link" required maxlength="500" placeholder="link do anúncio na Amazon" value="${esc(r?.link ?? '')}" style="min-width:240px">
+<select name="tipo">${opts(r?.kind)}</select>
+<input name="marca" required minlength="2" maxlength="40" placeholder="marca (ex.: Cavaletti)" value="${esc(r?.brand ?? '')}">
+<input name="nome" required minlength="5" maxlength="80" placeholder="nome com a marca (ex.: Cavaletti Air)" value="${esc(r?.label ?? '')}">
+<button class="ok">${open ? 'Conferi, adicionar' : 'Adicionar'}</button></form>`;
+  const status = !recent ? '' : !job!.ended ? '<p class="flash"><span class="b neutral">lendo o anúncio…</span> leva até 1 minuto; a página atualiza sozinha.</p>'
+    : read?.error ? `<p class="flash bad-flash">${esc(read.error)}</p>`
+    : read ? `<div class="flash"><strong>Lido do anúncio</strong> <span class="muted">(${esc(read.via ?? '')})</span>: ${esc(read.title ?? '')}${(read.warnings ?? []).map((w) => `<br><span class="b warn">confira</span> ${esc(w)}`).join('')}<p class="muted" style="margin:6px 0 0">Confira tipo, marca e nome. Ao adicionar, o produto aparece como "conferido pelo editor".</p>${full(read, true)}</div>` : '';
+  return `<details class="fold"${recent ? ' open' : ''}><summary><strong>Adicionar produto</strong> <span class="muted">(cole o link; o motor lê o anúncio e preenche o resto)</span></summary>
+<form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="produto-ler"><input name="link" required maxlength="500" placeholder="link do anúncio na Amazon" style="min-width:280px"><button class="ok">Ler anúncio</button></form>
+${status}
+<details style="margin-top:8px"><summary class="muted">preencher à mão</summary>${full(null, false)}</details>
+<p class="muted">Aparece com a imagem do tipo (gerada por IA) em todas as páginas desse tipo, com "conferido pelo editor em". Reconfira em até ${EDITOR_PICK_MAX_AGE_DAYS} dias; depois disso o cartão sai do site sozinho até você reconferir. Ler um anúncio gasta 1 busca e centavos de crédito.</p></details>`;
+}
+
 function productsHtml(): string {
   const kinds = loadNiche().product_kinds.filter((k) => k.id !== 'outro');
   const label = new Map(kinds.map((k) => [k.id, k.label]));
@@ -495,14 +521,7 @@ function productsHtml(): string {
   return `<p class="muted">${rows.length} no catálogo · ${mine} escolhido(s) por você. Cliques na Amazon: últimos 30 dias. Escolha sua vale ${EDITOR_PICK_MAX_AGE_DAYS} dias sem reconferir; o motor renova os dele a cada 7 dias.</p>
 ${rows.length ? `<div class="tools"><input id="q-prod" type="search" placeholder="buscar produto, marca ou tipo" aria-label="Buscar produto"><div class="chips" role="group" aria-label="Filtro" data-for="t-prod"><button class="chip" type="button" data-f="" aria-pressed="true">Todos</button><button class="chip" type="button" data-f="soon" aria-pressed="false">Reconferir em breve</button><button class="chip" type="button" data-f="editor" aria-pressed="false">Escolha sua</button><button class="chip" type="button" data-f="motor" aria-pressed="false">Do motor</button></div></div>
 <div class="tw"><table id="t-prod" data-search="q-prod"><thead><tr><th>Produto</th><th>Tipo</th><th>Origem</th><th>Conferido</th><th class="num">Cliques</th><th></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>` : '<p class="muted">Nenhum produto no catálogo.</p>'}
-<details class="fold"><summary><strong>Adicionar produto</strong> <span class="muted">(colar o link de um anúncio na Amazon)</span></summary>
-<form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="produto-adicionar">
-<input name="link" required maxlength="500" placeholder="link do anúncio na Amazon" style="min-width:240px">
-<select name="tipo">${kinds.map((k) => `<option value="${esc(k.id)}">${esc(k.label)}</option>`).join('')}</select>
-<input name="marca" required minlength="2" maxlength="40" placeholder="marca (ex.: Cavaletti)">
-<input name="nome" required minlength="5" maxlength="80" placeholder="nome com a marca (ex.: Cavaletti Air)">
-<button class="ok">Adicionar</button></form>
-<p class="muted">Aparece com a imagem do tipo (gerada por IA) em todas as páginas desse tipo, com "conferido pelo editor em". Reconfira em até ${EDITOR_PICK_MAX_AGE_DAYS} dias; depois disso o cartão sai do site sozinho até você reconferir.</p></details>`;
+${addProductHtml(kinds)}`;
 }
 
 // Vereditos: só pede decisão do que precisa dela. Rascunho cuja versão atual ainda não foi julgada fica
@@ -915,7 +934,7 @@ details.old{margin:24px 0 8px}
 .pacts{display:flex;flex-direction:column;gap:6px;margin-top:6px;min-width:260px}
 .flash{background:var(--nbg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}.bad-flash{background:var(--badbg);color:var(--bad);border-color:var(--bad)}
 form.inline{display:inline}form.verdict{display:flex;gap:6px;flex-wrap:wrap}form.verdict input{flex:1;min-width:180px}
-input{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
+input,select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
 button{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:7px;border:1px solid var(--line);cursor:pointer;background:var(--nbg);color:var(--n)}
 button.ok{background:var(--okbg);color:var(--ok)}button.bad{background:var(--badbg);color:var(--bad)}
 td.actions{white-space:nowrap}td.actions form+form{margin-left:6px}pre{white-space:pre-wrap;font-size:.78rem;margin:6px 0 0}
@@ -964,6 +983,11 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     if (classe === 'regulator' && !/\.gov\.br$/.test(host)) return `"${host}" não é órgão público: regulador é quem cria ou fiscaliza regra (gov.br). Organismo certificador ou laboratório: "Teste independente"; quem publica norma: "Norma técnica"; marca: "Fabricante".`;
     if (!/[A-ZÀ-Ú]/.test(pub)) return 'escreva o nome do publicador como ele aparece no texto (ex.: "Cavaletti", "BRICS OCP"), com maiúscula';
     return { label: `aprovar domínio ${host} (${pub})`, args: ['dominio-aprovar', host, classe, pub] };
+  }
+  if (acao === 'produto-ler') {
+    const link = clean(f.get('link'), 500);
+    if (!/^https:\/\/(www\.)?amazon\.com\.br\/.*(dp|gp\/product)\/[A-Z0-9]{10}/.test(link) && !/^[A-Z0-9]{10}$/.test(link)) return 'cole o link de um anúncio da amazon.com.br (com /dp/ no endereço)';
+    return { label: `ler anúncio: ${link.slice(0, 80)}`, args: ['produto-ler', link] };
   }
   if (acao === 'produto-adicionar') {
     const link = clean(f.get('link'), 500);
