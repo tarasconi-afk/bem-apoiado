@@ -77,3 +77,31 @@ describe('Como decidir em 1º não trava a página', () => {
     expect(msg(decisionLast(before) as never)).toBe(0);
   });
 });
+
+describe('atribuição por código', () => {
+  it('fabricante único sem nome ganha "segundo a X"; já citado, norma junto ou framing não mudam', async () => {
+    const { attributeSingleSource } = await import('../src/stages/structure.ts');
+    const src: Record<string, { publisher: string; source_class: string }> = { e: { publisher: 'ergocadeiras', source_class: 'manufacturer' }, f: { publisher: 'Flexform', source_class: 'manufacturer' }, n: { publisher: 'ABNT', source_class: 'standard_body' } };
+    const t = (text: string, ids: string[], basis = 'evidence') => ({ kind: 'paragraph', text, basis, claim_ids: ids });
+    const d = {
+      title: 't', description: 'd', verdict: { text: 'Se você pesa mais de 110 kg, evite nylon. Confira a base.', basis: 'evidence', claim_ids: ['e'] },
+      sections: [{ id: 's', heading: 'S', blocks: [
+        t('A Classe 4 suporta 150 kg.', ['e']),
+        t('Segundo a ergocadeiras, a base de aço é mais firme.', ['e']),
+        t('A norma exige ensaio de base.', ['e', 'n']),
+        t('Compare as fichas das duas marcas.', ['e', 'f']),
+        t('Veja a seguir os detalhes de cada item da ficha.', [], 'framing'),
+        { kind: 'table', caption: 'Peso suportado', columns: ['a', 'b'], rows: [{ cells: [{ text: 'x', claim_ids: ['e'] }, { text: 'y', claim_ids: ['e'] }] }] },
+      ] }],
+    } as never;
+    const r = attributeSingleSource(d, (id) => src[id]);
+    const b = (r.draft as any).sections[0].blocks;
+    expect((r.draft as any).verdict.text).toBe('Se você pesa mais de 110 kg, evite nylon, segundo a ergocadeiras. Confira a base.');
+    expect(b[0].text).toBe('A Classe 4 suporta 150 kg, segundo a ergocadeiras.');
+    expect(b[1].text).toBe('Segundo a ergocadeiras, a base de aço é mais firme.');
+    expect(b[2].text).toBe('A norma exige ensaio de base.');
+    expect(b[3].text).toBe('Compare as fichas das duas marcas, segundo a ergocadeiras e a Flexform.');
+    expect(b[5].caption).toBe('Peso suportado (segundo a ergocadeiras)');
+    expect(r.refs).toEqual(['verdict', 's#0', 's#3', 's#5']);
+  });
+});

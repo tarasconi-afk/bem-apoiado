@@ -44,6 +44,8 @@ export function auditKey(u: { text: string; basis: string; claim_ids: string[] }
 }
 
 export type AuditCache = Map<string, Omit<AuditFinding, 'ref'>>;
+// Auditoria por maioria nos reprovados (BEM_AUDIT_MAJORITY=0 desliga, para comparar custo).
+export const AUDIT_MAJORITY = process.env.BEM_AUDIT_MAJORITY !== '0';
 
 export async function auditDraft(
   draft: Draft,
@@ -70,7 +72,9 @@ export async function auditDraft(
   const usage = { input_tokens: 0, output_tokens: 0, calls: 0 };
   let model = '';
 
-  for (const group of groups.values()) {
+  type Unit = (typeof units)[number];
+  type F = { verdict: AuditFinding['verdict']; problem: string; fix: string };
+  const ask = async (group: Unit[]): Promise<Map<string, F>> => {
     const refs = group.map((u) => u.ref) as [string, ...string[]];
     const Out = z.object({
       findings: z.array(z.object({ ref: z.enum(refs), verdict: AuditVerdict, problem: z.string(), fix: z.string() })),
@@ -102,17 +106,28 @@ export async function auditDraft(
     usage.input_tokens += r.usage.input_tokens;
     usage.output_tokens += r.usage.output_tokens;
     model = r.model;
-    const seen = new Set<string>();
-    for (const f of r.data.findings) {
-      if (seen.has(f.ref)) continue;
-      seen.add(f.ref);
-      findings.push(f);
-      const unit = group.find((u) => u.ref === f.ref)!;
-      cache.set(auditKey(unit), { verdict: f.verdict, problem: f.problem, fix: f.fix });
-    }
+    const m = new Map<string, F>();
+    for (const f of r.data.findings) if (!m.has(f.ref)) m.set(f.ref, { verdict: f.verdict, problem: f.problem, fix: f.fix });
     // Bloco sem veredito não conta como aprovado.
-    for (const ref of refs) {
-      if (!seen.has(ref)) findings.push({ ref, verdict: 'UNSUPPORTED', problem: 'auditor não devolveu veredito', fix: '' });
+    for (const ref of refs) if (!m.has(ref)) m.set(ref, { verdict: 'UNSUPPORTED', problem: 'auditor não devolveu veredito', fix: '' });
+    return m;
+  };
+
+  for (const group of groups.values()) {
+    const first = await ask(group);
+    // Maioria nos blocos reprovados (22/10: o auditor mudou de veredito em 15% dos blocos auditando 3 vezes o mesmo
+    // rascunho; na página do Bonnel, aprovada pelo editor, 6 de 16 blocos oscilaram). Só o reprovado volta, mais 2
+    // vezes; aprovado por 2 de 3 vale como aprovado. O cache guarda o resultado da maioria, não o primeiro voto.
+    const failed = group.filter((u) => first.get(u.ref)!.verdict !== 'SUPPORTED');
+    const extra = AUDIT_MAJORITY && failed.length ? await Promise.all([ask(failed), ask(failed)]) : [];
+    for (const u of group) {
+      let f = first.get(u.ref)!;
+      if (extra.length && f.verdict !== 'SUPPORTED') {
+        const ok = extra.filter((m) => m.get(u.ref)?.verdict === 'SUPPORTED').length;
+        if (ok >= 2) f = { verdict: 'SUPPORTED', problem: '', fix: '' };
+      }
+      findings.push({ ref: u.ref, ...f });
+      cache.set(auditKey(u), f);
     }
   }
   return { findings, usage, model };

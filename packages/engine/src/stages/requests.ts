@@ -6,7 +6,7 @@ import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
 import { readerScore, reviewPage } from './review.ts';
 import { withoutDuplicates } from './duplicates.ts';
-import { applyMoves, dropClaimless } from './structure.ts';
+import { applyMoves, attributeSingleSource, dropClaimless } from './structure.ts';
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { textDiffs } from '../changes.ts';
@@ -272,6 +272,14 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   }
   const cl = dropClaimless(patched, touched);
   patched = cl.draft;
+  // Atribuição por código também no ajuste (só nos blocos tocados), antes da auditoria.
+  const srcOf = (id: string) => { const src = idx.sources.get(idx.claims.get(id)?.source_id ?? ''); return src ? { publisher: src.publisher, source_class: src.source_class } : undefined; };
+  const attributed = attributeSingleSource(patched, srcOf);
+  for (const r of attributed.refs.filter((r) => touched.has(r))) {
+    const [sid, i] = r.split('#');
+    if (r === 'verdict') patched = { ...patched, verdict: attributed.draft.verdict };
+    else { const sec = patched.sections.find((x) => x.id === sid)!; const src2 = attributed.draft.sections.find((x) => x.id === sid)!; sec.blocks[Number(i)] = src2.blocks[Number(i)]!; }
+  }
   const spec = PageSpec.parse({ ...page, ...patched });
   const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
   if (gate.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;

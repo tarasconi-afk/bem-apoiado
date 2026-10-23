@@ -72,3 +72,43 @@ export function dropClaimless(d: Draft, touched: Set<string>): { draft: Draft; d
   }));
   return { draft: { ...d, sections }, dropped };
 }
+
+// Atribuição por código, antes do auditor (22/10: na cadeira para obeso, 8 de 11 recusas que se repetiam nas
+// 3 auditorias eram "regra geral" tirada de um fabricante só, sem dizer de quem; o redator errava de novo a cada
+// rodada). Bloco cujas evidências são todas de UM fabricante e que não cita o nome dele ganha ", segundo a X" no
+// fim da 1ª frase; tabela com fonte única leva o nome no título. Não muda fato nem fonte.
+export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => { publisher: string; source_class: string } | undefined): { draft: Draft; refs: string[] } {
+  const refs: string[] = [];
+  const norm = (t: string) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  // Um ou dois fabricantes, todos "manufacturer" (com norma ou regulador junto, a regra geral pode estar certa).
+  const single = (ids: string[]) => {
+    const srcs = ids.map(sourceOf).filter((s): s is NonNullable<typeof s> => !!s);
+    const pubs = [...new Set(srcs.map((s) => s.publisher))];
+    return srcs.length && pubs.length <= 2 && srcs.every((s) => s.source_class === 'manufacturer') ? pubs : null;
+  };
+  const who = (pubs: string[]) => pubs.map((p) => `a ${p}`).join(' e ');
+  const attribute = (text: string, pubs: string[]) => {
+    if (pubs.some((p) => norm(text).includes(norm(p)))) return text;
+    const m = /^([\s\S]*?)([.!?])(\s|$)/.exec(text);
+    return m ? `${m[1]}, segundo ${who(pubs)}${m[2]}${text.slice(m[0].length - m[3]!.length)}` : `${text.replace(/[.\s]*$/, '')}, segundo ${who(pubs)}.`;
+  };
+  const out: Draft = structuredClone(d);
+  const pv = single(out.verdict.claim_ids);
+  if (pv && out.verdict.basis !== 'framing') {
+    const t = attribute(out.verdict.text, pv);
+    if (t !== out.verdict.text) { out.verdict = { ...out.verdict, text: t }; refs.push('verdict'); }
+  }
+  for (const s of out.sections) s.blocks.forEach((b, i) => {
+    if (b.kind === 'table') {
+      const p = single([...new Set(b.rows.flatMap((r) => r.cells.flatMap((c) => c.claim_ids)))]);
+      if (p && !p.some((x) => norm(b.caption).includes(norm(x)))) { b.caption = `${b.caption} (segundo ${who(p)})`; refs.push(`${s.id}#${i}`); }
+      return;
+    }
+    if (b.basis === 'framing') return;
+    const p = single(b.claim_ids);
+    if (!p) return;
+    const t = attribute(b.text, p);
+    if (t !== b.text) { b.text = t; refs.push(`${s.id}#${i}`); }
+  });
+  return { draft: out, refs };
+}

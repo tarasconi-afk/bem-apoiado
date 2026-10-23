@@ -8,7 +8,7 @@ import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, selectClaims, type Draft } from './draft-schema.ts';
 import { duplicateBlocks, withoutDuplicates } from './duplicates.ts';
-import { decisionLast } from './structure.ts';
+import { attributeSingleSource, decisionLast } from './structure.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
@@ -221,6 +221,8 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   };
 
   const cache: AuditCache = new Map();
+  // Fonte de cada evidência, para a atribuição por código (fabricante único sem nome no texto).
+  const sourceOf = (id: string) => { const src = idx.sources.get(idx.claims.get(id)?.source_id ?? ''); return src ? { publisher: src.publisher, source_class: src.source_class } : undefined; };
   let draft: Draft | null = null;
   let issues: Issue[] = [];
   let lastFindings: AuditFinding[] = [];
@@ -233,12 +235,12 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       // "Como decidir" para o fim já aqui, antes de qualquer checagem (22/10, cadeira para obeso: o redator o pôs
       // em 1º nas 4 rodadas, o auditor aprovou todos os blocos e a página parou só pela regra "a última seção tem
       // de ser Como decidir"; a reordenação só acontecia na gravação, depois da checagem que travou).
-      draft = decisionLast(w.data);
+      draft = attributeSingleSource(decisionLast(w.data), sourceOf).draft;
       writeStage(runId, `write-r${round}`, { mode: 'full', draft, issues_in: issues, usage: w.usage, model: w.model });
     } else {
       const p = await writePatches(topic, claims, idx.sources, draft, issues, fetchImpl);
       add(p.usage);
-      draft = decisionLast(applyPatches(draft, p.data.patches));
+      draft = attributeSingleSource(decisionLast(applyPatches(draft, p.data.patches)), sourceOf).draft;
       writeStage(runId, `write-r${round}`, { mode: 'patch', patches: p.data.patches, draft, issues_in: issues, usage: p.usage });
     }
 
