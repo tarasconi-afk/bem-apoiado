@@ -84,9 +84,11 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   const single = (ids: string[]) => {
     const srcs = ids.map(sourceOf).filter((s): s is NonNullable<typeof s> => !!s);
     const pubs = [...new Set(srcs.map((s) => s.publisher))];
-    return srcs.length && pubs.length <= 2 && srcs.every((s) => s.source_class === 'manufacturer') ? pubs : null;
+    return srcs.length && srcs.every((s) => s.source_class === 'manufacturer') ? pubs : null;
   };
-  const who = (pubs: string[]) => pubs.map((p) => `a ${p}`).join(' e ');
+  // 3 ou mais fabricantes dizendo o mesmo: "fabricantes como X, Y e Z" (22/10, casal com pesos diferentes: 4 marcas
+  // na resposta curta e nenhuma nomeada).
+  const who = (pubs: string[]) => (pubs.length <= 2 ? pubs.map((p) => `a ${p}`).join(' e ') : `fabricantes como ${pubs.slice(0, 2).join(', ')} e ${pubs[2]}`);
   const attribute = (text: string, pubs: string[]) => {
     if (pubs.some((p) => norm(text).includes(norm(p)))) return text;
     const m = /^([\s\S]*?)([.!?])(\s|$)/.exec(text);

@@ -153,3 +153,15 @@ describe('conexão cortada', () => {
     expect(n).toBe(2);
   });
 });
+
+describe('embalagem do JSON', () => {
+  it('lê JSON cercado com texto antes e depois, sem mudar o conteúdo', async () => {
+    const { safeParse } = await import('../src/llm.ts');
+    const { z } = await import('zod');
+    const S = z.object({ a: z.number() });
+    expect(safeParse('```json\n{"a": 1}\n```\nEspero ter ajudado.', S)).toEqual({ ok: true, data: { a: 1 } });
+    expect(safeParse('Aqui está: {"a": 2} pronto', S)).toEqual({ ok: true, data: { a: 2 } });
+    expect(safeParse('{"a": 3}', S)).toEqual({ ok: true, data: { a: 3 } });
+    expect(safeParse('nada aqui', S).ok).toBe(false);
+  });
+});

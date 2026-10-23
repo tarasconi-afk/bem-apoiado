@@ -185,9 +185,13 @@ async function readCompletion(res: Response): Promise<{ content: string; usage: 
   return { content, usage };
 }
 
-function safeParse<T>(content: string, schema: z.ZodType<T>): { ok: true; data: T } | { ok: false; error: string } {
-  // Alguns modelos embrulham o JSON em ```json ... ```; isso é a única limpeza permitida.
-  const stripped = content.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+export function safeParse<T>(content: string, schema: z.ZodType<T>): { ok: true; data: T } | { ok: false; error: string } {
+  // Alguns modelos embrulham o JSON em ```json ... ``` (às vezes com texto antes ou depois: 22/10, planejador da
+  // pauta "colchão ou cama box"); tirar a embalagem é a única limpeza permitida, o conteúdo nunca muda.
+  const t = content.trim();
+  const fenced = /```(?:json)?\s*([\s\S]*?)\s*```/i.exec(t)?.[1];
+  const braces = t.indexOf('{') >= 0 && t.lastIndexOf('}') > t.indexOf('{') ? t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1) : t;
+  const stripped = fenced ?? (t.startsWith('{') || t.startsWith('[') ? t : braces);
   let raw: unknown;
   try {
     raw = JSON.parse(stripped);
