@@ -16,6 +16,8 @@ Regras de conteúdo (obrigatórias):
 2. "basis": "evidence" quando o bloco afirma fatos das evidências; "reasoning" quando tira uma conclusão prática delas (cite as evidências usadas); "framing" só para frases de contexto sem fato nenhum (sem números, sem citações).
 3. Não afirme nada além do que o trecho literal sustenta. Na dúvida, diga menos.
 4. Evidência de fabricante (classe "manufacturer") falando dos produtos em geral é posição daquele fabricante: escreva "segundo a <marca>". Nunca transforme em fato universal.
+4b. O que a página de um produto diz DESSE produto vale só para ele: "no colchão X, a Ortobom informa…", nunca "o pillow top oferece…" como característica do tipo (22/10: o pillow top parou na auditoria por 3 blocos assim). Para falar do tipo em geral, só com dois ou mais fabricantes dizendo o mesmo, ou norma.
+4c. Chame o documento pelo que ele é, como aparece em "documento:": página do produto, guia ou artigo do fabricante, ficha técnica (só se o documento for uma ficha técnica), norma, regulamento.
 5. Proibido: preços, promoções, "testamos", "na nossa experiência", notas ou rankings de produtos, recomendar marca específica.
 6. ${n.safety_rule}
 7. Números (medidas, prazos, quantidades, faixas) só se estiverem no trecho literal citado.
