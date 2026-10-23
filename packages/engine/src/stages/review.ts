@@ -121,3 +121,9 @@ export function majority<T extends Vote>(vs: T[]): T {
   const rep = [...vs].sort((a, b) => score(b) - score(a))[0]!;
   return { ...rep, ...agg, filler_refs: filler };
 }
+
+// Nota de leitor de 0 a 4 (as 4 perguntas do editor; "em parte" vale meio): usada para comparar duas versões.
+export function readerScore(r: { answers_primary_query: string; reader_fit?: boolean; quick_answer?: boolean; purchase_path?: boolean }): number {
+  const dec = r.answers_primary_query === 'yes' ? 1 : r.answers_primary_query === 'partial' ? 0.5 : 0;
+  return dec + Number(r.reader_fit !== false) + Number(r.quick_answer !== false) + Number(r.purchase_path !== false);
+}

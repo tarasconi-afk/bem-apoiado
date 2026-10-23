@@ -4,7 +4,7 @@ import { Basis, checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@b
 import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
-import { reviewPage } from './review.ts';
+import { readerScore, reviewPage } from './review.ts';
 import { withoutDuplicates } from './duplicates.ts';
 import { applyMoves, dropClaimless } from './structure.ts';
 import { examplesPrompt } from '../exemplars.ts';
@@ -304,12 +304,24 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   // Revisão de leitor da versão ajustada (antes ela só existia na criação da página): o cartão do painel
   // mostra as 4 perguntas da página como ficou (22/10: a resposta curta da cadeira deixou de responder ao
   // título depois de um ajuste e ninguém viu). Falha aqui não desfaz o ajuste.
+  // Um ajuste nunca piora a página (22/10, pillow top: o pedido com pesquisa tirou o bloco "se a altura for
+  // limitada, prefira sem" e a revisão caiu de 3 para 0,5 de 4). O juiz atual avalia as duas versões juntas;
+  // se a nova for pior, a página volta à anterior. As fontes e evidências novas ficam (não diz "NÃO salvo",
+  // então o script grava o aprendizado).
   let reviewNote = '';
   try {
-    const rv = await reviewPage(saved, topic, fetchImpl);
-    writeStage(runId, 'page', { status: 'EDITOR_ADJUST', review: rv.review });
+    const [after, before] = await Promise.all([reviewPage(saved, topic, fetchImpl), reviewPage(page, topic, fetchImpl)]);
+    const sa = readerScore(after.review);
+    const sb = readerScore(before.review);
     const yes = (b: boolean | undefined) => (b === false ? 'não' : 'sim');
-    reviewNote = `\nrevisão de leitor: responde à dúvida ${rv.review.answers_primary_query === 'yes' ? 'sim' : rv.review.answers_primary_query === 'partial' ? 'em parte' : 'não'} · resposta rápida ${yes(rv.review.quick_answer)} · leigo ${yes(rv.review.reader_fit)} · leva à compra ${yes(rv.review.purchase_path)}`;
+    const line = (r: typeof after.review) => `responde à dúvida ${r.answers_primary_query === 'yes' ? 'sim' : r.answers_primary_query === 'partial' ? 'em parte' : 'não'} · resposta rápida ${yes(r.quick_answer)} · leigo ${yes(r.reader_fit)} · leva à compra ${yes(r.purchase_path)}`;
+    if (sa < sb) {
+      writeJson(join(PAGES_DIR, `${slug}.json`), page);
+      writeStage(runId, 'regression', { before: before.review, after: after.review, score_before: sb, score_after: sa });
+      return `${lessonNote}ajuste não aplicado: a versão nova ficou pior na revisão de leitor (antes ${sb} de 4, depois ${sa} de 4), então a página continua como estava${fresh ? `; as ${fresh} evidência(s) nova(s) ficam guardadas` : ''}.\nantes: ${line(before.review)}\ndepois: ${line(after.review)}\nPeça de novo dizendo o que a página deve passar a dizer (ex.: "Se você…, escolha…"), ou recuse com esse motivo.`;
+    }
+    writeStage(runId, 'page', { status: 'EDITOR_ADJUST', review: after.review, review_before: before.review });
+    reviewNote = `\nrevisão de leitor: ${line(after.review)} (nota ${sa} de 4; antes ${sb})`;
   } catch {
     reviewNote = '\nrevisão de leitor: não rodou (o ajuste vale assim mesmo)';
   }
