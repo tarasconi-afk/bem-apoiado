@@ -125,7 +125,9 @@ Feito em 22/10:
 - [ ] medir a correção automática: em quantos rascunhos ela sobe a nota e quantos viram aprováveis
 
 ### B. Autonomia — o editor só decide, e cada vez menos
-- [ ] modo sombra: para cada página, gravar "o motor publicaria?" e a concordância com o veredito do editor
+- [x] modo sombra (23/10): cada decisão do editor no quadro grava a sugestão do motor naquele momento; painel
+      (Desempenho → Modo sombra) mostra a concordância nas últimas 10 e o que falta para o critério; registro em
+      /var/lib/bem-apoiado/shadow.jsonl. Antes: "o motor publicaria?" e a concordância com o veredito do editor
 - [ ] publicação automática com resumo diário (editor só despublica), quando: concordância ≥ 9 de 10 por 2 semanas,
       nota de leitor 4 de 4 e auditoria limpa. **Só liga com autorização explícita do dono**
 - [x] fabricantes novos propostos pelo motor (domínios das buscas) com aprovação de 1 clique no quadro

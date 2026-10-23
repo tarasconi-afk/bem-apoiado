@@ -1,6 +1,7 @@
 import { loadThresholds, loadVerdicts } from './feedback.ts';
 import { readerScore } from './stages/review.ts';
 import { classifyBranch, classifyDraft, KIND_LABEL, rulesFromNotes, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
+import { AUTO_MIN_AGREE, AUTO_MIN_DAYS, AUTO_WINDOW, loadShadow, motorPublishes, recordShadow, shadowStats, type EditorAction, type ShadowEntry } from './shadow.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -246,6 +247,9 @@ ${(branches.length ? branches.map(pendingHtml).join('') : '<p class="muted">Nenh
 ${verdictsHtml(pages).replaceAll('data-pending', '').replace(/<h2>/g, '<h3>').replace(/<\/h2>/g, '</h3>')}
 </details>
 
+<h2>Modo sombra</h2>
+${shadowHtml()}
+
 <h2>Google Search Console</h2>
 ${gscHtml()}
 ${announceHtml()}
@@ -362,8 +366,10 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
   const titleOf = (s: string) => pages.find((p) => p.slug === s)?.title ?? s;
   const row = (k: string, v: string) => (v ? `<dt>${esc(k)}</dt><dd>${v}</dd>` : '');
   const sugBadge = (sg: Suggestion) => `<span class="b ${sg === 'nada' ? 'neutral' : sg === 'recusar' ? 'bad' : sg === 'corrigir' ? 'warn' : 'ok'}">${esc(SUGGESTION_LABEL[sg])}</span>`;
-  const correctionForm = (ramo: string, slug: string, text: string, open: boolean) =>
-    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">(texto pronto; edite à vontade)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}"><textarea name="pedido" required minlength="5" maxlength="600" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
+  // Modo sombra: cada formulário do cartão leva o que o motor sugeria; o clique do editor é gravado com isso.
+  const shadowField = (kind: string, sg: Suggestion, slug: string) => `<input type="hidden" name="sombra" value="${esc(`${kind}|${sg}|${slug}`)}">`;
+  const correctionForm = (ramo: string, slug: string, text: string, open: boolean, sombra = '') =>
+    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">(texto pronto; edite à vontade)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}">${sombra}<textarea name="pedido" required minlength="5" maxlength="600" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
 
   for (const b of branches) {
     const dir = b.branch.replace(/^pagina\//, '');
@@ -400,7 +406,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const prevPath = pageItem || (query && info.kind !== 'manutencao') ? `${esc(slug)}/` : coverOf ? `${esc(coverOf)}/` : '';
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
-      ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
+      ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}${shadowField(info.kind, info.suggestion, slug)}
 <dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também neste ciclo', esc(alsoTried))}</dl>
 ${forceBox(slug)}</form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
@@ -421,10 +427,10 @@ ${forceBox(slug)}</form>`
     const html = `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
 <summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></span><span class="dsc">${sc}</span>${btn}</summary>
 <div class="dbody">${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
-${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir') : ''}${extra}
+${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir', shadowField(info.kind, info.suggestion, slug)) : ''}${extra}
 ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
-  ? `<div class="dfoot">${form('descartar', { ramo: b.branch }, 'Descartar este ajuste', 'link', 'Descartar este ajuste? A página no ar não muda; as fontes, evidências e lacunas que ele achou ficam guardadas.')} <span class="muted">(a página no ar fica como está; o que o motor aprendeu fica guardado)</span></div>`
-  : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
+  ? `<div class="dfoot">${form('descartar', { ramo: b.branch, sombra: `${info.kind}|${info.suggestion}|${slug}` }, 'Descartar este ajuste', 'link', 'Descartar este ajuste? A página no ar não muda; as fontes, evidências e lacunas que ele achou ficam guardadas.')} <span class="muted">(a página no ar fica como está; o que o motor aprendeu fica guardado)</span></div>`
+  : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch, sombra: `${info.kind}|${info.suggestion}|${slug}` }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
 </div></details>`;
     cards.push({ order: SUGGESTION_ORDER.indexOf(info.suggestion), html });
   }
@@ -435,15 +441,15 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   for (const p of pages.filter((x) => x.status === 'draft' && !judged(x))) {
     const rv = reviewFrom(readMain, p.slug)?.review ?? null;
     const info = classifyDraft({ review: rv, failedAdjust: !!failedAdjust(jobs, p.slug), rules: rulesFromNotes(loadTopics().find((t) => t.slug === p.slug)?.editorial_notes ?? []) });
-    const approve = `<form id="f-ap-${esc(p.slug)}" method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${forceBox(p.slug)}</form>`;
-    const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
+    const approve = `<form id="f-ap-${esc(p.slug)}" method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${shadowField('rascunho', info.suggestion, p.slug)}${forceBox(p.slug)}</form>`;
+    const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
       html: `<details class="dcard sg-${info.suggestion}" data-pending>
 <summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span><button form="f-ap-${esc(p.slug)}" class="${info.suggestion === 'aprovar' ? 'ok' : ''}">Aprovar e publicar</button></summary>
 <div class="dbody"><dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
 ${failedNote(p.slug)}<div class="dactions">${approve}</div>${adjustDiffsHtml(readMain, p.slug)}
-${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir')}${reject}
+${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir', shadowField('rascunho', info.suggestion, p.slug))}${reject}
 </div></details>`,
     });
   }
@@ -659,7 +665,7 @@ const TABS_JS = `<script>
 if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
   var MAP = [['Quadro de decisões','decisoes'],['Páginas no ar','paginas'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','produtos'],['Domínios novos','conteudo'],
-    ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
+    ['Visitas','desempenho'],['Modo sombra','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
     ['Saldo de créditos','config'],['Senha do painel','config']];
   var NAMES = { decisoes: 'Decisões', paginas: 'Páginas', produtos: 'Produtos', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
   var main = document.querySelector('main'); if (!main) return;
@@ -959,6 +965,46 @@ function readBody(req: IncomingMessage): Promise<URLSearchParams> {
 }
 
 const BRANCH = /^pagina\/[a-z0-9-]+$/;
+
+// Modo sombra: grava o clique do editor num cartão do quadro junto com a sugestão do motor que o cartão mostrava.
+function noteShadow(f: URLSearchParams): void {
+  const [card, motor, slug] = (f.get('sombra') ?? '').split('|');
+  if (!card || !motor || !slug || !(SUGGESTION_ORDER as string[]).includes(motor)) return;
+  const acao = f.get('acao');
+  let editor: EditorAction | null = null;
+  if (acao === 'mesclar') {
+    // Item desmarcado antes de aplicar = o editor não aceitou o resultado inteiro.
+    const keep = new Set(f.getAll('manter'));
+    let partial = false;
+    try { partial = gitChanges(`origin/${f.get('ramo')}`).summary.items.some((i) => !keep.has(i.id)); } catch { /* sem leitura: conta como aceito */ }
+    editor = partial ? 'corrigiu' : 'aceitou';
+  } else if (acao === 'veredito') editor = f.get('veredito') === 'approve' ? 'aceitou' : 'recusou';
+  else if (acao === 'descartar') editor = 'recusou';
+  else if (acao === 'ajustar') editor = 'corrigiu';
+  if (!editor) return;
+  try {
+    recordShadow({ at: new Date().toISOString(), card, slug, ramo: f.get('ramo') ?? 'main', motor: motor as Suggestion, editor });
+  } catch {
+    /* o registro nunca impede a ação */
+  }
+}
+
+// Painel do modo sombra (aba Desempenho): concordância nas últimas 10 decisões e o que falta para o critério.
+function shadowHtml(): string {
+  const st = shadowStats(loadShadow());
+  const lab = (e: ShadowEntry) => `${SUGGESTION_LABEL[e.motor] ?? e.motor} → você ${e.editor}`;
+  const rows = st.window.slice().reverse().map((e) => {
+    const ok = motorPublishes(e.motor) === (e.editor === 'aceitou');
+    return `<tr><td>${esc(titleFor(e.slug))}<span class="sub">${esc(KIND_LABEL[e.card as keyof typeof KIND_LABEL] ?? e.card)} · ${esc(fmt(e.at))}</span></td><td>${esc(lab(e))}</td><td>${ok ? '<span class="b ok">concorda</span>' : motorPublishes(e.motor) ? '<span class="b bad">publicaria errado</span>' : '<span class="b warn">seguraria à toa</span>'}</td></tr>`;
+  }).join('');
+  return `<p class="muted">A cada decisão sua no quadro, o motor grava o que ele sugeria. Publicação automática só com a sua autorização, e só quando: nas últimas ${AUTO_WINDOW} decisões, ${AUTO_MIN_AGREE} ou mais concordam, nenhuma em que ele publicaria algo que você corrigiu ou recusou, cobrindo ${AUTO_MIN_DAYS} dias ou mais.</p>
+<div class="kpis" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="kpi"><span class="l">Concordância</span><span class="v">${st.window.length ? `${st.agree} <small>de ${st.window.length}</small>` : '–'}</span><span class="s">últimas ${AUTO_WINDOW} decisões (${st.total} no total)</span></div>
+<div class="kpi"><span class="l">Publicaria errado</span><span class="v">${st.wouldPublishWrong.length}</span><span class="s">o erro que importa: tem de ser 0</span></div>
+<div class="kpi"><span class="l">Pronto para publicar sozinho?</span><span class="v">${st.ready ? 'sim' : 'ainda não'}</span><span class="s">${st.ready ? 'critério cumprido: a decisão de ligar é sua' : esc(st.missing[0] ?? '')}</span></div></div>
+${rows ? `<div class="tw"><table><thead><tr><th>Resultado</th><th>Motor → você</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="muted">Nenhuma decisão registrada ainda: começa a contar no seu próximo clique em Publicar, Aplicar, Corrigir, Recusar ou Descartar.</p>'}
+${st.missing.length > 1 ? `<p class="muted">Falta: ${st.missing.map(esc).join(' · ')}.</p>` : ''}`;
+}
+const titleFor = (slug: string) => loadPages().find((p) => p.slug === slug)?.title ?? slug;
 const clean = (s: string | null, max: number) => (s ?? '').replace(/[\r\n\t]+/g, ' ').trim().slice(0, max);
 
 // Valida e traduz o formulário em argumentos do script. Nada do usuário passa por shell.
@@ -1112,6 +1158,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       return res.end('origem não permitida');
     }
     const f = await readBody(req);
+    noteShadow(f);
     let msg: string;
     if (f.get('acao') === 'ajustar') {
       let ramo = f.get('ramo') ?? '';
