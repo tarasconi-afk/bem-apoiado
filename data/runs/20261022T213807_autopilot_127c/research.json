@@ -1,0 +1,115 @@
+{
+  "run_id": "20261022T213807_autopilot_127c",
+  "topic": "protetor-de-colchao-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_22ee4670e218",
+      "question_id": "q_altura_colchao_modelo",
+      "source_id": "src_6519e4112ed4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dd8537fa6ba5",
+      "question_id": "q_material_e_o_que_a_etiqueta_informa",
+      "source_id": "src_6519e4112ed4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4b74eca66fce",
+      "question_id": "q_material_e_o_que_a_etiqueta_informa",
+      "source_id": "src_6519e4112ed4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6712e8a961ae",
+      "question_id": "q_instrucoes_lavagem_fabricante",
+      "source_id": "src_6519e4112ed4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_43ea723d8107",
+      "question_id": "q_altura_colchao_modelo",
+      "source_id": "src_13a22dcf92b9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_88dcede6c060",
+      "question_id": "q_tamanho_colchao_correspondente",
+      "source_id": "src_13a22dcf92b9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c942229550bd",
+      "question_id": "q_material_e_o_que_a_etiqueta_informa",
+      "source_id": "src_13a22dcf92b9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_99559f142bd4",
+      "question_id": "q_instrucoes_lavagem_fabricante",
+      "source_id": "src_13a22dcf92b9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dc85df9d5287",
+      "question_id": "q_material_e_o_que_a_etiqueta_informa",
+      "source_id": "src_851a94f615f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_67526e58ec44",
+      "question_id": "q_material_e_o_que_a_etiqueta_informa",
+      "source_id": "src_851a94f615f1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a1f60f5bf5d3",
+      "question_id": "q_instrucoes_lavagem_fabricante",
+      "source_id": "src_851a94f615f1",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_altura_colchao_modelo": 2,
+    "q_tamanho_colchao_correspondente": 1,
+    "q_garantia_exige_protetor": 0,
+    "q_material_e_o_que_a_etiqueta_informa": 5,
+    "q_instrucoes_lavagem_fabricante": 3,
+    "q_certificacao_ou_norma_aplicavel": 0
+  },
+  "unanswered": [
+    "q_garantia_exige_protetor",
+    "q_certificacao_ou_norma_aplicavel"
+  ],
+  "usage": {
+    "input_tokens": 6803,
+    "output_tokens": 1463,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_33c035064176"
+  ],
+  "triage": [
+    {
+      "source_id": "src_6519e4112ed4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_13a22dcf92b9",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_851a94f615f1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    }
+  ],
+  "credits": 11.398272000000002
+}
