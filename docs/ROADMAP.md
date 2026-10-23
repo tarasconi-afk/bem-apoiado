@@ -132,6 +132,13 @@ Feito em 22/10:
 - [ ] pautas novas sozinhas: Keyword Planner exportado + Search Console + autocompletar, com volume e sem canibalização
 - [ ] manutenção sem editor: renovação mensal de fontes (hash muda → reauditoria), produtos, imagens
 
+- [x] "Pedir ao motor" busca produtos para uma página e gera capa nova (23/10); o que o leitor vê vai para o quadro
+- [ ] **"Pedir ao motor" como extensão da conversa com o desenvolvedor** (pedido do dono, 23/10): conversar e ele
+      executar ações — aprovar/recusar do quadro, rodar ciclo, cadastrar fabricante proposto, produto por link,
+      mover tabela, reordenar fila, relatórios com recomendação. Cada ação com a mesma trava do botão equivalente
+- [ ] tipo de produto para item específico (pillow top avulso, protetor): as travas de produto recusam acessório
+      ("kit/conjunto/acessório"); decisão do dono sobre o nicho e os fabricantes
+
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais

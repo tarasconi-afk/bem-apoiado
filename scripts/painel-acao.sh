@@ -229,18 +229,26 @@ case "$action" in
   pedido)
     fresh
     npm run -s engine -- request "$2"
-    if [ -z "$(git status --porcelain -- data/theme.json)" ]; then
+    # O que o leitor vê (tema, produtos, imagens, texto de página no ar) vai para um resultado com prévia e só vale
+    # com o aceite no quadro; fila, relatórios, vereditos e anotações entram direto (23/10: o pedido em texto livre
+    # publicava texto de página no ar sem aprovação, diferente do botão de ajuste).
+    LIVE_TEXT=""
+    for f in $(git status --porcelain -- data/pages | awk '{print $2}'); do
+      git show "origin/main:$f" 2>/dev/null | grep -q '"status": "approved"' && LIVE_TEXT=1
+    done
+    if [ -z "$(git status --porcelain -- data/theme.json data/products data/images site/src/assets/generated)" ] && [ -z "$LIVE_TEXT" ]; then
       publish "Painel: pedido do editor"$'\n\n'"$(head -c 300 "$2")"
       preview
     else
-      # Mudança de tema vai para um resultado com prévia (ramo pagina/tema-*); só vale com o aceite.
-      B="pagina/tema-$(date +%Y%m%d-%H%M)"
+      B="pagina/pedido-$(date +%Y%m%d-%H%M)"
+      [ -n "$(git status --porcelain -- data/theme.json)" ] && B="pagina/tema-$(date +%Y%m%d-%H%M)"
       git checkout -q -b "$B"
-      git add data/
-      git "${GIT_ID[@]}" commit -q -m "Tema: pedido do editor"$'\n\n'"- $(head -c 300 "$2")"
+      git add data/ site/src/assets/generated
+      git "${GIT_ID[@]}" commit -q -m "Pedido do editor: mudanças para aprovar"$'\n\n'"- $(head -c 300 "$2")"
       git push -q origin "HEAD:$B"
       git checkout -q -f main
-      echo "mudança de tema em $B: confira a prévia em Esperando sua decisão"
+      branch_previews 2>/dev/null || true
+      echo "pedido pronto para aprovar ($B): confira no quadro de decisões"
     fi
     ;;
   editar)

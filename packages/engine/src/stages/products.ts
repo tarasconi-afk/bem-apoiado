@@ -271,7 +271,10 @@ export async function findProductsFromAmazon(
   // Quantos exemplos (pesquisa de 21/10: excesso de escolha aparece com muitas opções e comprador incerto;
   // 3 opções não confundem, opções sem diferença clara sim). Página que compara tipos: 1 por tipo, até 3.
   // Página de um tipo só: 2, de marcas diferentes. Os que a página já herda de outras contam.
-  const existing = loadProducts().filter((p) => kinds.includes(p.kind));
+  // Com item específico (pillow top), só conta o produto que a página mostra: o que tem o item no nome (23/10: os
+  // colchões comuns do catálogo davam a página por "cheia" e a busca nem rodava).
+  const lt = topic.listing_terms.map(loose);
+  const existing = loadProducts().filter((p) => kinds.includes(p.kind) && (!lt.length || lt.some((t) => loose(p.label).includes(t))));
   const target = opts.target ?? (kinds.length > 1 ? Math.min(3, kinds.length) : 2);
   let need = Math.max(0, target - existing.length);
   const perKind = opts.maxPerKind ?? (kinds.length > 1 ? 1 : need);
@@ -285,7 +288,10 @@ export async function findProductsFromAmazon(
     if (need <= 0) break;
     let added = 0;
     // Item específico da pauta (pillow top, baú) entra na busca: exemplo à venda tem de ter o item.
-    const hits = (await webSearch([labels.get(kind) ?? kind, ...topic.listing_terms].join(' '), { maxResults: 10, includeDomains: ['amazon.com.br'] }))
+    // Com item específico, busca curta: termos + palavra principal do tipo ("pillow top Colchão"). O nome inteiro do
+    // tipo junto ("Colchão de espuma pillow top") não devolvia nenhum anúncio (23/10); "colchão pillow top", 8.
+    const q = topic.listing_terms.length ? `${topic.listing_terms.join(' ')} ${(labels.get(kind) ?? kind).split(' ')[0]}` : (labels.get(kind) ?? kind);
+    const hits = (await webSearch(q, { maxResults: 10, includeDomains: ['amazon.com.br'] }))
       .filter((h) => ASIN_RE.test(h.url))
       .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
     for (const h of hits.slice(0, opts.listingsPerKind ?? 10)) {

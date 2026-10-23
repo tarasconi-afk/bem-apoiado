@@ -41,6 +41,8 @@ const Action = z.discriminatedUnion('type', [
   z.object({ type: z.literal('unpublish'), slug: z.string(), reason: z.string().min(5) }),
   z.object({ type: z.literal('report'), about: z.enum(['gastos', 'qualidade', 'paginas', 'fila', 'visitas']) }),
   z.object({ type: z.literal('theme'), changes: z.record(z.string(), z.unknown()) }),
+  z.object({ type: z.literal('find_products'), slug: z.string() }),
+  z.object({ type: z.literal('new_image'), slug: z.string(), instruction: z.string().default('') }),
   z.object({ type: z.literal('developer'), summary: z.string().min(5) }),
 ]);
 const Plan = z.object({ actions: z.array(Action).min(1).max(6), reply: z.string() });
@@ -52,6 +54,8 @@ const SYSTEM = `Você é o assistente do painel de um site de guias. Transforme 
 - unpublish: tirar uma página do ar (com motivo).
 - report: relatório sobre gastos, qualidade, paginas, fila ou visitas (visitas = dados do Google Search Console: cliques, impressões, posição).
 - theme: mudar o visual pelo tema (cores em hex, radius_px, text_scale, heading_scale, cta.label, cta.style "cheio"|"contorno", examples_position "inicio"|"meio"|"fim", texts.*). Em "changes", só as chaves que mudam, no mesmo formato do tema atual (objetos aninhados). A mudança vai para prévia e só vale com o aceite do editor.
+- find_products: procurar na Amazon exemplos à venda para uma página (segue as travas de sempre: marca, ficha, anúncio do mesmo modelo, termos do item da pauta). O resultado vai para o quadro de decisões para o editor aceitar.
+- new_image: gerar uma capa nova (ilustração por IA, sem marca) para uma página; "instruction" diz o que a imagem deve mostrar (ex.: "um pillow top sobre um colchão num quarto claro"). Vai para o quadro para o editor aceitar.
 - developer: o que o tema não cobre (seção ou componente novo, código, regras do site, orçamento, cadastro de domínios, integrações). NÃO tente fazer: resuma para o desenvolvedor.
 Use só slugs da lista de páginas. Em "reply", diga em uma ou duas frases o que vai ser feito, sem prometer dado que o motor não tem.`;
 
@@ -142,6 +146,21 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
         recordVerdict(a.slug, 'reject', a.reason);
         done.push(`${a.slug}: despublicada (${a.reason})`);
       } else if (a.type === 'edit_text') done.push(await adjustWithResearch(a.slug, a.instruction, runId, fetchImpl, { research: false }));
+      else if (a.type === 'find_products') {
+        // Pedido em conversa vira ação do motor (23/10, editor: "o Pedir ao motor deve virar uma extensão do que
+        // fazemos no chat"). Mesma etapa e mesmas travas da manutenção do ciclo.
+        const { findProductsFromAmazon } = await import('./products.ts');
+        const r = await findProductsFromAmazon(a.slug, runId, { target: 3 });
+        done.push(r.added.length ? `${a.slug}: ${r.added.length} exemplo(s) à venda encontrado(s) (${r.added.map((x: { label?: string; asin?: string }) => x.label ?? x.asin).join(', ')}); confira e aceite no quadro` : `${a.slug}: nenhum anúncio passou nas travas (${r.candidates} conferido(s)); se você conhecer um, cole o link em "Produtos à venda"`);
+      } else if (a.type === 'new_image') {
+        const page = loadPages().find((p) => p.slug === a.slug)!;
+        const { BRIEF_SYSTEM, BriefOut, Brief, generateImage } = await import('../images.ts');
+        const { ROOT } = await import('../store.ts');
+        const subject = `capa de um guia intitulado "${page.title}". ${a.instruction || 'Cena que ilustre o tema do guia.'} Sem produto de marca.`;
+        const b = (await callJson({ role: 'extractor', system: BRIEF_SYSTEM, user: subject, schema: BriefOut, schemaName: 'image_brief', maxTokens: 600 }, fetchImpl)).data;
+        const rec = await generateImage(Brief.parse({ id: `pagina-${a.slug}`, ...b }), ROOT);
+        done.push(`${a.slug}: capa nova gerada ("${rec.alt}"); confira e aceite no quadro`);
+      }
     } catch (e) {
       failed.push(`${a.type}: ${(e as Error).message.slice(0, 160)}`);
     }

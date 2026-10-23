@@ -356,9 +356,11 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
 
   for (const b of branches) {
     const dir = b.branch.replace(/^pagina\//, '');
-    const slug = dir.replace(/-\d{8}-\d{4}$/, '');
+    let slug = dir.replace(/-\d{8}-\d{4}$/, '');
     let items: ChangeItem[] = [];
     try { items = gitChanges(`origin/${b.branch}`).summary.items; } catch { /* sem leitura: cartão informativo */ }
+    // Resultado de um pedido em texto livre (ramo pagina/pedido-*): a página é a que o pedido mudou.
+    if (slug === 'pedido') slug = items.find((i) => i.id.startsWith('page:'))?.slug ?? items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find(Boolean) ?? 'pedido';
     const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
     const outcome = plainOutcome(b.steps);
     const rv = reviewFrom(readBranch(b.branch), slug)?.review ?? null;
