@@ -115,12 +115,12 @@ Feito em 22/10:
 - [x] fila por volume de busca (Keyword Planner) e trava de pauta sem fabricantes cadastrados
 
 ### A. Previsibilidade (até 20 páginas) — a mesma página tem de ter o mesmo resultado
-- [ ] **auditor estável**: medir auditando 2× o mesmo rascunho (% de blocos que mudam de veredito). Acima de 10%:
+- [x] **auditor estável**: medir auditando 2× o mesmo rascunho (% de blocos que mudam de veredito). Acima de 10%:
       reauditar só os blocos reprovados mais 2 vezes e valer a maioria (cadeira para obeso: aprovada inteira numa
       rodada, recusada por atribuição na seguinte)
-- [ ] atribuição sem volta: bloco cujas evidências são de um só fabricante tem de nomear o fabricante (regra de
+- [x] atribuição sem volta: bloco cujas evidências são de um só fabricante tem de nomear o fabricante (regra de
       código, antes do auditor), em vez de o auditor recusar e o redator errar de novo
-- [ ] produtos coerentes com a página: página sobre um item (pillow top) mostra só produtos com o item, ou nenhum
+- [x] produtos coerentes com a página: página sobre um item (pillow top) mostra só produtos com o item, ou nenhum
 - [ ] tabela fora do assunto não entra (densidade por peso numa página de pillow top)
 - [ ] medir a correção automática: em quantos rascunhos ela sobe a nota e quantos viram aprováveis
 
@@ -128,7 +128,7 @@ Feito em 22/10:
 - [ ] modo sombra: para cada página, gravar "o motor publicaria?" e a concordância com o veredito do editor
 - [ ] publicação automática com resumo diário (editor só despublica), quando: concordância ≥ 9 de 10 por 2 semanas,
       nota de leitor 4 de 4 e auditoria limpa. **Só liga com autorização explícita do dono**
-- [ ] fabricantes novos propostos pelo motor (domínios das buscas) com aprovação de 1 clique no quadro
+- [x] fabricantes novos propostos pelo motor (domínios das buscas) com aprovação de 1 clique no quadro
 - [ ] pautas novas sozinhas: Keyword Planner exportado + Search Console + autocompletar, com volume e sem canibalização
 - [ ] manutenção sem editor: renovação mensal de fontes (hash muda → reauditoria), produtos, imagens
 
@@ -165,7 +165,7 @@ Feito em 22/10:
 
 ### D. Monetização
 - [ ] todo guia com pelo menos 2 exemplos à venda de marcas citadas no texto (hoje vários guias sem nenhum coerente)
-- [ ] painel: cliques na Amazon por página (o contador já registra) e taxa de clique por visita
+- [x] painel: cliques na Amazon por página (o contador já registra) e taxa de clique por visita
 - [ ] relatório de ganhos da Amazon no painel (importar o CSV do Associados), para saber quais páginas vendem
 - [ ] PA-API depois das primeiras vendas qualificadas: foto real, preço e disponibilidade oficiais
 - [ ] avaliar outras receitas só com tráfego estável: AdSense (política de privacidade já existe), outros programas de afiliados
