@@ -1,0 +1,130 @@
+{
+  "run_id": "20261023T004559_autopilot_8d31",
+  "topic": "pillow-top-o-que-e-e-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_5c2705608af5",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_42adea7c3ef9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_913b6e999b1c",
+      "question_id": "q_altura_total",
+      "source_id": "src_42adea7c3ef9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7395e7a3b5f6",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_f5cc65321b11",
+      "new": true
+    },
+    {
+      "claim_id": "clm_caf4012cbc72",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_f5cc65321b11",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8f7c516761f4",
+      "question_id": "q_altura_total",
+      "source_id": "src_f5cc65321b11",
+      "new": true
+    },
+    {
+      "claim_id": "clm_48dd3efcec5c",
+      "question_id": "q_garantia_pillowtop",
+      "source_id": "src_f5cc65321b11",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ca4f0290ef33",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_fe422ea5dd4a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_070d1e8dcda0",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_fe422ea5dd4a",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_fe422ea5dd4a",
+      "question_id": "q_peso_densidade_pillowtop",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "VERIFIQUE A DENSIDADE IDEAL\nBaixo (até 50 kg) | até 1,50 (m): D23 D23*/20 D23/20* D20\n51 a 60 kg | 1,51 a 1,60 (m): D26 D26*/23 D26/23* D23\n61 a 70 kg | 1,61 a 1,70 (m): D33 D33*/28 D33*/28 D28\n71 a 8"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_pillowtop": 0,
+    "q_definicao_pillowtop": 4,
+    "q_fixo_ou_removivel": 1,
+    "q_altura_total": 2,
+    "q_certificacao_inmetro": 0,
+    "q_garantia_pillowtop": 1
+  },
+  "unanswered": [
+    "q_peso_densidade_pillowtop",
+    "q_certificacao_inmetro"
+  ],
+  "usage": {
+    "input_tokens": 14612,
+    "output_tokens": 1337,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_631ba993f6b0",
+    "src_d753977fb12a",
+    "src_f1f819264a8f"
+  ],
+  "triage": [
+    {
+      "source_id": "src_d753977fb12a",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.03
+    },
+    {
+      "source_id": "src_42adea7c3ef9",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.52
+    },
+    {
+      "source_id": "src_f1f819264a8f",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.24
+    },
+    {
+      "source_id": "src_f1f819264a8f",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_f5cc65321b11",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_fe422ea5dd4a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.68
+    },
+    {
+      "source_id": "src_fe422ea5dd4a",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.61
+    }
+  ],
+  "credits": 5.5250802000000006
+}

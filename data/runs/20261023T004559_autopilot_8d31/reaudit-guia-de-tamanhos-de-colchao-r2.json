@@ -1,0 +1,24 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Meça o espaço disponível no quarto antes de comprar: confira o comprimento, a largura, o espaço para abrir portas e gavetas, e a circulação. Um quarto de pelo menos 3 × 3,5 m comporta uma cama king (193 × 203 cm) com boa circulação; quartos menores podem ser mais adequados para queen (158 × 198 cm) ou casal (138 × 188 cm). As dimensões finais podem variar até 1 cm, conforme o fabricante.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_663f7a471168",
+        "clm_b6b9713076f2",
+        "clm_92840396526a",
+        "clm_7d2040729fa7",
+        "clm_8cd2a9b4b397",
+        "clm_07edec6f3f44"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As recomendações sobre medir o quarto, reservar espaço para circulação e considerar 3 × 3,5 m são apresentadas como orientação geral, mas os trechos citados vêm de fabricante. Além disso, a fonte diz que 3 × 3,5 m é o ideal, não estabelece necessariamente uma regra geral de que quartos menores sejam mais adequados para outros tamanhos."
+    }
+  ]
+}

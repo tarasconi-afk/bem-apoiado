@@ -1,0 +1,29 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Probel, antes da compra é recomendável medir o local da cama, o espaço para abrir portas e gavetas e a circulação; a empresa indica um quarto de pelo menos 3 × 3,5 m para uma cama king com boa circulação. Segundo a King Koil, o colchão king mede 193 × 203 cm e o colchão queen mede 158 × 198 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_663f7a471168",
+        "clm_b6b9713076f2",
+        "clm_7d2040729fa7",
+        "clm_92840396526a"
+      ]
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#1",
+      "action": "replace",
+      "text": "A seguir, veja as informações apresentadas nesta página sobre o modelo que você quer comprar.",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ]
+}
