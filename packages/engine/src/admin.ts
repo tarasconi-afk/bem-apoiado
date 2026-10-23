@@ -363,14 +363,21 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
 <dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(pageItem || query ? `${esc(slug)}/` : '', 'abrir prévia'))}</dl>
 ${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok big' : ''}">${primary}</button></div></form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
+    // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da
+    // fila, não fazer nada e descartar).
+    const next = /rascunho/.test(info.situation)
+      ? 'em até 5 minutos o rascunho aparece num cartão para você aprovar, corrigir ou recusar'
+      : /Adiada/.test(info.situation)
+        ? 'o motor tenta de novo em 3 dias, buscando o que falta'
+        : 'o motor tenta de novo quando a pauta for a da vez, partindo do que já guardou';
     const extra = info.kind === 'pauta-tentada' && query
-      ? `<div class="dactions">${form('fila-remover', { consulta: query }, 'Tirar da fila', '', `Tirar "${query}" da fila?`)} <span class="muted">ou não faça nada: ${/Adiada/.test(info.situation) ? 'o motor tenta de novo em 3 dias' : 'o motor tenta de novo quando a pauta for a da vez'}.</span></div>`
+      ? `<p class="dnext"><strong>Não fazer nada (recomendado):</strong> ${next}.</p><div class="dactions">${form('fila-remover', { consulta: query }, 'Tirar da fila', '', `Tirar "${query}" da fila? O motor não tenta mais este assunto; o que este ciclo já guardou continua.`)} <span class="muted">só se você não quer mais este assunto no site.</span></div>`
       : '';
     const html = `<div class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
 <div class="dhead"><span class="tag">${esc(KIND_LABEL[info.kind])}</span> <strong>${esc(subject)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></div>
 ${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
 ${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir') : ''}${extra}
-<div class="dfoot">${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}</div>
+${info.kind === 'pauta-tentada' ? '' : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
 </div>`;
     cards.push({ order: SUGGESTION_ORDER.indexOf(info.suggestion), html });
   }
@@ -683,7 +690,7 @@ export const ADMIN_CSS = `<style>
 @media (max-width:640px){.dl{grid-template-columns:1fr}.dl dt{margin-top:6px}}
 .dactions{margin:10px 0 4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}button.big{font-size:1rem;padding:8px 18px}
 .dfix{margin:8px 0}.dfix textarea{width:100%;box-sizing:border-box;margin:6px 0;font:inherit}.acc{font-size:.88rem;margin-left:4px}
-.b.warn{background:#fbefd9;color:#8a5a0c}.dfoot{margin-top:8px;text-align:right}button.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:0;cursor:pointer;font-size:.82rem}
+.b.warn{background:#fbefd9;color:#8a5a0c}.dnext{margin:8px 0 2px}.dfoot{margin-top:8px;text-align:right}button.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:0;cursor:pointer;font-size:.82rem}
 details.old{margin:24px 0 8px}
 .adjust{margin-top:6px}.adjust input{min-width:160px}
 .restored{outline:2px solid var(--amber,#f0b252)}
