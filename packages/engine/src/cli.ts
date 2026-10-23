@@ -338,6 +338,13 @@ async function main(): Promise<number> {
       }
       return 0;
     }
+    case 'announce': {
+      // Avisa IndexNow e Search Console do que mudou no sitemap do site no ar (roda no sync; sem IA, sem crédito).
+      const { announce } = await import('./announce.ts');
+      const r = await announce();
+      if (r.changed || r.sent) console.log(`aviso aos buscadores: ${r.changed} URL(s) mudaram; IndexNow ${r.indexnow}; Google ${r.gsc}`);
+      return 0;
+    }
     case 'ideas': {
       // Descobre pautas no autocompletar do Google; --promote N põe as N melhores na fila.
       const { values } = parseArgs({ args: rest, options: { promote: { type: 'string', default: '0' } } });

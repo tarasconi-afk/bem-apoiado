@@ -167,6 +167,8 @@ case "$action" in
     preview
     branch_previews
     live_check
+    # Página nova ou atualizada já no ar → IndexNow + sitemap reenviado ao Google. Falha não para o sync.
+    npm run -s engine -- announce 2>&1 | tail -2 || true
     ;;
   veredito)
     fresh
@@ -231,12 +233,12 @@ case "$action" in
     npm run -s engine -- request "$2"
     # O que o leitor vê (tema, produtos, imagens, texto de página no ar) vai para um resultado com prévia e só vale
     # com o aceite no quadro; fila, relatórios, vereditos e anotações entram direto (23/10: o pedido em texto livre
-    # publicava texto de página no ar sem aprovação, diferente do botão de ajuste).
+    # publicava texto de página no ar sem aprovação, diferente do botão de ajuste). Tipo de produto novo (niche.json) também.
     LIVE_TEXT=""
     for f in $(git status --porcelain -- data/pages | awk '{print $2}'); do
       git show "origin/main:$f" 2>/dev/null | grep -q '"status": "approved"' && LIVE_TEXT=1
     done
-    if [ -z "$(git status --porcelain -- data/theme.json data/products data/images site/src/assets/generated)" ] && [ -z "$LIVE_TEXT" ]; then
+    if [ -z "$(git status --porcelain -- data/theme.json data/niche.json data/products data/images site/src/assets/generated)" ] && [ -z "$LIVE_TEXT" ]; then
       publish "Painel: pedido do editor"$'\n\n'"$(head -c 300 "$2")"
       preview
     else

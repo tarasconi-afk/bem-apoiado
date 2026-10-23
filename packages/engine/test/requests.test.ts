@@ -49,3 +49,27 @@ describe('tema pelo pedido', () => {
     expect(JSON.parse(readFileSync(join(process.env.BEM_ROOT!, 'data/theme.json'), 'utf8')).text_scale).toBe(1);
   });
 });
+
+describe('tipo de produto novo pelo pedido', () => {
+  it('cria acessório no nicho, na categoria, na pauta e nos fabricantes já cadastrados; recusa duplicado', async () => {
+    mkdirSync(join(root, 'data/registry'), { recursive: true });
+    writeFileSync(join(root, 'data/registry/domains.json'), JSON.stringify({ _comment: 'x', allow: [{ host: 'fibrasca.com.br', publisher: 'Fibrasca', source_class: 'manufacturer', kinds: ['travesseiro'] }], block: [] }));
+    writeFileSync(join(root, 'data/topics/protetor-de-colchao-vale-a-pena.json'), readFileSync(join(import.meta.dirname, '../../../data/topics/protetor-de-colchao-vale-a-pena.json')));
+    const { createKind } = await import('../src/stages/requests.ts');
+    const msg = createKind({ label: 'Protetor de colchão', accessory: true, category: 'colchao', slugs: ['protetor-de-colchao-vale-a-pena'], makers: ['Fibrasca', 'Marca Inventada'] });
+    expect(msg).toContain('tipo novo "Protetor de colchão" (protetor, acessório');
+    expect(msg).toContain('fora do cadastro (não marcados): Marca Inventada');
+    const niche = JSON.parse(readFileSync(join(root, 'data/niche.json'), 'utf8'));
+    expect(niche.product_kinds.at(-1).id).toBe('outro');
+    expect(niche.product_kinds.find((k: { id: string }) => k.id === 'protetor')).toEqual({ id: 'protetor', label: 'Protetor de colchão', accessory: true });
+    expect(niche.product_kinds.find((k: { id: string }) => k.id === 'espuma').accessory).toBeUndefined();
+    expect(niche.categories.find((c: { id: string }) => c.id === 'colchao').kinds).toContain('protetor');
+    expect(JSON.parse(readFileSync(join(root, 'data/topics/protetor-de-colchao-vale-a-pena.json'), 'utf8')).product_kinds).toEqual(['protetor']);
+    const reg = JSON.parse(readFileSync(join(root, 'data/registry/domains.json'), 'utf8'));
+    expect(reg._comment).toBe('x');
+    expect(reg.allow[0].kinds).toEqual(['travesseiro', 'protetor']);
+    const { loadNiche } = await import('../src/niche.ts');
+    expect(loadNiche().product_kinds.some((k) => k.id === 'protetor' && k.accessory)).toBe(true);
+    expect(() => createKind({ label: 'protetor de colchao', accessory: true, category: '', slugs: [], makers: [] })).toThrow(/já existe/);
+  });
+});

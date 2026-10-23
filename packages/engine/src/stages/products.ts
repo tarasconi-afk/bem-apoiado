@@ -148,10 +148,13 @@ const loose = (t: string) => normalizeForMatch(t).replace(/-/g, ' ');
 // produto classificado como espuma) → conflito: o leitor veria um nome que contradiz o tipo.
 function kindConflict(name: string, kind: string): string | null {
   const kinds = loadNiche().product_kinds;
-  const mine = new Set(normalizeForMatch(kinds.find((k) => k.id === kind)?.label ?? '').split(/\s+/));
+  const me = kinds.find((k) => k.id === kind);
+  const mine = new Set(normalizeForMatch(me?.label ?? '').split(/\s+/));
   const n = loose(name);
   for (const k of kinds) {
-    if (k.id === kind) continue;
+    // Acessório e produto principal não conflitam: "Colchão de espuma com pillow top" é colchão, e o pillow top
+    // avulso "de espuma" é pillow top; quem separa os dois é a triagem do anúncio.
+    if (k.id === kind || !!k.accessory !== !!me?.accessory) continue;
     for (const w of normalizeForMatch(k.label).split(/\s+/)) {
       if (w.length >= 5 && !mine.has(w) && n.includes(w.slice(0, -1))) return w;
     }
@@ -263,6 +266,7 @@ export async function findProductsFromAmazon(
   const niche = loadNiche();
   const kinds = topic.product_kinds.length ? topic.product_kinds : niche.product_kinds.map((k) => k.id);
   const labels = new Map(niche.product_kinds.map((k) => [k.id, k.label]));
+  const accessory = new Set(niche.product_kinds.filter((k) => k.accessory).map((k) => k.id));
   const idx = buildIndex();
   const known = knownAsins();
   const makers = loadRegistry().allow.filter((a) => a.source_class === 'manufacturer');
@@ -290,7 +294,9 @@ export async function findProductsFromAmazon(
     // Item específico da pauta (pillow top, baú) entra na busca: exemplo à venda tem de ter o item.
     // Com item específico, busca curta: termos + palavra principal do tipo ("pillow top Colchão"). O nome inteiro do
     // tipo junto ("Colchão de espuma pillow top") não devolvia nenhum anúncio (23/10); "colchão pillow top", 8.
-    const q = topic.listing_terms.length ? `${topic.listing_terms.join(' ')} ${(labels.get(kind) ?? kind).split(' ')[0]}` : (labels.get(kind) ?? kind);
+    // Tipo cujo nome já contém os termos (tipo "Pillow top avulso", termo "pillow top"): busca pelo nome do tipo.
+    const kl = labels.get(kind) ?? kind;
+    const q = topic.listing_terms.length && !topic.listing_terms.every((t) => loose(kl).includes(loose(t))) ? `${topic.listing_terms.join(' ')} ${kl.split(' ')[0]}` : kl;
     const hits = (await webSearch(q, { maxResults: 10, includeDomains: ['amazon.com.br'] }))
       .filter((h) => ASIN_RE.test(h.url))
       .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
@@ -307,7 +313,7 @@ export async function findProductsFromAmazon(
       const l = await callJson(
         {
           role: 'extractor',
-          system: 'Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": false se for kit, conjunto com base/box ou acessório.',
+          system: `Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": false se for kit, conjunto com base/box${accessory.has(kind) ? ` ou combinado com outro produto (o ${kl.toLowerCase()} vendido sozinho é produto único)` : ' ou acessório'}.`,
           user: (sourceText(listing.id) ?? '').slice(0, 6000),
           schema: Listing,
           schemaName: 'listing',
@@ -325,13 +331,13 @@ export async function findProductsFromAmazon(
         continue;
       }
       // O anúncio vende o PRÓPRIO produto do tipo, e não capa, bolsa, protetor, base ou acessório?
-      const kindLabel = labels.get(kind) ?? kind;
+      const kindLabel = kl;
+      // Tipo acessório: o anúncio tem de vender o acessório sozinho; colchão completo (mesmo "com pillow top") é recusado.
+      const criteria = accessory.has(kind)
+        ? { sim: `o produto vendido é só um(a) ${kindLabel.toLowerCase()}, avulso(a), para uso normal em casa`, nao: 'colchão completo, cama, base, kit ou conjunto, outro acessório diferente deste, ou versão de viagem, para pet ou infantil' }
+        : { sim: `o produto vendido é um(a) ${kindLabel.toLowerCase()} para uso normal em casa`, nao: 'capa, bolsa, protetor, base, cama, kit, peça, acessório, ou versão de viagem, portátil, para pet ou infantil' };
       const isItem = await decide((sourceText(listing.id) ?? '').slice(0, 4000), {
-        item: {
-          type: 'choice',
-          instructions: `Este anúncio vende um(a) ${kindLabel.toLowerCase()} propriamente dito(a)?`,
-          criteria: { sim: `o produto vendido é um(a) ${kindLabel.toLowerCase()} para uso normal em casa`, nao: 'capa, bolsa, protetor, base, cama, kit, peça, acessório, ou versão de viagem, portátil, para pet ou infantil' },
-        },
+        item: { type: 'choice', instructions: `Este anúncio vende um(a) ${kindLabel.toLowerCase()} propriamente dito(a)?`, criteria },
       });
       if ((isItem.item?.probabilities?.sim ?? 0) < 0.85) {
         report.skipped.push({ url: h.url, reason: `triagem: não vende o próprio ${kindLabel.toLowerCase()}` });

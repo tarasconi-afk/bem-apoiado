@@ -107,6 +107,7 @@ export function classifyBranch(b: {
       b.items.filter((i) => i.id.startsWith('product:')).length ? `${b.items.filter((i) => i.id.startsWith('product:')).length} produto(s)` : '',
       b.items.some((i) => i.id === 'anchors' || i.id === 'search-links') ? 'links' : '',
       b.items.some((i) => i.id === 'theme' || i.id === 'home') ? 'visual da home' : '',
+      b.items.find((i) => i.id === 'niche')?.title.toLowerCase() ?? '',
     ].filter(Boolean);
     return { kind: 'manutencao', situation: `Mudanças de manutenção prontas: ${parts.join(', ') || 'itens do site'}.`, suggestion: 'aplicar', why: 'Aceite ou rejeite cada item abaixo; o resto entra junto.', correction: '' };
   }

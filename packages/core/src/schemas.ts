@@ -69,7 +69,9 @@ export const NicheProfile = z.object({
   regulator_hints: z.array(z.string()).min(1),
   safety_rule: z.string().min(20),
   decision_outline: z.array(z.string()).min(2),
-  product_kinds: z.array(z.object({ id: ProductKind, label: z.string() })).min(1),
+  // accessory: o produto é um acessório vendido avulso (pillow top, protetor). As travas de exemplos à venda
+  // passam a aceitar o acessório e a recusar o colchão completo, em vez do contrário.
+  product_kinds: z.array(z.object({ id: ProductKind, label: z.string(), accessory: z.boolean().default(false) })).min(1),
   // Termos que o site nunca exibe, nem citando vendedor (aplicado a trechos de anúncio).
   forbidden_terms: z.array(z.string()).default([]),
   // Seções do site (páginas de categoria e agrupamento da home): cada uma reúne tipos de produto.

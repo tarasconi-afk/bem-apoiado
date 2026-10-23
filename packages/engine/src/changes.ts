@@ -107,6 +107,12 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
       const b = parse(readBranch(f.path), (v) => v as { pages: Record<string, { links: { label: string; query: string }[] }> })?.pages ?? {};
       const changed = Object.keys(b).filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]));
       items.push({ id: 'search-links', title: 'Buscas na Amazon (links com a nossa tag)', detail: changed.map((k) => `${k}: ${b[k]!.links.map((l) => `"${l.label}" (${l.query})`).join(', ')}`).join(' · '), paths: [f.path] });
+    } else if (f.path === 'data/niche.json') {
+      // Tipo de produto novo (Pedir ao motor): diz qual, em vez de "Outra mudança: data/niche.json".
+      const kinds = (r: string | null) => parse(r, (v) => (v as { product_kinds: { id: string; label: string; accessory?: boolean }[] }).product_kinds) ?? [];
+      const was = new Set(kinds(readMain(f.path)).map((k) => k.id));
+      const added = kinds(readBranch(f.path)).filter((k) => !was.has(k.id));
+      items.push({ id: 'niche', title: added.length ? `Tipo de produto novo: ${added.map((k) => `${k.label}${k.accessory ? ' (acessório, vendido avulso)' : ''}`).join(', ')}` : 'Perfil do site (nicho)', paths: [f.path] });
     } else if (f.path === 'data/home-order.json') {
       items.push({ id: 'home', title: 'Ordem dos guias na home (dados do Google)', paths: [f.path] });
     } else if (f.path.startsWith('site/src/assets/generated/') || f.path.startsWith('data/images/')) {

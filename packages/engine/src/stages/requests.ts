@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { Basis, checkPage, DEFAULT_THEME, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
+import { Basis, checkPage, DEFAULT_THEME, NicheProfile, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
 import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
 import { fixFormWithoutAI, styleIssues } from './page.ts';
@@ -28,6 +28,8 @@ import { writePatches } from './patch.ts';
 import { learnFromEditor } from '../editor-lessons.ts';
 import { catalogNote, formatClaims, writerSystem } from './write.ts';
 import { loadTopic } from './research.ts';
+import { loadNiche, resetNiche } from '../niche.ts';
+import { loadRegistry } from './discover.ts';
 
 // Pedidos em texto livre pelo painel ("agente"): o modelo traduz o pedido em ações que o motor já sabe
 // fazer com as mesmas travas de sempre (fila, refazer com instrução, editar texto com auditoria,
@@ -43,6 +45,7 @@ const Action = z.discriminatedUnion('type', [
   z.object({ type: z.literal('theme'), changes: z.record(z.string(), z.unknown()) }),
   z.object({ type: z.literal('find_products'), slug: z.string() }),
   z.object({ type: z.literal('new_image'), slug: z.string(), instruction: z.string().default('') }),
+  z.object({ type: z.literal('new_kind'), label: z.string().min(3).max(40), accessory: z.boolean(), category: z.string().default(''), slugs: z.array(z.string()).max(5).default([]), makers: z.array(z.string()).max(8).default([]) }),
   z.object({ type: z.literal('developer'), summary: z.string().min(5) }),
 ]);
 const Plan = z.object({ actions: z.array(Action).min(1).max(6), reply: z.string() });
@@ -56,6 +59,7 @@ const SYSTEM = `Você é o assistente do painel de um site de guias. Transforme 
 - theme: mudar o visual pelo tema (cores em hex, radius_px, text_scale, heading_scale, cta.label, cta.style "cheio"|"contorno", examples_position "inicio"|"meio"|"fim", texts.*). Em "changes", só as chaves que mudam, no mesmo formato do tema atual (objetos aninhados). A mudança vai para prévia e só vale com o aceite do editor.
 - find_products: procurar na Amazon exemplos à venda para uma página (segue as travas de sempre: marca, ficha, anúncio do mesmo modelo, termos do item da pauta). O resultado vai para o quadro de decisões para o editor aceitar.
 - new_image: gerar uma capa nova (ilustração por IA, sem marca) para uma página; "instruction" diz o que a imagem deve mostrar (ex.: "um pillow top sobre um colchão num quarto claro"). Vai para o quadro para o editor aceitar.
+- new_kind: criar um tipo de produto novo (ex.: "Pillow top", "Protetor de colchão"), quando o editor pedir. "label" é o nome como aparece nos anúncios, sem "avulso" nem marca. "accessory": true se é acessório vendido à parte de outro produto do site. "category": id de uma categoria existente. "slugs": páginas que devem mostrar exemplos desse tipo. "makers": só fabricantes da lista de fabricantes que o editor citou ou que vendem esse tipo segundo o pedido; na dúvida, deixe vazio. Para buscar exemplos depois, junte find_products de cada página. Vai para o quadro para o editor aceitar.
 - developer: o que o tema não cobre (seção ou componente novo, código, regras do site, orçamento, cadastro de domínios, integrações). NÃO tente fazer: resuma para o desenvolvedor.
 Use só slugs da lista de páginas. Em "reply", diga em uma ou duas frases o que vai ser feito, sem prometer dado que o motor não tem.`;
 
@@ -108,7 +112,7 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
   const plan = await callJson(
     {
       role: 'extractor', system: SYSTEM,
-      user: `Tema atual: ${JSON.stringify(loadTheme())}\n\nPáginas (slug: título, situação):\n${pages.map((p) => `- ${p.slug}: ${p.title} (${p.status === 'draft' ? 'rascunho' : 'no ar'})`).join('\n')}\n\nPautas: ${loadTopics().map((t) => t.slug).join(', ')}\n\nPedido do editor: ${text}`,
+      user: `Tema atual: ${JSON.stringify(loadTheme())}\n\nPáginas (slug: título, situação):\n${pages.map((p) => `- ${p.slug}: ${p.title} (${p.status === 'draft' ? 'rascunho' : 'no ar'})`).join('\n')}\n\nPautas: ${loadTopics().map((t) => t.slug).join(', ')}\n\nTipos de produto: ${kindsList()}\n\nCategorias: ${loadNiche().categories.map((c) => `${c.id} (${c.label})`).join(', ')}\n\nFabricantes: ${makersList()}\n\nPedido do editor: ${text}`,
       schema: Plan, schemaName: 'panel_request', maxTokens: 1500,
     },
     fetchImpl,
@@ -133,7 +137,8 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
           writeFileSync(THEME_FILE, JSON.stringify(parsed.data, null, 2) + '\n');
           done.push(`tema alterado (${Object.keys(a.changes).join(', ')}): confira na prévia do resultado em "Esperando sua decisão" e aceite para publicar`);
         }
-      } else if (a.type === 'developer') {
+      } else if (a.type === 'new_kind') done.push(createKind(a));
+      else if (a.type === 'developer') {
         const f = join(DATA, 'dev-requests.json');
         const cur = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : [];
         writeFileSync(f, JSON.stringify([...cur, { at: new Date().toISOString(), request: text, summary: a.summary, status: 'aberto' }], null, 2) + '\n');
@@ -166,6 +171,60 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
     }
   }
   return { reply: plan.data.reply, done, failed };
+}
+
+const makersList = () => {
+  try {
+    return [...new Set(loadRegistry().allow.filter((m) => m.source_class === 'manufacturer').map((m) => m.publisher))].join(', ');
+  } catch {
+    return '(cadastro ilegível)';
+  }
+};
+const kindsList = () => loadNiche().product_kinds.map((k) => `${k.id} (${k.label}${k.accessory ? ', acessório' : ''})`).join(', ');
+
+// Tipo de produto novo pelo pedido (23/10: pillow top e protetor avulsos não cabiam em "Colchão de espuma" e
+// as travas de exemplos à venda recusavam acessório). Grava no nicho, na categoria, nas pautas citadas e nos
+// fabricantes já cadastrados; nada disso vai ao ar sem o aceite no quadro (niche.json é mudança visível).
+export function createKind(a: { label: string; accessory: boolean; category: string; slugs: string[]; makers: string[] }): string {
+  const niche = loadNiche();
+  const label = a.label.trim().replace(/\s+/g, ' ');
+  const id = label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').replace(/^(.+?)_de_.*$/, '$1');
+  const same = (x: string) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const dup = niche.product_kinds.find((k) => k.id === id || same(k.label) === same(label));
+  if (dup) throw new Error(`o tipo "${dup.label}" já existe (${dup.id}); nada foi criado`);
+  // O nome do tipo precisa aparecer no anúncio (palavras de 5+ letras): nome curto e literal.
+  if (!label.split(' ').some((w) => w.length >= 5)) throw new Error(`nome "${label}" curto demais para conferir nos anúncios`);
+  const cat = niche.categories.find((c) => c.id === a.category) ?? null;
+  // Arquivos crus (comentários e campos opcionais ficam como estão), validados antes de gravar.
+  const nf = join(DATA, 'niche.json');
+  const raw = JSON.parse(readFileSync(nf, 'utf8')) as { product_kinds: { id: string }[]; categories?: { id: string; kinds: string[] }[] };
+  const at = raw.product_kinds.findIndex((k) => k.id === 'outro');
+  raw.product_kinds.splice(at < 0 ? raw.product_kinds.length : at, 0, { id, label, ...(a.accessory ? { accessory: true } : {}) } as { id: string });
+  if (cat) raw.categories!.find((c) => c.id === cat.id)!.kinds.push(id);
+  NicheProfile.parse(raw);
+  writeJson(nf, raw);
+  resetNiche();
+  const pages: string[] = [];
+  for (const slug of a.slugs) {
+    const f = join(TOPICS_DIR, `${slug}.json`);
+    if (!existsSync(f)) continue;
+    const t = loadTopic(slug);
+    writeJson(f, TopicBrief.parse({ ...t, product_kinds: [...t.product_kinds.filter((k) => k !== 'outro'), id] }));
+    pages.push(slug);
+  }
+  // Fabricante só ganha o tipo se já está no cadastro: o pedido não cadastra domínio novo.
+  const rf = join(DATA, 'registry', 'domains.json');
+  const reg = JSON.parse(readFileSync(rf, 'utf8')) as { allow: { publisher: string; source_class: string; kinds?: string[] }[] };
+  const tagged = new Set<string>();
+  for (const m of reg.allow) {
+    if (m.source_class === 'manufacturer' && a.makers.some((x) => same(x) === same(m.publisher)) && !m.kinds?.includes(id)) {
+      m.kinds = [...(m.kinds ?? []), id];
+      tagged.add(m.publisher);
+    }
+  }
+  if (tagged.size) writeJson(rf, reg);
+  const missing = a.makers.filter((x) => ![...tagged].some((t) => same(t) === same(x)));
+  return `tipo novo "${label}" (${id}${a.accessory ? ', acessório: os exemplos à venda têm de ser o item avulso' : ''})${cat ? ` na categoria ${cat.label}` : ''}${pages.length ? `; páginas: ${pages.join(', ')}` : ''}${tagged.size ? `; fabricantes: ${[...tagged].join(', ')}` : '; nenhum fabricante cadastrado com esse tipo ainda (pauta só desse tipo espera fabricante)'}${missing.length ? `; fora do cadastro (não marcados): ${missing.join(', ')}` : ''}. Aceite no quadro para valer`;
 }
 
 // Ajuste com pesquisa ("pode pesquisar"): a instrução vira pergunta da pauta, a busca dirigida procura fontes

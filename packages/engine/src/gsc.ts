@@ -39,18 +39,19 @@ export const keyEmail = () => (hasKey() ? (JSON.parse(readFileSync(KEY_FILE(), '
 
 const b64 = (s: string | Buffer) => Buffer.from(s).toString('base64url');
 
-export function signedJwt(k: ServiceKey, now = Math.floor(Date.now() / 1000)): string {
+const READ = 'https://www.googleapis.com/auth/webmasters.readonly';
+export function signedJwt(k: ServiceKey, now = Math.floor(Date.now() / 1000), scope = READ): string {
   const head = b64(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const claims = b64(JSON.stringify({ iss: k.client_email, scope: 'https://www.googleapis.com/auth/webmasters.readonly', aud: k.token_uri, iat: now, exp: now + 3600 }));
+  const claims = b64(JSON.stringify({ iss: k.client_email, scope, aud: k.token_uri, iat: now, exp: now + 3600 }));
   const sig = createSign('RSA-SHA256').update(`${head}.${claims}`).sign(k.private_key);
   return `${head}.${claims}.${b64(sig)}`;
 }
 
-async function accessToken(k: ServiceKey, f: typeof fetch): Promise<string> {
+async function accessToken(k: ServiceKey, f: typeof fetch, scope = READ): Promise<string> {
   const r = await f(k.token_uri, {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: signedJwt(k) }),
+    body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: signedJwt(k, undefined, scope) }),
   });
   if (!r.ok) throw new Error(`GSC token: HTTP ${r.status} ${(await r.text()).slice(0, 200)}`);
   return ((await r.json()) as { access_token: string }).access_token;
@@ -141,4 +142,16 @@ export function homeOrder(s: GscSnapshot, slugs: string[]): string[] {
   const st = pageStats(s);
   const score = (x: string) => [st.get(x)?.clicks ?? 0, st.get(x)?.impressions ?? 0] as const;
   return [...slugs].sort((a, b) => score(b)[0] - score(a)[0] || score(b)[1] - score(a)[1]);
+}
+
+// Reenvio do sitemap quando o site publica página nova ou atualizada (23/10). Exige escopo de escrita e a conta de
+// serviço como usuário "Completo" na propriedade; com acesso "Restrito" o Google responde 403 e nada muda.
+export async function submitSitemap(sitemapUrl: string, f: typeof fetch = fetch): Promise<'ok' | 'sem-permissao'> {
+  if (!hasKey()) throw new Error('Search Console não conectado');
+  const k = ServiceKey.parse(JSON.parse(readFileSync(KEY_FILE(), 'utf8')));
+  const token = await accessToken(k, f, 'https://www.googleapis.com/auth/webmasters');
+  const r = await f(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE)}/sitemaps/${encodeURIComponent(sitemapUrl)}`, { method: 'PUT', headers: { authorization: `Bearer ${token}` } });
+  if (r.status === 403) return 'sem-permissao';
+  if (!r.ok) throw new Error(`GSC sitemap: HTTP ${r.status} ${(await r.text()).slice(0, 200)}`);
+  return 'ok';
 }

@@ -24,12 +24,17 @@ jobs:
       - name: Abrir PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Resultado só com aprendizado é mesclado sozinho pela VPS e o ramo apagado em ~1 min, muitas
+        # vezes antes deste passo: sem o ramo não há PR a abrir, e isso não é falha (e-mails de 23/10).
         run: |
+          gone() { ! git ls-remote --exit-code origin "refs/heads/$GITHUB_REF_NAME" >/dev/null; }
+          if gone; then echo "::notice::ramo já mesclado pela VPS (só aprendizado); nada a abrir"; exit 0; fi
           if [ -z "$(gh pr list --head "$GITHUB_REF_NAME" --state open --json number --jq '.[].number')" ]; then
             gh pr create --base main --head "$GITHUB_REF_NAME" \
               --title "$(git log -1 --format=%s)" \
               --body "$(git log -1 --format=%b)
 
           ---
-          ✅ Testes, typecheck e gate de evidências passaram neste ramo. Merge = publicar (se a página estiver aprovada)."
+          ✅ Testes, typecheck e gate de evidências passaram neste ramo. Merge = publicar (se a página estiver aprovada)." \
+              || { gone && echo "::notice::ramo mesclado pela VPS durante a checagem; nada a abrir"; }
           fi

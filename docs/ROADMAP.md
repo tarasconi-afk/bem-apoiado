@@ -136,13 +136,18 @@ Feito em 22/10:
 - [ ] **"Pedir ao motor" como extensão da conversa com o desenvolvedor** (pedido do dono, 23/10): conversar e ele
       executar ações — aprovar/recusar do quadro, rodar ciclo, cadastrar fabricante proposto, produto por link,
       mover tabela, reordenar fila, relatórios com recomendação. Cada ação com a mesma trava do botão equivalente
-- [ ] tipo de produto para item específico (pillow top avulso, protetor): as travas de produto recusam acessório
-      ("kit/conjunto/acessório"); decisão do dono sobre o nicho e os fabricantes
+- [x] tipo de produto para item específico (23/10): "Pedir ao motor" cria tipo novo (new_kind), marcado como
+      acessório quando é vendido à parte; travas próprias (aceita o item avulso, recusa colchão completo);
+      fabricante só ganha o tipo se já está no cadastro; vai para o quadro para aceite
+- [x] aba "Páginas" no painel (23/10): uma linha por página no ar com nota do juiz atual, visitas, cliques na
+      Amazon, Google, busca, filtro de categoria, ordenação e ações (pronta para 200+ páginas)
 
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais
-- [ ] pedir indexação de cada página nova (hoje manual no Search Console; a chave do motor só lê)
+- [x] aviso de página nova (23/10): o sync lê o sitemap do site no ar e, no que mudou, avisa o IndexNow (Bing,
+      buscas por IA) e reenvia o sitemap ao Google (exige a conta de serviço com acesso "Completo"). A API de
+      indexação do Google é só para vagas e transmissões ao vivo: não usada
 - [ ] grupos de páginas por tema com links internos fortes; hub por perfil na home
 
 ### D. Monetização

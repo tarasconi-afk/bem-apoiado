@@ -21,6 +21,8 @@ import { RUNS_DIR } from './store.ts';
 import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
 import { DATA, loadPages, loadProducts, ROOT } from './store.ts';
+import { trafficSummary } from './hits.ts';
+import { loadAnnounce } from './announce.ts';
 
 // Painel admin: o painel de status + ações. Escuta só em 127.0.0.1 atrás do Caddy (HTTPS). A senha
 // é conferida aqui (hash scrypt em STATE, fora do git), para o dono poder trocá-la pelo próprio painel.
@@ -217,6 +219,9 @@ ${(branches.length ? branches.map(pendingHtml).join('') : '<p class="muted">Nenh
 ${verdictsHtml(pages).replaceAll('data-pending', '').replace(/<h2>/g, '<h3>').replace(/<\/h2>/g, '</h3>')}
 </details>
 
+<h2>Páginas no ar</h2>
+${livePagesHtml(pages)}
+
 <h2>Pedir ao motor</h2>
 ${requestsHtml()}
 
@@ -238,6 +243,7 @@ ${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', `Rodar um ciclo agora? Pode ga
 
 <h2>Google Search Console</h2>
 ${gscHtml()}
+${announceHtml()}
 
 <h2>Saldo de créditos</h2>
 <form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="saldo">
@@ -381,11 +387,16 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const diffsHtml = pageItem?.diffs?.length ? `<details><summary class="muted">antes → depois (${pageItem.diffs.length})</summary>${pageItem.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
     // Manutenção: diz de qual página é a capa ou o produto, em vez de "Site todo".
     const coverOf = items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find((x) => x && pages.some((p) => p.slug === x));
-    const subject = query ?? (slug && pages.some((p) => p.slug === slug) ? titleOf(slug) : coverOf ? `Capa nova: ${titleOf(coverOf)}` : items.some((i) => i.id.startsWith('product:')) ? 'Exemplos à venda' : 'Site todo');
+    // 23/10: ciclo de "cadeira para obeso" que parou antes de virar página, mas trouxe a capa do pillow top,
+    // aparecia como "cadeira para obeso" com a imagem do pillow top. Manutenção leva o nome do que muda.
+    const maintSubject = items.find((i) => i.id === 'niche')?.title ?? (coverOf ? `Capa nova: ${titleOf(coverOf)}` : items.some((i) => i.id.startsWith('product:')) ? 'Exemplos à venda' : 'Site todo');
+    const subject = info.kind === 'manutencao' ? maintSubject : (query ?? (slug && pages.some((p) => p.slug === slug) ? titleOf(slug) : maintSubject));
+    const alsoTried = info.kind === 'manutencao' && query ? `A pauta "${query}" também foi tentada neste ciclo: ${outcome ?? 'não virou página'}. Nada dela muda o site.` : '';
+    const prevPath = pageItem || (query && info.kind !== 'manutencao') ? `${esc(slug)}/` : coverOf ? `${esc(coverOf)}/` : '';
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
       ? `<form method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(pageItem || query ? `${esc(slug)}/` : '', 'abrir prévia'))}</dl>
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também neste ciclo', esc(alsoTried))}</dl>
 ${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok big' : ''}">${primary}</button></div></form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da
@@ -474,6 +485,64 @@ ${rejected.length ? `<p class="muted" style="margin-top:10px">Recusadas, o motor
 <details style="margin-top:10px"><summary><strong>${live.length} página(s) no ar</strong> <span class="muted">(despublicar só se achar um problema)</span></summary><div class="tw"><table><tbody>${live.map((p) => `<tr><td>${link(p)}<br>${editLink(p)}</td><td class="muted">atualizada ${esc(p.updated_at)}</td><td>${box(p, false, 'Despublicar')}${adjustForm('main', p.slug)}</td></tr>`).join('')}</tbody></table></div></details>`;
 }
 
+// Páginas no ar numa aba própria (23/10, editor: "no futuro teremos 200+ páginas, já podemos deixar a
+// estrutura pronta"): uma linha por página com nota de leitor, visitas e cliques na Amazon (30 dias, contador
+// próprio), Google (impressões e posição) e as ações. Busca, filtro de categoria e ordenação no navegador.
+const SITE = process.env.BEM_SITE_URL ?? 'https://bemapoiado.com';
+export function livePagesHtml(pages: ReturnType<typeof loadPages>): string {
+  const live = pages.filter((p) => p.status !== 'draft');
+  if (!live.length) return '<p class="muted">Nenhuma página no ar ainda.</p>';
+  const niche = loadNiche();
+  const topics = new Map(loadTopics().map((t) => [t.slug, t]));
+  const catOf = (slug: string) => niche.categories.find((c) => c.kinds.some((k) => topics.get(slug)?.product_kinds.includes(k)));
+  const traffic = new Map(trafficSummary(30).pages.map((t) => [t.path.replace(/^\/|\/$/g, ''), t]));
+  const snap = latestSnapshot();
+  const google = snap ? pageStats(snap) : new Map();
+  // Nota do juiz atual (data/judge-rescore.json) vale mais que a da revisão da época em que a página foi escrita.
+  const rf = join(DATA, 'judge-rescore.json');
+  const rescore: Record<string, { metrics?: Parameters<typeof readerScore>[0] }> = existsSync(rf) ? (JSON.parse(readFileSync(rf, 'utf8')).pages ?? {}) : {};
+  const rows = live.map((p) => {
+    const rv = rescore[p.slug]?.metrics ?? (reviewFrom(readMain, p.slug)?.review as Parameters<typeof readerScore>[0] | undefined);
+    const score = rv ? readerScore(rv) : null;
+    const t = traffic.get(p.slug);
+    const g = google.get(p.slug);
+    const cat = catOf(p.slug);
+    const ask = (texto: string, label: string, confirm: string) => form('pedido', { texto }, label, '', confirm);
+    const actions = `<details><summary>ações</summary><div class="pacts">
+<a href="${BASE}editar/${esc(p.slug)}">Editar texto</a>
+${adjustForm('main', p.slug)}
+${ask(`Busque exemplos à venda na Amazon para a página ${p.slug}.`, 'Buscar exemplos à venda', 'Buscar exemplos à venda para esta página? Gasta poucos créditos; o resultado vai para o quadro.')}
+${ask(`Gere uma capa nova para a página ${p.slug}, mostrando o tema do guia.`, 'Gerar capa nova', 'Gerar uma capa nova (~5 créditos)? Ela vai para o quadro para você aceitar.')}
+<form method="post" action="acao" class="verdict" onsubmit="return confirm('Tirar esta página do ar?')"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo para despublicar"><button class="bad">Despublicar</button></form>
+</div></details>`;
+    const num = (v: number | null | undefined, txt?: string) => `<td class="num" data-v="${v ?? -1}">${v === null || v === undefined ? '<span class="muted">–</span>' : (txt ?? v)}</td>`;
+    return `<tr data-cat="${esc(cat?.id ?? '')}" data-q="${esc(`${p.title} ${p.slug}`.toLowerCase())}"><td data-v="${esc(p.title.toLowerCase())}"><a href="${SITE}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a><br><span class="muted">${esc(cat?.label ?? 'sem categoria')}</span></td>${num(score, score === null ? undefined : `<span class="score s${Math.floor(score)}">${String(score).replace('.', ',')}</span>`)}${num(t?.views ?? 0)}${num(t?.clicks ?? 0)}${num(g ? g.impressions : null)}${num(g ? Math.round(g.position * 10) / 10 : null, g ? g.position.toFixed(1).replace('.', ',') : undefined)}<td data-v="${esc(p.updated_at)}" class="muted">${esc(p.updated_at.slice(0, 10).split('-').reverse().join('/'))}</td><td>${actions}</td></tr>`;
+  });
+  const cats = niche.categories.filter((c) => live.some((p) => catOf(p.slug)?.id === c.id));
+  return `<p class="muted">${live.length} página(s) no ar. Visitas e cliques na Amazon: últimos 30 dias, pelo contador do site. Google: último retrato do Search Console${snap ? ` (${esc(snap.start)} a ${esc(snap.end)})` : ' (ainda sem dados)'}. Clique no título de uma coluna para ordenar.</p>
+<div class="verdict" style="margin-bottom:8px"><input id="pg-q" placeholder="buscar página" style="min-width:200px"><select id="pg-cat"><option value="">todas as categorias</option>${cats.map((c) => `<option value="${esc(c.id)}">${esc(c.label)}</option>`).join('')}</select></div>
+<div class="tw"><table id="pg-live"><thead><tr><th data-s="0">Página</th><th data-s="1" class="num">Nota</th><th data-s="2" class="num">Visitas</th><th data-s="3" class="num">Cliques Amazon</th><th data-s="4" class="num">Impressões Google</th><th data-s="5" class="num">Posição</th><th data-s="6">Atualizada</th><th></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>
+<script>(function () {
+  var t = document.getElementById('pg-live'); if (!t) return;
+  var q = document.getElementById('pg-q'), c = document.getElementById('pg-cat');
+  function filter() { var s = (q.value || '').toLowerCase(); t.tBodies[0].querySelectorAll('tr').forEach(function (r) { r.hidden = (s && r.dataset.q.indexOf(s) < 0) || (c.value && r.dataset.cat !== c.value); }); }
+  q.oninput = filter; c.onchange = filter;
+  t.querySelectorAll('th[data-s]').forEach(function (th) { th.style.cursor = 'pointer'; th.onclick = function () {
+    var i = +th.dataset.s, dir = th.dataset.d === 'desc' ? 'asc' : 'desc'; th.dataset.d = dir;
+    var rows = Array.prototype.slice.call(t.tBodies[0].rows);
+    rows.sort(function (a, b) { var x = a.cells[i].dataset.v, y = b.cells[i].dataset.v; var nx = parseFloat(x), ny = parseFloat(y);
+      var r = isNaN(nx) || isNaN(ny) || i === 0 || i === 6 ? x.localeCompare(y) : nx - ny; return dir === 'desc' ? -r : r; });
+    rows.forEach(function (r) { t.tBodies[0].appendChild(r); });
+  }; });
+})();</script>`;
+}
+
+// Último aviso aos buscadores (sync, a cada 5 min, quando o sitemap do site no ar muda).
+function announceHtml(): string {
+  const a = loadAnnounce()?.last;
+  return `<p class="muted"><strong>Aviso de página nova:</strong> ${a ? `${esc(fmt(a.at))}: IndexNow (Bing e buscas por IA) ${esc(a.indexnow)}; Google ${esc(a.gsc)}.` : 'a cada página publicada ou atualizada, o motor avisa o IndexNow (Bing e buscas por IA) e reenvia o sitemap ao Google; ainda não houve aviso.'}</p>`;
+}
+
 // Ideias descobertas sozinhas (autocompletar do Google), ainda fora da fila: um clique põe na fila.
 function ideasHtml(): string {
   const f = join(DATA, 'ideas.json');
@@ -526,10 +595,10 @@ const TABS_JS = `<script>
 // não repetir o aviso para sempre.
 if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
-  var MAP = [['Quadro de decisões','decisoes'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','conteudo'],['Domínios novos','conteudo'],
+  var MAP = [['Quadro de decisões','decisoes'],['Páginas no ar','paginas'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','conteudo'],['Domínios novos','conteudo'],
     ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
     ['Saldo de créditos','config'],['Senha do painel','config']];
-  var NAMES = { decisoes: 'Decisões', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
+  var NAMES = { decisoes: 'Decisões', paginas: 'Páginas', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
   var main = document.querySelector('main'); if (!main) return;
   var grid = main.querySelector('.grid'); if (!grid) return;
   var panes = {}; var cur = null;
@@ -726,6 +795,7 @@ details.old{margin:24px 0 8px}
 .diff{margin:6px 0;font-size:.88rem}.diff del{display:block;background:var(--badbg);text-decoration:line-through;padding:2px 6px;border-radius:4px}.diff ins{display:block;background:var(--okbg);text-decoration:none;padding:2px 6px;border-radius:4px;margin-top:2px}
 .sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.pacts{display:flex;flex-direction:column;gap:6px;margin-top:6px;min-width:260px}
 .tabs button{background:transparent;color:var(--muted);border:1px solid transparent;font-weight:600}
 .tabs button.on{background:var(--card);color:var(--ink);border-color:var(--line)}
 .tabs .count{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;background:var(--badbg);color:var(--bad);font-size:.75rem}
