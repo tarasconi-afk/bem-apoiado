@@ -85,6 +85,9 @@ const basePage = (): PageSpec =>
 describe('checkPage', () => {
   it('página coerente passa', () => {
     expect(checkPage(basePage(), index([claim()]))).toEqual([]);
+    // Número no título ou na descrição sem estar no texto auditado (23/10: "solteirão (100 × 200 cm)" sem fonte).
+    const meta = checkPage({ ...basePage(), description: 'Solteirão mede 100 × 200 cm.' }, index([claim()]));
+    expect(meta.map((v) => v.code)).toContain('META_NUMBER_UNSUPPORTED');
   });
   it('framing com número é bloqueado', () => {
     const p = basePage();

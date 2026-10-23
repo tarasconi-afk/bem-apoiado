@@ -90,6 +90,15 @@ export function checkPage(page: PageSpec, idx: EvidenceIndex): Violation[] {
   if (page.status !== 'draft' && page.provenance.audit_verdict !== 'pass') {
     out.push({ code: 'UNAUDITED_NOT_DRAFT', where: 'status', detail: page.status });
   }
+  // Título e descrição (o que aparece no Google e embaixo do título) não passam pelo auditor: todo número deles tem
+  // de estar no texto da página, que é auditado. 23/10: a descrição do solteirão dizia "solteirão (100 × 200 cm)"
+  // sem nenhuma fonte, e o gate não via.
+  const nums = (t: string) => new Set(t.match(/\d+(?:[.,]\d+)?/g) ?? []);
+  const body = nums([page.verdict.text, ...page.sections.flatMap((x) => x.blocks.map((b) => (b.kind === 'table' ? [...b.columns, ...b.rows.flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text)))].join(' '));
+  for (const [where, text] of [['title', page.title], ['description', page.description]] as const) {
+    const miss = [...nums(text)].filter((n) => !body.has(n));
+    if (miss.length) out.push({ code: 'META_NUMBER_UNSUPPORTED', where, detail: `${miss.join(', ')} não aparece no texto da página` });
+  }
   return out;
 }
 
