@@ -968,6 +968,17 @@ const BRANCH = /^pagina\/[a-z0-9-]+$/;
 
 // Modo sombra: grava o clique do editor num cartão do quadro junto com a sugestão do motor que o cartão mostrava.
 function noteShadow(f: URLSearchParams): void {
+  // Ajuste de página no ar pedido fora do quadro (Páginas → ações) até 14 dias depois de você publicar como estava:
+  // aquela publicação precisou de correção, então a decisão vira "corrigiu" (23/10, editor). O modo sombra mede se o
+  // motor pode publicar sozinho, e publicar algo que você corrige logo depois é o erro que importa.
+  if (!f.get('sombra') && f.get('acao') === 'ajustar') {
+    const slug = f.get('slug') ?? '';
+    const prev = loadShadow().filter((e) => e.slug === slug && e.editor === 'aceitou' && Date.now() - Date.parse(e.at) < 14 * 86_400_000).at(-1);
+    if (prev) {
+      try { recordShadow({ ...prev, at: new Date().toISOString(), editor: 'corrigiu' }); } catch { /* o registro nunca impede a ação */ }
+    }
+    return;
+  }
   const [card, motor, slug] = (f.get('sombra') ?? '').split('|');
   if (!card || !motor || !slug || !(SUGGESTION_ORDER as string[]).includes(motor)) return;
   const acao = f.get('acao');

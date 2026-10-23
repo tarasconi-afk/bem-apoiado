@@ -20,6 +20,12 @@ describe('modo sombra', () => {
     expect(bad.ready).toBe(false);
     expect(bad.wouldPublishWrong.map((e) => e.slug)).toEqual(['y']);
     expect(bad.missing.join(' ')).toMatch(/publicaria algo que você corrigiu ou recusou/);
+    // Correção depois de publicar (Páginas → ações) substitui o "aceitou" daquela decisão, sem contar em dobro.
+    const pub = loadShadow().find((e) => e.slug === 'p0')!;
+    recordShadow({ ...pub, at: day(19), editor: 'corrigiu' });
+    const after = shadowStats(loadShadow(), now);
+    expect(after.total).toBe(bad.total);
+    expect(after.wouldPublishWrong.map((e) => e.slug).sort()).toEqual(['p0', 'y']);
     // Poucos dias: não vale uma tarde de cliques.
     const quick = shadowStats(loadShadow().map((e) => ({ ...e, at: now.toISOString() })), now);
     expect(quick.missing.join(' ')).toMatch(/cobrem 0 dia/);
