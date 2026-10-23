@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-23T19:02:52.306Z",
+  "instruction": "Inclua a medida do colchão solteirão segundo a Probel e monte a tabela \"Medidas por tamanho\" com uma linha para solteiro, solteirão e viúva (largura × comprimento e para quem serve). Diga quando escolher cada um: quem dorme sozinho e é alto, quarto estreito e quem quer mais espaço. Tire os blocos de garantia e \"o que vem incluso\".",
+  "diffs": [
+    {
+      "where": "Resposta curta",
+      "before": "Solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Viúva mede 128 × 188 cm, segundo a Probel. Confira na ficha técnica do modelo exatamente qual é a largura e o comprimento antes de comprar.",
+      "after": "Nas fichas técnicas consultadas, o Gazin Los Angeles Plus solteiro mede 88 × 188 cm; o Probel Sigma Plus solteirão mede 100 × 200 cm; e o Probel Sigma Plus viúva mede 128 × 188 cm. Confira a ficha técnica do modelo antes de comprar."
+    },
+    {
+      "where": "Medidas e quando escolher cada tamanho · bloco 2",
+      "before": "Se você tem espaço para 88 cm de largura: o colchão solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Verifique na ficha técnica do modelo as dimensões exatas de largura e comprimento antes de comprar.",
+      "after": "Veja a tabela a seguir."
+    },
+    {
+      "where": "Base ou estrado compatível · bloco 1",
+      "before": "A Probel lista um conjunto box viúva com 128 cm de largura e 188 cm de comprimento.",
+      "after": "(removido)"
+    }
+  ]
+}
