@@ -1,0 +1,39 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 113877,
+    "output_tokens": 21334,
+    "calls": 33
+  },
+  "credits": 21.810756600000005,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Vale considerar a base baú se você precisa guardar objetos sob a cama; confira as medidas internas, que podem ser menores que as externas e têm profundidade limitada.",
+      "Confira se o modelo usa pistões a gás ou pneumáticos e se a tampa permanece aberta, especialmente se o acesso frequente ao baú for importante.",
+      "Compare a capacidade declarada pelo fabricante com o peso dos usuários e verifique se o limite inclui ou não o colchão.",
+      "Confira a altura total da base com os pés se o quarto tem pouco espaço vertical ou se você prefere uma cama mais baixa.",
+      "Verifique na ficha técnica as medidas externas e internas para confirmar a compatibilidade com o colchão e o espaço disponível no quarto.",
+      "Compare a estrutura, o revestimento e o prazo de garantia do modelo escolhido, pois essas especificações variam entre fabricantes."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma resposta direta sobre quando a base baú vale a pena e quais são as principais desvantagens em relação a uma base comum, como preço, peso e acesso ao compartimento.",
+      "Tabela do fabricante relacionando cada tamanho de base às medidas externas, internas e ao colchão compatível.",
+      "Informação do fabricante sobre o que está incluído na compra e quem faz a montagem.",
+      "Condições completas da garantia, incluindo restrições de uso, montagem e instalação dos pés ou módulos.",
+      "Capacidade de carga de cada modelo com indicação clara sobre incluir ou não o peso do colchão."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios concretos para conferir capacidade, espaço interno, abertura e altura, e pode ajudar na compra. Porém, a resposta curta apenas reúne especificações e não responde rapidamente se a base baú vale a pena nem apresenta o principal benefício e as limitações; precisa de uma regra direta, como “vale a pena se você precisa de armazenamento sob a cama e aceita conferir o espaço interno, a capacidade e a altura do modelo”.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
