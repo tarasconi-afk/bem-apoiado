@@ -341,7 +341,9 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const rv = reviewFrom(readBranch(b.branch), slug)?.review ?? null;
     const failed = !!failedAdjust(jobs, slug);
     const info = classifyBranch({ slug, items, query, outcome, steps: b.steps, review: rv, failedAdjust: failed });
-    if (info.kind === 'pauta-tentada' && !/Adiada/.test(info.situation)) continue; // aprendizado puro: entra sozinho, não pede nada
+    // Aprendizado sem pauta (só registros) não pede nada; pauta tentada ganha cartão informativo, qualquer
+    // que seja o desfecho (22/10: o pillow top travou na auditoria e não aparecia no quadro).
+    if (info.kind === 'pauta-tentada' && !query) continue;
     const ready = existsSync(join(PREVIAS, dir, 'index.html'));
     const prevLink = (path: string, label: string) => (ready ? `<a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : '<span class="muted">sendo montada (até 5 min)</span>');
     const visual = (it: ChangeItem) => it.id === 'images' || it.id.startsWith('product:') || it.id === 'theme' || it.id === 'home';
@@ -360,9 +362,9 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
       ? `<form method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
 <dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(pageItem || query ? `${esc(slug)}/` : '', 'abrir prévia'))}</dl>
 ${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok big' : ''}">${primary}</button></div></form>`
-      : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Falta', esc(info.why))}</dl>`;
+      : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     const extra = info.kind === 'pauta-tentada' && query
-      ? `<div class="dactions">${form('fila-remover', { consulta: query }, 'Tirar da fila', '', `Tirar "${query}" da fila?`)} <span class="muted">ou não faça nada: o motor tenta de novo em 3 dias.</span></div>`
+      ? `<div class="dactions">${form('fila-remover', { consulta: query }, 'Tirar da fila', '', `Tirar "${query}" da fila?`)} <span class="muted">ou não faça nada: ${/Adiada/.test(info.situation) ? 'o motor tenta de novo em 3 dias' : 'o motor tenta de novo quando a pauta for a da vez'}.</span></div>`
       : '';
     const html = `<div class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
 <div class="dhead"><span class="tag">${esc(KIND_LABEL[info.kind])}</span> <strong>${esc(subject)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></div>

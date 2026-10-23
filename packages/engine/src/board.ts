@@ -107,10 +107,14 @@ export function classifyBranch(b: {
     situation: deferred
       ? 'Adiada antes de escrever: as fontes encontradas não dizem ao leitor o que escolher. Não há página nem prévia.'
       : draft
-        ? 'Virou rascunho fraco; ele aparece num cartão "Rascunho para seu veredito".'
-        : b.outcome ?? 'Não virou página neste ciclo.',
+        ? 'Virou rascunho fraco; em até 5 minutos ele aparece num cartão "Rascunho para seu veredito".'
+        : b.outcome
+          ? b.outcome.charAt(0).toUpperCase() + b.outcome.slice(1) + '.'
+          : 'Não virou página neste ciclo.',
     suggestion: 'nada',
-    why: deferred ? (/Falta: ([^.]+)/.exec(b.outcome ?? '')?.[1] ?? 'falta fonte com regra de escolha') : 'O aprendizado (fontes, evidências) entra sozinho em até 5 minutos.',
+    why: deferred
+      ? (/Falta: ([^.]+)/.exec(b.outcome ?? '')?.[1] ?? 'falta fonte com regra de escolha')
+      : 'Nada a decidir: as fontes e evidências deste ciclo entram sozinhas em até 5 minutos, e a próxima tentativa parte delas.',
     correction: '',
   };
 }

@@ -32,3 +32,16 @@ describe('quadro de decisões', () => {
     expect(correctionText(null)).toBe('');
   });
 });
+
+describe('todo desfecho de pauta tem explicação', () => {
+  it('auditoria travada e nova tentativa sem fonte viram cartão informativo com texto simples', async () => {
+    const { plainOutcome } = await import('../src/changes.ts');
+    const safe = plainOutcome(['pauta nova: "pillow top" (6 perguntas)', 'page: SAFE_STOP (AUDIT_NOT_CONVERGED)']);
+    expect(safe).toContain('o auditor achou afirmações sem fonte');
+    const imp = plainOutcome(['pauta "pillow top": nova tentativa (já existia)', 'improve: NO_NEW_SOURCES: a busca direcionada não achou fonte nova aceita']);
+    expect(imp).toContain('não achou fonte nova');
+    const c = classifyBranch({ slug: 'p', items: [], query: 'pillow top', outcome: safe, steps: ['page: SAFE_STOP (AUDIT_NOT_CONVERGED)'], review: null, failedAdjust: false });
+    expect([c.kind, c.suggestion]).toEqual(['pauta-tentada', 'nada']);
+    expect(c.situation).toMatch(/^Não virou página/);
+  });
+});

@@ -177,6 +177,17 @@ export function plainOutcome(steps: string[]): string | null {
     const why = /\((.+)\)\s*$/.exec(deferred)?.[1] ?? 'as evidências não dizem o que escolher';
     return `não virou página, por isso não há prévia: antes de escrever, o motor viu que as fontes encontradas não dizem ao leitor o que escolher. Falta: ${why.slice(0, 220)}. Nada foi gasto em redação. Próxima vez que a pauta for a da vez, ele busca isso de novo; se não quiser esperar, tire a pauta da fila ou indique um fabricante que tenha essa informação`;
   }
+  // Nova tentativa de pauta já pesquisada (improve): o desfecho vem numa linha "improve: …".
+  const imp = steps.find((s) => s.startsWith('improve: '));
+  if (!page && imp) {
+    if (/página PASS/.test(imp)) return 'virou página aprovada pela auditoria e pela revisão';
+    if (/página NOT_PUBLISHABLE/.test(imp)) return 'virou rascunho: a revisão achou a página fraca; ela aparece num cartão "Rascunho para seu veredito" para você decidir';
+    if (/página SAFE_STOP/.test(imp)) return 'não virou página: na nova tentativa, o auditor ainda achou afirmações sem fonte que o redator não conseguiu corrigir; o que ele recusou fica anotado para a próxima';
+    if (/NO_NEW_SOURCES/.test(imp)) return 'não virou página: a busca dirigida ao que faltava não achou fonte nova confiável; a pauta espera fonte nova (ou um fabricante que você indicar)';
+    if (/NO_NEW_EVIDENCE/.test(imp)) return 'não virou página: as fontes novas não tinham trecho que respondesse ao que faltava';
+    if (/IMPROVE_LIMIT/.test(imp)) return 'não virou página: a pauta já teve todas as tentativas; ela só volta se você pedir';
+    if (/NOT_READY/.test(imp)) return 'não virou página, por isso não há prévia: antes de escrever, o motor viu que as fontes ainda não dizem ao leitor o que escolher; ele tenta de novo em 3 dias';
+  }
   if (!page) return null;
   if (page.startsWith('page: PASS')) return 'virou página aprovada pela auditoria e pela revisão';
   if (page.startsWith('page: NOT_PUBLISHABLE')) return 'virou rascunho: a revisão achou a página fraca; ela aparece em "Páginas: seu veredito" para você decidir';
