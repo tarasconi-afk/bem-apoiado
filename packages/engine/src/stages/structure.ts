@@ -100,7 +100,10 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   }
   for (const s of out.sections) s.blocks.forEach((b, i) => {
     if (b.kind === 'table') {
-      const p = single([...new Set(b.rows.flatMap((r) => r.cells.flatMap((c) => c.claim_ids)))]);
+      // Só fonte ÚNICA vai para o título: com 2 marcas o auditor julga cada linha e recusa "segundo a X e a Y" em
+      // linha que é de uma só (22/10, solteirão ou viúva: 5 linhas recusadas por isso).
+      const ps = single([...new Set(b.rows.flatMap((r) => r.cells.flatMap((c) => c.claim_ids)))]);
+      const p = ps && ps.length === 1 ? ps : null;
       if (p && !p.some((x) => norm(b.caption).includes(norm(x)))) { b.caption = `${b.caption} (segundo ${who(p)})`; refs.push(`${s.id}#${i}`); }
       return;
     }

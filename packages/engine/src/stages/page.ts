@@ -72,8 +72,8 @@ export function styleIssues(draft: Draft): Issue[] {
   for (const sec of draft.sections) sec.blocks.forEach((b, i) => {
     if (b.kind !== 'table') return;
     b.rows.forEach((r, ri) => {
-      if (r.cells.slice(1).some((c) => /^\s*(confira|verifique|consulte|veja)\b/i.test(c.text) && !/\d/.test(c.text)))
-        out.push({ ref: `${sec.id}#${i}.r${ri}`, msg: 'célula da tabela só manda conferir, sem dado: traga o que a ficha daquele modelo informa ou tire a linha. Uma coluna é um modelo só; nunca ponha dado de outro modelo nela.' });
+      if (r.cells.slice(1).some((c) => (/^\s*(confira|verifique|consulte|veja)\b/i.test(c.text) && !/\d/.test(c.text)) || /n[ãa]o (informad|consta|declarad|encontrad)|sem informa[çc][ãa]o/i.test(c.text)))
+        out.push({ ref: `${sec.id}#${i}.r${ri}`, msg: 'célula da tabela sem dado ("confira…" ou "não informado"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só.' });
     });
   });
   // Resposta curta (a frase mais lida da página e a que a busca com IA cita): no máximo 3 frases, começa pela
@@ -285,6 +285,11 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
         adopted.draft = applyPatches(adopted.draft, pv.data.patches.filter((x) => x.ref === 'verdict'));
         if (!adopted.refs.includes('verdict')) adopted.refs.push('verdict');
       }
+      // A versão do auditor volta sem dizer de quem é a recomendação: atribuição por código de novo (22/10, cadeira
+      // para obeso: a resposta curta adotada travou em MISATTRIBUTED; com "segundo a X" o auditor aprova 3 de 3).
+      const at = attributeSingleSource(adopted.draft, sourceOf);
+      adopted.draft = at.draft;
+      for (const r of at.refs) if (!adopted.refs.includes(r)) adopted.refs.push(r);
       adopted.refs = adopted.refs.filter((r) => blockRefs(adopted.draft).some((u) => u.ref === r));
       const st = [...checkPage(toPageSpec(adopted.draft, topic, runId, 'pending'), idx).map((v) => ({ ref: refFromWhere(v.where), msg: `${v.code} ${v.detail}` })), ...styleIssues(adopted.draft)];
       if (!st.some((i) => i.ref === null || adopted.refs.includes(i.ref!))) {
@@ -300,10 +305,13 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   }
   // Só sobrou problema de forma que dá para consertar sem IA: conserta, confere a forma e audita os blocos tocados.
   if (draft && issues.length > 0) {
-    const ff = fixFormWithoutAI(draft);
+    const ff0 = fixFormWithoutAI(draft);
+    const ffa = attributeSingleSource(ff0.draft, sourceOf);
+    const ff = { draft: ffa.draft, refs: [...new Set([...ff0.refs, ...ffa.refs])] };
     if (ff.refs.length) {
       const left = [...checkPage(toPageSpec(ff.draft, topic, runId, 'pending'), idx).map((v) => ({ ref: refFromWhere(v.where), msg: `${v.code} ${v.detail}` })), ...styleIssues(ff.draft)];
-      const formOnly = issues.every((i) => i.ref && ff.refs.includes(i.ref) && !/^(OVERSTATED|UNSUPPORTED|MISATTRIBUTED|SAFETY_CLAIM|FACT_IN_FRAMING)/.test(i.msg));
+      // Atribuição recusada em bloco que a atribuição por código acabou de nomear também conta como só de forma.
+      const formOnly = issues.every((i) => i.ref && ff.refs.includes(i.ref) && (!/^(OVERSTATED|UNSUPPORTED|MISATTRIBUTED|SAFETY_CLAIM|FACT_IN_FRAMING)/.test(i.msg) || (/^MISATTRIBUTED/.test(i.msg) && ffa.refs.includes(i.ref))));
       if (formOnly && left.length === 0) {
         const a = await auditDraft(ff.draft, idx.claims, idx.sources, fetchImpl, cache, new Set(ff.refs));
         add(a.usage, a.usage.calls);
@@ -313,7 +321,9 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
         // conteúdo: adota a versão sustentada do auditor, conserta a forma de novo e audita uma última vez.
         const ad = adoptAuditorFixes(ff.draft, a.findings);
         if (ad.refs.length) {
-          const ff2 = fixFormWithoutAI(ad.draft);
+          const ff2a = fixFormWithoutAI(ad.draft);
+          const ff2b = attributeSingleSource(ff2a.draft, sourceOf);
+          const ff2 = { draft: ff2b.draft, refs: [...new Set([...ff2a.refs, ...ff2b.refs])] };
           const refs2 = [...new Set([...ad.refs, ...ff2.refs])];
           const left2 = [...checkPage(toPageSpec(ff2.draft, topic, runId, 'pending'), idx), ...styleIssues(ff2.draft)];
           if (left2.length === 0) {
