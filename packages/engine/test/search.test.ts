@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 process.env.BEM_STATE_DIR = mkdtempSync(join(tmpdir(), 'bem-state-'));
 process.env.TAVILY_API_KEY = 'test';
+delete process.env.BRAVE_API_KEY; // a reserva não pode mascarar o erro testado
 process.env.TAVILY_MONTHLY_CAP = '2';
 
 describe('webSearch', () => {
