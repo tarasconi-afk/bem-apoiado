@@ -303,10 +303,11 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const moveNote = moved.done.length ? `; movido: ${moved.done.join(', ')}` : '';
   const unsupportedNote =
     (pick.data.unsupported.trim() ? `\nnão feito (o motor não sabe fazer ou não há fonte): ${pick.data.unsupported.trim().slice(0, 200)}` : '') +
-    (pick.data.moves.length && !moved.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '') +
-    // O que ficou de fora por falta de fonte vira lacuna da pauta e entra na busca semanal (23/10: o pedido sem
-    // pesquisa no solteirão não achou a medida do solteirão nas fontes; antes isso só aparecia na resposta).
-    (/fonte|evid[eê]ncia|sustent|trecho/i.test(pick.data.unsupported) ? recordGaps(slug, [pick.data.unsupported.trim().slice(0, 300)]) : '');
+    (pick.data.moves.length && !moved.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '');
+  // O que ficou de fora por falta de fonte vira lacuna da pauta e entra na busca semanal (23/10: o pedido sem pesquisa
+  // no solteirão não achou a medida do solteirão nas fontes). Só quando o ajuste entendeu o pedido e salvou algo:
+  // "não achei a tabela" não é falta de fonte (virou lacuna lixo no mesmo dia).
+  const gapFromUnsupported = () => (/fonte|evid[eê]ncia|sustent|trecho/i.test(pick.data.unsupported) && !/não (encontr|achei|consta a tabela)|dados fornecidos|conteúdo atual/i.test(pick.data.unsupported) ? recordGaps(slug, [pick.data.unsupported.trim().slice(0, 300)]) : '');
   // Só movimentação (e títulos): grava sem reescrever nada.
   if (!pick.data.refs.length && !pick.data.rewrite_summary) {
     if (!moved.done.length && !heads.size) return lessonNote + `ajuste NÃO salvo: não entendi o que mudar na página${unsupportedNote}`;
@@ -315,7 +316,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     if (g0.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${g0.slice(0, 3).map((v) => `${v.where}: ${v.code}`).join(' | ')}`;
     writeJson(join(PAGES_DIR, `${slug}.json`), spec0);
     recordAdjust(runId, instruction, page, spec0);
-    return `${lessonNote}página reorganizada em ${slug}${moveNote}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}${unsupportedNote}`;
+    return `${lessonNote}página reorganizada em ${slug}${moveNote}${heads.size ? `; título(s) de seção: ${[...heads.values()].map((h) => `"${h}"`).join(', ')}` : ''}${unsupportedNote}${gapFromUnsupported()}`;
   }
   // Pedido sobre o resumo como um todo: a resposta curta e o "Como decidir" são reescritos do zero (o
   // remendo bloco a bloco mantinha as palavras das fontes: "datilo", "Anexo II", 21/10). Resto: remendo.
@@ -424,6 +425,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     moveNote +
     (cl.dropped.length ? `; ${cl.dropped.length} bloco(s) sem fonte descartado(s)` : '') +
     unsupportedNote +
+    gapFromUnsupported() +
     reviewNote;
 }
 
