@@ -502,9 +502,12 @@ export function livePagesHtml(pages: ReturnType<typeof loadPages>): string {
   const google = snap ? pageStats(snap) : new Map();
   // Nota do juiz atual (data/judge-rescore.json) vale mais que a da revisão da época em que a página foi escrita.
   const rf = join(DATA, 'judge-rescore.json');
-  const rescore: Record<string, { metrics?: Parameters<typeof readerScore>[0] }> = existsSync(rf) ? (JSON.parse(readFileSync(rf, 'utf8')).pages ?? {}) : {};
+  // Só quando é da mesma versão da página: depois de um ajuste aplicado vale a revisão da versão nova (23/10: o
+  // como escolher colchão subiu para 2,5 e a aba seguia mostrando 1,5, do juiz de 22/10).
+  const rescore: Record<string, { metrics?: Parameters<typeof readerScore>[0]; page_updated_at?: string }> = existsSync(rf) ? (JSON.parse(readFileSync(rf, 'utf8')).pages ?? {}) : {};
   const rows = live.map((p) => {
-    const rv = rescore[p.slug]?.metrics ?? (reviewFrom(readMain, p.slug)?.review as Parameters<typeof readerScore>[0] | undefined);
+    const rs = rescore[p.slug];
+    const rv = (rs?.page_updated_at === p.updated_at ? rs.metrics : undefined) ?? (reviewFrom(readMain, p.slug)?.review as Parameters<typeof readerScore>[0] | undefined);
     const score = rv ? readerScore(rv) : null;
     const t = traffic.get(p.slug);
     const g = google.get(p.slug);
