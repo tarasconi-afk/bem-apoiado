@@ -7,14 +7,12 @@
   "primary_query": "colchão solteirão ou viúva",
   "updated_at": "2026-10-23",
   "verdict": {
-    "text": "Nas fichas técnicas consultadas, o Gazin Los Angeles Plus solteiro mede 88 × 188 cm; o Probel Sigma Plus solteirão mede 100 × 200 cm; e o Probel Sigma Plus viúva mede 128 × 188 cm. Confira a ficha técnica do modelo antes de comprar.",
+    "text": "Solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Viúva mede 128 × 188 cm, segundo a Probel. Confira na ficha técnica do modelo exatamente qual é a largura e o comprimento antes de comprar.",
     "basis": "evidence",
     "claim_ids": [
       "clm_0222495f509f",
-      "clm_d9f1bc44f1c0",
-      "clm_6a39a8b44a5f",
-      "clm_bc90ff7d7c6d",
-      "clm_28c14e893c3d"
+      "clm_34c96754c13d",
+      "clm_be598e65da36"
     ]
   },
   "sections": [
@@ -43,6 +41,21 @@
           "claim_ids": [
             "clm_0afbaf2ef53d",
             "clm_0a6ef01c4834"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compatibilidade-base",
+      "heading": "Base ou estrado compatível",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Probel lista um conjunto box viúva com 128 cm de largura e 188 cm de comprimento.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_6e863ff340ca",
+            "clm_e62f10174a0b"
           ]
         }
       ]
@@ -79,7 +92,7 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Medidas e quando escolher cada tamanho",
+      "heading": "Como escolher entre solteirão e viúva",
       "blocks": [
         {
           "kind": "paragraph",
@@ -92,9 +105,12 @@
         },
         {
           "kind": "paragraph",
-          "text": "Veja a tabela a seguir.",
-          "basis": "framing",
-          "claim_ids": []
+          "text": "Se você tem espaço para 88 cm de largura: o colchão solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Verifique na ficha técnica do modelo as dimensões exatas de largura e comprimento antes de comprar.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_0222495f509f",
+            "clm_34c96754c13d"
+          ]
         },
         {
           "kind": "paragraph",
@@ -138,7 +154,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261023T170213_autopilot_e69c+editor:20261023T172931_colchao-solteirao-ou-viuva-ajuste_72fb+editor:20261023T190008_colchao-solteirao-ou-viuva-ajuste_076c",
+    "run_id": "20261023T170213_autopilot_e69c+editor:20261023T172931_colchao-solteirao-ou-viuva-ajuste_72fb",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
