@@ -490,6 +490,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     // Já tentada e reprovada: nova tentativa dirigida às lacunas.
     const r = await improveTopic(topic.slug, runId);
     steps.push(`improve: ${r.status === 'DONE' ? `página ${r.page} (+${r.new_sources} fontes, +${r.new_claims} evidências)` : r.reason}`);
+    if (r.status === 'DONE' && r.page === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
   } else {
     const d = await discoverSources(topic.slug, runId);
     steps.push(`discover: ${d.added.length} fontes (${d.queries.length} buscas)`);
@@ -517,6 +518,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
       const e = await editPage(p.page, runId);
       steps.push(`edit: ${e.status}`);
     }
+    if (p.status === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
   }
   const page = loadPages().find((p) => p.slug === topic.slug);
   const status = page && page.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT';
@@ -526,6 +528,29 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     await maintainImages(steps);
   }
   return done({ status, slug: topic.slug, query, steps });
+}
+
+// Correção automática (22/10, editor: "melhoria contínua"): rascunho que a revisão achou fraco recebe UMA vez a
+// correção que o quadro sugeriria (regras "Se você…" das fontes + problemas apontados), sem pesquisa nova. O
+// ajuste só grava se a revisão de leitor não piorar. O editor recebe a melhor versão e só decide.
+export const AUTO_CORRECT_MIN_CREDITS = 8;
+export async function autoCorrect(slug: string, runId: string, steps: string[]): Promise<void> {
+  try {
+    if (creditsLeft() < AUTO_CORRECT_MIN_CREDITS) return;
+    const page = loadPages().find((p) => p.slug === slug);
+    if (!page || page.status !== 'draft') return;
+    const f = join(DATA, 'runs', runId, 'page.json');
+    const review = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')).review : null;
+    const { correctionText, rulesFromNotes } = await import('../board.ts');
+    const text = correctionText(review, rulesFromNotes(loadTopic(slug).editorial_notes));
+    if (!text) return;
+    const { adjustWithResearch } = await import('./requests.ts');
+    const msg = await adjustWithResearch(slug, text, newRunId(`${slug}-autocorrecao`), undefined, { research: false, learn: false });
+    const note = /^ajuste não aplicado/.test(msg) ? 'não aplicada (a versão corrigida ficou pior; o rascunho original fica)' : /NÃO salvo/.test(msg) ? `não salva (${msg.slice(0, 120)})` : `aplicada${/nota ([\d.]+) de 4; antes ([\d.]+)/.exec(msg) ? ` (nota de leitor ${/nota ([\d.]+) de 4; antes ([\d.]+)/.exec(msg)![2]} → ${/nota ([\d.]+) de 4/.exec(msg)![1]} de 4)` : ''}`;
+    steps.push(`correção automática do rascunho: ${note}`);
+  } catch (e) {
+    steps.push(`correção automática do rascunho: falhou (${(e as Error).message.slice(0, 80)})`);
+  }
 }
 
 // Checagem do dado que decide antes da redação (readiness.ts). true = pode escrever (regras gravadas como nota

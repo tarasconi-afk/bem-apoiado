@@ -1,5 +1,6 @@
 import { loadThresholds, loadVerdicts } from './feedback.ts';
-import { classifyBranch, classifyDraft, KIND_LABEL, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
+import { readerScore } from './stages/review.ts';
+import { classifyBranch, classifyDraft, KIND_LABEL, rulesFromNotes, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -323,6 +324,28 @@ ${suggestionHtml(review)}${adjustDiffsHtml(readBranch(b.branch), slug)}${review?
 // Quadro de decisões: um cartão por assunto, sempre com os mesmos campos (assunto, tipo, situação, sugestão,
 // por quê, imagem, produtos, correção pronta, prévia) e o botão da sugestão em destaque. Dados e ações são
 // os mesmos do formato antigo (mesclar, veredito, ajustar, descartar); só a apresentação muda.
+// Nota de leitor (0 a 4, as 4 perguntas do editor) da versão atual e, se ela veio de uma correção, a de antes
+// (22/10, editor: "ótima ideia mostrar a nota da página no quadro"). Lê a revisão mais recente da página.
+function scoreHtml(read: (path: string) => string | null, slug: string): string {
+  try {
+    const page = JSON.parse(read(`data/pages/${slug}.json`) ?? 'null');
+    if (!page) return '';
+    const runs = String(page.provenance.run_id).split('+').map((x: string) => x.replace(/^[a-z]+:/, '')).reverse();
+    for (const r of runs) {
+      const pj = JSON.parse(read(`data/runs/${r}/page.json`) ?? 'null');
+      if (!pj?.review) continue;
+      const n = (x: number) => String(x).replace('.', ',');
+      const now = readerScore(pj.review);
+      const was = pj.review_before ? readerScore(pj.review_before) : null;
+      const bar = `<span class="score s${Math.floor(now)}">${n(now)} de 4</span>`;
+      return was === null ? bar : `${bar} <span class="muted">${now > was ? `subiu de ${n(was)}` : now < was ? `caiu de ${n(was)}` : `igual à versão anterior (${n(was)})`} com a última correção</span>`;
+    }
+  } catch {
+    /* sem revisão registrada */
+  }
+  return '';
+}
+
 export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnType<typeof pendingBranches>): string {
   const cards: { order: number; html: string }[] = [];
   const titleOf = (s: string) => pages.find((p) => p.slug === s)?.title ?? s;
@@ -340,7 +363,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const outcome = plainOutcome(b.steps);
     const rv = reviewFrom(readBranch(b.branch), slug)?.review ?? null;
     const failed = !!failedAdjust(jobs, slug);
-    const info = classifyBranch({ slug, items, query, outcome, steps: b.steps, review: rv, failedAdjust: failed });
+    const info = classifyBranch({ slug, items, query, outcome, steps: b.steps, review: rv, failedAdjust: failed, rules: rulesFromNotes(loadTopics().find((t) => t.slug === slug)?.editorial_notes ?? []) });
     // Aprendizado sem pauta (só registros) não pede nada; pauta tentada ganha cartão informativo, qualquer
     // que seja o desfecho (22/10: o pillow top travou na auditoria e não aparecia no quadro).
     if (info.kind === 'pauta-tentada' && !query) continue;
@@ -360,7 +383,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
       ? `<form method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(pageItem || query ? `${esc(slug)}/` : '', 'abrir prévia'))}</dl>
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(pageItem || query ? `${esc(slug)}/` : '', 'abrir prévia'))}</dl>
 ${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok big' : ''}">${primary}</button></div></form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da
@@ -387,14 +410,14 @@ ${info.kind === 'pauta-tentada' ? '' : `<div class="dfoot"><span class="muted">r
   const judged = (p: (typeof pages)[number]) => verdicts.some((v) => v.slug === p.slug && v.run_id === p.provenance.run_id);
   for (const p of pages.filter((x) => x.status === 'draft' && !judged(x))) {
     const rv = reviewFrom(readMain, p.slug)?.review ?? null;
-    const info = classifyDraft({ review: rv, failedAdjust: !!failedAdjust(jobs, p.slug) });
+    const info = classifyDraft({ review: rv, failedAdjust: !!failedAdjust(jobs, p.slug), rules: rulesFromNotes(loadTopics().find((t) => t.slug === p.slug)?.editorial_notes ?? []) });
     const approve = `<form method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${forceBox(p.slug)}<button class="${info.suggestion === 'aprovar' ? 'ok big' : 'ok'}">Aprovar e publicar</button></form>`;
-    const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^Corrija, só com o que as fontes sustentarem: /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
+    const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
       html: `<div class="dcard sg-${info.suggestion}" data-pending>
 <div class="dhead"><span class="tag">${esc(KIND_LABEL.rascunho)}</span> <strong>${esc(p.title)}</strong></div>
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
 ${failedNote(p.slug)}<div class="dactions">${approve}</div>${adjustDiffsHtml(readMain, p.slug)}
 ${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir')}${reject}
 </div>`,
@@ -690,7 +713,7 @@ export const ADMIN_CSS = `<style>
 @media (max-width:640px){.dl{grid-template-columns:1fr}.dl dt{margin-top:6px}}
 .dactions{margin:10px 0 4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}button.big{font-size:1rem;padding:8px 18px}
 .dfix{margin:8px 0}.dfix textarea{width:100%;box-sizing:border-box;margin:6px 0;font:inherit}.acc{font-size:.88rem;margin-left:4px}
-.b.warn{background:#fbefd9;color:#8a5a0c}.dnext{margin:8px 0 2px}.dfoot{margin-top:8px;text-align:right}button.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:0;cursor:pointer;font-size:.82rem}
+.b.warn{background:#fbefd9;color:#8a5a0c}.score{display:inline-block;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--nbg)}.score.s4,.score.s3{background:var(--okbg);color:var(--ok)}.score.s2{background:#fbefd9;color:#8a5a0c}.score.s1,.score.s0{background:var(--badbg);color:var(--bad)}.dnext{margin:8px 0 2px}.dfoot{margin-top:8px;text-align:right}button.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:0;cursor:pointer;font-size:.82rem}
 details.old{margin:24px 0 8px}
 .adjust{margin-top:6px}.adjust input{min-width:160px}
 .restored{outline:2px solid var(--amber,#f0b252)}

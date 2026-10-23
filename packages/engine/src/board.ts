@@ -49,18 +49,27 @@ export function fourQuestions(r: ReviewLike | null | undefined): string {
   return `decide: ${dec} · leva à compra: ${yn(r.purchase_path)} · leigo: ${yn(r.reader_fit)} · resposta rápida: ${yn(r.quick_answer)}`;
 }
 
-// Pedido de correção pronto a partir do que a revisão apontou (o editor edita antes de mandar, se quiser).
-export function correctionText(r: ReviewLike | null | undefined): string {
+// Pedido de correção pronto. Com as regras "Se você…" que as fontes sustentam (checagem antes da redação), o
+// pedido diz O QUE escrever, não só o que está errado (22/10, pillow top: "não deixa claro para quem vale a pena"
+// sem dizer qual regra usar fez o redator voltar à definição e a página piorou). Só o que reescrever resolve:
+// falta de fonte pede pesquisa, não correção de texto.
+export function correctionText(r: ReviewLike | null | undefined, rules: string[] = []): string {
   if (!r) return '';
-  // Só o que reescrever resolve: problemas de leitura e as 2 faltas de forma (resposta curta, o que conferir).
-  // Falta de fonte ("norma da ABNT sobre firmeza") pede pesquisa, não correção de texto.
   const FORM = /^(Resposta curta que resolva|O que conferir no anúncio)/;
-  const items = [...(r.reader_problems ?? []), ...(r.missing ?? []).filter((m) => FORM.test(m))]
-    .map((x) => x.replace(/^Para o leitor leigo:\s*/, '').trim())
-    .filter(Boolean);
-  const uniq = [...new Set(items)].slice(0, 4);
-  if (!uniq.length) return '';
-  return `Corrija, só com o que as fontes sustentarem: ${uniq.map((x, i) => `${i + 1}) ${x}`).join(' ')}`.slice(0, 600);
+  const problems = [...new Set([...(r.reader_problems ?? []), ...(r.missing ?? []).filter((m) => FORM.test(m))].map((x) => x.replace(/^Para o leitor leigo:\s*/, '').trim()).filter(Boolean))].slice(0, 3);
+  if (!problems.length && !rules.length) return '';
+  const rulePart = rules.length
+    ? `Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: ${rules.slice(0, 4).map((x, i) => `${i + 1}) ${x}`).join(' ')}. `
+    : '';
+  const probPart = problems.length ? `${rules.length ? 'Resolva também' : 'Corrija, só com o que as fontes sustentarem'}: ${problems.map((x, i) => `${rules.length ? String.fromCharCode(97 + i) : i + 1}) ${x}`).join(' ')}` : '';
+  return `${rulePart}${probPart}`.trim().slice(0, 600);
+}
+
+// Regras gravadas pela checagem antes da redação, como texto limpo ("Se você…, escolha…").
+export function rulesFromNotes(notes: string[]): string[] {
+  return notes
+    .filter((n) => n.startsWith('Regra de decisão sustentada:'))
+    .map((n) => n.replace(/^Regra de decisão sustentada:\s*/, '').replace(/\s*\(evidências:[^)]*\)\s*$/, '').replace(/[.\s]+$/, '').trim());
 }
 
 export function classifyBranch(b: {
@@ -71,9 +80,10 @@ export function classifyBranch(b: {
   steps: string[];
   review: ReviewLike | null;
   failedAdjust: boolean;
+  rules?: string[];
 }): CardInfo {
   const page = b.items.find((i) => i.id === `page:${b.slug}`);
-  const correction = correctionText(b.review);
+  const correction = correctionText(b.review, b.rules);
   if (page && /Página nova/.test(page.title)) {
     if (b.failedAdjust) return { kind: 'pagina-nova', situation: 'Pronta, mas o último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'O ajuste não entrou; peça de novo ou publique assim mesmo.', correction };
     if (b.review && !b.review.publishable) return { kind: 'pagina-nova', situation: 'Passou na auditoria das fontes, mas a revisão de leitor achou pontos fracos.', suggestion: 'corrigir', why: fourQuestions(b.review), correction };
@@ -107,7 +117,10 @@ export function classifyBranch(b: {
     situation: deferred
       ? 'Adiada antes de escrever: as fontes encontradas não dizem ao leitor o que escolher. Não há página nem prévia.'
       : draft
-        ? 'Virou rascunho fraco; em até 5 minutos ele aparece num cartão "Rascunho para seu veredito".'
+        ? `Virou rascunho; ${(() => {
+            const ac = b.steps.find((s) => s.startsWith('correção automática do rascunho:'));
+            return ac ? `o motor já tentou uma correção automática: ${ac.replace(/^correção automática do rascunho:\s*/, '')}. ` : '';
+          })()}em até 5 minutos ele aparece num cartão "Rascunho para seu veredito".`
         : b.outcome
           ? b.outcome.charAt(0).toUpperCase() + b.outcome.slice(1) + '.'
           : 'Não virou página neste ciclo.',
@@ -119,8 +132,8 @@ export function classifyBranch(b: {
   };
 }
 
-export function classifyDraft(d: { review: ReviewLike | null; failedAdjust: boolean }): CardInfo {
-  const correction = correctionText(d.review);
+export function classifyDraft(d: { review: ReviewLike | null; failedAdjust: boolean; rules?: string[] }): CardInfo {
+  const correction = correctionText(d.review, d.rules);
   if (d.failedAdjust) return { kind: 'rascunho', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo antes de aprovar.', correction };
   if (d.review?.publishable) return { kind: 'rascunho', situation: 'A revisão de leitor aprova esta versão.', suggestion: 'aprovar', why: fourQuestions(d.review), correction };
   if (correction) return { kind: 'rascunho', situation: 'A revisão de leitor achou pontos fracos que dá para corrigir.', suggestion: 'corrigir', why: fourQuestions(d.review), correction };

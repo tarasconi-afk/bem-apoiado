@@ -45,3 +45,24 @@ describe('todo desfecho de pauta tem explicação', () => {
     expect(c.situation).toMatch(/^Não virou página/);
   });
 });
+
+describe('melhoria contínua', () => {
+  it('correção sugerida traz as regras das fontes antes dos problemas', async () => {
+    const { correctionText, rulesFromNotes } = await import('../src/board.ts');
+    const rules = rulesFromNotes(['Regra de decisão sustentada: Se a altura for limitada, prefira sem pillow top. (evidências: clm_a, clm_b)', 'outra nota']);
+    expect(rules).toEqual(['Se a altura for limitada, prefira sem pillow top']);
+    const t = correctionText({ publishable: false, reader_problems: ['Termos sem explicação.'] }, rules);
+    expect(t).toMatch(/^Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: 1\) Se a altura/);
+    expect(t).toContain('Resolva também: a) Termos sem explicação.');
+  });
+  it('nota de leitor: em parte vale meio; cada "não" tira um ponto', async () => {
+    const { readerScore } = await import('../src/stages/review.ts');
+    expect(readerScore({ answers_primary_query: 'yes', reader_fit: true, quick_answer: true, purchase_path: true })).toBe(4);
+    expect(readerScore({ answers_primary_query: 'partial', reader_fit: false, quick_answer: false, purchase_path: false })).toBe(0.5);
+  });
+  it('cartão de rascunho conta a correção automática', async () => {
+    const { classifyBranch } = await import('../src/board.ts');
+    const c = classifyBranch({ slug: 'p', items: [], query: 'pillow top', outcome: null, steps: ['page: NOT_PUBLISHABLE', 'correção automática do rascunho: aplicada (nota de leitor 0.5 → 3 de 4)'], review: null, failedAdjust: false });
+    expect(c.situation).toContain('o motor já tentou uma correção automática: aplicada (nota de leitor 0.5 → 3 de 4)');
+  });
+});
