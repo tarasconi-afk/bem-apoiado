@@ -30,7 +30,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
   const gaps = computeLearning().recurringGaps.map((g) => g.gap).slice(0, 8);
   const Out = z.object({
     page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
-    questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15) })).min(4).max(7),
+    questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15) })).min(4),
     focus_terms: z.array(z.string().min(2)).min(2).max(8),
     listing_terms: z.array(z.string().min(2)).default([]),
     // Sem limite rígido (23/10: 5 itens derrubavam a pauta inteira); o excesso é cortado depois.
@@ -67,7 +67,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
     },
     fetchImpl,
   );
-  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, product_kinds: r.data.product_kinds.slice(0, 4), editorial_notes: r.data.editorial_notes.slice(0, 4), listing_terms: r.data.listing_terms.slice(0, 3), source_ids: [] });
+  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, questions: r.data.questions.slice(0, 7), product_kinds: r.data.product_kinds.slice(0, 4), editorial_notes: r.data.editorial_notes.slice(0, 4), listing_terms: r.data.listing_terms.slice(0, 3), source_ids: [] });
   writeJson(path, topic);
   return { topic, created: true };
 }
