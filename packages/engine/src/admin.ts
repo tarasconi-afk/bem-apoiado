@@ -213,11 +213,6 @@ ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde
 ${queuedJobs().length ? `<p class="flash">Na fila (${queuedJobs().length}): ${queuedJobs().map((j) => esc(j.label)).join(' · ')}${cycleRunning() ? '. Começam quando o ciclo em andamento terminar.' : '.'}</p>` : ''}
 
 ${boardHtml(pages, branches)}
-<details class="old"><summary class="muted">Formato detalhado (antigo): todos os itens de cada resultado e as páginas no ar</summary>
-<h3>Resultados do motor</h3>
-${(branches.length ? branches.map(pendingHtml).join('') : '<p class="muted">Nenhum resultado pendente.</p>').replaceAll('data-pending', '')}
-${verdictsHtml(pages).replaceAll('data-pending', '').replace(/<h2>/g, '<h3>').replace(/<\/h2>/g, '</h3>')}
-</details>
 
 <h2>Páginas no ar</h2>
 ${livePagesHtml(pages)}
@@ -240,6 +235,14 @@ ${productsHtml()}
 <h2>Piloto automático</h2>
 <p class="muted">Roda sozinho às 04:00, 10:00, 16:00 e 22:00 (uma página por ciclo). Um ciclo gasta até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos, e os ciclos automáticos do dia somados até ${process.env.BEM_DAILY_CREDIT_CAP ?? 100}. O ciclo pedido aqui não conta esse teto diário enquanto houver menos de 20 páginas no ar.</p>
 ${form('ciclo', {}, 'Rodar um ciclo agora', 'ok', `Rodar um ciclo agora? Pode gastar até ${process.env.BEM_CYCLE_BUDGET ?? 40} créditos de IA (até 20 páginas no ar, fora do teto diário).`)}
+
+<h2>Detalhe técnico dos resultados</h2>
+<p class="muted">Para diagnóstico: cada item de cada resultado do motor, inclusive o que é só aprendizado. As decisões ficam no Quadro (aba Decisões) e as páginas no ar, na aba Páginas.</p>
+<details class="old"><summary class="muted">abrir o detalhe de cada resultado</summary>
+<h3>Resultados do motor</h3>
+${(branches.length ? branches.map(pendingHtml).join('') : '<p class="muted">Nenhum resultado pendente.</p>').replaceAll('data-pending', '')}
+${verdictsHtml(pages).replaceAll('data-pending', '').replace(/<h2>/g, '<h3>').replace(/<\/h2>/g, '</h3>')}
+</details>
 
 <h2>Google Search Console</h2>
 ${gscHtml()}
