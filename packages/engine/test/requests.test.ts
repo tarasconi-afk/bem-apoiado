@@ -94,3 +94,12 @@ describe('ajuste sem ganho vira lacuna da pauta', () => {
     expect(JSON.parse(readFileSync(join(root, 'data/source-gaps.json'), 'utf8'))[slug]).toMatchObject({ tries: 0, gaps: ['Uma regra direta para escolher entre os tipos conforme o uso'] });
   });
 });
+
+describe('pedido com parte sem fonte vira lacuna', () => {
+  it('o "não feito por falta de fonte" do ajuste é guardado para a busca semanal', async () => {
+    const { recordGaps } = await import('../src/stages/requests.ts');
+    const note = recordGaps('protetor-de-colchao-vale-a-pena', ['Pedido 1: as fontes citadas não sustentam a medida do colchão solteirão; falta fonte com as medidas do solteirão']);
+    expect(note).toContain('falta fonte, não texto');
+    expect(JSON.parse(readFileSync(join(root, 'data/source-gaps.json'), 'utf8'))['protetor-de-colchao-vale-a-pena'].gaps[0]).toMatch(/solteirão/);
+  });
+});

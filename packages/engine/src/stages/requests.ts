@@ -303,7 +303,10 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const moveNote = moved.done.length ? `; movido: ${moved.done.join(', ')}` : '';
   const unsupportedNote =
     (pick.data.unsupported.trim() ? `\nnão feito (o motor não sabe fazer ou não há fonte): ${pick.data.unsupported.trim().slice(0, 200)}` : '') +
-    (pick.data.moves.length && !moved.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '');
+    (pick.data.moves.length && !moved.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '') +
+    // O que ficou de fora por falta de fonte vira lacuna da pauta e entra na busca semanal (23/10: o pedido sem
+    // pesquisa no solteirão não achou a medida do solteirão nas fontes; antes isso só aparecia na resposta).
+    (/fonte|evid[eê]ncia|sustent|trecho/i.test(pick.data.unsupported) ? recordGaps(slug, [pick.data.unsupported.trim().slice(0, 300)]) : '');
   // Só movimentação (e títulos): grava sem reescrever nada.
   if (!pick.data.refs.length && !pick.data.rewrite_summary) {
     if (!moved.done.length && !heads.size) return lessonNote + `ajuste NÃO salvo: não entendi o que mudar na página${unsupportedNote}`;
