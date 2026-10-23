@@ -1,0 +1,196 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O bloco apresenta como orientação geral afirmações que os trechos atribuem à ergocadeiras, um fabricante. Além disso, transforma uma recomendação de pistão Classe 4 em critério geral e fala em “espuma de densidade adequada” sem limitar a recomendação às faixas de peso citadas.",
+      "fix": "Segundo a ergocadeiras, considere uma cadeira cuja capacidade declarada seja pelo menos 20 kg acima do seu peso e, especialmente para usuários acima de 100 kg, um pistão Classe 4. Para quem pesa mais de 110 kg, a fonte recomenda evitar bases de nylon e buscar aço ou alumínio; para usuários de 100 a 130 kg, cita espuma injetada de no mínimo 50 kg/m³ e, acima de 130 kg, de 55 kg/m³. A mesma fonte sugere deixar 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam verificar o peso máximo e preferir uma capacidade pelo menos 20 kg superior ao peso da pessoa, mas não dizem que esse é o primeiro dado a conferir. Além disso, a recomendação da fonte fabricante é apresentada como orientação geral sem atribuição.",
+      "fix": "Verifique o peso máximo suportado; para não sobrecarregar o pistão a gás, a fonte recomenda que a cadeira suporte pelo menos 20 kg a mais que o seu peso."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam os limites de 136 kg e 120 kg nas páginas dos respectivos fabricantes, mas não dizem que esse número deve aparecer na ficha técnica nem sustentam explicitamente a orientação de conferir o modelo antes de decidir.",
+      "fix": "Por exemplo, a Flexform Dot informa suporte de 136 kg, enquanto a XT Racer Platinum W informa suporte de até 120 kg, conforme as páginas dos respectivos fabricantes."
+    },
+    {
+      "ref": "pistao-gas#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são de um fabricante e a afirmação é apresentada como fato geral, sem atribuição. Além disso, nenhum trecho citado sustenta que o pistão a gás regula a altura do assento, nem liga explicitamente a capacidade de 150–200 kg ao Classe 4.",
+      "fix": "Segundo a ergocadeiras, para usuários acima de 100 kg, o Classe 4 é apresentado como o mínimo aceitável. A mesma fonte informa capacidade de carga entre 150 kg e 200 kg."
+    },
+    {
+      "ref": "pistao-gas#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação sobre cilindros sem classe declarada é apresentada como fato geral, mas o único trecho citado é de um fabricante. A recomendação de sempre conferir a classe na ficha técnica não aparece no trecho.",
+      "fix": "Segundo a ergocadeiras, cilindros sem classe declarada são quase sempre Classe 3 e inadequados para uso intenso acima de 110 kg."
+    },
+    {
+      "ref": "base-material#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As afirmações são apresentadas como orientação geral, mas os trechos citados são de um fabricante e não há atribuição a essa fonte no bloco.",
+      "fix": "Segundo a ergocadeiras, pessoas com mais de 110 kg devem evitar bases de nylon, pois o plástico pode fatigar e partir com o tempo; a fonte afirma que bases de aço ou alumínio oferecem resistência confiável."
+    },
+    {
+      "ref": "base-material#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as opções de bases e os tamanhos dos rodízios, mas não dizem que é preciso conferir qual base vem com o modelo escolhido. Além disso, a fonte fala em “base Estampada ou Aço com Capa”, não especificamente em “aço estampado”.",
+      "fix": "Segundo a Cavaletti, há opções de bases em alumínio ou nylon com rodízios de 65 mm; para a base estampada ou de aço com capa, estão disponíveis rodízios de 50 mm em nylon ou PU."
+    },
+    {
+      "ref": "dimensoes-assento#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados apenas afirmam, segundo a Flexform, conformidade com a ABNT NBR 13962. Eles não dizem que largura e profundidade afetam conforto e suporte, que a norma sugere dimensões mínimas, nem que o fabricante deve informar medidas exatas na ficha técnica.",
+      "fix": "Segundo a Flexform, sua linha de cadeiras tem conformidade com a ABNT NBR 13962."
+    },
+    {
+      "ref": "dimensoes-assento#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta o teste de deixar um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho, mas não afirma que espaços menores ou maiores indicam que a profundidade pode não ser adequada ao corpo.",
+      "fix": "Para um primeiro teste, deixe um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    },
+    {
+      "ref": "garantia-uso#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a condição de uso por pessoas com até 110 kgf em condições normais, mas não sustenta a orientação adicional para consultar o fabricante acima desse peso nem explicita, no trecho citado, que a garantia se aplica nessa faixa.",
+      "fix": "A Cavaletti informa que o produto deve ser usado por pessoas com peso de até 110 kgf, desde que constatadas condições normais de uso."
+    },
+    {
+      "ref": "garantia-uso#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a garantia de até 7 anos da linha corporativa da Flexform e os prazos da XT Racer Platinum W, mas não sustentam a orientação para ler o termo de garantia nem a afirmação sobre confirmar a cobertura da faixa de peso.",
+      "fix": "A Flexform informa garantia de até 7 anos para sua linha corporativa. A XT Racer Platinum W tem 3 anos de garantia para a estrutura metálica interna e 1 ano para os demais componentes."
+    },
+    {
+      "ref": "normas-certificacoes#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que a Flexform declara conformidade com a ABNT NBR 13962 em toda a linha e que houve ensaios no Laboratório Galileo, acreditado pela CGCRE. Eles não dizem que a norma trata de resistência estrutural, que seus ensaios são de resistência, nem que declarar conformidade significa necessariamente ter passado por ensaios de resistência.",
+      "fix": "A Flexform declara conformidade com a ABNT NBR 13962 em toda a linha, com ensaios realizados no Laboratório Galileo, acreditado pela CGCRE."
+    },
+    {
+      "ref": "normas-certificacoes#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O único trecho citado é de um fabricante e afirma, segundo essa fonte, que o selo BIFMA comprova testes rigorosos de resistência. O bloco apresenta isso como fato geral sem atribuição e acrescenta TUV, que não aparece no trecho citado. A recomendação de verificar a ficha técnica também não é sustentada pelo trecho.",
+      "fix": "Segundo a fonte citada, o selo BIFMA é apresentado como indicação de testes rigorosos de resistência. Verifique na ficha técnica se o modelo menciona BIFMA."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações vêm de uma fonte classificada como fabricante, mas o bloco as apresenta como regra geral sem atribuição. Além disso, o trecho não sustenta especificamente a recomendação para pessoas de até 100 kg nem os materiais da base nessa faixa.",
+      "fix": "Segundo a ergocadeiras, o pistão Classe 3 suporta até 120 kg e o Classe 4 pode suportar até 150 kg ou mais; o trecho citado não estabelece uma tabela geral para pessoas de até 100 kg nem recomenda materiais específicos para essa faixa."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações de capacidade, classe do pistão e material da base são posições de uma fonte classificada como fabricante, mas aparecem como fatos gerais sem atribuição. O trecho sobre bases de aço ou alumínio se aplica a quem pesa mais de 110 kg, não necessariamente a exatamente 110 kg, e dizer que são “eternas” também excede o suporte.",
+      "fix": "Segundo a ergocadeiras, para 110 kg deve-se buscar capacidade declarada de pelo menos 130 kg e, para usuários acima de 100 kg, o fabricante considera a Classe 4 o mínimo aceitável. Para pessoas acima de 110 kg, a fonte recomenda evitar bases de nylon e considerar aço ou alumínio."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Embora os números de capacidade e a Classe 4 estejam nos trechos, eles são recomendações de uma fonte classificada como fabricante e foram apresentados como regra geral sem atribuição. O trecho sobre a base afirma que aço carbono ou alumínio forjado oferecem resistência de forma confiável, não que todo aço ou alumínio seja adequado indistintamente.",
+      "fix": "Segundo a ergocadeiras, quem pesa 130 kg deve buscar uma cadeira com capacidade de pelo menos 150 kg ou mais; para usuários acima de 100 kg, a fonte considera a Classe 4 o mínimo aceitável e cita aço carbono ou alumínio forjado como materiais de base confiáveis."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações são atribuídas apenas implicitamente a uma fonte classificada como fabricante e aparecem como regra geral. Além disso, o trecho diz que uma capacidade 20 kg acima do peso é “ideal” e recomenda Classe 4; o bloco transforma isso em capacidade “mínima” e em regra para todos acima de 100 kg.",
+      "fix": "Segundo a ergocadeiras, é ideal que a cadeira suporte pelo menos 20 kg a mais que o peso do usuário, com recomendação de pistões Classe 4; para usuários acima de 100 kg, a fonte considera a Classe 4 o mínimo aceitável e cita aço carbono ou alumínio forjado como materiais de base confiáveis."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os limiares de densidade são posições de uma fonte classificada como fabricante, mas o bloco os apresenta como regra geral sem atribuição. A afirmação adicional de que o número aparece na ficha técnica não consta no trecho citado.",
+      "fix": "Segundo a ergocadeiras, para usuários entre 100 kg e 130 kg a fonte recomenda espuma injetada de no mínimo 50 kg/m³, e para usuários acima de 130 kg, no mínimo 55 kg/m³."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O teste de 2 a 3 dedos é apresentado como orientação geral, embora venha de uma fonte classificada como fabricante e sem atribuição. A afirmação de que a medida garante conforto sem comprometer a circulação não aparece no trecho citado.",
+      "fix": "Segundo a ergocadeiras, ao avaliar o espaço do assento, deve-se deixar um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O bloco apresenta como orientação geral afirmações que os trechos atribuem à ergocadeiras, um fabricante. Além disso, transforma uma recomendação de pistão Classe 4 em critério geral e fala em “espuma de densidade adequada” sem limitar a recomendação às faixas de peso citadas. Versão sustentável: Segundo a ergocadeiras, considere uma cadeira cuja capacidade declarada seja pelo menos 20 kg acima do seu peso e, especialmente para usuários acima de 100 kg, um pistão Classe 4. Para quem pesa mais de 110 kg, a fonte recomenda evitar bases de nylon e buscar aço ou alumínio; para usuários de 100 a 130 kg, cita espuma injetada de no mínimo 50 kg/m³ e, acima de 130 kg, de 55 kg/m³. A mesma fonte sugere deixar 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "msg": "OVERSTATED. Os trechos sustentam verificar o peso máximo e preferir uma capacidade pelo menos 20 kg superior ao peso da pessoa, mas não dizem que esse é o primeiro dado a conferir. Além disso, a recomendação da fonte fabricante é apresentada como orientação geral sem atribuição. Versão sustentável: Verifique o peso máximo suportado; para não sobrecarregar o pistão a gás, a fonte recomenda que a cadeira suporte pelo menos 20 kg a mais que o seu peso."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "msg": "UNSUPPORTED. Os trechos informam os limites de 136 kg e 120 kg nas páginas dos respectivos fabricantes, mas não dizem que esse número deve aparecer na ficha técnica nem sustentam explicitamente a orientação de conferir o modelo antes de decidir. Versão sustentável: Por exemplo, a Flexform Dot informa suporte de 136 kg, enquanto a XT Racer Platinum W informa suporte de até 120 kg, conforme as páginas dos respectivos fabricantes."
+    },
+    {
+      "ref": "pistao-gas#0",
+      "msg": "MISATTRIBUTED. Os trechos são de um fabricante e a afirmação é apresentada como fato geral, sem atribuição. Além disso, nenhum trecho citado sustenta que o pistão a gás regula a altura do assento, nem liga explicitamente a capacidade de 150–200 kg ao Classe 4. Versão sustentável: Segundo a ergocadeiras, para usuários acima de 100 kg, o Classe 4 é apresentado como o mínimo aceitável. A mesma fonte informa capacidade de carga entre 150 kg e 200 kg."
+    },
+    {
+      "ref": "pistao-gas#1",
+      "msg": "MISATTRIBUTED. A afirmação sobre cilindros sem classe declarada é apresentada como fato geral, mas o único trecho citado é de um fabricante. A recomendação de sempre conferir a classe na ficha técnica não aparece no trecho. Versão sustentável: Segundo a ergocadeiras, cilindros sem classe declarada são quase sempre Classe 3 e inadequados para uso intenso acima de 110 kg."
+    },
+    {
+      "ref": "base-material#0",
+      "msg": "MISATTRIBUTED. As afirmações são apresentadas como orientação geral, mas os trechos citados são de um fabricante e não há atribuição a essa fonte no bloco. Versão sustentável: Segundo a ergocadeiras, pessoas com mais de 110 kg devem evitar bases de nylon, pois o plástico pode fatigar e partir com o tempo; a fonte afirma que bases de aço ou alumínio oferecem resistência confiável."
+    },
+    {
+      "ref": "base-material#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as opções de bases e os tamanhos dos rodízios, mas não dizem que é preciso conferir qual base vem com o modelo escolhido. Além disso, a fonte fala em “base Estampada ou Aço com Capa”, não especificamente em “aço estampado”. Versão sustentável: Segundo a Cavaletti, há opções de bases em alumínio ou nylon com rodízios de 65 mm; para a base estampada ou de aço com capa, estão disponíveis rodízios de 50 mm em nylon ou PU."
+    },
+    {
+      "ref": "dimensoes-assento#0",
+      "msg": "UNSUPPORTED. Os trechos citados apenas afirmam, segundo a Flexform, conformidade com a ABNT NBR 13962. Eles não dizem que largura e profundidade afetam conforto e suporte, que a norma sugere dimensões mínimas, nem que o fabricante deve informar medidas exatas na ficha técnica. Versão sustentável: Segundo a Flexform, sua linha de cadeiras tem conformidade com a ABNT NBR 13962."
+    },
+    {
+      "ref": "dimensoes-assento#1",
+      "msg": "UNSUPPORTED. O trecho sustenta o teste de deixar um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho, mas não afirma que espaços menores ou maiores indicam que a profundidade pode não ser adequada ao corpo. Versão sustentável: Para um primeiro teste, deixe um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    },
+    {
+      "ref": "garantia-uso#0",
+      "msg": "UNSUPPORTED. O trecho sustenta a condição de uso por pessoas com até 110 kgf em condições normais, mas não sustenta a orientação adicional para consultar o fabricante acima desse peso nem explicita, no trecho citado, que a garantia se aplica nessa faixa. Versão sustentável: A Cavaletti informa que o produto deve ser usado por pessoas com peso de até 110 kgf, desde que constatadas condições normais de uso."
+    },
+    {
+      "ref": "garantia-uso#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a garantia de até 7 anos da linha corporativa da Flexform e os prazos da XT Racer Platinum W, mas não sustentam a orientação para ler o termo de garantia nem a afirmação sobre confirmar a cobertura da faixa de peso. Versão sustentável: A Flexform informa garantia de até 7 anos para sua linha corporativa. A XT Racer Platinum W tem 3 anos de garantia para a estrutura metálica interna e 1 ano para os demais componentes."
+    },
+    {
+      "ref": "normas-certificacoes#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que a Flexform declara conformidade com a ABNT NBR 13962 em toda a linha e que houve ensaios no Laboratório Galileo, acreditado pela CGCRE. Eles não dizem que a norma trata de resistência estrutural, que seus ensaios são de resistência, nem que declarar conformidade significa necessariamente ter passado por ensaios de resistência. Versão sustentável: A Flexform declara conformidade com a ABNT NBR 13962 em toda a linha, com ensaios realizados no Laboratório Galileo, acreditado pela CGCRE."
+    },
+    {
+      "ref": "normas-certificacoes#1",
+      "msg": "MISATTRIBUTED. O único trecho citado é de um fabricante e afirma, segundo essa fonte, que o selo BIFMA comprova testes rigorosos de resistência. O bloco apresenta isso como fato geral sem atribuição e acrescenta TUV, que não aparece no trecho citado. A recomendação de verificar a ficha técnica também não é sustentada pelo trecho. Versão sustentável: Segundo a fonte citada, o selo BIFMA é apresentado como indicação de testes rigorosos de resistência. Verifique na ficha técnica se o modelo menciona BIFMA."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. As recomendações vêm de uma fonte classificada como fabricante, mas o bloco as apresenta como regra geral sem atribuição. Além disso, o trecho não sustenta especificamente a recomendação para pessoas de até 100 kg nem os materiais da base nessa faixa. Versão sustentável: Segundo a ergocadeiras, o pistão Classe 3 suporta até 120 kg e o Classe 4 pode suportar até 150 kg ou mais; o trecho citado não estabelece uma tabela geral para pessoas de até 100 kg nem recomenda materiais específicos para essa faixa."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. As recomendações de capacidade, classe do pistão e material da base são posições de uma fonte classificada como fabricante, mas aparecem como fatos gerais sem atribuição. O trecho sobre bases de aço ou alumínio se aplica a quem pesa mais de 110 kg, não necessariamente a exatamente 110 kg, e dizer que são “eternas” também excede o suporte. Versão sustentável: Segundo a ergocadeiras, para 110 kg deve-se buscar capacidade declarada de pelo menos 130 kg e, para usuários acima de 100 kg, o fabricante considera a Classe 4 o mínimo aceitável. Para pessoas acima de 110 kg, a fonte recomenda evitar bases de nylon e considerar aço ou alumínio."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. Embora os números de capacidade e a Classe 4 estejam nos trechos, eles são recomendações de uma fonte classificada como fabricante e foram apresentados como regra geral sem atribuição. O trecho sobre a base afirma que aço carbono ou alumínio forjado oferecem resistência de forma confiável, não que todo aço ou alumínio seja adequado indistintamente. Versão sustentável: Segundo a ergocadeiras, quem pesa 130 kg deve buscar uma cadeira com capacidade de pelo menos 150 kg ou mais; para usuários acima de 100 kg, a fonte considera a Classe 4 o mínimo aceitável e cita aço carbono ou alumínio forjado como materiais de base confiáveis."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "MISATTRIBUTED. As recomendações são atribuídas apenas implicitamente a uma fonte classificada como fabricante e aparecem como regra geral. Além disso, o trecho diz que uma capacidade 20 kg acima do peso é “ideal” e recomenda Classe 4; o bloco transforma isso em capacidade “mínima” e em regra para todos acima de 100 kg. Versão sustentável: Segundo a ergocadeiras, é ideal que a cadeira suporte pelo menos 20 kg a mais que o peso do usuário, com recomendação de pistões Classe 4; para usuários acima de 100 kg, a fonte considera a Classe 4 o mínimo aceitável e cita aço carbono ou alumínio forjado como materiais de base confiáveis."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. Os limiares de densidade são posições de uma fonte classificada como fabricante, mas o bloco os apresenta como regra geral sem atribuição. A afirmação adicional de que o número aparece na ficha técnica não consta no trecho citado. Versão sustentável: Segundo a ergocadeiras, para usuários entre 100 kg e 130 kg a fonte recomenda espuma injetada de no mínimo 50 kg/m³, e para usuários acima de 130 kg, no mínimo 55 kg/m³."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O teste de 2 a 3 dedos é apresentado como orientação geral, embora venha de uma fonte classificada como fabricante e sem atribuição. A afirmação de que a medida garante conforto sem comprometer a circulação não aparece no trecho citado. Versão sustentável: Segundo a ergocadeiras, ao avaliar o espaço do assento, deve-se deixar um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    }
+  ]
+}

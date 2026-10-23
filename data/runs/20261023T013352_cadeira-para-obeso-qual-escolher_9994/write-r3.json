@@ -1,0 +1,322 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Procure uma cadeira cuja capacidade declarada seja pelo menos 20 kg acima do seu peso. Se você pesa mais de 100 kg, exija pistão Classe 4, base em aço ou alumínio (não nylon) e espuma injetada: mínimo 50 kg/m³ entre 100 e 130 kg, ou 55 kg/m³ acima de 130 kg. Deixe 2 a 3 dedos entre a borda do assento e a parte de trás do joelho.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_094a46308551",
+        "clm_131eb3c37110",
+        "clm_e16841508b77",
+        "clm_f2f509ba0543",
+        "clm_ba7033fc399e"
+      ]
+    },
+    {
+      "ref": "normas-certificacoes#0",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Cadeira para obeso: qual escolher pelo peso",
+    "description": "Compare capacidade de carga, dimensões do assento, material da base e pistão a gás na ficha técnica para encontrar a cadeira adequada ao seu peso.",
+    "verdict": {
+      "text": "Procure uma cadeira cuja capacidade declarada seja pelo menos 20 kg acima do seu peso. Se você pesa mais de 100 kg, exija pistão Classe 4, base em aço ou alumínio (não nylon) e espuma injetada: mínimo 50 kg/m³ entre 100 e 130 kg, ou 55 kg/m³ acima de 130 kg. Deixe 2 a 3 dedos entre a borda do assento e a parte de trás do joelho.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_094a46308551",
+        "clm_131eb3c37110",
+        "clm_e16841508b77",
+        "clm_f2f509ba0543",
+        "clm_ba7033fc399e"
+      ]
+    },
+    "sections": [
+      {
+        "id": "capacidade-carga",
+        "heading": "Verificar a capacidade de carga declarada",
+        "blocks": [
+          {
+            "text": "Verifique o peso máximo suportado; para não sobrecarregar o pistão a gás, segundo a ergocadeiras, a cadeira deve suportar pelo menos 20 kg a mais que seu peso corporal.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_094a46308551"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Por exemplo, a Flexform Dot informa suporte de 136 kg, enquanto a XT Racer Platinum W informa suporte de até 120 kg, conforme as páginas dos respectivos fabricantes.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_00a8a70a7b3d",
+              "clm_0f2bc640bf0f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "pistao-gas",
+        "heading": "Escolher o pistão a gás correto",
+        "blocks": [
+          {
+            "text": "Segundo a ergocadeiras, para usuários acima de 100 kg, o pistão Classe 4 é o mínimo aceitável. A mesma fonte informa que cilindros Classe 4 têm capacidade de carga entre 150 kg e 200 kg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_131eb3c37110",
+              "clm_07d8dab499c2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, cilindros sem classe declarada são quase sempre Classe 3 e inadequados para uso intenso acima de 110 kg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b6ebaa761b20"
+            ],
+            "kind": "callout",
+            "tone": "warning"
+          }
+        ]
+      },
+      {
+        "id": "base-material",
+        "heading": "Material da base: aço, alumínio ou nylon",
+        "blocks": [
+          {
+            "text": "Segundo a ergocadeiras, pessoas com mais de 110 kg devem evitar bases de nylon, pois o plástico pode fatigar e partir com o tempo. A fonte afirma que bases de aço ou alumínio oferecem resistência confiável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e16841508b77",
+              "clm_801e75ecbc86"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Cavaletti, há opções de bases em alumínio ou nylon com rodízios de 65 mm; para a base estampada ou de aço com capa, estão disponíveis rodízios de 50 mm em nylon ou PU.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_09eed1d028e8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-assento",
+        "heading": "Dimensões do assento: largura e profundidade",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, sua linha de cadeiras tem conformidade com a ABNT NBR 13962, com ensaios realizados no Laboratório Galileo, acreditado pela CGCRE.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_371e90648a54"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para um primeiro teste, deixe um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ba7033fc399e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-uso",
+        "heading": "O que a garantia cobre em relação ao peso",
+        "blocks": [
+          {
+            "text": "A Cavaletti informa que o produto deve ser usado por pessoas com peso de até 110 kgf, desde que constatadas condições normais de uso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_560fadaabef4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Flexform informa garantia de até 7 anos para sua linha corporativa. A XT Racer Platinum W tem 3 anos de garantia para a estrutura metálica interna e 1 ano para os demais componentes.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0aaa6b6a32f0",
+              "clm_1d0999632b9b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "normas-certificacoes",
+        "heading": "Certificações e normas que importam na escolha",
+        "blocks": [
+          {
+            "text": "Segundo a ergocadeiras, o selo BIFMA comprova que a cadeira passou por testes rigorosos de resistência. Verifique na ficha técnica se o modelo menciona essa certificação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1bf79de378ec"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela capacidade de carga e dimensões",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Capacidade de carga recomendada conforme seu peso corporal",
+            "columns": [
+              "Seu peso corporal",
+              "Capacidade mínima a buscar",
+              "Pistão recomendado",
+              "Material da base"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Peso + 20 kg (ideal)",
+                    "claim_ids": [
+                      "clm_094a46308551"
+                    ]
+                  },
+                  {
+                    "text": "Classe 3 ou 4",
+                    "claim_ids": [
+                      "clm_d9f9256b69a6"
+                    ]
+                  },
+                  {
+                    "text": "Nylon, aço ou alumínio",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "110 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "130 kg",
+                    "claim_ids": [
+                      "clm_b40731e24afe"
+                    ]
+                  },
+                  {
+                    "text": "Classe 4 (mínimo)",
+                    "claim_ids": [
+                      "clm_131eb3c37110"
+                    ]
+                  },
+                  {
+                    "text": "Aço ou alumínio",
+                    "claim_ids": [
+                      "clm_e16841508b77"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "130 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "150 kg ou mais",
+                    "claim_ids": [
+                      "clm_b40731e24afe"
+                    ]
+                  },
+                  {
+                    "text": "Classe 4 (mínimo)",
+                    "claim_ids": [
+                      "clm_131eb3c37110"
+                    ]
+                  },
+                  {
+                    "text": "Aço ou alumínio",
+                    "claim_ids": [
+                      "clm_801e75ecbc86"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Peso + 20 kg (ideal)",
+                    "claim_ids": [
+                      "clm_094a46308551"
+                    ]
+                  },
+                  {
+                    "text": "Classe 4 (mínimo)",
+                    "claim_ids": [
+                      "clm_131eb3c37110"
+                    ]
+                  },
+                  {
+                    "text": "Aço ou alumínio",
+                    "claim_ids": [
+                      "clm_801e75ecbc86"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Segundo a ergocadeiras, para usuários entre 100 kg e 130 kg a fonte recomenda espuma injetada de no mínimo 50 kg/m³, e para usuários acima de 130 kg, no mínimo 55 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f2f509ba0543"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, ao avaliar o espaço do assento, deixe um espaço de 2 a 3 dedos entre a borda do assento e a parte de trás do joelho.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ba7033fc399e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "parágrafo com 93 palavras; encurte para no máximo 70."
+    },
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    },
+    {
+      "ref": "normas-certificacoes#0",
+      "msg": "repete o bloco dimensoes-assento#0 (92% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ],
+  "usage": {
+    "input_tokens": 15751,
+    "output_tokens": 279
+  }
+}
