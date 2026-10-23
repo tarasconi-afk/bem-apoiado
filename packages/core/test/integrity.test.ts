@@ -180,3 +180,13 @@ describe('firstForbidden', () => {
     expect(firstForbidden('Suporte Ortopédico', ['ortopéd'])?.term).toBe('ortopéd');
   });
 });
+
+describe('produto para pauta sobre um item', () => {
+  it('vale o termo no nome do anúncio ou o próprio tipo ser o item', async () => {
+    const { hasListingItem } = await import('../src/integrity.ts');
+    expect(hasListingItem('Teksti Harmony II', 'Pillow top', ['pillow top'])).toBe(true);
+    expect(hasListingItem('Herval Pillow Top Avulso Casal', 'Colchão de espuma', ['pillow top'])).toBe(true);
+    expect(hasListingItem('Emma Original', 'Colchão de espuma', ['pillow top'])).toBe(false);
+    expect(hasListingItem('Emma Original', 'Colchão de espuma', [])).toBe(true);
+  });
+});

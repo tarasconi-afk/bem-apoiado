@@ -84,7 +84,7 @@ function cycleLiveHtml(now: Date): string {
   const reaudit = c.stage ? /^reaudit-(.+?)(-r\d+)?$/.exec(c.stage) : null;
   const stage = !c.stage ? 'começando' : reaudit ? `re-auditando ${reaudit[1]}${round}` : (STAGE[c.stage.replace(/-r\d+$/, '')] ?? c.stage) + round;
   const last = (c.steps ?? []).slice(-3).map((s) => `<li>${esc(s)}</li>`).join('');
-  if (c.state === 'rodando' && mins(c.updated) < 90) return `<div class="flash" style="border-color:var(--ok)"><strong>Ciclo em andamento</strong> há ${mins(c.started)} min · agora: ${esc(stage)} <span class="muted">(última atividade há ${mins(c.updated)} min)</span>${last ? `<ul class="muted">${last}</ul>` : ''}</div>`;
+  if (c.state === 'rodando' && mins(c.updated) < 90) return `<div class="flash live"><span class="dot" aria-hidden="true"></span><strong>Ciclo em andamento</strong> há ${mins(c.started)} min · agora: ${esc(stage)} <span class="muted">(última atividade há ${mins(c.updated)} min)</span>${last ? `<ul class="muted">${last}</ul>` : ''}</div>`;
   const log = existsSync(join(STATE_DIR, 'cycle-last.log')) ? readFileSync(join(STATE_DIR, 'cycle-last.log'), 'utf8') : '';
   // O desfecho da pauta no título, em linguagem simples (22/10: "terminou" sem prévia, e o editor não sabia por quê).
   const steps = c.steps ?? [];
@@ -148,12 +148,16 @@ export function renderStatus(now = new Date(), opts: { adminHtml?: string; refre
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">${opts.adminHtml ? '' : `<meta http-equiv="refresh" content="${opts.refresh ?? 300}">`}
 <title>Painel do motor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-:root{--bg:#f6f5f1;--card:#fff;--ink:#1f2421;--muted:#626862;--line:#e3ded4;--ok:#2d6a4f;--okbg:#e5f2ea;--bad:#a23b2a;--badbg:#fbe9e5;--n:#5d5a52;--nbg:#efede7}
-a{color:var(--ok)}a:visited{color:var(--ok)}
-@media (prefers-color-scheme:dark){:root{--bg:#161817;--card:#1f2220;--ink:#e8eae6;--muted:#a3aaa3;--line:#333834;--okbg:#1d3328;--ok:#7fd1a3;--badbg:#3a1f1a;--bad:#f0a191;--nbg:#2a2c29;--n:#c9c6bc}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.4rem;margin:0 0 4px}h2{font-size:1.05rem;margin:28px 0 10px}
+:root{--bg:#f3f5f2;--card:#fff;--ink:#1d2a23;--muted:#5f6d65;--line:#dde3dd;--ok:#2c7a4b;--okbg:#e2f2e8;--bad:#a83a32;--badbg:#f8e3e0;--warn:#9a6410;--warnbg:#fbefd9;--n:#5f6a64;--nbg:#eceeec;--accent:#2f6b4f;--accentbg:#e3efe8;--side:#22322a;--sideink:#d9e4dd;--sidemuted:#93a69b;--sideon:#34493d;
+--fd:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;--fb:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--fm:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace}
+a{color:var(--accent)}a:visited{color:var(--accent)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a17;--card:#1c2420;--ink:#e4ebe6;--muted:#9aa89f;--line:#2e3a33;--ok:#7cc39c;--okbg:#1f3a2b;--bad:#ec8a80;--badbg:#3e2220;--warn:#e5b45e;--warnbg:#3a2e17;--n:#a3ada7;--nbg:#27302b;--accent:#7cc39c;--accentbg:#20382b;--side:#0f1512;--sideink:#d3ddd6;--sidemuted:#7f9086;--sideon:#22302a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141a17;--card:#1c2420;--ink:#e4ebe6;--muted:#9aa89f;--line:#2e3a33;--ok:#7cc39c;--okbg:#1f3a2b;--bad:#ec8a80;--badbg:#3e2220;--warn:#e5b45e;--warnbg:#3a2e17;--n:#a3ada7;--nbg:#27302b;--accent:#7cc39c;--accentbg:#20382b;--side:#0f1512;--sideink:#d3ddd6;--sidemuted:#7f9086;--sideon:#22302a;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--fb)}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}h1{font:700 1.4rem/1.2 var(--fd);margin:0 0 4px}h2{font:700 1.15rem/1.25 var(--fd);margin:28px 0 10px;text-wrap:balance}
 .muted{color:var(--muted);font-size:.88rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.card .v{font-size:1.6rem;font-weight:650}.card .l{color:var(--muted);font-size:.82rem}
 .tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:640px}
@@ -162,7 +166,9 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 .num{text-align:right;font-variant-numeric:tabular-nums}code{font-size:.82rem}
 </style></head><body><main>
 <h1>Painel do motor · Bem Apoiado</h1>
-<p class="muted">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}${versionLine()}</p>
+<p class="muted" id="ver">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}${versionLine()}</p>
+${opts.adminHtml ? kpisHtml(pages, now) : ''}
+${opts.adminHtml ? `${cycleLiveHtml(now)}${liveWarning()}${opts.adminHtml}<h2>Números do motor</h2>` : ''}
 <div class="grid">
 ${goalsCard(pages, sum(since(24 * 7)), now)}
 <div class="card"><div class="v">${cr(creditsToday())} <span style="font-size:.9rem;font-weight:500">de ${DAILY_CREDIT_CAP}</span></div><div class="l">créditos hoje (teto do dia; zera à meia-noite)</div></div>
@@ -173,9 +179,7 @@ ${goalsCard(pages, sum(since(24 * 7)), now)}
 <div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
-${cycleLiveHtml(now)}
-${liveWarning()}
-${opts.adminHtml ?? ''}
+${opts.adminHtml ? '' : `${cycleLiveHtml(now)}${liveWarning()}`}
 ${unknownCost ? `<p class="muted">${unknownCost} execução(ões) anteriores ao registro de custo aparecem sem créditos; o extrato do hPanel é a referência final.</p>` : ''}
 
 <h2>Pautas</h2>
@@ -253,6 +257,22 @@ ${Object.entries(MODELS).map(([role, m]) => `<tr><td>${esc(role)}</td><td><code>
 // Metas do editor (22/10): 20 páginas para ganhar tração, 200 no fim. "Sem ajuste" = página no ar sem pedido de
 // ajuste do editor (o que mede se o motor acerta de primeira); créditos por página = gasto de 7 dias dividido
 // pelas aprovações dos mesmos 7 dias.
+// Topo do painel (redesenho de 23/10): os 4 números que importam. "Pedem você" é preenchido no navegador, que conta
+// os cartões do quadro; o resto dos números fica em "Números do motor" (aba Motor).
+function kpisHtml(pages: Pick<PageSpec, 'status'>[], now: Date): string {
+  const live = pages.filter((p) => p.status !== 'draft').length;
+  const goal = live < 20 ? 20 : 200;
+  const used = creditsToday();
+  const t = trafficSummary(7, now);
+  const pct = (a: number, b: number) => Math.min(100, Math.round((100 * a) / Math.max(b, 1)));
+  return `<section class="kpis" aria-label="Resumo">
+<div class="kpi"><span class="l">Páginas no ar</span><span class="v">${live} <small>de ${goal}</small></span><div class="bar"><i style="width:${pct(live, goal)}%"></i></div><span class="s">meta final: 200</span></div>
+<div class="kpi"><span class="l">Pedem você</span><span class="v" id="kpi-pend">–</span><span class="s" id="kpi-pend-s">no quadro de decisões</span></div>
+<div class="kpi"><span class="l">Créditos hoje</span><span class="v">${cr(used)} <small>de ${DAILY_CREDIT_CAP}</small></span><div class="bar"><i style="width:${pct(used, DAILY_CREDIT_CAP)}%"></i></div><span class="s">teto dos ciclos automáticos; zera à meia-noite</span></div>
+<div class="kpi"><span class="l">Cliques na Amazon</span><span class="v">${t.clicks} <small>7 dias</small></span><span class="s">${t.views} página(s) vista(s) no período</span></div>
+</section>`;
+}
+
 export function goalsCard(pages: Pick<PageSpec, 'status' | 'provenance' | 'slug'>[], spent7d: number, now: Date): string {
   const live = pages.filter((p) => p.status !== 'draft');
   // Rascunho que o editor recusou não espera decisão: o cartão separa os dois (22/10: "3 em rascunho" eram as 3

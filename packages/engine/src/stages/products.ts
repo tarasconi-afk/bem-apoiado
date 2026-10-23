@@ -1,7 +1,7 @@
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { Claim, checkClaim, checkProduct, firstForbidden, normalizeForMatch, Product, referencedClaimIds, type Source } from '@bem-apoiado/core';
+import { Claim, checkClaim, checkProduct, firstForbidden, hasListingItem, normalizeForMatch, Product, referencedClaimIds, type Source } from '@bem-apoiado/core';
 import { jevDecide, type Decider } from '../jev.ts';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
@@ -278,7 +278,7 @@ export async function findProductsFromAmazon(
   // Com item específico (pillow top), só conta o produto que a página mostra: o que tem o item no nome (23/10: os
   // colchões comuns do catálogo davam a página por "cheia" e a busca nem rodava).
   const lt = topic.listing_terms.map(loose);
-  const existing = loadProducts().filter((p) => kinds.includes(p.kind) && (!lt.length || lt.some((t) => loose(p.label).includes(t))));
+  const existing = loadProducts().filter((p) => kinds.includes(p.kind) && hasListingItem(p.label, labels.get(p.kind), lt));
   const target = opts.target ?? (kinds.length > 1 ? Math.min(3, kinds.length) : 2);
   let need = Math.max(0, target - existing.length);
   const perKind = opts.maxPerKind ?? (kinds.length > 1 ? 1 : need);

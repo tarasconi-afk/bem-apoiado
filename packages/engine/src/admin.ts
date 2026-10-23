@@ -6,7 +6,7 @@ import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypt
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { join } from 'node:path';
-import { Slug } from '@bem-apoiado/core';
+import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, Slug } from '@bem-apoiado/core';
 import { renderStatus } from './status.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
@@ -21,7 +21,7 @@ import { RUNS_DIR } from './store.ts';
 import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
 import { DATA, loadPages, loadProducts, ROOT } from './store.ts';
-import { trafficSummary } from './hits.ts';
+import { clicksByAsin, trafficSummary } from './hits.ts';
 import { loadAnnounce } from './announce.ts';
 
 // Painel admin: o painel de status + ações. Escuta só em 127.0.0.1 atrás do Caddy (HTTPS). A senha
@@ -212,6 +212,7 @@ ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.ran_at ?? job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
 ${queuedJobs().length ? `<p class="flash">Na fila (${queuedJobs().length}): ${queuedJobs().map((j) => esc(j.label)).join(' · ')}${cycleRunning() ? '. Começam quando o ciclo em andamento terminar.' : '.'}</p>` : ''}
 
+${dockHtml()}
 ${boardHtml(pages, branches)}
 
 <h2>Páginas no ar</h2>
@@ -398,9 +399,9 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const prevPath = pageItem || (query && info.kind !== 'manutencao') ? `${esc(slug)}/` : coverOf ? `${esc(coverOf)}/` : '';
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
-      ? `<form method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
+      ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
 <dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também neste ciclo', esc(alsoTried))}</dl>
-${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok big' : ''}">${primary}</button></div></form>`
+${forceBox(slug)}</form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da
     // fila, não fazer nada e descartar).
@@ -412,14 +413,18 @@ ${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'pub
     const extra = info.kind === 'pauta-tentada' && query
       ? `<p class="dnext"><strong>Não fazer nada (recomendado):</strong> ${next}.</p><div class="dactions">${form('fila-remover', { consulta: query }, 'Tirar da fila', '', `Tirar "${query}" da fila? O motor não tenta mais este assunto; o que este ciclo já guardou continua.`)} <span class="muted">só se você não quer mais este assunto no site.</span></div>`
       : '';
-    const html = `<div class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
-<div class="dhead"><span class="tag">${esc(KIND_LABEL[info.kind])}</span> <strong>${esc(subject)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></div>
-${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
+    // Card compacto (redesenho de 23/10): uma linha com sugestão, assunto, nota e o botão da sugestão; o resto abre
+    // ao clicar. O botão fica fora do formulário (atributo form), então os itens marcados vão junto.
+    const btn = items.length ? `<button form="f-${esc(dir)}" class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok' : 'warn'}">${primary}</button>` : '';
+    const sc = pageItem || query ? scoreHtml(readBranch(b.branch), slug).replace(/ <span class="muted">.*$/, '') : '';
+    const html = `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
+<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></span><span class="dsc">${sc}</span>${btn}</summary>
+<div class="dbody">${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
 ${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir') : ''}${extra}
 ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   ? `<div class="dfoot">${form('descartar', { ramo: b.branch }, 'Descartar este ajuste', 'link', 'Descartar este ajuste? A página no ar não muda; as fontes, evidências e lacunas que ele achou ficam guardadas.')} <span class="muted">(a página no ar fica como está; o que o motor aprendeu fica guardado)</span></div>`
   : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
-</div>`;
+</div></details>`;
     cards.push({ order: SUGGESTION_ORDER.indexOf(info.suggestion), html });
   }
 
@@ -429,20 +434,22 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   for (const p of pages.filter((x) => x.status === 'draft' && !judged(x))) {
     const rv = reviewFrom(readMain, p.slug)?.review ?? null;
     const info = classifyDraft({ review: rv, failedAdjust: !!failedAdjust(jobs, p.slug), rules: rulesFromNotes(loadTopics().find((t) => t.slug === p.slug)?.editorial_notes ?? []) });
-    const approve = `<form method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${forceBox(p.slug)}<button class="${info.suggestion === 'aprovar' ? 'ok big' : 'ok'}">Aprovar e publicar</button></form>`;
+    const approve = `<form id="f-ap-${esc(p.slug)}" method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${forceBox(p.slug)}</form>`;
     const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
-      html: `<div class="dcard sg-${info.suggestion}" data-pending>
-<div class="dhead"><span class="tag">${esc(KIND_LABEL.rascunho)}</span> <strong>${esc(p.title)}</strong></div>
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
+      html: `<details class="dcard sg-${info.suggestion}" data-pending>
+<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span><button form="f-ap-${esc(p.slug)}" class="${info.suggestion === 'aprovar' ? 'ok' : ''}">Aprovar e publicar</button></summary>
+<div class="dbody"><dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
 ${failedNote(p.slug)}<div class="dactions">${approve}</div>${adjustDiffsHtml(readMain, p.slug)}
 ${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir')}${reject}
-</div>`,
+</div></details>`,
     });
   }
 
   cards.sort((a, b) => a.order - b.order);
+  // O mais urgente já vem aberto; os outros ficam numa linha cada.
+  if (cards[0] && cards[0].order < SUGGESTION_ORDER.indexOf('nada')) cards[0].html = cards[0].html.replace('<details class="dcard', '<details open class="dcard');
   const need = cards.filter((c) => c.order < SUGGESTION_ORDER.indexOf('nada')).length;
   return `<h2>Quadro de decisões ${need ? `<span class="b neutral">${need} pedem você</span>` : ''}</h2>
 ${cards.length ? cards.map((c) => c.html).join('') : '<p class="muted">Nada pedindo decisão agora. Resultados que só trazem aprendizado entram sozinhos em até 5 minutos.</p>'}
@@ -455,19 +462,47 @@ function productsHtml(): string {
   const kinds = loadNiche().product_kinds.filter((k) => k.id !== 'outro');
   const label = new Map(kinds.map((k) => [k.id, k.label]));
   const today = Date.now();
+  const days = (iso: string) => Math.floor((today - Date.parse(iso)) / 86_400_000);
+  const claims = new Map(loadClaims().map((c) => [c.id, c]));
+  const clicks = clicksByAsin(30);
+  // Em quantas páginas no ar o produto aparece (mesma regra do site: tipo da pauta e, se houver, termo do anúncio).
+  const topics = new Map(loadTopics().map((t) => [t.slug, t]));
+  const live = loadPages().filter((p) => p.status !== 'draft');
+  const loose = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const pagesOf = (p: ReturnType<typeof loadProducts>[number]) => live.filter((pg) => {
+    const t = topics.get(pg.slug);
+    return t?.product_kinds.includes(p.kind) && hasListingItem(p.label, label.get(p.kind), t.listing_terms);
+  }).length;
   const rows = loadProducts().map((p) => {
-    const age = p.evidence === 'editor' ? Math.floor((today - Date.parse(p.editor!.checked_at)) / 86_400_000) : null;
-    const how = p.evidence === 'editor' ? `escolha sua, conferida há ${age} dia(s)${age! > 30 ? ` <span class="b bad">reconferir</span>` : ''}` : p.evidence === 'manufacturer' ? 'motor: ficha do fabricante + anúncio' : 'motor: só anúncio';
-    return `<tr><td><a href="https://www.amazon.com.br/dp/${esc(p.asin)}" target="_blank" rel="noopener">${esc(p.label)}</a></td><td class="muted">${esc(label.get(p.kind) ?? p.kind)}</td><td class="muted">${how}</td><td class="actions">${p.evidence === 'editor' ? form('produto-reconferir', { asin: p.asin }, 'Reconferi', 'ok') : ''}${form('produto-remover', { asin: p.asin }, 'Remover', 'bad', `Tirar "${p.label}" do site? Ele não volta pela busca automática.`)}</td></tr>`;
+    const editor = p.evidence === 'editor';
+    let when: string;
+    let soon = false;
+    if (editor) {
+      const age = days(p.editor!.checked_at);
+      const left = EDITOR_PICK_MAX_AGE_DAYS - age;
+      soon = age > 30;
+      when = `${esc(p.editor!.checked_at.slice(5).split('-').reverse().join('/'))} · ${left > 0 ? `vence em ${left} dia(s)` : 'vencido'}${soon ? ' <span class="b bad">reconferir</span>' : ''}`;
+    } else {
+      const at = claims.get(p.availability_claim_id ?? '')?.captured_at ?? p.added_at;
+      const left = 7 - days(at);
+      when = `${esc(at.slice(5, 10).split('-').reverse().join('/'))} · ${left > 0 ? `renova em ${left} dia(s)` : 'renova no próximo ciclo'}`;
+    }
+    const origin = editor ? '<span class="b neutral">escolha sua</span>' : p.evidence === 'manufacturer' ? '<span class="b ok">motor · ficha do fabricante</span>' : '<span class="b ok">motor · anúncio</span>';
+    const n = pagesOf(p);
+    return `<tr data-q="${esc(loose(`${p.label} ${p.brand} ${label.get(p.kind) ?? p.kind}`))}" data-f="${editor ? 'editor' : 'motor'}${soon ? ' soon' : ''}"><td><a href="https://www.amazon.com.br/dp/${esc(p.asin)}" target="_blank" rel="noopener">${esc(p.label)}</a><span class="sub">${n ? `em ${n} página(s) no ar` : 'ainda em nenhuma página no ar'}</span></td><td>${esc(label.get(p.kind) ?? p.kind)}</td><td>${origin}</td><td class="muted">${when}</td><td class="num">${clicks.get(p.asin) ?? 0}</td><td class="actions">${editor ? form('produto-reconferir', { asin: p.asin }, 'Reconferi', 'ok') : ''}${form('produto-remover', { asin: p.asin }, 'Remover', 'bad', `Tirar "${p.label}" do site? Ele não volta pela busca automática.`)}</td></tr>`;
   });
-  return `${rows.length ? `<div class="tw"><table><thead><tr><th>Produto</th><th>Tipo</th><th>Origem</th><th></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>` : '<p class="muted">Nenhum produto no catálogo.</p>'}
+  const mine = loadProducts().filter((p) => p.evidence === 'editor').length;
+  return `<p class="muted">${rows.length} no catálogo · ${mine} escolhido(s) por você. Cliques na Amazon: últimos 30 dias. Escolha sua vale ${EDITOR_PICK_MAX_AGE_DAYS} dias sem reconferir; o motor renova os dele a cada 7 dias.</p>
+${rows.length ? `<div class="tools"><input id="q-prod" type="search" placeholder="buscar produto, marca ou tipo" aria-label="Buscar produto"><div class="chips" role="group" aria-label="Filtro" data-for="t-prod"><button class="chip" type="button" data-f="" aria-pressed="true">Todos</button><button class="chip" type="button" data-f="soon" aria-pressed="false">Reconferir em breve</button><button class="chip" type="button" data-f="editor" aria-pressed="false">Escolha sua</button><button class="chip" type="button" data-f="motor" aria-pressed="false">Do motor</button></div></div>
+<div class="tw"><table id="t-prod" data-search="q-prod"><thead><tr><th>Produto</th><th>Tipo</th><th>Origem</th><th>Conferido</th><th class="num">Cliques</th><th></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>` : '<p class="muted">Nenhum produto no catálogo.</p>'}
+<details class="fold"><summary><strong>Adicionar produto</strong> <span class="muted">(colar o link de um anúncio na Amazon)</span></summary>
 <form method="post" action="acao" class="verdict" style="margin-top:10px"><input type="hidden" name="acao" value="produto-adicionar">
 <input name="link" required maxlength="500" placeholder="link do anúncio na Amazon" style="min-width:240px">
 <select name="tipo">${kinds.map((k) => `<option value="${esc(k.id)}">${esc(k.label)}</option>`).join('')}</select>
 <input name="marca" required minlength="2" maxlength="40" placeholder="marca (ex.: Cavaletti)">
 <input name="nome" required minlength="5" maxlength="80" placeholder="nome com a marca (ex.: Cavaletti Air)">
 <button class="ok">Adicionar</button></form>
-<p class="muted">Aparece com a imagem do tipo (gerada por IA) em todas as páginas desse tipo, com "conferido pelo editor em". Reconfira em até 45 dias; depois disso o cartão sai do site sozinho até você reconferir.</p>`;
+<p class="muted">Aparece com a imagem do tipo (gerada por IA) em todas as páginas desse tipo, com "conferido pelo editor em". Reconfira em até ${EDITOR_PICK_MAX_AGE_DAYS} dias; depois disso o cartão sai do site sozinho até você reconferir.</p></details>`;
 }
 
 // Vereditos: só pede decisão do que precisa dela. Rascunho cuja versão atual ainda não foi julgada fica
@@ -508,7 +543,9 @@ export function livePagesHtml(pages: ReturnType<typeof loadPages>): string {
   // Só quando é da mesma versão da página: depois de um ajuste aplicado vale a revisão da versão nova (23/10: o
   // como escolher colchão subiu para 2,5 e a aba seguia mostrando 1,5, do juiz de 22/10).
   const rescore: Record<string, { metrics?: Parameters<typeof readerScore>[0]; page_updated_at?: string }> = existsSync(rf) ? (JSON.parse(readFileSync(rf, 'utf8')).pages ?? {}) : {};
-  const rows = live.map((p) => {
+  const gapPages = new Set(existsSync(join(DATA, 'source-gaps.json')) ? Object.keys(JSON.parse(readFileSync(join(DATA, 'source-gaps.json'), 'utf8'))) : []);
+  const rowsSorted: { score: number; html: string }[] = [];
+  live.forEach((p) => {
     const rs = rescore[p.slug];
     const rv = (rs?.page_updated_at === p.updated_at ? rs.metrics : undefined) ?? (reviewFrom(readMain, p.slug)?.review as Parameters<typeof readerScore>[0] | undefined);
     const score = rv ? readerScore(rv) : null;
@@ -524,25 +561,18 @@ ${ask(`Gere uma capa nova para a página ${p.slug}, mostrando o tema do guia.`, 
 <form method="post" action="acao" class="verdict" onsubmit="return confirm('Tirar esta página do ar?')"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo para despublicar"><button class="bad">Despublicar</button></form>
 </div></details>`;
     const num = (v: number | null | undefined, txt?: string) => `<td class="num" data-v="${v ?? -1}">${v === null || v === undefined ? '<span class="muted">–</span>' : (txt ?? v)}</td>`;
-    return `<tr data-cat="${esc(cat?.id ?? '')}" data-q="${esc(`${p.title} ${p.slug}`.toLowerCase())}"><td data-v="${esc(p.title.toLowerCase())}"><a href="${SITE}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a><br><span class="muted">${esc(cat?.label ?? 'sem categoria')}</span></td>${num(score, score === null ? undefined : `<span class="score s${Math.floor(score)}">${String(score).replace('.', ',')}</span>`)}${num(t?.views ?? 0)}${num(t?.clicks ?? 0)}${num(g ? g.impressions : null)}${num(g ? Math.round(g.position * 10) / 10 : null, g ? g.position.toFixed(1).replace('.', ',') : undefined)}<td data-v="${esc(p.updated_at)}" class="muted">${esc(p.updated_at.slice(0, 10).split('-').reverse().join('/'))}</td><td>${actions}</td></tr>`;
+    // Nota em 4 barrinhas (a cor diz o estado): o que precisa de atenção salta na tabela.
+    const meter = (x: number) => `<span class="meter m${x >= 3 ? 'ok' : x >= 2 ? 'warn' : 'bad'}" aria-hidden="true">${[0, 1, 2, 3].map((i) => `<i class="${x >= i + 1 ? 'f' : x >= i + 0.5 ? 'h' : ''}"></i>`).join('')}</span>`;
+    const gap = gapPages.has(p.slug) ? ' · buscando fonte para a lacuna' : '';
+    rowsSorted.push({ score: score ?? 9, html: `<tr data-f="${esc(cat?.id ?? '')}${score !== null && score < 3 ? ' weak' : ''}" data-q="${esc(`${p.title} ${p.slug}`.toLowerCase())}"><td data-v="${esc(p.title.toLowerCase())}"><a href="${SITE}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a><span class="sub">${esc(cat?.label ?? 'sem categoria')}${gap}</span></td>${num(score, score === null ? undefined : `${meter(score)}${String(score).replace('.', ',')}`)}${num(t?.views ?? 0)}${num(t?.clicks ?? 0)}${num(g ? g.impressions : null)}${num(g ? Math.round(g.position * 10) / 10 : null, g ? g.position.toFixed(1).replace('.', ',') : undefined)}<td data-v="${esc(p.updated_at)}" class="muted">${esc(p.updated_at.slice(0, 10).split('-').reverse().join('/'))}</td><td>${actions}</td></tr>` });
+    return '';
   });
+  // Mais fraca primeiro: o que pede atenção fica no topo (sem nota vai para o fim).
+  rowsSorted.sort((a, b) => a.score - b.score);
   const cats = niche.categories.filter((c) => live.some((p) => catOf(p.slug)?.id === c.id));
-  return `<p class="muted">${live.length} página(s) no ar. Visitas e cliques na Amazon: últimos 30 dias, pelo contador do site. Google: último retrato do Search Console${snap ? ` (${esc(snap.start)} a ${esc(snap.end)})` : ' (ainda sem dados)'}. Clique no título de uma coluna para ordenar.</p>
-<div class="verdict" style="margin-bottom:8px"><input id="pg-q" placeholder="buscar página" style="min-width:200px"><select id="pg-cat"><option value="">todas as categorias</option>${cats.map((c) => `<option value="${esc(c.id)}">${esc(c.label)}</option>`).join('')}</select></div>
-<div class="tw"><table id="pg-live"><thead><tr><th data-s="0">Página</th><th data-s="1" class="num">Nota</th><th data-s="2" class="num">Visitas</th><th data-s="3" class="num">Cliques Amazon</th><th data-s="4" class="num">Impressões Google</th><th data-s="5" class="num">Posição</th><th data-s="6">Atualizada</th><th></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>
-<script>(function () {
-  var t = document.getElementById('pg-live'); if (!t) return;
-  var q = document.getElementById('pg-q'), c = document.getElementById('pg-cat');
-  function filter() { var s = (q.value || '').toLowerCase(); t.tBodies[0].querySelectorAll('tr').forEach(function (r) { r.hidden = (s && r.dataset.q.indexOf(s) < 0) || (c.value && r.dataset.cat !== c.value); }); }
-  q.oninput = filter; c.onchange = filter;
-  t.querySelectorAll('th[data-s]').forEach(function (th) { th.style.cursor = 'pointer'; th.onclick = function () {
-    var i = +th.dataset.s, dir = th.dataset.d === 'desc' ? 'asc' : 'desc'; th.dataset.d = dir;
-    var rows = Array.prototype.slice.call(t.tBodies[0].rows);
-    rows.sort(function (a, b) { var x = a.cells[i].dataset.v, y = b.cells[i].dataset.v; var nx = parseFloat(x), ny = parseFloat(y);
-      var r = isNaN(nx) || isNaN(ny) || i === 0 || i === 6 ? x.localeCompare(y) : nx - ny; return dir === 'desc' ? -r : r; });
-    rows.forEach(function (r) { t.tBodies[0].appendChild(r); });
-  }; });
-})();</script>`;
+  return `<p class="muted">${live.length} página(s) no ar. Visitas e cliques na Amazon: últimos 30 dias, pelo contador do site. Google: último retrato do Search Console${snap ? ` (${esc(snap.start)} a ${esc(snap.end)})` : ' (ainda sem dados)'}. A mais fraca vem primeiro; clique no título de uma coluna para reordenar.</p>
+<div class="tools"><input id="pg-q" type="search" placeholder="buscar página" aria-label="Buscar página"><div class="chips" role="group" aria-label="Filtro" data-for="pg-live"><button class="chip" type="button" data-f="" aria-pressed="true">Todas</button>${cats.map((c) => `<button class="chip" type="button" data-f="${esc(c.id)}" aria-pressed="false">${esc(c.label)}</button>`).join('')}<button class="chip" type="button" data-f="weak" aria-pressed="false">Nota abaixo de 3</button></div></div>
+<div class="tw"><table id="pg-live" data-search="pg-q"><thead><tr><th data-s="0">Página</th><th data-s="1" class="num">Nota</th><th data-s="2" class="num">Visitas</th><th data-s="3" class="num">Cliques Amazon</th><th data-s="4" class="num">Impressões Google</th><th data-s="5" class="num">Posição</th><th data-s="6">Atualizada</th><th></th></tr></thead><tbody>${rowsSorted.map((r) => r.html).join('')}</tbody></table></div>`;
 }
 
 // Último aviso aos buscadores (sync, a cada 5 min, quando o sitemap do site no ar muda).
@@ -603,36 +633,60 @@ const TABS_JS = `<script>
 // não repetir o aviso para sempre.
 if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
-  var MAP = [['Quadro de decisões','decisoes'],['Páginas no ar','paginas'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','conteudo'],['Domínios novos','conteudo'],
+  var MAP = [['Quadro de decisões','decisoes'],['Páginas no ar','paginas'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','produtos'],['Domínios novos','conteudo'],
     ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
     ['Saldo de créditos','config'],['Senha do painel','config']];
-  var NAMES = { decisoes: 'Decisões', paginas: 'Páginas', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
+  var NAMES = { decisoes: 'Decisões', paginas: 'Páginas', produtos: 'Produtos', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
   var main = document.querySelector('main'); if (!main) return;
-  var grid = main.querySelector('.grid'); if (!grid) return;
+  var grid = main.querySelector('.kpis') || main.querySelector('.grid'); if (!grid) return;
   var panes = {}; var cur = null;
   Object.keys(NAMES).forEach(function (k) { var d = document.createElement('div'); d.className = 'pane'; d.dataset.tab = k; panes[k] = d; });
-  // Avisos antes do 1º título (ciclo ao vivo, última ação) ficam acima das abas; o resto vai para a aba
+  // Avisos antes do 1º título (ciclo ao vivo, última ação) ficam acima das áreas; o resto vai para a área
   // do seu título (antes, todo aviso ficava fora das abas e as respostas dos pedidos caíam no fim da página).
   var after = false; var top = grid;
   Array.prototype.slice.call(main.children).forEach(function (n) {
     if (n === grid) { after = true; return; }
-    if (!after) return;
+    if (!after || n.classList.contains('dock')) return;
     if (n.tagName === 'H2') { var t = n.textContent || ''; cur = 'motor'; MAP.forEach(function (m) { if (t.indexOf(m[0]) === 0) cur = m[1]; }); }
     if (cur) panes[cur].appendChild(n); else top = n;
   });
-  var bar = document.createElement('nav'); bar.className = 'tabs';
-  var pending = panes.decisoes.querySelectorAll('[data-pending]').length;
+  var holder = top; Object.keys(panes).forEach(function (k) { holder.after(panes[k]); holder = panes[k]; });
+  // "Pedem você" do topo e o número ao lado de Decisões vêm dos cartões do quadro.
+  var pend = panes.decisoes.querySelectorAll('[data-pending]');
+  var by = function (re) { return Array.prototype.filter.call(pend, function (c) { return re.test(c.className); }).length; };
+  var kv = document.getElementById('kpi-pend'), ks = document.getElementById('kpi-pend-s');
+  if (kv) kv.textContent = pend.length;
+  if (ks) ks.textContent = pend.length ? [[by(/sg-(publicar|aprovar)/), 'publicar'], [by(/sg-aplicar/), 'aplicar'], [by(/sg-corrigir/), 'corrigir'], [by(/sg-recusar/), 'recusar']].filter(function (x) { return x[0]; }).map(function (x) { return x[0] + ' ' + x[1]; }).join(' · ') : 'nada esperando você';
+  // Barra lateral fixa (celular: faixa no topo).
+  var side = document.createElement('aside'); side.className = 'side';
+  side.innerHTML = '<div class="brand">Bem Apoiado<small>painel do motor</small></div>';
+  var nav = document.createElement('nav'); nav.className = 'nav'; nav.setAttribute('aria-label', 'Áreas do painel'); side.appendChild(nav);
   Object.keys(NAMES).forEach(function (k) {
     var b = document.createElement('button'); b.type = 'button'; b.textContent = NAMES[k]; b.dataset.tab = k;
-    if (k === 'decisoes' && pending) { var s = document.createElement('span'); s.className = 'count'; s.textContent = pending; b.appendChild(s); }
-    b.onclick = function () { show(k); }; bar.appendChild(b);
+    if (k === 'decisoes' && pend.length) { var s = document.createElement('span'); s.className = 'count'; s.textContent = pend.length; b.appendChild(s); }
+    b.onclick = function () { show(k); window.scrollTo(0, 0); }; nav.appendChild(b);
   });
-  top.after(bar); var holder = bar; Object.keys(panes).forEach(function (k) { holder.after(panes[k]); holder = panes[k]; });
-  function show(k) { Object.keys(panes).forEach(function (x) { panes[x].hidden = x !== k; }); bar.querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === k); }); try { localStorage.setItem('painel-aba', k); } catch (e) {} }
+  var ver = document.getElementById('ver'); if (ver) { var f = document.createElement('div'); f.className = 'sfoot'; f.innerHTML = ver.innerHTML; side.appendChild(f); }
+  document.body.insertBefore(side, document.body.firstChild); document.body.classList.add('with-side');
+  function show(k) { Object.keys(panes).forEach(function (x) { panes[x].hidden = x !== k; }); nav.querySelectorAll('button').forEach(function (b) { if (b.dataset.tab === k) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); }); try { localStorage.setItem('painel-aba', k); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem('painel-aba'); } catch (e) {}
-  // Decisões pendentes abrem a aba Decisões só na primeira visita da sessão; depois, fica onde o editor estava.
+  // Decisões pendentes abrem Decisões só na primeira visita da sessão; depois, fica onde o editor estava.
   var first = true; try { first = !sessionStorage.getItem('painel-visto'); sessionStorage.setItem('painel-visto', '1'); } catch (e) {}
-  show(pending && first ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
+  show(pend.length && first ? 'decisoes' : saved && panes[saved] ? saved : 'decisoes');
+  // Tabelas com busca, filtros em botões e ordenação (Páginas, Produtos).
+  document.querySelectorAll('table[data-search]').forEach(function (t) {
+    var q = document.getElementById(t.dataset.search); var chips = document.querySelector('.chips[data-for="' + t.id + '"]'); var f = '';
+    function apply() { var s = (q && q.value || '').toLowerCase(); t.tBodies[0].querySelectorAll('tr').forEach(function (r) { r.hidden = (s && (r.dataset.q || '').indexOf(s) < 0) || (f && (' ' + (r.dataset.f || '') + ' ').indexOf(' ' + f + ' ') < 0); }); }
+    if (q) q.oninput = apply;
+    if (chips) chips.addEventListener('click', function (e) { var c = e.target.closest('.chip'); if (!c) return; f = c.dataset.f || ''; chips.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); }); apply(); });
+    t.querySelectorAll('th[data-s]').forEach(function (th) { th.style.cursor = 'pointer'; th.onclick = function () {
+      var i = +th.dataset.s, dir = th.dataset.d === 'desc' ? 'asc' : 'desc'; th.dataset.d = dir;
+      var rows = Array.prototype.slice.call(t.tBodies[0].rows);
+      rows.sort(function (a, b) { var x = a.cells[i].dataset.v || a.cells[i].textContent, y = b.cells[i].dataset.v || b.cells[i].textContent; var nx = parseFloat(x), ny = parseFloat(y);
+        var r = isNaN(nx) || isNaN(ny) ? x.localeCompare(y) : nx - ny; return dir === 'desc' ? -r : r; });
+      rows.forEach(function (r) { t.tBodies[0].appendChild(r); });
+    }; });
+  });
 })();
 </script>`;
 
@@ -758,6 +812,16 @@ function suggestionHtml(x: { review: FullReview; writer: string } | null): strin
 const answerHtml = (j: Job) => `<div class="flash" style="margin-top:8px"><strong>${esc(j.label.slice(8))}</strong> <span class="muted">${esc(fmt(j.started))}</span>${!j.ended ? ' <span class="b neutral">pensando…</span>' : ''}<pre>${esc(j.output.split('\n').filter((l) => /^(→|✓|✗)/.test(l)).join('\n') || (j.ended ? j.output.slice(-400) : ''))}</pre></div>`;
 
 // Pedidos em texto livre (agente): caixa + últimas respostas + pedidos anotados para o desenvolvedor.
+// "Pedir ao motor" fixo no rodapé, em todas as áreas (redesenho de 23/10): o pedido e a última resposta à vista,
+// sem trocar de aba. O histórico completo continua em Decisões → Pedir ao motor.
+function dockHtml(): string {
+  const last = jobs.find((j) => j.label.startsWith('pedido:'));
+  const recent = last && (!last.ended || Date.now() - Date.parse(last.started) < 6 * 3600_000);
+  const lines = last ? last.output.split('\n').filter((l) => /^(→|✓|✗)/.test(l)) : [];
+  const status = !recent ? '' : !last!.ended ? `<p class="dock-ans"><span class="b neutral">pensando…</span> ${esc(last!.label.slice(8, 120))}</p>` : `<details class="dock-ans"><summary><strong>Resposta:</strong> ${esc((lines[0] ?? last!.output.split('\n').filter(Boolean).at(-1) ?? '').replace(/^→\s*/, '').slice(0, 140))}</summary><pre>${esc(lines.join('\n') || last!.output.slice(-600))}</pre></details>`;
+  return `<div class="dock">${status}<form method="post" action="acao"><input type="hidden" name="acao" value="pedido"><label for="dock-q">Pedir ao motor</label><input id="dock-q" name="texto" required minlength="3" maxlength="1000" autocomplete="off" placeholder="ex.: busque exemplos à venda para o guia de travesseiro"><button class="ok">Enviar</button></form></div>`;
+}
+
 function requestsHtml(): string {
   const answers = jobs.filter((j) => j.label.startsWith('pedido:')).slice(0, 10);
   const lessons = loadEditorLessons().lessons;
@@ -785,8 +849,54 @@ ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textare
 }
 
 export const ADMIN_CSS = `<style>
-.dcard{border:1px solid var(--line);border-left:5px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;background:var(--card)}
-.dcard.sg-publicar,.dcard.sg-aplicar,.dcard.sg-aprovar{border-left-color:var(--ok)}.dcard.sg-corrigir{border-left-color:#d08a1c}.dcard.sg-recusar{border-left-color:var(--bad)}
+/* Redesenho de 23/10: barra lateral fixa, 4 números no topo, quadro em cartões de uma linha, "Pedir ao motor" no rodapé. */
+body.with-side main{margin-left:232px;max-width:none;padding:22px 28px 120px}
+body.with-side main>*{max-width:1080px;margin-left:auto;margin-right:auto}body.with-side main>.dock{max-width:none;margin:0}
+body.with-side main>h1{display:none}body.with-side #ver{display:none}
+.side{position:fixed;inset:0 auto 0 0;width:232px;background:var(--side);color:var(--sideink);padding:20px 16px;display:flex;flex-direction:column;gap:18px;z-index:5;overflow-y:auto}
+.brand{font:700 1.15rem/1.2 var(--fd)}.brand small{display:block;font:500 .72rem var(--fb);color:var(--sidemuted);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:8px;color:var(--sideink);font-weight:500}
+.nav button:hover,.nav button[aria-current="page"]{background:var(--sideon)}.nav button[aria-current="page"]{font-weight:700}.nav button:focus-visible{outline:2px solid var(--accent)}
+.nav .count{font:500 .75rem var(--fm);background:var(--bad);color:var(--card);border-radius:999px;padding:0 7px}
+.sfoot{margin-top:auto;font-size:.76rem;color:var(--sidemuted);line-height:1.4}.sfoot strong{color:var(--sideink)}.sfoot code{font-size:.72rem}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 auto 14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .l{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.kpi .v{font:700 1.9rem/1 var(--fd);font-variant-numeric:tabular-nums}.kpi .v small{font:500 .9rem var(--fb);color:var(--muted)}
+.kpi .s{font-size:.8rem;color:var(--muted)}.bar{height:6px;border-radius:99px;background:var(--nbg);overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+.flash.live{background:var(--accentbg);border-color:transparent}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent)}100%{box-shadow:0 0 0 8px transparent}}@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+.dcard{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--card)}
+.dsum{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:12px;padding:12px 14px}
+.dsum::-webkit-details-marker{display:none}.dsum:focus-visible{outline:2px solid var(--accent);border-radius:10px}
+.dsum .b{text-transform:uppercase;letter-spacing:.05em;font-size:.7rem;padding:3px 9px}
+.dt{min-width:0}.dt b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dt .muted{font-size:.8rem}
+.dsc .score{font:500 .82rem var(--fm)}.dsum button{white-space:nowrap}
+.dbody{border-top:1px solid var(--line);padding:12px 14px 14px}
+.dcard:not([open]) .dsum:hover{background:var(--bg);border-radius:10px}
+button.warn{background:var(--warnbg);color:var(--warn)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}.tools input{flex:1;min-width:160px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{font-size:.82rem;border-radius:999px;background:var(--card);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accentbg);border-color:var(--accent);color:var(--accent);font-weight:600}
+td .sub{display:block;font-size:.8rem;color:var(--muted)}td.num{white-space:nowrap}td .b{white-space:nowrap}#pg-live td:last-child summary{white-space:nowrap;cursor:pointer}
+.meter{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}.meter i{width:7px;height:12px;border-radius:2px;background:var(--nbg)}
+.meter.mok i.f{background:var(--ok)}.meter.mwarn i.f{background:var(--warn)}.meter.mbad i.f{background:var(--bad)}
+.meter.mok i.h{background:linear-gradient(90deg,var(--ok) 50%,var(--nbg) 50%)}.meter.mwarn i.h{background:linear-gradient(90deg,var(--warn) 50%,var(--nbg) 50%)}.meter.mbad i.h{background:linear-gradient(90deg,var(--bad) 50%,var(--nbg) 50%)}
+details.fold{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}details.fold summary{cursor:pointer}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:4;padding:10px 28px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+body.with-side .dock{left:232px}
+.dock form,.dock .dock-ans{max-width:1080px;margin:0 auto;display:flex;gap:8px;align-items:center}
+.dock .dock-ans{display:block;font-size:.85rem;margin-bottom:6px}.dock .dock-ans summary{cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dock .dock-ans pre{max-height:30vh;overflow:auto}
+.dock label{font:700 .85rem var(--fd);white-space:nowrap;color:var(--accent)}.dock input{flex:1;min-width:0;padding:9px 12px;border-radius:10px}
+@media (max-width:860px){
+  body.with-side main{margin-left:0;padding:16px 16px 130px}
+  .side{position:sticky;top:0;width:auto;height:auto;flex-direction:row;align-items:center;gap:12px;overflow-x:auto;padding:10px 16px}
+  .sfoot,.brand small{display:none}.nav{flex-direction:row}.nav button{white-space:nowrap}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dsum{grid-template-columns:minmax(0,1fr) auto}.dsum>.b{grid-column:1/-1;justify-self:start}.dsc:empty{display:none}
+  body.with-side .dock{left:0;padding-left:16px;padding-right:16px}.dock label{display:none}
+}
 .dhead{margin:0 0 8px}.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--nbg);color:var(--n)}
 .dl{display:grid;grid-template-columns:150px 1fr;gap:6px 12px;margin:6px 0}.dl dt{color:var(--muted);font-size:.85rem}.dl dd{margin:0}
 @media (max-width:640px){.dl{grid-template-columns:1fr}.dl dt{margin-top:6px}}
@@ -802,11 +912,7 @@ details.old{margin:24px 0 8px}
 .thumbs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}.thumb{width:180px;height:auto;border-radius:6px;border:1px solid var(--line)}
 .diff{margin:6px 0;font-size:.88rem}.diff del{display:block;background:var(--badbg);text-decoration:line-through;padding:2px 6px;border-radius:4px}.diff ins{display:block;background:var(--okbg);text-decoration:none;padding:2px 6px;border-radius:4px;margin-top:2px}
 .sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 6px;border-bottom:1px solid var(--line);padding-bottom:8px}
 .pacts{display:flex;flex-direction:column;gap:6px;margin-top:6px;min-width:260px}
-.tabs button{background:transparent;color:var(--muted);border:1px solid transparent;font-weight:600}
-.tabs button.on{background:var(--card);color:var(--ink);border-color:var(--line)}
-.tabs .count{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;background:var(--badbg);color:var(--bad);font-size:.75rem}
 .flash{background:var(--nbg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}.bad-flash{background:var(--badbg);color:var(--bad);border-color:var(--bad)}
 form.inline{display:inline}form.verdict{display:flex;gap:6px;flex-wrap:wrap}form.verdict input{flex:1;min-width:180px}
 input{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
@@ -957,7 +1063,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     // Dados ilegíveis (ex.: cópia no meio de um merge) não derrubam o painel: mostra o erro e as últimas ações.
     let html: string;
     try {
-      html = renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(url.searchParams.get('msg')) }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() || queuedJobs().length ? 10 : 30, panelVersion())}</body>`);
+      html = adminPage(url.searchParams.get('msg'));
     } catch (e) {
       html = `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="20"><body style="font:15px system-ui;max-width:900px;margin:24px auto;padding:0 16px"><h1>Painel</h1><p><b>Os dados do motor estão ilegíveis agora</b> (${esc((e as Error).message.slice(0, 200))}). O sync limpa a cópia em até 5 min; esta página tenta de novo sozinha.</p>${jobs.slice(0, 5).map((j) => `<pre style="white-space:pre-wrap;background:#f4f1ea;padding:8px">${esc(j.label)} (${j.ended ? `código ${j.code}` : 'rodando'})\n${esc(j.output.slice(-800))}</pre>`).join('')}</body>`;
     }
@@ -1061,6 +1167,10 @@ const head = () => {
     return '';
   }
 };
+
+export function adminPage(msg: string | null): string {
+  return renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(msg) }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() || queuedJobs().length ? 10 : 30, panelVersion())}</body>`);
+}
 
 export function startAdmin() {
   // Código novo no main (ação do painel, sync, ciclo): sai quando nada está rodando e o systemd

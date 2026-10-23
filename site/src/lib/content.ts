@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { affiliateUrl, amazonSearchUrl, checkProduct, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
+import { affiliateUrl, amazonSearchUrl, checkProduct, hasListingItem, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
 import { buildIndex, loadAnchors, loadClaims, loadSearchLinks, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
@@ -88,7 +88,7 @@ export function productsFor(page: PageSpec): ProductCard[] {
   const terms = (topic.listing_terms ?? []).map(norm);
   return loadProducts()
     .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0)
-    .filter((p) => !terms.length || terms.some((t) => norm(p.label).includes(t)))
+    .filter((p) => hasListingItem(p.label, KIND_LABEL[p.kind], terms))
     // Com ficha oficial antes de "só anúncio" e da escolha do editor.
     .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : b.evidence === 'manufacturer' ? 1 : 0))
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))

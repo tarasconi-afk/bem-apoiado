@@ -160,3 +160,11 @@ export function referencedClaimIds(page: PageSpec): string[] {
   page.products.forEach((p) => p.claim_ids.forEach((id) => ids.add(id)));
   return [...ids];
 }
+
+// Produto serve a uma pauta sobre um item (pillow top, baú)? O nome do anúncio tem o termo, ou o próprio tipo do
+// produto é o item (tipo "Pillow top": "Teksti Harmony II" é pillow top sem dizer no nome; 23/10 ficava fora do site).
+export function hasListingItem(label: string, kindLabel: string | undefined, terms: string[]): boolean {
+  if (!terms.length) return true;
+  const n = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  return terms.some((t) => n(label).includes(n(t)) || (!!kindLabel && n(kindLabel).includes(n(t))));
+}

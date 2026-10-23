@@ -123,3 +123,22 @@ export function trafficSummary(days: number, now = new Date()): { views: number;
     referrers: [...refs].sort((a, b) => b[1] - a[1]).slice(0, 10),
   };
 }
+
+// Cliques na Amazon por produto (ASIN) nos últimos N dias: coluna da aba Produtos do painel.
+export function clicksByAsin(days: number, now = new Date()): Map<string, number> {
+  const out = new Map<string, number>();
+  for (let i = 0; i < days; i++) {
+    const f = join(dir(), `${new Date(now.getTime() - i * 86_400_000).toISOString().slice(0, 10)}.jsonl`);
+    if (!existsSync(f)) continue;
+    for (const line of readFileSync(f, 'utf8').split('\n')) {
+      if (!line) continue;
+      try {
+        const h = JSON.parse(line) as Hit;
+        if (h.e === 'aff' && h.a) out.set(h.a, (out.get(h.a) ?? 0) + 1);
+      } catch {
+        /* linha inválida: ignora */
+      }
+    }
+  }
+  return out;
+}
