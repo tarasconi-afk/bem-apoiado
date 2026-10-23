@@ -284,7 +284,8 @@ export async function findProductsFromAmazon(
   for (const kind of kinds) {
     if (need <= 0) break;
     let added = 0;
-    const hits = (await webSearch(labels.get(kind) ?? kind, { maxResults: 10, includeDomains: ['amazon.com.br'] }))
+    // Item específico da pauta (pillow top, baú) entra na busca: exemplo à venda tem de ter o item.
+    const hits = (await webSearch([labels.get(kind) ?? kind, ...topic.listing_terms].join(' '), { maxResults: 10, includeDomains: ['amazon.com.br'] }))
       .filter((h) => ASIN_RE.test(h.url))
       .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
     for (const h of hits.slice(0, opts.listingsPerKind ?? 10)) {

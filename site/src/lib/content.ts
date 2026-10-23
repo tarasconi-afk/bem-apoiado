@@ -83,8 +83,12 @@ export function productsFor(page: PageSpec): ProductCard[] {
   const idx = buildIndex();
   const text = [page.verdict.text, ...page.sections.flatMap((x) => x.blocks.map((b) => (b.kind === 'table' ? [...b.columns, ...b.rows.flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text)))].join(' ').toLowerCase();
   const cites = (brand: string) => text.includes(brand.toLowerCase());
+  // Dúvida sobre um item (pillow top, baú): só anúncio que tem o item serve; sem nenhum, a seção não aparece.
+  const norm = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const terms = (topic.listing_terms ?? []).map(norm);
   return loadProducts()
     .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0)
+    .filter((p) => !terms.length || terms.some((t) => norm(p.label).includes(t)))
     // Com ficha oficial antes de "só anúncio" e da escolha do editor.
     .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : b.evidence === 'manufacturer' ? 1 : 0))
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))

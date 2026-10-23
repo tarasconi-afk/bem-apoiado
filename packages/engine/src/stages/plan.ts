@@ -32,6 +32,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
     page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
     questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15) })).min(4).max(7),
     focus_terms: z.array(z.string().min(2)).min(2).max(8),
+    listing_terms: z.array(z.string().min(2)).max(3).default([]),
     product_kinds: z.array(z.enum(kinds)).max(4),
     editorial_notes: z.array(z.string()).max(4),
   });
@@ -53,6 +54,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `fabricante ou a norma. É ela que vira a resposta curta e a tabela do "Como decidir" (22/10: as páginas que o ` +
         `editor aprovou de primeira cruzam duas grandezas, como peso e densidade).\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
+        `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +
         `"product_kinds": só os tipos do vocabulário que a página vai explicar.` +
         editorLessonsPrompt(),
       user:

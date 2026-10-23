@@ -99,6 +99,10 @@ export const TopicBrief = z.object({
   improve_attempts: z.number().int().nonnegative().default(0),
   // Tipos de produto que a página explica; só esses podem aparecer como exemplos à venda.
   product_kinds: z.array(ProductKind).default([]),
+  // Palavras que o ANÚNCIO precisa ter para servir de exemplo quando a dúvida é sobre um item que só alguns produtos
+  // do tipo têm ("pillow top", "baú"). Vazio = qualquer produto do tipo serve (22/10: a página de pillow top mostrava
+  // colchões comuns como exemplos à venda).
+  listing_terms: z.array(z.string().min(2)).default([]),
 });
 export type TopicBrief = z.infer<typeof TopicBrief>;
 
