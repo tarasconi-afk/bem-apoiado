@@ -171,6 +171,12 @@ export function plainOutcome(steps: string[]): string | null {
   const page = steps.find((s) => s.startsWith('page: '));
   const research = /^research: (\d+) evidências/.exec(steps.find((s) => s.startsWith('research: ')) ?? '');
   if (steps.includes('sem fontes aceitas')) return 'não virou página: nenhuma fonte confiável do cadastro foi encontrada para o tema';
+  // Checagem antes da redação (22/10): sem página, sem prévia; o editor não entendia por que não havia o que ver.
+  const deferred = steps.find((s) => s.startsWith('pauta adiada antes da redação'));
+  if (deferred) {
+    const why = /\((.+)\)\s*$/.exec(deferred)?.[1] ?? 'as evidências não dizem o que escolher';
+    return `não virou página, por isso não há prévia: antes de escrever, o motor viu que as fontes encontradas não dizem ao leitor o que escolher. Falta: ${why.slice(0, 220)}. Nada foi gasto em redação. Próxima vez que a pauta for a da vez, ele busca isso de novo; se não quiser esperar, tire a pauta da fila ou indique um fabricante que tenha essa informação`;
+  }
   if (!page) return null;
   if (page.startsWith('page: PASS')) return 'virou página aprovada pela auditoria e pela revisão';
   if (page.startsWith('page: NOT_PUBLISHABLE')) return 'virou rascunho: a revisão achou a página fraca; ela aparece em "Páginas: seu veredito" para você decidir';

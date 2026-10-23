@@ -54,3 +54,14 @@ describe('teto diário e ciclo manual', () => {
     expect(dailyCapFor(true, 20)).toBe(DAILY_CREDIT_CAP);
   });
 });
+
+describe('pauta adiada sai da vez', () => {
+  it('por 3 dias depois do adiamento', async () => {
+    const { isDeferred, DEFERRED_FILE } = await import('../src/stages/autopilot.ts');
+    const { writeState } = await import('../src/store.ts');
+    writeState(DEFERRED_FILE, { protetor: '2026-10-22T21:40:00.000Z' });
+    expect(isDeferred('protetor', new Date('2026-10-23T10:00:00Z'))).toBe(true);
+    expect(isDeferred('protetor', new Date('2026-10-26T10:00:00Z'))).toBe(false);
+    expect(isDeferred('outra', new Date('2026-10-23T10:00:00Z'))).toBe(false);
+  });
+});

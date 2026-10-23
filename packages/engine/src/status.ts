@@ -9,6 +9,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
 import { MODELS } from './models.ts';
+import { plainOutcome } from './changes.ts';
 import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
 import { computeLearning } from './learning.ts';
 import { rawIntact } from './snapshot.ts';
@@ -85,7 +86,12 @@ function cycleLiveHtml(now: Date): string {
   const last = (c.steps ?? []).slice(-3).map((s) => `<li>${esc(s)}</li>`).join('');
   if (c.state === 'rodando' && mins(c.updated) < 90) return `<div class="flash" style="border-color:var(--ok)"><strong>Ciclo em andamento</strong> há ${mins(c.started)} min · agora: ${esc(stage)} <span class="muted">(última atividade há ${mins(c.updated)} min)</span>${last ? `<ul class="muted">${last}</ul>` : ''}</div>`;
   const log = existsSync(join(STATE_DIR, 'cycle-last.log')) ? readFileSync(join(STATE_DIR, 'cycle-last.log'), 'utf8') : '';
-  return `<details class="flash" style="${c.state === 'falhou' ? 'border-color:var(--bad)' : ''}"><summary><strong>Último ciclo:</strong> ${c.state === 'falhou' ? '<span class="b bad">falhou</span>' : c.state === 'rodando' ? '<span class="b bad">parou sem terminar</span>' : '<span class="b ok">terminou</span>'} <span class="muted">${esc(fmt(new Date(c.ended ?? c.updated ?? now.toISOString())))}</span></summary>${(c.steps ?? []).length ? `<ul class="muted">${(c.steps ?? []).map((s) => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${c.state !== 'ok' && log ? `<pre style="white-space:pre-wrap;font-size:.75rem">${esc(log.slice(-2500))}</pre>` : ''}</details>`;
+  // O desfecho da pauta no título, em linguagem simples (22/10: "terminou" sem prévia, e o editor não sabia por quê).
+  const steps = c.steps ?? [];
+  const topic = /^pauta (?:nova: )?"([^"]+)"/.exec(steps.find((s) => s.startsWith('pauta ')) ?? '')?.[1];
+  const outcome = plainOutcome(steps);
+  const head = topic ? `<div style="margin-top:6px"><strong>${esc(topic)}:</strong> ${esc(outcome ?? (steps.some((s) => s.startsWith('page: PASS')) ? 'virou página; confira a prévia em "Esperando sua decisão"' : 'veja as etapas abaixo'))}</div>` : steps.length && !steps.some((s) => s.startsWith('pauta ')) ? '<div style="margin-top:6px" class="muted">Só manutenção (produtos, imagens, re-auditoria); nenhuma pauta nova neste ciclo.</div>' : '';
+  return `<details class="flash" style="${c.state === 'falhou' ? 'border-color:var(--bad)' : ''}" ${topic ? 'open' : ''}><summary><strong>Último ciclo:</strong> ${c.state === 'falhou' ? '<span class="b bad">falhou</span>' : c.state === 'rodando' ? '<span class="b bad">parou sem terminar</span>' : '<span class="b ok">terminou</span>'} <span class="muted">${esc(fmt(new Date(c.ended ?? c.updated ?? now.toISOString())))}</span>${head}</summary>${(c.steps ?? []).length ? `<ul class="muted">${(c.steps ?? []).map((s) => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${c.state !== 'ok' && log ? `<pre style="white-space:pre-wrap;font-size:.75rem">${esc(log.slice(-2500))}</pre>` : ''}</details>`;
 }
 
 // Aviso quando o site público ficou para trás do main (sync grava STATE/live-site.json a cada 5 min).

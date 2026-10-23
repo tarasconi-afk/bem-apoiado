@@ -100,6 +100,14 @@ export const slugOf = (q: string) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').
 // pauta, se já planejada; senão, os cujo nome aparece na dúvida ("mesa", "suporte", "colchão"...). Sem tipo
 // reconhecido, não bloqueia. O painel mostra "faltam fabricantes" para o editor aprovar domínios.
 export const MIN_MAKERS = 2;
+// Pauta adiada pela checagem antes da redação sai da vez por alguns dias (22/10: o protetor de colchão adiado
+// continuava "a próxima" e o ciclo manual seguinte refaria a mesma busca sem fonte, em vez de ir à pauta seguinte).
+export const DEFERRED_FILE = 'deferred-topics.json';
+export const DEFER_DAYS = 3;
+export function isDeferred(slug: string, now = new Date()): boolean {
+  const at = readState<Record<string, string>>(DEFERRED_FILE, {})[slug];
+  return !!at && now.getTime() - Date.parse(at) < DEFER_DAYS * 86_400_000;
+}
 export function lacksMakers(query: string, topic?: TopicBrief): boolean {
   try {
     return lacksMakersOrThrow(query, topic);
@@ -135,13 +143,14 @@ export function nextQuery(): string | null {
     const t = topics.get(slug);
     if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) continue;
     if (lacksMakers(item.query, t)) continue;
+    if (isDeferred(slug)) continue;
     return item.query;
   }
   return null;
 }
 
 // Situação de cada pauta da fila, pela mesma regra do nextQuery (para o painel mostrar o que anda e o que não).
-export type QueueState = 'no ar' | 'rascunho' | 'esperando você' | 'esgotada' | 'falhou no planejamento' | 'faltam fabricantes' | 'próxima' | 'na fila';
+export type QueueState = 'no ar' | 'rascunho' | 'esperando você' | 'esgotada' | 'falhou no planejamento' | 'faltam fabricantes' | 'adiada (falta fonte)' | 'próxima' | 'na fila';
 export function queueStatus(pendingSlugs: Set<string>): { query: string; state: QueueState }[] {
   const path = join(DATA, 'queue.json');
   if (!existsSync(path)) return [];
@@ -160,6 +169,7 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     else if ((planFails[item.query] ?? 0) >= 2) state = 'falhou no planejamento';
     else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) state = page ? 'rascunho' : 'esgotada';
     else if (lacksMakers(item.query, t)) state = 'faltam fabricantes';
+    else if (isDeferred(slug)) state = 'adiada (falta fonte)';
     else if (!next) { state = 'próxima'; next = true; }
     else state = 'na fila';
     return { query: item.query, state };
@@ -535,6 +545,7 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
       const t2 = loadTopic(slug);
       writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t2, evidence_gaps: r.missing.length ? r.missing : t2.evidence_gaps }));
       steps.push(`pauta adiada antes da redação: as evidências não dizem o que escolher (${r.missing[0]?.slice(0, 140) ?? 'sem regra de escolha'})`);
+      writeState(DEFERRED_FILE, { ...readState<Record<string, string>>(DEFERRED_FILE, {}), [slug]: new Date().toISOString() });
       return false;
     }
   }
