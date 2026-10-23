@@ -1,0 +1,82 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "densidade-espuma#1"
+    ],
+    "decision_criteria": [
+      "Escolha a densidade conforme o peso: até 50 kg, D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+      "Para pesos entre 81 e 100 kg, a escolha entre D33 e D45 varia conforme a preferência por firmeza.",
+      "Confira na etiqueta a densidade nominal de cada lâmina de espuma e, em colchões compostos ou mistos, a espessura de cada lâmina.",
+      "Escolha o tamanho que caiba no quarto: casal mede 138 x 188 cm, queen 158 x 198 cm e king 193 x 203 cm; confirme as medidas exatas na ficha do modelo.",
+      "Molas ensacadas são compostas por molas individuais, enquanto molas de fios contínuos são interconectadas com borda de aço.",
+      "Confira na ficha a classificação do produto, a composição dos componentes internos, os tipos de espuma e as espessuras das camadas."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma regra prática, apoiada em fontes de fabricantes, para escolher entre espuma, molas ensacadas e colchão misto conforme o uso, como dividir a cama ou buscar maior isolamento de movimento.",
+      "Uma tabela completa com as medidas dos tamanhos solteiro, viúva, casal, queen e king, além de orientação para comparar essas medidas com o espaço disponível no quarto.",
+      "Informação sobre altura e garantia dos modelos para comparação na ficha técnica.",
+      "Orientação para comparar a capacidade de peso total do colchão, especialmente quando duas pessoas dormem na mesma cama.",
+      "Informações primárias sobre certificação do Inmetro e todos os dados obrigatórios da etiqueta ou ficha técnica, caso sejam necessários para a decisão de compra."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios concretos para escolher a densidade pelo peso, o tamanho pelo espaço e conferir informações na ficha, mas responde apenas parcialmente a “como escolher colchão”. Falta principalmente explicar, para leigos, quando escolher espuma, molas ensacadas ou colchão misto; a resposta curta também apenas descreve estruturas e tamanhos, sem dizer qual opção serve para cada caso. É útil como rascunho, mas precisa ser reescrita antes da publicação.",
+    "filler_ratio": 0.058823529411764705,
+    "model_opinion": false
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A resposta usa termos técnicos como densidade, espuma HR, molas de fios contínuos e Superpocket sem explicar como eles mudam a escolha.",
+      "Não há uma regra que relacione o peso de quem dorme à densidade indicada.",
+      "As estruturas são descritas, mas não é explicado para qual situação cada uma serve.",
+      "A página promete informações obrigatórias e certificação do Inmetro, mas não responde a esses pontos."
+    ],
+    "filler_refs": [
+      "tipos-estrutura#1",
+      "densidade-espuma#1",
+      "componentes-influenciam#1",
+      "dimensoes-padronizadas#0",
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#4"
+    ],
+    "decision_criteria": [
+      "Escolher entre casal, queen e king conforme o espaço disponível no quarto.",
+      "Conferir na ficha se o colchão é de espuma ou de molas ensacadas.",
+      "Conferir a densidade informada na ficha, como D28, D33 ou D45.",
+      "Verificar o peso suportado por pessoa, com capacidades listadas de 50 a 150 kg.",
+      "Comparar as dimensões do colchão com o espaço disponível e a cama."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A resposta usa termos técnicos como densidade, espuma HR, molas de fios contínuos e Superpocket sem explicar como eles mudam a escolha.",
+      "Para o leitor leigo: Não há uma regra que relacione o peso de quem dorme à densidade indicada.",
+      "Para o leitor leigo: As estruturas são descritas, mas não é explicado para qual situação cada uma serve.",
+      "Para o leitor leigo: A página promete informações obrigatórias e certificação do Inmetro, mas não responde a esses pontos.",
+      "Tabela do fabricante relacionando a faixa de peso de cada pessoa à densidade recomendada.",
+      "Critério de escolha entre espuma, molas ensacadas e colchão misto, indicando para quem cada estrutura é mais adequada.",
+      "Dimensões dos demais tamanhos padrão, como solteiro e viúva, além de casal, queen e king.",
+      "Explicação simples de como tipo de espuma, espessura das camadas e núcleo influenciam a firmeza.",
+      "Informação primária sobre a certificação obrigatória do Inmetro e o que ela garante.",
+      "Lista das informações obrigatórias na etiqueta ou ficha técnica do colchão.",
+      "Altura e prazo de garantia dos modelos comparados, se esses dados forem usados na decisão."
+    ],
+    "publishable": false,
+    "summary": "A página oferece alguma orientação prática sobre medidas, densidade e capacidade, mas não responde de forma suficiente a “como escolher colchão”. Falta principalmente a regra peso versus densidade e um critério claro para escolher entre espuma, molas ensacadas e misto. A resposta curta também apenas manda comparar a ficha, sem dizer qual opção serve para cada caso, e usa termos técnicos sem explicação.",
+    "filler_ratio": 0.4666666666666667,
+    "model_opinion": false
+  }
+}
