@@ -1,0 +1,88 @@
+{
+  "findings": [
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o Pillow Top é uma camada extra de conforto, que o modelo tem uma lâmina de espuma de poliuretano de 5 cm e que a Ortobom o recomenda quando a prioridade é conforto extra para dormir. Porém, não sustentam a orientação para verificar a altura antes de usá-lo em cama, baú ou com o lençol disponível.",
+      "fix": "Pillow top é uma camada extra de conforto. No modelo Pillow Top HR Gel, ela é uma lâmina de espuma de poliuretano de 5 cm. Segundo a Ortobom, esse modelo é recomendado quando a prioridade é conforto extra para dormir."
+    },
+    {
+      "ref": "o-que-e-pillow-top#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A definição geral de Pillow Top é apresentada como fato, mas o trecho que a sustenta é uma descrição da Ortobom. Além disso, o trecho diz apenas “elástico nas laterais”; não afirma que ele serve para fixação ao colchão. As características dos materiais estão apoiadas para os produtos específicos citados, não necessariamente para todas as versões dessas marcas.",
+      "fix": "Segundo a Ortobom, Pillow Top é uma camada extra de conforto com elástico nas laterais. Nos produtos citados, a Ortobom oferece espuma High Resilience Gel ou espuma viscoelástica com células de memória; a Simmons combina algodão nobre com fibra siliconada; e a Americanflex usa espuma tradicional."
+    },
+    {
+      "ref": "altura-e-medidas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-e-medidas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-pillow-top#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-pillow-top#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram prazos diferentes em dois produtos e, no caso da Probel, prazos distintos para componentes. Porém, não dizem que todo comprador de colchão com pillow top deve consultar uma ficha técnica, nem que essa ficha é a fonte dos prazos.",
+      "fix": "Os prazos de garantia podem variar entre produtos e componentes: o Pillow Top HR Gel da Ortobom informa 90 dias, enquanto o produto Probel citado informa 6 meses para a estrutura e 3 meses para o tecido e mecanismos."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho é uma declaração da fabricante Ortobom, mas o bloco a apresenta como fato do produto, apenas dizendo que consta na ficha técnica citada. Além disso, o trecho mostrado é de uma página da Ortobom, não identifica uma ficha técnica.",
+      "fix": "Segundo a Ortobom, o Pillow Top HR Gel tem uma lâmina de espuma de alta resiliência em gel, 100% poliuretano, com densidade de 50 kg/m³ e espessura de 5,0 cm."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o Pillow Top é uma camada extra de conforto, que o modelo tem uma lâmina de espuma de poliuretano de 5 cm e que a Ortobom o recomenda quando a prioridade é conforto extra para dormir. Porém, não sustentam a orientação para verificar a altura antes de usá-lo em cama, baú ou com o lençol disponível. Versão sustentável: Pillow top é uma camada extra de conforto. No modelo Pillow Top HR Gel, ela é uma lâmina de espuma de poliuretano de 5 cm. Segundo a Ortobom, esse modelo é recomendado quando a prioridade é conforto extra para dormir."
+    },
+    {
+      "ref": "o-que-e-pillow-top#0",
+      "msg": "MISATTRIBUTED. A definição geral de Pillow Top é apresentada como fato, mas o trecho que a sustenta é uma descrição da Ortobom. Além disso, o trecho diz apenas “elástico nas laterais”; não afirma que ele serve para fixação ao colchão. As características dos materiais estão apoiadas para os produtos específicos citados, não necessariamente para todas as versões dessas marcas. Versão sustentável: Segundo a Ortobom, Pillow Top é uma camada extra de conforto com elástico nas laterais. Nos produtos citados, a Ortobom oferece espuma High Resilience Gel ou espuma viscoelástica com células de memória; a Simmons combina algodão nobre com fibra siliconada; e a Americanflex usa espuma tradicional."
+    },
+    {
+      "ref": "garantia-pillow-top#1",
+      "msg": "OVERSTATED. Os trechos mostram prazos diferentes em dois produtos e, no caso da Probel, prazos distintos para componentes. Porém, não dizem que todo comprador de colchão com pillow top deve consultar uma ficha técnica, nem que essa ficha é a fonte dos prazos. Versão sustentável: Os prazos de garantia podem variar entre produtos e componentes: o Pillow Top HR Gel da Ortobom informa 90 dias, enquanto o produto Probel citado informa 6 meses para a estrutura e 3 meses para o tecido e mecanismos."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O trecho é uma declaração da fabricante Ortobom, mas o bloco a apresenta como fato do produto, apenas dizendo que consta na ficha técnica citada. Além disso, o trecho mostrado é de uma página da Ortobom, não identifica uma ficha técnica. Versão sustentável: Segundo a Ortobom, o Pillow Top HR Gel tem uma lâmina de espuma de alta resiliência em gel, 100% poliuretano, com densidade de 50 kg/m³ e espessura de 5,0 cm."
+    }
+  ]
+}
