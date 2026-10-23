@@ -602,3 +602,13 @@ escolheu a faixa: a resposta curta aparece já na primeira tela, que é a 4ª pe
 rapidamente?"). Regra: toda página com capa própria mostra a capa em 32:9 no topo; a grade de tipos fica só nas
 páginas cuja pergunta compara tipos (`comparesKinds`, site/src/lib/content.ts). A capa é gerada em 3:2, então o
 pedido da imagem manda compor o assunto na faixa do meio (`COVER_FRAMING`, packages/engine/src/images.ts).
+
+## 2026-10-23 · Checagem de fonte pelo mapa de páginas antes da vez: testada e descartada
+Ideia: antes de pesquisar uma pauta nova, contar quantos fabricantes cadastrados têm página cujo endereço fala do
+assunto (mapa de páginas, sem custo) e tirar da vez a pauta com menos de 2. Teste com a fila real e os mapas reais
+(34 pautas): bloquearia 6 pautas que viraram páginas aprovadas (densidades, tamanhos de colchão, ensacadas ou Bonnel,
+base para cama box, colchão para obeso, tamanhos de travesseiro) e deixaria passar 2 que as fontes não sustentavam
+(pena ou fibra, colchão ou cama box). O endereço da página não diz se ela traz a informação: a evidência boa costuma
+estar em tabelas e guias de nome genérico. Não foi ligada. A checagem que funciona continua sendo a de antes de
+escrever (readiness.ts), que adiou as 3 pautas sem fonte gastando 2,6 a 10 créditos cada, sem redação. O desperdício
+real (cadeira para obeso, ~50 créditos em 3 tentativas) já é cortado pelo limite de 2 novas tentativas por pauta.

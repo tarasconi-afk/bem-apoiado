@@ -157,6 +157,9 @@ Feito em 22/10:
       a dúvida para o editor, registra motivo em data/registry/decisions.json, revoga depois de 14 dias o que aprovou
       e não rendeu; "Desfazer" no painel
 
+- [x] ~~checagem barata de fonte antes da fila~~ testada e descartada (23/10, ver DECISIONS): bloquearia 6 pautas que
+      viraram páginas aprovadas. A checagem antes de escrever segue sendo o filtro
+
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais
