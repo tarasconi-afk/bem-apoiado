@@ -1,0 +1,142 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As exigências são apresentadas como regras gerais, mas todos os trechos citados são de fabricante. Além disso, o trecho sobre base metálica só recomenda evitar nylon acima de 110 kg, enquanto o bloco aplica a exigência a qualquer pessoa acima de 100 kg.",
+      "fix": "Segundo a ergocadeiras, procure capacidade declarada pelo menos 20 kg acima do seu peso; para usuários acima de 100 kg, a marca indica pistão Classe 4. Para usuários acima de 110 kg, a marca recomenda base de aço ou alumínio em vez de nylon. Para 100–130 kg, indica espuma injetada de no mínimo 50 kg/m³; acima de 130 kg, no mínimo 55 kg/m³. A marca também orienta deixar 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho recomenda que a cadeira suporte pelo menos 20 kg a mais e diz que isso é o ideal; o bloco transforma essa recomendação em obrigação ao afirmar que a cadeira “deve” suportar essa diferença.",
+      "fix": "Segundo a ergocadeiras, o ideal é que a cadeira suporte pelo menos 20 kg a mais que o peso corporal para não sobrecarregar o pistão a gás."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pistao-gas#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O primeiro enunciado é dito literalmente. Porém, o segundo trecho informa uma capacidade de 150 kg a 200 kg e comparação com as classes 2 e 3, mas não afirma explicitamente que essa capacidade se refere a cilindros Classe 4.",
+      "fix": "Segundo a ergocadeiras, para usuários acima de 100 kg, o pistão Classe 4 é o mínimo aceitável. A mesma fonte informa capacidade de carga entre 150 kg e 200 kg, sendo mais robusto que as classes 2 e 3."
+    },
+    {
+      "ref": "pistao-gas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-material#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-material#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-assento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-assento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-uso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-uso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacoes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações vêm de uma fonte classificada como fabricante, mas a tabela as apresenta como fatos gerais sem atribuição. Além disso, os trechos não sustentam a indicação de nylon, aço ou alumínio como materiais da base.",
+      "fix": "Segundo a ergocadeiras, o ideal é buscar capacidade de pelo menos 20 kg acima do peso e considerar pistões de Classe 4; remova a linha sobre o material da base ou cite evidência específica para ela."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela apresenta recomendações de uma fonte fabricante como regra geral, sem dizer que são da ergocadeiras. O trecho sobre bases de aço ou alumínio se aplica a pessoas com mais de 110 kg, não necessariamente a alguém que pesa exatamente 110 kg.",
+      "fix": "Escreva 'Segundo a ergocadeiras, para 110 kg, busque capacidade de pelo menos 130 kg e Classe 4'. Não aplique a recomendação sobre bases a quem pesa exatamente 110 kg sem evidência adicional."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações são atribuídas apenas implicitamente a uma fonte classificada como fabricante e aparecem como fatos gerais. Os trechos sustentam os números e a indicação de Classe 4, mas não uma regra geral independente da ergocadeiras.",
+      "fix": "Use 'Segundo a ergocadeiras, para 130 kg, busque capacidade de pelo menos 150 kg, Classe 4 e base de aço ou alumínio'."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela apresenta como regra geral recomendações que os trechos atribuem a um fabricante, sem informar essa atribuição.",
+      "fix": "Identifique a origem: 'Segundo a ergocadeiras, para usuários acima de 100 kg, o ideal é buscar capacidade 20 kg acima do peso, Classe 4 e base de aço ou alumínio'."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As exigências são apresentadas como regras gerais, mas todos os trechos citados são de fabricante. Além disso, o trecho sobre base metálica só recomenda evitar nylon acima de 110 kg, enquanto o bloco aplica a exigência a qualquer pessoa acima de 100 kg. Versão sustentável: Segundo a ergocadeiras, procure capacidade declarada pelo menos 20 kg acima do seu peso; para usuários acima de 100 kg, a marca indica pistão Classe 4. Para usuários acima de 110 kg, a marca recomenda base de aço ou alumínio em vez de nylon. Para 100–130 kg, indica espuma injetada de no mínimo 50 kg/m³; acima de 130 kg, no mínimo 55 kg/m³. A marca também orienta deixar 2 a 3 dedos entre a borda do assento e a parte de trás do joelho."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "msg": "OVERSTATED. O trecho recomenda que a cadeira suporte pelo menos 20 kg a mais e diz que isso é o ideal; o bloco transforma essa recomendação em obrigação ao afirmar que a cadeira “deve” suportar essa diferença. Versão sustentável: Segundo a ergocadeiras, o ideal é que a cadeira suporte pelo menos 20 kg a mais que o peso corporal para não sobrecarregar o pistão a gás."
+    },
+    {
+      "ref": "pistao-gas#0",
+      "msg": "MISATTRIBUTED. O primeiro enunciado é dito literalmente. Porém, o segundo trecho informa uma capacidade de 150 kg a 200 kg e comparação com as classes 2 e 3, mas não afirma explicitamente que essa capacidade se refere a cilindros Classe 4. Versão sustentável: Segundo a ergocadeiras, para usuários acima de 100 kg, o pistão Classe 4 é o mínimo aceitável. A mesma fonte informa capacidade de carga entre 150 kg e 200 kg, sendo mais robusto que as classes 2 e 3."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. As recomendações vêm de uma fonte classificada como fabricante, mas a tabela as apresenta como fatos gerais sem atribuição. Além disso, os trechos não sustentam a indicação de nylon, aço ou alumínio como materiais da base. Versão sustentável: Segundo a ergocadeiras, o ideal é buscar capacidade de pelo menos 20 kg acima do peso e considerar pistões de Classe 4; remova a linha sobre o material da base ou cite evidência específica para ela."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. A tabela apresenta recomendações de uma fonte fabricante como regra geral, sem dizer que são da ergocadeiras. O trecho sobre bases de aço ou alumínio se aplica a pessoas com mais de 110 kg, não necessariamente a alguém que pesa exatamente 110 kg. Versão sustentável: Escreva 'Segundo a ergocadeiras, para 110 kg, busque capacidade de pelo menos 130 kg e Classe 4'. Não aplique a recomendação sobre bases a quem pesa exatamente 110 kg sem evidência adicional."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. As recomendações são atribuídas apenas implicitamente a uma fonte classificada como fabricante e aparecem como fatos gerais. Os trechos sustentam os números e a indicação de Classe 4, mas não uma regra geral independente da ergocadeiras. Versão sustentável: Use 'Segundo a ergocadeiras, para 130 kg, busque capacidade de pelo menos 150 kg, Classe 4 e base de aço ou alumínio'."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "MISATTRIBUTED. A tabela apresenta como regra geral recomendações que os trechos atribuem a um fabricante, sem informar essa atribuição. Versão sustentável: Identifique a origem: 'Segundo a ergocadeiras, para usuários acima de 100 kg, o ideal é buscar capacidade 20 kg acima do peso, Classe 4 e base de aço ou alumínio'."
+    }
+  ]
+}

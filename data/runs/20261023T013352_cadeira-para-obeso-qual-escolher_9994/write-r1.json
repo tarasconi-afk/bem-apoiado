@@ -1,0 +1,339 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Até 100 kg",
+          "claim_ids": []
+        },
+        {
+          "text": "120 kg",
+          "claim_ids": [
+            "clm_d9f9256b69a6"
+          ]
+        },
+        {
+          "text": "Classe 3 ou 4",
+          "claim_ids": [
+            "clm_d9f9256b69a6"
+          ]
+        },
+        {
+          "text": "Nylon, aço ou alumínio",
+          "claim_ids": []
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Cadeira para obeso: qual escolher pelo peso",
+    "description": "Compare capacidade de carga, dimensões do assento, material da base e pistão a gás na ficha técnica para encontrar a cadeira adequada ao seu peso.",
+    "verdict": {
+      "text": "Escolha uma cadeira cuja capacidade declarada seja pelo menos 20 kg acima do seu peso, confira se usa pistão Classe 4, base de aço ou alumínio (não nylon se pesar mais de 110 kg), e assento com espuma de densidade adequada. Na dúvida entre modelos, teste o espaço do assento: deixe 2 a 3 dedos entre a borda e a parte de trás do joelho.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_094a46308551",
+        "clm_131eb3c37110",
+        "clm_383ca3a8e408",
+        "clm_b40731e24afe",
+        "clm_f2f509ba0543",
+        "clm_e16841508b77",
+        "clm_801e75ecbc86",
+        "clm_ba7033fc399e"
+      ]
+    },
+    "sections": [
+      {
+        "id": "capacidade-carga",
+        "heading": "Verificar a capacidade de carga declarada",
+        "blocks": [
+          {
+            "text": "A capacidade de carga (ou peso máximo suportado) é o primeiro dado a conferir. Para quem pesa acima de 100 kg, o ideal é que a cadeira suporte pelo menos 20 kg a mais que seu peso corporal para não sobrecarregar o pistão a gás.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_094a46308551"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Este número deve aparecer na ficha técnica do fabricante. Por exemplo, a Flexform Dot declara suporte de 136 kg, e a XT Racer Platinum W suporta até 120 kg. Confira o número exato do modelo que pretende comprar antes de decidir.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_00a8a70a7b3d",
+              "clm_0f2bc640bf0f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "pistao-gas",
+        "heading": "Escolher o pistão a gás correto",
+        "blocks": [
+          {
+            "text": "O pistão a gás é o componente que regula a altura do assento. Para usuários acima de 100 kg, o Classe 4 é o mínimo aceitável, pois suporta entre 150 kg e 200 kg de capacidade de carga.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_131eb3c37110",
+              "clm_07d8dab499c2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Cilindros sem classe declarada são geralmente Classe 3, inadequados para uso intenso acima de 110 kg. Sempre confira a classe na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b6ebaa761b20"
+            ],
+            "kind": "callout",
+            "tone": "warning"
+          }
+        ]
+      },
+      {
+        "id": "base-material",
+        "heading": "Material da base: aço, alumínio ou nylon",
+        "blocks": [
+          {
+            "text": "Se você pesa mais de 110 kg, evite bases de nylon. O plástico pode fatigar com o tempo e partir sob peso prolongado. Bases de aço ou alumínio oferecem resistência confiável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e16841508b77",
+              "clm_801e75ecbc86"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo o fabricante Cavaletti, as bases disponíveis variam entre alumínio ou nylon (com rodízio de 65 mm) e aço estampado (com rodízios de 50 mm). Confira qual base vem com o modelo que escolher.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_09eed1d028e8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-assento",
+        "heading": "Dimensões do assento: largura e profundidade",
+        "blocks": [
+          {
+            "text": "A largura e profundidade do assento afetam o conforto e o suporte. Uma norma usada como referência (ABNT NBR 13962) sugere dimensões mínimas, mas o fabricante deve informar as medidas exatas na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_440514c995a2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para um primeiro teste, sente na cadeira e deixe 2 a 3 dedos de espaço entre a borda dianteira do assento e a parte de trás do joelho. Se o espaço é muito pequeno ou muito grande, a profundidade pode não ser adequada ao seu corpo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ba7033fc399e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-uso",
+        "heading": "O que a garantia cobre em relação ao peso",
+        "blocks": [
+          {
+            "text": "A Cavaletti declara que a garantia é válida para pessoas com peso de até 110 kg em condições normais de uso. Acima desse peso, confira com o fabricante se a garantia se aplica ou se há restrições.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_560fadaabef4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Flexform oferece garantia de até 7 anos para sua linha corporativa, e a XT Racer Platinum W cobre 3 anos de estrutura metálica e 1 ano para outros componentes. Leia o termo de garantia antes de comprar para confirmar se sua faixa de peso está coberta.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0aaa6b6a32f0",
+              "clm_1d0999632b9b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "normas-certificacoes",
+        "heading": "Certificações e normas que importam na escolha",
+        "blocks": [
+          {
+            "text": "A ABNT NBR 13962 é uma norma de resistência estrutural de cadeiras de escritório, testada em laboratórios acreditados. Quando um fabricante informa conformidade com essa norma, significa que a cadeira passou por ensaios de resistência. A Flexform declara que toda sua linha tem conformidade com NBR 13962, conforme ensaios no Laboratório Galileo acreditado pela CGCRE.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_371e90648a54",
+              "clm_440514c995a2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Certificações como BIFMA (padrão internacional de testes de resistência) e TUV (certificação de qualidade) são indicadores de que a cadeira passou por testes rigorosos. Confira se o modelo que você está analisando cita essas certificações na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1bf79de378ec"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela capacidade de carga e dimensões",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Capacidade de carga recomendada conforme seu peso corporal",
+            "columns": [
+              "Seu peso corporal",
+              "Capacidade mínima a buscar",
+              "Pistão recomendado",
+              "Material da base"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "120 kg",
+                    "claim_ids": [
+                      "clm_d9f9256b69a6"
+                    ]
+                  },
+                  {
+                    "text": "Classe 3 ou 4",
+                    "claim_ids": [
+                      "clm_d9f9256b69a6"
+                    ]
+                  },
+                  {
+                    "text": "Nylon, aço ou alumínio",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "110 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "130 kg",
+                    "claim_ids": [
+                      "clm_b40731e24afe"
+                    ]
+                  },
+                  {
+                    "text": "Classe 4",
+                    "claim_ids": [
+                      "clm_131eb3c37110"
+                    ]
+                  },
+                  {
+                    "text": "Aço ou alumínio",
+                    "claim_ids": [
+                      "clm_e16841508b77"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "130 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "150 kg ou mais",
+                    "claim_ids": [
+                      "clm_b40731e24afe"
+                    ]
+                  },
+                  {
+                    "text": "Classe 4",
+                    "claim_ids": [
+                      "clm_131eb3c37110"
+                    ]
+                  },
+                  {
+                    "text": "Aço ou alumínio",
+                    "claim_ids": [
+                      "clm_801e75ecbc86"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Peso + 20 kg",
+                    "claim_ids": [
+                      "clm_094a46308551"
+                    ]
+                  },
+                  {
+                    "text": "Classe 4 (mínimo)",
+                    "claim_ids": [
+                      "clm_131eb3c37110"
+                    ]
+                  },
+                  {
+                    "text": "Aço ou alumínio",
+                    "claim_ids": [
+                      "clm_801e75ecbc86"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa entre 100 kg e 130 kg, escolha um assento com espuma injetada de no mínimo 50 kg/m³; se pesa acima de 130 kg, busque no mínimo 55 kg/m³. Esse número (densidade em kg/m³) aparece na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f2f509ba0543"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ao comparar cadeiras de tamanhos diferentes, test o espaço do assento: sente e deixe um espaço de 2 a 3 dedos entre a borda dianteira do assento e a parte de trás do joelho. Essa medida ajuda a garantir conforto sem comprometer a circulação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ba7033fc399e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "TABLE_NUMBER_UNCITED 120 kg"
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "TABLE_NUMBER_UNCITED Classe 3 ou 4"
+    }
+  ],
+  "usage": {
+    "input_tokens": 15995,
+    "output_tokens": 196
+  }
+}

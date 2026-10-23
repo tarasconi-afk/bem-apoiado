@@ -1,0 +1,17 @@
+{
+  "status": "SAFE_STOP",
+  "reason": "AUDIT_NOT_CONVERGED",
+  "open_issues": [
+    "como-decidir#0.r0: MISATTRIBUTED. As recomendações vêm de uma fonte classificada como fabricante, mas a tabela as apresenta como fatos gerais sem atribuição. Além disso, os trechos não sustentam a indicação de nylon, aço ou alumínio como materiais da base. Versão sustentável: Segundo a ergocadeiras, o ideal é buscar capacidade de pelo menos 20 kg acima do peso e considerar pistões de Classe 4; remova a linha sobre o material da base ou cite evidência específica para ela.",
+    "como-decidir#0.r1: MISATTRIBUTED. A tabela apresenta recomendações de uma fonte fabricante como regra geral, sem dizer que são da ergocadeiras. O trecho sobre bases de aço ou alumínio se aplica a pessoas com mais de 110 kg, não necessariamente a alguém que pesa exatamente 110 kg. Versão sustentável: Escreva 'Segundo a ergocadeiras, para 110 kg, busque capacidade de pelo menos 130 kg e Classe 4'. Não aplique a recomendação sobre bases a quem pesa exatamente 110 kg sem evidência adicional.",
+    "como-decidir#0.r2: MISATTRIBUTED. As recomendações são atribuídas apenas implicitamente a uma fonte classificada como fabricante e aparecem como fatos gerais. Os trechos sustentam os números e a indicação de Classe 4, mas não uma regra geral independente da ergocadeiras. Versão sustentável: Use 'Segundo a ergocadeiras, para 130 kg, busque capacidade de pelo menos 150 kg, Classe 4 e base de aço ou alumínio'.",
+    "como-decidir#0.r3: MISATTRIBUTED. A tabela apresenta como regra geral recomendações que os trechos atribuem a um fabricante, sem informar essa atribuição. Versão sustentável: Identifique a origem: 'Segundo a ergocadeiras, para usuários acima de 100 kg, o ideal é buscar capacidade 20 kg acima do peso, Classe 4 e base de aço ou alumínio'.",
+    "verdict: MISATTRIBUTED. As recomendações vêm de uma fonte classificada como fabricante, mas o bloco as apresenta como regras gerais, sem atribuição. Além disso, o trecho sobre bases metálicas se aplica a pessoas acima de 110 kg, enquanto o bloco amplia para acima de 100 kg."
+  ],
+  "usage": {
+    "input_tokens": 114593,
+    "output_tokens": 15599,
+    "calls": 24
+  },
+  "credits": 5.913912
+}
