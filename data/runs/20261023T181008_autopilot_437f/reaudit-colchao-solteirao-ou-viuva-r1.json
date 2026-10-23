@@ -1,0 +1,44 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você tem espaço para 88 cm de largura: segundo Gazin e a norma de compras públicas, um colchão solteiro mede 88 × 188 cm. Confira na ficha do produto as dimensões exatas do modelo antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0222495f509f",
+        "clm_1bb80e023c3e"
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_0222495f509f",
+            "clm_1bb80e023c3e"
+          ]
+        },
+        {
+          "text": "88 × 188 cm",
+          "claim_ids": [
+            "clm_0222495f509f",
+            "clm_1bb80e023c3e"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. O trecho do Comprasnet apresenta uma especificação de um edital, não uma norma geral de compras públicas. Além disso, os trechos sustentam 88 × 188 cm para um produto da Gazin e para essa especificação, mas não para todo colchão solteiro."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "OVERSTATED. A expressão “Medidas padrão por tamanho” apresenta 88 × 188 cm como padrão geral para colchões solteiros, mas os trechos citados mostram apenas um modelo da Gazin e uma especificação específica de edital."
+    }
+  ]
+}

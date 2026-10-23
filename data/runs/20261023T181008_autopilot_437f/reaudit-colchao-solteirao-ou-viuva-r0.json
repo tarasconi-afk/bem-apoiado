@@ -1,0 +1,65 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "compatibilidade-base#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "itens-inclusos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 88 × 188 cm para um modelo da Gazin e para uma especificação de compra, mas não estabelecem que todo colchão solteiro tenha necessariamente essa medida. O bloco generaliza esses exemplos como regra geral.",
+      "fix": "Se você tem espaço para 88 cm de largura, um modelo de colchão solteiro citado pela Gazin mede 88 × 188 cm. Confira na ficha do produto as dimensões exatas do modelo antes de comprar."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram que Gazin e Ortobom informam 88 × 188 cm para solteiro, mas não dizem que essa é uma medida padrão geral. O título da tabela amplia os dados das duas fabricantes para uma afirmação geral sobre o padrão de tamanho.",
+      "fix": "[tabela: Medida informada para colchão solteiro] Tamanho: Solteiro | Largura × Comprimento: 88 × 188 cm, conforme informado por Gazin e Ortobom."
+    }
+  ]
+}

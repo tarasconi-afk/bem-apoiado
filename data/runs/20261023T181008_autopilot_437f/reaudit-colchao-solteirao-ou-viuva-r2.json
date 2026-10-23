@@ -1,0 +1,37 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você tem espaço para 88 cm de largura: segundo a Gazin, um colchão solteiro mede 88 × 188 cm. Confira na ficha do produto as dimensões exatas do modelo antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0222495f509f"
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_0222495f509f"
+          ]
+        },
+        {
+          "text": "88 × 188 cm (segundo Gazin)",
+          "claim_ids": [
+            "clm_0222495f509f"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#1",
+      "msg": "repete o bloco como-decidir#0 (86% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "run_id": "20261023T181128_colchao-solteirao-ou-viuva-enrich_1859",
+  "topic": "colchao-solteirao-ou-viuva",
+  "accepted": [
+    {
+      "claim_id": "clm_81628cba0b29",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_938d969d2839",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1852ac4721c5",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_938d969d2839",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a1f2d97c0275",
+      "question_id": "q_itens_inclusos",
+      "source_id": "src_938d969d2839",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1778e9756eeb",
+      "question_id": "q_garantia",
+      "source_id": "src_938d969d2839",
+      "new": true
+    },
+    {
+      "claim_id": "clm_413fead3f4fc",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_2cacc5af0d52",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f887dc8ee57e",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_2cacc5af0d52",
+      "new": true
+    },
+    {
+      "claim_id": "clm_945ee6758b42",
+      "question_id": "q_garantia",
+      "source_id": "src_2cacc5af0d52",
+      "new": true
+    },
+    {
+      "claim_id": "clm_85baf4b6e64a",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_cf8fa1e56fce",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0341cf2cf993",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_cf8fa1e56fce",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b359d8e3e618",
+      "question_id": "q_garantia",
+      "source_id": "src_cf8fa1e56fce",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2e5c5ab1a7ad",
+      "question_id": "q_base_compativel",
+      "source_id": "src_cf8fa1e56fce",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a47aaf27caa5",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_24f84bd15ce9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6fd68d96d90a",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_24f84bd15ce9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1bc279ddd166",
+      "question_id": "q_itens_inclusos",
+      "source_id": "src_24f84bd15ce9",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_938d969d2839",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_938d969d2839",
+      "question_id": "q_ajuste_0a55e71a",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Viúva\nLargura: 128 cm\nComprimento: 188 cm"
+    },
+    {
+      "source_id": "src_2cacc5af0d52",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_cf8fa1e56fce",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_24f84bd15ce9",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    }
+  ],
+  "coverage": {
+    "q_medida_decisiva": 0,
+    "q_dimensoes_exatas": 4,
+    "q_peso_suportado": 4,
+    "q_base_compativel": 1,
+    "q_itens_inclusos": 2,
+    "q_garantia": 3,
+    "q_ajuste_0a55e71a": 0
+  },
+  "unanswered": [
+    "q_medida_decisiva",
+    "q_ajuste_0a55e71a"
+  ],
+  "usage": {
+    "input_tokens": 10683,
+    "output_tokens": 1884,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_938d969d2839",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_2cacc5af0d52",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_cf8fa1e56fce",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_24f84bd15ce9",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    }
+  ],
+  "credits": 2.8054517999999997
+}

@@ -1,0 +1,140 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas as dimensões de 100 × 200 cm para o solteirão e 128 × 188 cm para a viúva. Não sustentam as recomendações baseadas em dormir sozinho, ser alto, ter quarto estreito, dividir a cama ou querer mais largura; além disso, essas recomendações não podem ser atribuídas à Probel com base nos trechos citados.",
+      "fix": "A Probel informa opções com 100 × 200 cm (solteirão) e 128 × 188 cm (viúva). Confira as dimensões exatas no anúncio antes de comprar."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam suporte de 120 kg por pessoa para três modelos específicos, mas não para todos os colchões solteirão da Probel.",
+      "fix": "Os três modelos solteirão da Probel citados informam suporte de 120 kg por pessoa, conforme suas fichas técnicas."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram valores de 110, 120 e 150 kg por pessoa em cinco modelos citados, mas não estabelecem que 150 kg seja o limite máximo de todos os colchões viúva da Probel.",
+      "fix": "Entre os modelos viúva da Probel citados, há capacidades de 110, 120 e 150 kg por pessoa, dependendo do modelo."
+    },
+    {
+      "ref": "peso-suportado#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos no Kit Box Baú Viúva + Colchão Mola Probel Pró Charge, mas não para os colchões viúva da Probel em geral.",
+      "fix": "O Kit Box Baú Viúva com Colchão Mola Probel Pró Charge especifica garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos."
+    },
+    {
+      "ref": "garantia#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho do Turim informa garantia de 12 meses, mas não diz que ela começa a contar a partir do recebimento. Essa condição aparece apenas no trecho do Guardian.",
+      "fix": "Alguns colchões viúva da Probel, como o Turim e o Guardian, oferecem garantia de 12 meses; no caso do Guardian, o prazo é contado a partir do recebimento do produto."
+    },
+    {
+      "ref": "garantia#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-vem-incluso#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho mostra que a página do modelo Viúva Turim disponibiliza um manual para visualização e download, mas não afirma que os colchões viúva da Probel incluem fisicamente um manual, nem sustenta uma generalização para todos os colchões viúva da marca.",
+      "fix": "A página do colchão Viúva Turim da Probel disponibiliza o manual do produto para visualização e download."
+    },
+    {
+      "ref": "o-que-vem-incluso#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco esteja em basis framing, ele afirma fatos sobre as fichas técnicas e sobre a ausência de especificação de itens, sem apresentar qualquer trecho citado que os sustente.",
+      "fix": "Confira o anúncio do modelo específico para saber o que vem na sua compra."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que a Probel oferece um modelo com 100 cm de largura e 200 cm de comprimento. Não sustentam que essa seja uma escolha adequada para quem dorme sozinho ou é alto, nem a comparação com medidas tradicionais.",
+      "fix": "A Probel oferece um modelo de colchão solteirão com 100 cm de largura e 200 cm de comprimento."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam as dimensões de colchões viúva, mas não dizem que eles são indicados para quem divide a cama, para dois dorminhocos ou que ampliam o espaço lateral em relação a outra medida.",
+      "fix": "A Probel oferece colchões viúva com 128 cm de largura e 188 cm de comprimento."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as medidas de 78 cm ou 88 cm por 188 cm para o solteiro, mas não trazem medidas de solteirão nem permitem concluir que ele oferece mais espaço em largura e comprimento.",
+      "fix": "Especificações de compras públicas apresentam colchões solteiros com 78 cm ou 88 cm de largura e 188 cm de comprimento."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas citadas aparecem em especificações de compras públicas, não em um trecho identificado como de fabricantes. A tabela atribui indevidamente essa informação aos fabricantes.",
+      "fix": "[tabela: Dimensões de solteiro segundo especificações de compras públicas] Tamanho: Solteiro | Largura: 78 a 88 cm | Comprimento: 188 cm"
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas as dimensões de 100 × 200 cm para o solteirão e 128 × 188 cm para a viúva. Não sustentam as recomendações baseadas em dormir sozinho, ser alto, ter quarto estreito, dividir a cama ou querer mais largura; além disso, essas recomendações não podem ser atribuídas à Probel com base nos trechos citados. Versão sustentável: A Probel informa opções com 100 × 200 cm (solteirão) e 128 × 188 cm (viúva). Confira as dimensões exatas no anúncio antes de comprar."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "msg": "OVERSTATED. Os trechos sustentam suporte de 120 kg por pessoa para três modelos específicos, mas não para todos os colchões solteirão da Probel. Versão sustentável: Os três modelos solteirão da Probel citados informam suporte de 120 kg por pessoa, conforme suas fichas técnicas."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "msg": "OVERSTATED. Os trechos mostram valores de 110, 120 e 150 kg por pessoa em cinco modelos citados, mas não estabelecem que 150 kg seja o limite máximo de todos os colchões viúva da Probel. Versão sustentável: Entre os modelos viúva da Probel citados, há capacidades de 110, 120 e 150 kg por pessoa, dependendo do modelo."
+    },
+    {
+      "ref": "garantia#0",
+      "msg": "OVERSTATED. Os trechos sustentam a garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos no Kit Box Baú Viúva + Colchão Mola Probel Pró Charge, mas não para os colchões viúva da Probel em geral. Versão sustentável: O Kit Box Baú Viúva com Colchão Mola Probel Pró Charge especifica garantia de 6 meses para a estrutura e 3 meses para tecido e mecanismos."
+    },
+    {
+      "ref": "garantia#1",
+      "msg": "OVERSTATED. O trecho do Turim informa garantia de 12 meses, mas não diz que ela começa a contar a partir do recebimento. Essa condição aparece apenas no trecho do Guardian. Versão sustentável: Alguns colchões viúva da Probel, como o Turim e o Guardian, oferecem garantia de 12 meses; no caso do Guardian, o prazo é contado a partir do recebimento do produto."
+    },
+    {
+      "ref": "o-que-vem-incluso#0",
+      "msg": "OVERSTATED. O trecho mostra que a página do modelo Viúva Turim disponibiliza um manual para visualização e download, mas não afirma que os colchões viúva da Probel incluem fisicamente um manual, nem sustenta uma generalização para todos os colchões viúva da marca. Versão sustentável: A página do colchão Viúva Turim da Probel disponibiliza o manual do produto para visualização e download."
+    },
+    {
+      "ref": "o-que-vem-incluso#1",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja em basis framing, ele afirma fatos sobre as fichas técnicas e sobre a ausência de especificação de itens, sem apresentar qualquer trecho citado que os sustente. Versão sustentável: Confira o anúncio do modelo específico para saber o que vem na sua compra."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que a Probel oferece um modelo com 100 cm de largura e 200 cm de comprimento. Não sustentam que essa seja uma escolha adequada para quem dorme sozinho ou é alto, nem a comparação com medidas tradicionais. Versão sustentável: A Probel oferece um modelo de colchão solteirão com 100 cm de largura e 200 cm de comprimento."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos informam as dimensões de colchões viúva, mas não dizem que eles são indicados para quem divide a cama, para dois dorminhocos ou que ampliam o espaço lateral em relação a outra medida. Versão sustentável: A Probel oferece colchões viúva com 128 cm de largura e 188 cm de comprimento."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas de 78 cm ou 88 cm por 188 cm para o solteiro, mas não trazem medidas de solteirão nem permitem concluir que ele oferece mais espaço em largura e comprimento. Versão sustentável: Especificações de compras públicas apresentam colchões solteiros com 78 cm ou 88 cm de largura e 188 cm de comprimento."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "MISATTRIBUTED. As medidas citadas aparecem em especificações de compras públicas, não em um trecho identificado como de fabricantes. A tabela atribui indevidamente essa informação aos fabricantes. Versão sustentável: [tabela: Dimensões de solteiro segundo especificações de compras públicas] Tamanho: Solteiro | Largura: 78 a 88 cm | Comprimento: 188 cm"
+    }
+  ]
+}

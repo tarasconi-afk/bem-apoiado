@@ -1,0 +1,346 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Em produtos citados, a Probel declara suporte de 150 kg por pessoa quando há colchão sobre a base e 120 kg por pessoa em outro modelo. No modelo Castor citado, a largura e o comprimento internos são 10 cm menores que as medidas externas e a profundidade é de 25 cm. O modelo Simmons citado usa pistões a gás, que facilitam a abertura e o fechamento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dbbbd39f50ec",
+        "clm_e05fce5db49d",
+        "clm_652c0dc6bab2",
+        "clm_26aaeab1b561"
+      ]
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "action": "replace",
+      "text": "A Probel e a Ortobom informam a relação da capacidade com o peso do colchão de maneiras diferentes. Confira a ficha técnica do modelo para verificar a capacidade declarada e se ela inclui ou não o peso do colchão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_dbbbd39f50ec",
+        "clm_e05fce5db49d",
+        "clm_286a835dbfa3"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0",
+      "action": "replace",
+      "text": "A Probel informa 138 cm de largura e 188 cm de comprimento para a base baú casal bipartido. Para o modelo King bipartido citado, informa 193 cm de largura, 203 cm de comprimento e 26 cm de altura.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_babfb7a2626f",
+        "clm_9e07af031f41"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "action": "replace",
+      "text": "Segundo a Castor, no produto citado, a largura e o comprimento internos são 10 cm menores que o tamanho externo, e a profundidade é de 25 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_652c0dc6bab2"
+      ]
+    },
+    {
+      "ref": "mecanismo-abertura#0",
+      "action": "replace",
+      "text": "Em uma base box baú da Probel, o sistema de abertura e fechamento usa pistões pneumáticos, descritos como amortecedores, que facilitam o manuseio e mantêm a tampa aberta. A Simmons informa que seu modelo usa pistões a gás para facilitar a abertura e o fechamento, sem necessidade de lubrificação adicional.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_60551ab10db0",
+        "clm_26aaeab1b561"
+      ]
+    },
+    {
+      "ref": "estrutura-revestimento#0",
+      "action": "replace",
+      "text": "Nos trechos citados, a Probel informa estrutura de madeira de reflorestamento de eucalipto tratado. A Simmons informa madeira de eucalipto de reflorestamento com secagem em estufa e tratamento HT/KD em alta temperatura para esterilização de brocas e cupins.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_b8bda9f20924",
+        "clm_f432308c7682"
+      ]
+    },
+    {
+      "ref": "estrutura-revestimento#1",
+      "action": "replace",
+      "text": "Nos exemplos citados, a Probel informa revestimento lateral em suede, superior em TNT e base de suporte do colchão em espuma. A Simmons informa revestimento em linho Brooks com 100% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_26d74cbb4cf5",
+        "clm_49878ddf424b",
+        "clm_3527414ce9fb"
+      ]
+    },
+    {
+      "ref": "garantia-montagem#0",
+      "action": "replace",
+      "text": "A Probel declara 6 meses de garantia para a estrutura e 3 meses para o tecido e os mecanismos. A Castor declara 6 meses para a estrutura e 90 dias para o tecido.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5c66bd3c298e",
+        "clm_8bd69ac5a568"
+      ]
+    },
+    {
+      "ref": "garantia-montagem#1",
+      "action": "replace",
+      "text": "Segundo as instruções citadas da Ortobom, deve-se encaixar a porca no parafuso e apertá-la apenas o suficiente para o encaixe, sem apertar muito.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_146d7bb49554"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você quer abrir o compartimento sem precisar segurar a tampa, confira se o modelo declara essa característica. A Probel informa que a tampa permanece aberta em um modelo com pistões pneumáticos. A Simmons informa que seus pistões a gás facilitam a abertura e o fechamento.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_60551ab10db0",
+        "clm_26aaeab1b561"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você tem pouca altura livre no quarto ou prefere uma cama mais baixa, confira a altura da base escolhida. Um modelo Simmons tem 42 cm de altura total (estrutura de 35 cm e pés de 7 cm). A King Koil informa 43,5 cm sem colchão (base de 37 cm mais pés de 6,5 cm).",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_7bd6c0ea9ef0",
+        "clm_2e2ed191bc33"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Base box baú: capacidade, medidas e garantia",
+    "description": "O que os fabricantes declaram sobre peso suportado, dimensões internas, mecanismo de abertura e garantia da base box baú.",
+    "verdict": {
+      "text": "Em produtos citados, a Probel declara suporte de 150 kg por pessoa quando há colchão sobre a base e 120 kg por pessoa em outro modelo. No modelo Castor citado, a largura e o comprimento internos são 10 cm menores que as medidas externas e a profundidade é de 25 cm. O modelo Simmons citado usa pistões a gás, que facilitam a abertura e o fechamento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dbbbd39f50ec",
+        "clm_e05fce5db49d",
+        "clm_652c0dc6bab2",
+        "clm_26aaeab1b561"
+      ]
+    },
+    "sections": [
+      {
+        "id": "capacidade-carga",
+        "heading": "Qual peso suportado o fabricante declara?",
+        "blocks": [
+          {
+            "text": "A capacidade de carga varia conforme o modelo e o fabricante. Segundo a Probel, alguns modelos suportam 150 kg por pessoa, desde que haja um colchão sobre a base, e outros suportam 120 kg por pessoa (neste caso, sem menção explícita ao colchão). A Ortobom declara 150 kg além do peso do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_dbbbd39f50ec",
+              "clm_e05fce5db49d",
+              "clm_286a835dbfa3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel e a Ortobom informam a relação da capacidade com o peso do colchão de maneiras diferentes. Confira a ficha técnica do modelo para verificar a capacidade declarada e se ela inclui ou não o peso do colchão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_dbbbd39f50ec",
+              "clm_e05fce5db49d",
+              "clm_286a835dbfa3"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "medidas-tamanhos",
+        "heading": "Quais medidas o fabricante declara para cada tamanho?",
+        "blocks": [
+          {
+            "text": "A Probel informa 138 cm de largura e 188 cm de comprimento para a base baú casal bipartido. Para o modelo King bipartido citado, informa 193 cm de largura, 203 cm de comprimento e 26 cm de altura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_babfb7a2626f",
+              "clm_9e07af031f41"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, no produto citado, a largura e o comprimento internos são 10 cm menores que o tamanho externo, e a profundidade é de 25 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_652c0dc6bab2"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "mecanismo-abertura",
+        "heading": "Como funciona o mecanismo de abertura do baú?",
+        "blocks": [
+          {
+            "text": "Em uma base box baú da Probel, o sistema de abertura e fechamento usa pistões pneumáticos, descritos como amortecedores, que facilitam o manuseio e mantêm a tampa aberta. A Simmons informa que seu modelo usa pistões a gás para facilitar a abertura e o fechamento, sem necessidade de lubrificação adicional.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_60551ab10db0",
+              "clm_26aaeab1b561"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A quantidade e a força dos pistões variam conforme o tamanho da base. Segundo a Simmons, o tamanho casal usa 2 pistões de 800 Newton, o tamanho Queen/King usa 4 pistões de 600 Newton e o tamanho solteiro usa 2 pistões de 450 Newton.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ca7801b93c28"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "estrutura-revestimento",
+        "heading": "Quais materiais o fabricante especifica na ficha técnica?",
+        "blocks": [
+          {
+            "text": "Nos trechos citados, a Probel informa estrutura de madeira de reflorestamento de eucalipto tratado. A Simmons informa madeira de eucalipto de reflorestamento com secagem em estufa e tratamento HT/KD em alta temperatura para esterilização de brocas e cupins.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8bda9f20924",
+              "clm_f432308c7682"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nos exemplos citados, a Probel informa revestimento lateral em suede, superior em TNT e base de suporte do colchão em espuma. A Simmons informa revestimento em linho Brooks com 100% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_26d74cbb4cf5",
+              "clm_49878ddf424b",
+              "clm_3527414ce9fb"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-montagem",
+        "heading": "Qual é o prazo de garantia e o que vem incluso?",
+        "blocks": [
+          {
+            "text": "A Probel declara 6 meses de garantia para a estrutura e 3 meses para o tecido e os mecanismos. A Castor declara 6 meses para a estrutura e 90 dias para o tecido.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5c66bd3c298e",
+              "clm_8bd69ac5a568"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo as instruções citadas da Ortobom, deve-se encaixar a porca no parafuso e apertá-la apenas o suficiente para o encaixe, sem apertar muito.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_146d7bb49554"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir qual base box baú comprar",
+        "blocks": [
+          {
+            "text": "Se você precisa guardar objetos sob a cama, confira as medidas internas do modelo: segundo a Castor, elas são 10 cm menores que as medidas externas (em largura e comprimento) e têm 25 cm de profundidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_652c0dc6bab2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer abrir o compartimento sem precisar segurar a tampa, confira se o modelo declara essa característica. A Probel informa que a tampa permanece aberta em um modelo com pistões pneumáticos. A Simmons informa que seus pistões a gás facilitam a abertura e o fechamento.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_60551ab10db0",
+              "clm_26aaeab1b561"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o peso dos usuários estiver próximo de 120 kg ou 150 kg por pessoa, confira qual capacidade o fabricante declara para o modelo escolhido. A Probel informa modelos com suporte de 150 kg por pessoa (desde que haja colchão sobre a base) e outros com 120 kg por pessoa.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_dbbbd39f50ec",
+              "clm_e05fce5db49d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você tem pouca altura livre no quarto ou prefere uma cama mais baixa, confira a altura da base escolhida. Um modelo Simmons tem 42 cm de altura total (estrutura de 35 cm e pés de 7 cm). A King Koil informa 43,5 cm sem colchão (base de 37 cm mais pés de 6,5 cm).",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_7bd6c0ea9ef0",
+              "clm_2e2ed191bc33"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam capacidades específicas declaradas pela Probel, medidas específicas de um produto Castor e pistões a gás em um modelo Simmons, mas não sustentam que essas características sejam gerais ou que o pistão pneumático seja o mecanismo mais comum. A profundidade de 25 cm e a redução das medidas internas aparecem apenas para o produto Castor citado. Versão sustentável: Em produtos citados, a Probel declara suporte de 150 kg por pessoa quando há colchão sobre a base e 120 kg por pessoa em outro modelo. No modelo Castor citado, a largura e o comprimento são 10 cm menores que as medidas externas e a profundidade é de 25 cm. O modelo Simmons citado usa pistões a gás, que facilitam a abertura e o fechamento."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "msg": "UNSUPPORTED. Os trechos citados não mostram fabricantes que não especificam a relação com o peso do colchão. Ao contrário, a Probel menciona a presença do colchão em um modelo, e a Ortobom declara expressamente que os 150 kg são além do peso do colchão. Versão sustentável: A Probel e a Ortobom informam a relação da capacidade com o peso do colchão de maneiras diferentes. Confira a ficha técnica do modelo para verificar a capacidade declarada e se ela inclui ou não o peso do colchão."
+    },
+    {
+      "ref": "medidas-tamanhos#0",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas informadas pela Probel e a altura de 26 cm do modelo King, mas não dizem que fabricantes, em geral, declaram medidas externas, que a altura varia conforme o modelo, nem que os 26 cm correspondem à estrutura sem contar os pés. Versão sustentável: A Probel informa 138 cm de largura e 188 cm de comprimento para a base baú casal bipartido. Para o modelo King bipartido citado, informa 193 cm de largura, 203 cm de comprimento e 26 cm de altura."
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que, no produto citado da Castor, a largura e o comprimento são 10 cm menores que o tamanho externo e que a profundidade é de 25 cm. Porém, não sustentam a orientação para consultar a ficha técnica do modelo específico para obter as medidas exatas. Versão sustentável: Segundo a Castor, no produto citado, a largura e o comprimento internos são 10 cm menores que o tamanho externo, e a profundidade é de 25 cm."
+    },
+    {
+      "ref": "mecanismo-abertura#0",
+      "msg": "OVERSTATED. Os trechos citados sustentam a existência de pistões pneumáticos ou a gás e suas funções nos produtos da Probel e da Simmons, mas não dizem que esse é o mecanismo mais comum nas bases box baú. Além disso, não mencionam explicitamente um sistema \"basculante\". Versão sustentável: Em uma base box baú da Probel, o sistema de abertura e fechamento usa pistões pneumáticos, descritos como amortecedores, que facilitam o manuseio e mantêm a tampa aberta. A Simmons informa que seu modelo usa pistões a gás para facilitar a abertura e o fechamento, sem necessidade de lubrificação adicional."
+    },
+    {
+      "ref": "estrutura-revestimento#0",
+      "msg": "MISATTRIBUTED. Os trechos não dizem que o eucalipto tratado funciona como bactericida natural, inibe traças ou garante maior durabilidade; tampouco o trecho da Probel sustenta essas afirmações. Além disso, a ideia de que essa é uma característica comum das bases extrapola os dois exemplos de fabricantes citados. Versão sustentável: Nos trechos citados, a Probel informa uma estrutura de madeira de reflorestamento de eucalipto tratado, enquanto a Simmons informa madeira de eucalipto de reflorestamento com secagem em estufa e tratamento HT/KD em alta temperatura para esterilização de brocas e cupins."
+    },
+    {
+      "ref": "estrutura-revestimento#1",
+      "msg": "OVERSTATED. Os trechos sustentam que um modelo Probel tem revestimento lateral em suede e superior em TNT, que o modelo Simmons usa linho Brooks com 100% poliéster e que a base de suporte do colchão de um produto Probel é de espuma. Eles não sustentam que a espuma seja uma característica frequente. Versão sustentável: Nos exemplos citados, a Probel informa revestimento lateral em suede, superior em TNT e base de suporte do colchão em espuma; a Simmons informa revestimento em linho Brooks com 100% poliéster."
+    },
+    {
+      "ref": "garantia-montagem#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam os prazos específicos atribuídos à Probel e à Castor, mas não sustentam a recomendação para conferir a ficha técnica do modelo nem afirmam que as condições específicas devem ser verificadas dessa forma. Versão sustentável: A Probel declara 6 meses de garantia para a estrutura e 3 meses para o tecido e os mecanismos. A Castor declara 6 meses para a estrutura e 90 dias para o tecido."
+    },
+    {
+      "ref": "garantia-montagem#1",
+      "msg": "UNSUPPORTED. O trecho mostra uma instrução específica da Ortobom sobre encaixar e apertar a porca, mas não sustenta a generalização de que a montagem de bases box baú geralmente requer esses procedimentos. Também não sustenta a afirmação de que a responsabilidade pela montagem deve estar no anúncio ou na documentação do produto. Versão sustentável: Segundo as instruções citadas da Ortobom, deve-se encaixar a porca no parafuso e apertá-la apenas o suficiente para o encaixe, sem apertar muito."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. O trecho da Simmons diz apenas que os pistões a gás facilitam a abertura e o fechamento; não diz que a tampa pode permanecer aberta sem ser segurada. Essa propriedade é explicitamente atribuída apenas ao modelo da Probel, embora o bloco a apresente como aplicável a modelos com pistões pneumáticos ou a gás e a atribua às duas marcas. Versão sustentável: Se você quer abrir o compartimento sem precisar segurar a tampa, confira se o modelo declara que a tampa permanece aberta. A Probel informa essa característica para um modelo com pistões pneumáticos; a Simmons informa que seus pistões a gás facilitam a abertura e o fechamento."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho da Simmons informa a altura total de 42 cm e sua composição, mas não especifica que a medida é sem colchão. Essa condição aparece explicitamente apenas no trecho da King Koil. Versão sustentável: Há um modelo Simmons com 42 cm de altura total, formado por estrutura de 35 cm e pés de 7 cm. A King Koil informa 43,5 cm sem colchão, resultantes de uma base de 37 cm mais pés de 6,5 cm."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14943,
+    "output_tokens": 1636
+  }
+}
