@@ -12,6 +12,7 @@ import { creditsThisMonth, SearchError, webSearch, type SearchResult } from '../
 import { snapshot } from '../snapshot.ts';
 import { DATA, loadSources, loadTopics, TOPICS_DIR, writeJson } from '../store.ts';
 import { loadTopic } from './research.ts';
+import { phraseTerms, rankUrls, siteUrls, topicTerms } from '../sitemap.ts';
 
 // Descobre fontes para uma pauta: LLM sugere consultas → Tavily → só domínios do cadastro entram →
 // snapshot. Domínio fora do cadastro vira SUGESTÃO no relatório, nunca fonte automática.
@@ -89,12 +90,13 @@ export interface DiscoverReport {
   snapshot_errors: { url: string; error: string }[];
   tavily_credits_month: number;
   triage: { url: string; p_useful: number; keep: boolean }[];
+  sitemaps?: { host: string; urls: number; picked: string[] }[];
 }
 
 export async function discoverSources(
   slug: string,
   runId: string,
-  opts: { maxSearches?: number; maxSources?: number; makerSearches?: number } = {},
+  opts: { maxSearches?: number; maxSources?: number; makerSearches?: number; siteFetch?: typeof fetch } = {},
   fetchImpl?: FetchLike,
   decide: Decider | null = jevDecide,
 ): Promise<DiscoverReport> {
@@ -130,7 +132,7 @@ export async function discoverSources(
   );
 
   const report: DiscoverReport = {
-    run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, skipped_learned: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0, triage: [],
+    run_id: runId, topic: slug, queries: [], added: [], skipped_blocked: 0, skipped_learned: 0, suggestions: [], snapshot_errors: [], tavily_credits_month: 0, triage: [], sitemaps: [],
   };
   const candidates = new Map<string, SearchResult & { publisher: string; source_class: SourceClass }>();
   const queries: { q: string; include_domains?: string[] }[] = plan.data.queries.slice(0, maxSearches);
@@ -144,7 +146,28 @@ export async function discoverSources(
   // Marca citada pelo editor no pedido (chega como lacuna) vai na frente de tudo.
   const tried = searchedAlone(join(DATA, 'runs'), slug);
   const fresh = orderMakers(makers, { named: topic.evidence_gaps.join(' '), withEvidence, tried });
-  queries.push(...makerQueries(queries, fresh, topic.primary_query, opts.makerSearches ?? 3));
+  // Mapa do site de cada fabricante antes de qualquer busca (23/10): sem custo de Tavily. Fabricante em que o mapa
+  // achou página da pauta não ganha busca; o resto segue para a busca restrita ao site dele, como antes.
+  const viaSitemap = new Set<string>();
+  const kindLabels = loadNiche().product_kinds.filter((k) => topic.product_kinds.includes(k.id)).map((k) => k.label);
+  const primaryTerms = [...topicTerms([topic.primary_query, ...topic.listing_terms]), ...phraseTerms(topic.listing_terms)];
+  const extraTerms = topicTerms([...kindLabels, ...topic.questions.map((q) => q.text), ...topic.evidence_gaps]);
+  for (const m of fresh.slice(0, (opts.makerSearches ?? 3) + 2)) {
+    const urls = await siteUrls(m.host, opts.siteFetch ?? fetch).catch(() => [] as string[]);
+    const picked = rankUrls(urls, primaryTerms, extraTerms, 3).filter((p) => !learning.unproductiveUrls.has(p.url));
+    report.sitemaps!.push({ host: m.host, urls: urls.length, picked: picked.map((p) => p.url) });
+    for (const p of picked) {
+      const c = classify(p.url, reg);
+      if (typeof c === 'object' && !candidates.has(p.url)) candidates.set(p.url, { title: p.title, url: p.url, content: '', score: Math.min(0.95, 0.5 + 0.1 * p.matches), ...c });
+    }
+    if (picked.length) viaSitemap.add(m.host);
+  }
+  queries.push(...makerQueries(queries, fresh.filter((m) => !viaSitemap.has(m.host)), topic.primary_query, opts.makerSearches ?? 3));
+  // Dois ou mais fabricantes achados pelo mapa: as consultas do planejador caem para 5 (o resto já veio de graça).
+  if (viaSitemap.size >= 2) {
+    const planned = Math.min(plan.data.queries.length, maxSearches);
+    if (planned > 5) queries.splice(5, planned - 5);
+  }
   // Menos de 2 fabricantes com fonte na pauta (ou nenhum cadastrado): 2 buscas abertas. O que vier de fora do
   // cadastro não entra como fonte; vira sugestão em "Domínios novos" para o editor aprovar.
   if (withEvidence.size < 2) {
@@ -269,9 +292,11 @@ export function searchedAlone(runsDir: string, slug: string): Set<string> {
     const f = join(runsDir, run, 'discover.json');
     if (!existsSync(f)) continue;
     try {
-      const d = JSON.parse(readFileSync(f, 'utf8')) as { topic?: string; queries?: { include_domains?: string[] }[] };
+      const d = JSON.parse(readFileSync(f, 'utf8')) as { topic?: string; queries?: { include_domains?: string[] }[]; sitemaps?: { host: string; picked: string[] }[] };
       if (d.topic !== slug) continue;
       for (const q of d.queries ?? []) if (q.include_domains?.length === 1) out.add(q.include_domains[0]!);
+      // Lido pelo mapa do site com página escolhida conta como buscado: senão os mesmos fabricantes voltam sempre.
+      for (const m of d.sitemaps ?? []) if (m.picked.length) out.add(m.host);
     } catch {
       continue;
     }

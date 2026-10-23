@@ -147,6 +147,10 @@ Feito em 22/10:
       semanas e o enriquecimento reescreve se achar. "Descartar" ajuste de página no ar guarda fontes, evidências e
       lacunas e só desfaz o que o leitor veria
 
+- [x] menos busca paga (23/10): o motor lê o mapa de páginas (sitemap) de cada fabricante cadastrado e escolhe pelas
+      palavras do endereço; Tavily só onde o mapa não acha nada. Brave Search como reserva quando a cota da Tavily
+      acaba ou ela cai; cota esgotada para a página nova limpo, sem adiar pauta
+
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais

@@ -71,7 +71,56 @@ export function cleanDomains(list: string[] | undefined): string[] {
   return [...new Set(out.filter((h) => /^(\*\.)?([a-z0-9-]+\.)+[a-z]{2,}$/.test(h)))];
 }
 
+// Busca com reserva (23/10): a Tavily responde; se a cota dela acabou, a chave falta ou o serviço caiu (5xx), a Brave
+// Search responde no lugar, com teto próprio. Sem chave da Brave, o erro da Tavily segue como antes.
 export async function webSearch(query: string, opts: SearchOptions = {}, fetchImpl: typeof fetch = fetch): Promise<SearchResult[]> {
+  try {
+    return await tavilySearch(query, opts, fetchImpl);
+  } catch (e) {
+    const fallback = e instanceof SearchError && (e.code !== 'HTTP' || /^HTTP 5\d\d/.test(e.message));
+    if (!fallback || !process.env.BRAVE_API_KEY) throw e;
+    return braveSearch(query, opts, fetchImpl);
+  }
+}
+
+// Brave Search API (plano grátis: 1 busca por segundo, ~2.000 por mês). Não tem include_domains: vira "site:" na
+// consulta e o resultado é filtrado pelo domínio. O resumo é curto (descrição), então a triagem tem menos texto.
+export const BRAVE_MONTHLY_CAP = Number(process.env.BRAVE_MONTHLY_CAP ?? 1800);
+const BRAVE_LEDGER = join(STATE_DIR, 'brave-usage.json');
+export function braveThisMonth(): number {
+  if (!existsSync(BRAVE_LEDGER)) return 0;
+  return (JSON.parse(readFileSync(BRAVE_LEDGER, 'utf8')) as Record<string, number>)[month()] ?? 0;
+}
+let braveLast = 0;
+export async function braveSearch(query: string, opts: SearchOptions = {}, fetchImpl: typeof fetch = fetch, sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))): Promise<SearchResult[]> {
+  const key = process.env.BRAVE_API_KEY;
+  if (!key) throw new SearchError('BRAVE_API_KEY ausente', 'NO_KEY');
+  if (braveThisMonth() + 1 > BRAVE_MONTHLY_CAP) throw new SearchError(`teto mensal de ${BRAVE_MONTHLY_CAP} buscas Brave atingido (reserva da Tavily)`, 'MONTHLY_CAP');
+  const include = cleanDomains(opts.includeDomains).filter((d) => !d.startsWith('*.')).slice(0, 5);
+  const exclude = cleanDomains(opts.excludeDomains).filter((d) => !d.startsWith('*.')).slice(0, 5);
+  const q = [query, include.length ? `(${include.map((d) => `site:${d}`).join(' OR ')})` : '', ...exclude.map((d) => `-site:${d}`)].filter(Boolean).join(' ');
+  const wait = braveLast + 1100 - Date.now();
+  if (wait > 0) await sleep(wait);
+  braveLast = Date.now();
+  const url = `https://api.search.brave.com/res/v1/web/search?${new URLSearchParams({ q, count: String(Math.min(opts.maxResults ?? 8, 20)), country: 'BR', search_lang: 'pt-br' })}`;
+  const res = await fetchImpl(url, { headers: { accept: 'application/json', 'x-subscription-token': key }, signal: AbortSignal.timeout(30_000) });
+  if (!res.ok) {
+    const text = (await res.text()).slice(0, 200);
+    throw new SearchError(`Brave: HTTP ${res.status} ${text}`, res.status === 429 && /quota|limit/i.test(text) ? 'MONTHLY_CAP' : 'HTTP');
+  }
+  mkdirSync(dirname(BRAVE_LEDGER), { recursive: true });
+  const l: Record<string, number> = existsSync(BRAVE_LEDGER) ? JSON.parse(readFileSync(BRAVE_LEDGER, 'utf8')) : {};
+  l[month()] = (l[month()] ?? 0) + 1;
+  writeFileSync(BRAVE_LEDGER, JSON.stringify(l, null, 2));
+  const body = (await res.json()) as { web?: { results?: { title: string; url: string; description?: string }[] } };
+  const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+  const strip = (t: string) => t.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+  return (body.web?.results ?? [])
+    .filter((r) => !include.length || include.some((d) => host(r.url) === d || host(r.url).endsWith(`.${d}`)))
+    .map((r, i) => ({ title: strip(r.title), url: r.url, content: strip(r.description ?? ''), score: Math.max(0.1, 0.9 - i * 0.05) }));
+}
+
+async function tavilySearch(query: string, opts: SearchOptions = {}, fetchImpl: typeof fetch = fetch): Promise<SearchResult[]> {
   const key = process.env.TAVILY_API_KEY;
   if (!key) throw new SearchError('TAVILY_API_KEY ausente', 'NO_KEY');
   // Checa ANTES de gastar. Busca básica = 1 crédito.

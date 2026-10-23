@@ -18,3 +18,26 @@ describe('cota do plano Tavily', () => {
     await expect(webSearch('a', {}, reply(500, 'erro'))).rejects.toMatchObject({ code: 'HTTP' });
   });
 });
+
+describe('Brave como reserva da Tavily', () => {
+  it('cota da Tavily esgotada: a Brave responde, com site: e filtro de domínio; erro 4xx comum não troca de buscador', async () => {
+    const { webSearch, braveThisMonth } = await import('../src/search.ts');
+    process.env.BRAVE_API_KEY = 'brave-test';
+    const asked: string[] = [];
+    const f = (async (url: string) => {
+      if (url.startsWith('https://api.tavily.com')) return new Response('{"detail":"usage limit"}', { status: 432 });
+      asked.push(url);
+      return new Response(JSON.stringify({ web: { results: [
+        { title: 'Ficha <strong>Probel</strong>', url: 'https://www.probel.com.br/colchao-x', description: 'Densidade D33 &amp; molas' },
+        { title: 'Loja', url: 'https://loja.com.br/colchao', description: 'oferta' },
+      ] } }));
+    }) as unknown as typeof fetch;
+    const r = await webSearch('colchão densidade', { includeDomains: ['probel.com.br'] }, f);
+    expect(r).toEqual([{ title: 'Ficha Probel', url: 'https://www.probel.com.br/colchao-x', content: 'Densidade D33 & molas', score: 0.9 }]);
+    expect(decodeURIComponent(asked[0]!)).toContain('site:probel.com.br');
+    expect(braveThisMonth()).toBe(1);
+    const bad = (async (url: string) => (url.startsWith('https://api.tavily.com') ? new Response('bad request', { status: 400 }) : new Response('{}'))) as unknown as typeof fetch;
+    await expect(webSearch('x', {}, bad)).rejects.toMatchObject({ code: 'HTTP' });
+    delete process.env.BRAVE_API_KEY;
+  });
+});

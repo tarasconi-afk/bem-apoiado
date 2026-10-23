@@ -33,7 +33,7 @@ um do outro: perder um dos dois não perde o projeto.
 
 | Item | Para que serve | Se perder |
 |---|---|---|
-| `/etc/bem-apoiado/env`: `NEXOS_API_KEY`, `NEXOS_BASE_URL`, `TAVILY_API_KEY`, `TAVILY_MONTHLY_CAP` | IA (roteador) e busca | gerar chave nova nos painéis dos fornecedores; arquivo `root:bemapoiado 640` |
+| `/etc/bem-apoiado/env`: `NEXOS_API_KEY`, `NEXOS_BASE_URL`, `TAVILY_API_KEY`, `TAVILY_MONTHLY_CAP`, `BRAVE_API_KEY` (reserva da busca, opcional) | IA (roteador) e busca | gerar chave nova nos painéis dos fornecedores; arquivo `root:bemapoiado 640` |
 | `gsc-key.json` | leitura do Search Console e reenvio do sitemap | criar chave nova da conta de serviço no Google Cloud e colar no painel (Desempenho → Google Search Console) |
 | `painel-auth.json` | senha do painel | `npm run -s engine -- admin-senha` (lê a senha da entrada padrão) |
 | `/opt/bem-apoiado/.ssh/github_deploy` | a VPS envia commits ao GitHub | gerar par novo, cadastrar a chave pública em GitHub → Settings → Deploy keys com escrita |

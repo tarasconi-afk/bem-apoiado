@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 // Credenciais do motor: variáveis de ambiente, com fallback para o arquivo da VPS. Nunca no repositório.
 // Importado primeiro por quem precisa de chave (LLM, busca), para não depender da ordem dos imports.
 const ENV_FILE = '/etc/bem-apoiado/env';
-if (existsSync(ENV_FILE) && (!process.env.NEXOS_API_KEY || !process.env.TAVILY_API_KEY)) {
+if (existsSync(ENV_FILE) && (!process.env.NEXOS_API_KEY || !process.env.TAVILY_API_KEY || !process.env.BRAVE_API_KEY)) {
   try {
     process.loadEnvFile(ENV_FILE);
   } catch {

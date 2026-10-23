@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
 import { MODELS } from './models.ts';
 import { plainOutcome } from './changes.ts';
-import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
+import { creditsThisMonth, MONTHLY_CREDIT_CAP, braveThisMonth, BRAVE_MONTHLY_CAP } from './search.ts';
 import { computeLearning } from './learning.ts';
 import { rawIntact } from './snapshot.ts';
 import { buildIndex, DATA, loadPages, loadProducts, ROOT, RUNS_DIR, STATE_DIR } from './store.ts';
@@ -177,6 +177,7 @@ ${goalsCard(pages, sum(since(24 * 7)), now)}
 <div class="card"><div class="v">${idx.sources.size} / ${idx.claims.size}</div><div class="l">fontes / evidências</div></div>
 <div class="card"><div class="v">${products.length}</div><div class="l">produtos no catálogo</div></div>
 <div class="card"><div class="v">${creditsThisMonth()} / ${MONTHLY_CREDIT_CAP}</div><div class="l">buscas Tavily no mês (teto)</div></div>
+<div class="card"><div class="v">${process.env.BRAVE_API_KEY ? `${braveThisMonth()} / ${BRAVE_MONTHLY_CAP}` : '–'}</div><div class="l">${process.env.BRAVE_API_KEY ? 'buscas Brave no mês (reserva da Tavily)' : 'reserva Brave: sem chave'}</div></div>
 <div class="card"><div class="v">${violations.length === 0 ? '0' : `<span style="color:var(--bad)">${violations.length}</span>`}</div><div class="l">violações no gate</div></div>
 </div>
 ${opts.adminHtml ? '' : `${cycleLiveHtml(now)}${liveWarning()}`}
