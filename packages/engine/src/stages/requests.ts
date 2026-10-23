@@ -401,13 +401,17 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     const sb = readerScore(before.review);
     const yes = (b: boolean | undefined) => (b === false ? 'não' : 'sim');
     const line = (r: typeof after.review) => `responde à dúvida ${r.answers_primary_query === 'yes' ? 'sim' : r.answers_primary_query === 'partial' ? 'em parte' : 'não'} · resposta rápida ${yes(r.quick_answer)} · leigo ${yes(r.reader_fit)} · leva à compra ${yes(r.purchase_path)}`;
+    // Ajuste que não melhorou e a página ainda não decide: falta fonte, não texto. O que o juiz diz que falta vira
+    // lacuna da pauta; a manutenção busca fonte para ela uma vez por semana e reescreve se achar (23/10, editor:
+    // "se há algo a aprender, sempre deixe como aprendizado").
+    const gapNote = sa <= sb && after.review.answers_primary_query !== 'yes' ? recordGaps(slug, after.review.missing) : '';
     if (sa < sb) {
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
       writeStage(runId, 'regression', { before: before.review, after: after.review, score_before: sb, score_after: sa });
-      return `${lessonNote}ajuste não aplicado: a versão nova ficou pior na revisão de leitor (antes ${sb} de 4, depois ${sa} de 4), então a página continua como estava${fresh ? `; as ${fresh} evidência(s) nova(s) ficam guardadas` : ''}.\nantes: ${line(before.review)}\ndepois: ${line(after.review)}\nPeça de novo dizendo o que a página deve passar a dizer (ex.: "Se você…, escolha…"), ou recuse com esse motivo.`;
+      return `${lessonNote}ajuste não aplicado: a versão nova ficou pior na revisão de leitor (antes ${sb} de 4, depois ${sa} de 4), então a página continua como estava${fresh ? `; as ${fresh} evidência(s) nova(s) ficam guardadas` : ''}.\nantes: ${line(before.review)}\ndepois: ${line(after.review)}\nPeça de novo dizendo o que a página deve passar a dizer (ex.: "Se você…, escolha…"), ou recuse com esse motivo.${gapNote}`;
     }
     writeStage(runId, 'page', { status: 'EDITOR_ADJUST', review: after.review, review_before: before.review });
-    reviewNote = `\nrevisão de leitor: ${line(after.review)} (nota ${sa} de 4; antes ${sb})`;
+    reviewNote = `\nrevisão de leitor: ${line(after.review)} (nota ${sa} de 4; antes ${sb})${gapNote}`;
   } catch {
     reviewNote = '\nrevisão de leitor: não rodou (o ajuste vale assim mesmo)';
   }
@@ -418,6 +422,22 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     (cl.dropped.length ? `; ${cl.dropped.length} bloco(s) sem fonte descartado(s)` : '') +
     unsupportedNote +
     reviewNote;
+}
+
+// Lacuna de conteúdo (não de forma: "Para o leitor leigo: …" é texto, que o redator resolve) entra na pauta.
+export function recordGaps(slug: string, missing: string[]): string {
+  const gaps = missing.filter((m) => !/^Para o leitor leigo:/i.test(m) && !/resposta curta|sem jargão|até 3 frases/i.test(m)).slice(0, 3);
+  if (!gaps.length) return '';
+  const f = join(TOPICS_DIR, `${slug}.json`);
+  if (!existsSync(f)) return '';
+  const t = loadTopic(slug);
+  const merged = [...new Set([...gaps, ...t.evidence_gaps])].slice(0, 4);
+  writeJson(f, TopicBrief.parse({ ...t, evidence_gaps: merged }));
+  // Marca a página para a busca semanal de fonte (só as marcadas aqui: lacuna antiga de forma não gasta busca).
+  const sf = join(DATA, 'source-gaps.json');
+  const cur = existsSync(sf) ? (JSON.parse(readFileSync(sf, 'utf8')) as Record<string, { at: string; gaps: string[]; tries: number }>) : {};
+  writeJson(sf, { ...cur, [slug]: { at: new Date().toISOString(), gaps, tries: 0 } });
+  return `\nfalta fonte, não texto: o motor guardou como lacuna "${gaps[0]!.slice(0, 120)}"${gaps.length > 1 ? ` (+${gaps.length - 1})` : ''} e procura fonte para ela na manutenção (1x por semana); se achar, reescreve a página e o resultado vem para o quadro. Outro ajuste de texto antes disso não deve resolver.`;
 }
 
 // Antes × depois de cada ajuste, com o pedido, nos registros da execução (vai no commit): o painel mostra em

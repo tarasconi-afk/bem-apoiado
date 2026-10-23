@@ -233,14 +233,15 @@ async function main(): Promise<number> {
     }
     case 'changes': {
       // changes <ref> [--publicas]: o que o resultado muda (JSON) ou só quantas mudanças públicas tem.
-      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { publicas: { type: 'boolean' } } });
+      // --ids: ids das mudanças públicas separados por vírgula (descartar ajuste guardando o aprendizado).
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { publicas: { type: 'boolean' }, ids: { type: 'boolean' } } });
       if (!positionals[0]) {
         console.error('uso: changes <ref> [--publicas]');
         return 2;
       }
       const { gitChanges } = await import('./changes.ts');
       const { summary } = gitChanges(positionals[0]);
-      console.log(values.publicas ? String(summary.items.length) : JSON.stringify(summary, null, 2));
+      console.log(values.ids ? summary.items.map((i) => i.id).join(',') : values.publicas ? String(summary.items.length) : JSON.stringify(summary, null, 2));
       return 0;
     }
     case 'changes-exclude': {

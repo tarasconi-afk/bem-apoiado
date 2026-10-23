@@ -300,6 +300,16 @@ case "$action" in
     ;;
   descartar)
     fresh
+    # Ajuste de página no ar: descartar desfaz o que o leitor veria e GUARDA o aprendizado (fontes, evidências,
+    # lacunas da pauta). 23/10, editor: "se há algo a aprender, sempre deixe como aprendizado". Página nova ou
+    # pauta: apaga tudo e refaz do zero, como antes.
+    slug=$(printf '%s' "${2#pagina/}" | sed -E 's/-[0-9]{8}-[0-9]{4}$//')
+    if git show "origin/main:data/pages/$slug.json" 2>/dev/null | grep -q '"status": "approved"'; then
+      ids=$(npm run -s engine -- changes "origin/$2" --ids)
+      merge_branch "$2" "$ids" >/dev/null && { echo "descartado: $2 (o texto no ar não mudou; fontes, evidências e lacunas ficaram guardadas)"; preview; exit 0; }
+      echo "não deu para guardar o aprendizado de $2; descartado inteiro" >&2
+      fresh
+    fi
     git push -q origin --delete "$2"
     echo "descartado: $2"
     ;;

@@ -413,7 +413,9 @@ ${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'pub
 <div class="dhead"><span class="tag">${esc(KIND_LABEL[info.kind])}</span> <strong>${esc(subject)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></div>
 ${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
 ${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir') : ''}${extra}
-${info.kind === 'pauta-tentada' ? '' : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
+${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
+  ? `<div class="dfoot">${form('descartar', { ramo: b.branch }, 'Descartar este ajuste', 'link', 'Descartar este ajuste? A página no ar não muda; as fontes, evidências e lacunas que ele achou ficam guardadas.')} <span class="muted">(a página no ar fica como está; o que o motor aprendeu fica guardado)</span></div>`
+  : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
 </div>`;
     cards.push({ order: SUGGESTION_ORDER.indexOf(info.suggestion), html });
   }

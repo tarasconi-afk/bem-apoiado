@@ -79,3 +79,18 @@ describe('tipo de produto novo pelo pedido', () => {
     expect(() => createKind({ label: 'protetor de colchao', accessory: true, category: '', slugs: [], makers: [] })).toThrow(/já existe/);
   });
 });
+
+describe('ajuste sem ganho vira lacuna da pauta', () => {
+  it('guarda o que falta de conteúdo (não de forma) e não duplica', async () => {
+    const { recordGaps } = await import('../src/stages/requests.ts');
+    const slug = 'protetor-de-colchao-vale-a-pena';
+    const missing = ['Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão', 'Para o leitor leigo: A página usa termos técnicos', 'Uma regra direta para escolher entre os tipos conforme o uso'];
+    expect(recordGaps(slug, missing)).toContain('falta fonte, não texto');
+    recordGaps(slug, missing);
+    const gaps = JSON.parse(readFileSync(join(root, `data/topics/${slug}.json`), 'utf8')).evidence_gaps as string[];
+    expect(gaps.filter((g) => g === 'Uma regra direta para escolher entre os tipos conforme o uso')).toHaveLength(1);
+    expect(gaps.some((g) => /leigo|3 frases/.test(g))).toBe(false);
+    expect(recordGaps(slug, ['Para o leitor leigo: jargão'])).toBe('');
+    expect(JSON.parse(readFileSync(join(root, 'data/source-gaps.json'), 'utf8'))[slug]).toMatchObject({ tries: 0, gaps: ['Uma regra direta para escolher entre os tipos conforme o uso'] });
+  });
+});

@@ -273,6 +273,38 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   }
 }
 const ENRICH_MIN_CREDITS = 40;
+
+// Página no ar marcada em data/source-gaps.json (ajuste do editor que não melhorou porque falta fonte, não texto) e
+// sem fonte nova para ler: busca fonte para a lacuna, uma vez por semana por página, por até 3 semanas. O que achar entra na pauta como fonte
+// ainda não pesquisada, e o enriquecimento acima lê e reescreve (com aceite no quadro). 23/10: a cadeira
+// ergonômica ou gamer teve 8 ajustes de texto sem ganho; faltava fonte que dissesse quando escolher cada tipo.
+async function maintainGapSources(steps: string[]): Promise<boolean> {
+  const sf = join(DATA, 'source-gaps.json');
+  if (!existsSync(sf)) return false;
+  const marked = JSON.parse(readFileSync(sf, 'utf8')) as Record<string, { at: string; gaps: string[]; tries: number; last?: string }>;
+  const week = 7 * 86_400_000;
+  const topics = new Map(loadTopics().map((t) => [t.slug, t]));
+  const live = new Set(loadPages().filter((p) => p.status !== 'draft').map((p) => p.slug));
+  const slug = Object.keys(marked).find((s) => {
+    const t = topics.get(s);
+    return live.has(s) && t && t.source_ids.every((x) => t.researched_source_ids.includes(x)) && !(marked[s]!.last && Date.now() - Date.parse(marked[s]!.last!) < week);
+  });
+  if (!slug || creditsLeft() < ENRICH_MIN_CREDITS) return false;
+  const m = marked[slug]!;
+  try {
+    const r = await discoverSources(slug, newRunId(`${slug}-lacuna`), { maxSearches: 4, maxSources: 5, makerSearches: 4 });
+    const added = r.added.filter((a) => a.created).length;
+    const tries = added ? 0 : m.tries + 1;
+    // 3 semanas sem fonte: desiste e diz o que falta (só um fabricante indicado pelo editor resolve).
+    const { [slug]: _, ...rest } = marked;
+    writeJson(sf, added || tries < 3 ? { ...marked, [slug]: { ...m, tries, last: new Date().toISOString() } } : rest);
+    steps.push(`busca de fonte para a lacuna de ${slug} ("${m.gaps[0]!.slice(0, 80)}"): ${added ? `${added} fonte(s) nova(s); a página é reescrita com elas no enriquecimento` : tries < 3 ? `nada novo; tenta de novo em 7 dias (${tries} de 3)` : 'nada em 3 semanas; a busca para. Só um fabricante ou fonte indicada por você resolve'}`);
+    return true;
+  } catch (e) {
+    steps.push(`busca de fonte para a lacuna de ${slug}: falhou (${(e as Error).message.slice(0, 80)})`);
+    return false;
+  }
+}
 const PAGE_MIN_CREDITS = 15;
 
 // Descoberta de pautas (autocompletar do Google + triagem barata), uma vez por semana; as 5 melhores
@@ -445,13 +477,14 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m1 = await maintainProducts(runId, steps);
   const m2 = await maintainImages(steps);
   const m3 = await maintainAudit(runId, steps);
+  const m4a = await maintainGapSources(steps);
   const m4 = await maintainEnrich(runId, steps);
   const m5 = await maintainGsc(steps);
   const m6 = await maintainIdeas(steps);
   const m7 = await maintainLinks(steps);
   const m8 = await maintainSummary(runId, steps);
   const m9 = await maintainDuplicates(steps);
-  const maintained = m1 || m2 || m3 || m4 || m5 || m6 || m7 || m8 || m9;
+  const maintained = m1 || m2 || m3 || m4a || m4 || m5 || m6 || m7 || m8 || m9;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.

@@ -60,7 +60,7 @@ export function textDiffs(before: PageSpec, after: PageSpec): { where: string; b
   return out;
 }
 
-const LEARNING = [/^data\/(sources|claims|runs|topics|feedback|proposals)\//, /^data\/(queue|ideas|topic-variants|dev-requests)\.json$/, /^data\/registry\//];
+const LEARNING = [/^data\/(sources|claims|runs|topics|feedback|proposals)\//, /^data\/(queue|ideas|topic-variants|dev-requests|source-gaps)\.json$/, /^data\/registry\//];
 
 export function describeChanges(files: FileChange[], readMain: Read, readBranch: Read): ChangeSummary {
   const items: ChangeItem[] = [];

@@ -142,6 +142,11 @@ Feito em 22/10:
 - [x] aba "Páginas" no painel (23/10): uma linha por página no ar com nota do juiz atual, visitas, cliques na
       Amazon, Google, busca, filtro de categoria, ordenação e ações (pronta para 200+ páginas)
 
+- [x] ajuste sem ganho vira aprendizado (23/10): quando o ajuste não melhora e a página ainda não decide, o que
+      falta vira lacuna da pauta (data/source-gaps.json); a manutenção busca fonte para ela 1x/semana por até 3
+      semanas e o enriquecimento reescreve se achar. "Descartar" ajuste de página no ar guarda fontes, evidências e
+      lacunas e só desfaz o que o leitor veria
+
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais
