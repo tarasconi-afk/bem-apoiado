@@ -32,9 +32,10 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
     page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
     questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15) })).min(4).max(7),
     focus_terms: z.array(z.string().min(2)).min(2).max(8),
-    listing_terms: z.array(z.string().min(2)).max(3).default([]),
-    product_kinds: z.array(z.enum(kinds)).max(4),
-    editorial_notes: z.array(z.string()).max(4),
+    listing_terms: z.array(z.string().min(2)).default([]),
+    // Sem limite rígido (23/10: 5 itens derrubavam a pauta inteira); o excesso é cortado depois.
+    product_kinds: z.array(z.enum(kinds)),
+    editorial_notes: z.array(z.string()),
   });
   const r = await callJson(
     {
@@ -66,7 +67,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
     },
     fetchImpl,
   );
-  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, source_ids: [] });
+  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, product_kinds: r.data.product_kinds.slice(0, 4), editorial_notes: r.data.editorial_notes.slice(0, 4), listing_terms: r.data.listing_terms.slice(0, 3), source_ids: [] });
   writeJson(path, topic);
   return { topic, created: true };
 }
