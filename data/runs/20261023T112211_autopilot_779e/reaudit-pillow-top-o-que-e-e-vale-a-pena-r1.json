@@ -1,0 +1,41 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se a prioridade for conforto extra, a Ortobom recomenda seu Pillow Top HR Gel. O produto tem uma lâmina de espuma de 5 cm, e existem modelos avulsos que se adaptam sobre o colchão com elásticos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7395e7a3b5f6",
+        "clm_067647993c88",
+        "clm_23e51663d557"
+      ]
+    },
+    {
+      "ref": "altura-acrescentada#1",
+      "action": "replace",
+      "text": "Verifique a espessura informada do pillow top: a lâmina de espuma citada tem 5,0 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_067647993c88",
+        "clm_2e6c89f76417",
+        "clm_813ffbf2076c"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "action": "replace",
+      "text": "A certificação do Inmetro avalia apenas a espuma flexível de poliuretano, o revestimento e a chapa dura do colchão; as demais propriedades e materiais declarados pelo fabricante não foram avaliados pelo regulador.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_571c2ce93e7d"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Ortobom recomenda o Pillow Top HR Gel quando a prioridade é conforto extra e que ele tem uma lâmina de espuma de 5 cm. Porém, o trecho da Americanflex apenas identifica um produto como “Pillow Top Avulso” e não diz que ele se adapta sobre o colchão nem que possui elásticos."
+    }
+  ]
+}

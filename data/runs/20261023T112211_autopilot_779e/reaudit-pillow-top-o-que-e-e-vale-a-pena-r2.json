@@ -1,0 +1,25 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Pillow top é uma camada extra de conforto posicionada sobre o colchão. Existem dois tipos: os fixos, presos com elásticos nos cantos, e os avulsos, que se adaptam sobre o colchão com elásticos reguláveis. A altura que adiciona varia entre 5 e 7 cm conforme o modelo e o fabricante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_261629aa3474",
+        "clm_070d1e8dcda0",
+        "clm_5cd1fceec535",
+        "clm_450b47f9f8b2",
+        "clm_1632170ff345",
+        "clm_067647993c88",
+        "clm_867e9d9c4867"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As afirmações são apresentadas como fatos gerais, mas os trechos citados são todos de fabricantes. Além disso, os trechos mostram exemplos de elásticos laterais, elásticos reguláveis e alturas de 5 cm e 7 cm, mas não estabelecem que existam exatamente dois tipos nem que todos os modelos variem entre 5 e 7 cm."
+    }
+  ]
+}
