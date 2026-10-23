@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-23T17:30:44.829Z",
+  "instruction": "Corrija, só com o que as fontes sustentarem: 1) A página não identifica claramente qual medida corresponde ao colchão solteirão: mistura 88 × 188 cm, 100 × 200 cm e medidas de solteiro sem estabelecer uma comparação direta com o viúva. 2) O leitor sabe que deve medir o espaço, mas não recebe uma regra completa para escolher o solteirão quando dispõe de medidas diferentes de 88 cm ou 128 cm. 3) O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso, o trecho \"Se a base tiver 88 × 188 cm, ...\" naõ faz muito sentido, defina usecases",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Comparação de dimensões, capacidade de carga e garantia entre colchões solteirão e viúva para ajudar na escolha pelo espaço disponível.",
+      "after": "Escolha entre solteiro (88 × 188 cm), solteirão (100 × 200 cm) e viúva (128 × 188 cm) pelo espaço disponível. Meça a base ou o quarto."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "A escolha depende do espaço disponível. Os trechos mostram modelos de solteiro e solteirão com 88 × 188 cm e 100 × 200 cm, e modelos viúva com 128 × 188 cm. Confira as dimensões exatas no anúncio do modelo que vai comprar.",
+      "after": "Solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Viúva mede 128 × 188 cm, segundo a Probel. Confira na ficha técnica do modelo exatamente qual é a largura e o comprimento antes de comprar."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · bloco 1",
+      "before": "Se a base tiver 88 × 188 cm, confira no anúncio se o produto declara largura e comprimento de 88 × 188 cm.",
+      "after": "Se você tem espaço para 88 cm de largura no quarto ou na base: o colchão solteiro mede 88 × 188 cm. Confira na ficha do produto que o modelo declara exatamente essa medida antes de comprar."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · bloco 2",
+      "before": "Se você precisa de mais largura e dispõe de 128 cm, escolha um colchão viúva; confira se o comprimento de 188 cm cabe no espaço ou na base, segundo a Probel.",
+      "after": "Se você tem espaço para 88 cm de largura: o colchão solteiro mede 88 × 188 cm, segundo Gazin e Ortobom. Verifique na ficha técnica do modelo as dimensões exatas de largura e comprimento antes de comprar."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · bloco 3",
+      "before": "Dimensões declaradas pelos fabricantes · Modelo no Compras.gov.br | 78 cm | 188 cm | 17 cm / Modelo no Compras.gov.br | 88 cm | 188 cm | 17 cm / Viúva | 128 cm | 188 cm | 17 a 26 cm",
+      "after": "Se você tem 128 cm de largura disponível: o colchão viúva mede 128 × 188 cm, segundo a Probel. Confira se o comprimento de 188 cm cabe na base ou no espaço do quarto."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · tabela",
+      "before": "(novo)",
+      "after": "Medidas padrão por tamanho de colchão · Solteiro | 88 × 188 cm, conforme informado por Gazin e Ortobom"
+    }
+  ]
+}

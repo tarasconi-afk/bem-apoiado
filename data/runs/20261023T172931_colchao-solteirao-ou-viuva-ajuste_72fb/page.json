@@ -1,0 +1,65 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#3.r0",
+      "itens-inclusos#0"
+    ],
+    "decision_criteria": [
+      "Escolha o solteiro se a base ou o espaço disponível comporta 88 × 188 cm.",
+      "Escolha o viúva se há espaço para 128 × 188 cm e esse comprimento cabe no quarto e na base.",
+      "Confira na ficha técnica do modelo a largura e o comprimento exatos antes da compra.",
+      "Compare a capacidade por pessoa declarada pelo fabricante: o modelo solteirão citado suporta 120 kg, enquanto os modelos viúva citados variam de 110 kg a 150 kg.",
+      "Verifique se a base tem as mesmas medidas do colchão; a Probel lista conjunto box viúva de 128 × 188 cm."
+    ],
+    "missing": [
+      "Uma explicação explícita de que “solteirão” e “solteiro” estão sendo usados para o mesmo tamanho, se essa for a intenção da página.",
+      "Dimensões de viúva informadas por pelo menos um segundo fabricante, para permitir comparação entre marcas.",
+      "Medida ou compatibilidade da base para o colchão solteiro.",
+      "Capacidade máxima de modelos solteiro e viúva de mais fabricantes, deixando claro que os valores variam conforme o modelo.",
+      "Lista real dos itens incluídos nos produtos anunciados como Kit Box ou Conjunto Box, em vez de apenas mencionar o título do anúncio.",
+      "Prazo de garantia de um modelo solteiro e esclarecimento sobre eventual diferença de garantia entre os tamanhos.",
+      "Orientação sobre a quantidade de pessoas: o viúva oferece mais largura, mas a página não informa se é indicado para uma ou duas pessoas."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à escolha com medidas concretas e orienta o leitor a conferir espaço, comprimento, base e ficha técnica. A resposta curta é rápida e útil, embora use “solteiro” no conteúdo sem explicar a relação com “solteirão” e tenha lacunas em base, garantia e itens inclusos.",
+    "filler_ratio": 0.3,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "itens-inclusos#0"
+    ],
+    "decision_criteria": [
+      "Se a base ou o espaço disponível tem 88 × 188 cm, conferir no anúncio se o colchão tem exatamente essas medidas.",
+      "Se é necessário mais espaço para dormir e há 128 cm de largura disponíveis, escolher um colchão viúva e confirmar se os 188 cm de comprimento cabem.",
+      "Conferir as medidas exatas do modelo no anúncio, pois há variações como 88 × 188 cm, 100 × 200 cm e 128 × 188 cm.",
+      "Verificar se a base ou o estrado tem as mesmas dimensões declaradas para o colchão.",
+      "Comparar a capacidade de peso por pessoa quando esse dado for relevante para a escolha."
+    ],
+    "missing": [
+      "Uma definição mais clara de quando escolher o solteirão de 100 × 200 cm em vez do viúva de 128 × 188 cm.",
+      "Dimensões identificadas por tamanho e fabricante, sem misturar modelos de solteiro, solteirão e viúva.",
+      "Dados de capacidade de peso para todos os tamanhos comparados, especialmente o modelo solteirão de 100 × 200 cm.",
+      "Indicação de pelo menos dois fabricantes para confirmar as medidas de solteirão e viúva.",
+      "Informação sobre a largura mínima do quarto ou circulação necessária além do espaço ocupado pela base."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à escolha com medidas concretas, mostra que o viúva oferece mais largura e orienta o leitor a conferir o anúncio e a compatibilidade com a base. Faltam uma distinção mais clara entre solteiro, solteirão e os diferentes modelos de solteirão, além de dados comparáveis de mais fabricantes, mas isso não impede a decisão básica.",
+    "filler_ratio": 0.09090909090909091,
+    "model_opinion": true
+  }
+}
