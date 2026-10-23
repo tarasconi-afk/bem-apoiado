@@ -4,7 +4,7 @@ import Cite from '../components/Cite.astro';
 import Linked from '../components/Linked.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { BRAND, categoryOf, fmtDate, href, imageFor, inlineLinks, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import { BRAND, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -17,6 +17,8 @@ const products = productsFor(page);
 const searches = searchLinksFor(page);
 const n = fn.numberFor;
 const kinds = kindsFor(page);
+// Item específico com capa própria já gerada: capa no lugar da grade de tipos.
+const focusCover = itemFocus(page) && !!imageFor(`pagina-${page.slug}`);
 const cat = categoryOf(page);
 const related = relatedPages(page);
 const links = inlineLinks(page);
@@ -72,13 +74,13 @@ const jsonLd = [
         <li class="verified"><span aria-hidden="true">✓</span> Cada afirmação aponta para a fonte</li>
       </ul>
       {/* Um tipo só: capa larga sem rótulo (o título já diz o tema). Vários tipos: grade com o nome de cada um. */}
-      {kinds.length === 1 && (
+      {(kinds.length === 1 || (focusCover && kinds.length > 0)) && (
         <figure class="cover">
           <KindImage id={imageFor(`pagina-${page.slug}`) ? `pagina-${page.slug}` : kinds[0]!} class="cover-img" sizes="(min-width: 66rem) 62rem, 92vw" eager />
           <figcaption><a class="ast" href="#nota-imagens" aria-label="Sobre a imagem">*</a></figcaption>
         </figure>
       )}
-      {kinds.length > 1 && (
+      {kinds.length > 1 && !focusCover && (
         <figure class="types">
           <ul class={`types-grid n${Math.min(kinds.length, 4)}`}>
             {kinds.map((k) => (

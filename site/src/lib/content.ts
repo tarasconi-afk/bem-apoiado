@@ -110,6 +110,12 @@ export function productsFor(page: PageSpec): ProductCard[] {
 }
 
 // Tipos que a página explica (para as ilustrações). "outro" não tem desenho próprio.
+// Página sobre um item específico (pauta com termos do anúncio, como "pillow top"): o topo mostra a capa própria
+// da página, não a grade dos tipos de colchão (23/10: o pillow top abria com 4 ilustrações de colchão).
+export function itemFocus(page: PageSpec): boolean {
+  return (loadTopics().find((t) => t.slug === page.slug)?.listing_terms ?? []).length > 0;
+}
+
 export function kindsFor(page: PageSpec): string[] {
   const topic = loadTopics().find((t) => t.slug === page.slug);
   return (topic?.product_kinds ?? []).filter((k) => k !== 'outro');
