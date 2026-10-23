@@ -54,8 +54,10 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `posição de dormir, horas de uso, tamanho do quarto) indica cada opção, e com quais valores ou faixas segundo o ` +
         `fabricante ou a norma. É ela que vira a resposta curta e a tabela do "Como decidir" (22/10: as páginas que o ` +
         `editor aprovou de primeira cruzam duas grandezas, como peso e densidade).\n` +
+        `Pauta "A ou B": uma pergunta por opção pedindo o dado que a distingue (medida, capacidade, densidade), com o nome da ` +
+        `opção na pergunta, para nenhuma ficar sem fonte (23/10: "solteirão ou viúva" saiu sem a medida do solteirão).\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
-        `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +
+        `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Também quando a dúvida é entre tamanhos: os tamanhos comparados (ex.: ["solteiro", "solteirão", "viúva"]), senão a página mostra colchão casal numa dúvida de solteiro. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +
         `"product_kinds": só os tipos do vocabulário que a página vai explicar.` +
         editorLessonsPrompt(),
       user:

@@ -49,7 +49,8 @@ const draft = (verdictText: string) => ({
   sections: ['tipos', 'etiqueta', 'como-decidir'].map((id, i) => ({
     id, heading: `Seção ${id}`,
     blocks: [
-      { kind: 'paragraph', text: `Texto sustentado ${i}.`, basis: 'evidence', claim_ids: [IDS[i + 1]] },
+      // O "Como decidir" fala das duas opções do título (regra de decisão de 23/10).
+      { kind: 'paragraph', text: id === 'como-decidir' ? `Texto sustentado ${i} sobre molas e espuma.` : `Texto sustentado ${i}.`, basis: 'evidence', claim_ids: [IDS[i + 1]] },
       ...(id === 'tipos' ? [{ kind: 'paragraph', text: 'Outro texto sustentado.', basis: 'evidence', claim_ids: [IDS[5]] }] : []),
     ],
   })),

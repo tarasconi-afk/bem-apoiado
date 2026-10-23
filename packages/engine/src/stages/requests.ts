@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { Basis, checkPage, DEFAULT_THEME, NicheProfile, PageSpec, Theme, TopicBrief } from '@bem-apoiado/core';
 import { auditDraft } from './audit.ts';
 import { discoverSources } from './discover.ts';
-import { fixFormWithoutAI, styleIssues } from './page.ts';
+import { decisionIssues, fixFormWithoutAI, styleIssues } from './page.ts';
 import { readerScore, reviewPage } from './review.ts';
 import { withoutDuplicates } from './duplicates.ts';
 import { applyMoves, attributeSingleSource, dropClaimless } from './structure.ts';
@@ -363,7 +363,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     else { const sec = patched.sections.find((x) => x.id === sid)!; const src2 = attributed.draft.sections.find((x) => x.id === sid)!; sec.blocks[Number(i)] = src2.blocks[Number(i)]!; }
   }
   const spec = PageSpec.parse({ ...page, ...patched });
-  const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...styleIssues(patched).filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
+  const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...[...styleIssues(patched), ...decisionIssues(patched, (id) => idx.claims.get(id)?.claim_type)].filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
   if (gate.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
   // Audita a seção inteira, não só os blocos escolhidos: bloco vizinho com o mesmo problema ("A base deve
   // ter 5 pés", do mesmo anexo) também entra na correção.

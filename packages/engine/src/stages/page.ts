@@ -100,6 +100,54 @@ export function styleIssues(draft: Draft): Issue[] {
   return out;
 }
 
+// Regras de decisão (23/10, editor sobre o "solteirão ou viúva": "rasa, pouca informação na tabela, não resolve a
+// dúvida como uma dor de quem pesquisa"). Valem na redação e nos trechos que um ajuste toca; não na re-auditoria de
+// página antiga (travaria a correção de outra coisa). Testadas nas 14 páginas no ar: pegam o solteirão (sem a medida
+// do solteirão, tabela de uma linha, condição repetida), o "firme ou macio" (a resposta não diz o que é firme ou
+// macio) e uma "dimensão padronizada" tirada de ficha de produto.
+const GENERIC_TITLE_WORDS = new Set(['colchao', 'cadeira', 'travesseiro', 'qual', 'escolher', 'como', 'diferenca', 'vale', 'pena', 'tamanho', 'decidir', 'chutar', 'significam']);
+const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+export function decisionIssues(draft: Draft, claimType?: (id: string) => string | undefined): Issue[] {
+  const out: Issue[] = [];
+  const blockText = (b: Draft['sections'][number]['blocks'][number]) => (b.kind === 'table' ? [b.caption, ...b.columns, ...b.rows.flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text);
+  // 1) Pergunta "A ou B" no título: a resposta curta ou o "Como decidir" dizem quando escolher CADA opção.
+  const head = draft.title.split(':')[0]!;
+  const decided = fold(`${draft.verdict.text} ${(draft.sections.at(-1)?.blocks ?? []).map(blockText).join(' ')}`);
+  if (/\sou\s/i.test(head)) {
+    for (const opt of fold(head).split(/\s+ou\s+/)) {
+      const ws = opt.split(/[^a-z0-9]+/).filter((w) => (w.length >= 4 || /\d/.test(w)) && !GENERIC_TITLE_WORDS.has(w));
+      if (ws.length && !ws.some((w) => decided.includes(w) || (w.length >= 6 && decided.includes(w.slice(0, -1)))))
+        out.push({ ref: 'verdict', msg: `a resposta curta e o "Como decidir" não falam de "${opt.trim()}", uma das opções do título: diga quando escolher cada opção, com o dado da fonte. Se nenhuma fonte trata dela, a página não pode prometer essa comparação.` });
+    }
+  }
+  draft.sections.forEach((sec) => {
+    const conds: { ref: string; ws: Set<string> }[] = [];
+    sec.blocks.forEach((b, i) => {
+      const ref = `${sec.id}#${i}`;
+      // 2) Tabela de uma linha não compara nada.
+      if (b.kind === 'table' && b.rows.length < 2) out.push({ ref, msg: 'tabela com uma linha só não compara nada: traga uma linha por opção (com o dado de cada uma) ou passe o dado para o texto.' });
+      // 3) A mesma condição "Se você…" duas vezes: o leitor lê duas vezes a mesma orientação.
+      if (b.kind !== 'table') {
+        const m = /^\s*se ([^:]{8,120}?)[:,]/.exec(fold(b.text));
+        if (m) {
+          const ws = new Set(m[1]!.split(/[^a-z0-9]+/).filter(Boolean));
+          const dup = conds.find((c) => [...ws].filter((w) => c.ws.has(w)).length / new Set([...ws, ...c.ws]).size >= 0.6);
+          if (dup) out.push({ ref, msg: `repete a condição de ${dup.ref} ("se ${m[1]!.slice(0, 60)}…"): junte os dois blocos ou diga a outra situação.` });
+          conds.push({ ref, ws });
+        }
+      }
+      // 4) Dado de modelo específico apresentado como regra geral ("padrão", "oficial") sem norma ou definição.
+      if (claimType) {
+        const ids = b.kind === 'table' ? b.rows.flatMap((r) => r.cells.flatMap((c) => c.claim_ids)) : b.claim_ids;
+        const general = /\bpadr(ao|oes|onizad\w*)\b|\boficia(l|is)\b|\bem geral\b|\btodos? os (colchoes|modelos|fabricantes)\b/.exec(fold(blockText(b)));
+        if (ids.length && general && ids.every((id) => ['spec', 'availability'].includes(claimType(id) ?? '')))
+          out.push({ ref, msg: `chama de "${general[0]}" um dado que vem só de fichas de produto: diga "declarado nos modelos citados" (com a marca) ou cite norma ou fabricante que defina a regra.` });
+      }
+    });
+  });
+  return out;
+}
+
 // Conserto de forma sem IA (22/10: o redator recebeu 4 vezes a regra e reescreveu sempre "Segundo a
 // Ortobom, ..."): a atribuição que abre a resposta curta vai para o fim da primeira frase; travessão vira
 // vírgula. Mesmo conteúdo e mesmas fontes; a resposta volta para o auditor.
@@ -249,7 +297,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       ref: refFromWhere(v.where),
       msg: `${v.code} ${v.detail}`,
     }));
-    issues = [...gate, ...styleIssues(draft)];
+    issues = [...gate, ...styleIssues(draft), ...decisionIssues(draft, (id) => idx.claims.get(id)?.claim_type)];
     let findings: AuditFinding[] = [];
     // 2) Auditoria semântica só quando o gate passa (não paga auditor para rascunho quebrado).
     if (issues.length === 0) {

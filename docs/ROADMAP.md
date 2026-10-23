@@ -160,6 +160,11 @@ Feito em 22/10:
 - [x] ~~checagem barata de fonte antes da fila~~ testada e descartada (23/10, ver DECISIONS): bloquearia 6 pautas que
       viraram páginas aprovadas. A checagem antes de escrever segue sendo o filtro
 
+- [x] regras de decisão (23/10, página rasa do solteirão): opção do título sem dado na resposta, tabela de uma linha,
+      condição "Se você…" repetida e dado de ficha de produto chamado de "padrão" viram correção na redação e no
+      ajuste (`page.ts:decisionIssues`); planejador pede o dado de cada opção e usa os tamanhos como termo do anúncio;
+      3 lições do editor novas
+
 ### C. Crescimento — tráfego
 - [ ] Search Console no ciclo (com 20 páginas e 4 a 6 semanas de dados): título/descrição das pouco clicadas,
       melhoria das páginas entre a 8ª e a 20ª posição, pautas novas a partir das buscas reais
