@@ -10,7 +10,7 @@ import { applyMoves, attributeSingleSource, dropClaimless } from './structure.ts
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { textDiffs } from '../changes.ts';
-import { research } from './research.ts';
+import { research, sourcesWorthRereading } from './research.ts';
 import { applyPatches } from './patch.ts';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -250,8 +250,12 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     }));
     await discoverSources(slug, runId, { maxSearches: 4, maxSources: 5 });
     const r = await research(slug, runId, fetchImpl);
-    fresh = r.accepted.filter((a) => a.new).length;
-    freshIds = new Set(r.accepted.filter((a) => a.new).map((a) => a.claim_id));
+    // Fonte já lida que contém palavra rara do pedido é relida com a pergunta nova (ver sourcesWorthRereading).
+    const again = sourcesWorthRereading(slug, instruction);
+    const r2 = again.length ? await research(slug, `${runId}-releitura`, fetchImpl, again).catch(() => null) : null;
+    const accepted = [...r.accepted, ...(r2?.accepted ?? [])];
+    fresh = accepted.filter((a) => a.new).length;
+    freshIds = new Set(accepted.filter((a) => a.new).map((a) => a.claim_id));
     // A lacuna temporária sai; a pergunta nova fica (as evidências achadas ficam ligadas a ela).
     writeJson(topicFile, TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: before.evidence_gaps }));
   }

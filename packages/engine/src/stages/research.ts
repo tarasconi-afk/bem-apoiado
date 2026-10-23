@@ -200,3 +200,23 @@ function accept(
     report.coverage[c.question_id] = (report.coverage[c.question_id] ?? 0) + 1;
   }
 }
+
+// Releitura dirigida (23/10): a pesquisa só lê fonte ainda não lida pela pauta, e uma pergunta nova não voltava às
+// fontes antigas. No "solteirão ou viúva", a ficha "Colchão Solteirão… Probel Sigma Plus (100x200x24cm)" já estava
+// lida (para o peso suportado) e a medida do solteirão nunca virou evidência. Aqui: palavras raras do pedido (presentes
+// em poucas fontes da pauta, como "solteirão") apontam as fontes já lidas que valem reler com a pergunta nova.
+export function sourcesWorthRereading(slug: string, request: string, max = 4): string[] {
+  const topic = loadTopic(slug);
+  const read = topic.source_ids.filter((s) => topic.researched_source_ids.includes(s));
+  if (!read.length) return [];
+  const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const texts = new Map(read.map((s) => [s, fold(sourceText(s) ?? '')]));
+  const words = [...new Set(fold(request).split(/[^a-z0-9]+/).filter((w) => w.length >= 6))];
+  const limit = Math.max(2, Math.ceil(read.length * 0.3));
+  const rare = words.filter((w) => {
+    const n = [...texts.values()].filter((t) => t.includes(w)).length;
+    return n >= 1 && n <= limit;
+  });
+  if (!rare.length) return [];
+  return read.filter((s) => rare.some((w) => texts.get(s)!.includes(w))).slice(0, max);
+}
