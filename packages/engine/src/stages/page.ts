@@ -230,12 +230,15 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     if (!draft || issues.some((i) => i.ref === null)) {
       const w = await writeDraft(topic, claims, idx.sources, draft ? { previous: draft, issues: issues.map(show) } : null, fetchImpl);
       add(w.usage);
-      draft = w.data;
+      // "Como decidir" para o fim já aqui, antes de qualquer checagem (22/10, cadeira para obeso: o redator o pôs
+      // em 1º nas 4 rodadas, o auditor aprovou todos os blocos e a página parou só pela regra "a última seção tem
+      // de ser Como decidir"; a reordenação só acontecia na gravação, depois da checagem que travou).
+      draft = decisionLast(w.data);
       writeStage(runId, `write-r${round}`, { mode: 'full', draft, issues_in: issues, usage: w.usage, model: w.model });
     } else {
       const p = await writePatches(topic, claims, idx.sources, draft, issues, fetchImpl);
       add(p.usage);
-      draft = applyPatches(draft, p.data.patches);
+      draft = decisionLast(applyPatches(draft, p.data.patches));
       writeStage(runId, `write-r${round}`, { mode: 'patch', patches: p.data.patches, draft, issues_in: issues, usage: p.usage });
     }
 

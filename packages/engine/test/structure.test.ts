@@ -66,3 +66,14 @@ describe('parágrafo de abertura leva a tabela', () => {
     expect(dec.blocks.map((b) => (b.kind === 'table' ? 'T' : b.text))).toEqual(['C', 'Confira a ficha técnica do modelo.', 'T']);
   });
 });
+
+describe('Como decidir em 1º não trava a página', () => {
+  it('depois de decisionLast, a regra da última seção não acusa', async () => {
+    const { styleIssues } = await import('../src/stages/page.ts');
+    const d = page();
+    const msg = (x: never) => styleIssues(x).filter((i) => i.msg.startsWith('a última seção')).length;
+    const before = { ...(d as object), sections: [(d as { sections: unknown[] }).sections[0], (d as { sections: unknown[] }).sections[1], { id: 'garantia', heading: 'O que a garantia cobre', blocks: [txt('G')] }] } as never;
+    expect(msg(before)).toBe(1);
+    expect(msg(decisionLast(before) as never)).toBe(0);
+  });
+});
