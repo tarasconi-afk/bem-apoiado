@@ -105,3 +105,18 @@ describe('atribuição por código', () => {
     expect(r.refs).toEqual(['verdict', 's#0', 's#3', 's#5']);
   });
 });
+
+describe('resposta curta a partir das regras', () => {
+  it('usa as 2 primeiras regras com evidências existentes', async () => {
+    const { verdictFromRules } = await import('../src/stages/page.ts');
+    const claims = new Map([['clm_a', {}], ['clm_b', {}]]);
+    const v = verdictFromRules([
+      'Regra de decisão sustentada: Se você pesa mais de 100 kg, escolha D45 ou mais (evidências: clm_a)',
+      'outra nota',
+      'Regra de decisão sustentada: Se você divide a cama, escolha molas ensacadas. (evidências: clm_b, clm_zz)',
+      'Regra de decisão sustentada: Terceira regra que não entra (evidências: clm_a)',
+    ], claims);
+    expect(v).toEqual({ text: 'Se você pesa mais de 100 kg, escolha D45 ou mais. Se você divide a cama, escolha molas ensacadas.', claim_ids: ['clm_a', 'clm_b'] });
+    expect(verdictFromRules(['Regra de decisão sustentada: sem evidência válida aqui (evidências: clm_x)'], claims)).toBeNull();
+  });
+});

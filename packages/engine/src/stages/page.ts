@@ -336,6 +336,26 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       }
     }
   }
+  // Resposta curta recusada no fim: monta uma nova a partir das regras "Se você…" que a checagem antes da redação
+  // achou (cada uma com as evidências dela), com atribuição por código, e audita só ela (23/10: nas 3 páginas que
+  // pararam na simulação, todos os blocos passaram e só a resposta curta, a síntese, foi recusada).
+  if (draft && issues.some((i) => i.ref === 'verdict')) {
+    const vr = verdictFromRules(topic.editorial_notes, idx.claims);
+    if (vr) {
+      const cand0 = { ...draft, verdict: { text: vr.text, basis: 'evidence' as const, claim_ids: vr.claim_ids } };
+      const cand = attributeSingleSource(fixFormWithoutAI(cand0 as Draft).draft, sourceOf).draft;
+      if (!styleIssues(cand).some((i) => i.ref === 'verdict')) {
+        const a = await auditDraft(cand, idx.claims, idx.sources, fetchImpl, cache, new Set(['verdict']));
+        add(a.usage, a.usage.calls);
+        writeStage(runId, 'verdict-from-rules', { text: cand.verdict.text, findings: a.findings });
+        if (a.findings.every((f) => f.verdict === 'SUPPORTED')) {
+          draft = cand;
+          issues = issues.filter((i) => i.ref !== 'verdict');
+          if (issues.length === 0) return finish(draft, MAX_FIX_ROUNDS + 1);
+        }
+      }
+    }
+  }
   // Não convergiu, mas sobraram poucos blocos sem prova: remove esses blocos (remover nunca acrescenta
   // fato) e, se o gate passar, segue para a revisão editorial como qualquer página. Antes, 1 bloco ruim
   // descartava a página inteira depois de 4 rodadas pagas do redator (21/10: 37,8 créditos perdidos).
@@ -351,4 +371,20 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   const open = issues.map(show);
   writeStage(runId, 'page', { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', open_issues: open, usage, credits: creditsSpent() });
   return { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', rounds: MAX_FIX_ROUNDS + 1, open_issues: open, usage };
+}
+
+// Resposta curta a partir das regras gravadas pela checagem antes da redação (nota "Regra de decisão sustentada:
+// … (evidências: id, id)"): as 2 primeiras, cada uma uma frase, com as evidências que existem.
+export function verdictFromRules(notes: string[], claims: Map<string, unknown>): { text: string; claim_ids: string[] } | null {
+  const rules = notes
+    .filter((n) => n.startsWith('Regra de decisão sustentada:'))
+    .map((n) => {
+      const ids = /\(evidências:\s*([^)]*)\)\s*$/.exec(n)?.[1]?.split(/,\s*/).filter((id) => claims.has(id)) ?? [];
+      const text = n.replace(/^Regra de decisão sustentada:\s*/, '').replace(/\s*\(evidências:[^)]*\)\s*$/, '').trim().replace(/[.\s]*$/, '.');
+      return { text, ids };
+    })
+    .filter((r) => r.ids.length && r.text.length > 15)
+    .slice(0, 2);
+  if (!rules.length) return null;
+  return { text: rules.map((r) => r.text).join(' '), claim_ids: [...new Set(rules.flatMap((r) => r.ids))] };
 }
