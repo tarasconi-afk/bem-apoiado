@@ -116,6 +116,17 @@ export function itemFocus(page: PageSpec): boolean {
   return (loadTopics().find((t) => t.slug === page.slug)?.listing_terms ?? []).length > 0;
 }
 
+// A pergunta da página compara tipos de produto ("molas ou espuma", "misto ou espuma")? Só aí a grade de tipos ajuda
+// no topo; nas outras (tamanho, densidade, firmeza), a capa própria da página faz mais sentido (23/10, editor).
+const GENERIC = new Set(['colchao', 'cadeira', 'travesseiro', 'base', 'cama', 'mesa', 'suporte', 'trabalho', 'notebook']);
+export function comparesKinds(page: PageSpec): boolean {
+  const topic = loadTopics().find((t) => t.slug === page.slug);
+  const n = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const q = n(`${topic?.primary_query ?? ''} ${page.title}`);
+  const hit = kindsFor(page).filter((k) => n(KIND_LABEL[k] ?? k).split(/[^a-z]+/).some((w) => w.length >= 5 && !GENERIC.has(w) && q.includes(w)));
+  return hit.length >= 2;
+}
+
 export function kindsFor(page: PageSpec): string[] {
   const topic = loadTopics().find((t) => t.slug === page.slug);
   return (topic?.product_kinds ?? []).filter((k) => k !== 'outro');

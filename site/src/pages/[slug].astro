@@ -4,7 +4,7 @@ import Cite from '../components/Cite.astro';
 import Linked from '../components/Linked.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { BRAND, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import { BRAND, comparesKinds, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -18,7 +18,7 @@ const searches = searchLinksFor(page);
 const n = fn.numberFor;
 const kinds = kindsFor(page);
 // Item específico com capa própria já gerada: capa no lugar da grade de tipos.
-const focusCover = itemFocus(page) && !!imageFor(`pagina-${page.slug}`);
+const focusCover = !!imageFor(`pagina-${page.slug}`) && (itemFocus(page) || !comparesKinds(page));
 const cat = categoryOf(page);
 const related = relatedPages(page);
 const links = inlineLinks(page);
