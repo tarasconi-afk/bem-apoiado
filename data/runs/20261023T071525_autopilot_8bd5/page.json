@@ -1,0 +1,40 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 118020,
+    "output_tokens": 15935,
+    "calls": 23
+  },
+  "credits": 7.189408200000002,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se o espaço na cama, no baú ou para o lençol for limitado, confira a altura acrescentada pelo pillow top antes da compra.",
+      "Confira a espessura informada na ficha: a Ortobom cita 5 cm em seus modelos HR Gel e a Simmons cita 7 cm na capa Pillow Top.",
+      "Se quiser uma camada extra sem trocar o colchão, considere um pillow top avulso, como os modelos anunciados pela Americanflex.",
+      "Confira no anúncio ou na ficha a densidade da espuma em kg/m³ e os materiais usados, como espuma HR, fibra siliconada e algodão.",
+      "Compare se o produto é um pillow top avulso ou uma camada integrada ao colchão."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma regra direta dizendo para quem o pillow top vale a pena e para quem não vale, relacionando a escolha à preferência por mais maciez e ao espaço disponível.",
+      "Informação de fonte primária sobre se cada modelo é fixo ao colchão ou removível, incluindo os tamanhos disponíveis.",
+      "Comparação mais clara entre fabricantes, indicando quais opções servem para diferentes situações de compra.",
+      "Explicação simples dos termos espuma de alta resiliência, HR Gel e densidade em kg/m³.",
+      "Dados de fabricante relacionando espessura ou densidade do pillow top ao peso do usuário, caso existam.",
+      "A resposta curta precisa dizer explicitamente qual opção escolher em cada caso, em vez de apenas recomendar conferir a altura."
+    ],
+    "publishable": false,
+    "summary": "A página traz dados úteis sobre materiais, espessuras e altura, mas responde apenas parcialmente à dúvida “vale a pena”. Falta uma regra de escolha para o leitor, explicação dos termos técnicos e informação clara sobre pillow top fixo ou removível; a resposta curta também não diz para quem o produto é indicado.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

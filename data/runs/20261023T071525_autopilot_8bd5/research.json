@@ -1,0 +1,138 @@
+{
+  "run_id": "20261023T071525_autopilot_8bd5",
+  "topic": "pillow-top-o-que-e-e-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_ed084ea2a589",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_0bd0263cd269",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4cce18510cf2",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_0bd0263cd269",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d4ac15c42ee2",
+      "question_id": "q_altura_total",
+      "source_id": "src_0bd0263cd269",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1632170ff345",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_0bd0263cd269",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2babae4360f2",
+      "question_id": "q_garantia_pillowtop",
+      "source_id": "src_0bd0263cd269",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2c4247bec6f1",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_8bf8264facb3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b5879d930d69",
+      "question_id": "q_altura_total",
+      "source_id": "src_8bf8264facb3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ef34d6921c6c",
+      "question_id": "q_garantia_pillowtop",
+      "source_id": "src_8bf8264facb3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_261629aa3474",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_13455b457486",
+      "new": true
+    },
+    {
+      "claim_id": "clm_147617379873",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_13455b457486",
+      "new": true
+    },
+    {
+      "claim_id": "clm_568a109344a9",
+      "question_id": "q_peso_densidade_pillowtop",
+      "source_id": "src_13455b457486",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade_pillowtop": 1,
+    "q_definicao_pillowtop": 5,
+    "q_fixo_ou_removivel": 1,
+    "q_altura_total": 2,
+    "q_certificacao_inmetro": 0,
+    "q_garantia_pillowtop": 2,
+    "q_ajuste_fe3336ff": 0,
+    "q_ajuste_c9c3cbbc": 0
+  },
+  "unanswered": [
+    "q_certificacao_inmetro",
+    "q_ajuste_fe3336ff",
+    "q_ajuste_c9c3cbbc"
+  ],
+  "usage": {
+    "input_tokens": 8887,
+    "output_tokens": 1486,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_39597cb0911a",
+    "src_ea71b634f876",
+    "src_50c628a3a143"
+  ],
+  "triage": [
+    {
+      "source_id": "src_0bd0263cd269",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_39597cb0911a",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.2
+    },
+    {
+      "source_id": "src_ea71b634f876",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.44
+    },
+    {
+      "source_id": "src_8bf8264facb3",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.51
+    },
+    {
+      "source_id": "src_50c628a3a143",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.39
+    },
+    {
+      "source_id": "src_13455b457486",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    }
+  ],
+  "credits": 1.6267505999999996
+}
