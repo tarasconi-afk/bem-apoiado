@@ -1,0 +1,84 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página informa a medida do solteirão, mas não explica em que situação ele é a melhor escolha em relação ao viúva.",
+      "A seção “Como decidir” repete o solteiro e o viúva e não apresenta uma regra comparando largura, comprimento e espaço disponível para os três tamanhos.",
+      "A tabela prometida sobre os tamanhos inclui apenas o solteiro, deixando de fora justamente solteirão e viúva."
+    ],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#3.r0"
+    ],
+    "decision_criteria": [
+      "Para uma base ou espaço de 88 × 188 cm, conferir na ficha se o modelo é solteiro nessa medida.",
+      "Para um espaço de 128 × 188 cm, escolher um colchão viúva e confirmar que a base tem essas mesmas dimensões.",
+      "Conferir o comprimento disponível: o solteirão mede 100 × 200 cm, enquanto o solteiro mede 88 × 188 cm e o viúva, 128 × 188 cm.",
+      "Verificar na ficha o peso máximo por pessoa: o modelo de solteirão citado suporta 120 kg, e os modelos de viúva citados suportam de 110 kg a 150 kg por pessoa.",
+      "Confirmar se a base ou o estrado tem exatamente as medidas do colchão; a Probel lista base viúva de 128 × 188 cm."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página informa a medida do solteirão, mas não explica em que situação ele é a melhor escolha em relação ao viúva.",
+      "Para o leitor leigo: A seção “Como decidir” repete o solteiro e o viúva e não apresenta uma regra comparando largura, comprimento e espaço disponível para os três tamanhos.",
+      "Para o leitor leigo: A tabela prometida sobre os tamanhos inclui apenas o solteiro, deixando de fora justamente solteirão e viúva.",
+      "Uma regra direta comparando solteirão e viúva conforme a largura e o comprimento disponíveis no quarto ou na base.",
+      "Orientação específica para quem dorme sozinho e é alto, para quarto estreito e para quem quer mais espaço.",
+      "Tabela completa com solteiro, solteirão e viúva, incluindo largura, comprimento e situação indicada para cada tamanho.",
+      "Medidas de base ou estrado compatíveis com o colchão solteirão, de preferência informadas pelos fabricantes."
+    ],
+    "publishable": false,
+    "summary": "A página responde apenas parcialmente: informa as medidas e alguns dados de capacidade, mas não ensina de forma direta quando escolher solteirão ou viúva. A seção de decisão e a tabela estão incompletas, pois não usam o solteirão para orientar a compra; por isso, o leitor ainda não sabe qual dos dois tamanhos serve melhor para seu espaço e uso.",
+    "filler_ratio": 0.2,
+    "model_opinion": false
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": false,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página não informa a medida do colchão solteirão, embora essa seja uma das opções da dúvida principal.",
+      "O texto confunde solteirão com solteiro e não explica quando escolher cada tamanho.",
+      "A resposta curta não dá uma regra de escolha entre solteirão e viúva."
+    ],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#3.r0",
+      "itens-inclusos#0"
+    ],
+    "decision_criteria": [
+      "Para um colchão solteiro, reservar 88 × 188 cm de espaço e conferir essas medidas na ficha técnica.",
+      "Para um colchão viúva, reservar 128 × 188 cm e conferir se o comprimento cabe na base ou no quarto.",
+      "Conferir na ficha técnica do modelo as medidas exatas antes da compra.",
+      "Verificar a capacidade de peso declarada pelo fabricante; nos modelos citados, o solteirão suporta 120 kg por pessoa e os modelos viúva suportam de 110 kg a 150 kg por pessoa.",
+      "Confirmar se a base ou o conjunto box tem 128 × 188 cm quando a escolha for um colchão viúva."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página não informa a medida do colchão solteirão, embora essa seja uma das opções da dúvida principal.",
+      "Para o leitor leigo: O texto confunde solteirão com solteiro e não explica quando escolher cada tamanho.",
+      "Para o leitor leigo: A resposta curta não dá uma regra de escolha entre solteirão e viúva.",
+      "Medida exata do colchão solteirão, com largura e comprimento, em fichas técnicas de fabricantes.",
+      "Comparação direta entre solteiro, solteirão e viúva para quem dorme sozinho, é alto, tem quarto estreito ou quer mais espaço.",
+      "Regra de escolha entre solteirão e viúva baseada no espaço disponível e no número de pessoas.",
+      "Capacidade de peso do solteirão e do viúva com indicação clara dos modelos e fabricantes.",
+      "Compatibilidade de base ou estrado para o colchão solteirão.",
+      "Informação objetiva sobre o que acompanha cada tamanho, em vez de apenas mencionar títulos com “Kit Box” ou “Conjunto Box”.",
+      "Prazo de garantia do colchão solteirão e comparação com o viúva."
+    ],
+    "publishable": false,
+    "summary": "A página traz medidas e alguns critérios para solteiro e viúva, mas não informa a medida do solteirão nem oferece uma regra de escolha entre solteirão e viúva. Como a dúvida principal envolve justamente esses dois tamanhos, a resposta curta e o caminho de compra ficam incompletos.",
+    "filler_ratio": 0.4,
+    "model_opinion": false
+  }
+}

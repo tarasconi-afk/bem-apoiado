@@ -1,0 +1,160 @@
+{
+  "run_id": "20261023T175752_colchao-solteirao-ou-viuva-ajuste_4de0",
+  "topic": "colchao-solteirao-ou-viuva",
+  "accepted": [
+    {
+      "claim_id": "clm_739240dc6186",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_9ce13603c267",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c65c5fa307b7",
+      "question_id": "q_base_compativel",
+      "source_id": "src_9ce13603c267",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5b0eda888230",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_729ac46302c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_adbf84d9edd5",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_4b7f636cbce8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9076e3c1eb2e",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_4b7f636cbce8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0731dbc544a1",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_4b7f636cbce8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_de483ac5e0de",
+      "question_id": "q_base_compativel",
+      "source_id": "src_4b7f636cbce8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3b13bb693bf7",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_22d5001756a7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3ff3de91794f",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_22d5001756a7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7e3128028a84",
+      "question_id": "q_garantia",
+      "source_id": "src_22d5001756a7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_df60b0810650",
+      "question_id": "q_base_compativel",
+      "source_id": "src_22d5001756a7",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_9ce13603c267",
+      "question_id": "q_dimensoes_exatas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Solteirão Largura: 90 cm Comprimento: 200 cm"
+    },
+    {
+      "source_id": "src_9ce13603c267",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_729ac46302c6",
+      "question_id": "q_dimensoes_exatas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Solteirão\nLargura: 100 cm\nComprimento: 200 cm"
+    },
+    {
+      "source_id": "src_729ac46302c6",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_4b7f636cbce8",
+      "question_id": "q_garantia",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Molas e espuma, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_4b7f636cbce8",
+      "question_id": "q_ajuste_0a55e71a",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Solteirão\nLargura: 100 cm\nComprimento: 200 cm"
+    }
+  ],
+  "coverage": {
+    "q_medida_decisiva": 0,
+    "q_dimensoes_exatas": 3,
+    "q_peso_suportado": 4,
+    "q_base_compativel": 3,
+    "q_itens_inclusos": 0,
+    "q_garantia": 1,
+    "q_ajuste_0a55e71a": 0
+  },
+  "unanswered": [
+    "q_medida_decisiva",
+    "q_itens_inclusos",
+    "q_ajuste_0a55e71a"
+  ],
+  "usage": {
+    "input_tokens": 9300,
+    "output_tokens": 1670,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_f966ff83286a"
+  ],
+  "triage": [
+    {
+      "source_id": "src_9ce13603c267",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.92
+    },
+    {
+      "source_id": "src_729ac46302c6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.92
+    },
+    {
+      "source_id": "src_4b7f636cbce8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_22d5001756a7",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.9
+    }
+  ],
+  "credits": 1.3794419999999998
+}
