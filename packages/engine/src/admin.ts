@@ -1,4 +1,5 @@
 import { loadThresholds, loadVerdicts } from './feedback.ts';
+import { classifyBranch, classifyDraft, KIND_LABEL, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -208,10 +209,12 @@ ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 ${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.ran_at ?? job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
 ${queuedJobs().length ? `<p class="flash">Na fila (${queuedJobs().length}): ${queuedJobs().map((j) => esc(j.label)).join(' · ')}${cycleRunning() ? '. Começam quando o ciclo em andamento terminar.' : '.'}</p>` : ''}
 
-<h2>Esperando sua decisão: resultados do motor</h2>
-${branches.length ? branches.map(pendingHtml).join('') + '<p class="muted">Aplicar roda testes, gate e build aqui antes de ir ao main. Resultado que só traz aprendizado (nada que o leitor veja) entra sozinho em até 5 min.</p>' : '<p class="muted">Nenhum resultado pendente.</p>'}
-
-${verdictsHtml(pages)}
+${boardHtml(pages, branches)}
+<details class="old"><summary class="muted">Formato detalhado (antigo): todos os itens de cada resultado e as páginas no ar</summary>
+<h3>Resultados do motor</h3>
+${(branches.length ? branches.map(pendingHtml).join('') : '<p class="muted">Nenhum resultado pendente.</p>').replaceAll('data-pending', '')}
+${verdictsHtml(pages).replaceAll('data-pending', '').replace(/<h2>/g, '<h3>').replace(/<\/h2>/g, '</h3>')}
+</details>
 
 <h2>Pedir ao motor</h2>
 ${requestsHtml()}
@@ -317,6 +320,85 @@ ${suggestionHtml(review)}${adjustDiffsHtml(readBranch(b.branch), slug)}${review?
 </div>`;
 }
 
+// Quadro de decisões: um cartão por assunto, sempre com os mesmos campos (assunto, tipo, situação, sugestão,
+// por quê, imagem, produtos, correção pronta, prévia) e o botão da sugestão em destaque. Dados e ações são
+// os mesmos do formato antigo (mesclar, veredito, ajustar, descartar); só a apresentação muda.
+export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnType<typeof pendingBranches>): string {
+  const cards: { order: number; html: string }[] = [];
+  const titleOf = (s: string) => pages.find((p) => p.slug === s)?.title ?? s;
+  const row = (k: string, v: string) => (v ? `<dt>${esc(k)}</dt><dd>${v}</dd>` : '');
+  const sugBadge = (sg: Suggestion) => `<span class="b ${sg === 'nada' ? 'neutral' : sg === 'recusar' ? 'bad' : sg === 'corrigir' ? 'warn' : 'ok'}">${esc(SUGGESTION_LABEL[sg])}</span>`;
+  const correctionForm = (ramo: string, slug: string, text: string, open: boolean) =>
+    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">(texto pronto; edite à vontade)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}"><textarea name="pedido" required minlength="5" maxlength="600" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
+
+  for (const b of branches) {
+    const dir = b.branch.replace(/^pagina\//, '');
+    const slug = dir.replace(/-\d{8}-\d{4}$/, '');
+    let items: ChangeItem[] = [];
+    try { items = gitChanges(`origin/${b.branch}`).summary.items; } catch { /* sem leitura: cartão informativo */ }
+    const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
+    const outcome = plainOutcome(b.steps);
+    const rv = reviewFrom(readBranch(b.branch), slug)?.review ?? null;
+    const failed = !!failedAdjust(jobs, slug);
+    const info = classifyBranch({ slug, items, query, outcome, steps: b.steps, review: rv, failedAdjust: failed });
+    if (info.kind === 'pauta-tentada' && !/Adiada/.test(info.situation)) continue; // aprendizado puro: entra sozinho, não pede nada
+    const ready = existsSync(join(PREVIAS, dir, 'index.html'));
+    const prevLink = (path: string, label: string) => (ready ? `<a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : '<span class="muted">sendo montada (até 5 min)</span>');
+    const visual = (it: ChangeItem) => it.id === 'images' || it.id.startsWith('product:') || it.id === 'theme' || it.id === 'home';
+    const thumbsOf = (it: ChangeItem) => it.paths.filter((x) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x)).map((x) => `<a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="imagem nova" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a>`).join('');
+    const check = (it: ChangeItem, label: string) => `<label class="acc"><input type="checkbox" name="manter" value="${esc(it.id)}" checked> ${label}</label>`;
+    const imgs = items.filter((i) => i.id === 'images').map((it) => `<div class="thumbs">${thumbsOf(it)}</div>${check(it, 'aceitar imagem')}`).join('');
+    const prods = items.filter((i) => i.id.startsWith('product:')).map((it) => `<div>${esc(it.title)}${it.asin ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : ''} ${check(it, 'aceitar')}</div>`).join('');
+    const others = items.filter((i) => !visual(i)).map((it) => `<input type="hidden" name="manter" value="${esc(it.id)}">`).join('');
+    const pageItem = items.find((i) => i.id === `page:${slug}`);
+    const diffsHtml = pageItem?.diffs?.length ? `<details><summary class="muted">antes → depois (${pageItem.diffs.length})</summary>${pageItem.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
+    // Manutenção: diz de qual página é a capa ou o produto, em vez de "Site todo".
+    const coverOf = items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find((x) => x && pages.some((p) => p.slug === x));
+    const subject = query ?? (slug && pages.some((p) => p.slug === slug) ? titleOf(slug) : coverOf ? `Capa nova: ${titleOf(coverOf)}` : items.some((i) => i.id.startsWith('product:')) ? 'Exemplos à venda' : 'Site todo');
+    const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
+    const actionForm = items.length
+      ? `<form method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(pageItem || query ? `${esc(slug)}/` : '', 'abrir prévia'))}</dl>
+${forceBox(slug)}<div class="dactions"><button class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok big' : ''}">${primary}</button></div></form>`
+      : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Falta', esc(info.why))}</dl>`;
+    const extra = info.kind === 'pauta-tentada' && query
+      ? `<div class="dactions">${form('fila-remover', { consulta: query }, 'Tirar da fila', '', `Tirar "${query}" da fila?`)} <span class="muted">ou não faça nada: o motor tenta de novo em 3 dias.</span></div>`
+      : '';
+    const html = `<div class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
+<div class="dhead"><span class="tag">${esc(KIND_LABEL[info.kind])}</span> <strong>${esc(subject)}</strong> <span class="muted">· ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></div>
+${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
+${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir') : ''}${extra}
+<div class="dfoot">${form('descartar', { ramo: b.branch }, 'Descartar este resultado', 'link', 'Descartar este resultado inteiro, inclusive o aprendizado? A pauta volta para a fila.')}</div>
+</div>`;
+    cards.push({ order: SUGGESTION_ORDER.indexOf(info.suggestion), html });
+  }
+
+  // Rascunhos no main esperando veredito (página nova reprovada pela revisão, ajuste em rascunho).
+  const verdicts = loadVerdicts();
+  const judged = (p: (typeof pages)[number]) => verdicts.some((v) => v.slug === p.slug && v.run_id === p.provenance.run_id);
+  for (const p of pages.filter((x) => x.status === 'draft' && !judged(x))) {
+    const rv = reviewFrom(readMain, p.slug)?.review ?? null;
+    const info = classifyDraft({ review: rv, failedAdjust: !!failedAdjust(jobs, p.slug) });
+    const approve = `<form method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${forceBox(p.slug)}<button class="${info.suggestion === 'aprovar' ? 'ok big' : 'ok'}">Aprovar e publicar</button></form>`;
+    const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^Corrija, só com o que as fontes sustentarem: /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
+    cards.push({
+      order: SUGGESTION_ORDER.indexOf(info.suggestion),
+      html: `<div class="dcard sg-${info.suggestion}" data-pending>
+<div class="dhead"><span class="tag">${esc(KIND_LABEL.rascunho)}</span> <strong>${esc(p.title)}</strong></div>
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
+${failedNote(p.slug)}<div class="dactions">${approve}</div>${adjustDiffsHtml(readMain, p.slug)}
+${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir')}${reject}
+</div>`,
+    });
+  }
+
+  cards.sort((a, b) => a.order - b.order);
+  const need = cards.filter((c) => c.order < SUGGESTION_ORDER.indexOf('nada')).length;
+  return `<h2>Quadro de decisões ${need ? `<span class="b neutral">${need} pedem você</span>` : ''}</h2>
+${cards.length ? cards.map((c) => c.html).join('') : '<p class="muted">Nada pedindo decisão agora. Resultados que só trazem aprendizado entram sozinhos em até 5 minutos.</p>'}
+<p class="muted">Ao pedir correção: para mover uma tabela, cite o título dela. A última linha da resposta diz o que não foi feito por falta de fonte.</p>`;
+}
+
 // Catálogo de exemplos à venda + produto escolhido pelo editor (link colado; a Amazon bloqueia a leitura
 // automática dos anúncios). Escolha do editor sai do site se passar de EDITOR_PICK_MAX_AGE_DAYS sem reconferir.
 function productsHtml(): string {
@@ -410,7 +492,7 @@ const TABS_JS = `<script>
 // não repetir o aviso para sempre.
 if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
-  var MAP = [['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','conteudo'],['Domínios novos','conteudo'],
+  var MAP = [['Quadro de decisões','decisoes'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','conteudo'],['Domínios novos','conteudo'],
     ['Visitas','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
     ['Saldo de créditos','config'],['Senha do painel','config']];
   var NAMES = { decisoes: 'Decisões', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
@@ -591,7 +673,16 @@ ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textare
 <button>Salvar (passa pelo auditor)</button></form>`;
 }
 
-const ADMIN_CSS = `<style>
+export const ADMIN_CSS = `<style>
+.dcard{border:1px solid var(--line);border-left:5px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;background:var(--card)}
+.dcard.sg-publicar,.dcard.sg-aplicar,.dcard.sg-aprovar{border-left-color:var(--ok)}.dcard.sg-corrigir{border-left-color:#d08a1c}.dcard.sg-recusar{border-left-color:var(--bad)}
+.dhead{margin:0 0 8px}.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--nbg);color:var(--n)}
+.dl{display:grid;grid-template-columns:150px 1fr;gap:6px 12px;margin:6px 0}.dl dt{color:var(--muted);font-size:.85rem}.dl dd{margin:0}
+@media (max-width:640px){.dl{grid-template-columns:1fr}.dl dt{margin-top:6px}}
+.dactions{margin:10px 0 4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}button.big{font-size:1rem;padding:8px 18px}
+.dfix{margin:8px 0}.dfix textarea{width:100%;box-sizing:border-box;margin:6px 0;font:inherit}.acc{font-size:.88rem;margin-left:4px}
+.b.warn{background:#fbefd9;color:#8a5a0c}.dfoot{margin-top:8px;text-align:right}button.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:0;cursor:pointer;font-size:.82rem}
+details.old{margin:24px 0 8px}
 .adjust{margin-top:6px}.adjust input{min-width:160px}
 .restored{outline:2px solid var(--amber,#f0b252)}
 .result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
