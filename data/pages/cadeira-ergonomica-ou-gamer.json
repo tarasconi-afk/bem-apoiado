@@ -3,275 +3,146 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Cadeira ergonômica ou gamer: qual escolher",
-  "description": "Comparação entre XT Racer Platinum W e Flexform Dot: capacidade de peso, regulagens e garantia para escolher a cadeira certa.",
+  "description": "Compare regulagens, peso suportado e garantia entre cadeira de escritório e gamer para decidir sem cair em nome de produto.",
   "primary_query": "cadeira ergonômica ou gamer",
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-23",
   "verdict": {
-    "text": "Escolha pela capacidade de peso e regulagens: a XT Racer Platinum W aguenta até 120 kg, a Flexform Dot até 136 kg. Use como referência que a cadeira idealmente suporte cerca de 20 kg a mais que seu peso. Confira na ficha quais regulagens cada uma oferece para decidir qual se adequa melhor ao seu uso.",
+    "text": "A escolha entre cadeira de escritório e gamer depende das regulagens que cada modelo oferece, não do nome: uma gamer com apoio lombar ajustável, profundidade de assento regulável e mecanismo sincronizado pode servir para trabalhar o dia todo tão bem quanto uma ergonômica, segundo a Flexform. Em qualquer uma, confira o peso máximo suportado e a garantia de estrutura e mecanismo.",
     "basis": "reasoning",
     "claim_ids": [
-      "clm_0f2bc640bf0f",
-      "clm_00a8a70a7b3d",
-      "clm_094a46308551"
+      "clm_04a5e310b9f4",
+      "clm_e8cc2dafbc8c",
+      "clm_3c8923e99ac3"
     ]
   },
   "sections": [
     {
-      "id": "regulagens-que-importam",
-      "heading": "O que conferir na ficha técnica",
+      "id": "regulagens-o-que-muda",
+      "heading": "Quais regulagens cada tipo oferece",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Flexform, cadeira ergonômica é uma categoria técnica que reúne regulagens documentadas: altura por pistão a gás, apoio lombar ajustável em altura, profundidade do assento e apoio de braços.",
+          "text": "Uma cadeira de escritório com especificação técnica mais completa inclui regulagem de altura por pistão a gás (o cilindro que sobe e desce), apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_d7d95a312a2d"
+            "clm_3c8923e99ac3"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Flexform, uma cadeira de escritório ergonômica pode apresentar na ficha técnica valores declarados para altura mínima e máxima do assento, faixa de profundidade do assento e faixa de ajuste do apoio lombar. A marca descreve a cadeira gamer como categoria de proposta ergonômica cujo formato inclui encosto alto, apoio para nuca e assento reclinável, associado a sessões longas de uso estático.",
+          "text": "Uma cadeira gamer com as mesmas regulagens (mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável) pode funcionar bem em jornadas longas de trabalho, não apenas para jogos, segundo a Flexform.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_832b248a7da8",
-            "clm_7b1f2ad4d9e8"
+            "clm_e8cc2dafbc8c"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "A NR-17 usa como referência para postos de teleatendimento: altura do assento entre 37 e 50 centímetros em relação ao piso, apoio de braços regulável entre 20 e 25 centímetros acima do assento, e encosto ajustável em altura com forma adaptada para proteção lombar.",
+          "text": "A tensão do mecanismo é ajustável conforme o peso do usuário: um usuário de 60 kg e outro de 90 kg precisam de tensões diferentes para que a reclinação seja controlada, segundo a Flexform. Confira na ficha se o fabricante informa essa regulagem.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_41a4004759fb",
-            "clm_000ce47bb169",
-            "clm_0745d04d72dd"
+            "clm_0ee7da27eecc"
           ]
         }
       ]
     },
     {
-      "id": "materiais-e-peso-maximo",
-      "heading": "Materiais, espuma e peso máximo suportado",
-      "blocks": [
-        {
-          "kind": "table",
-          "caption": "O que fabricantes declaram em ficha técnica",
-          "columns": [
-            "Especificação",
-            "Cadeira ergonômica corporativa (Flexform)",
-            "Cadeira gamer (Flexform)"
-          ],
-          "rows": [
-            {
-              "cells": [
-                {
-                  "text": "Densidade da espuma do assento",
-                  "claim_ids": []
-                },
-                {
-                  "text": "45 a 55 kg/m³",
-                  "claim_ids": [
-                    "clm_566fc753d88c"
-                  ]
-                },
-                {
-                  "text": "45 a 55 kg/m³",
-                  "claim_ids": [
-                    "clm_2a1de75fe1c2"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Mecanismo de reclinação",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Datillo (contato permanente) ou sincronizado com ajuste de tensão",
-                  "claim_ids": [
-                    "clm_566fc753d88c"
-                  ]
-                },
-                {
-                  "text": "5 posições de bloqueio com regulagem de altura do encosto",
-                  "claim_ids": [
-                    "clm_5dd063f37653"
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "normas-certificacoes",
-      "heading": "O que ABNT NBR 13962 e NR-17 efetivamente avaliam",
+      "id": "o-que-a-nr17-pede",
+      "heading": "O que a NR-17 lista para cadeiras de trabalho",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A NR-17 estabelece para cadeiras de trabalho altura ajustável, pouca ou nenhuma conformação na base do assento, borda frontal arredondada e encosto levemente adaptado ao corpo para proteção da região lombar. Para trabalho em teleatendimento/telemarketing, o apoio de braços deve ser regulável entre 20 e 25 centímetros a partir do assento. Segundo a Flexform, uma cadeira gamer com mecanismo sincronizado, regulagem de profundidade do assento e apoio lombar ajustável pode atender aos parâmetros da NR-17.",
+          "text": "Segundo a NR-17, a cadeira deve ter assento com altura ajustável à sua estatura, encosto com forma levemente adaptada ao corpo para proteção da região lombar, borda frontal arredondada e apoio de braços regulável em altura de 20 a 25 centímetros a partir do assento.",
           "basis": "evidence",
           "claim_ids": [
             "clm_11fcb7102cbd",
-            "clm_000ce47bb169",
-            "clm_e8cc2dafbc8c"
+            "clm_22c1d3abba51"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A altura do assento deve ser ajustável entre 37 e 50 centímetros em relação ao piso para que os pés fiquem bem apoiados. Procure esses números na ficha técnica.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_41a4004759fb"
           ]
         }
       ]
     },
     {
-      "id": "garantia-cobertura",
-      "heading": "O que a garantia cobre em cada tipo",
+      "id": "materialese-estrutura",
+      "heading": "Materiais e estrutura que o fabricante deve declarar",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Flexform informa, em conteúdo sobre cadeiras de escritório giratórias, garantia de até 7 anos.",
+          "text": "Na ficha técnica, o fabricante deve informar a densidade da espuma do assento em kg/m³. Segundo a Flexform, espuma abaixo de 40 kg/m³ perde firmeza em meses de uso intenso; a faixa de 45 a 55 kg/m³ é o mínimo para uma cadeira usada 8 horas por dia com durabilidade compatível com garantia de 5 a 7 anos.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_8c21a540e6a1"
+            "clm_793039315aaf"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Procure também na ficha o tipo de revestimento (tecido, couro, tela), a estrutura da base (alumínio, plástico, aço) e o tipo de rodízios. A Flexform Dot, por exemplo, usa estrutura plástica e tecidos de alta performance.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_385b9edcdd97"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garantia-o-que-cobre",
+      "heading": "Garantia: o que conferir na letra pequena",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Flexform Dot oferece 5 anos de garantia. A garantia de uma cadeira deve cobrir a estrutura e os mecanismos, não apenas peças cosméticas.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_845d4ec3b96a"
+          ]
+        },
+        {
+          "kind": "callout",
+          "tone": "warning",
+          "text": "Alguns fabricantes oferecem garantias longas (7 anos), mas a letra pequena pode restringir o que cobre: por exemplo, apenas peças plásticas ou metálicas com função estrutural com defeito de fabricação, segundo a Funcional. Leia o termo de garantia completo antes de comprar.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_dde32c32b869"
           ]
         }
       ]
     },
     {
       "id": "como-decidir",
-      "heading": "Como escolher: compare na ficha",
+      "heading": "Como decidir entre cadeira de escritório e gamer",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "As fichas citadas informam capacidade de 120 kg para a XT Racer e 136 kg para a Flexform Dot. Segundo a fonte citada, recomenda-se uma capacidade pelo menos 20 kg acima do peso do usuário; confira a capacidade na ficha antes da compra.",
-          "basis": "evidence",
+          "text": "Se você trabalha muitas horas sentado: procure uma cadeira com apoio lombar ajustável em altura, profundidade do assento regulável e mecanismo que controla a inclinação do encosto (o mecanismo sincronizado permite calibrar a resistência conforme o seu peso). Segundo a Flexform, uma cadeira gamer com essas regulagens pode atender aos mesmos parâmetros de trabalho que uma ergonômica.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_0f2bc640bf0f",
-            "clm_00a8a70a7b3d",
-            "clm_094a46308551"
-          ]
-        },
-        {
-          "kind": "table",
-          "caption": "O que cada modelo oferece segundo as fichas técnicas",
-          "columns": [
-            "Especificação",
-            "XT Racer Platinum W",
-            "Flexform Dot"
-          ],
-          "rows": [
-            {
-              "cells": [
-                {
-                  "text": "Peso máximo suportado",
-                  "claim_ids": []
-                },
-                {
-                  "text": "120 kg",
-                  "claim_ids": [
-                    "clm_0f2bc640bf0f"
-                  ]
-                },
-                {
-                  "text": "136 kg",
-                  "claim_ids": [
-                    "clm_00a8a70a7b3d"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Braços",
-                  "claim_ids": []
-                },
-                {
-                  "text": "3D com revestimento em PU macio",
-                  "claim_ids": [
-                    "clm_bf89221a9925",
-                    "clm_0e0ef279365f"
-                  ]
-                },
-                {
-                  "text": "Reguláveis em altura",
-                  "claim_ids": [
-                    "clm_e1fe7ea63907"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Revestimento",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Tecido 100% poliéster premium",
-                  "claim_ids": [
-                    "clm_229303ecfd90"
-                  ]
-                },
-                {
-                  "text": "Tecidos de alta performance",
-                  "claim_ids": [
-                    "clm_385b9edcdd97"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Garantia",
-                  "claim_ids": []
-                },
-                {
-                  "text": "3 anos (estrutura metálica), 1 ano (outros componentes)",
-                  "claim_ids": [
-                    "clm_1d0999632b9b"
-                  ]
-                },
-                {
-                  "text": "5 anos",
-                  "claim_ids": [
-                    "clm_845d4ec3b96a"
-                  ]
-                }
-              ]
-            }
+            "clm_04a5e310b9f4",
+            "clm_e8cc2dafbc8c",
+            "clm_0ee7da27eecc"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo as fichas citadas, a XT Racer informa encosto reclinável de 90º a 150º e almofadas removíveis com preenchimento de espuma viscoelástica. A Flexform informa encosto injetado com apoio lombar regulável e braços reguláveis em altura. Compare quais regulagens importam mais para seu uso.",
-          "basis": "evidence",
+          "text": "Se você quer uma cadeira apenas para descanso ou uso ocasional: uma cadeira de escritório básica com regulagem de altura pode ser suficiente, sem necessidade de apoio lombar ajustável ou profundidade regulável, segundo a Flexform.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_51a82127f7a2",
-            "clm_3a44b8895439",
-            "clm_3de9d4b47246",
-            "clm_9a3e4bb74c8d",
-            "clm_e1fe7ea63907"
+            "clm_23f73d86cd89"
           ]
         },
         {
-          "kind": "paragraph",
-          "text": "Segundo as fichas técnicas, a XT Racer Platinum W declara 3 anos de garantia para a estrutura metálica e 1 ano para os demais componentes. A Flexform Dot declara 5 anos de garantia. Verifique na ficha qual cobertura você prefere.",
+          "kind": "callout",
+          "tone": "info",
+          "text": "Na ficha técnica, procure valores em centímetros: altura mínima e máxima do assento, faixa de ajuste do apoio lombar e profundidade do assento, segundo a Flexform. Esses números indicam se as regulagens existem de verdade. O nome 'ergonômica' ou 'gamer' não garante nenhuma regulagem específica.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1d0999632b9b",
-            "clm_845d4ec3b96a"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Segundo as fichas citadas, a Flexform Dot oferece braços reguláveis em altura, enquanto a XT Racer tem braços 3D com revestimento em PU macio. A ficha da XT Racer informa reclinação do encosto de 90º a 150º.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_e1fe7ea63907",
-            "clm_bf89221a9925",
-            "clm_0e0ef279365f",
-            "clm_51a82127f7a2"
+            "clm_832b248a7da8"
           ]
         }
       ]
@@ -279,18 +150,18 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T122054_autopilot_10be+editor:20261022T133024_cadeira-ergonomica-ou-gamer-ajuste_d527+editor:20261022T140419_cadeira-ergonomica-ou-gamer-ajuste_aada+editor:20261022T141643_cadeira-ergonomica-ou-gamer-ajuste_7d21+editor:20261022T143602_cadeira-ergonomica-ou-gamer-ajuste_823b+editor:20261022T150721_cadeira-ergonomica-ou-gamer-ajuste_0fe5+editor:20261022T151053_cadeira-ergonomica-ou-gamer-ajuste_ec00",
+    "run_id": "20261023T131539_cadeira-ergonomica-ou-gamer-enrich_a79a",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
-      "answers_primary_query": "partial",
+      "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "filler_ratio": 0.36363636363636365,
-      "criteria": 9,
-      "reader_fit": false,
-      "quick_answer": false,
-      "rule_publishable": false
+      "reader_fit": true,
+      "quick_answer": true,
+      "filler_ratio": 0,
+      "criteria": 8,
+      "rule_publishable": true
     }
   }
 }

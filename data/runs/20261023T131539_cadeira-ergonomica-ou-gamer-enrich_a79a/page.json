@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 110210,
+    "output_tokens": 8913,
+    "calls": 5
+  },
+  "credits": 15.6990024,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha pelas regulagens e não pelo nome “ergonômica” ou “gamer”.",
+      "Para trabalhar muitas horas, confira apoio lombar ajustável, profundidade do assento regulável e mecanismo que controle a inclinação do encosto.",
+      "Ajuste a tensão da reclinação ao peso do usuário, se o fabricante oferecer essa regulagem.",
+      "Para uso ocasional, uma cadeira de escritório com ajuste de altura pode ser suficiente.",
+      "Confira o peso máximo suportado e se a garantia cobre estrutura e mecanismo.",
+      "Verifique na ficha a altura mínima e máxima do assento, a faixa de ajuste do apoio lombar e a profundidade do assento.",
+      "Confira o tipo de revestimento, a estrutura da base e os rodízios.",
+      "Confira a densidade da espuma do assento quando essa informação estiver disponível."
+    ],
+    "missing": [
+      "Comparação efetiva entre uma cadeira gamer e uma cadeira de escritório à venda, como a XT Racer Platinum W e a Flexform Dot.",
+      "Fichas técnicas da XT Racer e da ThunderX3 comparando regulagens, apoio lombar, braços, reclinação ou mecanismo, peso máximo, revestimento e garantia.",
+      "Regra clara dizendo quando escolher uma cadeira de escritório e quando escolher uma gamer, com base nas especificações declaradas pelos fabricantes.",
+      "Tabela por modelo, sem misturar informações de produtos diferentes.",
+      "Informação específica sobre o que a garantia de cada modelo cobre, incluindo estrutura, espuma e mecanismo.",
+      "Fonte primária explicando se há norma ABNT aplicável e o que ela efetivamente regula ou certifica."
+    ],
+    "publishable": true,
+    "summary": "A página oferece critérios úteis para conferir regulagens, peso e garantia, e a resposta curta é compreensível. Porém, responde apenas parcialmente à dúvida porque não compara modelos ou fabricantes de forma efetiva, não estabelece quando escolher cada tipo e se apoia quase exclusivamente na Flexform; falta a comparação solicitada entre a XT Racer, a ThunderX3 e a Flexform.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
