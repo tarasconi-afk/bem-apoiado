@@ -131,6 +131,9 @@ describe('checkProduct', () => {
     const codes = checkProduct({ ...prod, label: 'O melhor colchão', asin: 'B000000009' }, retailIdx([claim(), avail])).map((v) => v.code);
     expect(codes).toContain('PRODUCT_PROMO_LABEL');
     expect(codes).toContain('PRODUCT_AVAILABILITY_OTHER_ASIN');
+    // "Pillow top" é o nome do item; "top" sozinho continua barrado.
+    expect(checkProduct({ ...prod, label: 'Herval Pillow Top Avulso Casal', evidence: 'editor', editor: { checked_at: new Date().toISOString().slice(0, 10) } } as never, retailIdx([])).map((v) => v.code)).not.toContain('PRODUCT_PROMO_LABEL');
+    expect(checkProduct({ ...prod, label: 'Colchão Top de linha' }, retailIdx([claim(), avail])).map((v) => v.code)).toContain('PRODUCT_PROMO_LABEL');
   });
   it('disponibilidade velha precisa de nova captura', () => {
     const old = { ...avail, captured_at: '2026-01-01T00:00:00.000Z' };

@@ -100,7 +100,8 @@ export const AVAILABILITY_MAX_AGE_DAYS = 30;
 export function checkProduct(p: Product, idx: EvidenceIndex, now = new Date(), kindLabel?: string, forbidden: string[] = []): Violation[] {
   const out: Violation[] = [];
   const where = `product:${p.asin}`;
-  if (PROMO.test(p.label)) out.push({ code: 'PRODUCT_PROMO_LABEL', where, detail: p.label });
+  // "Pillow top" é nome do produto, não "top" de ranking (23/10: Herval Pillow Top Avulso recusado como promoção).
+  if (PROMO.test(p.label.replace(/pillow[\s-]*top/gi, ''))) out.push({ code: 'PRODUCT_PROMO_LABEL', where, detail: p.label });
   if (p.evidence === 'editor') {
     const age = (now.getTime() - new Date(p.editor?.checked_at ?? 0).getTime()) / 86_400_000;
     if (age > EDITOR_PICK_MAX_AGE_DAYS) out.push({ code: 'PRODUCT_EDITOR_STALE', where, detail: `${Math.round(age)} dias sem conferência do editor` });

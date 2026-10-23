@@ -8,7 +8,13 @@ process.env.BEM_ROOT = root;
 process.env.NEXOS_API_KEY = 'k';
 writeFileSync(join(root, 'package.json'), '{"name":"bem-apoiado"}');
 for (const d of ['topics', 'pages', 'claims', 'sources']) mkdirSync(join(root, 'data', d), { recursive: true });
-writeFileSync(join(root, 'data/niche.json'), readFileSync(join(import.meta.dirname, '../../../data/niche.json')));
+// Nicho real sem os tipos criados pelo Pedir ao motor (o teste de tipo novo cria o protetor de novo; 23/10 o teste
+// quebrou o aceite do próprio tipo, porque o nicho real já o tinha).
+const niche = JSON.parse(readFileSync(join(import.meta.dirname, '../../../data/niche.json'), 'utf8'));
+const created = new Set(['protetor', 'pillow_top']);
+niche.product_kinds = niche.product_kinds.filter((k: { id: string }) => !created.has(k.id));
+for (const c of niche.categories) c.kinds = c.kinds.filter((k: string) => !created.has(k));
+writeFileSync(join(root, 'data/niche.json'), JSON.stringify(niche));
 writeFileSync(join(root, 'data/queue.json'), JSON.stringify({ items: [{ query: 'colchão firme ou macio', added_at: '2026-10-20', origin: 'x' }] }));
 
 describe('pedidos em texto livre', () => {
@@ -54,7 +60,7 @@ describe('tipo de produto novo pelo pedido', () => {
   it('cria acessório no nicho, na categoria, na pauta e nos fabricantes já cadastrados; recusa duplicado', async () => {
     mkdirSync(join(root, 'data/registry'), { recursive: true });
     writeFileSync(join(root, 'data/registry/domains.json'), JSON.stringify({ _comment: 'x', allow: [{ host: 'fibrasca.com.br', publisher: 'Fibrasca', source_class: 'manufacturer', kinds: ['travesseiro'] }], block: [] }));
-    writeFileSync(join(root, 'data/topics/protetor-de-colchao-vale-a-pena.json'), readFileSync(join(import.meta.dirname, '../../../data/topics/protetor-de-colchao-vale-a-pena.json')));
+    writeFileSync(join(root, 'data/topics/protetor-de-colchao-vale-a-pena.json'), JSON.stringify({ ...JSON.parse(readFileSync(join(import.meta.dirname, '../../../data/topics/protetor-de-colchao-vale-a-pena.json'), 'utf8')), product_kinds: ['outro'] }));
     const { createKind } = await import('../src/stages/requests.ts');
     const msg = createKind({ label: 'Protetor de colchão', accessory: true, category: 'colchao', slugs: ['protetor-de-colchao-vale-a-pena'], makers: ['Fibrasca', 'Marca Inventada'] });
     expect(msg).toContain('tipo novo "Protetor de colchão" (protetor, acessório');

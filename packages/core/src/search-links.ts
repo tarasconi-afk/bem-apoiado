@@ -15,7 +15,8 @@ export function searchLinkProblem(l: { label: string; query: string }, forbidden
   const words = q.split(/\s+/);
   if (words.length < 2 || words.length > 7 || q.length > 60) return 'termo de busca precisa ter de 2 a 7 palavras';
   if (l.label.trim().length < 8 || l.label.length > 70) return 'rótulo precisa ter de 8 a 70 caracteres';
-  if (PROMO.test(q) || PROMO.test(l.label)) return 'promoção ou ranking no rótulo ou no termo';
+  const noItem = (t: string) => t.replace(/pillow[\s-]*top/gi, ''); // nome do produto, não "top" de ranking
+  if (PROMO.test(noItem(q)) || PROMO.test(noItem(l.label))) return 'promoção ou ranking no rótulo ou no termo';
   if ((q.match(/\d+\s*x\s*\d+/gi) ?? []).length > 1) return 'mais de uma medida no mesmo termo';
   if (firstForbidden(`${l.label} ${q}`, forbidden)) return 'termo vetado pelo nicho';
   return null;

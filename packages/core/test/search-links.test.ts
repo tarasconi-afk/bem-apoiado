@@ -8,6 +8,7 @@ describe('buscas na Amazon', () => {
   it('recusa promoção, ranking e termo vetado', () => {
     expect(searchLinkProblem({ label: 'Cadeiras com regulagem de altura', query: 'cadeira regulagem altura' }, [])).toBeNull();
     expect(searchLinkProblem({ label: 'As melhores cadeiras', query: 'melhor cadeira escritório' }, [])).toMatch(/promoção/);
+    expect(searchLinkProblem({ label: 'Pillow top casal', query: 'pillow top casal' }, [])).toBeNull();
     expect(searchLinkProblem({ label: 'Colchão que cura dor nas costas', query: 'colchão dor nas costas' }, ['dor nas costas'])).toMatch(/vetado/);
     expect(searchLinkProblem({ label: 'Cadeiras', query: 'cadeira' }, [])).not.toBeNull();
   });
