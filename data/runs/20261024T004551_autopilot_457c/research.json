@@ -1,0 +1,242 @@
+{
+  "run_id": "20261024T004551_autopilot_457c",
+  "topic": "colchao-para-obeso-qual-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_93c578f71f46",
+      "question_id": "q_etiqueta_inmetro_densidade",
+      "source_id": "src_db6356902922",
+      "new": false
+    },
+    {
+      "claim_id": "clm_d15a69b780cd",
+      "question_id": "q_etiqueta_inmetro_densidade",
+      "source_id": "src_ce7eca882e36",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2729b95d259a",
+      "question_id": "q_etiqueta_inmetro_densidade",
+      "source_id": "src_ce7eca882e36",
+      "new": true
+    },
+    {
+      "claim_id": "clm_47deb0916a91",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_d7aa94ad828e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b522ad46029a",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_d7aa94ad828e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b917c89d9c72",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_d7aa94ad828e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_08c3164e90f9",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_d7aa94ad828e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_aa0fb7ba023a",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_e435901c025e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c9beefb2ef3e",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_e435901c025e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d31a910a7b24",
+      "question_id": "q_espessura_minima_recomendada",
+      "source_id": "src_e435901c025e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_156abcf4b106",
+      "question_id": "q_capacidade_molas_interligadas",
+      "source_id": "src_2691ac3ec9ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f64424c2ee4f",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_2691ac3ec9ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_324d8c020408",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_d929b474429a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9561f201bf70",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_d929b474429a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fbd1d3fae54c",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_1ced46231fb8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_978de2d052ed",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_94919083dea4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a4c9b079e6e1",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_94919083dea4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a318770d7047",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_94919083dea4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_788cebc4287b",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_06312a574a59",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ba573ca77e52",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_06312a574a59",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fcfba706889e",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_e37ec25cdf8c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_470de2e32c7c",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_2f45f851506e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_58b1c7a7e4f7",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_2f45f851506e",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_1ced46231fb8",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Suporte de peso: 130 kg por pessoa"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_faixa": 8,
+    "q_densidade_espuma_peso": 7,
+    "q_capacidade_molas_ensacadas": 3,
+    "q_capacidade_molas_interligadas": 1,
+    "q_etiqueta_inmetro_densidade": 3,
+    "q_espessura_minima_recomendada": 1,
+    "q_tamanho_largura_recomendado": 0
+  },
+  "unanswered": [
+    "q_tamanho_largura_recomendado"
+  ],
+  "usage": {
+    "input_tokens": 25913,
+    "output_tokens": 3037,
+    "calls": 11
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_a8ae8d450309"
+  ],
+  "triage": [
+    {
+      "source_id": "src_db6356902922",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    },
+    {
+      "source_id": "src_ce7eca882e36",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.93
+    },
+    {
+      "source_id": "src_d7aa94ad828e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e435901c025e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_2691ac3ec9ca",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_d929b474429a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.6
+    },
+    {
+      "source_id": "src_1ced46231fb8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_94919083dea4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_06312a574a59",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e37ec25cdf8c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.88
+    },
+    {
+      "source_id": "src_2f45f851506e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    }
+  ],
+  "credits": 11.9074032
+}
