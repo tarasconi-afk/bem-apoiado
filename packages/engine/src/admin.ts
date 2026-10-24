@@ -369,7 +369,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
   // Modo sombra: cada formulário do cartão leva o que o motor sugeria; o clique do editor é gravado com isso.
   const shadowField = (kind: string, sg: Suggestion, slug: string) => `<input type="hidden" name="sombra" value="${esc(`${kind}|${sg}|${slug}`)}">`;
   const correctionForm = (ramo: string, slug: string, text: string, open: boolean, sombra = '') =>
-    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">(texto pronto; edite à vontade)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}">${sombra}<textarea name="pedido" required minlength="5" maxlength="600" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
+    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">${text.trim() ? '(texto pronto; edite à vontade)' : '(escreva o que mudar)'}</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}">${sombra}<textarea name="pedido" required minlength="5" maxlength="600" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
 
   for (const b of branches) {
     const dir = b.branch.replace(/^pagina\//, '');
@@ -389,7 +389,16 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const ready = existsSync(join(PREVIAS, dir, 'index.html'));
     const prevLink = (path: string, label: string) => (ready ? `<a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : '<span class="muted">sendo montada (até 5 min)</span>');
     const visual = (it: ChangeItem) => it.id === 'images' || it.id.startsWith('product:') || it.id === 'theme' || it.id === 'home';
-    const thumbsOf = (it: ChangeItem) => it.paths.filter((x) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x)).map((x) => `<a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="imagem nova" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a>`).join('');
+    // Legenda de cada imagem (24/10, editor: "imagem nova" duas vezes, sem saber qual era a capa desta página e qual
+    // era a de outra que veio junto no mesmo ciclo).
+    const imgLabel = (x: string) => {
+      const id = /generated\/([a-z0-9_-]+)\.webp$/.exec(x)?.[1] ?? '';
+      const pg = /^pagina-(.+)$/.exec(id)?.[1];
+      if (pg) return pg === slug ? 'capa desta página' : `capa de outra página: ${titleOf(pg)}`;
+      if (id.startsWith('produto-')) return 'foto de exemplo à venda';
+      return `ilustração do tipo ${id}`;
+    };
+    const thumbsOf = (it: ChangeItem) => it.paths.filter((x) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x)).map((x) => `<figure class="tfig"><a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="${esc(imgLabel(x))}" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a><figcaption class="muted">${esc(imgLabel(x))}</figcaption></figure>`).join('');
     const check = (it: ChangeItem, label: string) => `<label class="acc"><input type="checkbox" name="manter" value="${esc(it.id)}" checked> ${label}</label>`;
     const imgs = items.filter((i) => i.id === 'images').map((it) => `<div class="thumbs">${thumbsOf(it)}</div>${check(it, 'aceitar imagem')}`).join('');
     const prods = items.filter((i) => i.id.startsWith('product:')).map((it) => `<div>${esc(it.title)}${it.asin ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : ''} ${check(it, 'aceitar')}</div>`).join('');
@@ -401,7 +410,14 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     // 23/10: ciclo de "cadeira para obeso" que parou antes de virar página, mas trouxe a capa do pillow top,
     // aparecia como "cadeira para obeso" com a imagem do pillow top. Manutenção leva o nome do que muda.
     const maintSubject = items.find((i) => i.id === 'niche')?.title ?? (coverOf ? `Capa nova: ${titleOf(coverOf)}` : items.some((i) => i.id.startsWith('product:')) ? 'Exemplos à venda' : 'Site todo');
-    const subject = info.kind === 'manutencao' ? maintSubject : (query ?? (slug && pages.some((p) => p.slug === slug) ? titleOf(slug) : maintSubject));
+    // Título da página do próprio resultado: depois de uma correção, o último commit do ramo é "Painel: ajuste…" e o
+    // cartão perdia o nome da pauta e mostrava a capa de outra página que veio junto (24/10, "Capa nova: Base box baú"
+    // num cartão que era o do casal com pesos diferentes).
+    const branchTitle = (() => { try { return (JSON.parse(readBranch(b.branch)(`data/pages/${slug}.json`) ?? 'null') as { title?: string } | null)?.title; } catch { return undefined; } })();
+    const subject = info.kind === 'manutencao' ? maintSubject : (branchTitle ?? query ?? (slug && pages.some((p) => p.slug === slug) ? titleOf(slug) : maintSubject));
+    // Hora do ciclo que criou o resultado (está no nome do ramo), não a do último ajuste.
+    const born = /-(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})$/.exec(b.branch);
+    const bornAt = born ? `${born[3]}/${born[2]}/${born[1]}, ${born[4]}:${born[5]}` : fmt(b.when);
     const alsoTried = info.kind === 'manutencao' && query ? `A pauta "${query}" também foi tentada neste ciclo: ${outcome ?? 'não virou página'}. Nada dela muda o site.` : '';
     const prevPath = pageItem || (query && info.kind !== 'manutencao') ? `${esc(slug)}/` : coverOf ? `${esc(coverOf)}/` : '';
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
@@ -422,12 +438,16 @@ ${forceBox(slug)}</form>`
       : '';
     // Card compacto (redesenho de 23/10): uma linha com sugestão, assunto, nota e o botão da sugestão; o resto abre
     // ao clicar. O botão fica fora do formulário (atributo form), então os itens marcados vão junto.
-    const btn = items.length ? `<button form="f-${esc(dir)}" class="${info.suggestion === 'publicar' || info.suggestion === 'aplicar' ? 'ok' : 'warn'}">${primary}</button>` : '';
+    // Botão na linha do cartão só quando a sugestão é publicar ou aplicar. Com "corrigir", a linha mostrava "Publicar
+    // assim mesmo" em destaque, o contrário da sugestão (24/10): agora o "assim mesmo" fica dentro, abaixo da correção.
+    const goes = info.suggestion === 'publicar' || info.suggestion === 'aplicar';
+    const btnTag = items.length ? `<button form="f-${esc(dir)}" class="${goes ? 'ok' : 'link'}">${primary}</button>` : '';
+    const btn = goes ? btnTag : '';
     const sc = pageItem || query ? scoreHtml(readBranch(b.branch), slug).replace(/ <span class="muted">.*$/, '') : '';
     const html = `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
-<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(fmt(b.when))}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></span><span class="dsc">${sc}</span>${btn}</summary>
+<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(bornAt)}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></span><span class="dsc">${sc}</span>${btn}</summary>
 <div class="dbody">${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
-${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir', shadowField(info.kind, info.suggestion, slug)) : ''}${extra}
+${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir', shadowField(info.kind, info.suggestion, slug)) : ''}${extra}${!goes && btnTag ? `<div class="dactions"><span class="muted">ou, sem corrigir:</span> ${btnTag}</div>` : ''}
 ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   ? `<div class="dfoot">${form('descartar', { ramo: b.branch, sombra: `${info.kind}|${info.suggestion}|${slug}` }, 'Descartar este ajuste', 'link', 'Descartar este ajuste? A página no ar não muda; as fontes, evidências e lacunas que ele achou ficam guardadas.')} <span class="muted">(a página no ar fica como está; o que o motor aprendeu fica guardado)</span></div>`
   : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch, sombra: `${info.kind}|${info.suggestion}|${slug}` }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
@@ -446,9 +466,9 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
       html: `<details class="dcard sg-${info.suggestion}" data-pending>
-<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span><button form="f-ap-${esc(p.slug)}" class="${info.suggestion === 'aprovar' ? 'ok' : ''}">Aprovar e publicar</button></summary>
+<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span>${info.suggestion === 'aprovar' ? `<button form="f-ap-${esc(p.slug)}" class="ok">Aprovar e publicar</button>` : ''}</summary>
 <div class="dbody"><dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
-${failedNote(p.slug)}<div class="dactions">${approve}</div>${adjustDiffsHtml(readMain, p.slug)}
+${failedNote(p.slug)}<div class="dactions">${approve}${info.suggestion === 'aprovar' ? '' : `<span class="muted">ou, sem corrigir:</span> <button form="f-ap-${esc(p.slug)}" class="link">Aprovar e publicar assim mesmo</button>`}</div>${adjustDiffsHtml(readMain, p.slug)}
 ${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir', shadowField('rascunho', info.suggestion, p.slug))}${reject}
 </div></details>`,
     });
@@ -940,7 +960,7 @@ details.old{margin:24px 0 8px}
 .result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
 .block{margin:10px 0;padding:10px 12px;border-radius:8px;background:var(--bg)}.block-title{margin:0 0 4px;font-weight:700}.pg{margin:8px 0 4px}.pg-title{margin:6px 0 2px}.why{font-size:.88rem;margin:2px 0}
 .changes{list-style:none;padding:0;margin:8px 0}.changes li{padding:6px 0;border-top:1px solid var(--line)}.changes li:first-child{border-top:0}
-.thumbs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}.thumb{width:180px;height:auto;border-radius:6px;border:1px solid var(--line)}
+.thumbs{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin:6px 0}.tfig{margin:0;max-width:180px}.tfig figcaption{font-size:.78rem;margin-top:3px}.thumb{width:180px;height:auto;border-radius:6px;border:1px solid var(--line)}
 .diff{margin:6px 0;font-size:.88rem}.diff del{display:block;background:var(--badbg);text-decoration:line-through;padding:2px 6px;border-radius:4px}.diff ins{display:block;background:var(--okbg);text-decoration:none;padding:2px 6px;border-radius:4px;margin-top:2px}
 .sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
 .pacts{display:flex;flex-direction:column;gap:6px;margin-top:6px;min-width:260px}
