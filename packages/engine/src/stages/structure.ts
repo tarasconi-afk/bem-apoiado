@@ -146,3 +146,25 @@ export function applyRemovals(d: Draft, refs: string[]): { draft: Draft; done: s
   }
   return { draft: { ...d, sections: sections.filter((x) => x.blocks.length > 0) }, done, refused };
 }
+
+// Tirar uma coluna de tabela por pedido do editor (24/10: "tire a coluna 'Para quem serve'" no solteirão não era
+// possível; o ajuste só mexia na tabela inteira). Sem IA: a tabela continua com as outras colunas e as mesmas fontes.
+// Tabela precisa de 2 colunas no mínimo; a 1ª (o rótulo da linha) nunca sai.
+export function dropTableColumns(d: Draft, drops: { ref: string; column: string }[]): { draft: Draft; done: string[]; refused: string[] } {
+  const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  const sections = d.sections.map((x) => ({ ...x, blocks: [...x.blocks] }));
+  const done: string[] = [];
+  const refused: string[] = [];
+  for (const { ref, column } of drops) {
+    const [sid, i] = ref.split('#');
+    const sec = sections.find((x) => x.id === sid);
+    const b = sec?.blocks[Number(i)];
+    if (!sec || !b || b.kind !== 'table') { refused.push(`${ref} (não é tabela)`); continue; }
+    const ci = b.columns.findIndex((c) => fold(c) === fold(column) || fold(c).includes(fold(column)));
+    if (ci < 1) { refused.push(`coluna "${column}" (${ci === 0 ? 'é a coluna dos rótulos' : 'não existe nessa tabela'})`); continue; }
+    if (b.columns.length <= 2) { refused.push(`coluna "${column}" (a tabela ficaria com uma coluna só)`); continue; }
+    sec.blocks[Number(i)] = { ...b, columns: b.columns.filter((_, k) => k !== ci), rows: b.rows.map((r) => ({ ...r, cells: r.cells.filter((_, k) => k !== ci) })) };
+    done.push(`coluna "${b.columns[ci]}" de ${ref}`);
+  }
+  return { draft: { ...d, sections }, done, refused };
+}

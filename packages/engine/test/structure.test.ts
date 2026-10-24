@@ -150,3 +150,19 @@ describe('tirar bloco por pedido do editor', () => {
     expect(r2.refused.join(' ')).toMatch(/menos de 3 seções/);
   });
 });
+
+describe('tirar coluna de tabela', () => {
+  it('tira a coluna pelo nome, nunca a dos rótulos nem deixa a tabela com uma coluna só', async () => {
+    const { dropTableColumns } = await import('../src/stages/structure.ts');
+    const cell = (text: string) => ({ text, claim_ids: ['c'] });
+    const d = { title: 't', description: 'd', verdict: { text: 'v', basis: 'evidence', claim_ids: ['c'] }, sections: [{ id: 'como-decidir', heading: 'Como decidir', blocks: [{ kind: 'table', caption: 'Medidas', columns: ['Tamanho', 'Largura × Comprimento', 'Para quem serve'], rows: [{ cells: [cell('Solteiro'), cell('88 × 188'), cell('Quem busca essa medida')] }, { cells: [cell('Viúva'), cell('128 × 188'), cell('Casais')] }] }] }] } as never;
+    const r = dropTableColumns(d, [{ ref: 'como-decidir#0', column: 'para quem serve' }]);
+    const t = (r.draft as any).sections[0].blocks[0];
+    expect(t.columns).toEqual(['Tamanho', 'Largura × Comprimento']);
+    expect(t.rows[0].cells.map((c: { text: string }) => c.text)).toEqual(['Solteiro', '88 × 188']);
+    const r2 = dropTableColumns(r.draft, [{ ref: 'como-decidir#0', column: 'Largura × Comprimento' }, { ref: 'como-decidir#0', column: 'Tamanho' }]);
+    expect(r2.done).toEqual([]);
+    expect(r2.refused.join(' ')).toMatch(/uma coluna só/);
+    expect(r2.refused.join(' ')).toMatch(/rótulos/);
+  });
+});

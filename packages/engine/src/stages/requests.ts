@@ -6,7 +6,7 @@ import { discoverSources } from './discover.ts';
 import { decisionIssues, fixFormWithoutAI, styleIssues } from './page.ts';
 import { readerScore, reviewPage } from './review.ts';
 import { withoutDuplicates } from './duplicates.ts';
-import { applyMoves, applyRemovals, attributeSingleSource, dropClaimless } from './structure.ts';
+import { applyMoves, applyRemovals, attributeSingleSource, dropClaimless, dropTableColumns } from './structure.ts';
 import { examplesPrompt } from '../exemplars.ts';
 import { writeStage } from '../runs.ts';
 import { textDiffs } from '../changes.ts';
@@ -277,21 +277,22 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const blocks = editableBlocks(page);
   const refs = blocks.map((b) => b.ref) as [string, ...string[]];
   // Tabelas inteiras também aparecem (para mover); o seletor antes só via textos e não tinha como mover tabela.
-  const tables = page.sections.flatMap((x) => x.blocks.map((b, i) => (b.kind === 'table' ? { ref: `${x.id}#${i}`, caption: b.caption, sec: x.heading } : null)).filter((t) => t !== null));
+  const tables = page.sections.flatMap((x) => x.blocks.map((b, i) => (b.kind === 'table' ? { ref: `${x.id}#${i}`, caption: b.caption, sec: x.heading, columns: b.columns } : null)).filter((t) => t !== null));
   const movable = [...refs.filter((r) => r !== 'verdict'), ...tables.map((t) => t.ref)] as [string, ...string[]];
   const secIds = page.sections.map((x) => x.id) as [string, ...string[]];
   const pick = await callJson(
     {
       role: 'extractor',
       system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta). "rewrite_summary": true quando o pedido é sobre a resposta curta ou o "Como decidir" COMO UM TODO (linguagem para leigo, tirar jargão, mudar o ponto de vista, foco no comprador), e não sobre um dado pontual. ' +
-        '"moves": quando o pedido manda MOVER, transferir, subir ou descer uma tabela ou bloco para outra seção, diga qual (ref) e para qual seção (to), com position "start", "after_first" (depois do 1º bloco) ou "end"; o conteúdo não muda, então NÃO ponha esse bloco em "refs" só por causa da mudança de lugar. A seção que o site mostra no topo, logo depois da resposta curta, é a ÚLTIMA da lista ("Como decidir"); tabela que ajuda a decidir fica nela. Se o trecho citado pelo editor começa com o parágrafo que apresenta a tabela, mova a TABELA (o parágrafo vai junto). "removes": os blocos ou tabelas que o pedido manda TIRAR, cortar ou apagar (ex.: "tire o bloco de garantia"); não os ponha em "refs". "refs" pode ficar vazio se o pedido for só mover ou tirar. "unsupported": o que o pedido pede e não dá para fazer com reescrita, títulos ou movimentação (ex.: inventar dado sem fonte), ou vazio.',
-      user: `Pedido: ${instruction}\n\nSeções (a última aparece no topo da página): ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}\n\nTabelas:\n${tables.map((t) => `- ${t.ref} (na seção "${t.sec}"): ${t.caption}`).join('\n') || '(nenhuma)'}`,
+        '"moves": quando o pedido manda MOVER, transferir, subir ou descer uma tabela ou bloco para outra seção, diga qual (ref) e para qual seção (to), com position "start", "after_first" (depois do 1º bloco) ou "end"; o conteúdo não muda, então NÃO ponha esse bloco em "refs" só por causa da mudança de lugar. A seção que o site mostra no topo, logo depois da resposta curta, é a ÚLTIMA da lista ("Como decidir"); tabela que ajuda a decidir fica nela. Se o trecho citado pelo editor começa com o parágrafo que apresenta a tabela, mova a TABELA (o parágrafo vai junto). "removes": os blocos ou tabelas que o pedido manda TIRAR, cortar ou apagar (ex.: "tire o bloco de garantia"); não os ponha em "refs". "drop_columns": quando o pedido manda tirar uma COLUNA de uma tabela, a tabela (ref) e o nome da coluna. "refs" pode ficar vazio se o pedido for só mover ou tirar. "unsupported": o que o pedido pede e não dá para fazer com reescrita, títulos ou movimentação (ex.: inventar dado sem fonte), ou vazio.',
+      user: `Pedido: ${instruction}\n\nSeções (a última aparece no topo da página): ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}\n\nTabelas:\n${tables.map((t) => `- ${t.ref} (na seção "${t.sec}"): ${t.caption} | colunas: ${t.columns.join(' · ')}`).join('\n') || '(nenhuma)'}`,
       schema: z.object({
         rewrite_summary: z.boolean().default(false),
         refs: z.array(z.enum(refs)).max(5).default([]),
         headings: z.array(z.object({ id: z.enum(secIds), heading: z.string().min(3).max(70) })).default([]),
         moves: z.array(z.object({ ref: z.enum(movable), to: z.enum(secIds), position: z.enum(['start', 'after_first', 'end']).default('after_first') })).max(3).default([]),
         removes: z.array(z.enum(movable)).max(6).default([]),
+        drop_columns: z.array(z.object({ ref: z.string(), column: z.string() })).max(3).default([]),
         unsupported: z.string().default(''),
       }),
       schemaName: 'pick_blocks',
@@ -311,10 +312,16 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     .filter((r) => !pick.data.moves.some((m) => m.ref === r))
     .map((r) => { const [sid, i] = r.split('#'); const b = (draft0 as Draft).sections.find((x) => x.id === sid)?.blocks[Number(i)]; return b ? after.get(b) : undefined; })
     .filter((r): r is string => !!r);
-  const removed = applyRemovals(moved0.draft, toRemove);
-  const moved = { draft: removed.draft, done: [...moved0.done, ...removed.done.map((r) => `tirado ${r}`)] };
+  const removed0 = applyRemovals(moved0.draft, toRemove);
+  // Colunas: a tabela é achada pelo objeto (a posição pode ter mudado com movimentos e remoções).
+  const afterRem = new Map<object, string>();
+  removed0.draft.sections.forEach((x) => x.blocks.forEach((b, i) => afterRem.set(b, `${x.id}#${i}`)));
+  const colDrops = pick.data.drop_columns.map((c) => { const [sid, i] = c.ref.split('#'); const b = (draft0 as Draft).sections.find((x) => x.id === sid)?.blocks[Number(i)]; return { ref: (b && afterRem.get(b)) ?? '', column: c.column }; }).filter((c) => c.ref);
+  const cols = dropTableColumns(removed0.draft, colDrops);
+  const removed = { draft: cols.draft, done: removed0.done, refused: [...removed0.refused, ...cols.refused] };
+  const moved = { draft: removed.draft, done: [...moved0.done, ...removed.done.map((r) => `tirado ${r}`), ...cols.done.map((c) => `tirada ${c}`)] };
   const draft = moved.draft;
-  const moveNote = moved.done.length ? `; ${moved.done.map((x) => (x.startsWith('tirado ') ? x : `movido ${x}`)).join(', ')}` : '';
+  const moveNote = moved.done.length ? `; ${moved.done.map((x) => (/^tirad[oa] /.test(x) ? x : `movido ${x}`)).join(', ')}` : '';
   const unsupportedNote =
     (pick.data.unsupported.trim() ? `\nnão feito (o motor não sabe fazer ou não há fonte): ${pick.data.unsupported.trim().slice(0, 200)}` : '') +
     (pick.data.moves.length && !moved0.done.length ? '\nnão movido: o bloco não existe na seção indicada ou a página ficaria com menos de 3 seções' : '') +
