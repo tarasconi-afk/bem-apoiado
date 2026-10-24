@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-24T14:55:58.780Z",
+  "instruction": "Tire o colchão dupla face da resposta curta. Abra dizendo: a Probel indica os modelos D45 Firmpedic PróExtreme e Guarda Costas para casais com biotipos diferentes, e molas ensacadas reduzem a transferência de movimento, segundo Simmons, Ortobom e Castor. Na seção do dupla face, deixe claro que ele se vira inteiro, então os dois dormem no mesmo lado. Tire o exemplo \"Para 85 kg\".",
+  "diffs": [
+    {
+      "where": "Resposta curta",
+      "before": "A Probel indica os modelos D45 Firmpedic PróExtreme e Guarda Costas para casais com biotipos diferentes. Segundo Simmons, Ortobom e Castor, molas ensacadas reduzem a transferência de movimento. Segundo a Castor, a escolha de densidade pode seguir estas faixas: até 50 kg use D23; 51 a 60 kg use D26; 61 a 70 kg use D28; 71 a 80 kg use D33; 81 a 100 kg use D33 a D45 conforme a preferência; acima de 100 kg use D45 ou maior.",
+      "after": "A Probel indica os modelos D45 Firmpedic PróExtreme e Guarda Costas para casais com biotipos diferentes. Segundo Simmons, Ortobom e Castor, molas ensacadas reduzem a transferência de movimento entre os dois lados. Segundo a Castor, para escolher a densidade, a referência é: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência; acima de 100 kg, D45 ou maior."
+    },
+    {
+      "where": "Molas ensacadas: reduzem movimento entre os dois lados · bloco 1",
+      "before": "Colchões com molas ensacadas individualmente reduzem a transferência de movimento entre os dois lados. Segundo Simmons, Ortobom e Castor, cada mola trabalha de forma independente e absorve o impacto localmente, reduzindo a interferência dos movimentos de uma pessoa no sono da outra.",
+      "after": "Segundo Ortobom e Simmons, colchões com molas ensacadas individualmente podem diminuir ou evitar a transferência de movimento entre os lados. A Castor afirma que cada mola trabalha de forma independente, adapta-se aos contornos do corpo e minimiza a transferência de movimento."
+    },
+    {
+      "where": "Colchões dupla face: firmeza diferente em cada lado · bloco 1",
+      "before": "Alguns colchões dupla face permitem virar o colchão, e fabricantes associam esse uso a maior durabilidade. Segundo a Ortobom, o Iso Dupla Face tem um lado com espuma D33, de maior sustentação, e outro com D28, de toque mais macio.",
+      "after": "Alguns colchões dupla face podem ser girados e virados, permitindo alternar o lado utilizado. Segundo a Probel, esse procedimento aumenta a durabilidade. A Ortobom oferece o Iso Dupla Face com um lado em espuma D33, de maior sustentação, e outro em D28, de toque mais macio; segundo a Castor, D28 é adequada para peso leve a médio e D33 para peso médio a elevado."
+    }
+  ]
+}
