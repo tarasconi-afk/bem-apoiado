@@ -1,0 +1,210 @@
+{
+  "run_id": "20261024T130332_autopilot_5b24",
+  "topic": "colchao-para-casal-com-pesos-diferentes",
+  "accepted": [
+    {
+      "claim_id": "clm_fdf114a5b7ad",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_733ac75398a8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0c43575ffa3b",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_733ac75398a8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e6a45b1df635",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_4fa4e117ad86",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e4f1ede8a94b",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_4fa4e117ad86",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4350f4d72ca9",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_71701ddb6ead",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e1410fe374e3",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_71701ddb6ead",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ef14b707e1e9",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_1fc0f4a66290",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8c726563a584",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_1fc0f4a66290",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4fea12bba9a6",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_1fc0f4a66290",
+      "new": true
+    },
+    {
+      "claim_id": "clm_87b27d434320",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_ab18e6d85fc2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e54bc4e873f9",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_ab18e6d85fc2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cd04855fe4e4",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_ab18e6d85fc2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_85a0052e1579",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_904fa485aba0",
+      "new": true
+    },
+    {
+      "claim_id": "clm_df2880298d16",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_a0bbd246db3e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_78163da83401",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_a0bbd246db3e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_799061021d53",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_a0bbd246db3e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c1ce97ad6576",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_5c15e405cdde",
+      "new": true
+    },
+    {
+      "claim_id": "clm_94a1f4291da4",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_5c15e405cdde",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d764d3890d66",
+      "question_id": "q_dupla_face_firmeza",
+      "source_id": "src_5c15e405cdde",
+      "new": true
+    },
+    {
+      "claim_id": "clm_96d010e677f5",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_b0d3da1b2d8d",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_733ac75398a8",
+      "question_id": "q_peso_maximo_casal",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Peso Suportado: Até 120kg por pessoa"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_faixa": 2,
+    "q_molas_ensacadas_suporte": 4,
+    "q_dupla_face_firmeza": 7,
+    "q_misto_camadas": 0,
+    "q_peso_maximo_casal": 7,
+    "q_molas_interligadas_diferenca": 0
+  },
+  "unanswered": [
+    "q_misto_camadas",
+    "q_molas_interligadas_diferenca"
+  ],
+  "usage": {
+    "input_tokens": 19453,
+    "output_tokens": 2700,
+    "calls": 9
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_733ac75398a8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_4fa4e117ad86",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.77
+    },
+    {
+      "source_id": "src_71701ddb6ead",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.71
+    },
+    {
+      "source_id": "src_1fc0f4a66290",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_ab18e6d85fc2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_904fa485aba0",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_a0bbd246db3e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.82
+    },
+    {
+      "source_id": "src_5c15e405cdde",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_b0d3da1b2d8d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.56
+    }
+  ],
+  "credits": 10.560006000000005
+}

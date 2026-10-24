@@ -1,0 +1,44 @@
+{
+  "edits": [
+    {
+      "ref": "densidade-faixa-peso#0",
+      "action": "remove",
+      "reason": "A mesma tabela de densidade por peso (Castor) já aparece detalhada na seção 'Como decidir', tornando esta repetição desnecessária."
+    },
+    {
+      "ref": "molas-ensacadas-movimento#0",
+      "action": "rewrite",
+      "text": "Colchões com molas ensacadas individualmente são indicados para casais, pois cada mola trabalha de forma independente e absorve o impacto localmente, reduzindo a interferência dos movimentos de uma pessoa no sono da outra. Isso também beneficia corpos que precisam de maior suporte anatômico, segundo Simmons, Ortobom e Castor.",
+      "absorbs": [
+        "molas-ensacadas-movimento#1"
+      ],
+      "reason": "Os dois blocos repetiam a mesma ideia (molas ensacadas reduzem transferência de movimento) com fontes sobrepostas; foram unidos em um só."
+    },
+    {
+      "ref": "peso-maximo-suportado#0",
+      "action": "remove",
+      "reason": "Reasoning genérico que apenas reafirma o que já está explícito no bloco seguinte (peso-maximo-suportado#1), sem acrescentar informação nova."
+    },
+    {
+      "ref": "biotipos-diferentes#0",
+      "action": "rewrite",
+      "text": "A Probel indica os colchões D45 Firmpedic PróExtreme e Guarda Costas para casais com biotipos diferentes.",
+      "claim_ids": [
+        "clm_cd04855fe4e4",
+        "clm_d764d3890d66"
+      ],
+      "reason": "A capacidade de 150 kg por pessoa desses mesmos modelos já é informada no bloco peso-maximo-suportado#1; removida a repetição entre seções."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Se os pesos estiverem em faixas diferentes, consulte a indicação da Castor para cada ocupante: para 85 kg, a densidade recomendada varia de D33 a D45, conforme a firmeza desejada.",
+      "reason": "A menção ao suporte de 150 kg por pessoa da Probel já aparece nas seções peso-maximo-suportado e biotipos-diferentes; o bloco foi reduzido ao essencial para a decisão."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 18115,
+    "output_tokens": 6039
+  }
+}
