@@ -73,26 +73,41 @@ const cr1 = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 1 
 const sumMap = (m: Map<string, number>) => [...m.values()].reduce((t, v) => t + v, 0);
 const LABELS: Record<string, string> = { writer: 'Redação', auditor: 'Auditoria e revisão', extractor: 'Extração de trechos', imagem: 'Imagens', jev: 'Triagem (Jev)', outro: 'Outros' };
 
-// Ciclo ao vivo: faixa no topo enquanto roda; depois, o resultado do último ciclo (log se falhou).
-function cycleLiveHtml(now: Date): string {
+// Dados do ciclo (ao vivo ou o último), usados pela faixa de atividade do painel (24/10, opção A do editor) e pelo
+// status só de leitura.
+export interface CycleInfo {
+  running: { stage: string; mins: number; idle: number; steps: string[] } | null;
+  last: { state: string; at: Date; steps: string[]; topic?: string; outcome: string; log: string } | null;
+}
+export function cycleInfo(now: Date): CycleInfo {
   const c = readJson(join(STATE_DIR, 'cycle-live.json')) as { state: string; started?: string; ended?: string; updated?: string; stage?: string; steps?: string[]; code?: number } | null;
-  if (!c) return '';
+  if (!c) return { running: null, last: null };
   const mins = (iso?: string) => (iso ? Math.max(0, Math.round((now.getTime() - Date.parse(iso)) / 60000)) : 0);
   const STAGE: Record<string, string> = { discover: 'procurando fontes', research: 'lendo fontes e extraindo trechos', audit: 'auditando', write: 'escrevendo', trim: 'cortando enchimento', page: 'revisão editorial', edit: 'edição final', escalation: 'segunda tentativa com o Sonnet', salvage: 'salvando a página', 'refresh-products': 'renovando produtos' };
   // Diz o que e de qual página: "re-auditando <página> (rodada 3)"; a última etapa concluída mostra a pauta da vez.
   const round = c.stage && /-r(\d+)$/.exec(c.stage) ? ` (rodada ${Number(/-r(\d+)$/.exec(c.stage)![1]) + 1})` : '';
   const reaudit = c.stage ? /^reaudit-(.+?)(-r\d+)?$/.exec(c.stage) : null;
   const stage = !c.stage ? 'começando' : reaudit ? `re-auditando ${reaudit[1]}${round}` : (STAGE[c.stage.replace(/-r\d+$/, '')] ?? c.stage) + round;
-  const last = (c.steps ?? []).slice(-3).map((s) => `<li>${esc(s)}</li>`).join('');
-  if (c.state === 'rodando' && mins(c.updated) < 90) return `<div class="flash live"><span class="dot" aria-hidden="true"></span><strong>Ciclo em andamento</strong> há ${mins(c.started)} min · agora: ${esc(stage)} <span class="muted">(última atividade há ${mins(c.updated)} min)</span>${last ? `<ul class="muted">${last}</ul>` : ''}</div>`;
-  const log = existsSync(join(STATE_DIR, 'cycle-last.log')) ? readFileSync(join(STATE_DIR, 'cycle-last.log'), 'utf8') : '';
-  // O desfecho da pauta no título, em linguagem simples (22/10: "terminou" sem prévia, e o editor não sabia por quê).
   const steps = c.steps ?? [];
-  const topic = /^pauta (?:nova: )?"([^"]+)"/.exec(steps.find((s) => s.startsWith('pauta ')) ?? '')?.[1];
-  const outcome = plainOutcome(steps);
-  const head = topic ? `<div style="margin-top:6px"><strong>${esc(topic)}:</strong> ${esc(outcome ?? (steps.some((s) => s.startsWith('page: PASS')) ? 'virou página; confira a prévia em "Esperando sua decisão"' : 'veja as etapas abaixo'))}</div>` : steps.length && !steps.some((s) => s.startsWith('pauta ')) ? '<div style="margin-top:6px" class="muted">Só manutenção (produtos, imagens, re-auditoria); nenhuma pauta nova neste ciclo.</div>' : '';
-  return `<details class="flash" style="${c.state === 'falhou' ? 'border-color:var(--bad)' : ''}" ${c.state === 'falhou' ? 'open' : ''}><summary><strong>Último ciclo:</strong> ${c.state === 'falhou' ? '<span class="b bad">falhou</span>' : c.state === 'rodando' ? '<span class="b bad">parou sem terminar</span>' : '<span class="b ok">terminou</span>'} <span class="muted">${esc(fmt(new Date(c.ended ?? c.updated ?? now.toISOString())))}</span>${head}</summary>${(c.steps ?? []).length ? `<ul class="muted">${(c.steps ?? []).map((s) => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${c.state !== 'ok' && log ? `<pre style="white-space:pre-wrap;font-size:.75rem">${esc(log.slice(-2500))}</pre>` : ''}</details>`;
+  if (c.state === 'rodando' && mins(c.updated) < 90) return { running: { stage, mins: mins(c.started), idle: mins(c.updated), steps: steps.slice(-3) }, last: null };
+  const log = c.state !== 'ok' && existsSync(join(STATE_DIR, 'cycle-last.log')) ? readFileSync(join(STATE_DIR, 'cycle-last.log'), 'utf8').slice(-2500) : '';
+  // O desfecho da pauta em linguagem simples (22/10: "terminou" sem prévia, e o editor não sabia por quê).
+  const topic = /^pauta (?:nova: )?"([^"]+)"/.exec(steps.find((x) => x.startsWith('pauta ')) ?? '')?.[1];
+  const outcome = topic
+    ? (plainOutcome(steps) ?? (steps.some((x) => x.startsWith('page: PASS')) ? 'virou página; confira a prévia no quadro de decisões' : 'veja as etapas abaixo'))
+    : steps.length ? 'Só manutenção (produtos, imagens, re-auditoria); nenhuma pauta nova neste ciclo.' : '';
+  return { running: null, last: { state: c.state, at: new Date(c.ended ?? c.updated ?? now.toISOString()), steps, topic, outcome, log } };
 }
+
+// Status só de leitura: faixa enquanto roda; depois, o resultado do último ciclo (log se falhou).
+function cycleLiveHtml(now: Date): string {
+  const { running: r, last: l } = cycleInfo(now);
+  if (r) return `<div class="flash live"><span class="dot" aria-hidden="true"></span><strong>Ciclo em andamento</strong> há ${r.mins} min · agora: ${esc(r.stage)} <span class="muted">(última atividade há ${r.idle} min)</span>${r.steps.length ? `<ul class="muted">${r.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}</div>`;
+  if (!l) return '';
+  const head = l.outcome ? `<div style="margin-top:6px">${l.topic ? `<strong>${esc(l.topic)}:</strong> ` : ''}${esc(l.outcome)}</div>` : '';
+  return `<details class="flash" style="${l.state === 'falhou' ? 'border-color:var(--bad)' : ''}" ${l.state === 'falhou' ? 'open' : ''}><summary><strong>Último ciclo:</strong> ${cycleBadge(l.state)} <span class="muted">${esc(fmt(l.at))}</span>${head}</summary>${l.steps.length ? `<ul class="muted">${l.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${l.log ? `<pre style="white-space:pre-wrap;font-size:.75rem">${esc(l.log)}</pre>` : ''}</details>`;
+}
+export const cycleBadge = (state: string) => (state === 'falhou' ? '<span class="b bad">falhou</span>' : state === 'rodando' ? '<span class="b bad">parou sem terminar</span>' : '<span class="b ok">terminou</span>');
 
 // Aviso quando o site público ficou para trás do main (sync grava STATE/live-site.json a cada 5 min).
 // Só o build do Action carimba a versão; commit de dados do painel também conta como versão nova.
@@ -114,7 +129,7 @@ function versionLine(): string {
   }
 }
 
-export function renderStatus(now = new Date(), opts: { adminHtml?: string; refresh?: number } = {}): string {
+export function renderStatus(now = new Date(), opts: { adminHtml?: string; topHtml?: string; refresh?: number } = {}): string {
   const runs = collectRuns();
   const idx = buildIndex();
   const pages = loadPages();
@@ -167,8 +182,8 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 </style></head><body><main>
 <h1>Painel do motor · Bem Apoiado</h1>
 <p class="muted" id="ver">Gerado em ${esc(fmt(now))} (horário de Brasília) · ${opts.adminHtml ? 'ações registradas no git' : 'atualiza a cada 5 min · somente leitura'}${versionLine()}</p>
-${opts.adminHtml ? kpisHtml(pages, now) : ''}
-${opts.adminHtml ? `${cycleLiveHtml(now)}${liveWarning()}${opts.adminHtml}<h2>Números do motor</h2>` : ''}
+${opts.topHtml ?? ''}${opts.adminHtml ? kpisHtml(pages, now) : ''}
+${opts.adminHtml ? `${opts.topHtml ? '' : cycleLiveHtml(now)}${liveWarning()}${opts.adminHtml}<h2>Números do motor</h2>` : ''}
 <div class="grid">
 ${goalsCard(pages, sum(since(24 * 7)), now)}
 <div class="card"><div class="v">${cr(creditsToday())} <span style="font-size:.9rem;font-weight:500">de ${DAILY_CREDIT_CAP}</span></div><div class="l">créditos hoje (teto do dia; zera à meia-noite)</div></div>

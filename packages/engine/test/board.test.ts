@@ -73,3 +73,12 @@ describe('melhoria contínua', () => {
     expect(c.situation).toContain('o motor já tentou uma correção automática: aplicada (nota de leitor 0.5 → 3 de 4)');
   });
 });
+
+describe('faixa de atividade', () => {
+  it('próximo ciclo pelo horário de Brasília', async () => {
+    const { nextCycleAt } = await import('../src/admin.ts');
+    expect(nextCycleAt(new Date('2026-10-24T16:52:00Z'))).toBe('16:00'); // 13:52 em Brasília
+    expect(nextCycleAt(new Date('2026-10-25T01:30:00Z'))).toBe('04:00'); // 22:30 → amanhã 04:00
+    expect(nextCycleAt(new Date('2026-10-24T07:00:00Z'))).toBe('10:00'); // 04:00 em ponto já passou
+  });
+});

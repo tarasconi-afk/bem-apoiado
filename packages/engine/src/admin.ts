@@ -8,7 +8,7 @@ import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { join } from 'node:path';
 import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, Slug } from '@bem-apoiado/core';
-import { renderStatus } from './status.ts';
+import { cycleBadge, cycleInfo, renderStatus } from './status.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
@@ -215,7 +215,6 @@ const form = (acao: string, fields: Record<string, string>, button: string, cls 
   `<form method="post" action="acao" class="inline"${confirm ? ` onsubmit="return confirm('${esc(confirm)}')"` : ''}><input type="hidden" name="acao" value="${acao}">${Object.entries(fields).map(([k, v]) => `<input type="hidden" name="${k}" value="${esc(v)}">`).join('')}<button class="${cls}">${button}</button></form>`;
 
 function adminHtml(msg: string | null): string {
-  const job = running();
   const pages = loadPages();
   const branches = pendingBranches();
   const queue = queueItems();
@@ -223,8 +222,6 @@ function adminHtml(msg: string | null): string {
   const qstate = new Map(queueStatus(pendingSlugs).map((x) => [x.query, x.state]));
   return `
 ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
-${job ? `<p class="flash">Em andamento: <strong>${esc(job.label)}</strong> desde ${esc(fmt(job.ran_at ?? job.started))}. A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p>` : ''}
-${queuedJobs().length ? `<p class="flash">Na fila (${queuedJobs().length}): ${queuedJobs().map((j) => esc(j.label)).join(' · ')}${cycleRunning() ? '. Começam quando o ciclo em andamento terminar.' : '.'}</p>` : ''}
 
 ${dockHtml()}
 ${boardHtml(pages, branches)}
@@ -694,6 +691,7 @@ ${ops.newTopics.length ? `<p><strong>Buscas sem página própria</strong> (o cic
 // Abas: as seções continuam sendo h2 + conteúdo; o script agrupa cada h2 (e o que vem até o próximo) na
 // aba do mapa abaixo. Sem framework, e sem script o painel continua inteiro numa página só.
 const TABS_JS = `<script>
+document.addEventListener('click', function (e) { document.querySelectorAll('.actbar details[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); }); });
 // O aviso da última ação vem no endereço (?msg=): mostra uma vez e limpa, para a atualização automática
 // não repetir o aviso para sempre.
 if (location.search) history.replaceState(null, '', location.pathname);
@@ -914,6 +912,14 @@ ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textare
 }
 
 export const ADMIN_CSS = `<style>
+.actbar{display:flex;flex-wrap:wrap;align-items:stretch;background:var(--card);border:1px solid var(--line);border-radius:12px;margin:14px 0 4px;font-size:.92rem}
+.actbar>*{padding:9px 14px;display:flex;align-items:center;min-width:0}.actbar>*+*{border-left:1px solid var(--line)}
+.actbar .act-now{flex:1 1 260px}.actbar summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;min-width:0}.actbar summary::-webkit-details-marker{display:none}
+.actbar .act-now b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.actbar .act-now>summary,.actbar div.act-now{gap:6px;flex-wrap:wrap}
+.actbar .pill{position:relative}.actbar .pop{position:absolute;top:calc(100% + 6px);right:0;width:min(380px,86vw);background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgb(0 0 0 / .14);padding:10px 14px;z-index:10;font-size:.88rem}
+.actbar .act-now .pop{left:0;right:auto}.actbar .pop p{margin:.3em 0}.actbar .pop ol,.actbar .pop ul{margin:.3em 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}.actbar .pop li span{display:block}
+.actbar .pop pre{white-space:pre-wrap;font-size:.72rem;max-height:240px;overflow:auto}.actbar .act-bad{background:var(--badbg)}
+.actbar .dot{margin-right:2px}.dot.idle{background:var(--muted);animation:none}.mono{font-family:var(--fm);font-size:.8rem}
 /* Redesenho de 23/10: barra lateral fixa, 4 números no topo, quadro em cartões de uma linha, "Pedir ao motor" no rodapé. */
 body.with-side main{margin-left:232px;max-width:none;padding:22px 28px 120px}
 body.with-side main>*{max-width:1080px;margin-left:auto;margin-right:auto}body.with-side main>.dock{max-width:none;margin:0}
@@ -1297,8 +1303,51 @@ const head = () => {
   }
 };
 
+// Faixa de atividade (24/10, opção A escolhida pelo editor na prévia): antes eram 3 caixas em parágrafo (último ciclo,
+// ação em andamento, fila) com o slug e o pedido inteiro, empurrando o quadro para baixo em todas as abas. Agora uma
+// linha: o que roda agora (luz piscando), a fila e o último ciclo, com o detalhe em menu; parado, o próximo ciclo.
+const CYCLE_HOURS = [4, 10, 16, 22]; // infra/bem-apoiado-cycle.timer (+ até 15 min de atraso aleatório)
+export function nextCycleAt(now: Date): string {
+  const [h, m] = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(now).split(':').map(Number) as [number, number];
+  const next = CYCLE_HOURS.find((x) => x * 60 > h * 60 + m) ?? CYCLE_HOURS[0]!;
+  return `${String(next).padStart(2, '0')}:00`;
+}
+const JOB_VERB: Record<string, string> = { ajustar: 'Ajustando', mesclar: 'Aplicando', descartar: 'Descartando', veredito: 'Registrando veredito', pedido: 'Pedido ao motor', editar: 'Editando', 'produto-ler': 'Lendo anúncio', 'produto-adicionar': 'Adicionando produto', 'produto-reconferir': 'Reconferindo produto', 'produto-remover': 'Removendo produto', 'fila-adicionar': 'Fila de pautas', 'fila-remover': 'Fila de pautas', 'licao-remover': 'Removendo lição', 'dominio-aprovar': 'Aprovando domínio', 'dominio-bloquear': 'Bloqueando domínio', 'dominio-desfazer': 'Desfazendo domínio' };
+// "ajustar colchao-x: pedido…" → verbo + título da página; o rótulo inteiro fica no menu.
+function jobTitle(j: Job): { verb: string; subject: string } {
+  const verb = JOB_VERB[j.args[0] ?? ''] ?? 'Ação';
+  const slug = j.args[0] === 'ajustar' ? j.args[2] : j.args[0] === 'editar' ? j.args[1] : j.args[0] === 'mesclar' || j.args[0] === 'descartar' ? j.args[1]?.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '') : undefined;
+  const page = slug ? loadPages().find((p) => p.slug === slug) : undefined;
+  return { verb, subject: page?.title ?? (slug ? slug.replace(/-/g, ' ') : j.label.replace(/^[^:]*:\s*/, '')) };
+}
+const since = (iso: string) => Math.max(0, Math.round((Date.now() - Date.parse(iso)) / 60000));
+export function activityBar(now = new Date()): string {
+  const job = running();
+  const queued = queuedJobs();
+  const cyc = cycleInfo(now);
+  let nowPart: string;
+  if (cyc.running) {
+    const r = cyc.running;
+    nowPart = `<details class="act-now pill"><summary><span class="dot live" aria-hidden="true"></span><span class="muted">Ciclo</span> <b>${esc(r.stage)}</b> <span class="muted mono">${r.mins} min</span></summary><div class="pop">${r.steps.length ? `<ul>${r.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : 'começando'}<p class="muted">última atividade há ${r.idle} min${queued.length ? ' · as ações da fila começam quando o ciclo terminar' : ''}</p></div></details>`;
+  } else if (job) {
+    const t = jobTitle(job);
+    nowPart = `<details class="act-now pill"><summary><span class="dot live" aria-hidden="true"></span><span class="muted">${esc(t.verb)}</span> <b>${esc(t.subject)}</b> <span class="muted mono">${since(job.ran_at ?? job.started)} min</span></summary><div class="pop"><p>${esc(job.label)}</p><p class="muted">A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p></div></details>`;
+  } else {
+    const asked = existsSync(RUN_NOW);
+    nowPart = `<div class="act-now"><span class="dot idle" aria-hidden="true"></span><span class="muted">${asked ? 'Ciclo pedido: começa em até 1 min' : 'Motor parado'}</span>${asked ? '' : ` <span class="muted">· próximo ciclo</span> <b>${nextCycleAt(now)}</b>`}</div>`;
+  }
+  const queuePart = queued.length
+    ? `<details class="pill"><summary>Fila <span class="b neutral">${queued.length}</span> ▾</summary><div class="pop"><ol>${queued.map((j) => { const t = jobTitle(j); return `<li><b>${esc(t.subject)}</b><span class="muted">${esc(j.label.replace(/^[^:]*:\s*/, ''))}</span></li>`; }).join('')}</ol></div></details>`
+    : '';
+  const l = cyc.last;
+  const lastPart = l
+    ? `<details class="pill${l.state === 'ok' ? '' : ' act-bad'}"${l.state === 'falhou' ? ' open' : ''}><summary>Último ciclo ${esc(l.at.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' }))} ${l.state === 'ok' ? '<span class="b ok">✓</span>' : cycleBadge(l.state)} ▾</summary><div class="pop">${l.outcome ? `<p>${l.topic ? `<b>${esc(l.topic)}:</b> ` : ''}${esc(l.outcome)}</p>` : ''}${l.steps.length ? `<details><summary class="muted">etapas (${l.steps.length})</summary><ul class="muted">${l.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></details>` : ''}${l.log ? `<pre>${esc(l.log)}</pre>` : ''}</div></details>`
+    : '';
+  return `<div class="actbar" role="status" aria-label="Atividade do motor">${nowPart}${queuePart}${lastPart}</div>`;
+}
+
 export function adminPage(msg: string | null): string {
-  return renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(msg) }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() || queuedJobs().length ? 10 : 30, panelVersion())}</body>`);
+  return renderStatus(new Date(), { adminHtml: ADMIN_CSS + adminHtml(msg), topHtml: activityBar() }).replace('</body>', `${TABS_JS}${draftsJs(running() || cycleRunning() || queuedJobs().length ? 10 : 30, panelVersion())}</body>`);
 }
 
 export function startAdmin() {
