@@ -1,0 +1,60 @@
+{
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para dormir sozinho em espaço de até 88 cm de largura, confira um colchão solteiro de 88 × 188 cm e verifique se o comprimento cabe no quarto.",
+      "Para quem precisa de mais comprimento, o solteirão mede 100 × 200 cm; confira essas medidas no quarto e a compatibilidade com a base.",
+      "Para um casal com biotipos diferentes, o viúva mede 128 × 188 cm; confirme se a largura cabe no espaço e se a base é compatível.",
+      "Confira na ficha técnica a capacidade de peso por pessoa: 120 kg no modelo de solteirão citado e de 110 kg a 150 kg nos modelos de viúva citados.",
+      "Verifique se a base tem as mesmas dimensões do colchão; a Probel lista base box viúva de 128 × 188 cm."
+    ],
+    "missing": [
+      "Uma regra explícita comparando solteirão e viúva para quem dorme sozinho, é alto, tem quarto estreito ou quer mais espaço.",
+      "Uma tabela que informe para quem serve cada tamanho, além de apenas listar largura e comprimento.",
+      "A compatibilidade de base ou estrado para o colchão solteirão, e não apenas para o viúva.",
+      "Dimensões do solteirão confirmadas por mais de um fabricante, caso essa comparação seja exigida pela pauta.",
+      "Uma orientação clara sobre se a largura do viúva é adequada para duas pessoas em diferentes situações de espaço."
+    ],
+    "publishable": true,
+    "summary": "A página é útil e publicável porque informa medidas, capacidade de peso e alguns critérios práticos para conferir o quarto e a base. Porém, responde apenas parcialmente à escolha entre solteirão e viúva: apresenta o viúva para casal e o solteirão como opção mais comprida, mas não transforma esses dados em uma regra clara para quem dorme sozinho, é alto, tem quarto estreito ou quer mais espaço.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o solteirão se dorme sozinho e precisa de mais comprimento: ele mede 100 × 200 cm.",
+      "Escolha a viúva se quer mais largura: ela mede 128 × 188 cm, 40 cm a mais que o solteiro.",
+      "Para um quarto ou espaço mais estreito, confira se a largura de 100 cm do solteirão cabe na área disponível.",
+      "Compare as medidas do colchão com as da base ou estrado antes da compra.",
+      "Confira na ficha do modelo a capacidade de peso por pessoa, pois ela pode variar entre colchões viúva.",
+      "Não escolha apenas pelo nome do tamanho: verifique as medidas declaradas na ficha do fabricante."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma resposta curta que diga explicitamente, em até três frases, qual tamanho escolher para quem dorme sozinho e é alto, para quarto estreito e para quem quer mais espaço.",
+      "A medida do solteirão e da viúva confirmada por pelo menos dois fabricantes, como solicitado na pauta.",
+      "A compatibilidade de base ou estrado para o solteirão, além da informação já dada para a viúva.",
+      "Uma indicação mais clara de quantas pessoas cada tamanho acomoda e em quais situações a viúva serve para uma ou duas pessoas.",
+      "Uma comparação de medidas do quarto, da base e das folgas necessárias para circulação."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque entrega as medidas, diferencia o solteirão pela maior largura e comprimento e a viúva pela maior largura, além de orientar a conferir o espaço, a base e a capacidade do modelo. A resposta curta, porém, apresenta apenas comparação de dimensões e não transforma esses dados em uma regra explícita de escolha; por isso, não funciona sozinha tão bem quanto o restante da página. Também faltam a confirmação das medidas por dois fabricantes e a compatibilidade de base do solteirão, mas há orientação prática suficiente para a dúvida principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "score_before": 3.5,
+  "score_after": 3
+}
