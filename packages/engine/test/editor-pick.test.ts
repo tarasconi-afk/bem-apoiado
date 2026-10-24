@@ -34,6 +34,10 @@ describe('ajuste que falhou trava o aprovar', () => {
     expect(failedAdjust([j('a', 1, 'erro\najuste NÃO salvo (veja o motivo acima)')] as never, 'a')).toContain('NÃO salvo');
     expect(failedAdjust([j('a', 0, 'texto ajustado'), j('a', 1, 'ajuste NÃO salvo')] as never, 'a')).toBeNull();
     expect(failedAdjust([j('b', 1, 'ajuste NÃO salvo')] as never, 'a')).toBeNull();
+    // ajuste salvo depois da falha (commit "Painel: ajuste em …" mais novo) apaga o aviso
+    const t = (slug: string, ended: string) => ({ id: 'x', label: 'l', args: ['ajustar', 'main', slug, 'f'], started: '', ended, code: 1, output: 'ajuste NÃO salvo' });
+    expect(failedAdjust([t('a', '2026-10-24T15:56:56Z')] as never, 'a', Date.parse('2026-10-24T16:20:00Z'))).toBeNull();
+    expect(failedAdjust([t('a', '2026-10-24T15:56:56Z')] as never, 'a', Date.parse('2026-10-24T15:00:00Z'))).toContain('NÃO salvo');
   });
 });
 

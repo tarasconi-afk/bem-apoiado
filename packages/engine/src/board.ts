@@ -22,7 +22,15 @@ export interface ReviewLike {
   purchase_path?: boolean;
   missing?: string[];
   reader_problems?: string[];
+  coherence?: { check: string }[];
 }
+
+// Auditoria de coerência (stages/coherence.ts), em palavras do editor.
+const COHERENCE_LABEL: Record<string, string> = {
+  produto_como_solucao: 'produto apresentado como solução sem a fonte dizer',
+  dado_de_produto_vira_regra: 'dado de um produto virou regra',
+  caso_sem_orientacao: 'caso sem orientação no Como decidir',
+};
 
 export const KIND_LABEL: Record<CardKind, string> = {
   'pagina-nova': 'Página nova',
@@ -46,7 +54,8 @@ export function fourQuestions(r: ReviewLike | null | undefined): string {
   if (!r) return 'sem revisão registrada';
   const yn = (b: boolean | undefined) => (b === false ? 'não' : 'sim');
   const dec = r.answers_primary_query === 'no' ? 'não' : r.answers_primary_query === 'partial' ? 'em parte' : 'sim';
-  return `decide: ${dec} · leva à compra: ${yn(r.purchase_path)} · leigo: ${yn(r.reader_fit)} · resposta rápida: ${yn(r.quick_answer)}`;
+  const coh = [...new Set((r.coherence ?? []).map((c) => COHERENCE_LABEL[c.check] ?? c.check))];
+  return `decide: ${dec} · leva à compra: ${yn(r.purchase_path)} · leigo: ${yn(r.reader_fit)} · resposta rápida: ${yn(r.quick_answer)}${coh.length ? ` · coerência: ${coh.join('; ')}` : ''}`;
 }
 
 // Pedido de correção pronto. Com as regras "Se você…" que as fontes sustentam (checagem antes da redação), o

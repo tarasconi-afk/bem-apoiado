@@ -37,6 +37,7 @@ export interface ReviewResult {
   quick_answer?: boolean;
   purchase_path?: boolean;
   reader_problems?: string[];
+  coherence?: { check: string; ref: string; problem: string; fix: string }[]; // auditoria de coerência (page.ts)
   filler_refs: string[];
   decision_criteria: string[];
   missing: string[];

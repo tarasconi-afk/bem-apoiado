@@ -12,6 +12,9 @@ import { attributeSingleSource, decisionLast } from './structure.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
+import { auditCoherence } from './coherence.ts';
+// BEM_COHERENCE=0 desliga a auditoria de coerência (para comparar custo ou resultado).
+const COHERENCE = process.env.BEM_COHERENCE !== '0';
 import { loadThresholds } from '../feedback.ts';
 import { applyEdits } from './edit.ts';
 import { writeDraft } from './write.ts';
@@ -268,6 +271,17 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
         draft = trimmed;
         passed = candidate;
         rv = rv2;
+      }
+    }
+    // 4) Coerência da página inteira, só quando o juiz aprovou (24/10: as 3 páginas novas da noite tiveram 4 de 4
+    // e o editor corrigiu as 3). Problema achado reprova: vira o pedido de correção do cartão e da correção
+    // automática. Teste retroativo: pegou os 3 casos que o editor corrigiu e nenhum no solteirão já corrigido.
+    if (rv.review.publishable && COHERENCE) {
+      const c = await auditCoherence(passed, topic.primary_query, idx.claims, idx.sources, fetchImpl);
+      add(c.usage, c.usage.calls);
+      writeStage(runId, 'coherence', { findings: c.findings, usage: c.usage });
+      if (c.findings.length) {
+        rv = { ...rv, review: { ...rv.review, publishable: false, coherence: c.findings, reader_problems: [...c.problems, ...(rv.review.reader_problems ?? [])], missing: [...c.problems.map((x) => `Para o leitor leigo: ${x}`), ...rv.review.missing] } };
       }
     }
     const reviewed: PageSpec = { ...passed, provenance: { ...passed.provenance, review: reviewMetrics(rv.review) } };

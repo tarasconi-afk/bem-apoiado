@@ -57,7 +57,7 @@ const draft = (verdictText: string) => ({
 });
 
 // Simula o roteador: responde conforme o modelo pedido no corpo da requisição.
-function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean; rejectRef?: string; rejectWhileWriter?: string }) {
+function router(opts: { coherence?: boolean; auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean; rejectRef?: string; rejectWhileWriter?: string }) {
   let writerCalls = 0;
   let lastWriter = '';
   let reviews = 0;
@@ -74,6 +74,8 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
             ? { patches: [{ ref: opts.rejectRef, action: 'replace', text: 'Outro texto sustentado, reescrito.', basis: 'evidence', claim_ids: [IDS[5]] }] }
             : { patches: [{ ref: 'verdict', action: 'replace', text: 'Depende do uso, segundo as fontes citadas.', basis: 'reasoning', claim_ids: [IDS[0]] }] }
           : draft(opts.rejectRef ? 'Depende do uso, segundo as fontes citadas.' : 'Colchão de espuma sempre dura mais em qualquer caso.');
+    } else if (body.response_format.json_schema.name === 'coherence') {
+      content = { findings: opts.coherence ? [{ check: 'produto_como_solucao', ref: 'verdict', problem: 'O leitor entende que a espuma resolve o caso dele.', fix: 'Dizer só o que a fonte descreve.' }] : [] };
     } else if (body.response_format.json_schema.name === 'editorial_review') {
       reviews++;
       if (opts.nearMiss && reviews <= 3) { // 1ª revisão = 3 avaliações (maioria)
@@ -99,6 +101,17 @@ function router(opts: { auditorRejectsAlways: boolean; publishable?: boolean; ne
 }
 
 describe('buildPage', () => {
+  it('coerência: juiz aprova, mas produto como solução reprova e vira pedido de correção', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_coh', router({ auditorRejectsAlways: false, coherence: true }));
+    expect(r.status).toBe('NOT_PUBLISHABLE');
+    if (r.status !== 'NOT_PUBLISHABLE') return;
+    expect(r.page.status).toBe('draft');
+    expect(r.review.coherence?.[0]?.check).toBe('produto_como_solucao');
+    const { correctionText } = await import('../src/board.ts');
+    expect(correctionText(r.review)).toContain('a espuma resolve o caso dele');
+  });
+
   it('corrige o bloco exagerado e grava a página aprovada', async () => {
     const { buildPage } = await import('../src/stages/page.ts');
     const r = await buildPage('pagina-teste', 'run_a', router({ auditorRejectsAlways: false }));

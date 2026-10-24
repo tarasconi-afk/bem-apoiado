@@ -612,3 +612,18 @@ base para cama box, colchão para obeso, tamanhos de travesseiro) e deixaria pas
 estar em tabelas e guias de nome genérico. Não foi ligada. A checagem que funciona continua sendo a de antes de
 escrever (readiness.ts), que adiou as 3 pautas sem fonte gastando 2,6 a 10 créditos cada, sem redação. O desperdício
 real (cadeira para obeso, ~50 créditos em 3 tentativas) já é cortado pelo limite de 2 novas tentativas por pauta.
+
+## 2026-10-24 · Auditoria de coerência da página inteira antes do PASS
+O modo sombra mostrou que o juiz deu 4 de 4 às 3 páginas novas da noite de 23→24/10 e o editor corrigiu as 3. Os
+erros só aparecem lendo a página toda: produto apresentado como solução sem a fonte dizer (dupla face para casal com
+pesos diferentes), dado de um produto virando regra (a medida de um travesseiro King virando a de queen e king) e
+caso da resposta curta sem orientação (solteirão). O auditor lê bloco a bloco e o juiz, pergunta a pergunta; nenhum
+dos dois via isso. Agora `stages/coherence.ts` lê a página inteira com os trechos e só pode apontar esses 3
+problemas (lista fechada), por maioria de 3 leituras. Roda só quando o juiz aprovou. Problema achado reprova a
+página e vira o texto do "Pedir correção" e da correção automática. `BEM_COHERENCE=0` desliga.
+Teste retroativo (scripts/bt-coherence.ts, ~0,7 crédito por página): pegou os 3 casos corrigidos pelo editor, mais
+a página rasa (travesseiro alto ou baixo), e deixou limpas as versões corrigidas do solteirão e do alto ou baixo.
+Achou também a dupla face ainda no ar na página do casal (o bloco voltou ao texto antigo no ajuste de 24/10). Nas
+14 outras páginas no ar, apontou problemas em 10, a maioria real (ex.: "D28 suporta até 90 kg" é de um modelo
+Probel; "base de alumínio resiste a 1100 kg" é de uma cadeira). Primeira versão acusava as medidas-padrão de cama
+atribuídas aos fabricantes; a regra foi estreitada e elas saíram, sem perder os 3 acertos.

@@ -100,16 +100,28 @@ const jobs: Job[] = existsSync(JOBS_FILE) ? JSON.parse(readFileSync(JOBS_FILE, '
 
 // Último pedido de ajuste da página falhou ("NÃO salvo")? Aprovar assim publicaria sem o que o editor pediu
 // (22/10: a D33 ou D45 foi aprovada sem a tabela porque o aviso passou despercebido). Os jobs vêm do mais novo.
-export function failedAdjust(list: Job[], slug: string): string | null {
+// adjustedAt: hora do último commit "Painel: ajuste em <slug>" (main ou resultado pendente). Ajuste salvo depois da
+// falha (pedido de novo, inclusive fora do painel) apaga o aviso; antes, ele ficava preso até outro ajuste pelo painel.
+export function failedAdjust(list: Job[], slug: string, adjustedAt = 0): string | null {
   const j = list.find((x) => x.args[0] === 'ajustar' && x.args[2] === slug);
   if (!j || !j.ended || (j.code === 0 && !/NÃO salvo/.test(j.output))) return null;
+  if (adjustedAt && Date.parse(j.ended) < adjustedAt) return null;
   return (j.output.split('\n').reverse().find((l) => /NÃO salvo|Error|motivo/.test(l)) ?? 'o ajuste falhou').slice(0, 200);
 }
+const lastAdjustAt = (slug: string): number => {
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%ct', `--grep=^Painel: ajuste em ${slug}$`, `--glob=refs/remotes/origin/pagina/${slug}-*`, 'origin/main'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    return out ? Number(out) * 1000 : 0;
+  } catch {
+    return 0;
+  }
+};
+const failedNow = (slug: string) => failedAdjust(jobs, slug, lastAdjustAt(slug));
 const failedNote = (slug: string) => {
-  const why = failedAdjust(jobs, slug);
+  const why = failedNow(slug);
   return why ? `<p class="flash bad-flash">O último ajuste pedido para esta página <strong>não foi salvo</strong>: ${esc(why)}. Peça de novo antes de aprovar, ou marque "aprovar assim mesmo".</p>` : '';
 };
-const forceBox = (slug: string) => (failedAdjust(jobs, slug) ? '<label class="muted"><input type="checkbox" name="forcar" value="1"> aprovar assim mesmo, sem o ajuste</label>' : '');
+const forceBox = (slug: string) => (failedNow(slug) ? '<label class="muted"><input type="checkbox" name="forcar" value="1"> aprovar assim mesmo, sem o ajuste</label>' : '');
 // Painel reiniciado no meio de uma ação: ela não tem mais processo; marca como interrompida.
 for (const j of jobs) if (!j.ended && !j.queued) Object.assign(j, { ended: new Date().toISOString(), code: -1, output: `${j.output}\n(interrompida: o painel reiniciou)` });
 const saveJobs = () => writeFileSync(JOBS_FILE, JSON.stringify(jobs.filter((j) => j.queued).concat(jobs.filter((j) => !j.queued).slice(0, 30)), null, 2));
@@ -381,7 +393,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
     const outcome = plainOutcome(b.steps);
     const rv = reviewFrom(readBranch(b.branch), slug)?.review ?? null;
-    const failed = !!failedAdjust(jobs, slug);
+    const failed = !!failedNow(slug);
     const info = classifyBranch({ slug, items, query, outcome, steps: b.steps, review: rv, failedAdjust: failed, rules: rulesFromNotes(loadTopics().find((t) => t.slug === slug)?.editorial_notes ?? []) });
     // Aprendizado sem pauta (só registros) não pede nada; pauta tentada ganha cartão informativo, qualquer
     // que seja o desfecho (22/10: o pillow top travou na auditoria e não aparecia no quadro).
@@ -441,7 +453,9 @@ ${forceBox(slug)}</form>`
     // Botão na linha do cartão só quando a sugestão é publicar ou aplicar. Com "corrigir", a linha mostrava "Publicar
     // assim mesmo" em destaque, o contrário da sugestão (24/10): agora o "assim mesmo" fica dentro, abaixo da correção.
     const goes = info.suggestion === 'publicar' || info.suggestion === 'aplicar';
-    const btnTag = items.length ? `<button form="f-${esc(dir)}" class="${goes ? 'ok' : 'link'}">${primary}</button>` : '';
+    // "… assim mesmo" é a decisão explícita de seguir sem a correção: leva o forcar (24/10: o botão não levava, o
+    // painel recusava por "ajuste não salvo" numa mensagem no topo e o cartão só voltava).
+    const btnTag = items.length ? `<button form="f-${esc(dir)}" class="${goes ? 'ok' : 'link'}"${goes ? '' : ' name="forcar" value="1"'}>${primary}</button>` : '';
     const btn = goes ? btnTag : '';
     const sc = pageItem || query ? scoreHtml(readBranch(b.branch), slug).replace(/ <span class="muted">.*$/, '') : '';
     const html = `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
@@ -460,7 +474,7 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   const judged = (p: (typeof pages)[number]) => verdicts.some((v) => v.slug === p.slug && v.run_id === p.provenance.run_id);
   for (const p of pages.filter((x) => x.status === 'draft' && !judged(x))) {
     const rv = reviewFrom(readMain, p.slug)?.review ?? null;
-    const info = classifyDraft({ review: rv, failedAdjust: !!failedAdjust(jobs, p.slug), rules: rulesFromNotes(loadTopics().find((t) => t.slug === p.slug)?.editorial_notes ?? []) });
+    const info = classifyDraft({ review: rv, failedAdjust: !!failedNow(p.slug), rules: rulesFromNotes(loadTopics().find((t) => t.slug === p.slug)?.editorial_notes ?? []) });
     const approve = `<form id="f-ap-${esc(p.slug)}" method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${shadowField('rascunho', info.suggestion, p.slug)}${forceBox(p.slug)}</form>`;
     const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
@@ -468,7 +482,7 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
       html: `<details class="dcard sg-${info.suggestion}" data-pending>
 <summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span>${info.suggestion === 'aprovar' ? `<button form="f-ap-${esc(p.slug)}" class="ok">Aprovar e publicar</button>` : ''}</summary>
 <div class="dbody"><dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
-${failedNote(p.slug)}<div class="dactions">${approve}${info.suggestion === 'aprovar' ? '' : `<span class="muted">ou, sem corrigir:</span> <button form="f-ap-${esc(p.slug)}" class="link">Aprovar e publicar assim mesmo</button>`}</div>${adjustDiffsHtml(readMain, p.slug)}
+${failedNote(p.slug)}<div class="dactions">${approve}${info.suggestion === 'aprovar' ? '' : `<span class="muted">ou, sem corrigir:</span> <button form="f-ap-${esc(p.slug)}" class="link" name="forcar" value="1">Aprovar e publicar assim mesmo</button>`}</div>${adjustDiffsHtml(readMain, p.slug)}
 ${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir', shadowField('rascunho', info.suggestion, p.slug))}${reject}
 </div></details>`,
     });
@@ -1046,7 +1060,7 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     const v = f.get('veredito');
     const motivo = clean(f.get('motivo'), 400);
     if (!Slug.safeParse(slug).success || (v !== 'approve' && v !== 'reject') || motivo.length < 3) return 'veredito inválido';
-    if (v === 'approve' && failedAdjust(jobs, slug) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
+    if (v === 'approve' && failedNow(slug) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
     return { label: `${v === 'approve' ? 'aprovar' : 'recusar'} ${slug}`, args: ['veredito', slug, v, motivo] };
   }
   if (acao === 'fila-adicionar' || acao === 'fila-remover') {
@@ -1105,7 +1119,7 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   if (acao === 'mesclar') {
     const ramo = f.get('ramo') ?? '';
     if (!BRANCH.test(ramo)) return 'ramo inválido';
-    if (failedAdjust(jobs, ramo.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
+    if (failedNow(ramo.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
     // Os recusados são calculados aqui, a partir das mudanças reais do ramo: o formulário só diz o que manter.
     const keep = new Set(f.getAll('manter'));
     const all = gitChanges(`origin/${ramo}`).summary.items.map((i) => i.id);
@@ -1189,7 +1203,6 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       return res.end('origem não permitida');
     }
     const f = await readBody(req);
-    noteShadow(f);
     let msg: string;
     if (f.get('acao') === 'ajustar') {
       let ramo = f.get('ramo') ?? '';
@@ -1208,6 +1221,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
         const file = join(dir, `${Date.now().toString(36)}.txt`);
         writeFileSync(file, pedido);
         const pesquisar = f.get('pesquisar') === '1';
+        noteShadow(f);
         msg = startJob(`ajustar ${slug}${pesquisar ? ' (com pesquisa)' : ''}: ${pedido.slice(0, 50)}`, ['ajustar', ramo, slug, file, ...(pesquisar ? ['pesquisar'] : [])]) ?? `ajustando ${slug}${pesquisar ? ' com pesquisa (alguns minutos)' : ''} (o auditor confere; a prévia se refaz em até 5 min)`;
       }
     } else if (f.get('acao') === 'pedido') {
@@ -1264,6 +1278,8 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       }
     } else {
       const j = toJob(f);
+      // Modo sombra só registra a decisão que o painel aceitou (24/10: "aceitou" gravado num aplicar recusado).
+      if (typeof j !== 'string') noteShadow(f);
       msg = typeof j === 'string' ? j : (startJob(j.label, j.args) ?? `na fila: ${j.label} (roda assim que chegar a vez; acompanhe em "Últimas ações")`);
     }
     res.writeHead(303, { location: `${BASE}?msg=${encodeURIComponent(msg)}` });
