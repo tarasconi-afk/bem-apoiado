@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 109091,
+    "output_tokens": 23829,
+    "calls": 31
+  },
+  "credits": 18.09585720000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "molas-ensacadas-movimento#1",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Compare o peso de cada ocupante com a tabela de densidade da Castor: até 50 kg, D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45 conforme a preferência; acima de 100 kg, D45 ou maior.",
+      "Quando os pesos estiverem em faixas diferentes, confira a indicação de densidade para cada pessoa e a capacidade declarada especificamente para o modelo escolhido.",
+      "Para casais com pesos diferentes, considere modelos de molas ensacadas individualmente se a prioridade for reduzir a transferência de movimento entre os lados.",
+      "Confira se a ficha informa a capacidade por pessoa; há modelos Probel anunciados para até 120 kg ou 150 kg por pessoa.",
+      "Considere um modelo com firmezas diferentes, como o Ortobom Iso Dupla Face ou o Castor Elite D33/D28, quando uma superfície mais firme e outra mais macia puderem atender melhor às preferências do casal.",
+      "Para pessoas acima de 100 kg, verifique se o fabricante indica densidade D45 ou maior.",
+      "Leia a ficha técnica do modelo para confirmar a densidade, a firmeza, o tipo de mola e a capacidade de suporte, em vez de decidir apenas pelo nome do colchão."
+    ],
+    "missing": [
+      "Uma orientação do fabricante sobre como escolher um único colchão quando os dois ocupantes estão em faixas de densidade diferentes, especialmente quando o produto não tem firmezas diferentes em cada lado.",
+      "Uma explicação do fabricante sobre se a capacidade total do colchão deve ser calculada pela soma dos dois ocupantes ou se o limite é sempre informado por pessoa.",
+      "Indicações de fabricante para colchões mistos de espuma e molas quando os ocupantes têm pesos diferentes.",
+      "Informação de fabricante sobre a transmissão de movimento em colchões com molas Bonnel para casais com pesos diferentes.",
+      "Mais detalhes sobre o que significa, na prática, o modelo dupla face para um casal: se cada pessoa usa um lado da cama ou se a diferença é apenas entre as faces do colchão."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: dá uma regra concreta baseada no peso de cada pessoa, indica o que conferir na ficha e apresenta alternativas úteis, como molas ensacadas e modelos com firmezas diferentes. Ela ainda não cobre todas as perguntas da pauta, principalmente capacidade total, colchões mistos e molas Bonnel, mas essas lacunas não impedem a resposta à dúvida principal.",
+    "filler_ratio": 0.10526315789473684,
+    "model_opinion": true
+  }
+}
