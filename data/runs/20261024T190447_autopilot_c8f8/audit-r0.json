@@ -1,0 +1,144 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação de que a densidade é o principal fator é apresentada como fato geral, mas os trechos que a sustentam são apenas a orientação da fabricante Castor. Além disso, os trechos não dizem que se deve escolher capacidade de carga declarada igual ou superior ao peso; apenas informam densidades recomendadas por faixa de peso e que as densidades das lâminas devem constar nas marcações.",
+      "fix": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade, e pessoas mais pesadas precisam de densidades maiores. Confira nas marcações do produto as densidades nominais, em kg/m³, das lâminas de espuma e compare-as com a orientação de densidade correspondente ao seu peso."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a densidade representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte, mas não dizem que quanto maior a densidade o colchão fica mais firme nem que sua capacidade de sustentar peso aumenta proporcionalmente.",
+      "fix": "A densidade em kg/m³ representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte do material, segundo a Castor."
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-peso-molas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-peso-molas#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas que a Ortobom informa 150 kg além do peso do colchão. Não sustenta que alguns fabricantes deixem de indicar se o peso está incluído, nem que se trate apenas do suporte da estrutura.",
+      "fix": "A Ortobom informa capacidade de 150 kg além do peso do colchão; por isso, confira se o limite informado pelo fabricante inclui ou não o peso do colchão."
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho trata especificamente de declarações voluntárias do fornecedor sobre funcionalidades de colchões mistos e diz que essas características não foram avaliadas pelo processo de certificação. O bloco transforma isso em uma afirmação geral sobre propriedades terapêuticas ou ortopédicas e não preserva o recorte dos colchões mistos.",
+      "fix": "No caso de declaração voluntária do fornecedor sobre funcionalidades terapêuticas ou ortopédicas de colchões mistos, o manual deve informar que as características descritas não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "peso-altura-juntos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espuma-alta-densidade#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos registram a indicação feita pela Probel para a espuma AG ≥ D65, mas o bloco transforma essa posição de um fabricante em uma afirmação geral sobre “fabricantes” e usa “especificam”, enquanto os trechos dizem que a espuma é “indicada”.",
+      "fix": "A Probel informa que a espuma AG ≥ D65 é indicada para consumidores que preferem colchões firmes e com elevada capacidade de sustentação."
+    },
+    {
+      "ref": "como-decidir-densidade#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram capacidades de suporte em dois produtos específicos da Probel e as informações que o Inmetro exige sobre densidades e espessuras, mas não estabelecem como regra geral que se deve escolher apenas um colchão cuja ficha declare suporte igual ou superior ao peso da pessoa.",
+      "fix": "Consulte a ficha técnica para verificar o suporte de peso por pessoa informado para o modelo e confira, na identificação do produto ou da embalagem, as densidades e espessuras das lâminas de espuma exigidas pelo Inmetro."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A afirmação de que a densidade é o principal fator é apresentada como fato geral, mas os trechos que a sustentam são apenas a orientação da fabricante Castor. Além disso, os trechos não dizem que se deve escolher capacidade de carga declarada igual ou superior ao peso; apenas informam densidades recomendadas por faixa de peso e que as densidades das lâminas devem constar nas marcações. Versão sustentável: Segundo a Castor, o peso corporal é o principal fator para escolher a densidade, e pessoas mais pesadas precisam de densidades maiores. Confira nas marcações do produto as densidades nominais, em kg/m³, das lâminas de espuma e compare-as com a orientação de densidade correspondente ao seu peso."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a densidade representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte, mas não dizem que quanto maior a densidade o colchão fica mais firme nem que sua capacidade de sustentar peso aumenta proporcionalmente. Versão sustentável: A densidade em kg/m³ representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte do material, segundo a Castor."
+    },
+    {
+      "ref": "capacidade-peso-molas#1",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas que a Ortobom informa 150 kg além do peso do colchão. Não sustenta que alguns fabricantes deixem de indicar se o peso está incluído, nem que se trate apenas do suporte da estrutura. Versão sustentável: A Ortobom informa capacidade de 150 kg além do peso do colchão; por isso, confira se o limite informado pelo fabricante inclui ou não o peso do colchão."
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "msg": "OVERSTATED. O trecho trata especificamente de declarações voluntárias do fornecedor sobre funcionalidades de colchões mistos e diz que essas características não foram avaliadas pelo processo de certificação. O bloco transforma isso em uma afirmação geral sobre propriedades terapêuticas ou ortopédicas e não preserva o recorte dos colchões mistos. Versão sustentável: No caso de declaração voluntária do fornecedor sobre funcionalidades terapêuticas ou ortopédicas de colchões mistos, o manual deve informar que as características descritas não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "espuma-alta-densidade#0",
+      "msg": "MISATTRIBUTED. Os trechos registram a indicação feita pela Probel para a espuma AG ≥ D65, mas o bloco transforma essa posição de um fabricante em uma afirmação geral sobre “fabricantes” e usa “especificam”, enquanto os trechos dizem que a espuma é “indicada”. Versão sustentável: A Probel informa que a espuma AG ≥ D65 é indicada para consumidores que preferem colchões firmes e com elevada capacidade de sustentação."
+    },
+    {
+      "ref": "como-decidir-densidade#3",
+      "msg": "OVERSTATED. Os trechos mostram capacidades de suporte em dois produtos específicos da Probel e as informações que o Inmetro exige sobre densidades e espessuras, mas não estabelecem como regra geral que se deve escolher apenas um colchão cuja ficha declare suporte igual ou superior ao peso da pessoa. Versão sustentável: Consulte a ficha técnica para verificar o suporte de peso por pessoa informado para o modelo e confira, na identificação do produto ou da embalagem, as densidades e espessuras das lâminas de espuma exigidas pelo Inmetro."
+    }
+  ]
+}

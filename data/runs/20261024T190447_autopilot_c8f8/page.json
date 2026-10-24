@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 170341,
+    "output_tokens": 25325,
+    "calls": 39
+  },
+  "credits": 11.632155600000008,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir-densidade#0.r4",
+      "como-decidir-densidade#0.r5",
+      "como-decidir-densidade#1",
+      "como-decidir-densidade#2"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23.",
+      "De 51 a 60 kg: conferir densidade D26.",
+      "De 61 a 70 kg: conferir densidade D28.",
+      "De 71 a 80 kg: conferir densidade D33.",
+      "De 81 a 100 kg: comparar modelos D33 a D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg: procurar densidade D45 ou maior para reduzir o afundamento excessivo.",
+      "Conferir na embalagem ou na ficha a densidade nominal, em kg/m³, de cada lâmina de espuma e suas espessuras.",
+      "Verificar a capacidade de peso por pessoa declarada para o modelo, observando se o limite inclui ou não o peso do colchão.",
+      "Para colchões de molas, conferir o tipo, a densidade e a espessura da espuma na etiqueta exigida pelo Inmetro.",
+      "Considerar peso e altura em conjunto, pois pessoas com o mesmo peso podem receber recomendações de densidade diferentes conforme a altura.",
+      "Se a prioridade for um colchão firme e com alta sustentação, considerar espuma AG D65 ou maior, quando essa especificação estiver disponível."
+    ],
+    "missing": [
+      "Uma tabela de fabricante relacionando faixas mais amplas de peso corporal, altura e densidade para pessoas acima de 100 kg.",
+      "A espessura mínima recomendada pelo fabricante para colchões destinados a usuários de maior peso corporal.",
+      "Uma recomendação de tamanho ou largura do colchão conforme o peso ou o uso por uma ou duas pessoas.",
+      "Capacidades máximas específicas de modelos para usuários acima de 100 kg, com indicação clara sobre se o limite é por pessoa, para o casal e se inclui o peso do colchão."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: dá uma regra direta para escolher a densidade pelo peso, incluindo D45 ou maior acima de 100 kg, e orienta o leitor a conferir densidade, espessura, capacidade por pessoa e etiqueta do produto. Faltam recomendações de espessura e tamanho para usuários de maior peso, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.21052631578947367,
+    "model_opinion": true
+  }
+}
