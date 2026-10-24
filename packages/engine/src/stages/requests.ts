@@ -330,8 +330,11 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   // no solteirão não achou a medida do solteirão nas fontes). Só quando o ajuste entendeu o pedido e salvou algo:
   // "não achei a tabela" não é falta de fonte (virou lacuna lixo no mesmo dia).
   const gapFromUnsupported = () => (/fonte|evid[eê]ncia|sustent|trecho/i.test(pick.data.unsupported) && !/não (encontr|achei|consta a tabela)|dados fornecidos|conteúdo atual/i.test(pick.data.unsupported) ? recordGaps(slug, [pick.data.unsupported.trim().slice(0, 300)]) : '');
+  // Bloco que o pedido manda tirar não é reescrito (24/10, casal: o seletor pôs os blocos a tirar também em "refs";
+  // a remoção saiu, a reescrita esperava blocos que não existiam mais e o ajuste falhava com motivo vazio).
+  const refsToWrite = pick.data.refs.filter((r) => !pick.data.removes.includes(r));
   // Só movimentação (e títulos): grava sem reescrever nada.
-  if (!pick.data.refs.length && !pick.data.rewrite_summary) {
+  if (!refsToWrite.length && !pick.data.rewrite_summary) {
     if (!moved.done.length && !heads.size) return lessonNote + `ajuste NÃO salvo: não entendi o que mudar na página${unsupportedNote}`;
     const spec0 = PageSpec.parse({ ...page, ...draft, updated_at: new Date().toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+editor:${runId}` } });
     const g0 = checkPage(spec0, idx);
@@ -355,7 +358,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     const b = (draft0 as Draft).sections.find((x) => x.id === sid)?.blocks[Number(i)];
     return b ? where.get(b) : undefined;
   };
-  const touched = new Set(pick.data.refs.map(remap).filter((r): r is string => !!r));
+  const touched = new Set(refsToWrite.map(remap).filter((r): r is string => !!r));
   if (pick.data.rewrite_summary && decIdx >= 0) {
     base = await rewriteSummary(base, decIdx, instruction + freshNote, topic, idx, fetchImpl);
     touched.add('verdict');
@@ -363,7 +366,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     base.sections[decIdx]!.blocks.forEach((b, i) => (b.kind === 'table' ? b.rows.forEach((_, ri) => touched.add(`${base.sections[decIdx]!.id}#${i}.r${ri}`)) : touched.add(`${base.sections[decIdx]!.id}#${i}`)));
   }
   const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
-  const rest = pick.data.refs.map(remap).filter((r): r is string => !!r).filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
+  const rest = refsToWrite.map(remap).filter((r): r is string => !!r).filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
   const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.${freshNote}` })), fetchImpl) : { data: { patches: [] } };
   let patched = applyPatches(base as never, p.data.patches) as Draft;
   // Regra de forma (parágrafo longo etc.) volta ao redator em vez de derrubar o ajuste (21/10: dois ajustes
