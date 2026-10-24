@@ -1,0 +1,30 @@
+{
+  "edits": [
+    {
+      "ref": "compatibilidade-fronha#0",
+      "action": "remove",
+      "reason": "Repete exatamente as mesmas informações já apresentadas na tabela compatibilidade-fronha#1, sem acrescentar nada novo."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Verifique a medida da fronha que você já tem: para 50 x 70 cm, escolha travesseiros de 40 x 60 cm, como os da Probel ou o NASA da Duoflex; para 45 x 65 cm, o NASA X Cervical da Duoflex; para 50 x 90 cm, o NASA King Alto da Duoflex. Se a fronha tiver outro tamanho, confira a compatibilidade no anúncio ou na ficha técnica do produto.",
+      "absorbs": [
+        "como-decidir#2",
+        "como-decidir#3"
+      ],
+      "reason": "Os três blocos repetiam a mesma lógica de escolha por tamanho de fronha já mostrada na tabela; foram unidos em uma única orientação mais curta."
+    },
+    {
+      "ref": "medidas-tamanho-padrao#0",
+      "action": "rewrite",
+      "text": "Fabricantes como Probel, Luuna e Altenburg declaram travesseiros padrão com comprimento entre 40 e 48 cm e largura entre 60 e 70 cm.",
+      "reason": "A informação sobre altura já é detalhada de forma completa na seção altura-espessura, tornando a repetição aqui desnecessária."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 6334,
+    "output_tokens": 2914
+  }
+}
