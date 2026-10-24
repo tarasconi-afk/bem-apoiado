@@ -185,4 +185,24 @@ Feito em 22/10:
 - [ ] segundo nicho com `niche-bootstrap` quando o primeiro passar de 50 páginas com aprovação de primeira ≥ 70%
 - [ ] alerta quando ciclo falhar ou o site ficar desatualizado (hoje só no painel)
 
+### F. Autogestão — auditoria do site pelo próprio motor (pedido do dono, 24/10)
+Três camadas, com risco crescente; cada uma só começa quando a anterior se pagar no modo sombra.
+- [ ] **F1. Botão "Auditar o site" (Configurações)** com teto de créditos por rodada. Ele passa por todas as
+      páginas, produtos e cartões e roda:
+      - checagens determinísticas: links, imagens, produtos vencidos, regras de forma, coerência entre o título e a
+        resposta;
+      - a coerência (`coherence.ts`), que em 24/10 achou problemas em 10 de 14 páginas no ar;
+      - um relatório.
+      O que dá para resolver com ação que já existe (ajuste de texto, capa, produto) vira cartão no quadro, um por
+      página. O editor só aplica.
+- [ ] **F2. Mudanças na parte mecânica** (painel, apresentação dos cartões, modelo de página, CSS), vindas da
+      auditoria ou do "Pedir ao motor":
+      - o motor escreve a mudança num ramo `sistema/*`;
+      - testes, typecheck e build rodam;
+      - o quadro mostra o antes × depois (prévia e captura de tela) e o editor aprova.
+      Nunca entra sozinha. O motor não altera regras de evidência, travas de gasto nem a própria auditoria.
+- [ ] **F3. Autogestão** depois da monetização e do critério do modo sombra: publicação automática, auditoria
+      semanal, relatório. Replicação em outro domínio com `niche.json`/`theme.json`/cadastro de fabricantes próprios
+      (seção E).
+
 Ordem: A até 20 páginas → B (modo sombra) e C/D a partir de 20 → publicação automática e PA-API perto de 50 → E.
