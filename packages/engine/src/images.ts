@@ -182,9 +182,10 @@ export async function ensureImages(
   kinds: { id: string; label: string }[],
   pages: { slug: string; title: string; status: string }[],
   writeBrief: (subject: string) => Promise<{ alt: string; prompt: string }>,
-  opts: GenerateOptions & { max?: number; products?: { asin: string; kind: string; brand: string; label: string }[] } = {},
+  opts: GenerateOptions & { max?: number; products?: { asin: string; kind: string; brand: string; label: string }[]; skip?: Set<string> } = {},
 ): Promise<ImageRecord[]> {
-  const todo = wantedImages(root, kinds, pages, opts.products).slice(0, opts.max ?? 2);
+  // skip: imagens já geradas que esperam o aceite num resultado pendente (fora do main): não gerar de novo.
+  const todo = wantedImages(root, kinds, pages, opts.products).filter((w) => !opts.skip?.has(w.id)).slice(0, opts.max ?? 2);
   const briefsFile = imagePaths(root).briefs;
   const done: ImageRecord[] = [];
   for (const w of todo) {

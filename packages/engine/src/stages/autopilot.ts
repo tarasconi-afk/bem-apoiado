@@ -206,7 +206,12 @@ async function maintainImages(steps: string[]): Promise<boolean> {
   try {
     const writeBrief = async (subject: string) =>
       (await callJson({ role: 'extractor', system: BRIEF_SYSTEM, user: subject, schema: BriefOut, schemaName: 'image_brief', maxTokens: 600 })).data;
-    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, { max: 2, products: loadProducts() });
+    // Imagem gerada fica no resultado do ciclo até o aceite; o main ainda não a tem. Sem esta memória fora do git, cada
+    // ciclo gerava de novo a mesma capa (24/10: a do baú 4 vezes, ~15 créditos à toa). Vale 14 dias.
+    const recent = readState<Record<string, string>>('images-made.json', {});
+    const skip = new Set(Object.entries(recent).filter(([, at]) => Date.now() - Date.parse(at) < 14 * 86_400_000).map(([id]) => id));
+    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, { max: 2, products: loadProducts(), skip });
+    if (made.length) writeState('images-made.json', { ...recent, ...Object.fromEntries(made.map((m) => [m.id, new Date().toISOString()])) });
     if (made.length) steps.push(`imagens: ${made.map((m) => m.id).join(', ')} (~${made.reduce((t, m) => t + m.credits, 0).toFixed(1)} créditos)`);
     return made.length > 0;
   } catch (e) {
@@ -285,12 +290,17 @@ async function maintainGapSources(steps: string[]): Promise<boolean> {
   const week = 7 * 86_400_000;
   const topics = new Map(loadTopics().map((t) => [t.slug, t]));
   const live = new Set(loadPages().filter((p) => p.status !== 'draft').map((p) => p.slug));
+  // A última tentativa também fica fora do git: o registro em data/ vai no resultado do ciclo e, até o aceite, o main não
+  // o tem (24/10: a busca do solteirão rodou em 4 ciclos seguidos). Erro de 23/10, quando o registro saiu do estado.
+  const tried = readState<Record<string, string>>('gap-search-attempts.json', {});
+  const lastOf = (s: string) => Math.max(marked[s]!.last ? Date.parse(marked[s]!.last!) : 0, tried[s] ? Date.parse(tried[s]!) : 0);
   const slug = Object.keys(marked).find((s) => {
     const t = topics.get(s);
-    return live.has(s) && t && t.source_ids.every((x) => t.researched_source_ids.includes(x)) && !(marked[s]!.last && Date.now() - Date.parse(marked[s]!.last!) < week);
+    return live.has(s) && t && t.source_ids.every((x) => t.researched_source_ids.includes(x)) && Date.now() - lastOf(s) >= week;
   });
   if (!slug || creditsLeft() < ENRICH_MIN_CREDITS) return false;
   const m = marked[slug]!;
+  writeState('gap-search-attempts.json', { ...tried, [slug]: new Date().toISOString() });
   try {
     const r = await discoverSources(slug, newRunId(`${slug}-lacuna`), { maxSearches: 4, maxSources: 5, makerSearches: 4 });
     const added = r.added.filter((a) => a.created).length;
@@ -425,11 +435,17 @@ async function maintainDuplicates(steps: string[]): Promise<boolean> {
 // O site liga a primeira ocorrência delas no texto das outras páginas; o texto não muda.
 async function maintainLinks(steps: string[]): Promise<boolean> {
   try {
-    const done = await ensureAnchors(loadPages());
+    // Mesma memória fora do git das imagens: página que já ganhou links num resultado pendente não ganha de novo.
+    const recent = readState<Record<string, string>>('links-made.json', {});
+    const fresh = (slug: string) => !!recent[slug] && Date.now() - Date.parse(recent[slug]!) < 14 * 86_400_000;
+    const pages = loadPages().filter((p) => !fresh(p.slug));
+    const done = await ensureAnchors(pages);
     if (done.length) steps.push(`links internos: âncoras para ${done.join(', ')}`);
     // Buscas na Amazon (link com a nossa tag) para página no ar que ainda não tem: ~0,05 crédito cada.
-    const amz = await ensureSearchLinks(loadPages());
+    const amz = await ensureSearchLinks(pages);
     if (amz.length) steps.push(`buscas na Amazon para ${amz.join(', ')}`);
+    const now = new Date().toISOString();
+    if (done.length || amz.length) writeState('links-made.json', { ...recent, ...Object.fromEntries([...done, ...amz].map((x) => [x, now])) });
     return done.length > 0 || amz.length > 0;
   } catch (e) {
     steps.push(`links internos: falhou (${(e as Error).message.slice(0, 80)})`);
