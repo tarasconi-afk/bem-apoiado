@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 79376,
+    "output_tokens": 10574,
+    "calls": 5
+  },
+  "credits": 18.222455999999998,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Escolha o travesseiro pela medida da fronha disponível ou desejada.",
+      "Para fronhas de 50 x 70 cm, procure travesseiros de 40 x 60 cm anunciados como compatíveis.",
+      "Para fronha de 45 x 65 cm, escolha um modelo anunciado especificamente para essa medida, como o NASA X Cervical da Duoflex.",
+      "Para fronha de 50 x 90 cm, escolha um modelo anunciado especificamente para essa medida, como o NASA King Alto da Duoflex.",
+      "Confira a compatibilidade entre travesseiro e fronha na ficha do produto, especialmente em modelos com medidas específicas.",
+      "Se preferir um travesseiro mais baixo, confira modelos de cerca de 12 cm; para um mais alto, procure modelos de 14 a 17 cm.",
+      "Os tamanhos padrão encontrados variam aproximadamente de 40 a 48 cm de comprimento e de 60 a 70 cm de largura.",
+      "Modelos queen e king citados têm 70 x 50 cm, mas a fronha compatível deve ser confirmada na ficha do modelo."
+    ],
+    "missing": [
+      "Regra dos fabricantes relacionando tamanho do travesseiro ao tamanho da cama e ao número de travesseiros por cama.",
+      "Tabela completa distinguindo as medidas de travesseiros padrão, queen e king entre diferentes fabricantes.",
+      "Medidas exatas dos modelos usados como exemplo, especialmente do NASA X Cervical e do NASA King Alto.",
+      "Informação dos fabricantes sobre se a altura ou espessura varia conforme o tamanho do travesseiro, e não apenas conforme o modelo."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece uma regra prática e rápida: escolher o travesseiro pela medida da fronha e conferir a compatibilidade na ficha do produto. Também informa faixas de medidas e alturas. Ela não cobre bem a escolha pela cama, o número de travesseiros por cama nem diferencia de forma completa os tamanhos padrão, queen e king, mas isso limita a abrangência sem impedir uma decisão de compra baseada na fronha.",
+    "filler_ratio": 0.13333333333333333,
+    "model_opinion": true
+  }
+}
