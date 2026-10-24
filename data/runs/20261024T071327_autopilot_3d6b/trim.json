@@ -1,0 +1,69 @@
+{
+  "removed": [
+    "normas-certificacao#1",
+    "cuidados-durabilidade#1",
+    "saude-postura-profissional#1",
+    "como-decidir#1.r5"
+  ],
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A regra de escolha da altura e da posição de dormir se apoia apenas na Duoflex, embora a página cite outros fabricantes; faltaria comparar ou deixar claro que a orientação é específica dessa marca."
+    ],
+    "filler_refs": [
+      "normas-certificacao#1",
+      "cuidados-durabilidade#1",
+      "saude-postura-profissional#1",
+      "como-decidir#1.r5"
+    ],
+    "decision_criteria": [
+      "Quem dorme de lado deve escolher um travesseiro mais alto para preencher o espaço entre a cabeça e o colchão.",
+      "Quem dorme de costas deve escolher uma altura intermediária.",
+      "Quem dorme de bruços deve escolher um travesseiro bem baixo.",
+      "O leitor pode comparar a altura declarada em centímetros e o material ou tipo de enchimento na ficha do modelo.",
+      "Modelos citados da Probel têm alturas declaradas de 12 cm ou 14 cm e diferentes materiais, como espuma, viscoelástico e fibra siliconada."
+    ],
+    "missing": [
+      "Para o leitor leigo: A regra de escolha da altura e da posição de dormir se apoia apenas na Duoflex, embora a página cite outros fabricantes; faltaria comparar ou deixar claro que a orientação é específica dessa marca.",
+      "Uma comparação de fontes primárias de mais de um fabricante relacionando posição de dormir às categorias alto, médio e baixo.",
+      "Faixas oficiais em centímetros para definir claramente o que cada fabricante considera travesseiro alto, médio ou baixo.",
+      "Orientação dos fabricantes sobre como escolher a altura quando a pessoa alterna entre posições de dormir.",
+      "Explicação na própria página sobre o que significam termos como D24, D30 e D40 para um comprador leigo, caso esses dados sejam usados na decisão."
+    ],
+    "publishable": false,
+    "summary": "A página responde diretamente à dúvida e oferece uma regra prática por posição de dormir, além de exemplos de alturas e materiais para consultar na ficha do produto. Porém, a orientação de compra fica apoiada essencialmente em uma única marca, apesar de a página citar outras, e faltam faixas comparáveis para alto, médio e baixo; por isso, não atinge o padrão editorial de publicação.",
+    "filler_ratio": 0.26666666666666666,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "saude-postura-profissional#0"
+    ],
+    "decision_criteria": [
+      "Se dorme de lado, escolher um travesseiro mais alto que preencha o espaço entre a cabeça e o colchão.",
+      "Se dorme de costas, escolher uma altura intermediária.",
+      "Se dorme de bruços, escolher um travesseiro bem baixo.",
+      "Conferir no anúncio ou na ficha se o produto é classificado como alto, médio ou baixo e se a altura é compatível com a posição de dormir.",
+      "Para quem dorme de lado, verificar se o travesseiro mantém o pescoço alinhado, formando aproximadamente um ângulo de 90 graus com o colchão."
+    ],
+    "missing": [
+      "Alturas em centímetros declaradas pelos fabricantes para as categorias alto, médio e baixo.",
+      "Orientação de mais fabricantes relacionando altura e posição de dormir.",
+      "Critério para escolher quando a pessoa alterna entre posições ou tem colchão muito macio ou muito firme."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que a altura deve acompanhar a posição de dormir e oferece uma regra prática para escolher travesseiro alto, médio ou baixo. O leitor consegue usar essa regra no anúncio, embora a página pudesse ficar mais útil com alturas em centímetros e orientação para quem muda de posição durante a noite.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  }
+}
