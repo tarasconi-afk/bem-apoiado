@@ -42,7 +42,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo Ortobom e Duoflex, travesseiros queen e king têm 70 cm de comprimento e 50 cm de largura. A Duoflex oferece o NASA King Alto com altura de 17 cm.",
+          "text": "Segundo a Ortobom, o travesseiro King Premium tem 70 cm de comprimento e 50 cm de largura. Segundo a Duoflex, um travesseiro Nasa tem 17 cm de altura e é compatível com fronha de 50 × 90 cm.",
           "basis": "evidence",
           "claim_ids": [
             "clm_74f57461be15",
@@ -229,24 +229,16 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você tem fronha de 45 x 65 cm, escolha o NASA X Cervical da Duoflex, anunciado para essa medida.",
+          "text": "Se você tem fronha de 45 × 65 cm, confira o travesseiro da Duoflex anunciado para essa medida. Se tem fronha de 50 × 90 cm, confira o travesseiro da Duoflex anunciado para essa medida.",
           "basis": "reasoning",
           "claim_ids": [
-            "clm_cfe60c77d543"
+            "clm_cfe60c77d543",
+            "clm_20312febf2c6"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você tem fronha de 50 x 90 cm ou de outro tamanho específico, procure no anúncio ou na ficha a informação de compatibilidade. A Duoflex anuncia o NASA King Alto para fronha de 50 x 90 cm e o NASA X Cervical para fronha de 45 x 65 cm.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_20312febf2c6",
-            "clm_cfe60c77d543"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Se você prefere um travesseiro mais baixo entre as opções da Probel, confira modelos de 12 cm; se prefere um mais alto, confira modelos de 14 cm, verificando também a compatibilidade com a fronha.",
+          "text": "Entre as opções citadas da Probel, confira modelos de 12 cm ou de 14 cm conforme a altura desejada.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_0373b10bfbe5",
@@ -262,17 +254,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261024T010228_autopilot_b33b+edit:20261024T010228_autopilot_b33b",
+    "run_id": "20261024T010228_autopilot_b33b+edit:20261024T010228_autopilot_b33b+editor:20261024T155508_guia-de-tamanhos-de-travesseiro-ajuste_3671",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.13333333333333333,
       "criteria": 8,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
