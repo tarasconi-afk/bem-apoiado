@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-24T16:52:25.117Z",
+  "instruction": "Reescreva a resposta curta em 2 frases: \"O solteirão (100 × 200 cm) serve para quem precisa de mais comprimento; o viúva (128 × 188 cm), para quem precisa de mais largura. O solteiro comum mede 88 × 188 cm, segundo os fabricantes.\" No Como decidir, deixe a tabela e só dois blocos, um para cada caso: \"Se o colchão comum fica curto para você: solteirão, 100 × 200 cm, segundo a Probel.\" e \"Se o que falta é largura e 188 cm de comprimento bastam: viúva, 128 × 188 cm, segundo a Probel.\" Tire o primeiro bloco do Como decidir e tire \"indicada para casais com biotipos diferentes\".\n",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Solteiro 88×188 cm para quem dorme sozinho. Solteirão 100×200 cm para quem é alto. Viúva 128×188 cm para casais ou mais espaço.",
+      "after": "Solteirão mede 100 × 200 cm para quem precisa de comprimento; viúva mede 128 × 188 cm para quem precisa de largura."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "Solteiro mede 88 × 188 cm, segundo a Gazin. Solteirão mede 100 × 200 cm, segundo a Probel. Viúva mede 128 × 188 cm e é indicada para casais com biotipos diferentes, segundo a Probel.",
+      "after": "O solteirão mede 100 × 200 cm, o viúva mede 128 × 188 cm e o solteiro mede 88 × 188 cm. Pelas medidas, o solteirão é mais comprido, enquanto o viúva é mais largo."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · bloco 2",
+      "before": "Medidas de cada tamanho, segundo fabricantes · Solteiro | 88 × 188 cm / Solteirão | 100 × 200 cm / Viúva | 128 × 188 cm",
+      "after": "A Probel lista o tamanho solteirão como 100 × 200 cm."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · bloco 3",
+      "before": "O solteirão oferece 100 cm de largura e 200 cm de comprimento, segundo a Probel. Verifique na ficha se essas medidas cabem em seu quarto e na base.",
+      "after": "Se o que falta é largura e 188 cm de comprimento bastam: viúva, 128 × 188 cm, segundo a Probel."
+    },
+    {
+      "where": "Como escolher entre solteirão e viúva · bloco 4",
+      "before": "Se for para um casal com biotipos diferentes: o colchão viúva mede 128 × 188 cm, segundo a Probel. Confirme na ficha técnica se essas medidas são compatíveis com o espaço e a base.",
+      "after": "(removido)"
+    }
+  ]
+}
