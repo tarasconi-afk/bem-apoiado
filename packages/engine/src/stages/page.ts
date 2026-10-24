@@ -76,6 +76,18 @@ export function styleIssues(draft: Draft): Issue[] {
         out.push({ ref: `${sec.id}#${i}.r${ri}`, msg: 'célula da tabela sem dado ("confira…" ou "não informado"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só.' });
     });
   });
+  // Célula de enchimento repetida numa coluna ("Quem busca essa medida", "Medida específica do modelo"): o redator
+  // preenche a coluna que não tem fonte com uma frase vazia (24/10, solteirão e tamanhos de travesseiro). Texto sem
+  // número, de 3+ palavras, igual em 2+ linhas: tire a coluna ou traga o dado. Nenhuma página no ar tinha isso.
+  for (const sec of draft.sections) sec.blocks.forEach((b, i) => {
+    if (b.kind !== 'table') return;
+    for (let c = 1; c < b.columns.length; c++) {
+      const seen = new Map<string, number>();
+      for (const r of b.rows) { const t = r.cells[c]?.text.trim() ?? ''; if (t.split(/\s+/).length >= 3 && !/\d/.test(t)) seen.set(t, (seen.get(t) ?? 0) + 1); }
+      const rep = [...seen].find(([, n]) => n >= 2);
+      if (rep) out.push({ ref: `${sec.id}#${i}`, msg: `a coluna "${b.columns[c]}" repete "${rep[0]}" em ${rep[1]} linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna.` });
+    }
+  });
   // Resposta curta (a frase mais lida da página e a que a busca com IA cita): no máximo 3 frases, começa pela
   // resposta prática e nunca por norma ou regulador. "Trechos citados" é jargão do motor, não do leitor.
   const v = draft.verdict.text.trim();

@@ -28,3 +28,12 @@ describe('regras de decisão (página rasa do solteirão, 23/10)', () => {
     expect(decisionIssues(d, () => 'regulation').some((i) => i.msg.includes('"padrao"'))).toBe(false);
   });
 });
+
+describe('célula de enchimento repetida', () => {
+  it('coluna com a mesma frase sem dado em 2+ linhas é recusada; "Sim"/números repetidos passam', async () => {
+    const { styleIssues } = await import('../src/stages/page.ts');
+    const t = (rows: string[][]) => ({ title: 't', description: 'd', verdict: { text: 'Resposta.', claim_ids: ['c'] }, sections: [{ id: 'como-decidir', heading: 'Como decidir', blocks: [{ kind: 'table', caption: 'c', columns: ['Tamanho', 'Medida', 'Para quem'], rows: rows.map((r) => ({ cells: r.map((text) => ({ text, claim_ids: ['c'] })) })) }] }] }) as never;
+    expect(styleIssues(t([['Solteiro', '88 × 188', 'Quem busca essa medida'], ['Solteirão', '100 × 200', 'Quem busca essa medida']])).some((i) => i.msg.includes('repete "Quem busca essa medida"'))).toBe(true);
+    expect(styleIssues(t([['Solteiro', '88 × 188', 'Sim'], ['Solteirão', '100 × 200', 'Sim']])).some((i) => i.msg.includes('repete'))).toBe(false);
+  });
+});
