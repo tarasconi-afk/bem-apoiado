@@ -1,0 +1,175 @@
+{
+  "run_id": "20261024T071327_autopilot_3d6b",
+  "topic": "travesseiro-alto-ou-baixo",
+  "accepted": [
+    {
+      "claim_id": "clm_305f8166abcb",
+      "question_id": "q_altura_declarada_fabricante",
+      "source_id": "src_e0453b2ed128",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bc02525ba76b",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_166e9af8e75e",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d6e42fc108c7",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_baf2ba0de4d8",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_85538edc2485",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ffedb8740416",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c5267b077d94",
+      "question_id": "q_recomendacao_fabricante_posicao",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4ecc8b464f28",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8067f268ef50",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_60757a8f9b03",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c7b70d81b09f",
+      "question_id": "q_informacao_etiqueta_cuidados",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b9fd5b95e824",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_040d170f6500",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9584dbfef689",
+      "question_id": "q_ficha_tecnica_material",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_e0453b2ed128",
+      "question_id": "q_altura_declarada_fabricante",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Altura10 cm"
+    },
+    {
+      "source_id": "src_90e95b65e322",
+      "question_id": "q_altura_declarada_fabricante",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Altura10 cm"
+    }
+  ],
+  "coverage": {
+    "q_altura_declarada_fabricante": 1,
+    "q_ficha_tecnica_material": 5,
+    "q_norma_abnt_travesseiro": 0,
+    "q_recomendacao_fabricante_posicao": 4,
+    "q_informacao_etiqueta_cuidados": 5,
+    "q_certificacao_selo_embalagem": 0,
+    "q_inmetro_nao_avalia": 0
+  },
+  "unanswered": [
+    "q_norma_abnt_travesseiro",
+    "q_certificacao_selo_embalagem",
+    "q_inmetro_nao_avalia"
+  ],
+  "usage": {
+    "input_tokens": 10143,
+    "output_tokens": 2558,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_4fee9e748117",
+    "src_8b54cbf710cc",
+    "src_19791b126811",
+    "src_8f7656291ec2"
+  ],
+  "triage": [
+    {
+      "source_id": "src_e0453b2ed128",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.7
+    },
+    {
+      "source_id": "src_90e95b65e322",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.71
+    },
+    {
+      "source_id": "src_52c14b3e29f6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.83
+    },
+    {
+      "source_id": "src_c4646ba147cb",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.66
+    },
+    {
+      "source_id": "src_4fee9e748117",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.18
+    },
+    {
+      "source_id": "src_19791b126811",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.29
+    }
+  ],
+  "credits": 8.978753399999997
+}

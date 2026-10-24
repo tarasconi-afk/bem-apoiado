@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 141787,
+    "output_tokens": 22271,
+    "calls": 32
+  },
+  "credits": 16.006030199999994,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "saude-postura-profissional#0"
+    ],
+    "decision_criteria": [
+      "Se dorme de lado, escolher um travesseiro mais alto que preencha o espaço entre a cabeça e o colchão.",
+      "Se dorme de costas, escolher uma altura intermediária.",
+      "Se dorme de bruços, escolher um travesseiro bem baixo.",
+      "Conferir no anúncio ou na ficha se o produto é classificado como alto, médio ou baixo e se a altura é compatível com a posição de dormir.",
+      "Para quem dorme de lado, verificar se o travesseiro mantém o pescoço alinhado, formando aproximadamente um ângulo de 90 graus com o colchão."
+    ],
+    "missing": [
+      "Alturas em centímetros declaradas pelos fabricantes para as categorias alto, médio e baixo.",
+      "Orientação de mais fabricantes relacionando altura e posição de dormir.",
+      "Critério para escolher quando a pessoa alterna entre posições ou tem colchão muito macio ou muito firme."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que a altura deve acompanhar a posição de dormir e oferece uma regra prática para escolher travesseiro alto, médio ou baixo. O leitor consegue usar essa regra no anúncio, embora a página pudesse ficar mais útil com alturas em centímetros e orientação para quem muda de posição durante a noite.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  }
+}

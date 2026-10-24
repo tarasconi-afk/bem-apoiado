@@ -1,0 +1,150 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco sugere um benefício relacionado à saúde ao afirmar que certa altura “evita forçar o pescoço”. Além disso, “altura ideal” e “depende principalmente” são formulações mais amplas do que os trechos, que apresentam recomendações da Duoflex para diferentes posições de dormir.",
+      "fix": "Segundo a Duoflex, a altura recomendada varia conforme a posição de dormir: mais alta para dormir de lado, intermediária ou baixa para dormir de costas e bem baixa para dormir de bruços."
+    },
+    {
+      "ref": "materiais-enchimento#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam os tipos de enchimento citados e mostram um produto com densidade D30, mas não sustentam a faixa de D15 a D40 nem a afirmação geral de que a densidade é informada em kg/m³ na ficha técnica ou página do produto.",
+      "fix": "Travesseiros podem ser feitos de espuma, viscoelástico, fibra siliconada ou látex natural, conforme os produtos citados. As páginas consultadas informam o tipo de enchimento e, em um dos produtos, aparece a indicação de densidade D30."
+    },
+    {
+      "ref": "materiais-enchimento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacao#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco tem basis \"framing\", mas afirma fatos sobre exigências de certificação e códigos do Inmetro sem citar qualquer evidência.",
+      "fix": "Substitua por uma frase de transição sem afirmações factuais, como: \"A seguir, veja as informações disponíveis sobre certificação e códigos do Inmetro para travesseiros.\""
+    },
+    {
+      "ref": "cuidados-durabilidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta instruções de cuidado da Ortobom, incluindo temperatura máxima de lavagem, secagem e proibição de passadoria. Não sustenta a generalização para fabricantes em geral, que as instruções estejam em uma etiqueta, nem a recomendação de conferir antes da compra para avaliar a adequação aos cuidados do consumidor.",
+      "fix": "A Ortobom informa instruções de cuidado, incluindo temperatura máxima de lavagem e secagem e a proibição de passadoria."
+    },
+    {
+      "ref": "cuidados-durabilidade#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora a base seja framing, o bloco afirma fatos sobre os documentos consultados e recomenda uma ação; sem trechos citados, essas afirmações não podem ser auditadas como simples transição de página.",
+      "fix": "A seguir, veja orientações para consultar o manual ou a página do fabricante do modelo específico."
+    },
+    {
+      "ref": "saude-postura-profissional#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, com base framing e sem trechos citados, afirma como fato uma política do site e faz uma recomendação relacionada à saúde. Isso vai além de uma simples frase de transição sobre a própria página.",
+      "fix": "Esta página oferece informações gerais. Para recomendações personalizadas sobre dor ao dormir ou posição do pescoço, procure um médico ou fisioterapeuta."
+    },
+    {
+      "ref": "saude-postura-profissional#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco afirma fatos sobre a origem das recomendações, seu propósito para compradores e sua relação com orientação profissional, mas não cita trechos que os sustentem. Como a base é framing, essas afirmações factuais não são permitidas nessa categoria.",
+      "fix": "A seguir, apresentamos informações gerais sobre altura de travesseiros conforme a posição de dormir; elas não substituem orientação profissional de saúde."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho que informa \"Tipo de enchimento: Espuma\" pertence ao produto Probel Realizações Hiper Soft Extra Macio, não ao modelo Probel Life Espuma D15 apresentado na linha da tabela. Os trechos citados não confirmam esse atributo para o modelo Life.",
+      "fix": "Remover o tipo de enchimento dessa linha ou citar um trecho da Probel que informe explicitamente que o Probel Life Espuma D15 tem enchimento de espuma."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos de tipo de enchimento e densidade citados pertencem à versão de 14 cm do Probel Realizações Hiper Soft Extra Macio, enquanto a linha apresenta a versão de 12 cm. A evidência citada não confirma esses atributos para a versão de 12 cm.",
+      "fix": "Apresentar apenas a altura de 12 cm, ou citar trechos específicos da versão de 12 cm para confirmar o enchimento e a densidade."
+    },
+    {
+      "ref": "como-decidir#1.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r6",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r7",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "SAFETY_CLAIM. O bloco sugere um benefício relacionado à saúde ao afirmar que certa altura “evita forçar o pescoço”. Além disso, “altura ideal” e “depende principalmente” são formulações mais amplas do que os trechos, que apresentam recomendações da Duoflex para diferentes posições de dormir. Versão sustentável: Segundo a Duoflex, a altura recomendada varia conforme a posição de dormir: mais alta para dormir de lado, intermediária ou baixa para dormir de costas e bem baixa para dormir de bruços."
+    },
+    {
+      "ref": "materiais-enchimento#0",
+      "msg": "OVERSTATED. Os trechos sustentam os tipos de enchimento citados e mostram um produto com densidade D30, mas não sustentam a faixa de D15 a D40 nem a afirmação geral de que a densidade é informada em kg/m³ na ficha técnica ou página do produto. Versão sustentável: Travesseiros podem ser feitos de espuma, viscoelástico, fibra siliconada ou látex natural, conforme os produtos citados. As páginas consultadas informam o tipo de enchimento e, em um dos produtos, aparece a indicação de densidade D30."
+    },
+    {
+      "ref": "normas-certificacao#1",
+      "msg": "FACT_IN_FRAMING. O bloco tem basis \"framing\", mas afirma fatos sobre exigências de certificação e códigos do Inmetro sem citar qualquer evidência. Versão sustentável: Substitua por uma frase de transição sem afirmações factuais, como: \"A seguir, veja as informações disponíveis sobre certificação e códigos do Inmetro para travesseiros.\""
+    },
+    {
+      "ref": "cuidados-durabilidade#0",
+      "msg": "OVERSTATED. O trecho sustenta instruções de cuidado da Ortobom, incluindo temperatura máxima de lavagem, secagem e proibição de passadoria. Não sustenta a generalização para fabricantes em geral, que as instruções estejam em uma etiqueta, nem a recomendação de conferir antes da compra para avaliar a adequação aos cuidados do consumidor. Versão sustentável: A Ortobom informa instruções de cuidado, incluindo temperatura máxima de lavagem e secagem e a proibição de passadoria."
+    },
+    {
+      "ref": "cuidados-durabilidade#1",
+      "msg": "FACT_IN_FRAMING. Embora a base seja framing, o bloco afirma fatos sobre os documentos consultados e recomenda uma ação; sem trechos citados, essas afirmações não podem ser auditadas como simples transição de página. Versão sustentável: A seguir, veja orientações para consultar o manual ou a página do fabricante do modelo específico."
+    },
+    {
+      "ref": "saude-postura-profissional#0",
+      "msg": "FACT_IN_FRAMING. O bloco, com base framing e sem trechos citados, afirma como fato uma política do site e faz uma recomendação relacionada à saúde. Isso vai além de uma simples frase de transição sobre a própria página. Versão sustentável: Esta página oferece informações gerais. Para recomendações personalizadas sobre dor ao dormir ou posição do pescoço, procure um médico ou fisioterapeuta."
+    },
+    {
+      "ref": "saude-postura-profissional#1",
+      "msg": "FACT_IN_FRAMING. O bloco afirma fatos sobre a origem das recomendações, seu propósito para compradores e sua relação com orientação profissional, mas não cita trechos que os sustentem. Como a base é framing, essas afirmações factuais não são permitidas nessa categoria. Versão sustentável: A seguir, apresentamos informações gerais sobre altura de travesseiros conforme a posição de dormir; elas não substituem orientação profissional de saúde."
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "msg": "MISATTRIBUTED. O trecho que informa \"Tipo de enchimento: Espuma\" pertence ao produto Probel Realizações Hiper Soft Extra Macio, não ao modelo Probel Life Espuma D15 apresentado na linha da tabela. Os trechos citados não confirmam esse atributo para o modelo Life. Versão sustentável: Remover o tipo de enchimento dessa linha ou citar um trecho da Probel que informe explicitamente que o Probel Life Espuma D15 tem enchimento de espuma."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "msg": "MISATTRIBUTED. Os trechos de tipo de enchimento e densidade citados pertencem à versão de 14 cm do Probel Realizações Hiper Soft Extra Macio, enquanto a linha apresenta a versão de 12 cm. A evidência citada não confirma esses atributos para a versão de 12 cm. Versão sustentável: Apresentar apenas a altura de 12 cm, ou citar trechos específicos da versão de 12 cm para confirmar o enchimento e a densidade."
+    }
+  ]
+}
