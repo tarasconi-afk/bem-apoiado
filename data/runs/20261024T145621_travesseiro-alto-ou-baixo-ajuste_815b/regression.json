@@ -1,0 +1,68 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "saude-postura-profissional#0"
+    ],
+    "decision_criteria": [
+      "Se você dorme de lado, escolha um travesseiro mais alto para preencher o espaço entre a cabeça e o colchão.",
+      "Se você dorme de costas, escolha um travesseiro de altura intermediária.",
+      "Se você dorme de bruços, escolha um travesseiro bem baixo.",
+      "Na escolha de um travesseiro alto para dormir de lado, confira se ele preenche o espaço entre a cabeça e o colchão e mantém o pescoço alinhado."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Alturas em centímetros ou faixas de medida declaradas pelos fabricantes para as categorias baixo, médio e alto.",
+      "Orientação para quem alterna entre mais de uma posição de dormir.",
+      "Indicação clara do que conferir na ficha do produto para identificar a altura real, como medida do travesseiro ou possibilidade de ajuste.",
+      "Relação entre materiais e a manutenção da altura durante o uso, caso existam informações do fabricante."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente qual altura tende a servir para cada posição de dormir e oferece um critério prático para quem dorme de lado. Porém, o leitor não aprende a conferir a altura real no anúncio ou na ficha técnica, e os blocos sobre material, norma, cuidados e recomendação profissional não ajudam a decidir entre travesseiro alto e baixo; podem ser removidos ou separados.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [
+      "A decisão depende praticamente das recomendações da Duoflex, embora a página também cite a Ortobom; falta comparação entre fabricantes.",
+      "O termo “cervical” não é explicado para leigos.",
+      "A página não informa alturas em centímetros nem orienta o leitor sobre o que conferir na ficha ou no anúncio."
+    ],
+    "filler_refs": [
+      "saude-postura-profissional#0"
+    ],
+    "decision_criteria": [
+      "Para dormir de lado, escolher uma altura que preencha o espaço entre a cabeça e o colchão e mantenha o pescoço alinhado.",
+      "Para dormir de costas, escolher travesseiro baixo ou médio que preencha o espaço entre a nuca e a região do pescoço.",
+      "Para dormir de bruços, escolher um travesseiro bem baixo; a Duoflex também recomenda outro travesseiro baixo sob o abdômen.",
+      "Conferir as instruções de lavagem e secagem declaradas pelo fabricante."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A decisão depende praticamente das recomendações da Duoflex, embora a página também cite a Ortobom; falta comparação entre fabricantes.",
+      "Para o leitor leigo: O termo “cervical” não é explicado para leigos.",
+      "Para o leitor leigo: A página não informa alturas em centímetros nem orienta o leitor sobre o que conferir na ficha ou no anúncio.",
+      "Faixas de altura em centímetros para travesseiros baixos, médios e altos, declaradas por fabricantes.",
+      "Orientação prática para comparar a altura anunciada com a distância entre a cabeça e o colchão.",
+      "Informações sobre materiais de enchimento e densidade na ficha técnica ou etiqueta.",
+      "Comparação das recomendações de posição de dormir entre mais de um fabricante.",
+      "Informações sobre vida útil, certificações e o que o Inmetro ou normas técnicas efetivamente avaliam."
+    ],
+    "publishable": false,
+    "summary": "A página responde diretamente que a altura deve acompanhar a posição de dormir e oferece uma regra útil, mas não leva o leitor até uma compra segura: faltam medidas em centímetros, critérios para conferir o anúncio e comparação entre fabricantes. Além disso, o bloco de decisão depende de uma única marca e usa “cervical” sem explicação.",
+    "filler_ratio": 0.25,
+    "model_opinion": false
+  },
+  "score_before": 3,
+  "score_after": 2
+}
