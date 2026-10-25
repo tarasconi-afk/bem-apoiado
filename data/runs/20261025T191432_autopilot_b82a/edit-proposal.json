@@ -1,0 +1,55 @@
+{
+  "edits": [
+    {
+      "ref": "pillow-top-altura#1",
+      "action": "remove",
+      "reason": "Repete o que já é dito no veredito e em como-decidir#1 sobre reduzir a altura do colchão por causa do pillow top."
+    },
+    {
+      "ref": "camadas-altura#0",
+      "action": "remove",
+      "reason": "Frase de transição que não ajuda a decidir; as tabelas seguintes já falam por si."
+    },
+    {
+      "ref": "medida-altura-norma#1",
+      "action": "rewrite",
+      "text": "Além da variação de -0,5 a 1,5 cm prevista pela norma ABNT NBR 13579-1:2011, alguns fabricantes informam tolerância adicional de ±1,0 cm nas dimensões finais, mesmo em produtos sob medida, segundo a Ortobom.",
+      "claim_ids": [
+        "clm_93478856ded5",
+        "clm_07edec6f3f44"
+      ],
+      "absorbs": [
+        "medida-altura-norma#2"
+      ],
+      "reason": "Junta as duas tolerâncias (norma e fabricante) em um único bloco mais curto, sem perder nenhuma informação."
+    },
+    {
+      "ref": "base-box-altura#0",
+      "action": "rewrite",
+      "text": "A altura da base varia entre modelos: a Gazin tem bases de 27 cm (mais 12 cm de pés), a Probel de 26 cm, e a King Koil tem um Box Baú de 37 cm (mais 6,5 cm de pés, totalizando 43,5 cm sem colchão). Para a altura total da cama, some a altura do colchão, da base e dos pés, conforme os anúncios de cada produto.",
+      "claim_ids": [
+        "clm_2fca2df86cfc",
+        "clm_130a08f7c1a0",
+        "clm_2e2ed191bc33"
+      ],
+      "absorbs": [
+        "base-box-altura#1"
+      ],
+      "reason": "Reúne os três exemplos de altura de base em um só bloco, evitando repetir a explicação de como somar as alturas."
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Se você já definiu a altura total desejada para a cama, escolha a altura do colchão que, somada à base e aos pés, atinja esse total, segundo a Gazin. Compare o espaço restante até a altura desejada, em vez de olhar apenas a altura do colchão isoladamente. Confira as três medidas separadamente na ficha do produto.",
+      "absorbs": [
+        "como-decidir#2"
+      ],
+      "reason": "Os dois blocos davam a mesma orientação (somar colchão, base e pés até a altura total); unidos ficam mais diretos para o leitor."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 7631,
+    "output_tokens": 2682
+  }
+}

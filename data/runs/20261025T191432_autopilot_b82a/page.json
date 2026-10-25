@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 137634,
+    "output_tokens": 25225,
+    "calls": 29
+  },
+  "credits": 17.0008092,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "camadas-altura#0"
+    ],
+    "decision_criteria": [
+      "Some a altura do colchão, da base e dos pés para atingir a altura total desejada da cama.",
+      "Se a base e os pés já estão definidos, escolha a altura do colchão pelo espaço restante até a altura total desejada.",
+      "Se usar pillow top ou capa pillow top, desconte o acréscimo de 5 cm ou 7 cm ao escolher a altura do colchão.",
+      "Confira separadamente no anúncio ou na ficha técnica as alturas do colchão, da base e dos pés.",
+      "Considere a tolerância dimensional informada pela norma ao comparar a altura anunciada com a medida real.",
+      "Confira na embalagem ou nas marcações do produto a densidade e a espessura das lâminas de espuma."
+    ],
+    "missing": [
+      "Faixas de altura recomendadas pelos fabricantes para diferentes pesos corporais.",
+      "Relação entre altura do colchão e tipo de base ou estrado usado, além dos exemplos de bases e boxes.",
+      "Profundidade recomendada do lençol com elástico para cada altura de colchão.",
+      "Alturas reais dos modelos apresentados na tabela de composição e uma relação clara entre altura total e camadas.",
+      "Orientação geral para quem ainda não definiu a altura total desejada da cama."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde de forma rápida que a altura deve ser escolhida pela soma do colchão, da base e dos pés, e ensina a ajustar essa conta quando houver pillow top. O leitor consegue conferir as medidas na ficha do produto e comparar opções, embora faltem referências para peso corporal, lençol e escolha de uma altura confortável quando a altura total desejada ainda não foi definida.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  }
+}

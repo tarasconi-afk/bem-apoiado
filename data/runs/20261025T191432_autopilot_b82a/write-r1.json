@@ -1,0 +1,369 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A altura do colchão depende da altura total que você quer para a cama. Some a altura do colchão, da base e dos pés para chegar ao total; se vai usar pillow top, que adiciona 5 a 7 cm, escolha um colchão mais baixo se necessário.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2fca2df86cfc",
+        "clm_791f36163335",
+        "clm_96d271721e73",
+        "clm_067647993c88",
+        "clm_2e6c89f76417",
+        "clm_1ad5d6ee4a23"
+      ]
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "action": "remove"
+    },
+    {
+      "ref": "camadas-altura#1.r2",
+      "action": "remove"
+    },
+    {
+      "ref": "camadas-altura#1",
+      "action": "replace",
+      "text": "A altura do colchão varia conforme as camadas de espuma e mola que o fabricante adiciona. Colchões mais altos geralmente contêm mais camadas ou camadas mais espessas. Exemplos de modelos à venda:",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "draft": {
+    "title": "Altura do colchão: qual escolher",
+    "description": "Escolha a altura do colchão conforme a base, o espaço disponível e se vai usar pillow top. Confira as medidas separadamente na ficha.",
+    "verdict": {
+      "text": "A altura do colchão depende da altura total que você quer para a cama, segundo fabricantes como Gazin, Ortobom e Simmons. Some a altura do colchão, da base e dos pés para chegar ao total; se vai usar pillow top, que adiciona 5 a 7 cm, escolha um colchão mais baixo se necessário.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2fca2df86cfc",
+        "clm_791f36163335",
+        "clm_96d271721e73",
+        "clm_067647993c88",
+        "clm_2e6c89f76417",
+        "clm_1ad5d6ee4a23"
+      ]
+    },
+    "sections": [
+      {
+        "id": "pillow-top-altura",
+        "heading": "Pillow top e altura: quanto adiciona",
+        "blocks": [
+          {
+            "text": "O pillow top é uma camada extra de conforto com elástico nas laterais. Segundo a Ortobom, o pillow top HR Gel adiciona 5,0 cm à altura total do colchão. Segundo a Simmons, a capa pillow top adiciona 7 cm de altura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_070d1e8dcda0",
+              "clm_067647993c88",
+              "clm_1ad5d6ee4a23"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se seu espaço total permite apenas 70 cm e você quer um colchão de 34 cm com base de 27 cm e pés de 12 cm (total 73 cm), o pillow top extra não cabe, segundo a Ortobom e a Simmons. Reduza a altura do colchão ou opte por não usar o pillow top.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_067647993c88",
+              "clm_2e6c89f76417",
+              "clm_1ad5d6ee4a23"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "medida-altura-norma",
+        "heading": "Como a norma mede a altura e qual tolerância aceita",
+        "blocks": [
+          {
+            "text": "A norma ABNT NBR 13579-1:2011 determina que a altura total do colchão deve ser medida com régua apoiada longitudinalmente no centro, medindo a distância entre a superfície de apoio e a parte inferior da régua nas duas extremidades. O resultado é a média dos valores encontrados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4d2e4c5dba3c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A altura do colchão pode variar de -0,5 a 1,5 cm em relação à dimensão declarada pelo fabricante. Isso significa que um colchão anunciado como 30 cm pode ter entre 29,5 cm e 31,5 cm na prática.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_93478856ded5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Alguns fabricantes informam adicionalmente uma tolerância de ± 1,0 cm nas dimensões finais, mesmo em produtos sob medida, segundo a Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_07edec6f3f44"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "camadas-altura",
+        "heading": "Quais camadas compõem cada altura de colchão",
+        "blocks": [
+          {
+            "text": "A altura do colchão varia conforme as camadas de espuma e mola que o fabricante adiciona. Colchões mais altos geralmente contêm mais camadas ou camadas mais espessas. Exemplos de modelos à venda:",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Composição de camadas conforme a altura (modelos à venda)",
+            "columns": [
+              "Modelo e altura",
+              "Camadas de espuma",
+              "Outras camadas"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Doss Molas Ensacadas Casal 30 cm",
+                    "claim_ids": [
+                      "clm_b862a962d9f5"
+                    ]
+                  },
+                  {
+                    "text": "Matelassê D20 cilíndrica, Estofamento D33, Estofamento ≥D65",
+                    "claim_ids": [
+                      "clm_b862a962d9f5"
+                    ]
+                  },
+                  {
+                    "text": "Molas ensacadas, Pillow super",
+                    "claim_ids": [
+                      "clm_b862a962d9f5",
+                      "clm_6afa7c7b5007"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Ortobom MISTO ISO 100 D33 Solteiro (altura não informada nas fontes)",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Hipermacia gel D24 5 cm, Alta resiliência gel D50 5 cm, Convencional D33 5 cm",
+                    "claim_ids": [
+                      "clm_126cf1ac348c"
+                    ]
+                  },
+                  {
+                    "text": "Molas ensacadas 180 molas/m², revestimento malha poliéster",
+                    "claim_ids": [
+                      "clm_126cf1ac348c"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Confira na etiqueta do colchão a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras em centímetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "base-box-altura",
+        "heading": "Altura da base ou box: como somar com o colchão",
+        "blocks": [
+          {
+            "text": "A altura da base ou box varia entre os modelos. Segundo a Gazin, uma base pode ter 27 cm de altura, e os pés adicionam mais 12 cm. A Probel oferece bases de 26 cm de altura. Para a altura total da cama, some a altura do colchão (confira no anúncio), a altura da base (confira no anúncio da base) e a altura dos pés.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_791f36163335",
+              "clm_130a08f7c1a0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A King Koil oferece um exemplo: o Box Baú Elegance possui 37 cm de altura de base, somados a pés de 6,5 cm, totalizando 43,5 cm sem o colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2e2ed191bc33"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se você já definiu a altura total desejada para a cama, escolha a altura do colchão que, somada à base e aos pés, atinja esse total, segundo a Gazin. Confira as três medidas separadamente na ficha do produto.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_791f36163335",
+              "clm_96d271721e73"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pretende usar pillow top ou uma capa pillow top, escolha um colchão mais baixo quando necessário para compensar a camada adicional, segundo a Ortobom e a Simmons. Confira se o acréscimo de 5 cm ou 7 cm cabe na altura total disponível.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_067647993c88",
+              "clm_2e6c89f76417",
+              "clm_1ad5d6ee4a23"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a cama já tem base e pés definidos, escolha entre as alturas de colchão disponíveis conforme o espaço restante até a altura total desejada, em vez de comparar apenas a altura do colchão isoladamente, segundo a Gazin.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_791f36163335",
+              "clm_96d271721e73"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Como somar colchão, base e pés para chegar à altura total desejada (segundo a Gazin)",
+            "columns": [
+              "Componente",
+              "Altura (exemplo Gazin TWINS)",
+              "Altura (exemplo Gazin VENEZA II)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Colchão",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "34 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "30 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Base",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "27 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "27 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Pés",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Altura total",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "73 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "69 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "camadas-altura#1.r1",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "camadas-altura#1.r2",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "camadas-altura#1",
+      "msg": "a coluna \"Camadas de espuma\" repete \"Não informado nas fontes\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "camadas-altura#1",
+      "msg": "a coluna \"Outras camadas\" repete \"Não informado nas fontes\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "verdict",
+      "msg": "resposta curta com 4 frases; deixe em até 3, começando pela resposta prática para quem vai comprar."
+    }
+  ],
+  "usage": {
+    "input_tokens": 15099,
+    "output_tokens": 375
+  }
+}
