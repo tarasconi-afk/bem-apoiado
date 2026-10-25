@@ -1,0 +1,165 @@
+{
+  "slug": "cadeira-de-tela-ou-estofada",
+  "primary_query": "cadeira de tela ou estofada",
+  "page_type": "decision_compare",
+  "questions": [
+    {
+      "id": "q_dado_tela_vs_estofada",
+      "text": "Qual característica de quem compra (tempo de uso por dia, clima do ambiente, preferência por firmeza) indica cadeira de tela ou estofada, segundo o fabricante?"
+    },
+    {
+      "id": "q_especificacao_tela",
+      "text": "Quais especificações o fabricante declara para a cadeira de tela, como material, tensionamento e capacidade de carga?"
+    },
+    {
+      "id": "q_especificacao_estofada",
+      "text": "Quais especificações o fabricante declara para a cadeira estofada, como densidade do estofamento, revestimento e capacidade de carga?"
+    },
+    {
+      "id": "q_regulagens_disponiveis",
+      "text": "Quais regulagens (altura, apoio de braço, apoio lombar, reclinação) cada tipo de cadeira oferece, segundo a ficha técnica do fabricante?"
+    },
+    {
+      "id": "q_dimensoes_assento_encosto",
+      "text": "Quais são as dimensões de assento e encosto declaradas pelo fabricante para cada tipo de cadeira?"
+    },
+    {
+      "id": "q_o_que_conferir_anuncio",
+      "text": "O que o anúncio ou a ficha técnica deve informar para o comprador identificar corretamente se a cadeira é de tela ou estofada?"
+    },
+    {
+      "id": "q_norma_referencia_nr17",
+      "text": "Quais requisitos de regulagem a NR-17 lista como referência para conferir no anúncio, sem se tratar de exigência sobre o produto?"
+    }
+  ],
+  "source_ids": [
+    "src_7f88c051b5b8",
+    "src_02a367996032",
+    "src_45b01c2cae92",
+    "src_b562afab76f9",
+    "src_852502e1bfaf",
+    "src_fdd134637faf",
+    "src_19922dccb6bd",
+    "src_e83282f60bde",
+    "src_12c3792daa9a",
+    "src_5dad77d2a3ef",
+    "src_fc70d1cb41b9",
+    "src_f4d5441c0ef1",
+    "src_083c47847855",
+    "src_25c09132819e",
+    "src_213a35245772",
+    "src_9ec4bc561e38",
+    "src_c03f50257bdd",
+    "src_5270c28da925",
+    "src_a376c672a7f5",
+    "src_e98157b9d830",
+    "src_a2cc9f0a62c8",
+    "src_b7fec81e5a1c",
+    "src_6cab3bbca0ec",
+    "src_c191b71dbc6b",
+    "src_6522d049d196",
+    "src_03ffcff7a272",
+    "src_017545c3bc86",
+    "src_ca94301b3370",
+    "src_40120c3c69fd",
+    "src_6014943bf8a7",
+    "src_17ec22f1b477",
+    "src_7261ae1d564a",
+    "src_00f4435160c6",
+    "src_1fa7404662f6",
+    "src_cecc3fc520d8",
+    "src_bea59ddeb3c0",
+    "src_509b91ae5cc8",
+    "src_a0e177074443",
+    "src_00227bd4a1db",
+    "src_0da08ec9a2ff",
+    "src_0ecc97cb5af4",
+    "src_d359c73e2abb",
+    "src_3f33df26e391",
+    "src_101aa24bc7e9",
+    "src_60e830a55946",
+    "src_e82c834d6aec"
+  ],
+  "editorial_notes": [
+    "Resposta curta deve indicar o dado que diferencia as duas opções (ex.: uso prolongado, clima, firmeza preferida) com base em ficha de fabricante, não em opinião.",
+    "Tabela comparativa: uma linha para cadeira de tela, outra para estofada, colunas com material, regulagens e capacidade de carga.",
+    "Não afirmar benefício de saúde (ex.: 'melhora postura' ou 'evita dor'); apenas citar o que a NR-17 pede verificar como referência, não como exigência do produto.",
+    "Se a fonte não trouxer capacidade de carga ou dimensão para um dos tipos, declarar a ausência em vez de comparar com dado faltante.",
+    "Regra de decisão sustentada: Se você trabalha em ambiente quente e fechado e prioriza ventilação nas costas, escolha uma cadeira com encosto de tela; confira se o modelo declara ventilação adicional. (evidências: clm_2d1016c3c46e)",
+    "Regra de decisão sustentada: Se você prioriza assento e encosto acolchoados e quer escolher entre revestimento de couro ou tecido, escolha uma cadeira estofada e confira se ela usa espuma de alta resiliência. (evidências: clm_b8de95003ec1)",
+    "Regra de decisão sustentada: Se o anúncio mistura as duas opções, confira se a cadeira tem assento estofado com encosto em tela ou se assento e encosto são totalmente em tela antes de comparar os modelos. (evidências: clm_615d8c7804b3)"
+  ],
+  "focus_terms": [
+    "tela",
+    "estofado",
+    "densidade",
+    "regulagem",
+    "capacidade",
+    "carga",
+    "apoio lombar",
+    "nr-17"
+  ],
+  "evidence_gaps": [
+    "Sustentar com fonte ou tirar: regulagens-tela-estofada#0: a coluna \"Cadeira de Tela\" repete \"Ajustável em altura (confira o modelo)\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna.",
+    "Sustentar com fonte ou tirar: verdict: a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar.",
+    "Sustentar com fonte ou tirar: o-que-conferir-anuncio#1: repete o bloco especificacoes-cadeira-estofada#0 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
+    "Sustentar com fonte ou tirar: como-decidir#1: repete o bloco como-decidir#0 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
+    "Sustentar com fonte ou tirar: especificacoes-cadeira-estofada#0: repete o bloco como-decidir#2 (80% das palavras): corte este bloco ou diga só o que ele acrescenta."
+  ],
+  "researched_source_ids": [
+    "src_7f88c051b5b8",
+    "src_02a367996032",
+    "src_45b01c2cae92",
+    "src_b562afab76f9",
+    "src_852502e1bfaf",
+    "src_fdd134637faf",
+    "src_19922dccb6bd",
+    "src_e83282f60bde",
+    "src_12c3792daa9a",
+    "src_5dad77d2a3ef",
+    "src_fc70d1cb41b9",
+    "src_f4d5441c0ef1",
+    "src_083c47847855",
+    "src_25c09132819e",
+    "src_213a35245772",
+    "src_9ec4bc561e38",
+    "src_c03f50257bdd",
+    "src_5270c28da925",
+    "src_a376c672a7f5",
+    "src_e98157b9d830",
+    "src_a2cc9f0a62c8",
+    "src_b7fec81e5a1c",
+    "src_6cab3bbca0ec",
+    "src_c191b71dbc6b",
+    "src_6522d049d196",
+    "src_03ffcff7a272",
+    "src_017545c3bc86",
+    "src_ca94301b3370",
+    "src_40120c3c69fd",
+    "src_6014943bf8a7",
+    "src_17ec22f1b477",
+    "src_7261ae1d564a",
+    "src_00f4435160c6",
+    "src_1fa7404662f6",
+    "src_cecc3fc520d8",
+    "src_bea59ddeb3c0",
+    "src_509b91ae5cc8",
+    "src_a0e177074443",
+    "src_00227bd4a1db",
+    "src_0da08ec9a2ff",
+    "src_0ecc97cb5af4",
+    "src_d359c73e2abb",
+    "src_3f33df26e391",
+    "src_101aa24bc7e9",
+    "src_60e830a55946",
+    "src_e82c834d6aec"
+  ],
+  "improve_attempts": 0,
+  "product_kinds": [
+    "cadeira"
+  ],
+  "listing_terms": [
+    "tela",
+    "estofada"
+  ]
+}
