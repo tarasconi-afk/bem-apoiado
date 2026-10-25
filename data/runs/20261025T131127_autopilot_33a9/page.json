@@ -1,0 +1,48 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 112095,
+    "output_tokens": 10007,
+    "calls": 8
+  },
+  "credits": 6.326744399999999,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que qualquer cadeira de tela é indicada para quem trabalha muitas horas por ventilar, mas os trechos só comprovam essa característica na cadeira Yama3 e em uma malha descrita como respirável (verdict); Reescrever para: “Considere uma cadeira c"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha tela quando trabalha muitas horas e prioriza ventilação; confira se o material é descrito como respirável e se a tensão é uniforme.",
+      "Escolha estofada quando prioriza acolchoamento e opções de revestimento.",
+      "Para uso diário de cerca de 8 horas, confira se a ficha da cadeira estofada informa espuma com densidade entre 45 e 55 kg/m³.",
+      "Não presuma que um tipo tem mais regulagens: confira no modelo específico altura, apoio lombar, profundidade, inclinação e braços ajustáveis.",
+      "Confirme no anúncio se o modelo tem assento e encosto em tela ou uma combinação de assento estofado e encosto em tela.",
+      "Confira a capacidade de carga declarada e as regulagens na ficha técnica do modelo."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que qualquer cadeira de tela é indicada para quem trabalha muitas horas por ventilar, mas os trechos só comprovam essa característica na cadeira Yama3 e em uma malha descrita como respirável (verdict); Reescrever para: “Considere uma cadeira c",
+      "Uma comparação de modelos específicos com dimensões do assento e encosto, capacidade de carga e regulagens de cada cadeira.",
+      "Orientação do fabricante relacionando de forma mais direta tempo de uso, clima do ambiente e preferência de firmeza à escolha entre tela e estofado.",
+      "Explicação mais clara sobre como interpretar a densidade da espuma além de apenas conferir a faixa numérica.",
+      "Informação sobre a durabilidade esperada ou garantia dos materiais de tela e do estofamento."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que tela favorece ventilação e estofado favorece acolchoamento, além de orientar o leitor a conferir material, densidade, regulagens e capacidade de carga. Ela não traz uma comparação completa de dimensões e capacidades entre modelos, mas oferece critérios concretos suficientes para a decisão de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor entende que qualquer cadeira de tela é indicada para quem trabalha muitas horas por ventilar, mas os trechos só comprovam essa característica na cadeira Yama3 e em uma malha descrita como respirável.",
+        "fix": "Reescrever para: “Considere uma cadeira cujo anúncio informe malha respirável se você prioriza ventilação; confira também se a tensão da tela é uniforme.”"
+      }
+    ]
+  }
+}
