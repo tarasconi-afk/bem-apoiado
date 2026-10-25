@@ -1,0 +1,83 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são declarações de fabricantes, mas o bloco as apresenta como fatos gerais sem atribuição. Além disso, eles não identificam os modelos “NASA X Cervical” e “NASA King Alto”, nem sustentam diretamente a recomendação geral de escolher o tamanho pela fronha. Os trechos sustentam apenas que produtos específicos informam compatibilidade com determinadas fronhas e alturas de 12 cm e 17 cm.",
+      "fix": "Segundo a Probel, travesseiros de 40x60 cm são indicados para fronhas de 50x70 cm. Segundo a Duoflex, um travesseiro Nasa é indicado para fronha de 45x65 cm e outro é informado com 17 cm de altura para fronha de 50x90 cm. As alturas citadas nesses exemplos são 12 cm e 17 cm."
+    },
+    {
+      "ref": "medidas-tamanho-padrao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram medidas de modelos específicos, mas não sustentam a formulação geral de faixas de comprimento e largura. Além disso, no modelo Luuna a ordem é explicitamente largura x comprimento x altura (40 x 65 x 14 cm), enquanto o bloco atribui comprimento de 40 cm e largura de 65 cm. A variação de altura entre 12 e 14 cm é compatível com os modelos citados, mas a afirmação sobre as dimensões está ampla e parcialmente invertida.",
+      "fix": "Os trechos citam modelos com estas medidas: Probel 40 x 60 cm, Luuna 40 x 65 x 14 cm (largura x comprimento x altura) e Altenburg 48 x 68 cm. Entre os modelos Probel citados, há alturas de 12 cm e 14 cm."
+    },
+    {
+      "ref": "medidas-tamanho-queen-king#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A medida e a fronha são informadas pela Probel para um produto específico, mas o bloco as apresenta como uma compatibilidade geral, sem atribuição à fabricante.",
+      "fix": "Segundo a Probel, o travesseiro com medida 40 x 60 cm é indicado para fronhas de 50 x 70 cm."
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Duoflex informa um travesseiro Nasa anatômico cervical para fronha de 45 x 65 cm, mas não identifica o modelo “NASA X Cervical”; além disso, o bloco apresenta a informação do fabricante como regra geral, sem atribuição.",
+      "fix": "Segundo a Duoflex, o travesseiro Nasa anatômico cervical é indicado para fronha de 45 x 65 cm."
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho informa um travesseiro Nasa com 17 cm de altura para fronha de 50 x 90 cm, mas não mostra a identificação “NASA King Alto”; além disso, o bloco apresenta a informação do fabricante como regra geral, sem atribuição.",
+      "fix": "Segundo a Duoflex, um travesseiro Nasa com 17 cm de altura é indicado para fronha de 50 x 90 cm."
+    },
+    {
+      "ref": "altura-espessura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado identifica o produto como “Travesseiro Nasa” e não mostra o nome “NASA X Cervical”. Embora sustente a compatibilidade com fronhas de 45 x 65 cm, não sustenta que o modelo citado seja especificamente o NASA X Cervical.",
+      "fix": "Fronha disponível: 45 x 65 cm | Medida do travesseiro: medida específica do modelo | Exemplo de modelo: Travesseiro Nasa da Duoflex"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado identifica o produto como “Travesseiro Nasa” e não mostra o nome “NASA King Alto”. Ele sustenta a indicação para fronha de 50 x 90 cm e altura de 17 cm, mas não a identificação específica como NASA King Alto.",
+      "fix": "Fronha disponível: 50 x 90 cm | Medida do travesseiro: medida específica do modelo | Exemplo de modelo: Travesseiro Nasa da Duoflex, com 17 cm de altura"
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

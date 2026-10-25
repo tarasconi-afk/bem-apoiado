@@ -1,0 +1,141 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Probel, travesseiros de 40x60 cm são indicados para fronhas de 50x70 cm. Segundo a Duoflex, um travesseiro Nasa é indicado para fronha de 45x65 cm e outro, com 17 cm de altura, para fronha de 50x90 cm. As alturas variam entre 12 cm e 17 cm conforme o modelo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17b180e27b6b",
+        "clm_5e838cea33c7",
+        "clm_cfe60c77d543",
+        "clm_20312febf2c6",
+        "clm_48e4025d1e2c"
+      ]
+    },
+    {
+      "ref": "medidas-tamanho-padrao#0",
+      "action": "replace",
+      "text": "Fabricantes citam travesseiros com estas medidas: Probel 40 x 60 cm, Altenburg 48 x 68 cm. Entre os modelos Probel, há alturas de 12 cm e 14 cm conforme o modelo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17b180e27b6b",
+        "clm_255de261bdbf",
+        "clm_4ced7397af94",
+        "clm_4f674039062d"
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "40 x 60",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        },
+        {
+          "text": "50 x 70",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Medida específica (Nasa Duoflex)",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "45 x 65",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Medida específica (Nasa Duoflex, 17 cm)",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        },
+        {
+          "text": "50 x 90",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "45 x 65 cm",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "Medida específica do modelo",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "Travesseiro Nasa da Duoflex",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "50 x 90 cm",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        },
+        {
+          "text": "Medida específica do modelo",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        },
+        {
+          "text": "Travesseiro Nasa da Duoflex, com 17 cm de altura",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0",
+      "msg": "a coluna \"Medida do travesseiro\" repete \"Medida específica do modelo\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ]
+}

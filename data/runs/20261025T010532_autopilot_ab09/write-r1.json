@@ -1,0 +1,327 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "o-que-conferir-anuncio#2",
+      "action": "replace",
+      "text": "Para cadeira estofada: o anúncio deve informar 'assento estofado' e 'encosto estofado', seguido do tipo de revestimento (couro ou tecido). Se disponível na ficha, verifique a densidade da espuma: segundo a Flexform, a faixa de 45 a 55 kg/m³ é recomendada para uso diário de 8 horas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_615d8c7804b3",
+        "clm_b8de95003ec1",
+        "clm_338d4e70e583"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Cadeira de tela ou estofada: qual escolher",
+    "description": "Entenda as diferenças entre cadeira de tela e estofada para escolher pela ventilação, firmeza e uso diário.",
+    "verdict": {
+      "text": "Cadeira de tela oferece mais ventilação e é indicada para ambientes quentes; estofada prioriza acolchoamento e firmeza, segundo a Flexform e a Funcional. A escolha depende do tempo de uso diário, clima do ambiente e preferência por ventilação ou conforto acolchoado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2d1016c3c46e",
+        "clm_b8de95003ec1",
+        "clm_338d4e70e583"
+      ]
+    },
+    "sections": [
+      {
+        "id": "especificacoes-cadeira-tela",
+        "heading": "Especificações da cadeira de tela",
+        "blocks": [
+          {
+            "text": "A cadeira de tela é construída com malha tensionada no encosto para permitir circulação de ar, segundo a ergocadeiras. Para identificar qualidade no anúncio, o comprador deve verificar se a tensão é uniforme e oferece resistência distribuída ao pressionar a tela sem ceder em nenhum ponto específico.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0d08f45d350c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo Flexform, a cadeira com encosto em tela oferece ventilação adicional para ambientes quentes e fechados, com mecanismo datilo (encosto apenas, adequado para jornadas de 8 horas).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2d1016c3c46e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "especificacoes-cadeira-estofada",
+        "heading": "Especificações da cadeira estofada",
+        "blocks": [
+          {
+            "text": "A cadeira estofada possui assento e encosto com espuma acolchoada. Segundo Funcional, o assento é estofado com espuma de alta resiliência e oferece diversas opções de revestimentos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8de95003ec1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Os revestimentos disponíveis para cadeiras estofadas incluem couro ou tecido, segundo a moveis-schuster. Confira na ficha técnica qual opção acompanha o modelo escolhido.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_dc69393ab2af"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para uso diário de 8 horas, a densidade da espuma deve estar na faixa de 45 a 55 kg/m³, conforme declarado na ficha técnica, segundo a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "regulagens-tela-estofada",
+        "heading": "Regulagens: o que conferir em cada tipo",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Regulagens declaradas pelos fabricantes: cadeira de tela vs. estofada",
+            "columns": [
+              "Regulagem",
+              "Cadeira de Tela",
+              "Cadeira Estofada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Altura do assento",
+                    "claim_ids": [
+                      "clm_0ec6555f69dd"
+                    ]
+                  },
+                  {
+                    "text": "Por pistão a gás",
+                    "claim_ids": [
+                      "clm_0ec6555f69dd"
+                    ]
+                  },
+                  {
+                    "text": "Por pistão a gás",
+                    "claim_ids": [
+                      "clm_0ec6555f69dd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Apoio lombar",
+                    "claim_ids": [
+                      "clm_04a5e310b9f4"
+                    ]
+                  },
+                  {
+                    "text": "Ajustável em altura (se declarado)",
+                    "claim_ids": [
+                      "clm_04a5e310b9f4"
+                    ]
+                  },
+                  {
+                    "text": "Ajustável em altura e profundidade",
+                    "claim_ids": [
+                      "clm_0eee973d6c42"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Apoio de braços",
+                    "claim_ids": [
+                      "clm_04a5e310b9f4"
+                    ]
+                  },
+                  {
+                    "text": "Ajustável em altura (confira o modelo)",
+                    "claim_ids": [
+                      "clm_04a5e310b9f4"
+                    ]
+                  },
+                  {
+                    "text": "Ajustável em altura, profundidade e ângulo (mínimo 3D)",
+                    "claim_ids": [
+                      "clm_0eee973d6c42"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Mecanismo de reclinação",
+                    "claim_ids": [
+                      "clm_13ca6086aab0"
+                    ]
+                  },
+                  {
+                    "text": "Datilo ou relax (confira o modelo)",
+                    "claim_ids": [
+                      "clm_13ca6086aab0"
+                    ]
+                  },
+                  {
+                    "text": "Relax ou sincronizado com tensão ajustável",
+                    "claim_ids": [
+                      "clm_13ca6086aab0"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Confira na ficha técnica quais regulagens acompanham cada modelo, pois variam segundo o fabricante e o tipo de mecanismo.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-assento-encosto",
+        "heading": "Dimensões de assento e encosto",
+        "blocks": [
+          {
+            "text": "A NR-17 usa como referência largura mínima do assento de 40 cm e do encosto de 30,5 cm para ambientes de teleatendimento. Confira estas medidas na ficha técnica do modelo escolhido para verificar se atende a esses parâmetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_08f26b7be98f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A profundidade útil do assento deve estar entre 38 cm e 46 cm segundo a NR-17 para teleatendimento. Procure por essa informação na ficha técnica de cadeiras de tela e estofada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_43a079e1ac80"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir-anuncio",
+        "heading": "O que o anúncio deve informar para identificar o tipo",
+        "blocks": [
+          {
+            "text": "Para cadeira de tela: o anúncio ou ficha técnica deve informar claramente se é encosto em tela ou malha, segundo a moveis-schuster. Confira se a descrição menciona 'encosto em tela' ou 'mesh'.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para cadeira estofada: o anúncio deve informar 'assento estofado' e 'encosto estofado', seguido do tipo de revestimento (couro ou tecido) e a densidade da espuma se disponível, segundo a moveis-schuster e a Funcional.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3",
+              "clm_b8de95003ec1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para cadeira estofada: o anúncio deve informar 'assento estofado' e 'encosto estofado', seguido do tipo de revestimento (couro ou tecido). Se disponível na ficha, verifique a densidade da espuma: segundo a Flexform, a faixa de 45 a 55 kg/m³ é recomendada para uso diário de 8 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3",
+              "clm_b8de95003ec1",
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "referencias-nr17",
+        "heading": "Referências da NR-17 para conferir no anúncio",
+        "blocks": [
+          {
+            "text": "A NR-17 usa como referência para teleatendimento que a altura do assento seja ajustável entre 37 e 50 cm em relação ao piso. Confira se a cadeira escolhida oferece essa amplitude de regulagem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_41a4004759fb"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O encosto deve ser ajustável em altura e sentido anteroposterior, com forma levemente adaptada ao corpo para proteção da região lombar, segundo a NR-17. Procure por essas regulagens na ficha técnica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0745d04d72dd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para apoio de braços, a NR-17 usa como referência altura regulável de 20 a 25 cm a partir do assento. Confira se o modelo permite essa regulagem sem interferir no movimento de aproximação da cadeira à mesa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_22c1d3abba51"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre tela e estofada",
+        "blocks": [
+          {
+            "text": "Se você trabalha em ambiente quente e fechado e prioriza ventilação nas costas: escolha uma cadeira com encosto de tela, segundo a Flexform. Confira na ficha se o modelo declara ventilação adicional.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2d1016c3c46e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prioriza assento e encosto acolchoados: escolha uma cadeira estofada, segundo a Funcional. Confira se ela usa espuma de alta resiliência no assento e encosto, e se o revestimento é couro ou tecido conforme sua preferência.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8de95003ec1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você usa a cadeira 8 horas ou mais por dia: procure uma cadeira estofada com espuma na faixa de 45 a 55 kg/m³, declarada na ficha técnica, segundo a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o anúncio mistura as duas opções: confira se a cadeira tem assento estofado com encosto em tela ou se assento e encosto são totalmente em tela antes de comparar os modelos, segundo a moveis-schuster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "o-que-conferir-anuncio#2",
+      "msg": "repete o bloco como-decidir#3 (80% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16699,
+    "output_tokens": 213
+  }
+}

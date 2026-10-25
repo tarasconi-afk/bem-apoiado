@@ -1,0 +1,56 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Travesseiros de 40x60 cm cabem em fronhas de 50x70 cm, conforme informado pela Probel. A Duoflex oferece modelos para fronhas de 45x65 cm e 50x90 cm. As alturas variam entre 12 cm e 17 cm, dependendo do modelo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17b180e27b6b",
+        "clm_5e838cea33c7",
+        "clm_cfe60c77d543",
+        "clm_20312febf2c6",
+        "clm_48e4025d1e2c"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Fronha disponível | Medida do travesseiro | Altura disponível | Exemplos",
+          "claim_ids": []
+        },
+        {
+          "text": "50 x 70 cm | 40 x 60 cm | 12 cm a 14 cm | Probel (diversos modelos); NASA 17 cm da Duoflex",
+          "claim_ids": [
+            "clm_17b180e27b6b",
+            "clm_5e838cea33c7",
+            "clm_7526417478e3",
+            "clm_0373b10bfbe5",
+            "clm_4ced7397af94",
+            "clm_74cb6cace2dd"
+          ]
+        },
+        {
+          "text": "45 x 65 cm | Confira no anúncio | Não informada | Travesseiro Nasa X Cervical da Duoflex",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "50 x 90 cm | Confira no anúncio | 17 cm | Travesseiro Nasa King Alto da Duoflex",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0",
+      "msg": "a coluna \"Medida do travesseiro\" repete \"Medida específica do modelo\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    }
+  ]
+}

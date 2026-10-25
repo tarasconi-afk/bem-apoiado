@@ -1,0 +1,18 @@
+{
+  "status": "SAFE_STOP",
+  "reason": "AUDIT_NOT_CONVERGED",
+  "open_issues": [
+    "regulagens-tela-estofada#0: a coluna \"Cadeira de Tela\" repete \"Ajustável em altura (confira o modelo)\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna.",
+    "verdict: a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar.",
+    "o-que-conferir-anuncio#1: repete o bloco especificacoes-cadeira-estofada#0 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
+    "como-decidir#1: repete o bloco como-decidir#0 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
+    "especificacoes-cadeira-estofada#0: repete o bloco como-decidir#2 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
+    "especificacoes-cadeira-estofada#2: repete o bloco como-decidir#3 (90% das palavras): corte este bloco ou diga só o que ele acrescenta."
+  ],
+  "usage": {
+    "input_tokens": 129700,
+    "output_tokens": 24011,
+    "calls": 32
+  },
+  "credits": 22.127612399999997
+}
