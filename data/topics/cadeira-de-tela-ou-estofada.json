@@ -90,16 +90,23 @@
     "src_e21cb97421d5",
     "src_2223cce5b702",
     "src_0b5a9aca94d6",
-    "src_9f46f68fa918"
+    "src_9f46f68fa918",
+    "src_23686b8b39ec",
+    "src_f3b0edbfc031",
+    "src_c8b8a5cfe220",
+    "src_416363452350",
+    "src_27735bc0d9f2",
+    "src_c6e54ea01204",
+    "src_0fb61b9cdffd",
+    "src_534b53bc732a"
   ],
   "editorial_notes": [
     "Resposta curta deve indicar o dado que diferencia as duas opções (ex.: uso prolongado, clima, firmeza preferida) com base em ficha de fabricante, não em opinião.",
     "Tabela comparativa: uma linha para cadeira de tela, outra para estofada, colunas com material, regulagens e capacidade de carga.",
     "Não afirmar benefício de saúde (ex.: 'melhora postura' ou 'evita dor'); apenas citar o que a NR-17 pede verificar como referência, não como exigência do produto.",
     "Se a fonte não trouxer capacidade de carga ou dimensão para um dos tipos, declarar a ausência em vez de comparar com dado faltante.",
-    "Regra de decisão sustentada: Se você prioriza ventilação e menor retenção de calor durante o uso, escolha uma cadeira com revestimento de tela; o fabricante descreve a malha como respirável e capaz de manter o usuário fresco. (evidências: clm_4f59795df3d3)",
-    "Regra de decisão sustentada: Se você prefere a sensação de acolchoamento e apoio de espuma no assento ou no encosto, escolha a cadeira estofada e confira a densidade da espuma declarada na ficha técnica. (evidências: clm_b8de95003ec1, clm_9fc25f39126c)",
-    "Regra de decisão sustentada: Se você quer uma cadeira totalmente em tela, confirme no anúncio se o assento e o encosto são de tela; alguns modelos são apenas de assento estofado com encosto em tela. (evidências: clm_615d8c7804b3, clm_5c2b9d978926)"
+    "Regra de decisão sustentada: Se você trabalha por muitas horas e prioriza ventilação, escolha uma cadeira com encosto ou assento em tela descrita pelo fabricante como respirável; confira essa característica na ficha técnica. (evidências: clm_4f59795df3d3)",
+    "Regra de decisão sustentada: Se você prioriza sensação de acolchoamento e opções de revestimento, escolha uma cadeira estofada; para uso diário de cerca de 8 horas, confira se a ficha informa espuma na faixa de 45 a 55 kg/m³. (evidências: clm_b8de95003ec1, clm_338d4e70e583)"
   ],
   "focus_terms": [
     "tela",
@@ -112,11 +119,11 @@
     "nr-17"
   ],
   "evidence_gaps": [
-    "Sustentar com fonte ou tirar: regulagens-tela-estofada#0: a coluna \"Cadeira de Tela\" repete \"Ajustável em altura (confira o modelo)\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna.",
-    "Sustentar com fonte ou tirar: verdict: a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar.",
-    "Sustentar com fonte ou tirar: o-que-conferir-anuncio#1: repete o bloco especificacoes-cadeira-estofada#0 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
-    "Sustentar com fonte ou tirar: como-decidir#1: repete o bloco como-decidir#0 (80% das palavras): corte este bloco ou diga só o que ele acrescenta.",
-    "Sustentar com fonte ou tirar: especificacoes-cadeira-estofada#0: repete o bloco como-decidir#2 (80% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    "Para o leitor leigo: O leitor entende que qualquer cadeira de tela é indicada para quem trabalha muitas horas por ventilar, mas os trechos só comprovam essa característica na cadeira Yama3 e em uma malha descrita como respirável (verdict); Reescrever para: “Considere uma cadeira c",
+    "Uma comparação de modelos específicos com dimensões do assento e encosto, capacidade de carga e regulagens de cada cadeira.",
+    "Orientação do fabricante relacionando de forma mais direta tempo de uso, clima do ambiente e preferência de firmeza à escolha entre tela e estofado.",
+    "Explicação mais clara sobre como interpretar a densidade da espuma além de apenas conferir a faixa numérica.",
+    "Informação sobre a durabilidade esperada ou garantia dos materiais de tela e do estofamento."
   ],
   "researched_source_ids": [
     "src_7f88c051b5b8",
@@ -176,9 +183,17 @@
     "src_e21cb97421d5",
     "src_2223cce5b702",
     "src_0b5a9aca94d6",
-    "src_9f46f68fa918"
+    "src_9f46f68fa918",
+    "src_23686b8b39ec",
+    "src_f3b0edbfc031",
+    "src_c8b8a5cfe220",
+    "src_416363452350",
+    "src_27735bc0d9f2",
+    "src_c6e54ea01204",
+    "src_0fb61b9cdffd",
+    "src_534b53bc732a"
   ],
-  "improve_attempts": 1,
+  "improve_attempts": 2,
   "product_kinds": [
     "cadeira"
   ],

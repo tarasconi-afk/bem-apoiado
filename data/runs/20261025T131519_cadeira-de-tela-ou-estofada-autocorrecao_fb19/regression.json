@@ -1,0 +1,66 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha tela quando trabalha muitas horas e prioriza ventilação; confira se o material é descrito como respirável e se a tensão é uniforme.",
+      "Escolha estofada quando prioriza acolchoamento e opções de revestimento.",
+      "Para uso diário de cerca de 8 horas, confira se a ficha da cadeira estofada informa espuma com densidade entre 45 e 55 kg/m³.",
+      "Não presuma que um tipo tem mais regulagens: confira no modelo específico altura, apoio lombar, profundidade, inclinação e braços ajustáveis.",
+      "Confirme no anúncio se o modelo tem assento e encosto em tela ou uma combinação de assento estofado e encosto em tela.",
+      "Confira a capacidade de carga declarada e as regulagens na ficha técnica do modelo."
+    ],
+    "missing": [
+      "Uma comparação de modelos específicos com dimensões do assento e encosto, capacidade de carga e regulagens de cada cadeira.",
+      "Orientação do fabricante relacionando de forma mais direta tempo de uso, clima do ambiente e preferência de firmeza à escolha entre tela e estofado.",
+      "Explicação mais clara sobre como interpretar a densidade da espuma além de apenas conferir a faixa numérica.",
+      "Informação sobre a durabilidade esperada ou garantia dos materiais de tela e do estofamento."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que tela favorece ventilação e estofado favorece acolchoamento, além de orientar o leitor a conferir material, densidade, regulagens e capacidade de carga. Ela não traz uma comparação completa de dimensões e capacidades entre modelos, mas oferece critérios concretos suficientes para a decisão de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "Usa termos como mesh, pistão a gás e mecanismo sincronizado sem explicar claramente o que significam para o comprador leigo.",
+      "Não informa capacidade de carga nem dimensões dos modelos, dificultando a comparação final entre opções."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para ambientes quentes, escolher uma cadeira com revestimento em mesh, cuja estrutura aberta favorece a circulação de ar.",
+      "Para uso diário de cerca de 8 horas, conferir na ficha a densidade da espuma entre 45 e 55 kg/m³, quando a opção for estofada.",
+      "Se o calor nas costas e nas coxas incomoda, preferir uma cadeira com tela; espuma revestida pode reter mais calor.",
+      "No anúncio, confirmar se a cadeira tem assento estofado e encosto em tela ou se assento e encosto são totalmente em tela.",
+      "Conferir se a tensão da tela é uniforme em toda a superfície.",
+      "Não escolher apenas pelo revestimento: verificar no modelo específico regulagem de altura, apoio lombar, profundidade do assento, inclinação ou reclinação e braços ajustáveis.",
+      "Comparar também o material do revestimento, como poliéster, vinil, Grid ou Space, conforme a preferência e a ficha do produto."
+    ],
+    "missing": [
+      "Para o leitor leigo: Usa termos como mesh, pistão a gás e mecanismo sincronizado sem explicar claramente o que significam para o comprador leigo.",
+      "Para o leitor leigo: Não informa capacidade de carga nem dimensões dos modelos, dificultando a comparação final entre opções.",
+      "Uma regra mais explícita relacionando perfil de uso, clima e preferência de conforto à escolha entre tela e estofado, com base em fabricantes.",
+      "Explicação simples dos termos mesh, pistão a gás e mecanismo sincronizado.",
+      "Capacidade de carga declarada para modelos de tela e estofados, para orientar a compra.",
+      "Dimensões de assento e encosto de cada tipo ou de modelos comparáveis.",
+      "Especificações completas e comparáveis de material, tensionamento da tela, espuma, revestimento e regulagens.",
+      "Indicação mais clara de que as faixas de densidade citadas se aplicam à espuma do modelo estofado, e não à cadeira de tela."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios concretos: tela para ambientes quentes, espuma com densidade informada para uso prolongado e conferência das regulagens na ficha. Porém, ainda usa jargões sem explicação e não traz capacidade de carga nem dimensões, o que impede o leitor leigo de comparar e comprar com segurança; deve ser ajustada antes da publicação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 3
+}

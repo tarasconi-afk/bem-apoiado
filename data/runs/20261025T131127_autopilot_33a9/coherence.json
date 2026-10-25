@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que qualquer cadeira de tela é indicada para quem trabalha muitas horas por ventilar, mas os trechos só comprovam essa característica na cadeira Yama3 e em uma malha descrita como respirável.",
+      "fix": "Reescrever para: “Considere uma cadeira cujo anúncio informe malha respirável se você prioriza ventilação; confira também se a tensão da tela é uniforme.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 10593,
+    "output_tokens": 2980,
+    "calls": 3
+  }
+}
