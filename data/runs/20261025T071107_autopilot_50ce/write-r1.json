@@ -1,0 +1,432 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha uma cadeira com malha se você valoriza respirabilidade durante longas horas; escolha uma com assento estofado se prefere acolchoamento. Confira na ficha técnica o material, a densidade da espuma quando informada e a capacidade de carga; a Flexform cita 45 a 55 kg/m³ para uso diário de 8 horas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_4f59795df3d3",
+        "clm_b8de95003ec1",
+        "clm_338d4e70e583"
+      ]
+    },
+    {
+      "ref": "regulagens-oferecidas#0",
+      "action": "replace",
+      "text": "A Flexform descreve regulagens que podem aparecer em cadeiras com especificação técnica completa, como altura por pistão a gás, apoio lombar ajustável em altura e profundidade do assento; a disponibilidade deve ser verificada nas especificações do modelo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04a5e310b9f4"
+      ]
+    },
+    {
+      "ref": "capacidade-de-carga#0",
+      "action": "replace",
+      "text": "Confira a capacidade máxima declarada na ficha do fabricante. Segundo a ThunderX3, a Classe 1 suporta até 100 kg, a Classe 2 até 120 kg, a Classe 3 até 150 kg e a Classe 4 até 150 kg. A ergocadeiras informa que um pistão Classe 4 suporta entre 150 kg e 200 kg.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_034f22620498",
+        "clm_474aa0dd7ef7"
+      ]
+    },
+    {
+      "ref": "material-assento-encosto#0",
+      "action": "replace",
+      "text": "O anúncio pode distinguir entre cadeira com assento estofado e encosto em tela e cadeira com assento e encosto em tela natural, conforme os exemplos de códigos citados pela moveis-schuster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_615d8c7804b3"
+      ]
+    },
+    {
+      "ref": "material-assento-encosto#1",
+      "action": "replace",
+      "text": "Segundo a Funcional, cadeiras com assento estofado podem ter espuma de alta resiliência e diversas opções de revestimentos; confira quais opções são informadas na ficha.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_b8de95003ec1"
+      ]
+    },
+    {
+      "ref": "dimensoes-assento-encosto#0",
+      "action": "replace",
+      "text": "No Anexo II da NR-17, para trabalho em teleatendimento e telemarketing, são indicadas largura mínima de 40 cm de assento e largura mínima de 30,5 cm para os encostos. Segundo a ThunderX3, o modelo citado declara assento com 50 cm de largura e 50 cm de profundidade.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_08f26b7be98f",
+        "clm_a5025d7f624e"
+      ]
+    },
+    {
+      "ref": "o-que-verificar-no-anuncio#0",
+      "action": "replace",
+      "text": "Os trechos da moveis-schuster distinguem cadeiras com assento estofado e encosto em tela de cadeiras com assento e encosto em tela natural; informe no anúncio qual combinação se aplica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_615d8c7804b3",
+        "clm_5c2b9d978926"
+      ]
+    },
+    {
+      "ref": "o-que-verificar-no-anuncio#2",
+      "action": "replace",
+      "text": "Procure na ficha a capacidade de carga, a classe do pistão a gás e as regulagens disponíveis de altura, apoio lombar e profundidade.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_034f22620498",
+        "clm_04a5e310b9f4"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você prefere acolchoamento e espuma no assento, escolha uma cadeira estofada. Confira na ficha técnica a densidade declarada; segundo a Flexform, vale verificar se ela está entre 45 e 55 kg/m³ para uso diário de 8 horas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_b8de95003ec1",
+        "clm_338d4e70e583"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você quer uma cadeira totalmente em tela, confirme no anúncio se o assento e o encosto são ambos de tela; há modelos com assento estofado e encosto em tela e modelos com assento e encosto em tela, como mostram os exemplos da moveis-schuster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_615d8c7804b3",
+        "clm_5c2b9d978926"
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Material do assento",
+          "claim_ids": []
+        },
+        {
+          "text": "Em um exemplo citado, a Yama3 possui material de malha respirável",
+          "claim_ids": [
+            "clm_4f59795df3d3"
+          ]
+        },
+        {
+          "text": "Assento estofado com espuma; há exemplo com densidade controlada de 45 a 55 kgf/m³",
+          "claim_ids": [
+            "clm_9fc25f39126c",
+            "clm_b8de95003ec1"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Densidade da espuma",
+          "claim_ids": []
+        },
+        {
+          "text": "Não informado nas fontes",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Flexform, verifique na ficha técnica se a densidade está entre 45 e 55 kg/m³ para uso diário de 8 horas",
+          "claim_ids": [
+            "clm_338d4e70e583"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Cadeira de tela ou estofada: qual escolher",
+    "description": "Compare cadeira de tela e estofada pelas regulagens, material e capacidade de carga declarados na ficha técnica.",
+    "verdict": {
+      "text": "Escolha uma cadeira com malha se você valoriza respirabilidade durante longas horas; escolha uma com assento estofado se prefere acolchoamento. Confira na ficha técnica o material, a densidade da espuma quando informada e a capacidade de carga; a Flexform cita 45 a 55 kg/m³ para uso diário de 8 horas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_4f59795df3d3",
+        "clm_b8de95003ec1",
+        "clm_338d4e70e583"
+      ]
+    },
+    "sections": [
+      {
+        "id": "regulagens-oferecidas",
+        "heading": "Qual tipo oferece mais regulagens",
+        "blocks": [
+          {
+            "text": "A Flexform descreve regulagens que podem aparecer em cadeiras com especificação técnica completa, como altura por pistão a gás, apoio lombar ajustável em altura e profundidade do assento; a disponibilidade deve ser verificada nas especificações do modelo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04a5e310b9f4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na ficha técnica se o mecanismo de inclinação é ajustável por peso: segundo a Flexform, em mecanismos sincronizados o ajuste de tensão permite calibrar a resistência da mola ao peso do usuário para que a reclinação seja controlada e confortável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ee7da27eecc"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "capacidade-de-carga",
+        "heading": "Capacidade de carga: o que procurar na ficha",
+        "blocks": [
+          {
+            "text": "Confira a capacidade máxima declarada na ficha do fabricante. Segundo a ThunderX3, a Classe 1 suporta até 100 kg, a Classe 2 até 120 kg, a Classe 3 até 150 kg e a Classe 4 até 150 kg. A ergocadeiras informa que um pistão Classe 4 suporta entre 150 kg e 200 kg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_034f22620498",
+              "clm_474aa0dd7ef7"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "material-assento-encosto",
+        "heading": "Material do assento e encosto: como conferir",
+        "blocks": [
+          {
+            "text": "O anúncio pode distinguir entre cadeira com assento estofado e encosto em tela e cadeira com assento e encosto em tela natural, conforme os exemplos de códigos citados pela moveis-schuster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Funcional, cadeiras com assento estofado podem ter espuma de alta resiliência e diversas opções de revestimentos; confira quais opções são informadas na ficha.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8de95003ec1"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-assento-encosto",
+        "heading": "Dimensões de assento e encosto: referências da NR-17",
+        "blocks": [
+          {
+            "text": "No Anexo II da NR-17, para trabalho em teleatendimento e telemarketing, são indicadas largura mínima de 40 cm de assento e largura mínima de 30,5 cm para os encostos. Segundo a ThunderX3, o modelo citado declara assento com 50 cm de largura e 50 cm de profundidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_08f26b7be98f",
+              "clm_a5025d7f624e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-verificar-no-anuncio",
+        "heading": "O que o anúncio deve informar para identificar a cadeira corretamente",
+        "blocks": [
+          {
+            "text": "Os trechos da moveis-schuster distinguem cadeiras com assento estofado e encosto em tela de cadeiras com assento e encosto em tela natural; informe no anúncio qual combinação se aplica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3",
+              "clm_5c2b9d978926"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para cadeiras estofadas, confira se a ficha informa a densidade da espuma; a Flexform recomenda verificar se está na faixa de 45 a 55 kg/m³ para uso de 8 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Procure na ficha a capacidade de carga, a classe do pistão a gás e as regulagens disponíveis de altura, apoio lombar e profundidade, segundo a ThunderX3 e a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_034f22620498",
+              "clm_04a5e310b9f4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, o termo 'cadeira ergonômica' descreve um perfil de regulagens específico, mas não é uma categoria certificada; confira na ficha técnica quais regulagens realmente estão presentes.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_55e82c0350fc"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre tela e estofada",
+        "blocks": [
+          {
+            "text": "Se você prioriza ventilação e quer evitar retenção de calor durante o uso, escolha uma cadeira de tela. Confira no anúncio se ela oferece material de malha respirável; segundo a ThunderX3, a malha mantém o usuário fresco durante longas horas de uso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f59795df3d3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere acolchoamento e espuma no assento, escolha uma cadeira estofada. Confira na ficha técnica a densidade declarada; segundo a Flexform, vale verificar se ela está entre 45 e 55 kg/m³ para uso diário de 8 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8de95003ec1",
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer uma cadeira totalmente em tela, confirme no anúncio se o assento e o encosto são ambos de tela; há modelos com assento estofado e encosto em tela e modelos com assento e encosto em tela, como mostram os exemplos da moveis-schuster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_615d8c7804b3",
+              "clm_5c2b9d978926"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Especificações declaradas: cadeira de tela vs. estofada (confira na ficha técnica)",
+            "columns": [
+              "Característica",
+              "Cadeira de Tela",
+              "Cadeira Estofada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Material do assento",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Em um exemplo citado, a Yama3 possui material de malha respirável",
+                    "claim_ids": [
+                      "clm_4f59795df3d3"
+                    ]
+                  },
+                  {
+                    "text": "Assento estofado com espuma; há exemplo com densidade controlada de 45 a 55 kgf/m³",
+                    "claim_ids": [
+                      "clm_9fc25f39126c",
+                      "clm_b8de95003ec1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Densidade da espuma",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Não informado nas fontes",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Flexform, verifique na ficha técnica se a densidade está entre 45 e 55 kg/m³ para uso diário de 8 horas",
+                    "claim_ids": [
+                      "clm_338d4e70e583"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Qualidade a verificar",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Tensão uniforme sem ceder em pontos específicos ao pressionar",
+                    "claim_ids": [
+                      "clm_0d08f45d350c"
+                    ]
+                  },
+                  {
+                    "text": "Espuma de alta resiliência com múltiplas opções de revestimento",
+                    "claim_ids": [
+                      "clm_b8de95003ec1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que a malha favorece a respirabilidade durante longas horas, que há opções de assento estofado com espuma e que a faixa de 45 a 55 kg/m³ é indicada para uso diário de 8 horas. Porém, não sustentam a recomendação de conferir regulagens, nem afirmam acolchoamento no encosto ou que a ficha técnica deva ser verificada quanto a todos esses itens como regra geral. Versão sustentável: Escolha uma cadeira com malha se você valoriza respirabilidade durante longas horas; escolha uma com assento estofado se prefere acolchoamento. Confira na ficha técnica o material, a densidade da espuma quando informada e a capacidade de carga; a Flexform cita 45 a 55 kg/m³ para uso diário de 8 horas."
+    },
+    {
+      "ref": "regulagens-oferecidas#0",
+      "msg": "UNSUPPORTED. Os trechos listam regulagens e mencionam uma cadeira com especificação técnica completa, mas não dizem que cadeiras de tela e de espuma podem oferecer as mesmas regulagens, nem que a presença delas depende do modelo ou da linha e não do material. Versão sustentável: A Flexform descreve regulagens que podem aparecer em cadeiras com especificação técnica completa, como altura por pistão a gás, apoio lombar ajustável em altura e profundidade do assento; a disponibilidade deve ser verificada nas especificações do modelo."
+    },
+    {
+      "ref": "capacidade-de-carga#0",
+      "msg": "OVERSTATED. Os trechos sustentam os valores atribuídos à ThunderX3 e a faixa de 150 kg a 200 kg informada pela ergocadeiras, mas não sustentam que isso dependa do modelo nem a generalização \"alguns fabricantes\", pois só há evidência de um fabricante nesse ponto. Versão sustentável: Confira a capacidade máxima declarada na ficha do fabricante. Segundo a ThunderX3, a Classe 1 suporta até 100 kg, a Classe 2 até 120 kg, a Classe 3 até 150 kg e a Classe 4 até 150 kg. A ergocadeiras informa que um pistão Classe 4 suporta entre 150 kg e 200 kg."
+    },
+    {
+      "ref": "material-assento-encosto#0",
+      "msg": "OVERSTATED. O trecho apresenta dois códigos e suas respectivas configurações, mas não afirma que todo anúncio deve indicar claramente essa distinção nem que o código de referência deve obrigatoriamente especificá-la. Versão sustentável: O anúncio pode distinguir entre cadeira com assento estofado e encosto em tela e cadeira com assento e encosto em tela natural, conforme os exemplos de códigos citados pela moveis-schuster."
+    },
+    {
+      "ref": "material-assento-encosto#1",
+      "msg": "UNSUPPORTED. O trecho sustenta diversas opções de revestimento e espuma de alta resiliência, mas não menciona densidade da espuma nem afirma que as opções de revestimento são oferecidas além da densidade. Versão sustentável: Segundo a Funcional, cadeiras com assento estofado podem ter espuma de alta resiliência e diversas opções de revestimentos; confira quais opções são informadas na ficha."
+    },
+    {
+      "ref": "dimensoes-assento-encosto#0",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas mínimas no contexto de trabalho em teleatendimento/telemarketing e sustentam que a ThunderX3 declara 50 cm de largura e 50 cm de profundidade para o assento. Não sustentam a condição de uso por mais de 4 horas contínuas, a afirmação de que anúncios nem sempre informam essas dimensões, nem a generalização para “alguns fabricantes” com base em apenas um fabricante. Versão sustentável: No Anexo II da NR-17, para trabalho em teleatendimento/telemarketing, são indicadas largura mínima de 40 cm e largura mínima de 30,5 cm para os encostos. Segundo a ThunderX3, o modelo citado declara assento com 50 cm de largura e 50 cm de profundidade."
+    },
+    {
+      "ref": "o-que-verificar-no-anuncio#0",
+      "msg": "OVERSTATED. Os trechos mostram exemplos de combinações de assento e encosto, mas não estabelecem que todo anúncio precisa deixar claro o material principal, nem definem genericamente tela como assento e encosto de malha ou estofado como assento e encosto de espuma com revestimento. Versão sustentável: Os trechos da moveis-schuster distinguem cadeiras com assento estofado e encosto em tela de cadeiras com assento e encosto em tela natural; informe no anúncio qual combinação se aplica."
+    },
+    {
+      "ref": "o-que-verificar-no-anuncio#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam verificar a capacidade associada à classe do pistão e as regulagens de altura, apoio lombar e profundidade, mas não mencionam regulagem dos braços. Versão sustentável: Procure na ficha a capacidade de carga, a classe do pistão a gás e as regulagens disponíveis de altura, apoio lombar e profundidade, segundo os trechos citados."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam assento estofado com espuma, mas não mencionam espuma no encosto. Além disso, a Flexform orienta verificar a faixa de densidade para uso diário de 8 horas, sem afirmar expressamente que ela é uma recomendação geral. Versão sustentável: Se você prefere acolchoamento e espuma no assento, escolha uma cadeira estofada. Confira na ficha técnica a densidade declarada; segundo a Flexform, vale verificar se ela está entre 45 e 55 kg/m³ para uso diário de 8 horas."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos mostram exemplos de cadeiras com assento estofado e encosto em tela e com assento e encosto em tela, mas não dizem que o anúncio deve informar essas características. Versão sustentável: Se você quer uma cadeira totalmente em tela, confirme no anúncio se o assento e o encosto são ambos de tela; há modelos com assento estofado e encosto em tela e modelos com assento e encosto em tela, como mostram os exemplos da moveis-schuster."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "OVERSTATED. O trecho da ThunderX3 afirma que a Yama3 possui material de malha respirável, mas não especifica que a malha é o material do assento. A tabela apresenta essa característica como regra geral para toda cadeira de tela. Versão sustentável: Característica: material do assento | Cadeira de tela: em um exemplo citado, a Yama3 possui material de malha respirável | Cadeira estofada: assento estofado com espuma; há exemplo de espuma com densidade controlada de 45 a 55 kgf/m³."
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "msg": "UNSUPPORTED. Nenhum trecho afirma que a densidade não se aplica a cadeiras de tela. Além disso, a Flexform diz para verificar se a densidade está na faixa de 45 a 55 kg/m³ para uso diário de 8 horas, mas não formula isso como uma recomendação geral para toda cadeira estofada. Versão sustentável: Característica: densidade da espuma | Cadeira de tela: não informado nos trechos citados | Cadeira estofada com espuma: segundo a Flexform, verifique na ficha técnica se a densidade está entre 45 e 55 kg/m³ para uso diário de 8 horas."
+    }
+  ],
+  "usage": {
+    "input_tokens": 20725,
+    "output_tokens": 1814
+  }
+}
