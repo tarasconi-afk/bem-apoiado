@@ -5,7 +5,7 @@
   "title": "Altura do colchão: qual escolher",
   "description": "Escolha a altura do colchão conforme a base, o espaço disponível e se vai usar pillow top. Confira as medidas separadamente na ficha.",
   "primary_query": "altura do colchão: qual escolher",
-  "updated_at": "2026-10-25",
+  "updated_at": "2026-10-26",
   "verdict": {
     "text": "A altura do colchão pode ser escolhida considerando a altura total desejada para a cama. Nos exemplos da Gazin, some as alturas do colchão, da base e dos pés. Se for usar pillow top, o produto Ortobom cita uma lâmina de espuma de 5,0 cm e a Simmons adiciona uma camada de 7 cm; considere essa altura adicional e escolha um colchão mais baixo se necessário.",
     "basis": "reasoning",
@@ -141,10 +141,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A altura da base varia entre modelos: a Gazin tem bases de 27 cm (mais 12 cm de pés), a Probel de 26 cm, e a King Koil tem um Box Baú de 37 cm (mais 6,5 cm de pés, totalizando 43,5 cm sem colchão). Para a altura total da cama, some a altura do colchão, da base e dos pés, conforme os anúncios de cada produto.",
+          "text": "A altura da base varia entre os modelos citados: 27 cm nos dois modelos Gazin e 26 cm no modelo Probel. Nos dois modelos Gazin, os pés medem 12 cm. A King Koil oferece um Box Baú de 37 cm mais 6,5 cm de pés, totalizando 43,5 cm sem colchão. Para a altura total da cama, some as medidas informadas no anúncio do produto.",
           "basis": "evidence",
           "claim_ids": [
             "clm_2fca2df86cfc",
+            "clm_791f36163335",
             "clm_130a08f7c1a0",
             "clm_2e2ed191bc33"
           ]
@@ -167,8 +168,8 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você pretende usar pillow top ou uma capa pillow top, escolha um colchão mais baixo quando necessário para compensar a camada adicional, segundo a Ortobom e a Simmons. Confira se o acréscimo de 5 cm ou 7 cm cabe na altura total disponível.",
-          "basis": "reasoning",
+          "text": "Se você pretende usar um pillow top ou uma capa pillow top, considere a medida adicional informada na ficha do produto. Nos produtos Ortobom citados, a lâmina de espuma mede 5 cm; a Simmons informa que sua capa adiciona 7 cm.",
+          "basis": "evidence",
           "claim_ids": [
             "clm_067647993c88",
             "clm_2e6c89f76417",
@@ -289,17 +290,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261025T191432_autopilot_b82a+edit:20261025T191432_autopilot_b82a",
+    "run_id": "20261025T191432_autopilot_b82a+edit:20261025T191432_autopilot_b82a+editor:20261026T121223_altura-do-colchao-qual-escolher-ajuste_b8b3",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.05263157894736842,
       "criteria": 6,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }

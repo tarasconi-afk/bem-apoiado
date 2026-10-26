@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-26T12:12:58.683Z",
+  "instruction": "No bloco como-decidir#1: O leitor entende que escolher um colchão mais baixo resolve a altura extra do pillow top, mas os trechos apenas informam que produtos específicos adicionam 5 cm ou 7 cm. Conserto: Reescrever para dizer apenas que a Ortobom informa uma lâmina de 5 cm e a Simmons uma camada de 7 cm, e que o leitor deve somar esse acréscimo à altura do conjunto; retirar a recomendação de escolher um colchão mais baixo. No bloco base-box-altura#0: O leitor entende que todas as bases da Gazin medem 27 cm e têm pés de 12 cm, embora o trecho citado traga essas medidas para um anúncio específi",
+  "diffs": [
+    {
+      "where": "Altura da base ou box: como somar com o colchão · bloco 1",
+      "before": "A altura da base varia entre modelos: a Gazin tem bases de 27 cm (mais 12 cm de pés), a Probel de 26 cm, e a King Koil tem um Box Baú de 37 cm (mais 6,5 cm de pés, totalizando 43,5 cm sem colchão). Para a altura total da cama, some a altura do colchão, da base e dos pés, conforme os anúncios de cada produto.",
+      "after": "A altura da base varia entre os modelos citados: 27 cm nos dois modelos Gazin e 26 cm no modelo Probel. Nos dois modelos Gazin, os pés medem 12 cm. A King Koil oferece um Box Baú de 37 cm mais 6,5 cm de pés, totalizando 43,5 cm sem colchão. Para a altura total da cama, some as medidas informadas no anúncio do produto."
+    },
+    {
+      "where": "Como decidir · bloco 2",
+      "before": "Se você pretende usar pillow top ou uma capa pillow top, escolha um colchão mais baixo quando necessário para compensar a camada adicional, segundo a Ortobom e a Simmons. Confira se o acréscimo de 5 cm ou 7 cm cabe na altura total disponível.",
+      "after": "Se você pretende usar um pillow top ou uma capa pillow top, considere a medida adicional informada na ficha do produto. Nos produtos Ortobom citados, a lâmina de espuma mede 5 cm; a Simmons informa que sua capa adiciona 7 cm."
+    }
+  ]
+}
