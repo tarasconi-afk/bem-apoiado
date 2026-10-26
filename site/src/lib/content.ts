@@ -77,6 +77,16 @@ export interface ProductCard {
 
 // Exemplos à venda: só tipos que a pauta explica, só produtos que passam no gate agora (ficha do
 // fabricante + anúncio do mesmo ASIN capturado há menos de 30 dias). Sem ordem de preferência.
+// O texto cita este produto pelo nome do modelo? Palavras do rótulo que não são a marca, nem o tipo, nem medida.
+const GENERIC_WORDS = new Set(['colchao', 'casal', 'solteiro', 'solteirao', 'queen', 'king', 'viuva', 'cadeira', 'travesseiro', 'escritorio', 'ergonomica', 'ergonomico', 'gamer', 'giratoria', 'molas', 'ensacadas', 'espuma', 'base', 'cama', 'pillow', 'top', 'com', 'para', 'kit', 'altura', 'ajustavel', 'regulagem', 'design', 'couro', 'legitimo', 'branco', 'preto', 'cinza', 'marrom', 'off', 'white', 'series', 'toque', 'pluma', 'travesseiros', 'misto']);
+export function namesModel(p: { brand: string; label: string }, pageText: string): boolean {
+  const n = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const brand = new Set(n(p.brand).split(/\s+/));
+  const words = n(p.label).split(/[^a-z0-9]+/).filter((w) => w.length >= 4 && !brand.has(w) && !GENERIC_WORDS.has(w) && !/^\d/.test(w));
+  const t = n(pageText);
+  return words.length > 0 && words.every((w) => t.includes(w));
+}
+
 export function productsFor(page: PageSpec): ProductCard[] {
   const topic = loadTopics().find((t) => t.slug === page.slug);
   if (!topic || topic.product_kinds.length === 0) return [];
@@ -94,6 +104,9 @@ export function productsFor(page: PageSpec): ProductCard[] {
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))
     // Marca que o texto da página cita vem primeiro: o leitor acha à venda o modelo que acabou de comparar.
     .sort((a, b) => Number(cites(b.brand)) - Number(cites(a.brand)))
+    // E, antes de todos, o próprio modelo que o texto cita pelo nome (26/10: a página falava do Firmpedic e o card
+    // mostrava outro colchão).
+    .sort((a, b) => Number(namesModel(b, text)) - Number(namesModel(a, text)))
     .map((p) => ({
       product: p,
       url: affiliateUrl(p.asin),

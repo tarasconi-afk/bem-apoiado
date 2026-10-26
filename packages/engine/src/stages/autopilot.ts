@@ -466,6 +466,23 @@ async function maintainProducts(runId: string, steps: string[], only?: string): 
       steps.push(`produtos: renovação falhou (${(e as Error).message.slice(0, 80)})`);
     }
   }
+  // Modelos que a página cita pelo nome, à venda (26/10): uma página por ciclo, cada uma a cada 30 dias; a página
+  // recém-aprovada (only) primeiro.
+  const citedTried = readState<Record<string, string>>('cited-products-attempts.json', {});
+  const citedNext = only ? [only] : loadPages().filter((p) => p.status !== 'draft' && Date.now() - Date.parse(citedTried[p.slug] ?? '1970-01-01') > 30 * 86_400_000).map((p) => p.slug);
+  for (const slug of citedNext.slice(0, 1)) {
+    if (creditsLeft() < PRODUCTS_MIN_CREDITS) break;
+    citedTried[slug] = new Date().toISOString();
+    writeState('cited-products-attempts.json', citedTried);
+    try {
+      const { findCitedProducts } = await import('./products.ts');
+      const r = await findCitedProducts(slug, runId);
+      if (r.added.length) changed = true;
+      if (r.cited.length) steps.push(`modelos citados em ${slug} (${r.cited.join('; ')}): ${r.added.length ? `à venda: ${r.added.map((a) => a.label).join('; ')}` : 'nenhum anúncio novo do mesmo modelo'}`);
+    } catch (e) {
+      steps.push(`modelos citados em ${slug}: falhou (${(e as Error).message.slice(0, 80)})`);
+    }
+  }
   const attempts = readState<Record<string, string>>('products-attempts.json', {});
   const needy = pagesNeedingProducts(loadPages(), loadTopics(), loadProducts(), attempts).filter((s) => !only || s === only);
   for (const slug of needy.slice(0, 1)) {

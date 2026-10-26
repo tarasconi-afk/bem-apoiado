@@ -27,3 +27,17 @@ describe('ler anúncio pelo link', () => {
     await expect(readListingInfo('B000000001', llm({}), blocked, (async () => []) as never)).rejects.toThrow(/não consegui ler/);
   });
 });
+
+describe('modelos citados pela página', () => {
+  it('catálogo já tem o modelo: mesma marca e o nome do modelo no rótulo', async () => {
+    const { inCatalog } = await import('../src/stages/products.ts');
+    const cat = [{ brand: 'Probel', label: 'Probel Firmpedic PróExtreme D45 Casal' }];
+    expect(inCatalog({ brand: 'Probel', model: 'Firmpedic PróExtreme' }, cat)).toBe(true);
+    expect(inCatalog({ brand: 'Probel', model: 'Guarda Costas' }, cat)).toBe(false);
+    expect(inCatalog({ brand: 'Ortobom', model: 'Firmpedic PróExtreme' }, cat)).toBe(false);
+  });
+  it('texto da página inclui tabelas', async () => {
+    const { pageText } = await import('../src/stages/products.ts');
+    expect(pageText({ verdict: { text: 'Resposta.' }, sections: [{ blocks: [{ kind: 'table', columns: ['Modelo'], rows: [{ cells: [{ text: 'Emma Original' }] }] }] }] })).toContain('Emma Original');
+  });
+});

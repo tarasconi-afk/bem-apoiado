@@ -638,3 +638,18 @@ alguma coisa. Teste nos 2 rascunhos reais (scripts/bt-autocorrect.mts, cópia de
 respostas curtas consertadas. O apoio de cabeça passou de 1 para 1 problema diferente em outro bloco, depois de
 consertar 2. A cadeira de tela ficou com o mesmo bloco, porque a fonte só fala de um modelo e o conserto que
 resolve é tirar o bloco, decisão do editor. Cerca de 5,7 créditos por rascunho.
+
+## 2026-10-26 · Exemplos à venda: o modelo que a página cita pelo nome
+O editor viu páginas citando um modelo (Probel Firmpedic, Guarda Costas) com cards de outros produtos. A busca na
+Amazon era por tipo ("colchão de espuma"), com preferência só pela marca citada. Agora `findCitedProducts` lê os
+modelos citados pelo nome no texto (o código confere que marca e modelo estão escritos na página) e busca cada um na
+Amazon. O anúncio só serve se for do mesmo modelo, mesma marca e nome no anúncio, e passa pelas mesmas travas de
+antes: produto único, do tipo, ficha oficial quando houver, densidade da ficha no anúncio. Para modelo citado, a
+triagem testa cada tipo da página, porque a leitura do texto errava o tipo. Também vale o índice de busca quando a
+Amazon bloqueia a página, só para fabricante do cadastro. No site, o card do modelo citado vem antes do card da marca
+citada. A manutenção busca uma página por ciclo, cada página a cada 30 dias, e a página recém-aprovada primeiro.
+Teste em 5 páginas (~1,8 crédito, 18 buscas): o motor reconheceu os modelos citados e achou anúncios deles, mas
+nenhum passou nas travas. Os anúncios do Guarda Costas e dos pillow tops citados são quase todos conjunto com base,
+e um tinha densidade diferente da ficha. As travas não foram afrouxadas. Páginas que só citam a marca (D28 ou D33,
+cadeira de escritório) não disparam busca. O link de busca na Amazon segue sem marca (decisão anterior);
+usar o nome do modelo nele fica para o editor decidir.

@@ -271,7 +271,6 @@ export async function findProductsFromAmazon(
   const known = knownAsins();
   const makers = loadRegistry().allow.filter((a) => a.source_class === 'manufacturer');
   const report: ProductsReport = { run_id: runId, topic: slug, candidates: 0, added: [], skipped: [] };
-  const Listing = z.object({ brand: z.string(), model: z.string(), is_single_product: z.boolean() });
   // Quantos exemplos (pesquisa de 21/10: excesso de escolha aparece com muitas opções e comprador incerto;
   // 3 opções não confundem, opções sem diferença clara sim). Página que compara tipos: 1 por tipo, até 3.
   // Página de um tipo só: 2, de marcas diferentes. Os que a página já herda de outras contam.
@@ -288,6 +287,7 @@ export async function findProductsFromAmazon(
   const cited = new Set<string>();
   if (page) for (const id of referencedClaimIds(page)) { const c = idx.claims.get(id); const s = c && idx.sources.get(c.source_id); if (s?.source_class === 'manufacturer') cited.add(loose(s.publisher)); }
 
+  const ctx: ListingCtx = { runId, kinds, labels, accessory, idx, known, makers, report, usedBrands, decide, fetchImpl };
   for (const kind of kinds) {
     if (need <= 0) break;
     let added = 0;
@@ -302,115 +302,178 @@ export async function findProductsFromAmazon(
       .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
     for (const h of hits.slice(0, opts.listingsPerKind ?? 10)) {
       if (added >= perKind || need <= 0) break;
-      const asin = ASIN_RE.exec(h.url)![1]!;
-      if (known.has(asin)) continue;
-      report.candidates++;
-      const listing = await captureListing(asin);
-      if (typeof listing === 'string') {
-        report.skipped.push({ url: h.url, reason: listing });
-        continue;
-      }
-      const l = await callJson(
-        {
-          role: 'extractor',
-          system: `Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": false se for kit, conjunto com base/box${accessory.has(kind) ? ` ou combinado com outro produto (o ${kl.toLowerCase()} vendido sozinho é produto único)` : ' ou acessório'}.`,
-          user: (sourceText(listing.id) ?? '').slice(0, 6000),
-          schema: Listing,
-          schemaName: 'listing',
-          maxTokens: 300,
-        },
-        fetchImpl,
-      );
-      if (!l.data.is_single_product) {
-        report.skipped.push({ url: h.url, reason: 'kit/conjunto/acessório' });
-        continue;
-      }
-      const bad = brandProblem(l.data.brand, labels.get(kind) ?? kind);
-      if (bad) {
-        report.skipped.push({ url: h.url, reason: bad });
-        continue;
-      }
-      // O anúncio vende o PRÓPRIO produto do tipo, e não capa, bolsa, protetor, base ou acessório?
-      const kindLabel = kl;
-      // Tipo acessório: o anúncio tem de vender o acessório sozinho; colchão completo (mesmo "com pillow top") é recusado.
-      const criteria = accessory.has(kind)
-        ? { sim: `o produto vendido é só um(a) ${kindLabel.toLowerCase()}, avulso(a), para uso normal em casa`, nao: 'colchão completo, cama, base, kit ou conjunto, outro acessório diferente deste, ou versão de viagem, para pet ou infantil' }
-        : { sim: `o produto vendido é um(a) ${kindLabel.toLowerCase()} para uso normal em casa`, nao: 'capa, bolsa, protetor, base, cama, kit, peça, acessório, ou versão de viagem, portátil, para pet ou infantil' };
-      const isItem = await decide((sourceText(listing.id) ?? '').slice(0, 4000), {
-        item: { type: 'choice', instructions: `Este anúncio vende um(a) ${kindLabel.toLowerCase()} propriamente dito(a)?`, criteria },
-      });
-      if ((isItem.item?.probabilities?.sim ?? 0) < 0.85) {
-        report.skipped.push({ url: h.url, reason: `triagem: não vende o próprio ${kindLabel.toLowerCase()}` });
-        continue;
-      }
-      // Sem a página do anúncio (só índice de busca), a confiança vem da marca: só fabricante do cadastro.
-      const fromSearch = sourceNote(listing) === SEARCH_INDEX_NOTE;
-      if (fromSearch && !makers.some((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)))) {
-        report.skipped.push({ url: h.url, reason: `página do anúncio bloqueada e marca "${l.data.brand}" fora do cadastro de fabricantes` });
-        continue;
-      }
-      // Marcas diferentes na mesma página: dois exemplos da mesma marca não ajudam a decidir.
-      if (usedBrands.has(loose(l.data.brand))) {
-        report.skipped.push({ url: h.url, reason: `marca já tem exemplo nesta página: ${l.data.brand}` });
-        continue;
-      }
-      const maker = makers.filter((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)));
-      if (!maker.length) {
-        const r = await registerListingOnly({ brand: l.data.brand, model: l.data.model, kind, asin, listing, runId }, idx, labels.get(kind) ?? kind);
-        if (r.ok) {
-          known.add(asin);
-          report.added.push({ asin, label: `${r.product.label} [só anúncio]`, kind });
-          added++;
-          need--;
-          usedBrands.add(loose(l.data.brand));
-        } else report.skipped.push({ url: h.url, reason: `fabricante "${l.data.brand}" fora do cadastro; nível anúncio: ${r.reason}` });
-        continue;
-      }
-      // Ficha oficial no site do fabricante.
-      const sheetsFound = (await webSearch(`${l.data.brand} ${l.data.model}`, { maxResults: 5, includeDomains: maker.map((m) => m.host) })).slice(0, 2);
-      let ok = false;
-      for (const sh of sheetsFound) {
-        let sheet: Source;
-        try {
-          sheet = (await snapshot({ url: sh.url, publisher: maker[0]!.publisher, sourceClass: 'manufacturer' })).source;
-        } catch (e) {
-          report.skipped.push({ url: sh.url, reason: `ficha não capturada: ${(e as Error).message.slice(0, 60)}` });
-          continue;
-        }
-        idx.sources.set(sheet.id, sheet);
-        const spec = await sheetSpecs(sheet, kinds, runId, idx, fetchImpl);
-        if (!spec.is_product_sheet || spec.specClaims.length === 0) {
-          report.skipped.push({ url: sh.url, reason: 'não é ficha de produto ou sem especificação literal' });
-          continue;
-        }
-        const r = await confirmAndRegister({ brand: l.data.brand, model: l.data.model, kind: spec.kind, specClaims: spec.specClaims, asin, listing, runId }, idx, decide);
-        if (!r.ok) {
-          report.skipped.push({ url: h.url, reason: r.reason });
-          continue;
-        }
-        known.add(asin);
-        report.added.push({ asin, label: r.product.label, kind: r.product.kind });
-        added++;
-        need--;
-        usedBrands.add(loose(l.data.brand));
-        ok = true;
-        break;
-      }
-      if (!ok) {
-        // Sem ficha oficial conferida: tenta o nível "só anúncio" (sem especificação, tipo atribuído ao vendedor).
-        const r = await registerListingOnly({ brand: l.data.brand, model: l.data.model, kind, asin, listing, runId }, idx, labels.get(kind) ?? kind);
-        if (r.ok) {
-          known.add(asin);
-          report.added.push({ asin, label: `${r.product.label} [só anúncio]`, kind });
-          added++;
-          need--;
-          usedBrands.add(loose(l.data.brand));
-        } else report.skipped.push({ url: h.url, reason: `sem ficha oficial; nível anúncio: ${r.reason}` });
-      }
+      if (await tryListing(ctx, h, kind)) { added++; need--; }
     }
   }
   writeStage(runId, 'products-amazon', { ...report, credits: creditsSpent() });
   return report;
+}
+
+const Listing = z.object({ brand: z.string(), model: z.string(), is_single_product: z.boolean() });
+interface ListingCtx {
+  runId: string;
+  kinds: string[];
+  labels: Map<string, string>;
+  accessory: Set<string>;
+  idx: ReturnType<typeof buildIndex>;
+  known: Set<string>;
+  makers: ReturnType<typeof loadRegistry>['allow'];
+  report: ProductsReport;
+  usedBrands: Set<string>;
+  decide: Decider;
+  fetchImpl?: FetchLike;
+}
+
+// Um anúncio achado na busca: captura, marca e modelo, travas (produto único, do tipo, marca plausível) e cadastro
+// com a ficha oficial ou no nível "só anúncio". true = cadastrou. Com want (modelo que a página cita pelo nome), o
+// anúncio só serve se for dele: mesma marca e o nome do modelo escrito no anúncio.
+async function tryListing(c: ListingCtx, h: { url: string; title: string; content: string }, kind0: string, want?: { brand: string; model: string }): Promise<boolean> {
+  const url = h.url;
+  let kind = kind0;
+  let kl = c.labels.get(kind) ?? kind;
+  const asin = ASIN_RE.exec(url)![1]!;
+  if (c.known.has(asin)) return false;
+  c.report.candidates++;
+  const skip = (reason: string, u = url) => { c.report.skipped.push({ url: u, reason }); return false; };
+  let listing: Source | string = await captureListing(asin);
+  if (typeof listing === 'string') {
+    // Página bloqueada: prova pelo título e resumo do índice de busca (só vale para fabricante do cadastro, abaixo).
+    if (h.title.split(/\s+/).length < 4) return skip(listing);
+    listing = snapshotFromSearch({ url: `https://www.amazon.com.br/dp/${asin}`, text: `${h.title.replace(/\s*[:|-]\s*Amazon\.com\.br.*$/i, '')}\n${h.content}`, publisher: 'Amazon.com.br', sourceClass: 'retailer_listing' });
+  }
+  const l = await callJson(
+    {
+      role: 'extractor',
+      system: `Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": false se for kit, conjunto com base/box${c.accessory.has(kind) ? ` ou combinado com outro produto (o ${kl.toLowerCase()} vendido sozinho é produto único)` : ' ou acessório'}.`,
+      user: (sourceText(listing.id) ?? '').slice(0, 6000),
+      schema: Listing,
+      schemaName: 'listing',
+      maxTokens: 300,
+    },
+    c.fetchImpl,
+  );
+  if (!l.data.is_single_product) return skip('kit/conjunto/acessório');
+  // Modelo citado: anúncio sem o campo "Marca" mas com a marca no título vale pela marca citada (26/10, Guarda Costas
+  // da Probel: "Probel" no título e marca vazia na extração).
+  if (want && !l.data.brand.trim() && loose(sourceText(listing.id) ?? '').includes(loose(want.brand))) l.data.brand = want.brand;
+  const bad = brandProblem(l.data.brand, kl);
+  if (bad) return skip(bad);
+  if (want) {
+    const text = loose(sourceText(listing.id) ?? '');
+    const tokens = loose(want.model).split(/\s+/).filter((t) => t.length >= 3);
+    if (loose(l.data.brand) !== loose(want.brand) || !tokens.length || tokens.some((t) => !text.includes(t))) return skip(`não é o modelo citado (${want.brand} ${want.model})`);
+  }
+  // O anúncio vende o PRÓPRIO produto do tipo, e não capa, bolsa, protetor, base ou acessório?
+  // Tipo acessório: o anúncio tem de vender o acessório sozinho; colchão completo (mesmo "com pillow top") é recusado.
+  const isKind = async (k: string) => {
+    const lab = (c.labels.get(k) ?? k).toLowerCase();
+    const criteria = c.accessory.has(k)
+      ? { sim: `o produto vendido é só um(a) ${lab}, avulso(a), para uso normal em casa`, nao: 'colchão completo, cama, base, kit ou conjunto, outro acessório diferente deste, ou versão de viagem, para pet ou infantil' }
+      : { sim: `o produto vendido é um(a) ${lab} para uso normal em casa`, nao: 'capa, bolsa, protetor, base, cama, kit, peça, acessório, ou versão de viagem, portátil, para pet ou infantil' };
+    const r = await c.decide((sourceText(listing.id) ?? '').slice(0, 4000), { item: { type: 'choice', instructions: `Este anúncio vende um(a) ${lab} propriamente dito(a)?`, criteria } });
+    return (r.item?.probabilities?.sim ?? 0) >= 0.85;
+  };
+  // Modelo citado: o tipo que a leitura do texto deu é só um palpite (26/10: Guarda Costas lido como molas
+  // ensacadas); vale o primeiro tipo da página que a triagem confirmar.
+  const tryKinds = want ? [kind0, ...c.kinds.filter((k) => k !== kind0)] : [kind0];
+  let found: string | null = null;
+  for (const k of tryKinds) if (await isKind(k)) { found = k; break; }
+  if (!found) return skip(`triagem: não vende o próprio ${tryKinds.map((k) => (c.labels.get(k) ?? k).toLowerCase()).join(' nem ')}`);
+  kind = found;
+  kl = c.labels.get(kind) ?? kind;
+  // Sem a página do anúncio (só índice de busca), a confiança vem da marca: só fabricante do cadastro.
+  const fromSearch = sourceNote(listing) === SEARCH_INDEX_NOTE;
+  if (fromSearch && !c.makers.some((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)))) return skip(`página do anúncio bloqueada e marca "${l.data.brand}" fora do cadastro de fabricantes`);
+  // Marcas diferentes na mesma página: dois exemplos da mesma marca não ajudam a decidir. O modelo citado pelo nome
+  // vale mesmo com a marca já presente: é o que o leitor acabou de ler.
+  if (!want && c.usedBrands.has(loose(l.data.brand))) return skip(`marca já tem exemplo nesta página: ${l.data.brand}`);
+  const added = (label: string, k: string) => { c.known.add(asin); c.report.added.push({ asin, label, kind: k }); c.usedBrands.add(loose(l.data.brand)); return true; };
+  const maker = c.makers.filter((m) => [m.publisher, ...(m.aliases ?? [])].some((n) => loose(n) === loose(l.data.brand)));
+  if (maker.length) {
+    // Ficha oficial no site do fabricante.
+    const sheetsFound = (await webSearch(`${l.data.brand} ${l.data.model}`, { maxResults: 5, includeDomains: maker.map((m) => m.host) })).slice(0, 2);
+    for (const sh of sheetsFound) {
+      let sheet: Source;
+      try {
+        sheet = (await snapshot({ url: sh.url, publisher: maker[0]!.publisher, sourceClass: 'manufacturer' })).source;
+      } catch (e) {
+        c.report.skipped.push({ url: sh.url, reason: `ficha não capturada: ${(e as Error).message.slice(0, 60)}` });
+        continue;
+      }
+      c.idx.sources.set(sheet.id, sheet);
+      const spec = await sheetSpecs(sheet, c.kinds, c.runId, c.idx, c.fetchImpl);
+      if (!spec.is_product_sheet || spec.specClaims.length === 0) {
+        c.report.skipped.push({ url: sh.url, reason: 'não é ficha de produto ou sem especificação literal' });
+        continue;
+      }
+      const r = await confirmAndRegister({ brand: l.data.brand, model: l.data.model, kind: spec.kind, specClaims: spec.specClaims, asin, listing, runId: c.runId }, c.idx, c.decide);
+      if (!r.ok) return skip(r.reason);
+      return added(r.product.label, r.product.kind);
+    }
+  }
+  // Fabricante fora do cadastro, ou sem ficha oficial conferida: nível "só anúncio" (sem especificação, tipo atribuído
+  // ao vendedor).
+  const r = await registerListingOnly({ brand: l.data.brand, model: l.data.model, kind, asin, listing, runId: c.runId }, c.idx, kl);
+  if (r.ok) return added(`${r.product.label} [só anúncio]`, kind);
+  return skip(`${maker.length ? 'sem ficha oficial' : `fabricante "${l.data.brand}" fora do cadastro`}; nível anúncio: ${r.reason}`);
+}
+
+// Modelos que a página cita pelo nome (26/10, editor: "o texto cita produtos que não são os mesmos dos cards da
+// Amazon"). O modelo extrai; o código confere que marca e modelo estão escritos na página (nada inventado).
+export async function citedModels(page: { verdict: { text: string }; sections: { blocks: unknown[] }[] }, kinds: string[], fetchImpl?: FetchLike): Promise<{ brand: string; model: string; kind: string }[]> {
+  if (!kinds.length) return [];
+  const text = pageText(page);
+  const r = await callJson(
+    {
+      role: 'extractor',
+      system: 'Liste os modelos de produto que o texto cita pelo NOME COMERCIAL, com a marca (ex.: marca "Probel", modelo "Firmpedic PróExtreme"). Não liste marca sozinha, tecnologia ou característica ("molas ensacadas", "D33", "espuma HR"), nem linha genérica sem nome de modelo. "model" sem a marca e sem medida. "kind": o tipo do produto.',
+      user: text.slice(0, 8000),
+      schema: z.object({ models: z.array(z.object({ brand: z.string(), model: z.string(), kind: z.enum(kinds as [string, ...string[]]) })).max(8) }),
+      schemaName: 'cited_models',
+      maxTokens: 500,
+    },
+    fetchImpl,
+  );
+  const t = loose(text);
+  const seen = new Set<string>();
+  return r.data.models.filter((m) => {
+    const k = loose(`${m.brand} ${m.model}`);
+    if (seen.has(k) || !m.model.trim() || !t.includes(loose(m.brand)) || !t.includes(loose(m.model))) return false;
+    seen.add(k);
+    return true;
+  });
+}
+
+export function pageText(page: { verdict: { text: string }; sections: { blocks: unknown[] }[] }): string {
+  type B = { kind?: string; text?: string; columns?: string[]; rows?: { cells: { text: string }[] }[] };
+  return [page.verdict.text, ...page.sections.flatMap((x) => (x.blocks as B[]).map((b) => (b.kind === 'table' ? [...(b.columns ?? []), ...(b.rows ?? []).flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text ?? '')))].join('\n');
+}
+
+// O catálogo já tem este modelo (mesma marca e o nome do modelo no rótulo)?
+export function inCatalog(m: { brand: string; model: string }, products: { brand: string; label: string }[]): boolean {
+  const tokens = loose(m.model).split(/\s+/).filter((t) => t.length >= 3);
+  return products.some((p) => loose(p.brand) === loose(m.brand) && tokens.length > 0 && tokens.every((t) => loose(p.label).includes(t)));
+}
+
+// Busca na Amazon os modelos que a página cita e o catálogo ainda não tem (até 3 por vez, 1 anúncio aceito por modelo).
+export async function findCitedProducts(slug: string, runId: string, fetchImpl?: FetchLike, decide: Decider = jevDecide): Promise<ProductsReport & { cited: string[] }> {
+  const report: ProductsReport = { run_id: runId, topic: slug, candidates: 0, added: [], skipped: [] };
+  const page = loadPages().find((p) => p.slug === slug);
+  const topic = loadTopic(slug);
+  const niche = loadNiche();
+  if (!page || !topic.product_kinds.length) return { ...report, cited: [] };
+  const models = await citedModels(page, topic.product_kinds, fetchImpl);
+  const missing = models.filter((m) => !inCatalog(m, loadProducts())).slice(0, 3);
+  const ctx: ListingCtx = {
+    runId, kinds: topic.product_kinds, labels: new Map(niche.product_kinds.map((k) => [k.id, k.label])), accessory: new Set(niche.product_kinds.filter((k) => k.accessory).map((k) => k.id)),
+    idx: buildIndex(), known: knownAsins(), makers: loadRegistry().allow.filter((a) => a.source_class === 'manufacturer'), report, usedBrands: new Set(), decide, fetchImpl,
+  };
+  for (const m of missing) {
+    const hits = (await webSearch(`${m.brand} ${m.model}`, { maxResults: 8, includeDomains: ['amazon.com.br'] })).filter((h) => ASIN_RE.test(h.url));
+    for (const h of hits.slice(0, 4)) if (await tryListing(ctx, h, m.kind, m)) break;
+  }
+  writeStage(runId, `products-cited-${slug}`, { cited: models, searched: missing, ...report, credits: creditsSpent() });
+  return { ...report, cited: models.map((m) => `${m.brand} ${m.model}`) };
 }
 
 // Marca plausível: não vazia, sem artigo no início, no máximo 3 palavras ("O armazenamento do colchão"
