@@ -1,0 +1,89 @@
+{
+  "patches": [
+    {
+      "ref": "medida-altura-norma#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, a altura total do colchão deve ser medida com uma régua sem escala apoiada longitudinalmente no centro, ultrapassando as extremidades. Mede-se a distância entre a superfície de apoio e a parte inferior da régua nas duas extremidades, e considera-se a média dos valores encontrados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4d2e4c5dba3c"
+      ]
+    },
+    {
+      "ref": "medida-altura-norma#2",
+      "action": "replace",
+      "text": "A Ortobom informa que as dimensões finais do produto podem variar em mais ou menos 1,0 cm, inclusive em produtos sob medida.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_07edec6f3f44"
+      ]
+    },
+    {
+      "ref": "camadas-altura#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Probel Excede Premium Casal",
+          "claim_ids": [
+            "clm_b862a962d9f5"
+          ]
+        },
+        {
+          "text": "Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65",
+          "claim_ids": [
+            "clm_b862a962d9f5"
+          ]
+        },
+        {
+          "text": "Pillow Super",
+          "claim_ids": [
+            "clm_6afa7c7b5007"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "camadas-altura#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Ortobom Orion Casal",
+          "claim_ids": [
+            "clm_126cf1ac348c"
+          ]
+        },
+        {
+          "text": "Hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm",
+          "claim_ids": [
+            "clm_126cf1ac348c"
+          ]
+        },
+        {
+          "text": "Molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster",
+          "claim_ids": [
+            "clm_126cf1ac348c"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "camadas-altura#1",
+      "action": "replace",
+      "text": "Confira nas marcações a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0a61647d4d99"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "camadas-altura#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam as camadas e o Pillow Super do modelo Probel, mas não informam uma altura nem mostram que a composição varia conforme a altura ou que o modelo está à venda."
+    },
+    {
+      "ref": "camadas-altura#0.r1",
+      "msg": "OVERSTATED. O trecho sustenta as camadas, o revestimento e as molas ensacadas com média de 180 molas/m², mas não informa altura nem mostra que a composição é conforme a altura ou que o modelo está à venda."
+    }
+  ]
+}

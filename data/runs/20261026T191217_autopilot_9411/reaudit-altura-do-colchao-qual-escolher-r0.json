@@ -1,0 +1,101 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado descreve o procedimento de medição, mas não afirma que a ABNT NBR 13579-1:2011 determina esse procedimento. A atribuição específica à norma não está presente no trecho.",
+      "fix": "Segundo o Inmetro, a altura total deve ser medida com uma régua sem escala apoiada longitudinalmente no centro do colchão, ultrapassando as extremidades; mede-se a distância até a parte inferior da régua nas duas extremidades, e considera-se a média dos valores."
+    },
+    {
+      "ref": "medida-altura-norma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho cita apenas a Ortobom. A expressão “alguns fabricantes” generaliza a informação para mais de um fabricante, sem apoio no trecho citado.",
+      "fix": "A Ortobom informa que as dimensões finais do produto podem variar em mais ou menos 1,0 cm, inclusive em produtos sob medida."
+    },
+    {
+      "ref": "camadas-altura#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as camadas e o Pillow Super do modelo Probel, mas não informam uma altura nem mostram que a composição varia conforme a altura ou que o modelo está à venda.",
+      "fix": "Tabela: Composição de camadas — Probel Excede Premium Casal: Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65; outra camada: Pillow Super."
+    },
+    {
+      "ref": "camadas-altura#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta as camadas, o revestimento e as molas ensacadas com média de 180 molas/m², mas não informa altura nem mostra que a composição é conforme a altura ou que o modelo está à venda.",
+      "fix": "Tabela: Composição de camadas — Ortobom Orion Casal: espuma hipermacia gel D24, espuma de alta resiliência gel D50 de 5,0 cm, espuma convencional D33 de 5,0 cm; molas ensacadas, média de 180 molas/m²; revestimento de malha 100% poliéster."
+    },
+    {
+      "ref": "camadas-altura#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa quais densidades e espessuras devem constar, mas não especifica que a consulta deve ser feita nas marcações do produto ou da embalagem.",
+      "fix": "Confira nas marcações a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras."
+    },
+    {
+      "ref": "base-box-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

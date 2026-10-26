@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "caso_sem_orientacao",
+      "ref": "como-decidir#0",
+      "problem": "A página apresenta o colchão misto como uma das opções, mas não orienta quando escolhê-lo nem o que conferir nele; apenas descreve a composição de modelos citados.",
+      "fix": "Reescrever para orientar que, ao considerar um colchão misto, o leitor confira na ficha a combinação de espumas e molas do modelo, além da densidade e dos demais componentes informados pelo fabricante."
+    }
+  ],
+  "usage": {
+    "input_tokens": 31500,
+    "output_tokens": 3450,
+    "calls": 3
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "run_id": "20261026T191217_autopilot_9411",
+  "topic": "colchao-misto-ou-de-espuma-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_d415bd3910a5",
+      "question_id": "q_norma_abnt_colchao",
+      "source_id": "src_21a829e34b50",
+      "new": true
+    },
+    {
+      "claim_id": "clm_af50447a60d2",
+      "question_id": "q_norma_abnt_colchao",
+      "source_id": "src_828f75ddafec",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d8152a0c151f",
+      "question_id": "q_altura_total",
+      "source_id": "src_828f75ddafec",
+      "new": true
+    },
+    {
+      "claim_id": "clm_64c4ce6b402b",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_bdc497d3f5d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6af373a1b21f",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_bdc497d3f5d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d7ddc380908e",
+      "question_id": "q_altura_total",
+      "source_id": "src_bdc497d3f5d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8c10eca65fa6",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_bdc497d3f5d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_37bb9f664f32",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_c8bb8f6c354a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6a314ae016c6",
+      "question_id": "q_altura_total",
+      "source_id": "src_c8bb8f6c354a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fcca41e07422",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_cf596ce2a30f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9ee4caf56e99",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_cf596ce2a30f",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade": 5,
+    "q_composicao_camadas": 1,
+    "q_certificacao_inmetro": 0,
+    "q_altura_total": 3,
+    "q_garantia_fabricante": 0,
+    "q_norma_abnt_colchao": 2
+  },
+  "unanswered": [
+    "q_certificacao_inmetro",
+    "q_garantia_fabricante"
+  ],
+  "usage": {
+    "input_tokens": 7891,
+    "output_tokens": 1755,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_310baa968706",
+    "src_8cd2f4a471f4"
+  ],
+  "triage": [
+    {
+      "source_id": "src_21a829e34b50",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_310baa968706",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.18
+    },
+    {
+      "source_id": "src_310baa968706",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_310baa968706",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_310baa968706",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0.02
+    },
+    {
+      "source_id": "src_310baa968706",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_310baa968706",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_828f75ddafec",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.8
+    },
+    {
+      "source_id": "src_bdc497d3f5d1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.57
+    },
+    {
+      "source_id": "src_c8bb8f6c354a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.51
+    },
+    {
+      "source_id": "src_8cd2f4a471f4",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.42
+    },
+    {
+      "source_id": "src_cf596ce2a30f",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.62
+    }
+  ],
+  "credits": 38.863696799999985
+}
