@@ -1,0 +1,175 @@
+{
+  "run_id": "20261026T215045_colchao-misto-ou-de-espuma-diferenca-ajuste_e391-releitura",
+  "topic": "colchao-misto-ou-de-espuma-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_7f2828c192bb",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_0a4e79ef52c7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4c9ab5327b72",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_0a4e79ef52c7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_65b99f70b878",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_0a4e79ef52c7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d59cb00fa1e6",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_0a4e79ef52c7",
+      "new": false
+    },
+    {
+      "claim_id": "clm_0522b96db922",
+      "question_id": "q_ajuste_d11a6679",
+      "source_id": "src_0a4e79ef52c7",
+      "new": false
+    },
+    {
+      "claim_id": "clm_ae8e85a6921e",
+      "question_id": "q_ajuste_d11a6679",
+      "source_id": "src_0a4e79ef52c7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0d0c5a3a7e06",
+      "question_id": "q_certificacao_inmetro",
+      "source_id": "src_4baf6f97be31",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8874964b5a82",
+      "question_id": "q_certificacao_inmetro",
+      "source_id": "src_4baf6f97be31",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0cd59218578e",
+      "question_id": "q_norma_abnt_colchao",
+      "source_id": "src_4baf6f97be31",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3eab572796bb",
+      "question_id": "q_certificacao_inmetro",
+      "source_id": "src_e911a8cf66c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_accbf41908b2",
+      "question_id": "q_certificacao_inmetro",
+      "source_id": "src_e911a8cf66c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_db2b25761eb3",
+      "question_id": "q_norma_abnt_colchao",
+      "source_id": "src_e911a8cf66c8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f1bcc48b1c3a",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_f4387203d2a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8cf1daeb3b6a",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_f4387203d2a3",
+      "new": false
+    },
+    {
+      "claim_id": "clm_4e0634610198",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_f4387203d2a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9971facee135",
+      "question_id": "q_altura_total",
+      "source_id": "src_f4387203d2a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_239f0cb5e9e7",
+      "question_id": "q_garantia_fabricante",
+      "source_id": "src_f4387203d2a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_842fd117bd83",
+      "question_id": "q_certificacao_inmetro",
+      "source_id": "src_f4387203d2a3",
+      "new": false
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_4baf6f97be31",
+      "question_id": "q_composicao_camadas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Composição qualitativa dos componentes internos do colchão; ... Tipo(s) de espuma(s) utilizada(s), exceto a do revestimento; ... Densidade(s) nominal(is) da(s) lâmina(s) de espuma utilizada(s), em kg/"
+    },
+    {
+      "source_id": "src_e911a8cf66c8",
+      "question_id": "q_composicao_camadas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Composição qualitativa dos componentes internos do colchão; ... Tipo(s) de espuma(s) utilizada(s), exceto a do revestimento; ... Densidade(s) nominal(is) da(s) lâmina(s) de espuma utilizada(s), em kg/"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade": 5,
+    "q_composicao_camadas": 2,
+    "q_certificacao_inmetro": 5,
+    "q_altura_total": 1,
+    "q_garantia_fabricante": 1,
+    "q_norma_abnt_colchao": 2,
+    "q_ajuste_d11a6679": 2,
+    "q_ajuste_99bd75ca": 0
+  },
+  "unanswered": [
+    "q_ajuste_99bd75ca"
+  ],
+  "usage": {
+    "input_tokens": 15218,
+    "output_tokens": 3243,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_0a4e79ef52c7",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.78
+    },
+    {
+      "source_id": "src_4baf6f97be31",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_e911a8cf66c8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_f4387203d2a3",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    }
+  ],
+  "credits": 3.599175
+}

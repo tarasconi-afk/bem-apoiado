@@ -1,0 +1,113 @@
+{
+  "run_id": "20261026T215045_colchao-misto-ou-de-espuma-diferenca-ajuste_e391",
+  "topic": "colchao-misto-ou-de-espuma-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_3b8dcb601d57",
+      "question_id": "q_norma_abnt_colchao",
+      "source_id": "src_594ae9db78e7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_81595ac0484c",
+      "question_id": "q_ajuste_99bd75ca",
+      "source_id": "src_594ae9db78e7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bde842ca13ec",
+      "question_id": "q_ajuste_99bd75ca",
+      "source_id": "src_594ae9db78e7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e8c74173eb79",
+      "question_id": "q_norma_abnt_colchao",
+      "source_id": "src_fd63776f235f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6840f0213d47",
+      "question_id": "q_ajuste_99bd75ca",
+      "source_id": "src_fd63776f235f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4787291057eb",
+      "question_id": "q_altura_total",
+      "source_id": "src_f7a0f538ae9d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fa104cffe330",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_f7a0f538ae9d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1fd4b60e5686",
+      "question_id": "q_altura_total",
+      "source_id": "src_b36beebffc4b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_493be52c0021",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_b36beebffc4b",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade": 0,
+    "q_composicao_camadas": 2,
+    "q_certificacao_inmetro": 0,
+    "q_altura_total": 2,
+    "q_garantia_fabricante": 0,
+    "q_norma_abnt_colchao": 2,
+    "q_ajuste_d11a6679": 0,
+    "q_ajuste_99bd75ca": 3
+  },
+  "unanswered": [
+    "q_peso_densidade",
+    "q_certificacao_inmetro",
+    "q_garantia_fabricante",
+    "q_ajuste_d11a6679"
+  ],
+  "usage": {
+    "input_tokens": 11865,
+    "output_tokens": 1500,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_956f3ec4af68"
+  ],
+  "triage": [
+    {
+      "source_id": "src_594ae9db78e7",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.8
+    },
+    {
+      "source_id": "src_fd63776f235f",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.9
+    },
+    {
+      "source_id": "src_f7a0f538ae9d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.89
+    },
+    {
+      "source_id": "src_b36beebffc4b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.85
+    }
+  ],
+  "credits": 1.4054172
+}

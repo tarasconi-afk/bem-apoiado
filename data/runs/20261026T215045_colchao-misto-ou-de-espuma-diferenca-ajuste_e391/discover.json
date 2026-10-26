@@ -1,0 +1,286 @@
+{
+  "run_id": "20261026T215045_colchao-misto-ou-de-espuma-diferenca-ajuste_e391",
+  "topic": "colchao-misto-ou-de-espuma-diferenca",
+  "queries": [
+    {
+      "q": "colchão espuma densidade kg/m³ peso corporal faixa usuário ficha técnica",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "colchoescastor.com.br",
+        "simmons.com.br",
+        "duoflex.com.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "colchão misto espuma molas composição camadas ficha técnica",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "colchoescastor.com.br",
+        "simmons.com.br",
+        "duoflex.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "Inmetro regulamento colchões espuma molas certificação compulsória avaliação",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "ABNT NBR 17034 colchões espuma molas norma técnica 2023",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 8
+    },
+    {
+      "q": "colchão misto ou de espuma: diferença ficha técnica especificações",
+      "include_domains": [
+        "br.tempur.com"
+      ],
+      "results": 2
+    },
+    {
+      "q": "colchão misto ou de espuma: diferença ficha técnica especificações",
+      "include_domains": [
+        "apolospuma.com.br"
+      ],
+      "results": 1
+    },
+    {
+      "q": "colchão misto ou de espuma: diferença ficha técnica especificações",
+      "include_domains": [
+        "biflex.com.br"
+      ],
+      "results": 8
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_956f3ec4af68",
+      "url": "https://biflex.com.br/produtos/mistos",
+      "publisher": "Biflex",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_f7a0f538ae9d",
+      "url": "https://biflex.com.br/produto/colchao-ortofirm-d45",
+      "publisher": "Biflex",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_b36beebffc4b",
+      "url": "https://biflex.com.br/produto/colchao-ortomax-d45",
+      "publisher": "Biflex",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 1,
+  "suggestions": [
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/02940523000143/compras/2026/48/arquivos/29",
+      "title": "proposta - Portal Nacional de Contratações Públicas - PNCP"
+    },
+    {
+      "host": "diariooficial.prefeitura.sp.gov.br",
+      "url": "https://diariooficial.prefeitura.sp.gov.br/md_epubli_visualizar.php?xFJQ32tDfiXOEYNBc4cOaWx2ZOUd4e5E_A1Y4stjNljPkXlKDyuvdgG4ajXiQyqswkrchHIV2W_KQhpARi_M9qrx4yD090QSsbjQQIgGZ1XcTu45EAe0xCkCngQZW8sy=",
+      "title": "10ª COMISSÃO PERMANENTE DE LICITAÇÃO / AUTORID"
+    },
+    {
+      "host": "www.compras.ms.gov.br",
+      "url": "https://www.compras.ms.gov.br/wp-content/uploads/2024/02/TR-POS-PARECER-AJUSTADO-09.02.pdf",
+      "title": "TERMO DE REFERÊNCIA"
+    },
+    {
+      "host": "catoledorocha.pb.gov.br",
+      "url": "https://catoledorocha.pb.gov.br/images/arquivos/documentos/Projeto_Subesta_o_e_Energia_Solar_Sec._Educa_o.pdf",
+      "title": "DOCUMENTAÇÃO DE"
+    }
+  ],
+  "snapshot_errors": [
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002621.pdf",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "error": "The operation was aborted due to timeout"
+    }
+  ],
+  "tavily_credits_month": 969,
+  "triage": [
+    {
+      "url": "https://www.colchoescastor.com.br/produtos/black-white-air-d45-one-face",
+      "p_useful": 0.63,
+      "keep": true
+    },
+    {
+      "url": "https://www.colchoescastor.com.br/produtos/black-white-air-d33-one-face",
+      "p_useful": 0.69,
+      "keep": true
+    },
+    {
+      "url": "https://www.colchoescastor.com.br/produtos/black-white-air-d33-double-face",
+      "p_useful": 0.65,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma?page=4",
+      "p_useful": 0.21,
+      "keep": false
+    },
+    {
+      "url": "https://simmons.com.br/media/hexaattachment/products/attachments/CO_EVOLUTION_NEO-6SPAR_EPTQ43_2_.pdf",
+      "p_useful": 0.94,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma/solteirao",
+      "p_useful": 0.41,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma/queen?page=2",
+      "p_useful": 0.23,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002621.pdf",
+      "p_useful": 0.91,
+      "keep": true
+    },
+    {
+      "url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/produtos-e-servicos-regulados/programas-compulsorios",
+      "p_useful": 0.42,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/qualidade/pdf/agenda-regulatoria.pdf",
+      "p_useful": 0.25,
+      "keep": false
+    },
+    {
+      "url": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2020/port_282_2020_classificacao_de_risco.pdf",
+      "p_useful": 0.43,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/qualidade/rtepac/compulsorios.asp",
+      "p_useful": 0.42,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/detalhe.asp?seq_classe=1&seq_ato=2697",
+      "p_useful": 0.27,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "p_useful": 0.89,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/detalhe.asp?seq_classe=1&seq_ato=2696",
+      "p_useful": 0.29,
+      "keep": false
+    },
+    {
+      "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/auditorias/prestacao-de-contas/2018/relatorio_gestao_2018.pdf",
+      "p_useful": 0.3,
+      "keep": false
+    },
+    {
+      "url": "https://br.tempur.com/pt-BR/ergonomic-pillows",
+      "p_useful": 0.01,
+      "keep": false
+    },
+    {
+      "url": "https://br.tempur.com/pt-BR/comfort-pillows",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.apolospuma.com.br/img/Livro_50_anos_ApoloSpuma.pdf",
+      "p_useful": 0.02,
+      "keep": false
+    },
+    {
+      "url": "https://biflex.com.br/produtos/mistos",
+      "p_useful": 0.86,
+      "keep": true
+    },
+    {
+      "url": "https://biflex.com.br/produto/colchao-ortoluxo-d33",
+      "p_useful": 0.36,
+      "keep": false
+    },
+    {
+      "url": "https://biflex.com.br/produto/colchao-ortofirm-d45",
+      "p_useful": 0.56,
+      "keep": true
+    },
+    {
+      "url": "https://biflex.com.br/produto/colchao-ortomax-d45",
+      "p_useful": 0.57,
+      "keep": true
+    },
+    {
+      "url": "https://biflex.com.br/produto/colchao-ortomaster-d33",
+      "p_useful": 0.48,
+      "keep": false
+    },
+    {
+      "url": "https://biflex.com.br",
+      "p_useful": 0.2,
+      "keep": false
+    },
+    {
+      "url": "https://biflex.com.br/produto/colchao-dualpedic-d33",
+      "p_useful": 0.02,
+      "keep": false
+    },
+    {
+      "url": "https://biflex.com.br/produto/colchao-vita-bamboo-perola",
+      "p_useful": 0.86,
+      "keep": true
+    }
+  ],
+  "sitemaps": [
+    {
+      "host": "br.tempur.com",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "apolospuma.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "biflex.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "celiflex.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "cristalflexcolchoes.com",
+      "urls": 0,
+      "picked": []
+    }
+  ],
+  "llm_credits": 0.3740051999999999
+}
