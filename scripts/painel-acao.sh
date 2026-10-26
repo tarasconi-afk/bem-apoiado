@@ -160,6 +160,25 @@ auto_learning() {
 }
 
 action=${1:-}
+# Ajuste com pesquisa que não salvou: o texto da página volta, mas as fontes e evidências que a pesquisa achou ficam
+# (26/10: a reescrita do solteirão foi barrada por uma palavra e as fontes novas foram junto; a tentativa seguinte
+# pagaria a busca de novo). Vão para o mesmo ramo do ajuste; num ramo só com aprendizado, o sync aceita sozinho.
+keep_research() {
+  local b="$1" slug="$2"
+  git add -A data/sources data/claims "data/topics/$slug.json" data/runs 2>/dev/null || true
+  git checkout -q -- . 2>/dev/null || true; git clean -qfd data || true
+  git diff --cached --quiet && return 1
+  local n; n=$(git diff --cached --name-only --diff-filter=A -- data/claims | wc -l | tr -d ' ')
+  npm run -s engine -- validate >/dev/null || { git reset -q --hard; return 1; }
+  git "${GIT_ID[@]}" commit -q -m "Painel: fontes da pesquisa do ajuste não salvo em $slug ($n evidência(s) nova(s))"
+  if [ "$b" = main ]; then
+    git push -q origin HEAD:main || { git fetch -q origin main && git rebase -q origin/main && git push -q origin HEAD:main; } || return 1
+  else
+    git push -q origin "HEAD:$b" || return 1
+  fi
+  echo "as fontes que a pesquisa achou ficaram guardadas ($n evidência(s) nova(s)); a próxima tentativa parte delas"
+}
+
 # Ajuste de uma página (ação "ajustar" e auditoria do site): adjust_page <ramo|main> <slug> <pedido.txt> [pesquisar]
 # [blocos a,b] [rótulo do commit]. Devolve 1 se não salvou.
 adjust_page() {
@@ -184,6 +203,7 @@ adjust_page() {
     git checkout -q -B "$B" origin/main
   fi
   if ! npm run -s engine -- adjust "$slug" "$file" ${pesq:+--pesquisar} ${blocos:+--blocos=$blocos}; then
+    [ -n "$pesq" ] && keep_research "$B" "$slug" || true
     git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; return 1
   fi
   git add data/
