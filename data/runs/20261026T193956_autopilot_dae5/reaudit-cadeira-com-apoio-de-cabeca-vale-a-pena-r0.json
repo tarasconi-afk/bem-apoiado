@@ -1,0 +1,101 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "quando-faz-diferenca#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "quando-faz-diferenca#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "regulagens-e-dimensoes#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam exemplos de apoios 3D e 4D e, no caso da ThunderX3, ajustes de altura, ângulo e posição para frente e para trás. Porém, nenhum trecho afirma que alguns modelos oferecem apenas altura e inclinação (2D), nem sustenta de forma geral a comparação apresentada entre 2D, 3D e 4D.",
+      "fix": "Os apoios de cabeça citados incluem modelos 3D e 4D; a ThunderX3 descreve um apoio com ajustes de altura, ângulo e posição para frente e para trás."
+    },
+    {
+      "ref": "regulagens-e-dimensoes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "regulagens-e-dimensoes#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam procurar a amplitude de ajuste de altura, em centímetros, e verificar a posição mais baixa disponível. Eles não afirmam que um apoio muito alto empurra a cabeça para frente nem estabelecem essa relação causal.",
+      "fix": "Na ficha técnica, procure a amplitude de ajuste de altura em centímetros e verifique a posição mais baixa disponível do apoio de cabeça."
+    },
+    {
+      "ref": "inclusao-e-acessorio#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos só mostram a Contatto Presidente descrita com apoio de cabeça. Não dizem que o apoio pode ser vendido separadamente, que vem de fábrica, nem que apenas a versão Presidente o inclui.",
+      "fix": "A Funcional descreve a Contatto Presidente com apoio de cabeça."
+    },
+    {
+      "ref": "inclusao-e-acessorio#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho confirma que o modelo 19.001 L é listado com apoio de cabeça e que há um apoio de cabeça na seção “Acessórios”. Porém, não informa que o modelo 19.001 não possui o item nem que o acessório é vendido separadamente.",
+      "fix": "A Cavaletti lista o modelo 19.001 L com apoio de cabeça e apresenta um apoio de cabeça na seção “Acessórios”."
+    },
+    {
+      "ref": "inclusao-e-acessorio#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram um modelo listado com apoio de cabeça e um item apresentado na seção “Acessórios”, mas não informam se o item está incluído no preço ou é cobrado separadamente.",
+      "fix": "Confira a ficha técnica ou o anúncio para confirmar se o apoio de cabeça é listado junto ao modelo ou na seção de acessórios."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados apenas listam pesos máximos de três modelos. Não dizem que o fabricante não especifica mudanças entre versões com e sem apoio de cabeça, nem que a capacidade é informada conforme o modelo completo.",
+      "fix": "A ergocadeiras informa peso máximo suportado de 130 kg para a DT3 Moira, 200 kg para a Luvinco BT03 Dinamarca e 150 kg para a DT3 Diana V2."
+    },
+    {
+      "ref": "nr17-referencia#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos apenas mostram duas páginas da ergocadeiras listando NR-17 como certificação de produtos. Eles não dizem que a norma trata de ergonomia em postos de trabalho, que é frequentemente citada por fabricantes, nem que não detalha exigências sobre apoio para cabeça ou pescoço.",
+      "fix": "Os trechos citados mostram que duas páginas da ergocadeiras listam a NR-17 como certificação ou referência para determinados produtos."
+    },
+    {
+      "ref": "nr17-referencia#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Como o bloco tem basis framing, as afirmações factuais sobre o apoio de cabeça ser item de regulagem e seu efeito depender do ajuste correto exigiriam evidência citada. O trecho sobre procurar um profissional de saúde é uma orientação permitida, mas não sustenta as demais afirmações.",
+      "fix": "Para recomendações médicas sobre dor no pescoço ou postura, procure um profissional de saúde."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A primeira frase apresenta como regra geral que reclinar a cadeira faz o apoio de cabeça oferecer suporte. O trecho citado é uma afirmação da Flexform sobre o modelo Tecton Unique; a atribuição aparece apenas na segunda frase.",
+      "fix": "No modelo Tecton Unique, segundo a Flexform, o apoio de cabeça só encosta na cabeça quando o usuário reclina; se permanecer reto digitando, ele não trabalha."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam ajustes de altura, inclinação, ângulo, posição para frente e para trás e o posicionamento no occipital, mas não mencionam que a pessoa pretende reclinar a cadeira nem relacionam esses critérios especificamente à reclinação.",
+      "fix": "Considere um apoio com ajustes de altura, inclinação ou outras dimensões de posicionamento, e verifique se ele toca o occipital sem empurrar a cabeça para frente, conforme os trechos citados."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

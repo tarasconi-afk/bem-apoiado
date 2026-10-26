@@ -1,0 +1,102 @@
+{
+  "run_id": "20261026T193956_autopilot_dae5",
+  "topic": "colchao-misto-ou-de-espuma-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_d039758c40dd",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_01ece90d54ba",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e19c77f56af5",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_01ece90d54ba",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2975fc024f53",
+      "question_id": "q_altura_total",
+      "source_id": "src_01ece90d54ba",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d49a7d79ecc",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_01ece90d54ba",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a97a2356e1e7",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_1ebca5c4a6fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_77a99f779c93",
+      "question_id": "q_altura_total",
+      "source_id": "src_1ebca5c4a6fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_98923758e9e7",
+      "question_id": "q_composicao_camadas",
+      "source_id": "src_1ebca5c4a6fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d78da94e92f",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_f26c8d90f74b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4a52e53d7bba",
+      "question_id": "q_altura_total",
+      "source_id": "src_f26c8d90f74b",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade": 4,
+    "q_composicao_camadas": 2,
+    "q_certificacao_inmetro": 0,
+    "q_altura_total": 3,
+    "q_garantia_fabricante": 0,
+    "q_norma_abnt_colchao": 0
+  },
+  "unanswered": [
+    "q_certificacao_inmetro",
+    "q_garantia_fabricante",
+    "q_norma_abnt_colchao"
+  ],
+  "usage": {
+    "input_tokens": 4798,
+    "output_tokens": 1062,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_01ece90d54ba",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.63
+    },
+    {
+      "source_id": "src_1ebca5c4a6fe",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.51
+    },
+    {
+      "source_id": "src_f26c8d90f74b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.52
+    }
+  ],
+  "credits": 34.41811799999998
+}
