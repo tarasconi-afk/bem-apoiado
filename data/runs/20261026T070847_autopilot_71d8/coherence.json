@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que ter apoio de cabeça compensa por si só para quem mede mais de 1,85 m, mas os trechos apenas recomendam amplitude de ajuste e alcance do occipital para usuários altos.",
+      "fix": "Reescrever para: “Para usuários acima de 1,85 m, considere modelos cujo apoio tenha pelo menos 10 cm de ajuste de altura e alcance o occipital.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 23267,
+    "output_tokens": 6179,
+    "calls": 3
+  }
+}
