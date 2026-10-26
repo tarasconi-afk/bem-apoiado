@@ -105,6 +105,13 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [x] 20 páginas no ar (26/10)
 - [ ] **50 páginas no ar**
 - [ ] **primeira venda orgânica** (clique vindo de um guia, não de link enviado à mão)
+- [ ] **futuro: outros mercados (internacionalização)**, depois de 50 páginas e da primeira venda orgânica. Não é
+      tradução: tamanho, densidade e marcas são do mercado brasileiro (solteirão, D28, Probel). Cada mercado é um site
+      próprio, com fabricantes, fontes e pautas locais, e o mesmo motor. Primeiro candidato: espanhol (Espanha ou
+      México; menos concorrência que o inglês). Pela conta americana de afiliados, um ID serve para Canadá, Reino
+      Unido, Espanha, Alemanha, França e Itália; os outros países pedem conta própria, cada uma com a sua aprovação por
+      vendas. Antes: pesquisa curta do mercado (fabricantes com ficha pública, buscas, concorrência) e revisão das
+      regras do motor escritas para o português ("Se você…", "segundo a…", termos proibidos, regras de decisão)
 
 ## Fase 4 — Motor autônomo, previsível e monetizável (plano de 22/10/2026)  ← atual
 Objetivo do dono: seguir só o que o painel sugere e o motor melhorar sozinho a cada ciclo; motor replicável

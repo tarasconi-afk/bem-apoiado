@@ -67,7 +67,8 @@ export async function fetchSnapshot(f: typeof fetch = fetch, now = new Date()): 
   const k = ServiceKey.parse(JSON.parse(readFileSync(KEY_FILE(), 'utf8')));
   const token = await accessToken(k, f);
   const day = (d: number) => new Date(now.getTime() - d * 86_400_000).toISOString().slice(0, 10);
-  const [start, end] = [day(30), day(3)];
+  // O Search Console fecha o dia com ~2 dias de atraso (26/10: o export do editor já trazia o dia 24).
+  const [start, end] = [day(30), day(2)];
   const r = await f(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`, {
     method: 'POST',
     headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
