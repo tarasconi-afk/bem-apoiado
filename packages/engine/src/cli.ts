@@ -418,12 +418,27 @@ async function main(): Promise<number> {
       if (pesquisar) setRunBudget(30);
       const text = readFileSync(file, 'utf8').slice(0, 1000);
       // Com ou sem pesquisa, o mesmo caminho: escolhe blocos e títulos, remenda, audita a seção e corrige.
-      const msg = await adjustWithResearch(slug, text, newRunId(`${slug}-ajuste`), undefined, { research: pesquisar });
+      // --blocos=a,b: blocos já escolhidos (auditoria do site), sem o seletor.
+      const blocos = /^--blocos=(.+)$/.exec(rest.find((x) => x.startsWith('--blocos=')) ?? '')?.[1]?.split(',').filter(Boolean);
+      const msg = await adjustWithResearch(slug, text, newRunId(`${slug}-ajuste`), undefined, { research: pesquisar, ...(blocos?.length ? { refs: blocos, learn: false } : {}) });
       console.log(`→ ${msg}`);
       console.log(`~${creditsSpent().toFixed(2)} créditos`);
       // Sucesso = não diz "NÃO salvo": a mensagem pode começar por "lição nova…" ou "página reorganizada…"
       // (22/10: mover tabela salvava a página e o script tratava como falha, sem commit).
       return /NÃO salvo/.test(msg) ? 1 : 0;
+    }
+    case 'audit-site': {
+      // Auditoria do site (botão do painel): audit-site [--max=40]. Imprime uma linha AJUSTE por página com problema
+      // (slug, arquivo do pedido, blocos); o script painel-acao.sh transforma cada uma em resultado no quadro.
+      const max = Math.min(150, Math.max(5, Number(/^--max=(\d+)$/.exec(rest.find((x) => x.startsWith('--max=')) ?? '')?.[1] ?? 40)));
+      setRunBudget(max + 5);
+      const { auditSite } = await import('./stages/site-audit.ts');
+      const r = await auditSite(max);
+      for (const a of r.audited) console.log(`${a.slug}: ${a.findings.length ? a.findings.map((f) => `${f.check} em ${f.ref}`).join('; ') : 'limpa'}`);
+      console.log(`auditadas ${r.audited.length}, com problema ${r.audited.filter((a) => a.findings.length).length}; ${r.skipped} auditada(s) há menos de 14 dias${r.left ? `; ${r.left} ficaram para a próxima rodada (teto de ${max} créditos)` : ''}`);
+      console.log(`~${creditsSpent().toFixed(2)} créditos na auditoria`);
+      for (const a of r.adjustments) console.log(`AJUSTE\t${a.slug}\t${a.file}\t${a.refs.join(',')}`);
+      return 0;
     }
     case 'request': {
       // Pedido em texto livre (painel): request <arquivo.txt>

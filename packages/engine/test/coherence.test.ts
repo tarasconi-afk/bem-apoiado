@@ -24,3 +24,13 @@ describe('auditoria de coerência', () => {
     expect(fourQuestions({ publishable: false, answers_primary_query: 'yes', coherence: [{ check: 'produto_como_solucao' }] })).toContain('coerência: produto apresentado como solução');
   });
 });
+
+describe('auditoria do site', () => {
+  it('pedido de ajuste só com blocos editáveis (linha de tabela fica de fora)', async () => {
+    const { auditRequest } = await import('../src/stages/site-audit.ts');
+    const r = auditRequest([f('produto_como_solucao', 'verdict', 'Generaliza.'), f('dado_de_produto_vira_regra', 'medidas#0.r1'), f('caso_sem_orientacao', 'verdict')]);
+    expect(r.refs).toEqual(['verdict']);
+    expect(r.text).toContain('No bloco verdict: Generaliza. Conserto: tirar o bloco');
+    expect(r.text).not.toContain('medidas#0.r1');
+  });
+});

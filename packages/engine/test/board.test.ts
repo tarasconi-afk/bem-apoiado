@@ -36,6 +36,9 @@ describe('quadro de decisões', () => {
     expect(classifyDraft({ review: rv(true), failedAdjust: false }).suggestion).toBe('aprovar');
     expect(classifyDraft({ review: rv(false), failedAdjust: false }).suggestion).toBe('recusar');
     expect(classifyDraft({ review: rv(true), failedAdjust: true }).suggestion).toBe('corrigir');
+    // o motor ainda vai tentar sozinho: não pede o editor; aprovável continua aprovável
+    expect(classifyDraft({ review: rv(false), failedAdjust: false, retrying: { attempt: 1, max: 2 } }).suggestion).toBe('nada');
+    expect(classifyDraft({ review: rv(true), failedAdjust: false, retrying: { attempt: 1, max: 2 } }).suggestion).toBe('aprovar');
     expect(correctionText(null)).toBe('');
   });
 });

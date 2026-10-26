@@ -653,3 +653,14 @@ nenhum passou nas travas. Os anúncios do Guarda Costas e dos pillow tops citado
 e um tinha densidade diferente da ficha. As travas não foram afrouxadas. Páginas que só citam a marca (D28 ou D33,
 cadeira de escritório) não disparam busca. O link de busca na Amazon segue sem marca (decisão anterior);
 usar o nome do modelo nele fica para o editor decidir.
+
+## 2026-10-26 · Auditoria do site e trava de regressão no conserto da coerência
+Botão "Auditar o site" em Configurações (camada 1 do ROADMAP F): `stages/site-audit.ts` passa a coerência nas
+páginas no ar até o teto de créditos, e o script gera um ajuste por página só nos blocos apontados
+(`adjust --blocos`). Teste na cópia: 8 páginas por ~5 créditos, 6 com problema. No primeiro ajuste (D28 ou D33), a
+versão honesta ("o D28 Guarda Costas suporta 90 kg", no lugar de "D28 suporta 90 kg") caiu de 4 para 3,5 no juiz
+("responde em parte"), e a trava de regressão devolvia a generalização. Decisão: no conserto da coerência, passa a
+queda de até meio ponto só em "responde à dúvida", com as outras 3 perguntas sem piorar. O cartão mostra as duas
+notas e o motivo, e o editor decide. Nos outros casos, a trava continua igual.
+Rascunho que o motor ainda vai tentar melhorar (tentativa sobrando e lacuna anotada) aparece no quadro como "Nada a
+fazer" e não conta como pendência.

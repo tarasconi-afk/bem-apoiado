@@ -145,10 +145,13 @@ export function classifyBranch(b: {
   };
 }
 
-export function classifyDraft(d: { review: ReviewLike | null; failedAdjust: boolean; rules?: string[] }): CardInfo {
+// retrying: o motor ainda vai tentar melhorar o rascunho sozinho (pauta com tentativa sobrando e lacuna anotada). Não
+// pede o editor (26/10: os rascunhos de cadeira ficavam como pendência enquanto o motor ainda trabalhava neles).
+export function classifyDraft(d: { review: ReviewLike | null; failedAdjust: boolean; rules?: string[]; retrying?: { attempt: number; max: number } }): CardInfo {
   const correction = correctionText(d.review, d.rules);
   if (d.failedAdjust) return { kind: 'rascunho', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo antes de aprovar.', correction };
   if (d.review?.publishable) return { kind: 'rascunho', situation: 'A revisão de leitor aprova esta versão.', suggestion: 'aprovar', why: fourQuestions(d.review), correction };
+  if (d.retrying) return { kind: 'rascunho', situation: `O motor ainda tenta melhorar sozinho (usou ${d.retrying.attempt} de ${d.retrying.max} novas tentativas). Se não der, o cartão volta pedindo você.`, suggestion: 'nada', why: fourQuestions(d.review), correction };
   if (correction) return { kind: 'rascunho', situation: 'A revisão de leitor achou pontos fracos que dá para corrigir.', suggestion: 'corrigir', why: fourQuestions(d.review), correction };
   return { kind: 'rascunho', situation: 'A revisão de leitor reprova esta versão.', suggestion: 'recusar', why: fourQuestions(d.review), correction };
 }

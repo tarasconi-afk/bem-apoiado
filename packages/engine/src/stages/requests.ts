@@ -439,13 +439,18 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     // lacuna da pauta; a manutenção busca fonte para ela uma vez por semana e reescreve se achar (23/10, editor:
     // "se há algo a aprender, sempre deixe como aprendizado").
     const gapNote = sa <= sb && after.review.answers_primary_query !== 'yes' ? recordGaps(slug, after.review.missing) : '';
-    if (sa < sb) {
+    // Conserto da coerência (blocos já escolhidos): a versão honesta costuma ser mais estreita ("no D28 Guarda Costas,
+    // 90 kg" no lugar de "D28 suporta 90 kg") e o juiz a acha menos decisiva (26/10: 4 → 3,5 e a generalização
+    // voltava). Passa a queda de meio ponto só em "responde à dúvida", com as outras 3 perguntas sem piorar; o editor
+    // vê as duas notas no cartão e decide.
+    const narrower = !!opts.refs?.length && sb - sa <= 0.5 && (['reader_fit', 'quick_answer', 'purchase_path'] as const).every((k) => after.review[k] !== false || before.review[k] === false);
+    if (sa < sb && !narrower) {
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
       writeStage(runId, 'regression', { before: before.review, after: after.review, score_before: sb, score_after: sa });
       return `${lessonNote}ajuste não aplicado: a versão nova ficou pior na revisão de leitor (antes ${sb} de 4, depois ${sa} de 4), então a página continua como estava${fresh ? `; as ${fresh} evidência(s) nova(s) ficam guardadas` : ''}.\nantes: ${line(before.review)}\ndepois: ${line(after.review)}\nPeça de novo dizendo o que a página deve passar a dizer (ex.: "Se você…, escolha…"), ou recuse com esse motivo.${gapNote}`;
     }
     writeStage(runId, 'page', { status: 'EDITOR_ADJUST', review: after.review, review_before: before.review });
-    reviewNote = `\nrevisão de leitor: ${line(after.review)} (nota ${sa} de 4; antes ${sb})${gapNote}`;
+    reviewNote = `\nrevisão de leitor: ${line(after.review)} (nota ${sa} de 4; antes ${sb})${sa < sb ? '; caiu porque a versão corrigida diz só o que a fonte sustenta, decida no quadro' : ''}${gapNote}`;
   } catch {
     reviewNote = '\nrevisão de leitor: não rodou (o ajuste vale assim mesmo)';
   }

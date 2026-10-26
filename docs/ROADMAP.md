@@ -101,6 +101,11 @@ atualização periódica de fontes (re-snapshot detecta mudança de conteúdo pe
 - [ ] edição de tabelas no painel; registro de mudanças por página; hub por perfil na home
 - [ ] agente de código (seção/componente novo) num ramo com testes, build e prévia; avaliar modelo gratuito na VPS
 
+## Metas (26/10/2026)
+- [x] 20 páginas no ar (26/10)
+- [ ] **50 páginas no ar**
+- [ ] **primeira venda orgânica** (clique vindo de um guia, não de link enviado à mão)
+
 ## Fase 4 — Motor autônomo, previsível e monetizável (plano de 22/10/2026)  ← atual
 Objetivo do dono: seguir só o que o painel sugere e o motor melhorar sozinho a cada ciclo; motor replicável
 para outros nichos; o site dar dinheiro. Régua: 20 páginas no ar (tração), depois 200.
@@ -187,7 +192,11 @@ Feito em 22/10:
 
 ### F. Autogestão — auditoria do site pelo próprio motor (pedido do dono, 24/10)
 Três camadas, com risco crescente; cada uma só começa quando a anterior se pagar no modo sombra.
-- [ ] **F1. Botão "Auditar o site" (Configurações)** com teto de créditos por rodada. Ele passa por todas as
+- [x] **F1. Botão "Auditar o site" (Configurações), 26/10:** coerência nas páginas no ar, da auditada há mais tempo,
+      até o teto de créditos; cada página com problema vira um ajuste só nos blocos apontados (resultado no quadro).
+      Pula a auditada há menos de 14 dias. Falta: checagens determinísticas no mesmo relatório e rodada semanal
+      automática (depois de medir quantos ajustes o editor aplica)
+- [ ] ~~F1 original~~ **Botão "Auditar o site" (Configurações)** com teto de créditos por rodada. Ele passa por todas as
       páginas, produtos e cartões e roda:
       - checagens determinísticas: links, imagens, produtos vencidos, regras de forma, coerência entre o título e a
         resposta;

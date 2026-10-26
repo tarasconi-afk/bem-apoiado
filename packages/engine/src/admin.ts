@@ -9,6 +9,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { join } from 'node:path';
 import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, Slug } from '@bem-apoiado/core';
 import { cycleBadge, cycleInfo, renderStatus } from './status.ts';
+import { MAX_IMPROVE_ATTEMPTS } from './stages/improve.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
@@ -22,7 +23,7 @@ import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
 import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
-import { DATA, loadPages, loadProducts, ROOT } from './store.ts';
+import { DATA, loadPages, loadProducts, readState, ROOT } from './store.ts';
 import { clicksByAsin, trafficSummary } from './hits.ts';
 import { loadAnnounce } from './announce.ts';
 
@@ -263,6 +264,8 @@ ${shadowHtml()}
 ${gscHtml()}
 ${announceHtml()}
 
+${siteAuditHtml()}
+
 <h2>Saldo de créditos</h2>
 <form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="saldo">
 <input name="saldo" required inputmode="decimal" placeholder="saldo de créditos mostrado no hPanel agora (ex.: 4850)"><button class="ok">Registrar saldo</button></form>
@@ -471,12 +474,14 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   const judged = (p: (typeof pages)[number]) => verdicts.some((v) => v.slug === p.slug && v.run_id === p.provenance.run_id);
   for (const p of pages.filter((x) => x.status === 'draft' && !judged(x))) {
     const rv = reviewFrom(readMain, p.slug)?.review ?? null;
-    const info = classifyDraft({ review: rv, failedAdjust: !!failedNow(p.slug), rules: rulesFromNotes(loadTopics().find((t) => t.slug === p.slug)?.editorial_notes ?? []) });
+    const t = loadTopics().find((x) => x.slug === p.slug);
+    const retrying = t && t.improve_attempts < MAX_IMPROVE_ATTEMPTS && t.evidence_gaps.length > 0 ? { attempt: t.improve_attempts, max: MAX_IMPROVE_ATTEMPTS } : undefined;
+    const info = classifyDraft({ review: rv, failedAdjust: !!failedNow(p.slug), rules: rulesFromNotes(t?.editorial_notes ?? []), retrying });
     const approve = `<form id="f-ap-${esc(p.slug)}" method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${shadowField('rascunho', info.suggestion, p.slug)}${forceBox(p.slug)}</form>`;
     const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
-      html: `<details class="dcard sg-${info.suggestion}" data-pending>
+      html: `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
 <summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span>${info.suggestion === 'aprovar' ? `<button form="f-ap-${esc(p.slug)}" class="ok">Aprovar e publicar</button>` : ''}</summary>
 <div class="dbody"><dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
 ${failedNote(p.slug)}<div class="dactions">${approve}${info.suggestion === 'aprovar' ? '' : `<span class="muted">ou, sem corrigir:</span> <button form="f-ap-${esc(p.slug)}" class="link" name="forcar" value="1">Aprovar e publicar assim mesmo</button>`}</div>${adjustDiffsHtml(readMain, p.slug)}
@@ -1040,6 +1045,20 @@ function noteShadow(f: URLSearchParams): void {
   }
 }
 
+// Auditoria do site (Configurações; camada 1 do ROADMAP F, 26/10): a coerência nas páginas no ar; cada página com
+// problema vira um ajuste no quadro. Mostra a última passada de cada página.
+function siteAuditHtml(): string {
+  const st = readState<Record<string, { at: string; findings: { check: string; ref: string; problem: string }[] }>>('site-audit.json', {});
+  const live = loadPages().filter((p) => p.status !== 'draft');
+  const done = live.filter((p) => st[p.slug]);
+  const bad = done.filter((p) => st[p.slug]!.findings.length);
+  const last = Object.values(st).map((x) => x.at).sort().at(-1);
+  return `<h2>Auditoria do site</h2>
+<p class="muted">Relê cada página no ar procurando 3 erros que o juiz não vê: produto apresentado como solução sem a fonte dizer, dado de um produto virando regra, caso da resposta curta sem orientação. Cada página com problema vira um ajuste no quadro de decisões, só nos blocos apontados; nada muda no site sem você aplicar. Página auditada há menos de 14 dias é pulada. Cerca de 1 crédito por página, mais o ajuste (1 a 3).</p>
+${last ? `<p>${done.length} de ${live.length} páginas auditadas (última passada ${esc(fmt(last))}); ${bad.length ? `<strong>${bad.length} com problema</strong>: ${bad.map((p) => esc(p.title)).join(' · ')}` : 'nenhuma com problema'}.</p>` : ''}
+<form method="post" action="acao" class="verdict" onsubmit="return confirm('Auditar o site agora? Gasta até o teto informado; os ajustes aparecem no quadro.')"><input type="hidden" name="acao" value="auditar"><label>Teto de créditos <input name="teto" type="number" min="5" max="150" value="40" style="width:6em"></label> <button class="ok">Auditar o site</button></form>`;
+}
+
 // Painel do modo sombra (aba Desempenho): concordância nas últimas 10 decisões e o que falta para o critério.
 function shadowHtml(): string {
   const st = shadowStats(loadShadow());
@@ -1105,6 +1124,11 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     if (!/^https:\/\/(www\.)?amazon\.com\.br\/.*(dp|gp\/product)\/[A-Z0-9]{10}/.test(link) && !/^[A-Z0-9]{10}$/.test(link)) return 'cole o link de um anúncio da amazon.com.br (com /dp/ no endereço)';
     if (!loadNiche().product_kinds.some((k) => k.id === tipo) || marca.length < 2 || nome.length < 5) return 'tipo, marca ou nome inválido';
     return { label: `adicionar produto: ${nome}`, args: ['produto-adicionar', link, tipo, marca, nome] };
+  }
+  if (acao === 'auditar') {
+    const teto = Number(f.get('teto') ?? 40);
+    if (!Number.isInteger(teto) || teto < 5 || teto > 150) return 'teto inválido (5 a 150 créditos)';
+    return { label: `auditar o site (até ${teto} créditos)`, args: ['auditar', String(teto)] };
   }
   if (acao === 'licao-remover') {
     const id = f.get('licao') ?? '';
@@ -1312,7 +1336,7 @@ export function nextCycleAt(now: Date): string {
   const next = CYCLE_HOURS.find((x) => x * 60 > h * 60 + m) ?? CYCLE_HOURS[0]!;
   return `${String(next).padStart(2, '0')}:00`;
 }
-const JOB_VERB: Record<string, string> = { ajustar: 'Ajustando', mesclar: 'Aplicando', descartar: 'Descartando', veredito: 'Registrando veredito', pedido: 'Pedido ao motor', editar: 'Editando', 'produto-ler': 'Lendo anúncio', 'produto-adicionar': 'Adicionando produto', 'produto-reconferir': 'Reconferindo produto', 'produto-remover': 'Removendo produto', 'fila-adicionar': 'Fila de pautas', 'fila-remover': 'Fila de pautas', 'licao-remover': 'Removendo lição', 'dominio-aprovar': 'Aprovando domínio', 'dominio-bloquear': 'Bloqueando domínio', 'dominio-desfazer': 'Desfazendo domínio' };
+const JOB_VERB: Record<string, string> = { auditar: 'Auditando o site', ajustar: 'Ajustando', mesclar: 'Aplicando', descartar: 'Descartando', veredito: 'Registrando veredito', pedido: 'Pedido ao motor', editar: 'Editando', 'produto-ler': 'Lendo anúncio', 'produto-adicionar': 'Adicionando produto', 'produto-reconferir': 'Reconferindo produto', 'produto-remover': 'Removendo produto', 'fila-adicionar': 'Fila de pautas', 'fila-remover': 'Fila de pautas', 'licao-remover': 'Removendo lição', 'dominio-aprovar': 'Aprovando domínio', 'dominio-bloquear': 'Bloqueando domínio', 'dominio-desfazer': 'Desfazendo domínio' };
 // "ajustar colchao-x: pedido…" → verbo + título da página; o rótulo inteiro fica no menu.
 function jobTitle(j: Job): { verb: string; subject: string } {
   const verb = JOB_VERB[j.args[0] ?? ''] ?? 'Ação';

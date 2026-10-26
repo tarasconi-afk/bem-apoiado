@@ -160,6 +160,52 @@ auto_learning() {
 }
 
 action=${1:-}
+# Ajuste de uma página (ação "ajustar" e auditoria do site): adjust_page <ramo|main> <slug> <pedido.txt> [pesquisar]
+# [blocos a,b] [rótulo do commit]. Devolve 1 se não salvou.
+adjust_page() {
+  B="$1"; local slug="$2" file="$3" pesq="$4" blocos="$5" label="${6:-Painel: ajuste em}"
+  # Ajuste em página no ar volta para aprovação com prévia (22/10: o editor pediu melhoria e ela foi
+  # direto ao site). Se a página já tem um resultado pendente, o ajuste entra nele. Rascunho fica no main:
+  # já é aprovado em "Páginas: seu veredito", e num ramo virava resultado "nada muda no site".
+  if [ "$B" = main ] && ! git show "origin/main:data/pages/$slug.json" | grep -q '"status": "draft"'; then
+    B=$(git for-each-ref --no-merged=origin/main --sort=-committerdate --format='%(refname:short)' "refs/remotes/origin/pagina/$slug-[0-9]*" | head -1)
+    B=${B#origin/}
+    [ -n "$B" ] || B="pagina/$slug-$(date +%Y%m%d-%H%M)"
+  fi
+  if [ "$B" = main ]; then
+    git checkout -q -B main origin/main
+  elif git rev-parse -q --verify "origin/$B" >/dev/null; then
+    git checkout -q -B "$B" "origin/$B"
+    # Dados do ramo, código do main: o ramo tem o motor da hora em que foi criado, e o ajuste rodava com
+    # ele (21/10: a correção do ajuste já estava no main e não valeu). Só na cópia de trabalho; o commit
+    # abaixo leva só data/. scripts/ fica de fora (este script está rodando).
+    git restore --source=origin/main --worktree -- packages site package.json package-lock.json
+  else
+    git checkout -q -B "$B" origin/main
+  fi
+  if ! npm run -s engine -- adjust "$slug" "$file" ${pesq:+--pesquisar} ${blocos:+--blocos=$blocos}; then
+    git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; return 1
+  fi
+  git add data/
+  git "${GIT_ID[@]}" commit -q -m "$label $slug${pesq:+ (com pesquisa)}"$'\n\n'"$(head -c 300 "$file")"
+  npm run -s engine -- validate >/dev/null
+  if [ "$B" = main ]; then
+    # O main andou durante o ajuste (21/10: push do editor no meio, envio recusado e ajuste perdido): refaz
+    # sobre o main novo e envia de novo, como o publish.
+    if ! git push -q origin HEAD:main; then
+      git fetch -q origin main && git rebase -q origin/main && npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
+    fi
+    preview
+    echo "rascunho ajustado: $slug; confira a prévia e decida em \"Páginas: seu veredito\""
+  else
+    git push -q origin "HEAD:$B"
+    git checkout -q -f main
+    branch_previews 2>/dev/null || true   # a prévia do resultado aparece já (antes esperava o próximo sync)
+    echo "ajuste salvo para aprovação ($B): $slug; confira a prévia em Decisões"
+  fi
+  git checkout -q -f main
+}
+
 case "$action" in
   sync)
     fresh
@@ -183,50 +229,25 @@ case "$action" in
     publish "Painel: fila ${action#fila-} \"$2\""
     ;;
   ajustar)
-    # ajustar <ramo pagina/...|main> <slug> <pedido.txt>: ajusta o texto da página no próprio resultado do
-    # motor (antes do aceite) ou, se for página no ar, num resultado novo; nos dois casos o editor aprova.
+    # ajustar <ramo pagina/...|main> <slug> <pedido.txt> [pesquisar]: ajusta o texto da página no próprio resultado
+    # do motor (antes do aceite) ou, se for página no ar, num resultado novo; nos dois casos o editor aprova.
     fresh
-    B="$2"
-    # Ajuste em página no ar volta para aprovação com prévia (22/10: o editor pediu melhoria e ela foi
-    # direto ao site). Se a página já tem um resultado pendente, o ajuste entra nele. Rascunho fica no main:
-    # já é aprovado em "Páginas: seu veredito", e num ramo virava resultado "nada muda no site".
-    if [ "$B" = main ] && ! git show "origin/main:data/pages/$3.json" | grep -q '"status": "draft"'; then
-      B=$(git for-each-ref --no-merged=origin/main --sort=-committerdate --format='%(refname:short)' "refs/remotes/origin/pagina/$3-[0-9]*" | head -1)
-      B=${B#origin/}
-      [ -n "$B" ] || B="pagina/$3-$(date +%Y%m%d-%H%M)"
-    fi
-    if [ "$B" = main ]; then
-      git checkout -q -B main origin/main
-    elif git rev-parse -q --verify "origin/$B" >/dev/null; then
-      git checkout -q -B "$B" "origin/$B"
-      # Dados do ramo, código do main: o ramo tem o motor da hora em que foi criado, e o ajuste rodava com
-      # ele (21/10: a correção do ajuste já estava no main e não valeu). Só na cópia de trabalho; o commit
-      # abaixo leva só data/. scripts/ fica de fora (este script está rodando).
-      git restore --source=origin/main --worktree -- packages site package.json package-lock.json
-    else
-      git checkout -q -B "$B" origin/main
-    fi
-    if ! npm run -s engine -- adjust "$3" "$4" ${5:+--pesquisar}; then
-      git checkout -q -f main; git reset -q --hard origin/main; echo "ajuste NÃO salvo (veja o motivo acima)" >&2; exit 1
-    fi
-    git add data/
-    git "${GIT_ID[@]}" commit -q -m "Painel: ajuste em $3${5:+ (com pesquisa)}"$'\n\n'"$(head -c 300 "$4")"
-    npm run -s engine -- validate >/dev/null
-    if [ "$B" = main ]; then
-      # O main andou durante o ajuste (21/10: push do editor no meio, envio recusado e ajuste perdido): refaz
-      # sobre o main novo e envia de novo, como o publish.
-      if ! git push -q origin HEAD:main; then
-        git fetch -q origin main && git rebase -q origin/main && npm run -s engine -- validate >/dev/null && git push -q origin HEAD:main
-      fi
-      preview
-      echo "rascunho ajustado: $3; confira a prévia e decida em \"Páginas: seu veredito\""
-    else
-      git push -q origin "HEAD:$B"
-      git checkout -q -f main
-      branch_previews 2>/dev/null || true   # a prévia do resultado aparece já (antes esperava o próximo sync)
-      echo "ajuste salvo para aprovação ($B): $3; confira a prévia em Decisões"
-    fi
-    git checkout -q -f main
+    adjust_page "$2" "$3" "$4" "${5:-}" "" || exit 1
+    ;;
+  auditar)
+    # auditar <teto de créditos>: coerência nas páginas no ar (stages/site-audit.ts); cada página com problema vira
+    # um ajuste só nos blocos apontados, como resultado no quadro para o editor aplicar.
+    fresh
+    out=$(mktemp)
+    npm run -s engine -- audit-site "--max=${2:-40}" | tee "$out" | grep -v '^AJUSTE'
+    ok=0; fail=0
+    while IFS=$'\t' read -r _ slug file blocos; do
+      echo "— ajuste de $slug"
+      if adjust_page main "$slug" "$file" "" "$blocos" "Auditoria: ajuste em"; then ok=$((ok+1)); else fail=$((fail+1)); fi
+      fresh
+    done < <(grep '^AJUSTE' "$out")
+    rm -f "$out"
+    echo "auditoria: $ok ajuste(s) no quadro para você aplicar$([ $fail -gt 0 ] && echo ", $fail não salvo(s) (o conserto não passou na auditoria das fontes)")"
     ;;
   pedido)
     fresh
