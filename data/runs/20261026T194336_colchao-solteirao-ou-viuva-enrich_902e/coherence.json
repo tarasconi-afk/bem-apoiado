@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "verdict",
+      "problem": "O leitor entende que 100×200 cm é a medida de todo colchão solteirão e 128×188 cm é a medida de todo colchão viúva, mas os trechos apresentam essas medidas em modelos específicos da Probel.",
+      "fix": "Reescrever atribuindo as medidas aos modelos citados, por exemplo: “o modelo solteirão Sigma Plus mede 100×200 cm e o modelo viúva Alpha mede 128×188 cm”; ou usar uma fonte que estabeleça medidas gerais para essas categorias."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "o-que-procurar-ao-comprar#1",
+      "problem": "O leitor entende que qualquer colchão solteirão ou viúva suporta 120 kg por pessoa, embora os trechos só deem esse limite para dois modelos específicos da Probel.",
+      "fix": "Reescrever como: “Nos modelos Prohotel Royal, solteirão, e Roma, viúva, a Probel informa 120 kg por pessoa; confira o limite do modelo escolhido na ficha técnica.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 15440,
+    "output_tokens": 5053,
+    "calls": 3
+  }
+}

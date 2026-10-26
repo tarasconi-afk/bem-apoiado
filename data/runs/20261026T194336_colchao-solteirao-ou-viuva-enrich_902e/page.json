@@ -1,0 +1,59 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 131679,
+    "output_tokens": 22129,
+    "calls": 27
+  },
+  "credits": 26.20278599999999,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que 100×200 cm é a medida de todo colchão solteirão e 128×188 cm é a medida de todo colchão viúva, mas os trechos apresentam essas medidas em modelos específicos da Probel (verdict); Reescrever atribuindo as medidas aos modelos citados, por ex",
+      "O leitor entende que qualquer colchão solteirão ou viúva suporta 120 kg por pessoa, embora os trechos só deem esse limite para dois modelos específicos da Probel (o-que-procurar-ao-comprar#1); Reescrever como: “Nos modelos Prohotel Royal, solteirão, e Roma, vi"
+    ],
+    "filler_refs": [
+      "base-compativel#1"
+    ],
+    "decision_criteria": [
+      "Escolha o solteirão se o quarto é mais estreito e você precisa de mais comprimento: ele mede 100 × 200 cm.",
+      "Escolha a viúva se você quer mais largura e tem espaço para 128 × 188 cm.",
+      "Para quem dorme sozinho e é alto, o solteirão oferece 12 cm a mais de comprimento que o solteiro e a viúva.",
+      "Confira no anúncio a largura, o comprimento e a altura do colchão e compare com o espaço disponível.",
+      "Verifique se a base ou o estrado tem exatamente as medidas compatíveis com o colchão.",
+      "Confira na ficha do modelo o peso máximo suportado por pessoa; nos modelos citados, a Probel informa até 120 kg por pessoa.",
+      "Não generalize os dados de um modelo da Probel para outras marcas: compare a ficha técnica do produto escolhido."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que 100×200 cm é a medida de todo colchão solteirão e 128×188 cm é a medida de todo colchão viúva, mas os trechos apresentam essas medidas em modelos específicos da Probel (verdict); Reescrever atribuindo as medidas aos modelos citados, por ex",
+      "Para o leitor leigo: O leitor entende que qualquer colchão solteirão ou viúva suporta 120 kg por pessoa, embora os trechos só deem esse limite para dois modelos específicos da Probel (o-que-procurar-ao-comprar#1); Reescrever como: “Nos modelos Prohotel Royal, solteirão, e Roma, vi",
+      "Medidas de solteirão e viúva informadas por um segundo fabricante, para mostrar possíveis variações entre marcas.",
+      "Indicação explícita de base ou estrado compatível com as medidas de 100 × 200 cm e 128 × 188 cm.",
+      "Esclarecimento, na ficha do fabricante, se o limite de 120 kg por pessoa considera apenas os usuários ou também o peso do colchão.",
+      "Altura e circulação mínima recomendada no quarto para confirmar se cada medida cabe com conforto."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente qual tamanho escolher, compara comprimento e largura e oferece uma regra prática para quarto estreito, pessoa alta e quem quer mais espaço. Também orienta o leitor a conferir medidas, peso suportado e compatibilidade da base. A principal limitação é que a compatibilidade da base não é demonstrada para os tamanhos solteirão e viúva, e há dados de apenas um fabricante, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.08333333333333333,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "verdict",
+        "problem": "O leitor entende que 100×200 cm é a medida de todo colchão solteirão e 128×188 cm é a medida de todo colchão viúva, mas os trechos apresentam essas medidas em modelos específicos da Probel.",
+        "fix": "Reescrever atribuindo as medidas aos modelos citados, por exemplo: “o modelo solteirão Sigma Plus mede 100×200 cm e o modelo viúva Alpha mede 128×188 cm”; ou usar uma fonte que estabeleça medidas gerais para essas categorias."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "o-que-procurar-ao-comprar#1",
+        "problem": "O leitor entende que qualquer colchão solteirão ou viúva suporta 120 kg por pessoa, embora os trechos só deem esse limite para dois modelos específicos da Probel.",
+        "fix": "Reescrever como: “Nos modelos Prohotel Royal, solteirão, e Roma, viúva, a Probel informa 120 kg por pessoa; confira o limite do modelo escolhido na ficha técnica.”"
+      }
+    ]
+  }
+}

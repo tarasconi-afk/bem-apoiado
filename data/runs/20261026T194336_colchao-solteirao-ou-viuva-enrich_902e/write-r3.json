@@ -1,0 +1,312 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_3b13bb693bf7"
+          ]
+        },
+        {
+          "text": "88 cm × 188 cm",
+          "claim_ids": [
+            "clm_3b13bb693bf7"
+          ]
+        },
+        {
+          "text": "Suporta até 90 kg por pessoa",
+          "claim_ids": [
+            "clm_21e4e882043f"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteirão",
+          "claim_ids": [
+            "clm_6a39a8b44a5f"
+          ]
+        },
+        {
+          "text": "100 cm × 200 cm",
+          "claim_ids": [
+            "clm_6a39a8b44a5f"
+          ]
+        },
+        {
+          "text": "Suporta até 120 kg por pessoa",
+          "claim_ids": [
+            "clm_5b0eda888230"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Viúva",
+          "claim_ids": [
+            "clm_be598e65da36"
+          ]
+        },
+        {
+          "text": "128 cm × 188 cm",
+          "claim_ids": [
+            "clm_be598e65da36"
+          ]
+        },
+        {
+          "text": "Suporta até 120 kg por pessoa",
+          "claim_ids": [
+            "clm_1d9ef204fbab"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Solteirão ou viúva: qual tamanho de colchão escolher",
+    "description": "Compare medidas, peso suportado e espaço necessário para escolher entre colchão solteirão (100×200 cm) e viúva (128×188 cm).",
+    "verdict": {
+      "text": "O solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto a viúva mede 128 cm de largura por 188 cm de comprimento, segundo a Probel. Escolha o solteirão se o quarto é estreito e você precisa de mais comprimento; escolha a viúva se dispõe de 128 cm de largura e o comprimento de 188 cm cabe no seu espaço.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6a39a8b44a5f",
+        "clm_be598e65da36"
+      ]
+    },
+    "sections": [
+      {
+        "id": "peso-suportado",
+        "heading": "Peso suportado por cada tamanho",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, o Colchão Solteirão Mola Probel Prohotel Royal suporta até 120 kg por pessoa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5b0eda888230"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, o Colchão Viúva Mola Probel Roma suporta até 120 kg por pessoa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1d9ef204fbab"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel informa que a Base Box Queen Probel Luxo Jacquard suporta 150 kg por pessoa, desde que haja um colchão sobre a base.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a6ef01c4834"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "base-compativel",
+        "heading": "Base ou estrado compatível com cada tamanho",
+        "blocks": [
+          {
+            "text": "A Ortobom lista dimensões para diferentes tamanhos de colchão: solteiro com 188 cm × 88 cm, casal com 188 cm × 138 cm, queen com 198 cm × 158 cm e king com 203 cm × 193 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_34c96754c13d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A base suporta até 150 kg por pessoa, desde que haja um colchão sobre ela, segundo a Probel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a6ef01c4834"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-procurar-ao-comprar",
+        "heading": "O que conferir antes de comprar",
+        "blocks": [
+          {
+            "text": "Na ficha técnica ou anúncio do produto, procure pelas dimensões exatas em centímetros: largura, comprimento e altura, segundo a Probel. Compare com o espaço disponível no quarto e com as medidas de sua base ou estrado.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_be598e65da36"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique o peso máximo suportado por pessoa, que a Probel informa como 120 kg para ambos os tamanhos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5b0eda888230",
+              "clm_1d9ef204fbab"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Atribua cada dado ao fabricante: dados de um modelo da Probel valem apenas para aquele modelo. Confira se o fabricante que escolheu informa as mesmas medidas em sua ficha.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_be598e65da36"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre solteirão e viúva",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas por tamanho e para quem serve (segundo a Probel)",
+            "columns": [
+              "Tamanho",
+              "Largura × Comprimento",
+              "Para quem serve"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_3b13bb693bf7"
+                    ]
+                  },
+                  {
+                    "text": "88 cm × 188 cm",
+                    "claim_ids": [
+                      "clm_3b13bb693bf7"
+                    ]
+                  },
+                  {
+                    "text": "Suporta até 90 kg por pessoa",
+                    "claim_ids": [
+                      "clm_21e4e882043f"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Solteirão",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f"
+                    ]
+                  },
+                  {
+                    "text": "100 cm × 200 cm",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f"
+                    ]
+                  },
+                  {
+                    "text": "Suporta até 120 kg por pessoa",
+                    "claim_ids": [
+                      "clm_5b0eda888230"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Viúva",
+                    "claim_ids": [
+                      "clm_be598e65da36"
+                    ]
+                  },
+                  {
+                    "text": "128 cm × 188 cm",
+                    "claim_ids": [
+                      "clm_be598e65da36"
+                    ]
+                  },
+                  {
+                    "text": "Suporta até 120 kg por pessoa",
+                    "claim_ids": [
+                      "clm_1d9ef204fbab"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você compara apenas o comprimento: o solteirão tem 200 cm, 12 cm a mais que o solteiro e a viúva, ambos com 188 cm, segundo a Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_3b13bb693bf7",
+              "clm_be598e65da36"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o quarto é estreito: o solteirão tem 100 cm de largura, 12 cm a menos que a viúva com 128 cm, e 12 cm a mais que o solteiro com 88 cm, segundo a Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_be598e65da36",
+              "clm_3b13bb693bf7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você precisa de mais largura e dispõe de 128 cm: escolha um colchão viúva com essas medidas; confira se o comprimento de 188 cm cabe no espaço ou na base, segundo a Probel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_be598e65da36",
+              "clm_e5ee1b7717e8",
+              "clm_e62f10174a0b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "a coluna \"Para quem serve\" repete \"Não informado nas fontes\" em 3 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    }
+  ],
+  "usage": {
+    "input_tokens": 11546,
+    "output_tokens": 499
+  }
+}

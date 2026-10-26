@@ -1,0 +1,188 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Castor dizem que colchões de espuma usam blocos de espuma e comparam espuma a molas, mas não afirmam que colchões de espuma usam apenas espuma nem que colchões mistos combinam espuma com molas ensacadas. O trecho da Ortobom apresenta uma tabela de densidade por peso, sem sustentar essa diferença estrutural. Portanto, a afirmação não pode ser atribuída conjuntamente à Castor e à Ortobom.",
+      "fix": "A Castor diferencia colchões de espuma, produzidos com blocos de espuma de alta densidade, de colchões de molas, associados a maior suporte; a densidade da espuma deve ser adequada ao peso e à altura da pessoa. A tabela da Ortobom também relaciona densidades a faixas de peso."
+    },
+    {
+      "ref": "composicao-estrutura#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos não dizem que colchões de espuma usam apenas blocos de espuma em diferentes densidades, nem definem colchão misto como combinação de espuma e molas. O trecho da Ortobom apenas lista camadas de espuma e molas Superpocket ensacadas individualmente; não menciona saco de tecido. O trecho da Castor também não traz essa composição nem sustenta a atribuição feita a ambas as marcas.",
+      "fix": "A Ortobom apresenta um produto com bordado em espuma macia D33, camada de conforto em espuma viscoelástica e estrutura de molas Superpocket ensacadas individualmente."
+    },
+    {
+      "ref": "composicao-estrutura#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Ortobom lista esses componentes, mas não afirma que se trata de um “colchão misto”. Além disso, o trecho do Inmetro informa que a composição qualitativa dos componentes internos deve constar no produto e na embalagem; não diz especificamente que o consumidor deve conferi-la na etiqueta.",
+      "fix": "Segundo a Ortobom, há um produto com bordado em espuma macia D33, camada de conforto em espuma viscoelástica e estrutura de molas Superpocket ensacadas individualmente. O Inmetro exige a informação sobre a composição qualitativa dos componentes internos no produto e na embalagem."
+    },
+    {
+      "ref": "densidade-espuma#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a medida em quilos de espuma por metro cúbico e sua relação com a quantidade de espuma, mas não dizem que a espuma está “comprimida” nem que maior densidade torna a superfície mais firme.",
+      "fix": "A densidade em colchões de espuma é expressa em kg/m³ e indica a quantidade de espuma presente por metro cúbico do material, segundo a Castor."
+    },
+    {
+      "ref": "densidade-espuma#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que a classificação considera peso e altura e que, quanto mais alto e pesado o usuário, maior deve ser a densidade. Porém, não afirma que isso oferece “suporte adequado”; apenas diz que a densidade está relacionada à capacidade de suporte do material em outro contexto.",
+      "fix": "Segundo a Castor, a classificação considera o peso e a altura da pessoa; quanto mais alto e mais pesado for o usuário, maior deve ser a densidade do colchão."
+    },
+    {
+      "ref": "garantia-fabricante#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas garantia geral de 90 dias e garantia da espuma de 1 ano. Não informa que o colchão é de espuma nem que molas/tecido são não aplicáveis.",
+      "fix": "Ortobom informa, para o produto citado, garantia geral de 90 dias e garantia da espuma de 1 ano."
+    },
+    {
+      "ref": "garantia-fabricante#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta garantia geral de 90 dias, garantia da espuma de 3 anos e garantia das molas de 5 anos. Não informa que o colchão é misto com molas ensacadas nem que há garantia de 5 anos para tecido.",
+      "fix": "Ortobom informa, para o produto citado, garantia geral de 90 dias, garantia da espuma de 3 anos e garantia das molas de 5 anos."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados mostram que há regulamento para colchões de espuma, com especificações para o selo, e requisitos de avaliação da conformidade para colchões de molas. Porém, não dizem que ambos precisam ter o selo nem que o selo dos colchões de molas é estabelecido por um regulamento de qualidade.",
+      "fix": "Há regulamentos específicos para os dois tipos: para colchões de espuma, o regulamento inclui especificações para o selo de identificação da conformidade; para colchões de molas, há requisitos de avaliação da conformidade."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta a exigência de informar a composição qualitativa dos componentes internos, mas não menciona etiqueta, densidade nem que a informação serve para o consumidor conferir os materiais usados.",
+      "fix": "A informação obrigatória inclui a composição qualitativa dos componentes internos do produto."
+    },
+    {
+      "ref": "normas-abnt#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "A Castor relaciona molas a maior suporte e firmeza, e a Ortobom mostra um produto com espuma e molas. Porém, os trechos não recomendam especificamente escolher um colchão misto nem dizem que se deve conferir as espumas como regra geral.",
+      "fix": "Se você prioriza suporte e firmeza associados a molas, considere um colchão com molas e observe também a composição de espumas apresentada pelo fabricante."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado apresenta, para a linha 'Até 50', os valores D23, D23*/20, D23/20* e D20. Ele não sustenta a linha transcrita no bloco, com D23, D26, D26 e D28.",
+      "fix": "Até 50 kg: registre os valores exatamente como aparecem no trecho: D23; D23*/20; D23/20*; D20, nas respectivas faixas de altura."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado apresenta, na sequência correspondente, D26, D26*/23, D26/23* e D23, não D26, D28, D28 e D33.",
+      "fix": "51 a 60 kg: registre os valores exatamente como aparecem no trecho: D26; D26*/23; D26/23*; D23, nas respectivas faixas de altura."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Embora o trecho contenha D33 nas três primeiras posições da sequência correspondente, a quarta aparece como D28, não D40. Portanto, a linha completa do bloco não é sustentada.",
+      "fix": "61 a 70 kg: use D33, D33*/28, D33*/28 e D28, conforme a sequência mostrada no trecho."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "A sequência correspondente no trecho começa com D28 e contém D26/28* nas posições seguintes, não D28, D33, D33 e D40 como informado no bloco.",
+      "fix": "71 a 80 kg: registre a sequência mostrada no trecho como D28, D26/28*, D26/28* e D26, nas respectivas faixas de altura."
+    },
+    {
+      "ref": "como-decidir#2.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r6",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r7",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos da Castor dizem que colchões de espuma usam blocos de espuma e comparam espuma a molas, mas não afirmam que colchões de espuma usam apenas espuma nem que colchões mistos combinam espuma com molas ensacadas. O trecho da Ortobom apresenta uma tabela de densidade por peso, sem sustentar essa diferença estrutural. Portanto, a afirmação não pode ser atribuída conjuntamente à Castor e à Ortobom. Versão sustentável: A Castor diferencia colchões de espuma, produzidos com blocos de espuma de alta densidade, de colchões de molas, associados a maior suporte; a densidade da espuma deve ser adequada ao peso e à altura da pessoa. A tabela da Ortobom também relaciona densidades a faixas de peso."
+    },
+    {
+      "ref": "composicao-estrutura#0",
+      "msg": "MISATTRIBUTED. Os trechos não dizem que colchões de espuma usam apenas blocos de espuma em diferentes densidades, nem definem colchão misto como combinação de espuma e molas. O trecho da Ortobom apenas lista camadas de espuma e molas Superpocket ensacadas individualmente; não menciona saco de tecido. O trecho da Castor também não traz essa composição nem sustenta a atribuição feita a ambas as marcas. Versão sustentável: A Ortobom apresenta um produto com bordado em espuma macia D33, camada de conforto em espuma viscoelástica e estrutura de molas Superpocket ensacadas individualmente."
+    },
+    {
+      "ref": "composicao-estrutura#1",
+      "msg": "OVERSTATED. O trecho da Ortobom lista esses componentes, mas não afirma que se trata de um “colchão misto”. Além disso, o trecho do Inmetro informa que a composição qualitativa dos componentes internos deve constar no produto e na embalagem; não diz especificamente que o consumidor deve conferi-la na etiqueta. Versão sustentável: Segundo a Ortobom, há um produto com bordado em espuma macia D33, camada de conforto em espuma viscoelástica e estrutura de molas Superpocket ensacadas individualmente. O Inmetro exige a informação sobre a composição qualitativa dos componentes internos no produto e na embalagem."
+    },
+    {
+      "ref": "densidade-espuma#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a medida em quilos de espuma por metro cúbico e sua relação com a quantidade de espuma, mas não dizem que a espuma está “comprimida” nem que maior densidade torna a superfície mais firme. Versão sustentável: A densidade em colchões de espuma é expressa em kg/m³ e indica a quantidade de espuma presente por metro cúbico do material, segundo a Castor."
+    },
+    {
+      "ref": "densidade-espuma#1",
+      "msg": "OVERSTATED. O trecho sustenta que a classificação considera peso e altura e que, quanto mais alto e pesado o usuário, maior deve ser a densidade. Porém, não afirma que isso oferece “suporte adequado”; apenas diz que a densidade está relacionada à capacidade de suporte do material em outro contexto. Versão sustentável: Segundo a Castor, a classificação considera o peso e a altura da pessoa; quanto mais alto e mais pesado for o usuário, maior deve ser a densidade do colchão."
+    },
+    {
+      "ref": "garantia-fabricante#0.r0",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas garantia geral de 90 dias e garantia da espuma de 1 ano. Não informa que o colchão é de espuma nem que molas/tecido são não aplicáveis. Versão sustentável: Ortobom informa, para o produto citado, garantia geral de 90 dias e garantia da espuma de 1 ano."
+    },
+    {
+      "ref": "garantia-fabricante#0.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta garantia geral de 90 dias, garantia da espuma de 3 anos e garantia das molas de 5 anos. Não informa que o colchão é misto com molas ensacadas nem que há garantia de 5 anos para tecido. Versão sustentável: Ortobom informa, para o produto citado, garantia geral de 90 dias, garantia da espuma de 3 anos e garantia das molas de 5 anos."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. Os trechos citados mostram que há regulamento para colchões de espuma, com especificações para o selo, e requisitos de avaliação da conformidade para colchões de molas. Porém, não dizem que ambos precisam ter o selo nem que o selo dos colchões de molas é estabelecido por um regulamento de qualidade. Versão sustentável: Há regulamentos específicos para os dois tipos: para colchões de espuma, o regulamento inclui especificações para o selo de identificação da conformidade; para colchões de molas, há requisitos de avaliação da conformidade."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "msg": "OVERSTATED. O trecho sustenta a exigência de informar a composição qualitativa dos componentes internos, mas não menciona etiqueta, densidade nem que a informação serve para o consumidor conferir os materiais usados. Versão sustentável: A informação obrigatória inclui a composição qualitativa dos componentes internos do produto."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. A Castor relaciona molas a maior suporte e firmeza, e a Ortobom mostra um produto com espuma e molas. Porém, os trechos não recomendam especificamente escolher um colchão misto nem dizem que se deve conferir as espumas como regra geral. Versão sustentável: Se você prioriza suporte e firmeza associados a molas, considere um colchão com molas e observe também a composição de espumas apresentada pelo fabricante."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "UNSUPPORTED. O trecho citado apresenta, para a linha 'Até 50', os valores D23, D23*/20, D23/20* e D20. Ele não sustenta a linha transcrita no bloco, com D23, D26, D26 e D28. Versão sustentável: Até 50 kg: registre os valores exatamente como aparecem no trecho: D23; D23*/20; D23/20*; D20, nas respectivas faixas de altura."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "msg": "UNSUPPORTED. O trecho citado apresenta, na sequência correspondente, D26, D26*/23, D26/23* e D23, não D26, D28, D28 e D33. Versão sustentável: 51 a 60 kg: registre os valores exatamente como aparecem no trecho: D26; D26*/23; D26/23*; D23, nas respectivas faixas de altura."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "msg": "UNSUPPORTED. Embora o trecho contenha D33 nas três primeiras posições da sequência correspondente, a quarta aparece como D28, não D40. Portanto, a linha completa do bloco não é sustentada. Versão sustentável: 61 a 70 kg: use D33, D33*/28, D33*/28 e D28, conforme a sequência mostrada no trecho."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "msg": "UNSUPPORTED. A sequência correspondente no trecho começa com D28 e contém D26/28* nas posições seguintes, não D28, D33, D33 e D40 como informado no bloco. Versão sustentável: 71 a 80 kg: registre a sequência mostrada no trecho como D28, D26/28*, D26/28* e D26, nas respectivas faixas de altura."
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "garantia-fabricante#0.r2",
+      "action": "remove"
+    },
+    {
+      "ref": "garantia-fabricante#0.r3",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Colchão misto ou de espuma: qual escolher",
+    "description": "Diferenças na composição, densidade e garantia entre colchões de espuma pura e mistos com molas para ajudar na escolha.",
+    "verdict": {
+      "text": "A principal diferença é a estrutura: colchões de espuma usam apenas espuma em diferentes densidades, enquanto colchões mistos combinam espuma com molas ensacadas, segundo a Castor e a Ortobom. Escolha pela composição que oferece o suporte desejado e confira a densidade recomendada pelo fabricante para seu peso.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_33447232eb40",
+        "clm_17a232b2109c",
+        "clm_030854313d16"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-estrutura",
+        "heading": "Composição e estrutura: como diferem",
+        "blocks": [
+          {
+            "text": "Um colchão de espuma usa apenas blocos de espuma em diferentes densidades, enquanto um colchão misto combina camadas de espuma com um sistema de molas ensacadas (cada mola dentro de um saco de tecido) na estrutura interna, segundo a Castor e a Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_33447232eb40",
+              "clm_ac648753a1db"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, um colchão misto pode ter bordado em espuma macia (D33), camada de conforto em espuma viscoelástica e estrutura de molas Superpocket ensacadas individualmente. Você deve conferir na etiqueta a composição qualitativa dos componentes internos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ac648753a1db",
+              "clm_2729b95d259a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-espuma",
+        "heading": "O que a densidade da espuma representa",
+        "blocks": [
+          {
+            "text": "A densidade em colchões de espuma é medida em kg/m³ (quilogramas por metro cúbico) e indica quanto de espuma está comprimida em cada metro cúbico do colchão, segundo a Castor. Quanto maior a densidade, mais firme a superfície.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_17e42810680a",
+              "clm_529416602d8a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A densidade deve ser adequada ao seu peso e altura. Segundo a Castor, quanto mais alto e mais pesado for o usuário, maior deve ser a densidade do colchão para oferecer suporte adequado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_324d8c020408"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-fabricante",
+        "heading": "Prazos de garantia declarados pelos fabricantes",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Garantia em colchões de espuma vs. colchões mistos (exemplos de fabricantes) (segundo a Ortobom)",
+            "columns": [
+              "Tipo de colchão",
+              "Fabricante",
+              "Prazo geral",
+              "Prazo da espuma",
+              "Prazo das molas/tecido"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Espuma",
+                    "claim_ids": [
+                      "clm_8f5705a72faf"
+                    ]
+                  },
+                  {
+                    "text": "Ortobom",
+                    "claim_ids": [
+                      "clm_8f5705a72faf"
+                    ]
+                  },
+                  {
+                    "text": "90 dias",
+                    "claim_ids": [
+                      "clm_8f5705a72faf"
+                    ]
+                  },
+                  {
+                    "text": "1 ano",
+                    "claim_ids": [
+                      "clm_8f5705a72faf"
+                    ]
+                  },
+                  {
+                    "text": "Não aplicável",
+                    "claim_ids": [
+                      "clm_8f5705a72faf"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Misto (molas ensacadas)",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  },
+                  {
+                    "text": "Ortobom",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  },
+                  {
+                    "text": "90 dias",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  },
+                  {
+                    "text": "3 anos",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  },
+                  {
+                    "text": "5 anos (molas)",
+                    "claim_ids": [
+                      "clm_cfc6ede1c91a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "certificacao-inmetro",
+        "heading": "Certificação obrigatória do Inmetro",
+        "blocks": [
+          {
+            "text": "Tanto colchões de espuma quanto colchões de molas precisam ter o selo de identificação da conformidade do Inmetro, estabelecido por regulamento de qualidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12cadc22b5f0",
+              "clm_d415bd3910a5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro avalia apenas a espuma flexível de poliuretano, o revestimento e a chapa dura. Outras propriedades e materiais declarados pelo fabricante (como características terapêuticas ou ortopédicas) não foram avaliadas pela certificação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_571c2ce93e7d",
+              "clm_12fe52564da9"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          },
+          {
+            "text": "A etiqueta deve informar a composição qualitativa dos componentes internos do colchão para que você possa conferir a densidade e os materiais usados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2729b95d259a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "normas-abnt",
+        "heading": "Normas técnicas ABNT para colchões",
+        "blocks": [
+          {
+            "text": "A norma ABNT NBR 13579-1:2011 define requisitos e métodos de ensaio para colchões e colchonetes de espuma flexível de poliuretano. Para colchões de molas, a norma é a ABNT NBR 15413-1 e 15413-2, que estabelecem requisitos, métodos de ensaio e especificações de revestimento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_af50447a60d2",
+              "clm_d415bd3910a5"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre espuma e misto",
+        "blocks": [
+          {
+            "text": "Se você quer definir a firmeza principalmente pelo seu peso e altura, escolha um colchão de espuma e confira se a densidade indicada pelo fabricante corresponde à sua faixa de peso e estatura, segundo a Castor e a Ortobom.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_17a232b2109c",
+              "clm_030854313d16"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prioriza maior suporte e firmeza associados a um sistema de molas, escolha um colchão misto com molas e confira também as espumas usadas na composição, segundo a Castor e a Ortobom.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_33447232eb40",
+              "clm_ac648753a1db"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Densidade de espuma recomendada pela Ortobom conforme peso e altura",
+            "columns": [
+              "Peso (kg)",
+              "Até 1,50m",
+              "1,51m a 1,70m",
+              "1,71m a 1,90m",
+              "Acima de 1,90m"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D40",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D40",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 90",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D40",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D40",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D40",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "91 a 100",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "101 a 120",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D40",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "121 a 150",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  },
+                  {
+                    "text": "D45",
+                    "claim_ids": [
+                      "clm_030854313d16"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "garantia-fabricante#0.r2",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "garantia-fabricante#0.r3",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    }
+  ],
+  "usage": {
+    "input_tokens": 13060,
+    "output_tokens": 82
+  }
+}

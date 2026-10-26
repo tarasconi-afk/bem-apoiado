@@ -1,0 +1,132 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas os nomes dos tamanhos e suas dimensões. Não dizem que o solteirão é indicado para quem dorme sozinho, para pessoas altas ou para quem tem espaço, nem que a viúva é indicada para duas pessoas ou para maior movimentação durante o sono.",
+      "fix": "Segundo a Probel, o colchão solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto o colchão viúva mede 128 cm de largura por 188 cm de comprimento."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa 120 kg por pessoa para um modelo específico de colchão solteirão, não para todos os colchões solteirão da Probel.",
+      "fix": "Segundo a Probel, o Colchão Solteirão Mola Probel Prohotel Royal suporta até 120 kg por pessoa."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa 120 kg por pessoa para um modelo específico de colchão viúva, não para todos os colchões viúva da Probel.",
+      "fix": "Segundo a Probel, o Colchão Viúva Mola Probel Roma suporta até 120 kg por pessoa."
+    },
+    {
+      "ref": "peso-suportado#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho apenas informa que uma base suporta 150 kg por pessoa desde que haja um colchão sobre ela. Não diz que o peso suportado se refere ao usuário, nem que a base ou o estrado precisa ter sua própria capacidade de carga declarada.",
+      "fix": "A Probel informa que a Base Box Queen Probel Luxo Jacquard suporta 150 kg por pessoa, desde que haja um colchão sobre a base."
+    },
+    {
+      "ref": "base-compativel#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho apenas lista dimensões de colchões por categoria. Não afirma que a base ou o estrado deve ter medidas idênticas, nem que isso garanta apoio adequado e estabilidade, nem orienta a conferir a ficha do colchão para escolher a base.",
+      "fix": "A Ortobom lista dimensões para diferentes tamanhos de colchão, como 188 cm × 88 cm para solteiro e 188 cm × 138 cm para casal."
+    },
+    {
+      "ref": "base-compativel#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-procurar-ao-comprar#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-procurar-ao-comprar#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-procurar-ao-comprar#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os 88 cm × 188 cm estão nos trechos, mas nenhum trecho diz que o tamanho serve para uma pessoa de estatura média.",
+      "fix": "Tamanho: Solteiro | Largura × Comprimento: 88 cm × 188 cm | Para quem serve: não informado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os 100 cm × 200 cm estão no trecho, mas ele não afirma que o solteirão serve para uma pessoa alta nem para quem quer mais espaço para se movimentar.",
+      "fix": "Tamanho: Solteirão | Largura × Comprimento: 100 cm × 200 cm | Para quem serve: não informado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "As medidas de 128 cm × 188 cm estão no trecho, mas ele não afirma que o tamanho viúva serve para duas pessoas ou para quem dorme sozinho e quer mais largura.",
+      "fix": "Tamanho: Viúva | Largura × Comprimento: 128 cm × 188 cm | Para quem serve: não informado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os comprimentos e a diferença de 12 cm são sustentados, mas os trechos não dizem que o solteirão é indicado para quem dorme sozinho e é alto. Eles também não informam a adequação do produto a pessoas altas ou a quem dorme sozinho.",
+      "fix": "Se você compara apenas o comprimento: o solteirão tem 200 cm, 12 cm a mais que o solteiro e a viúva, ambos com 188 cm, segundo a Probel."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas os nomes dos tamanhos e suas dimensões. Não dizem que o solteirão é indicado para quem dorme sozinho, para pessoas altas ou para quem tem espaço, nem que a viúva é indicada para duas pessoas ou para maior movimentação durante o sono. Versão sustentável: Segundo a Probel, o colchão solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto o colchão viúva mede 128 cm de largura por 188 cm de comprimento."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "msg": "OVERSTATED. O trecho informa 120 kg por pessoa para um modelo específico de colchão solteirão, não para todos os colchões solteirão da Probel. Versão sustentável: Segundo a Probel, o Colchão Solteirão Mola Probel Prohotel Royal suporta até 120 kg por pessoa."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "msg": "OVERSTATED. O trecho informa 120 kg por pessoa para um modelo específico de colchão viúva, não para todos os colchões viúva da Probel. Versão sustentável: Segundo a Probel, o Colchão Viúva Mola Probel Roma suporta até 120 kg por pessoa."
+    },
+    {
+      "ref": "peso-suportado#2",
+      "msg": "UNSUPPORTED. O trecho apenas informa que uma base suporta 150 kg por pessoa desde que haja um colchão sobre ela. Não diz que o peso suportado se refere ao usuário, nem que a base ou o estrado precisa ter sua própria capacidade de carga declarada. Versão sustentável: A Probel informa que a Base Box Queen Probel Luxo Jacquard suporta 150 kg por pessoa, desde que haja um colchão sobre a base."
+    },
+    {
+      "ref": "base-compativel#0",
+      "msg": "UNSUPPORTED. O trecho apenas lista dimensões de colchões por categoria. Não afirma que a base ou o estrado deve ter medidas idênticas, nem que isso garanta apoio adequado e estabilidade, nem orienta a conferir a ficha do colchão para escolher a base. Versão sustentável: A Ortobom lista dimensões para diferentes tamanhos de colchão, como 188 cm × 88 cm para solteiro e 188 cm × 138 cm para casal."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os 88 cm × 188 cm estão nos trechos, mas nenhum trecho diz que o tamanho serve para uma pessoa de estatura média. Versão sustentável: Tamanho: Solteiro | Largura × Comprimento: 88 cm × 188 cm | Para quem serve: não informado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os 100 cm × 200 cm estão no trecho, mas ele não afirma que o solteirão serve para uma pessoa alta nem para quem quer mais espaço para se movimentar. Versão sustentável: Tamanho: Solteirão | Largura × Comprimento: 100 cm × 200 cm | Para quem serve: não informado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. As medidas de 128 cm × 188 cm estão no trecho, mas ele não afirma que o tamanho viúva serve para duas pessoas ou para quem dorme sozinho e quer mais largura. Versão sustentável: Tamanho: Viúva | Largura × Comprimento: 128 cm × 188 cm | Para quem serve: não informado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os comprimentos e a diferença de 12 cm são sustentados, mas os trechos não dizem que o solteirão é indicado para quem dorme sozinho e é alto. Eles também não informam a adequação do produto a pessoas altas ou a quem dorme sozinho. Versão sustentável: Se você compara apenas o comprimento: o solteirão tem 200 cm, 12 cm a mais que o solteiro e a viúva, ambos com 188 cm, segundo a Probel."
+    }
+  ]
+}
