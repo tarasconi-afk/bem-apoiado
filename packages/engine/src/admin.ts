@@ -13,7 +13,7 @@ import { MAX_IMPROVE_ATTEMPTS } from './stages/improve.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
-import { queueStatus } from './stages/autopilot.ts';
+import { queueStatus, slugOf } from './stages/autopilot.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
@@ -478,7 +478,11 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
     const retrying = t && t.improve_attempts < MAX_IMPROVE_ATTEMPTS && t.evidence_gaps.length > 0 ? { attempt: t.improve_attempts, max: MAX_IMPROVE_ATTEMPTS } : undefined;
     const info = classifyDraft({ review: rv, failedAdjust: !!failedNow(p.slug), rules: rulesFromNotes(t?.editorial_notes ?? []), retrying });
     const approve = `<form id="f-ap-${esc(p.slug)}" method="post" action="acao" class="inline"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="approve"><input type="hidden" name="motivo" value="Aprovado no quadro de decisões">${shadowField('rascunho', info.suggestion, p.slug)}${forceBox(p.slug)}</form>`;
-    const reject = `<details class="dfix"${info.suggestion === 'recusar' ? ' open' : ''}><summary><strong>Recusar</strong> <span class="muted">(o motivo vira instrução para a nova tentativa)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
+    // Pauta sem tentativa sobrando: "Recusar" devolve uma tentativa (feedback.ts) e o ciclo refaz a pauta (26/10: a
+    // cadeira de tela esgotada foi recusada e gastou mais 17,5 créditos). Encerrar tira da fila e não tenta mais.
+    const queueItem = t && t.improve_attempts >= MAX_IMPROVE_ATTEMPTS ? queueItems().find((q) => slugOf(q) === p.slug) : undefined;
+    const close = queueItem ? `<div class="dactions">${form('fila-remover', { consulta: queueItem }, 'Encerrar esta pauta', '', `Encerrar "${queueItem}"? O motor não tenta mais este assunto; o rascunho fica fora do site e o que ele já aprendeu continua guardado.`)} <span class="muted">o motor já tentou ${t!.improve_attempts + 1} vezes; encerrar não gasta créditos.</span></div>` : '';
+    const reject = `${close}<details class="dfix"${info.suggestion === 'recusar' && !queueItem ? ' open' : ''}><summary><strong>Recusar e tentar de novo</strong> <span class="muted">(o motivo vira instrução; o motor refaz a pauta num próximo ciclo, ~15 créditos)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
       html: `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>

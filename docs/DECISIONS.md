@@ -664,3 +664,14 @@ queda de até meio ponto só em "responde à dúvida", com as outras 3 perguntas
 notas e o motivo, e o editor decide. Nos outros casos, a trava continua igual.
 Rascunho que o motor ainda vai tentar melhorar (tentativa sobrando e lacuna anotada) aparece no quadro como "Nada a
 fazer" e não conta como pendência.
+
+## 2026-10-26 · Tolerância do conserto honesto exige manter a decisão; "Encerrar pauta" no rascunho esgotado
+Dos 10 ajustes da primeira auditoria, o editor aplicou 7. Dois que tinham passado pela tolerância de meio ponto
+pioraram de fato. No pillow top e nos tamanhos de travesseiro, a resposta curta virou definição e perdeu o
+"escolha…"/"se sua prioridade…". A contagem de critérios do juiz não separava esses casos (6→5 num, 5→6 no outro).
+O que separa é o verbo de decisão: a tolerância agora exige que a resposta curta corrigida tenha pelo menos tantos
+"escolha/prefira/opte/evite/se você…" quanto a original (`decisionMarkers`). O D28, que estava certo, continua
+passando.
+"Recusar" um rascunho devolve uma tentativa ao motor (feedback.ts). A cadeira de tela, esgotada, foi recusada e
+gastou mais 17,5 créditos numa 4ª tentativa sem página. O rascunho de pauta esgotada ganhou o botão "Encerrar esta
+pauta", que tira a pauta da fila sem gastar créditos. "Recusar" passou a se chamar "Recusar e tentar de novo".

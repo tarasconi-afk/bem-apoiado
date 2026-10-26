@@ -230,6 +230,10 @@ export function createKind(a: { label: string; accessory: boolean; category: str
 // Ajuste com pesquisa ("pode pesquisar"): a instrução vira pergunta da pauta, a busca dirigida procura fontes
 // sobre ela e a pesquisa lê só as novas; o redator reescreve os blocos escolhidos podendo citar as evidências
 // novas; gate + auditoria dos blocos tocados; só grava se tudo for sustentado. Sem fonte nova: diz e não inventa.
+// Quantas vezes o texto manda o leitor decidir ("escolha", "prefira", "se você…"): a resposta curta corrigida não pode
+// ter menos que a original.
+export const decisionMarkers = (t: string) => (t.match(/\b(escolha|prefira|opte|evite)\b|\bse (você|voce|sua|seu|o seu|a sua)\b/gi) ?? []).length;
+
 // opts.refs: blocos já escolhidos (correção automática a partir da coerência): pula o seletor, que transformava
 // "troque esta frase" em reescrita da resposta curta inteira (25/10: cadeira de tela e apoio de cabeça).
 export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean; refs?: string[] } = {}): Promise<string> {
@@ -443,7 +447,9 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     // 90 kg" no lugar de "D28 suporta 90 kg") e o juiz a acha menos decisiva (26/10: 4 → 3,5 e a generalização
     // voltava). Passa a queda de meio ponto só em "responde à dúvida", com as outras 3 perguntas sem piorar; o editor
     // vê as duas notas no cartão e decide.
-    const narrower = !!opts.refs?.length && sb - sa <= 0.5 && (['reader_fit', 'quick_answer', 'purchase_path'] as const).every((k) => after.review[k] !== false || before.review[k] === false);
+    // A resposta curta tem de continuar mandando escolher (26/10, pillow top e tamanhos de travesseiro: o conserto
+    // virou definição, sem "escolha…"/"se você…", e passou pela tolerância).
+    const narrower = !!opts.refs?.length && sb - sa <= 0.5 && (['reader_fit', 'quick_answer', 'purchase_path'] as const).every((k) => after.review[k] !== false || before.review[k] === false) && decisionMarkers(saved.verdict.text) >= decisionMarkers(page.verdict.text);
     if (sa < sb && !narrower) {
       writeJson(join(PAGES_DIR, `${slug}.json`), page);
       writeStage(runId, 'regression', { before: before.review, after: after.review, score_before: sb, score_after: sa });

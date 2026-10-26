@@ -34,3 +34,14 @@ describe('auditoria do site', () => {
     expect(r.text).not.toContain('medidas#0.r1');
   });
 });
+
+describe('conserto honesto não pode tirar a decisão', () => {
+  it('conta os verbos de decisão da resposta curta', async () => {
+    const { decisionMarkers } = await import('../src/stages/requests.ts');
+    const antes = 'Se sua prioridade é conforto extra, escolha um pillow top. Se o espaço for limitado, escolha um colchão sem pillow top.';
+    const depois = 'Pillow top é uma camada extra posicionada sobre o colchão. Confira a espessura do modelo.';
+    expect(decisionMarkers(antes)).toBeGreaterThan(decisionMarkers(depois));
+    // D28: ficou mais estreito e manteve o "Se você": passa
+    expect(decisionMarkers('O D28 Guarda Costas suporta 90 kg. Se você dorme com alguém de peso diferente, confira a ficha.')).toBe(decisionMarkers('D28 suporta 90 kg. Se você dorme com alguém de peso diferente, confira a ficha.'));
+  });
+});
