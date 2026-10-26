@@ -5,7 +5,7 @@
   "title": "Travesseiro alto ou baixo: como escolher pela altura e posição",
   "description": "Escolha a altura do travesseiro conforme sua posição ao dormir: mais alto para quem dorme de lado, intermediário para costas, bem baixo para bruços.",
   "primary_query": "travesseiro alto ou baixo",
-  "updated_at": "2026-10-24",
+  "updated_at": "2026-10-26",
   "verdict": {
     "text": "A altura do travesseiro varia conforme a posição de dormir: mais alta para dormir de lado, intermediária para dormir de costas e bem baixa para dormir de bruços, segundo a Duoflex.",
     "basis": "evidence",
@@ -47,11 +47,13 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você dorme de lado, escolha um travesseiro mais alto, ajustado para preencher o espaço entre a cabeça e o colchão e manter o pescoço em ângulo de 90 graus, segundo a Duoflex.",
+          "text": "Se você dorme de lado, escolha um travesseiro mais alto, ajustado para preencher o espaço entre a cabeça e o colchão e manter o pescoço em ângulo de 90 graus, segundo a Duoflex. Para dormir de costas, a altura deve ser intermediária. Para dormir de bruços, use um travesseiro mais baixo, observando que essa posição não é a mais recomendada para o sono.",
           "basis": "evidence",
           "claim_ids": [
             "clm_bc02525ba76b",
-            "clm_c5267b077d94"
+            "clm_c5267b077d94",
+            "clm_166e9af8e75e",
+            "clm_d6e42fc108c7"
           ]
         }
       ]
@@ -59,7 +61,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261024T071327_autopilot_3d6b+editor:20261024T155410_travesseiro-alto-ou-baixo-ajuste_e849",
+    "run_id": "20261024T071327_autopilot_3d6b+editor:20261024T155410_travesseiro-alto-ou-baixo-ajuste_e849+editor:20261026T124554_travesseiro-alto-ou-baixo-ajuste_1ac8",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
