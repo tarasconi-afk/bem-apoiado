@@ -1,0 +1,360 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade, e pessoas mais pesadas precisam de densidades maiores. Confira nas marcações do produto as densidades nominais, em kg/m³, das lâminas de espuma e compare-as com a orientação de densidade correspondente ao seu peso.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_20ba50c38123",
+        "clm_03538692a465",
+        "clm_0a61647d4d99",
+        "clm_d15a69b780cd"
+      ]
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "action": "replace",
+      "text": "A densidade em kg/m³ representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte do material, segundo a Castor.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_529416602d8a",
+        "clm_58b1c7a7e4f7"
+      ]
+    },
+    {
+      "ref": "capacidade-peso-molas#1",
+      "action": "replace",
+      "text": "A Ortobom informa capacidade de 150 kg além do peso do colchão; por isso, confira se o limite informado pelo fabricante inclui ou não o peso do colchão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_286a835dbfa3"
+      ]
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "action": "replace",
+      "text": "No caso de declaração voluntária do fornecedor sobre funcionalidades terapêuticas ou ortopédicas de colchões mistos, o manual deve informar que as características descritas não foram avaliadas pelo processo de certificação do produto.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_12fe52564da9"
+      ]
+    },
+    {
+      "ref": "espuma-alta-densidade#0",
+      "action": "replace",
+      "text": "A Probel informa que a espuma AG ≥ D65 é indicada para consumidores que preferem colchões firmes e com elevada capacidade de sustentação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_709554d12109",
+        "clm_f64424c2ee4f"
+      ]
+    },
+    {
+      "ref": "como-decidir-densidade#3",
+      "action": "replace",
+      "text": "Consulte a ficha técnica para verificar o suporte de peso por pessoa informado para o modelo e confira, na identificação do produto ou da embalagem, as densidades e espessuras das lâminas de espuma exigidas pelo Inmetro.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_23924124371b",
+        "clm_0a61647d4d99",
+        "clm_d15a69b780cd"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão para maior peso corporal: qual densidade escolher",
+    "description": "Escolha a densidade conforme seu peso: até 70 kg, densidades de D23 a D28; 71 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+    "verdict": {
+      "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade, e pessoas mais pesadas precisam de densidades maiores. Confira nas marcações do produto as densidades nominais, em kg/m³, das lâminas de espuma e compare-as com a orientação de densidade correspondente ao seu peso.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_20ba50c38123",
+        "clm_03538692a465",
+        "clm_0a61647d4d99",
+        "clm_d15a69b780cd"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-e-densidade",
+        "heading": "O que significam os números de densidade (D23, D33, D45...)",
+        "blocks": [
+          {
+            "text": "A densidade em kg/m³ representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte do material, segundo a Castor.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_529416602d8a",
+              "clm_58b1c7a7e4f7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, pessoas mais pesadas precisam de densidades maiores para evitar que o colchão afunde demais, garantindo suporte adequado e maior durabilidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_20ba50c38123"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "capacidade-peso-molas",
+        "heading": "Capacidade de peso em colchões de molas ensacadas",
+        "blocks": [
+          {
+            "text": "Fabricantes como Probel declaram capacidade de peso máxima para colchões de molas ensacadas, variando de 110 kg a 120 kg por pessoa. Essas capacidades são por pessoa, não para o casal inteiro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_23924124371b",
+              "clm_0afbaf2ef53d",
+              "clm_aa0fb7ba023a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom informa capacidade de 150 kg além do peso do colchão; por isso, confira se o limite informado pelo fabricante inclui ou não o peso do colchão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_286a835dbfa3"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-inmetro",
+        "heading": "O que conferir na etiqueta exigida pelo Inmetro",
+        "blocks": [
+          {
+            "text": "A etiqueta deve informar as densidades nominais em kg/m³ de cada lâmina de espuma. Para colchões compostos ou mistos, as respectivas espessuras de cada camada devem aparecer também.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para colchões de molas, a etiqueta exigida pelo Inmetro deve informar o tipo de espuma, sua densidade em kg/m³ e a espessura da lâmina de espuma em centímetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d15a69b780cd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No caso de declaração voluntária do fornecedor sobre funcionalidades terapêuticas ou ortopédicas de colchões mistos, o manual deve informar que as características descritas não foram avaliadas pelo processo de certificação do produto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12fe52564da9"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "peso-altura-juntos",
+        "heading": "Como peso e altura influenciam a escolha",
+        "blocks": [
+          {
+            "text": "A Ortobom recomenda levar em consideração tanto o peso quanto a altura de quem usará o colchão na escolha da densidade. Uma tabela de densidade da Ortobom mostra que usuários com mesma faixa de peso podem usar densidades diferentes conforme a altura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_11e2aebdb8ec",
+              "clm_030854313d16"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "espuma-alta-densidade",
+        "heading": "Espumas de alta densidade para maior suporte",
+        "blocks": [
+          {
+            "text": "A Probel informa que a espuma AG ≥ D65 é indicada para consumidores que preferem colchões firmes e com elevada capacidade de sustentação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_709554d12109",
+              "clm_f64424c2ee4f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir-densidade",
+        "heading": "Como decidir pela densidade conforme seu peso",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Seu peso",
+              "Densidade indicada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45 (conforme sua preferência)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa entre 81 e 100 kg, segundo a Castor, a densidade pode variar de D33 a D45 conforme sua preferência por firmeza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03538692a465"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pesa acima de 100 kg, a Castor indica densidade D45 ou maior para evitar que o colchão afunde demais e garantir maior durabilidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_20ba50c38123"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Consulte a ficha técnica para verificar o suporte de peso por pessoa informado para o modelo e confira, na identificação do produto ou da embalagem, as densidades e espessuras das lâminas de espuma exigidas pelo Inmetro.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_23924124371b",
+              "clm_0a61647d4d99",
+              "clm_d15a69b780cd"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A afirmação de que a densidade é o principal fator é apresentada como fato geral, mas os trechos que a sustentam são apenas a orientação da fabricante Castor. Além disso, os trechos não dizem que se deve escolher capacidade de carga declarada igual ou superior ao peso; apenas informam densidades recomendadas por faixa de peso e que as densidades das lâminas devem constar nas marcações. Versão sustentável: Segundo a Castor, o peso corporal é o principal fator para escolher a densidade, e pessoas mais pesadas precisam de densidades maiores. Confira nas marcações do produto as densidades nominais, em kg/m³, das lâminas de espuma e compare-as com a orientação de densidade correspondente ao seu peso."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a densidade representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte, mas não dizem que quanto maior a densidade o colchão fica mais firme nem que sua capacidade de sustentar peso aumenta proporcionalmente. Versão sustentável: A densidade em kg/m³ representa a quantidade de espuma por metro cúbico e está relacionada à capacidade de suporte do material, segundo a Castor."
+    },
+    {
+      "ref": "capacidade-peso-molas#1",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas que a Ortobom informa 150 kg além do peso do colchão. Não sustenta que alguns fabricantes deixem de indicar se o peso está incluído, nem que se trate apenas do suporte da estrutura. Versão sustentável: A Ortobom informa capacidade de 150 kg além do peso do colchão; por isso, confira se o limite informado pelo fabricante inclui ou não o peso do colchão."
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "msg": "OVERSTATED. O trecho trata especificamente de declarações voluntárias do fornecedor sobre funcionalidades de colchões mistos e diz que essas características não foram avaliadas pelo processo de certificação. O bloco transforma isso em uma afirmação geral sobre propriedades terapêuticas ou ortopédicas e não preserva o recorte dos colchões mistos. Versão sustentável: No caso de declaração voluntária do fornecedor sobre funcionalidades terapêuticas ou ortopédicas de colchões mistos, o manual deve informar que as características descritas não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "espuma-alta-densidade#0",
+      "msg": "MISATTRIBUTED. Os trechos registram a indicação feita pela Probel para a espuma AG ≥ D65, mas o bloco transforma essa posição de um fabricante em uma afirmação geral sobre “fabricantes” e usa “especificam”, enquanto os trechos dizem que a espuma é “indicada”. Versão sustentável: A Probel informa que a espuma AG ≥ D65 é indicada para consumidores que preferem colchões firmes e com elevada capacidade de sustentação."
+    },
+    {
+      "ref": "como-decidir-densidade#3",
+      "msg": "OVERSTATED. Os trechos mostram capacidades de suporte em dois produtos específicos da Probel e as informações que o Inmetro exige sobre densidades e espessuras, mas não estabelecem como regra geral que se deve escolher apenas um colchão cuja ficha declare suporte igual ou superior ao peso da pessoa. Versão sustentável: Consulte a ficha técnica para verificar o suporte de peso por pessoa informado para o modelo e confira, na identificação do produto ou da embalagem, as densidades e espessuras das lâminas de espuma exigidas pelo Inmetro."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19977,
+    "output_tokens": 794
+  }
+}

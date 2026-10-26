@@ -1,0 +1,187 @@
+{
+  "run_id": "20261024T190447_autopilot_c8f8",
+  "topic": "colchao-para-obeso-qual-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_23924124371b",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_22f6ad6be351",
+      "new": true
+    },
+    {
+      "claim_id": "clm_74aa0c3a53fc",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_22f6ad6be351",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cc9d36ad2fb2",
+      "question_id": "q_capacidade_molas_interligadas",
+      "source_id": "src_45d34b38c84a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_709554d12109",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_45d34b38c84a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7f19ffc08ef2",
+      "question_id": "q_etiqueta_inmetro_densidade",
+      "source_id": "src_45d34b38c84a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dab9d3486357",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_975649c5df35",
+      "new": true
+    },
+    {
+      "claim_id": "clm_414c6980589c",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_17b1d6bd074e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_529416602d8a",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_17b1d6bd074e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_845cbc7f3c6c",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_dcee2b49ee92",
+      "new": true
+    },
+    {
+      "claim_id": "clm_286bddae76f0",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_dcee2b49ee92",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8d094a4ffd7a",
+      "question_id": "q_etiqueta_inmetro_densidade",
+      "source_id": "src_dcee2b49ee92",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0369f2edd05f",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_d6190e333b69",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4615f26b7928",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_d6190e333b69",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ef7c67553c2f",
+      "question_id": "q_densidade_espuma_peso",
+      "source_id": "src_d6190e333b69",
+      "new": true
+    },
+    {
+      "claim_id": "clm_56769d94a1c2",
+      "question_id": "q_capacidade_molas_ensacadas",
+      "source_id": "src_e5824800bef1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_783d5c50f1e2",
+      "question_id": "q_etiqueta_inmetro_densidade",
+      "source_id": "src_e5824800bef1",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_22f6ad6be351",
+      "question_id": "q_densidade_espuma_peso",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Espuma do Estofamento 2: Espuma de Alta Densidade ≥ D65"
+    },
+    {
+      "source_id": "src_17b1d6bd074e",
+      "question_id": "q_peso_densidade_faixa",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "A tabela de biotipo do Instituto Nacional de Estudos do Repouso (INER) considera a relação entre peso e altura para indicar a densidade mais adequada."
+    },
+    {
+      "source_id": "src_e5824800bef1",
+      "question_id": "q_densidade_espuma_peso",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "lâmina de espuma de alta resiliência 100% poliuretano - 33 kg/m³ de 5,0 cm lâmina de espuma convencional 100% poliuretano - 33 kg/m³ de 10,0 cm"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_faixa": 1,
+    "q_densidade_espuma_peso": 6,
+    "q_capacidade_molas_ensacadas": 5,
+    "q_capacidade_molas_interligadas": 1,
+    "q_etiqueta_inmetro_densidade": 3,
+    "q_espessura_minima_recomendada": 0,
+    "q_tamanho_largura_recomendado": 0
+  },
+  "unanswered": [
+    "q_espessura_minima_recomendada",
+    "q_tamanho_largura_recomendado"
+  ],
+  "usage": {
+    "input_tokens": 20445,
+    "output_tokens": 2303,
+    "calls": 7
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_22f6ad6be351",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_45d34b38c84a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_975649c5df35",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.88
+    },
+    {
+      "source_id": "src_17b1d6bd074e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_dcee2b49ee92",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_d6190e333b69",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e5824800bef1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    }
+  ],
+  "credits": 4.547816400000001
+}

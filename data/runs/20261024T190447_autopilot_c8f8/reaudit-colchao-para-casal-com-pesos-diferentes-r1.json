@@ -1,0 +1,33 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Segundo a Castor, as molas ensacadas são envolvidas individualmente, trabalham de forma independente e minimizam a transferência de movimento entre áreas do colchão. Simmons e Castor as recomendam para casais; a Ortobom afirma que diminuem vibrações e evitam interferências no sono.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_df2880298d16",
+        "clm_2bfe0b0f071c",
+        "clm_78163da83401",
+        "clm_0522b96db922"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Segundo a Castor, em um modelo dupla face, o lado D28 é mais macio e adequado a pessoas de peso leve a médio, enquanto o D33 é mais firme e adequado a pessoas de peso médio a elevado. A Ortobom descreve um modelo com lados D33 e D28 de diferentes níveis de firmeza. A Probel informa que seu modelo pode ser girado e virado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_ef14b707e1e9",
+        "clm_fdf114a5b7ad",
+        "clm_e54bc4e873f9"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. O trecho da Castor sustenta as diferenças entre D28 e D33, mas não informa que elas estão em um modelo dupla face. Essa contextualização não aparece no trecho citado."
+    }
+  ]
+}

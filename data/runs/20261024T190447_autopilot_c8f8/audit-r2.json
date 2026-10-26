@@ -1,0 +1,128 @@
+{
+  "findings": [
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-peso-molas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-altura-juntos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "A recomendação da Castor para pessoas acima de 100 kg e a informação sobre as densidades nominais das lâminas são sustentadas. Porém, o trecho do Inmetro citado diz que essas informações devem constar no produto e na embalagem, não especificamente em uma “etiqueta”.",
+      "fix": "Escolha a densidade conforme a faixa de peso indicada pela Castor: acima de 100 kg, a marca recomenda densidade 45 ou maior para maior suporte. Confira no produto ou na embalagem as densidades nominais, em kg/m³, de cada lâmina de espuma e compare-as com a recomendação correspondente ao seu peso."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-peso-molas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espuma-alta-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-densidade#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o modelo informa suporte de até 120 kg por pessoa e que densidades e espessuras devem constar nas informações obrigatórias do produto ou da embalagem. Não sustentam, porém, que seja necessário consultar especificamente uma “ficha técnica” nem que o Inmetro exija valores específicos de densidade e espessura, em vez de exigir sua informação.",
+      "fix": "Consulte as informações do modelo para verificar o suporte de peso por pessoa informado e confira no produto ou na embalagem se constam as densidades e espessuras das lâminas de espuma exigidas nas marcações pelo Inmetro."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. A recomendação da Castor para pessoas acima de 100 kg e a informação sobre as densidades nominais das lâminas são sustentadas. Porém, o trecho do Inmetro citado diz que essas informações devem constar no produto e na embalagem, não especificamente em uma “etiqueta”. Versão sustentável: Escolha a densidade conforme a faixa de peso indicada pela Castor: acima de 100 kg, a marca recomenda densidade 45 ou maior para maior suporte. Confira no produto ou na embalagem as densidades nominais, em kg/m³, de cada lâmina de espuma e compare-as com a recomendação correspondente ao seu peso."
+    },
+    {
+      "ref": "como-decidir-densidade#3",
+      "msg": "OVERSTATED. Os trechos sustentam que o modelo informa suporte de até 120 kg por pessoa e que densidades e espessuras devem constar nas informações obrigatórias do produto ou da embalagem. Não sustentam, porém, que seja necessário consultar especificamente uma “ficha técnica” nem que o Inmetro exija valores específicos de densidade e espessura, em vez de exigir sua informação. Versão sustentável: Consulte as informações do modelo para verificar o suporte de peso por pessoa informado e confira no produto ou na embalagem se constam as densidades e espessuras das lâminas de espuma exigidas nas marcações pelo Inmetro."
+    }
+  ]
+}
