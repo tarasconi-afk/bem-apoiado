@@ -11,7 +11,10 @@ import { DATA, loadTopics } from '../store.ts';
 // separa o que é do tema e respondível com fonte primária, e reescreve "qual o melhor X" como
 // "como escolher X" (o site não faz ranking). Tudo fica em data/ideas.json; as melhores vão para a fila.
 
-const PATTERNS = ['{x} ou ', '{x} qual ', 'como escolher {x}', '{x} vale a pena', '{x} diferença', 'qual {x} '];
+// 26/10: com só as 6 primeiras, o autocompletar rendeu 12 ideias no total e a fila de pautas secou perto da meta de
+// 50 páginas. As de situação ("é muito duro", "para quem", "quanto tempo dura") são as que o Search Console mostrou
+// sem página que responda.
+const PATTERNS = ['{x} ou ', '{x} qual ', 'como escolher {x}', '{x} vale a pena', '{x} diferença', 'qual {x} ', '{x} para ', '{x} é ', 'melhor {x} para ', '{x} quanto ', 'tipos de {x}', 'quando trocar {x}', '{x} ideal', '{x} tamanho', '{x} muito '];
 export const IDEAS_FILE = join(DATA, 'ideas.json');
 
 export interface Suggestion { text: string; seed: string; rank: number }
@@ -77,24 +80,34 @@ export async function discoverIdeas(fetchImpl: typeof fetch = fetch, llmFetch?: 
   // Tipos do nicho e o nome-base de cada um ("colchão de espuma" → "colchão"): sem o nome-base, a busca
   // fica presa nos subtipos de um produto só.
   const labels = niche.product_kinds.filter((k) => k.id !== 'outro').map((k) => k.label.toLowerCase());
-  const seeds = [...new Set([...labels.map((l) => l.split(' de ')[0]!), ...labels])];
+  // Nome-base só quando é o substantivo comum a vários tipos ("colchão"); "base", "protetor" e "mesa" sozinhos
+  // trouxeram "protetor para porta de madeira" e "mesa ideal para apartamento" (26/10).
+  const bases = labels.map((l) => l.split(' de ')[0]!).filter((b, _, all) => all.filter((x) => x === b).length > 1);
+  const seeds = [...new Set([...bases, ...labels])];
   const sugg = (await collectSuggestions(seeds, fetchImpl)).filter((s) => !firstForbidden(s.text, niche.forbidden_terms));
   const known = existsSync(IDEAS_FILE) ? z.array(Idea).parse(JSON.parse(readFileSync(IDEAS_FILE, 'utf8'))) : [];
   const seen = new Set(known.flatMap((i) => [slug(i.query), ...i.from.map(slug)]));
   for (const t of loadTopics()) seen.add(t.slug);
-  const fresh = sugg.filter((s) => !seen.has(slug(s.text))).slice(0, 80);
+  // Triagem em lotes de 80 (até 240): com mais formatos de busca, o corte em 80 jogava fora a maior parte.
+  const fresh = sugg.sort((a, b) => a.rank - b.rank).filter((s) => !seen.has(slug(s.text))).slice(0, 240);
   if (!fresh.length) return { added: [], total: known.length };
   const qf = join(DATA, 'queue.json');
   const queued = existsSync(qf) ? (JSON.parse(readFileSync(qf, 'utf8')).items as { query: string }[]).map((i) => `${slug(i.query)}: ${i.query}`) : [];
   const existing = [...loadTopics().map((t) => `${t.slug}: ${t.primary_query}`), ...queued, ...known.filter((i) => i.status !== 'descartada').map((i) => `${slug(i.query)}: ${i.query}`)];
-  const r = await callJson(
-    {
-      role: 'extractor', system: triageSystem(),
-      user: `Pautas que já existem (slug: dúvida):\n${existing.map((e) => `- ${e}`).join('\n') || '- (nenhuma)'}\n\nBuscas para avaliar:\n${fresh.map((s, i) => `${i + 1}. ${s.text}`).join('\n')}`,
-      schema: Triage, schemaName: 'ideas_triage', maxTokens: 8000,
-    },
-    llmFetch,
-  );
+  const r = { data: { items: [] as z.infer<typeof Triage>['items'] } };
+  for (let off = 0; off < fresh.length; off += 80) {
+    const part = fresh.slice(off, off + 80);
+    const rr = await callJson(
+      {
+        role: 'extractor', system: triageSystem(),
+        user: `Pautas que já existem (slug: dúvida):\n${existing.map((e) => `- ${e}`).join('\n') || '- (nenhuma)'}\n\nBuscas para avaliar:\n${part.map((s, i) => `${i + 1}. ${s.text}`).join('\n')}`,
+        schema: Triage, schemaName: 'ideas_triage', maxTokens: 8000,
+      },
+      llmFetch,
+    );
+    // Numeração de cada lote começa em 1: volta para a posição em `fresh`.
+    r.data.items.push(...rr.data.items.map((it) => ({ ...it, n: it.n + off })));
+  }
   // Variação de pauta existente: guardada como busca daquela pauta (útil para título/seções), não vira página.
   const variants = new Map<string, string[]>();
   for (const it of r.data.items) if (!it.keep && it.same_as && fresh[it.n - 1]) variants.set(it.same_as, [...(variants.get(it.same_as) ?? []), fresh[it.n - 1]!.text]);

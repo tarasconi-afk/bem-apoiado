@@ -22,7 +22,7 @@ import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources, loadRegistry, makersFor } from './discover.ts';
 import { decisionReadiness, logReadiness, saveRules } from './readiness.ts';
 import { editPage } from './edit.ts';
-import { improveTopic, MAX_IMPROVE_ATTEMPTS } from './improve.ts';
+import { improveTopic, MAX_IMPROVE_ATTEMPTS, retryOff } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
 import { adjustWithResearch } from './requests.ts';
 import { withoutDuplicates } from './duplicates.ts';
@@ -141,7 +141,7 @@ export function nextQuery(): string | null {
     const slug = slugOf(item.query);
     if (approved.has(slug) || pending.has(slug)) continue;
     const t = topics.get(slug);
-    if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) continue;
+    if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0 || retryOff(t.product_kinds))) continue;
     if (lacksMakers(item.query, t)) continue;
     if (isDeferred(slug)) continue;
     return item.query;
@@ -167,7 +167,7 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     if (page && page.status !== 'draft') state = 'no ar';
     else if (pendingSlugs.has(slug)) state = 'esperando você';
     else if ((planFails[item.query] ?? 0) >= 2) state = 'falhou no planejamento';
-    else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0)) state = page ? 'rascunho' : 'esgotada';
+    else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0 || retryOff(t.product_kinds))) state = page ? 'rascunho' : 'esgotada';
     else if (lacksMakers(item.query, t)) state = 'faltam fabricantes';
     else if (isDeferred(slug)) state = 'adiada (falta fonte)';
     else if (!next) { state = 'próxima'; next = true; }

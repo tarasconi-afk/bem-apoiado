@@ -675,3 +675,19 @@ passando.
 "Recusar" um rascunho devolve uma tentativa ao motor (feedback.ts). A cadeira de tela, esgotada, foi recusada e
 gastou mais 17,5 créditos numa 4ª tentativa sem página. O rascunho de pauta esgotada ganhou o botão "Encerrar esta
 pauta", que tira a pauta da fila sem gastar créditos. "Recusar" passou a se chamar "Recusar e tentar de novo".
+
+## 2026-10-26 · Novas tentativas por tipo de produto; mais pautas, com menos ruído
+Desde 22/10 foram 27 ciclos, 484 créditos e 9 páginas aprovadas pelo motor: ~54 créditos por página. 258 créditos
+foram para tentativas sem página, ~196 delas em pautas de cadeira. Pela pesquisa não dá para prever quem trava:
+regras de escolha e evidências têm números parecidos nas pautas que passaram e nas que travaram. O que prevê é o
+tipo de produto. Cadeira: 10 novas tentativas, 1 página. Colchão: 2 em 2. Travesseiro: 1 em 3. As fontes de cadeira
+são fichas de produto, a redação generaliza e a auditoria barra. Regra (`improve.ts:retryOff`, pelo histórico de
+data/runs): com 5 ou mais novas tentativas e menos de 15% de páginas, a pauta desse tipo não ganha nova tentativa
+automática; a primeira tentativa continua. A regra se desliga sozinha se a taxa subir.
+A fila tinha 10 pautas disponíveis para a meta de 50 páginas. A descoberta pelo autocompletar ganhou formatos de
+situação ("{x} para", "{x} é", "{x} muito", "quando trocar {x}"…) e triagem em lotes. Na cópia de teste rendeu 53
+ideias em vez de 12, por 11,5 créditos, mas a triagem automática deixou passar duplicatas de páginas existentes,
+saúde ("hérnia de disco") e fora do tema ("protetor para porta"). Por isso: os termos de saúde que faltavam entraram
+na lista de proibidos, e "base", "protetor" e "mesa" sozinhos deixaram de ser semente. 6 pautas de sono escolhidas
+à mão entraram na fila. Mesa e suporte para notebook não têm fabricante cadastrado, e as fontes encontradas são
+fichas de loja, o mesmo padrão das cadeiras. Ficam para depois.

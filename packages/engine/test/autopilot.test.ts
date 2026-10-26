@@ -65,3 +65,14 @@ describe('pauta adiada sai da vez', () => {
     expect(isDeferred('outra', new Date('2026-10-23T10:00:00Z'))).toBe(false);
   });
 });
+
+describe('novas tentativas por tipo de produto', () => {
+  it('desliga quando o tipo quase nunca vira página na nova tentativa', async () => {
+    const { retryOff } = await import('../src/stages/improve.ts');
+    const rec = new Map([['cadeira', { tries: 10, wins: 1 }], ['travesseiro', { tries: 3, wins: 0 }], ['espuma,misto', { tries: 6, wins: 2 }]]);
+    expect(retryOff(['cadeira'], rec)).toContain('1 em 10');
+    expect(retryOff(['travesseiro'], rec)).toBeNull(); // poucas tentativas ainda
+    expect(retryOff(['misto', 'espuma'], rec)).toBeNull(); // ordem dos tipos não importa; 33% vale
+    expect(retryOff(['base_box'], rec)).toBeNull(); // sem histórico
+  });
+});
