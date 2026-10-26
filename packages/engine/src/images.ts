@@ -121,7 +121,15 @@ export interface Wanted {
 // Cômodo por família de produto (22/10: colchão ao lado de mesa de escritório e travesseiro no chão da sala
 // destoavam): o que é de dormir fica no quarto, o que é de trabalho fica no home office.
 export const OFFICE_KINDS = ['cadeira', 'mesa', 'suporte_notebook'];
-export const PRODUCT_SCENES: Record<'sleep' | 'office', string[]> = {
+// Toalha e roupão no banheiro (26/10: entraram com a categoria Banho; no quarto destoavam).
+export const BATH_KINDS = ['toalha', 'roupao'];
+export const PRODUCT_SCENES: Record<'sleep' | 'office' | 'bath', string[]> = {
+  bath: [
+    'bright bathroom with white tiles and a wooden towel rack',
+    'calm bathroom with a sage-green wall and a small plant by the sink',
+    'minimalist bathroom with light stone tiles and a wooden stool',
+    'cozy bathroom with a woven basket and soft daylight from a window',
+  ],
   office: [
     'calm home office corner beside a light oak desk',
     'bright minimalist home office with a light rug and a tall window',
@@ -139,14 +147,14 @@ export const PRODUCT_SCENES: Record<'sleep' | 'office', string[]> = {
     'warm bedroom corner with a wooden bench and a folded throw',
   ],
 };
-export const sceneFamily = (kind: string): 'sleep' | 'office' => (OFFICE_KINDS.includes(kind) ? 'office' : 'sleep');
+export const sceneFamily = (kind: string): 'sleep' | 'office' | 'bath' => (OFFICE_KINDS.includes(kind) ? 'office' : BATH_KINDS.includes(kind) ? 'bath' : 'sleep');
 export const PRODUCT_VIEWS = ['three-quarter view', 'side view', 'front three-quarter view', 'rear three-quarter view'];
 export function productSubject(kindLabel: string, label: string, brand: string, scene: string, view: string): string {
   const desc = label.replace(new RegExp(brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '').replace(/\s+/g, ' ').trim();
   return (
     `ilustração de anúncio: UM único ${kindLabel} genérico com o formato, a cor e o material descritos em "${desc}" ` +
     `(ignore nomes de modelo e de marca). Cena: ${scene}. Enquadramento: ${view}, o produto inteiro e em destaque, no lugar onde é usado ` +
-    `(colchão e base de cama montados no quarto; travesseiro sobre a cama arrumada; jogo de cama, edredom e cobertor estendidos ou dobrados sobre a cama; cadeira junto à mesa). ` +
+    `(colchão e base de cama montados no quarto; travesseiro sobre a cama arrumada; jogo de cama, edredom e cobertor estendidos ou dobrados sobre a cama; toalha dobrada ou no toalheiro e roupão pendurado, no banheiro; cadeira junto à mesa). ` +
     `Termine o prompt com "Generic design, no recognizable model." O alt começa com "Ilustração: " e descreve tipo, cor e material.`
   );
 }

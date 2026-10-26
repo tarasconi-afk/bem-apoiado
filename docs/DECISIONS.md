@@ -703,3 +703,14 @@ Plumasul, Corttex e Sultan. Também a dica do regulador (Inmetro, etiquetagem de
 do autocompletar do Google, gratuito, com triagem feita à mão (a triagem automática deixou passar saúde e
 duplicatas). Ficaram de fora: fronha de cetim para cabelo e pele (promessa de beleza e saúde), cobertor ponderado
 (ansiedade e autismo), alergia e rinite, e duplicatas de páginas existentes. 27 pautas novas; a fila tem 43 disponíveis.
+
+## 2026-10-26 · Banho (toalha e roupão) entra no nicho
+Decisão do editor: o objetivo agora é trazer tráfego; renomear a marca ou abrir um segundo site fica para depois,
+se os dados forem bons. O escopo passou a "sono, cama e banho e home office". Entraram 2 tipos (toalha de banho,
+roupão), a categoria "Banho" e o cenário de banheiro nas ilustrações (`BATH_KINDS`). Teka (359 páginas de toalha,
+33 de roupão, gramatura no endereço) e Sultan (312) têm ficha oficial. Karsten, Buddemeyer e Döhler fabricam e foram
+cadastrados, mas a busca só mostrou lojas, e o motor procura a ficha oficial. 10 pautas: gramatura, como escolher,
+tamanhos, algodão ou microfibra, enxuga melhor, não solta pelo, fio penteado ou cardado, quando trocar, roupão
+atoalhado ou microfibra, como escolher roupão. Comparação de marca ficou fora (o site não faz ranking). O tipo
+"Jogo de cama" passou a se chamar "Lençol e jogo de cama": sem "lençol" no nome, a palavra não entrava nos termos do
+nicho, e páginas de lençol de domínios novos eram filtradas como fora do tema.

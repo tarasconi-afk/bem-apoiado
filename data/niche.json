@@ -1,13 +1,13 @@
 {
   "brand": "Bem Apoiado",
   "site_tagline": "Escolha com o que está escrito, não com o que é prometido.",
-  "site_intro": "Guias sobre colchão, travesseiro, roupa de cama e cadeira feitos a partir de normas técnicas, órgãos reguladores e fichas de fabricantes. Cada afirmação aponta para o trecho exato da fonte.",
-  "scope": "compras de sono e home office (colchão, travesseiro, base de cama, roupa de cama, cadeira e mesa de trabalho)",
+  "site_intro": "Guias sobre colchão, travesseiro, roupa de cama, toalha e cadeira feitos a partir de normas técnicas, órgãos reguladores e fichas de fabricantes. Cada afirmação aponta para o trecho exato da fonte.",
+  "scope": "compras de sono, cama e banho e home office (colchão, travesseiro, base de cama, roupa de cama, toalha, cadeira e mesa de trabalho)",
   "audience": "leigos que vão comprar e querem decidir sem cair em propaganda",
-  "category_label": "Sono e home office",
+  "category_label": "Sono, cama e banho e home office",
   "regulator_hints": [
     "Inmetro (certificação compulsória de colchões de espuma e de molas; perguntas frequentes em gov.br/inmetro)",
-    "Inmetro (etiquetagem de produtos têxteis: composição das fibras e cuidados de conservação na etiqueta de lençol, edredom e cobertor)",
+    "Inmetro (etiquetagem de produtos têxteis: composição das fibras e cuidados de conservação na etiqueta de lençol, edredom, cobertor, toalha e roupão)",
     "Diário Oficial da União (texto das portarias)",
     "ABNT (normas NBR de colchões e de cadeiras de escritório)",
     "Anvisa (só para produtos com finalidade terapêutica registrados)",
@@ -69,7 +69,7 @@
     },
     {
       "id": "jogo_de_cama",
-      "label": "Jogo de cama"
+      "label": "Lençol e jogo de cama"
     },
     {
       "id": "edredom",
@@ -78,6 +78,14 @@
     {
       "id": "cobertor",
       "label": "Cobertor"
+    },
+    {
+      "id": "toalha",
+      "label": "Toalha de banho"
+    },
+    {
+      "id": "roupao",
+      "label": "Roupão de banho"
     },
     {
       "id": "outro",
@@ -149,6 +157,15 @@
         "jogo_de_cama",
         "edredom",
         "cobertor"
+      ]
+    },
+    {
+      "id": "banho",
+      "label": "Banho",
+      "intro": "Toalha e roupão: gramatura, fio, tamanho e o que a etiqueta e os fabricantes informam.",
+      "kinds": [
+        "toalha",
+        "roupao"
       ]
     },
     {
