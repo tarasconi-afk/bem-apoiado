@@ -1,0 +1,63 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Se a fronha disponível mede 50 x 70 cm, escolher um travesseiro de 40 x 60 cm anunciado como compatível.",
+      "Se a fronha mede 45 x 65 cm, conferir modelos anunciados pelo fabricante para essa medida, como o NASA X Cervical da Duoflex.",
+      "Se a fronha mede 50 x 90 cm, conferir modelos anunciados para essa medida, como o NASA King Alto da Duoflex.",
+      "Conferir a medida exata do travesseiro na ficha técnica, pois os modelos consultados variam aproximadamente de 40 x 60 cm a 50 x 70 cm e há modelos específicos maiores.",
+      "Conferir a altura declarada na ficha técnica: os modelos citados variam de 12 cm a 17 cm.",
+      "Para escolher entre modelos de 12 cm e 14 cm da Probel, comparar a altura declarada conforme a preferência do comprador."
+    ],
+    "missing": [
+      "Uma tabela de tamanhos padrão, queen e king relacionando cada medida do travesseiro ao tamanho da cama.",
+      "Orientação dos fabricantes relacionando altura, largura dos ombros ou posição de dormir à altura do travesseiro.",
+      "Indicação do fabricante sobre quantos travesseiros usar em camas de solteiro, casal, queen e king.",
+      "Definição clara de quais medidas são consideradas padrão, queen e king, em vez de apenas medidas de modelos específicos.",
+      "Critério para escolher a altura do travesseiro de acordo com o biotipo ou a posição de dormir."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque dá uma regra prática de compra: conferir a medida da fronha e escolher um travesseiro anunciado como compatível, além de mostrar medidas e alturas concretas. Porém, responde apenas parcialmente ao guia de tamanhos, pois não relaciona os tamanhos à cama, ao perfil do usuário nem à quantidade recomendada por cama. As tabelas e instruções de decisão repetem bastante o conteúdo; vale manter uma única tabela de compatibilidade e uma orientação curta para evitar redundância.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Se você já tem fronha de 50 x 70 cm, procure um travesseiro de 40 x 60 cm anunciado como compatível com essa fronha.",
+      "Para fronha de 45 x 65 cm, confira o NASA X Cervical da Duoflex, que é indicado para essa medida.",
+      "Para fronha de 50 x 90 cm, confira o NASA King Alto da Duoflex, anunciado para essa medida.",
+      "Entre os modelos citados da Probel, escolha a altura de 12 cm ou 14 cm conforme a altura desejada.",
+      "Confira na ficha do produto a medida do travesseiro, a fronha compatível e a altura, pois essas características variam conforme o modelo."
+    ],
+    "missing": [
+      "Tabela de fabricantes relacionando tamanho do travesseiro ao tamanho da cama e à quantidade recomendada por cama.",
+      "Critérios de escolha por largura dos ombros, posição de dormir ou perfil do usuário.",
+      "Medidas exatas e fronhas compatíveis para mais modelos padrão, queen e king, além dos exemplos citados.",
+      "Orientação do fabricante sobre qual altura de travesseiro é adequada para cada tipo de usuário."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece uma regra prática de compra: escolher o travesseiro pela medida da fronha e conferir a altura na ficha do modelo. A resposta curta é direta e traz medidas concretas, embora o conteúdo não cubra de forma completa a compatibilidade com tamanhos de cama, a quantidade por cama ou critérios pessoais como largura dos ombros e posição de dormir.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  }
+}
