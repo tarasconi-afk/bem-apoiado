@@ -5,7 +5,7 @@
   "title": "Colchão firme ou macio: como escolher pela densidade",
   "description": "Descubra qual densidade de colchão combina com seu peso e posição de dormir para escolher entre macios, intermediários e firmes.",
   "primary_query": "colchão firme ou macio",
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-26",
   "verdict": {
     "text": "Escolha a densidade pelo seu peso: até 60 kg, a Castor indica densidades 23 a 26; de 61 a 80 kg, 28 a 33; acima de 80 kg, 33 a 45 ou mais. Quem dorme de lado pode buscar uma superfície que alivie a pressão em ombros e quadris, segundo a King Koil.",
     "basis": "reasoning",
@@ -56,13 +56,12 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Castor, densidade é a quantidade de espuma por metro cúbico e tem relação direta com a firmeza. A Probel descreve a espuma D28 como de firmeza intermediária, a D33 como durável e capaz de oferecer suporte, e densidades até D60 ou AG60 para pessoas com maior peso ou que preferem superfície mais firme.",
+          "text": "Segundo a Castor, densidade é a quantidade de espuma por metro cúbico e tem relação direta com a firmeza. Fabricantes como Probel e Castor relacionam densidades específicas a níveis de conforto: no colchão D28 da Probel, a marca descreve firmeza intermediária; em modelos com densidades até D60 ou AG60, indicam adequação para pessoas com maior peso ou que preferem superfície mais firme.",
           "basis": "evidence",
           "claim_ids": [
             "clm_73b978419d75",
             "clm_1ad133d2b40c",
             "clm_04789db60329",
-            "clm_29cdd640b362",
             "clm_3659f2b0d80a"
           ]
         },
@@ -246,7 +245,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T212103_autopilot_ebf5+editor:20261022T003150_colchao-firme-ou-macio-ajuste_57c6+editor:20261022T003658_colchao-firme-ou-macio-ajuste_1c87+editor:20261022T004041_colchao-firme-ou-macio-ajuste_af0c+editor:20261022T011253_pedido_e54d+editor:20261022T012727_pedido_2a2c+editor:20261022T012840_pedido_cea0+editor:finalizacao-tabela+repeticao-removida",
+    "run_id": "20261021T212103_autopilot_ebf5+editor:20261022T003150_colchao-firme-ou-macio-ajuste_57c6+editor:20261022T003658_colchao-firme-ou-macio-ajuste_1c87+editor:20261022T004041_colchao-firme-ou-macio-ajuste_af0c+editor:20261022T011253_pedido_e54d+editor:20261022T012727_pedido_2a2c+editor:20261022T012840_pedido_cea0+editor:finalizacao-tabela+repeticao-removida+editor:20261026T122755_colchao-firme-ou-macio-ajuste_70ff",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
