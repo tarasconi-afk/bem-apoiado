@@ -1,0 +1,83 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-e-densidade#0",
+      "o-que-e-densidade#3",
+      "densidade-e-firmeza#0",
+      "densidade-e-firmeza#3",
+      "peso-e-altura#0",
+      "peso-e-altura#4",
+      "etiqueta-e-inmetro#0",
+      "durabilidade#0",
+      "durabilidade#2"
+    ],
+    "decision_criteria": [
+      "Escolha D28 se o modelo indicar suporte de até 90 kg por pessoa e você preferir firmeza intermediária.",
+      "Escolha D33 se o modelo indicar suporte de até 100 kg por pessoa e você preferir uma superfície firme.",
+      "Para casais com pesos ou biotipos diferentes, confira se o modelo declara uso para essa situação.",
+      "Considere o peso e a altura de cada usuário e procure a tabela de indicação do fabricante.",
+      "Confira no anúncio, na embalagem ou na etiqueta a densidade nominal de cada lâmina de espuma, em kg/m³, além da composição e do tipo do colchão."
+    ],
+    "missing": [
+      "Uma tabela primária relacionando D28 e D33 às faixas de peso e altura dos usuários.",
+      "Uma indicação mais direta sobre quando escolher D28 ou D33 para pessoas entre 90 kg e 100 kg e para casais.",
+      "Informação do fabricante esclarecendo se a diferença de firmeza entre D28 e D33 vale para todos os modelos ou apenas para os modelos citados."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à comparação com uma regra concreta baseada no suporte declarado pela Probel e na firmeza, além de orientar o leitor a conferir peso, altura, densidade e informações da etiqueta. A resposta poderia ser mais útil com uma tabela de escolha por peso e altura e com uma recomendação mais explícita para pessoas entre 90 kg e 100 kg, mas não fica apenas no “depende”.",
+    "filler_ratio": 0.32142857142857145,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A comparação usa principalmente modelos da Probel e não transforma peso e altura do comprador em uma regra clara para escolher entre D28 e D33.",
+      "A resposta curta informa limites de peso e firmeza, mas não diz diretamente qual densidade escolher em cada situação.",
+      "A tabela deixa D28 ou D33 sem informação em alguns campos, dificultando uma comparação prática."
+    ],
+    "filler_refs": [
+      "o-que-e-densidade#0",
+      "densidade-e-firmeza#0",
+      "densidade-e-firmeza#3",
+      "peso-e-altura#0",
+      "peso-e-altura#4",
+      "etiqueta-e-inmetro#0",
+      "durabilidade#0"
+    ],
+    "decision_criteria": [
+      "Nos modelos Probel citados, D28 suporta até 90 kg por pessoa e tem firmeza intermediária.",
+      "Nos modelos Probel citados, D33 suporta até 100 kg por pessoa e tem firmeza firme.",
+      "A escolha deve considerar o peso e a altura de quem usará o colchão.",
+      "Para casais, é preciso conferir a indicação de biotipo e o suporte de peso por pessoa no anúncio.",
+      "Antes da compra, conferir na etiqueta ou na embalagem a densidade nominal em kg/m³, o tipo do colchão e a composição das camadas de espuma.",
+      "A densidade nominal informada na etiqueta corresponde a cada lâmina de espuma e, em colchões compostos ou mistos, deve vir acompanhada das respectivas espessuras."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A comparação usa principalmente modelos da Probel e não transforma peso e altura do comprador em uma regra clara para escolher entre D28 e D33.",
+      "Para o leitor leigo: A resposta curta informa limites de peso e firmeza, mas não diz diretamente qual densidade escolher em cada situação.",
+      "Para o leitor leigo: A tabela deixa D28 ou D33 sem informação em alguns campos, dificultando uma comparação prática.",
+      "Tabela de fabricante relacionando peso e altura às densidades D28 e D33.",
+      "Regra explícita para escolher D28 ou D33 em diferentes faixas de peso, especialmente para pessoas acima de 90 kg ou entre 90 e 100 kg.",
+      "Comparação equivalente de suporte e firmeza entre D28 e D33 em modelos de uma ou mais marcas, sem depender de uma única linha da Probel.",
+      "Informação primária mais específica sobre como a densidade influencia a durabilidade e a deformação dos modelos comparados."
+    ],
+    "publishable": false,
+    "summary": "A página explica o que significam D28 e D33 e oferece critérios úteis para conferir a etiqueta, mas não responde de modo suficientemente direto qual escolher. Os limites de peso e a firmeza são específicos de modelos Probel, enquanto a seção de decisão não apresenta uma regra baseada no peso e na altura do comprador nem uma comparação completa entre as duas densidades.",
+    "filler_ratio": 0.25,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 1.5
+}
