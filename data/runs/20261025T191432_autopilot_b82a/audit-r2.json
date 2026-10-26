@@ -1,0 +1,132 @@
+{
+  "findings": [
+    {
+      "ref": "medida-altura-norma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-box-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-box-altura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-altura#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o conjunto Gazin totaliza 73 cm e que os produtos citados acrescentam 5,0 cm ou 7 cm, mas nenhum trecho informa ou estabelece um espaço-limite de 70 cm. Portanto, a afirmação de que ele excede especificamente um espaço de 70 cm não está apoiada nas evidências citadas.",
+      "fix": "Como o conjunto citado totaliza 73 cm, ele já excede qualquer espaço com menos de 73 cm; acrescentar um pillow top de 5,0 cm ou 7 cm aumentaria ainda mais a altura. Para caber em um limite inferior, seria necessário reduzir alguma altura do conjunto ou não usar o pillow top."
+    },
+    {
+      "ref": "camadas-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "camadas-altura#1.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as densidades das espumas e o Pillow Super, mas não informam a altura do modelo nem dizem que a composição varia conforme a altura. Também não há, no trecho literal citado, afirmação explícita sobre molas ensacadas.",
+      "fix": "Tabela: Composição divulgada do modelo à venda — Probel Excede Premium Casal | Camadas de espuma: Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65 | Pillow: Super."
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a composição do modelo, incluindo as densidades, espessuras, revestimento de malha de poliéster e molas ensacadas com média de 180 molas/m². Porém, não informa a altura do modelo nem sustenta a apresentação como composição conforme a altura.",
+      "fix": "Tabela: Composição divulgada do modelo à venda — Ortobom Orion Casal | Camadas de espuma: hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm | Outras informações: molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster."
+    },
+    {
+      "ref": "camadas-altura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "pillow-top-altura#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o conjunto Gazin totaliza 73 cm e que os produtos citados acrescentam 5,0 cm ou 7 cm, mas nenhum trecho informa ou estabelece um espaço-limite de 70 cm. Portanto, a afirmação de que ele excede especificamente um espaço de 70 cm não está apoiada nas evidências citadas. Versão sustentável: Como o conjunto citado totaliza 73 cm, ele já excede qualquer espaço com menos de 73 cm; acrescentar um pillow top de 5,0 cm ou 7 cm aumentaria ainda mais a altura. Para caber em um limite inferior, seria necessário reduzir alguma altura do conjunto ou não usar o pillow top."
+    },
+    {
+      "ref": "camadas-altura#1.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as densidades das espumas e o Pillow Super, mas não informam a altura do modelo nem dizem que a composição varia conforme a altura. Também não há, no trecho literal citado, afirmação explícita sobre molas ensacadas. Versão sustentável: Tabela: Composição divulgada do modelo à venda — Probel Excede Premium Casal | Camadas de espuma: Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65 | Pillow: Super."
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta a composição do modelo, incluindo as densidades, espessuras, revestimento de malha de poliéster e molas ensacadas com média de 180 molas/m². Porém, não informa a altura do modelo nem sustenta a apresentação como composição conforme a altura. Versão sustentável: Tabela: Composição divulgada do modelo à venda — Ortobom Orion Casal | Camadas de espuma: hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm | Outras informações: molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster."
+    }
+  ]
+}

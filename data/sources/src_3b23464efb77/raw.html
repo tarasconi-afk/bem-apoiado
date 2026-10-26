@@ -1,0 +1,163 @@
+
+
+<html>
+<head>
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="/imagens/style1.css" type="text/css" />
+<script type="text/javascript" src="/includes/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="/includes/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=3002018&modprp=5&coduasg=925373&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=925373&numprp=3002018&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" frameborder="0" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tr><td class="cabecbox">Aguarde!</td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2"><img src="/imagens/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="/imagens/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="/imagens/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="1" cellpadding="2">
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p>GOVERNO DO ESTADO DE RONDONIA</p></td></tr><tr><td class='tex3'><p>Superintendência Estadual de Compras e Licitações</p></td></tr><tr><td class='tex3'><p>Código da UASG: 925373</p></td></tr></table><br></td>
+        </tr>
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p><span class='tex3b'>Pregão Eletrônico Nº  300/2018</span><span class='mensagem'> - (Decreto Nº 5.450/2005)</span><br><b>Objeto:</b>&nbsp;Objeto: Pregão Eletrônico -  Registro de Preços para aquisição de Colchões D-45 e lençóis com tamanhos (78x20x188)  e (88x20x188) cm , COM OS ITENS: 02, 03 e 04, EXCLUSIVOS PARA ME/EPP e Equiparados na forma da LC 123/2006 e PARA O ITEM 01, Aplica-se a ampla participação e a reserva de cota no total de 25%, conforme especificação completa no Termo de Referência   Anexo I do Edital.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <br><b>Edital a partir de:</b>&nbsp;20/07/2018 das 08:00 às 12:00 Hs e das 14:00 às 17:59 Hs<br><b>Endereço:</b>&nbsp;Rua Rio Madeira, 3056 - Bairro Flodoaldo Pontes Pinto/ro                             -                                          - Porto Velho                              (RO)<br><b>Telefone:</b>&nbsp;         <br><b>Fax:</b>&nbsp;               <br><b>Entrega da Proposta:</b>&nbsp;20/07/2018 às 08:00Hs<br></p></td></tr></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td>
+		    <td class='tex3'>
+		    <span class='tex3b'>Itens de Material</span><table width='100%'><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>1 - ´COLCHÃO´</span><br><span class='tex3'>Colchão para  solteiro; tipo de espuma  com selo de qualidade; medindo (78x20x188) cm...conforme especificações completas constantes no Termo de Referência, anexo I do Edital.<br>Tratamento Diferenciado: - (Item participação aberta)<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 225<br>Unidade de fornecimento: UND                 </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>2 - ´COLCHÃO´</span><br><span class='tex3'>Colchão para  solteiro; tipo de espuma  com selo de qualidade; medindo (88x20x188) cm = (LXAXC)... conforme especificações completas constantes no Termo de Referência, anexo I do Edital.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 300<br>Unidade de fornecimento: UNID                </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>3 - ´COLCHÃO´</span><br><span class='tex3'>Lençol  para  colchão  solteiro  com  elástico  100%  algodão,  na cor  vermelha  ,  para  uso  em  colchão  solteiro  D-45   medindo 78x20x188 cm<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 300<br>Unidade de fornecimento: UND                 </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>4 - ´COLCHÃO´</span><br><span class='tex3'>Lençol  para  colchão  solteiro  com  elástico  100%  algodão,  na cor  vermelha,  para  uso  em  colchão  solteiro  D-45  medindo 88x20x188 cm.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 300<br>Unidade de fornecimento: UND                 </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>5 - ´COLCHÃO´</span><br><span class='tex3'>Colchão para  solteiro; tipo de espuma  com selo de qualidade; medindo (78x20x188) cm...conforme especificações completas constantes no Termo de Referência, anexo I do Edital.<br>Tratamento Diferenciado: Tipo III - Cota para participação exclusiva de ME/EPP/Equiparada (Cota Exclusiva do item 1)<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 75<br>Unidade de fornecimento: UND                 </span><br></td></tr></table>
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td valign="top" align="right" width="23">
+			     <img src="/imagens/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td valign="top" align="right" width="23">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onClick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onClick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

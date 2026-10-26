@@ -1,0 +1,148 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram exemplos específicos: bases e pés da Gazin que, somados ao colchão, formam a altura total, além de um pillow top Ortobom de 5 cm e uma capa pillow top Simmons de 7 cm. Eles não sustentam que todo pillow top adicione necessariamente de 5 a 7 cm, nem que essa seja uma regra geral para todos os fabricantes.",
+      "fix": "A altura do colchão pode ser escolhida considerando a altura total desejada para a cama: some, nos exemplos da Gazin, as alturas do colchão, da base e dos pés. Nos produtos citados, o pillow top Ortobom tem 5 cm e a capa pillow top Simmons adiciona 7 cm; se for usar um desses produtos, considere essa altura adicional e escolha um colchão mais baixo se necessário."
+    },
+    {
+      "ref": "pillow-top-altura#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Ortobom informam uma lâmina de espuma de 5,0 cm, mas não dizem que ela adiciona 5,0 cm à altura total do colchão. O trecho da Simmons diz que a capa adiciona uma camada de 7 cm de conforto, não explicitamente 7 cm de altura.",
+      "fix": "O pillow top é uma camada extra de conforto com elástico nas laterais. Segundo a Ortobom, o pillow top HR Gel tem uma lâmina de espuma de 5,0 cm. Segundo a Simmons, a capa pillow top adiciona uma camada extra de 7 cm de conforto."
+    },
+    {
+      "ref": "pillow-top-altura#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam apenas que os produtos citados têm uma camada ou lâmina de 5,0 cm ou 7 cm; não estabelecem uma regra geral para qualquer pillow top nem dizem que essa camada necessariamente deve ser somada à altura total do conjunto. Além disso, os próprios valores hipotéticos de colchão, base e pés não aparecem nas evidências.",
+      "fix": "Se o conjunto de 34 cm, 27 cm e 12 cm já totaliza 73 cm, ele excede o espaço de 70 cm mesmo antes de acrescentar uma camada pillow top de 5,0 cm ou 7 cm dos produtos citados. Nesse caso, reduza alguma altura do conjunto ou não use o pillow top."
+    },
+    {
+      "ref": "medida-altura-norma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "camadas-altura#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora marcado como framing, afirma fatos sobre a composição e a altura dos colchões sem citar qualquer evidência.",
+      "fix": "A seguir, veja exemplos de modelos à venda e as informações de composição divulgadas nas fontes."
+    },
+    {
+      "ref": "camadas-altura#1.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados são de um produto Probel, mas a tabela identifica o modelo como Doss Molas Ensacadas Casal de 30 cm. Os trechos não sustentam o nome Doss, a altura de 30 cm nem as molas ensacadas; sustentam apenas as espumas e o Pillow Super do produto Probel citado.",
+      "fix": "Identifique o produto como o modelo Probel dos trechos e limite a linha a: “Espuma do matelassê: D20 cilíndrica; estofamento D33; estofamento de alta densidade ≥ D65; outras camadas: Pillow Super”. Remova a altura e as molas, ou cite evidências para elas."
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho é de “Colchão Orion Casal”, mas a tabela o identifica como “Ortobom MISTO ISO 100 D33 Solteiro”. Além disso, o trecho não informa espessura de 5 cm para a espuma hipermacia D24; informa 5 cm para as lâminas de alta resiliência D50 e convencional D33.",
+      "fix": "Identifique o produto como “Ortobom Orion Casal” e registre: espuma hipermacia gel D24, sem espessura informada no trecho; alta resiliência gel D50 de 5 cm; convencional D33 de 5 cm; molas ensacadas com média de 180 molas/m²; revestimento de malha 100% poliéster."
+    },
+    {
+      "ref": "camadas-altura#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado exige que essas informações constem no produto e na embalagem, mas não diz especificamente para conferi-las em uma “etiqueta”.",
+      "fix": "Confira nas marcações do produto ou da embalagem a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, suas respectivas espessuras em centímetros."
+    },
+    {
+      "ref": "base-box-altura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-box-altura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos mostram exemplos específicos: bases e pés da Gazin que, somados ao colchão, formam a altura total, além de um pillow top Ortobom de 5 cm e uma capa pillow top Simmons de 7 cm. Eles não sustentam que todo pillow top adicione necessariamente de 5 a 7 cm, nem que essa seja uma regra geral para todos os fabricantes. Versão sustentável: A altura do colchão pode ser escolhida considerando a altura total desejada para a cama: some, nos exemplos da Gazin, as alturas do colchão, da base e dos pés. Nos produtos citados, o pillow top Ortobom tem 5 cm e a capa pillow top Simmons adiciona 7 cm; se for usar um desses produtos, considere essa altura adicional e escolha um colchão mais baixo se necessário."
+    },
+    {
+      "ref": "pillow-top-altura#0",
+      "msg": "OVERSTATED. Os trechos da Ortobom informam uma lâmina de espuma de 5,0 cm, mas não dizem que ela adiciona 5,0 cm à altura total do colchão. O trecho da Simmons diz que a capa adiciona uma camada de 7 cm de conforto, não explicitamente 7 cm de altura. Versão sustentável: O pillow top é uma camada extra de conforto com elástico nas laterais. Segundo a Ortobom, o pillow top HR Gel tem uma lâmina de espuma de 5,0 cm. Segundo a Simmons, a capa pillow top adiciona uma camada extra de 7 cm de conforto."
+    },
+    {
+      "ref": "pillow-top-altura#1",
+      "msg": "OVERSTATED. Os trechos sustentam apenas que os produtos citados têm uma camada ou lâmina de 5,0 cm ou 7 cm; não estabelecem uma regra geral para qualquer pillow top nem dizem que essa camada necessariamente deve ser somada à altura total do conjunto. Além disso, os próprios valores hipotéticos de colchão, base e pés não aparecem nas evidências. Versão sustentável: Se o conjunto de 34 cm, 27 cm e 12 cm já totaliza 73 cm, ele excede o espaço de 70 cm mesmo antes de acrescentar uma camada pillow top de 5,0 cm ou 7 cm dos produtos citados. Nesse caso, reduza alguma altura do conjunto ou não use o pillow top."
+    },
+    {
+      "ref": "camadas-altura#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, afirma fatos sobre a composição e a altura dos colchões sem citar qualquer evidência. Versão sustentável: A seguir, veja exemplos de modelos à venda e as informações de composição divulgadas nas fontes."
+    },
+    {
+      "ref": "camadas-altura#1.r0",
+      "msg": "MISATTRIBUTED. Os trechos citados são de um produto Probel, mas a tabela identifica o modelo como Doss Molas Ensacadas Casal de 30 cm. Os trechos não sustentam o nome Doss, a altura de 30 cm nem as molas ensacadas; sustentam apenas as espumas e o Pillow Super do produto Probel citado. Versão sustentável: Identifique o produto como o modelo Probel dos trechos e limite a linha a: “Espuma do matelassê: D20 cilíndrica; estofamento D33; estofamento de alta densidade ≥ D65; outras camadas: Pillow Super”. Remova a altura e as molas, ou cite evidências para elas."
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "msg": "MISATTRIBUTED. O trecho é de “Colchão Orion Casal”, mas a tabela o identifica como “Ortobom MISTO ISO 100 D33 Solteiro”. Além disso, o trecho não informa espessura de 5 cm para a espuma hipermacia D24; informa 5 cm para as lâminas de alta resiliência D50 e convencional D33. Versão sustentável: Identifique o produto como “Ortobom Orion Casal” e registre: espuma hipermacia gel D24, sem espessura informada no trecho; alta resiliência gel D50 de 5 cm; convencional D33 de 5 cm; molas ensacadas com média de 180 molas/m²; revestimento de malha 100% poliéster."
+    },
+    {
+      "ref": "camadas-altura#2",
+      "msg": "OVERSTATED. O trecho citado exige que essas informações constem no produto e na embalagem, mas não diz especificamente para conferi-las em uma “etiqueta”. Versão sustentável: Confira nas marcações do produto ou da embalagem a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, suas respectivas espessuras em centímetros."
+    }
+  ]
+}

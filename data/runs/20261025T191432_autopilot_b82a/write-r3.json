@@ -1,0 +1,392 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "pillow-top-altura#1",
+      "action": "replace",
+      "text": "O conjunto de colchão, base e pés pode totalizar 73 cm, como no exemplo da Gazin. Acrescentar um pillow top de 5,0 cm (Ortobom) ou 7 cm (Simmons) aumentaria essa altura. Se o espaço disponível for limitado, reduza alguma altura do conjunto ou não use o pillow top.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2fca2df86cfc",
+        "clm_067647993c88",
+        "clm_1ad5d6ee4a23"
+      ]
+    },
+    {
+      "ref": "camadas-altura#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Probel Excede Premium Casal",
+          "claim_ids": [
+            "clm_b862a962d9f5"
+          ]
+        },
+        {
+          "text": "Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65",
+          "claim_ids": [
+            "clm_b862a962d9f5"
+          ]
+        },
+        {
+          "text": "Pillow Super",
+          "claim_ids": [
+            "clm_6afa7c7b5007"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Ortobom Orion Casal",
+          "claim_ids": [
+            "clm_126cf1ac348c"
+          ]
+        },
+        {
+          "text": "Hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm",
+          "claim_ids": [
+            "clm_126cf1ac348c"
+          ]
+        },
+        {
+          "text": "Molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster",
+          "claim_ids": [
+            "clm_126cf1ac348c"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Altura do colchão: qual escolher",
+    "description": "Escolha a altura do colchão conforme a base, o espaço disponível e se vai usar pillow top. Confira as medidas separadamente na ficha.",
+    "verdict": {
+      "text": "A altura do colchão pode ser escolhida considerando a altura total desejada para a cama. Nos exemplos da Gazin, some as alturas do colchão, da base e dos pés. Se for usar pillow top, o produto Ortobom cita uma lâmina de espuma de 5,0 cm e a Simmons adiciona uma camada de 7 cm; considere essa altura adicional e escolha um colchão mais baixo se necessário.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2fca2df86cfc",
+        "clm_791f36163335",
+        "clm_96d271721e73",
+        "clm_067647993c88",
+        "clm_2e6c89f76417",
+        "clm_1ad5d6ee4a23"
+      ]
+    },
+    "sections": [
+      {
+        "id": "pillow-top-altura",
+        "heading": "Pillow top e altura: quanto adiciona",
+        "blocks": [
+          {
+            "text": "O pillow top é uma camada extra de conforto com elástico nas laterais. Segundo a Ortobom, o pillow top HR Gel tem uma lâmina de espuma de 5,0 cm. Segundo a Simmons, a capa pillow top adiciona uma camada extra de 7 cm de conforto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_070d1e8dcda0",
+              "clm_067647993c88",
+              "clm_1ad5d6ee4a23"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O conjunto de colchão, base e pés pode totalizar 73 cm, como no exemplo da Gazin. Acrescentar um pillow top de 5,0 cm (Ortobom) ou 7 cm (Simmons) aumentaria essa altura. Se o espaço disponível for limitado, reduza alguma altura do conjunto ou não use o pillow top.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_067647993c88",
+              "clm_1ad5d6ee4a23"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "medida-altura-norma",
+        "heading": "Como a norma mede a altura e qual tolerância aceita",
+        "blocks": [
+          {
+            "text": "A norma ABNT NBR 13579-1:2011 determina que a altura total do colchão deve ser medida com régua apoiada longitudinalmente no centro, medindo a distância entre a superfície de apoio e a parte inferior da régua nas duas extremidades. O resultado é a média dos valores encontrados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4d2e4c5dba3c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A altura do colchão pode variar de -0,5 a 1,5 cm em relação à dimensão declarada pelo fabricante. Isso significa que um colchão anunciado como 30 cm pode ter entre 29,5 cm e 31,5 cm na prática.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_93478856ded5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Alguns fabricantes informam adicionalmente uma tolerância de ± 1,0 cm nas dimensões finais, mesmo em produtos sob medida, segundo a Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_07edec6f3f44"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "camadas-altura",
+        "heading": "Quais camadas compõem cada altura de colchão",
+        "blocks": [
+          {
+            "text": "A seguir, veja exemplos de modelos à venda e as informações de composição divulgadas nas fontes.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Composição de camadas conforme a altura (modelos à venda)",
+            "columns": [
+              "Modelo e altura",
+              "Camadas de espuma",
+              "Outras camadas"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Probel Excede Premium Casal",
+                    "claim_ids": [
+                      "clm_b862a962d9f5"
+                    ]
+                  },
+                  {
+                    "text": "Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65",
+                    "claim_ids": [
+                      "clm_b862a962d9f5"
+                    ]
+                  },
+                  {
+                    "text": "Pillow Super",
+                    "claim_ids": [
+                      "clm_6afa7c7b5007"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Ortobom Orion Casal",
+                    "claim_ids": [
+                      "clm_126cf1ac348c"
+                    ]
+                  },
+                  {
+                    "text": "Hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm",
+                    "claim_ids": [
+                      "clm_126cf1ac348c"
+                    ]
+                  },
+                  {
+                    "text": "Molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster",
+                    "claim_ids": [
+                      "clm_126cf1ac348c"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Confira nas marcações do produto ou da embalagem a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, suas respectivas espessuras em centímetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "base-box-altura",
+        "heading": "Altura da base ou box: como somar com o colchão",
+        "blocks": [
+          {
+            "text": "A altura da base ou box varia entre os modelos. Segundo a Gazin, uma base pode ter 27 cm de altura, e os pés adicionam mais 12 cm. A Probel oferece bases de 26 cm de altura. Para a altura total da cama, some a altura do colchão (confira no anúncio), a altura da base (confira no anúncio da base) e a altura dos pés.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_791f36163335",
+              "clm_130a08f7c1a0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A King Koil oferece um exemplo: o Box Baú Elegance possui 37 cm de altura de base, somados a pés de 6,5 cm, totalizando 43,5 cm sem o colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2e2ed191bc33"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se você já definiu a altura total desejada para a cama, escolha a altura do colchão que, somada à base e aos pés, atinja esse total, segundo a Gazin. Confira as três medidas separadamente na ficha do produto.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_791f36163335",
+              "clm_96d271721e73"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pretende usar pillow top ou uma capa pillow top, escolha um colchão mais baixo quando necessário para compensar a camada adicional, segundo a Ortobom e a Simmons. Confira se o acréscimo de 5 cm ou 7 cm cabe na altura total disponível.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_067647993c88",
+              "clm_2e6c89f76417",
+              "clm_1ad5d6ee4a23"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a cama já tem base e pés definidos, escolha entre as alturas de colchão disponíveis conforme o espaço restante até a altura total desejada, em vez de comparar apenas a altura do colchão isoladamente, segundo a Gazin.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2fca2df86cfc",
+              "clm_791f36163335",
+              "clm_96d271721e73"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Como somar colchão, base e pés para chegar à altura total desejada (segundo a Gazin)",
+            "columns": [
+              "Componente",
+              "Altura (exemplo Gazin TWINS)",
+              "Altura (exemplo Gazin VENEZA II)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Colchão",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "34 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "30 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Base",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "27 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "27 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Pés",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Altura total",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "73 cm",
+                    "claim_ids": [
+                      "clm_2fca2df86cfc"
+                    ]
+                  },
+                  {
+                    "text": "69 cm",
+                    "claim_ids": [
+                      "clm_791f36163335"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "pillow-top-altura#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o conjunto Gazin totaliza 73 cm e que os produtos citados acrescentam 5,0 cm ou 7 cm, mas nenhum trecho informa ou estabelece um espaço-limite de 70 cm. Portanto, a afirmação de que ele excede especificamente um espaço de 70 cm não está apoiada nas evidências citadas. Versão sustentável: Como o conjunto citado totaliza 73 cm, ele já excede qualquer espaço com menos de 73 cm; acrescentar um pillow top de 5,0 cm ou 7 cm aumentaria ainda mais a altura. Para caber em um limite inferior, seria necessário reduzir alguma altura do conjunto ou não usar o pillow top."
+    },
+    {
+      "ref": "camadas-altura#1.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as densidades das espumas e o Pillow Super, mas não informam a altura do modelo nem dizem que a composição varia conforme a altura. Também não há, no trecho literal citado, afirmação explícita sobre molas ensacadas. Versão sustentável: Tabela: Composição divulgada do modelo à venda — Probel Excede Premium Casal | Camadas de espuma: Matelassê D20 cilíndrica, estofamento D33, estofamento de alta densidade ≥ D65 | Pillow: Super."
+    },
+    {
+      "ref": "camadas-altura#1.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta a composição do modelo, incluindo as densidades, espessuras, revestimento de malha de poliéster e molas ensacadas com média de 180 molas/m². Porém, não informa a altura do modelo nem sustenta a apresentação como composição conforme a altura. Versão sustentável: Tabela: Composição divulgada do modelo à venda — Ortobom Orion Casal | Camadas de espuma: hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm | Outras informações: molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster."
+    }
+  ],
+  "usage": {
+    "input_tokens": 15278,
+    "output_tokens": 590
+  }
+}
