@@ -1,0 +1,163 @@
+
+
+<html>
+<head>
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="/imagens/style1.css" type="text/css" />
+<script type="text/javascript" src="/includes/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="/includes/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=2622017&modprp=5&coduasg=925373&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=925373&numprp=2622017&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" frameborder="0" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tr><td class="cabecbox">Aguarde!</td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2"><img src="/imagens/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="/imagens/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="/imagens/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="1" cellpadding="2">
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p>GOVERNO DO ESTADO DE RONDONIA</p></td></tr><tr><td class='tex3'><p>Superintendência Estadual de Compras e Licitações</p></td></tr><tr><td class='tex3'><p>Código da UASG: 925373</p></td></tr></table><br></td>
+        </tr>
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p><span class='tex3b'>Pregão Eletrônico Nº  262/2017</span><span class='mensagem'> - (Decreto Nº 5.450/2005)</span><br><b>Objeto:</b>&nbsp;Objeto: Pregão Eletrônico -  Aquisição pela Secretaria de Estado da Educação   SEDUC, de mobiliários para as salas de recursos multifuncionais, conforme especificação completa no Termo de Referência   Anexo I deste Edital. Com os itens estimados em até  R$ 80.000,00 (oitenta mil reais) exclusivos para ME/EPP e Equiparados na forma da LC 123/06.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <br><b>Edital a partir de:</b>&nbsp;22/08/2017 das 08:00 às 12:00 Hs e das 14:00 às 17:59 Hs<br><b>Endereço:</b>&nbsp;Avenida Farquar Nº.2986   Pedrinhas, Porto Velho, Ro                                 - Pedrinhas                                - Porto Velho                              (RO)<br><b>Telefone:</b>&nbsp;(0xx69) 32165318<br><b>Fax:</b>&nbsp;(0xx69)               <br><b>Entrega da Proposta:</b>&nbsp;22/08/2017 às 08:00Hs<br></p></td></tr></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td>
+		    <td class='tex3'>
+		    <span class='tex3b'>Itens de Material</span><table width='100%'><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>1 - QUADRO GIZ</span><br><span class='tex3'>QUADRO BRANCO: - Quadro branco com superfície melamínica, dotado de suportes de fixação e calha metálica.  Dimensões e tolerâncias - Largura: 2500 mm +/- 10 mm. Altura: 1200 mm + /- 10 mm.  Espessura do painel: 21,6 mm +/- 0,8 mm.  Fita de bordo: 2 mm (+/- 0,2 mm) com acabamento fresado com raio mínimo de 2 mm.  Comprimento da calha metálica para apoio das canetas: mínimo de 800 mm. Características Construtivas - Painel em     MDF de 20 mm de espessura, revestido na face frontal em laminado melamínico de alta pressão de 1 mm de espessura, acabamento  lousa , branco brilhante. Face posterior revestida com chapa de balanceamento: contra-placa fenólica de 0,6 mm, ou em laminado melamínico de baixa pressão - BP, branco. Todos os bordos do painel deverão ser encabeçados com fita de bordo, com 2,0 mm de espessura, cor cinza, coladas com adesivo  Hot Melting . Suportes de fixação do painel estampados em chapa de aço laminada a frio, chapa 14 (1,9 mm). Conjunto para fixação dos suportes ao painel composto de parafusos de aço, rosca métrica, cabeça cilíndrica, fenda simples, M6 x 16 mm, conforme especificação completa no TR.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 9<br>Unidade de fornecimento: UND                 </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>2 - ARMÁRIO AÇO</span><br><span class='tex3'>ARMARIO ALTO FECHADO (800X500X1600MM) -Tampo superior confeccionado em MDP melamínico de baixa pressão de 25 MM de espessura, bordas perímetro encabeçado com fita de poliestireno reta de 2,0 MM e raio de 2,5 MM, na mesma cor do tampo, coladas pelo sistema  HOT-MELT. Laterais, duas portas, duas prateleiras, fundo e tampo inferior confeccionados em MDP melamínico de 18 MM de espessura, bordas aparentes encabeçadas com fita reta de poliestireno esp. de 2,0 MM com raio de 2,5 MM em seu perímetro, na mesma cor do tampo aplicadas com cola pelo sistema HOT-MELT. Base em aço galvanizado SAE 1010/1020, retangular com 50 x 20 MM e esp. de 0,95 MM, possuindo (quatro) sapatas reguladoras de nível em polipropileno preto, que permitem regulagem de nivelamento. Quatro dobradiças de aço com mecanismo que permite abertura de 270¨ e regulagens horizontais e verticais; fixação por meio de parafusos embutidos, juntamente com tambores (modelo minifix), buchas rosqueadas em zamacke cavilhas, possibilitando a desmontagem sem danificar a madeira. Puxadores em polipropileno, formato alça na cor cinza metalizado, conforme especificação completa no TR.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 17<br>Unidade de fornecimento: UND                 </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>3 - CADEIRA</span><br><span class='tex3'>CADEIRA GIRATÓRIA: estofada com braços e rodízios, dotada de mecanismo amortecedor e regulador do assento e do encosto. Características dimensionais, requisitos de estabilidade, resistência e durabilidade, conforme norma ABNT NBR 13962 - Móveis para escritório   Cadeiras   Requisitos e métodos de ensaio.   Dimensões e tolerâncias   Largura do assento: 500 mm +/- 10 mm.   Profundidade do assento: 460 mm +/- 10 mm.   Altura do assento variável: faixa obrigatória entre 420 mm e 520 mm.   Largura do encosto: 400 mm +/- 10 mm (medida no ponto mais saliente do apoio lombar).   Extensão vertical do encosto: 350 mm +/- 10 mm.   Demais características dimensionais em conformidade com o estabelecido na  Tabela 2   Dimensões da cadeira giratória operacional , da norma ABNT NBR 13962.   Espessura da espuma do assento: mínima de 40 mm. Espessura da espuma do encosto: mínima de 30 mm. Tolerâncias dimensionais para tubos conforme ABNT NBR 6591.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 15<br>Unidade de fornecimento: UND                 </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>4 - CONJUNTO MESAS ESCRITÓRIO</span><br><span class='tex3'>MESA PARA COMPUTADOR:  com tampo em MDF revestido de laminado melamínico, montada sobre estrutura tubular, com características formais compatíveis com a  mesa para impressora , de modo a caracterizar uniformidade de design do conjunto. Dimensões e tolerâncias: Largura: 1500 mm +/- 10 mm. - Profundidade: 750 mm +/- 10 mm. - Altura total da mesa: 760 mm +/- 4 mm.  Para acomodação de pessoas em cadeira de rodas (PCR) e atendimento às exigências da ABNT NBR 9050 a mesa deve possuir espaço livre sob o tampo com as seguintes características: - - Largura livre: mínima de 800 mm. - Profundidade livre: mínima de 500 mm.  - Altura livre: mínima de 730 mm. Espessura do tampo: 25,8 mm +/- 0,6mm. Espessura do painel: 18 mm +/- 0,5mm. Espessura da fita de bordo: 2 mm +/- 0,2mm.  Tolerâncias dimensionais para tubos conforme ABNT NBR 6591. Tolerâncias para camada de tinta: mínimo 40 micrometros / máximo 100 micrometros. Características construtivas - Tampo em MDF, com espessura de 25 mm, conforme espacificação completa no TR.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 15<br>Unidade de fornecimento: UND                 </span><br></td></tr></table>
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td valign="top" align="right" width="23">
+			     <img src="/imagens/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td valign="top" align="right" width="23">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onClick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onClick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

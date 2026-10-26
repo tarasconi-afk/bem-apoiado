@@ -41,7 +41,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A norma ABNT NBR 13579-1:2011 determina que a altura total do colchão deve ser medida com régua apoiada longitudinalmente no centro, medindo a distância entre a superfície de apoio e a parte inferior da régua nas duas extremidades. O resultado é a média dos valores encontrados.",
+          "text": "Segundo o Inmetro, a altura total do colchão deve ser medida com uma régua sem escala apoiada longitudinalmente no centro, ultrapassando as extremidades. Mede-se a distância entre a superfície de apoio e a parte inferior da régua nas duas extremidades, e considera-se a média dos valores encontrados.",
           "basis": "evidence",
           "claim_ids": [
             "clm_4d2e4c5dba3c"
@@ -57,7 +57,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Alguns fabricantes informam adicionalmente uma tolerância de ± 1,0 cm nas dimensões finais, mesmo em produtos sob medida, segundo a Ortobom.",
+          "text": "A Ortobom informa que as dimensões finais do produto podem variar em mais ou menos 1,0 cm, inclusive em produtos sob medida.",
           "basis": "evidence",
           "claim_ids": [
             "clm_07edec6f3f44"
@@ -81,9 +81,10 @@
             {
               "cells": [
                 {
-                  "text": "Probel Excede Premium Casal",
+                  "text": "Probel Excede Premium Casal, 30 cm",
                   "claim_ids": [
-                    "clm_b862a962d9f5"
+                    "clm_b862a962d9f5",
+                    "clm_ef78b3dc5710"
                   ]
                 },
                 {
@@ -93,9 +94,10 @@
                   ]
                 },
                 {
-                  "text": "Pillow Super",
+                  "text": "Pillow Super, molas ensacadas",
                   "claim_ids": [
-                    "clm_6afa7c7b5007"
+                    "clm_6afa7c7b5007",
+                    "clm_b862a962d9f5"
                   ]
                 }
               ]
@@ -109,13 +111,13 @@
                   ]
                 },
                 {
-                  "text": "Hipermacia gel D24, alta resiliência gel D50 de 5,0 cm, convencional D33 de 5,0 cm",
+                  "text": "Hipermacia gel D24, alta resiliência gel D50 (5,0 cm), convencional D33 (5,0 cm)",
                   "claim_ids": [
                     "clm_126cf1ac348c"
                   ]
                 },
                 {
-                  "text": "Molas ensacadas, média de 180 molas/m², revestimento de malha 100% poliéster",
+                  "text": "Molas ensacadas (média 180 molas/m²), revestimento malha poliéster",
                   "claim_ids": [
                     "clm_126cf1ac348c"
                   ]
@@ -127,7 +129,7 @@
         {
           "kind": "callout",
           "tone": "info",
-          "text": "Confira nas marcações do produto ou da embalagem a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, suas respectivas espessuras em centímetros.",
+          "text": "Confira nas marcações a densidade nominal de cada lâmina de espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0a61647d4d99"
@@ -290,7 +292,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261025T191432_autopilot_b82a+edit:20261025T191432_autopilot_b82a+editor:20261026T121223_altura-do-colchao-qual-escolher-ajuste_b8b3",
+    "run_id": "20261025T191432_autopilot_b82a+edit:20261025T191432_autopilot_b82a+editor:20261026T121223_altura-do-colchao-qual-escolher-ajuste_b8b3+reaudit:20261026T191217_autopilot_9411",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

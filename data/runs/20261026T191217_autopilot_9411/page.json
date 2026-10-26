@@ -1,0 +1,49 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 166400,
+    "output_tokens": 35219,
+    "calls": 41
+  },
+  "credits": 54.060475199999985,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página apresenta o colchão misto como uma das opções, mas não orienta quando escolhê-lo nem o que conferir nele; apenas descreve a composição de modelos citados (como-decidir#0); Reescrever para orientar que, ao considerar um colchão misto, o leitor confira "
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se prefere uma sensação mais macia, priorize um colchão de espuma.",
+      "Se busca mais suporte ou uma sensação mais firme, considere um modelo com molas, incluindo os mistos.",
+      "Confira na ficha técnica ou na embalagem as camadas e os materiais do colchão, porque a composição varia entre os modelos.",
+      "Em colchões de espuma, compare a densidade indicada pelo fabricante com seu peso e altura usando a tabela de referência.",
+      "Se o colchão será usado por pessoas com pesos diferentes, confira a capacidade declarada para cada pessoa e se o modelo é indicado para biotipos diferentes.",
+      "Compare a garantia geral e as garantias específicas de espuma e molas na ficha do produto.",
+      "Confira a altura declarada do modelo, pois ela varia entre produtos."
+    ],
+    "missing": [
+      "Para o leitor leigo: A página apresenta o colchão misto como uma das opções, mas não orienta quando escolhê-lo nem o que conferir nele; apenas descreve a composição de modelos citados (como-decidir#0); Reescrever para orientar que, ao considerar um colchão misto, o leitor confira ",
+      "Uma orientação do fabricante relacionando peso, altura e suporte também para colchões mistos, não apenas para colchões de espuma.",
+      "Dados comparáveis de altura entre um modelo de espuma e um modelo misto de mesma medida.",
+      "Uma explicação do fabricante sobre como a combinação de espuma e molas altera a sensação de firmeza, suporte e conforto em cada modelo.",
+      "Uma comparação de garantias entre modelos equivalentes de espuma e mistos."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que a espuma tende a oferecer sensação mais macia, enquanto molas ou colchões mistos tendem a oferecer mais suporte e firmeza, e orienta o leitor a conferir composição, densidade, capacidade, altura e garantia. A resposta não traz uma regra de peso para colchões mistos nem compara modelos equivalentes em altura e garantia, mas oferece critérios concretos suficientes para uma decisão inicial de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "como-decidir#0",
+        "problem": "A página apresenta o colchão misto como uma das opções, mas não orienta quando escolhê-lo nem o que conferir nele; apenas descreve a composição de modelos citados.",
+        "fix": "Reescrever para orientar que, ao considerar um colchão misto, o leitor confira na ficha a combinação de espumas e molas do modelo, além da densidade e dos demais componentes informados pelo fabricante."
+      }
+    ]
+  }
+}
