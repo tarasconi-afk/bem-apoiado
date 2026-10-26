@@ -610,6 +610,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
 // correção que o quadro sugeriria (regras "Se você…" das fontes + problemas apontados), sem pesquisa nova. O
 // ajuste só grava se a revisão de leitor não piorar. O editor recebe a melhor versão e só decide.
 export const AUTO_CORRECT_MIN_CREDITS = 8;
+const COHERENCE_FIX_ROUNDS = 2;
 export async function autoCorrect(slug: string, runId: string, steps: string[]): Promise<void> {
   try {
     if (creditsLeft() < AUTO_CORRECT_MIN_CREDITS) return;
@@ -618,10 +619,44 @@ export async function autoCorrect(slug: string, runId: string, steps: string[]):
     const f = join(DATA, 'runs', runId, 'page.json');
     const review = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')).review : null;
     const { correctionText, rulesFromNotes } = await import('../board.ts');
-    const text = correctionText(review, rulesFromNotes(loadTopic(slug).editorial_notes));
-    if (!text) return;
+    // Coerência (stages/coherence.ts) reprovou: conserta só os blocos apontados, com a frase que ela sugeriu (25/10: a
+    // correção pelo texto geral reescreveu a resposta inteira e saiu pior ou caiu na regra de condição repetida).
+    // Depois do conserto ela confere de novo; o mesmo erro costuma estar em outro bloco (26/10, nos dois rascunhos
+    // de cadeira), então há uma segunda rodada. O cartão mostra o resultado da última conferência.
+    const cohOf = (r: unknown) => (((r as { coherence?: { check?: string; ref: string; problem: string; fix: string }[] } | null)?.coherence ?? []).filter((f) => !f.ref.includes('.r')));
     const { adjustWithResearch } = await import('./requests.ts');
-    const msg = await adjustWithResearch(slug, text, newRunId(`${slug}-autocorrecao`), undefined, { research: false, learn: false });
+    let coh = cohOf(review);
+    let msg = '';
+    if (!coh.length) {
+      const text = correctionText(review, rulesFromNotes(loadTopic(slug).editorial_notes));
+      if (!text) return;
+      msg = await adjustWithResearch(slug, text, newRunId(`${slug}-autocorrecao`), undefined, { research: false, learn: false });
+    }
+    for (let round = 0; coh.length && round < COHERENCE_FIX_ROUNDS; round++) {
+      const fixRun = newRunId(`${slug}-autocorrecao`);
+      const text = coh.map((f) => `No bloco ${f.ref}: ${f.problem.replace(/[.\s]+$/, '')}. Conserto: ${f.fix}`).join(' ');
+      const m = await adjustWithResearch(slug, text, fixRun, undefined, { research: false, learn: false, refs: coh.map((f) => f.ref) });
+      if (/NÃO salvo|^ajuste não aplicado/.test(m)) { if (!round) msg = m; break; }
+      msg = m;
+      const fixed = loadPages().find((p) => p.slug === slug);
+      const pf = join(DATA, 'runs', fixRun, 'page.json');
+      if (!fixed || !existsSync(pf)) break;
+      const { auditCoherence } = await import('./coherence.ts');
+      const { buildIndex } = await import('../store.ts');
+      const idx = buildIndex();
+      const c = await auditCoherence(fixed, loadTopic(slug).primary_query, idx.claims, idx.sources);
+      const st = JSON.parse(readFileSync(pf, 'utf8'));
+      const rv = { ...st.review, coherence: c.findings, ...(c.findings.length ? { publishable: false, reader_problems: [...c.problems, ...(st.review?.reader_problems ?? [])] } : {}) };
+      writeFileSync(pf, JSON.stringify({ ...st, review: rv }, null, 2) + '\n');
+      steps.push(`coerência depois da correção ${round + 1}: ${c.findings.length ? `ainda ${c.findings.length} problema(s)` : 'limpa'}`);
+      // Sem avanço (os mesmos problemas nos mesmos blocos): outra rodada repetiria o conserto que não pegou (26/10,
+      // cadeira de tela: a fonte só fala de um modelo; o que resolve é tirar o bloco, decisão do editor).
+      const key = (f: { check?: string; ref: string }) => `${f.check}|${f.ref}`;
+      const prev = new Set(coh.map(key));
+      coh = cohOf(rv);
+      if (coh.every((f) => prev.has(key(f)))) break;
+    }
+    if (!msg) return;
     const note = /^ajuste não aplicado/.test(msg) ? 'não aplicada (a versão corrigida ficou pior; o rascunho original fica)' : /NÃO salvo/.test(msg) ? `não salva (${msg.slice(0, 120)})` : `aplicada${/nota ([\d.]+) de 4; antes ([\d.]+)/.exec(msg) ? ` (nota de leitor ${/nota ([\d.]+) de 4; antes ([\d.]+)/.exec(msg)![2]} → ${/nota ([\d.]+) de 4/.exec(msg)![1]} de 4)` : ''}`;
     steps.push(`correção automática do rascunho: ${note}`);
   } catch (e) {

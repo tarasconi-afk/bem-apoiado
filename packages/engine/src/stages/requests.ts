@@ -230,7 +230,9 @@ export function createKind(a: { label: string; accessory: boolean; category: str
 // Ajuste com pesquisa ("pode pesquisar"): a instrução vira pergunta da pauta, a busca dirigida procura fontes
 // sobre ela e a pesquisa lê só as novas; o redator reescreve os blocos escolhidos podendo citar as evidências
 // novas; gate + auditoria dos blocos tocados; só grava se tudo for sustentado. Sem fonte nova: diz e não inventa.
-export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean } = {}): Promise<string> {
+// opts.refs: blocos já escolhidos (correção automática a partir da coerência): pula o seletor, que transformava
+// "troque esta frase" em reescrita da resposta curta inteira (25/10: cadeira de tela e apoio de cabeça).
+export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean; refs?: string[] } = {}): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
   const doResearch = opts.research ?? true;
@@ -280,7 +282,10 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const tables = page.sections.flatMap((x) => x.blocks.map((b, i) => (b.kind === 'table' ? { ref: `${x.id}#${i}`, caption: b.caption, sec: x.heading, columns: b.columns } : null)).filter((t) => t !== null));
   const movable = [...refs.filter((r) => r !== 'verdict'), ...tables.map((t) => t.ref)] as [string, ...string[]];
   const secIds = page.sections.map((x) => x.id) as [string, ...string[]];
-  const pick = await callJson(
+  const forced = (opts.refs ?? []).filter((r) => (refs as string[]).includes(r)) as (typeof refs)[number][];
+  const pick = forced.length
+    ? { data: { rewrite_summary: false, refs: forced, headings: [] as { id: (typeof secIds)[number]; heading: string }[], moves: [] as { ref: (typeof movable)[number]; to: (typeof secIds)[number]; position: 'start' | 'after_first' | 'end' }[], removes: [] as (typeof movable)[number][], drop_columns: [] as { ref: string; column: string }[], unsupported: '' } }
+    : await callJson(
     {
       role: 'extractor',
       system: 'Escolha os blocos da página onde a informação pedida deve entrar ou que o pedido manda alterar (no máximo 5; inclua TODOS os blocos que repetem o problema apontado). Em "headings", só os títulos de seção que o pedido torna errados ou enganosos, com o título novo (até 70 caracteres, sem afirmar fato que o texto não sustenta). "rewrite_summary": true quando o pedido é sobre a resposta curta ou o "Como decidir" COMO UM TODO (linguagem para leigo, tirar jargão, mudar o ponto de vista, foco no comprador), e não sobre um dado pontual. ' +

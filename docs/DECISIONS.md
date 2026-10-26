@@ -627,3 +627,14 @@ Achou também a dupla face ainda no ar na página do casal (o bloco voltou ao te
 14 outras páginas no ar, apontou problemas em 10, a maioria real (ex.: "D28 suporta até 90 kg" é de um modelo
 Probel; "base de alumínio resiste a 1100 kg" é de uma cadeira). Primeira versão acusava as medidas-padrão de cama
 atribuídas aos fabricantes; a regra foi estreitada e elas saíram, sem perder os 3 acertos.
+
+## 2026-10-26 · Correção automática conserta o bloco que a coerência apontou
+No fim de semana a coerência barrou 2 rascunhos de cadeira com problema real, e a correção automática não resolveu
+nenhum: ela mandava o texto geral ao ajuste, o seletor reescrevia a resposta curta inteira, e a versão saía pior ou
+caía na regra de condição repetida. Agora, quando a reprovação é da coerência, o ajuste recebe direto os blocos
+apontados (`adjustWithResearch(…, { refs })`, sem o seletor) com a frase de conserto que ela sugeriu. Depois a
+coerência confere de novo e o cartão mostra essa conferência. São até 2 rodadas, e a 2ª só roda se a 1ª mudou
+alguma coisa. Teste nos 2 rascunhos reais (scripts/bt-autocorrect.mts, cópia de teste): nota mantida em 4 de 4,
+respostas curtas consertadas. O apoio de cabeça passou de 1 para 1 problema diferente em outro bloco, depois de
+consertar 2. A cadeira de tela ficou com o mesmo bloco, porque a fonte só fala de um modelo e o conserto que
+resolve é tirar o bloco, decisão do editor. Cerca de 5,7 créditos por rascunho.
