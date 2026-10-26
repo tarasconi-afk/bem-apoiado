@@ -30,6 +30,11 @@ t.bemapoiado.com {
 	handle @hit {
 		reverse_proxy 127.0.0.1:8788
 	}
+	# O Google lê o endereço no script do contador e tenta abrir com GET (26/10: "Não encontrado (404)" no Search
+	# Console). Responde vazio, com o noindex acima: some do relatório de erros.
+	handle /c {
+		respond 204
+	}
 	handle {
 		respond 404
 	}
