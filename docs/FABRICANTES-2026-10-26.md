@@ -75,3 +75,66 @@ empresa responsável e indústrias sem site próprio.
 | Millbrook Beds | millbrookbeds.com.br | cadastrado | Completando o nosso portfólio de produtos, somos a fabricante exclusiva da Millbrook Beds no Brasil. [prova](https://www.plumatex.com.br/a-empresa/) | nao_encontrado | Ficha do London: molas ensacadas 18 cm, 296 molas/m², suporte 200 kg por pessoa, altura 38 cm, garantia 1 ano molas/espumas e 3 meses tecido |
 | Epeda | — | não confirmado |   | nao_encontrado | Sem site brasileiro (epeda.com.br não responde; epeda.es é da Espanha). Reclame Aqui tem perfil 'Epeda' não verificado; Buscapé/Americanas l |
 | Dédicace Paris | dedicace.com.br | cadastrado | Dédicace Paris / Uma marca do Grupo Pikolin ... Fábrica Rodovia BR-280 KM 58 – Nova Esperança Guaramirim / SC  [prova](https://dedicace.com.br/contato/) | nao_encontrado | Ficha do George V traz altura (40 cm) e mola Cross System 250 kg. Garantia não vista na ficha. |
+
+
+## Cama, banho, travesseiro e protetor (26/10/2026)
+
+Mesmo critério. Coteminas/Springs (dona de Artex, MMartan e Casa Moysés; Santista só por licença) ficou fora: site
+institucional sem ficha e lojas das marcas fora do ar no dia da conferência. Longevitech ficou fora: o site não diz que fabrica.
+
+| Marca | Domínio | Situação | Prova | Amazon BR | Observação |
+|---|---|---|---|---|---|
+| Lepper | — | não confirmado |   | sim | www.lepper.com.br responde 200 mas redireciona para /dashboard/ com a pagina padrao 'Welcome to XAMPP' (servidor quebrado/sem site). Sem lepper.com.br |
+| Tecebem (Tecebem Home / Casa Celina) | tecebem.com.br | cadastrado | transformamos aquela estrutura inicial [...] em um complexo industrial moderno de 10.000 m² localizado em Guab [prova](https://www.tecebem.com.br/empresa) | sim | Site e B2B ('focadas exclusivamente no mercado B2B, atendendo lojistas'), sem loja. Paginas de produto (ex. /produto/travesseiros, /produto/casa-celin |
+| Coteminas / Springs Global | coteminas.com.br | confirmado, fora do cadastro | No Brasil a Springs Global possui licença da marca Santista firmada com a Santista Têxtil Ltda. para os segmen [prova](https://www.coteminas.com.br) | sim | www.coteminas.com.br redireciona para pasoe.coteminas.com.br (portal institucional/lojista). Pagina de produtos so lista linhas (Artex, Santista) e le |
+| Artex | artex.com.br | não confirmado |   | sim | www.artex.com.br responde 403 com titulo 'Loja em manutenção' / 'Service Unavailable. HTTP Error 503'. Nao foi possivel ler o site. Dominio linkado pe |
+| Santista | — | não confirmado |   | sim | santista.com.br nao resolve; santistadecora.com.br (linkado pela Coteminas) responde 403 'Loja em manutenção'; santistatextil.com.br 403 'Web App - Un |
+| MMartan | mmartan.com.br | não confirmado |   | incerto | www.mmartan.com.br responde 403 'Loja em manutenção' / 'HTTP Error 503'. Na Amazon a busca 'mmartan' trouxe basicamente aromatizadores/similares de te |
+| Casa Moysés | — | não confirmado |   | incerto | Nenhum dominio encontrado: casamoyses.com.br e casasmoyses.com.br nao resolvem; busca nao achou site. Amazon nao pesquisada especificamente. |
+| Camesa | camesa.com.br | cadastrado | É com essa visão que a Camesa, desde 1980, desenvolve e comercializa a mais completa linha de cama, mesa e ban [prova](https://camesa.com.br/quem-somos/) | sim | Site e vitrine de marca (sem loja propria; botao 'compre aqui'/'revenda'); paginas de linha (ex. /banho/nanosoft) so tem texto de marketing, sem compo |
+| Appel (Appel Home) | appelhome.com.br | cadastrado | A Appel Home Têxtil está entre as pioneiras na fabricação de toalhas no estado de Santa Catarina, sendo hoje u [prova](https://www.appelhome.com.br/) | sim | DUVIDA: a loja declara razao social 'Appel Home Casa Cama Banho Loja Virt. LTDA', CNPJ 42.260.015/0001-39 (no config da pagina, nao visivel no texto)  |
+| Buettner | buettner.com.br | cadastrado | Atualmente, a marca Buettner é licenciada exclusiva da Bouton, também sediada na cidade de Brusque, Santa Cata [prova](https://www.buettner.com.br/) | sim | Quem opera o site e produz e a licenciada Bouton, nao a Buettner historica (fundada 1898). Home e portal B2B ('Buettner para Empresas') com link 'comp |
+| Atlântica | toalhasatlantica.com.br | cadastrado | Toalhas Atlântica · Fabricante de toalhas em Brusque (SC) [...] Rua Ernesto Bianchini, 854 Rio Branco - Brusqu [prova](https://www.toalhasatlantica.com.br/) | sim | Ficha PARCIAL: pagina do Savana lista medidas por peca (ex. 'Lençol Casal (1,38m x 1,88m x 30cm)'), mas composicao/gramatura nao apareceram no trecho  |
+| Kacyumara | kacyumara.com.br | cadastrado | CONFECCOES KACYUMARA LTDA - CNPJ: 43.270.628/0021-63 (loja oficial lojaskacyumara.com.br, linkada pelo site in [prova](https://www.lojaskacyumara.com.br/) | sim | Dois dominios: institucional kacyumara.com.br e loja lojaskacyumara.com.br. CNPJ raiz 43.270.628 tambem aparece em PDF de igualdade salarial no site i |
+| Jolitex | — | não confirmado |   | sim | www.jolitex.com.br existe mas e da 'TECELAGEM JOLITEX LTDA' (Americana/SP, desde 1954), que fala de denim, tecidos para decoracao e colchao, sem nenhu |
+| Hedrons | hedrons.com.br | não confirmado |   | sim | hedrons.com.br bloqueia (403 da Azion, pagina de erro padrao). O buscador nao retornou nenhum trecho do proprio site, so varejistas e um perfil Connec |
+| Theva | theva.com.br | cadastrado | 2017 - A Theva mudou-se para o Parque Industrial em Jundiaí- SP e ampliou a produção. [prova](https://www.theva.com.br/sobre/) | sim | A página Sobre usa o título 'Fábrica de travesseiros e acessórios' e, na linha do tempo, diz 'Eram basicamente esses os produtos da Copespuma'. Em cop |
+| Nap | — | não confirmado |   | sim | Não encontrei site oficial da marca de travesseiros. napbrasil.com.br existe, mas vende sofás infláveis ('Nap Brasil, sua fonte de excelência em sofás |
+| Andreza Enxovais | andrezaenxovais.com.br | cadastrado | Atuamos em 4 unidades fabris, 3 no Estado de São Paulo e 1 no Mato Grosso do Sul [...] Nossa sede está na cida [prova](https://andrezaenxovais.com.br/sobre/) | sim | O site é institucional e tem catálogos, mas não loja online. Não encontrei CNPJ no site. Ficha técnica: composição (ex.: '100% Viscose de Bambu', 300  |
+| Naturalle Fashion | — | não confirmado |   | sim | naturallefashion.com.br (e .com e www) responde com erro Cloudflare 1000 'DNS points to prohibited IP': não há conteúdo e não dá para confirmar o dono |
+| Plooma | plooma.com.br | cadastrado | Fundada em 1966, a Plooma se consolidou como uma das maiores referências do Mercosul no beneficiamento de pena [prova](https://plooma.com.br/sobre/) | sim | Endereço no rodapé: 'Av. Giovanni Gabrielli, 423 – Parque Industrial, Caieiras – SP'. Não encontrei CNPJ no site. Ficha técnica boa: percentuais de pe |
+| Daune | daune.com.br | cadastrado | Possuímos um processo exclusivo de beneficiamento das penas e somos a única empresa nacional a aplicar um trat [prova](https://www.daune.com.br/) | sim | Site em Wix. A home diz 'Desde 1994 [...] uma linha própria de beneficiamento'. Endereço na página de contato (https://www.daune.com.br/blank): 'Rua:  |
+| Miabel | miabel.com.br | cadastrado | em 1948, deu início à primeira indústria de travesseiros de penas e plumas do Brasil [prova](https://www.miabel.com.br/Inicio_1.html) | sim | Site antigo, com rodapé '© 2014'. Contato: 'Miabel Penas e Plumas Cx. Postal 102 • CEP 13460-000 Nova Odessa • SP'. Não encontrei CNPJ. Ficha: 'Traves |
+| Lynel | lynel.com.br | cadastrado | Lynel Indústria Têxtil Ltda / CNPJ: 75.797.118/0001-91. Endereço: Rua Joaquim Mendes, 191 – S Cristóvão, Papan [prova](http://www.lynel.com.br/protetores/) | sim | Fundada em 1981 em Papanduva/SC, segundo a página Sobre (http://www.lynel.com.br/sobre-a-lynel/). A ficha Techlife diz '100% IMPERMEÁVEL e RESPIRÁVEL' |
+| Dunlopillo (Brasil) | dunlopillo.com.br | cadastrado | A través das marcas Theva e Dunlopillo , estão disponíveis acessórios exclusivos [...] © Copespuma Industrial  [prova](https://copespuma.com.br/) | sim | A prova vem do site da dona (Copespuma), não de dunlopillo.com.br, que não mostra razão social nem CNPJ. O SAC (11) 2184-9844 é o mesmo da Theva e da  |
+| Orthocrin | orthocrin.com.br | cadastrado | Orthocrin Indústria e Comércio LTDA 17.245.986/0001-62 Rua Lubomir Abadjieff, nº150 Distrito Industrial Simão  [prova](https://orthocrin.com.br/) | sim | Fabricante de colchões que também faz travesseiros de látex. A loja online própria tem o CNPJ do fabricante no rodapé. O Latexpillow é descrito como ' |
+| Bouton | bouton.com.br | cadastrado | Bouton Ind. e Com. de Artigos de Cama e Banho Ltda Rua do Cedro, 1181 - Bairro Dom Joaquim Cep.: 88359-000 Bru [prova](https://www.bouton.com.br/) | sim | O site cita 'Gerentes Regionais, diretamente interados à fábrica' e certificação ABVTEX. Não encontrei CNPJ. A ficha é rasa ('Percal 1000 Fios, Fio Pe |
+| Longevitech | longevitech.com.br | confirmado, fora do cadastro | LONGEVICORP S/A / CNPJ: 31.746.037/0001-97 AFE 0405054220 [prova](https://longevitech.com.br/) | sim | É a dona da marca, com CNPJ e AFE da Anvisa na loja oficial, endereço em Sorocaba/SP. O site não prova que fabrica e o foco é saúde e geriatria, não c |
+
+## Normas e regulamentos têxteis e de colchão conferidos (26/10/2026)
+
+Achados que importam: no catálogo da ABNT, as NBR 13579 (colchão de espuma) e 15413 (colchão de molas) foram canceladas em
+06/06/2023 e substituídas pela NBR 17034:2023; mas o Inmetro manda usar a versão indicada no regulamento, e o RAC de
+colchões de espuma ainda cita a NBR 13579. Não há norma ABNT de enchimento de travesseiro ou edredom, nem regra oficial
+sobre como declarar "número de fios" (a Portaria Inmetro 118/2021 não trata disso; a NBR 10588 só define o método de medir).
+
+| Número | Título | Órgão | Vigente | URL |
+|---|---|---|---|---|
+| 5.956 | Lei nº 5.956, de 3 de dezembro de 1973 (emprego de fibras têxteis / identificaçã | Presidência da República | sim | https://www.planalto.gov.br/ccivil_03/leis/1970-1979/l5956.htm |
+| 75.074 | Decreto nº 75.074, de 10 de dezembro de 1974 (regulamenta a Lei nº 5.956/1973) | Presidência da República | sim | https://www.planalto.gov.br/ccivil_03/decreto/1970-1979/D75074.htm |
+| 118 | Portaria Inmetro nº 118, de 11 de março de 2021 - Aprova o Regulamento Técnico M | Inmetro | sim | http://sistema-sil.inmetro.gov.br/rtac/RTAC002713.pdf |
+| 118 (Anexo, item 28) | Cama, mesa, banho: informação na embalagem | Inmetro | sim | http://sistema-sil.inmetro.gov.br/rtac/RTAC002713.pdf |
+| 118 (Anexo, itens 1, 1.1 e 15) | Travesseiro: definição de produto têxtil e enchimento | Inmetro | incerto | http://sistema-sil.inmetro.gov.br/rtac/RTAC002713.pdf |
+| 118 (Anexo, itens 6.1, 6.2, 7, 10.1) | Tolerância da composição declarada | Inmetro | sim | http://sistema-sil.inmetro.gov.br/rtac/RTAC002713.pdf |
+| ABNT NBR 10588:2015 | Tecidos planos - Determinação da densidade de fios | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=WFRScmF0WWJ5WWowb3U3M3RQdi9xUU1HMm5WQmJYNGYraUtOQW1TQmNXaz0= |
+| ABNT NBR 10591:2008 | Materiais têxteis - Determinação da gramatura de superfícies têxteis | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=OVhuQ21mR3JkaXM5WkxDY1UxditIWmlkdGIrSEQwbFU= |
+| ABNT NBR 12854:1993 | Tecidos felpudos e aveludados - Construção e tipos - Padronização | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=Z0xCbHM5RnduaFFpdnFEeExBSkVTak0yNy9mcThRM2p1U2hBdHViUzIwUT0= |
+| ABNT NBR 13550:1996 | Artigo de banho e copa em tecido felpudo e aveludado - Hidrofilidade | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=TWgyWFRudFoxMTRjL1BuTTQyM2p3YVNubElKTm5VMUx1UlhQUzBidlVRQT0= |
+| ABNT NBR 13551:1996 | Artigo de banho em tecido felpudo e aveludado para uso doméstico - Tolerância da | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=K3JINjRQaUZaV3JFbldzUmh6MDFCb2hRbnJMRE9WUVphd1IrSjJZVFhBZz0= |
+| ABNT NBR 13748:1996 | Tecido felpudo - Determinação da resistência ao corrimento do fio de felpa | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=YmltdVJIYlJlSy8vd0VzdGtSeDJFUFpwYWlCQTkzYUJBSWlNdzRMNXJ4cz0= |
+| ABNT NBR 16053:2012 | Materiais têxteis finalizados para cama, mesa e banho, confeccionados ou não - D | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=UHFyeTJ2OC9DVVYrb2U4SWQvdGtKL2NlQ2tQNE81N0I5MlorWlBHc1AwST0= |
+| ABNT NBR 17220:2025 | Colchões e componentes de cama - Avaliação da ignitabilidade - Método de ensaio | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=OFBaOHFkR3FVTGNmNzNsalFXNkgzOExUZXR2bllibi93UDRTQ1NsVXZnQT0= |
+| ABNT NBR 13579-1:2011 / 13579-2:2011 | Colchão e colchonete de espuma flexível de poliuretano e bases (Partes 1 e 2) | ABNT | nao | https://www.abntcatalogo.com.br/ |
+| ABNT NBR 15413-1:2013 / 15413-2:2011 | Colchão de molas e bases (Partes 1 e 2) | ABNT | nao | https://www.abntcatalogo.com.br/ |
+| ABNT NBR 17034:2023 | Colchões e colchonetes - Terminologia, requisitos e métodos de ensaio | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=TTNpY2M2aFBROUdVYUpUSmJGVVV2RXlWcVFTNENjS0NNejA3NUx0dWhnYz0= |
+| ABNT NBR NM ISO 3758:2013 (Versão Corrigida 2:2013) | Têxteis - Códigos de cuidado usando símbolos (ISO 3758:2012, IDT) | ABNT | sim | https://www.abntcatalogo.com.br/pnm.aspx?Q=RnJ6QXEyUnJLbTFGS1lrWVVDQ3dvcnAzRm94SForSzVPTHZLMVRoNC9rWT0= |
