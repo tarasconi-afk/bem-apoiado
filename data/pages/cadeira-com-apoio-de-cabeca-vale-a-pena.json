@@ -3,15 +3,16 @@
   "page_type": "buying_guide",
   "status": "draft",
   "title": "Cadeira com apoio de cabeça: vale a pena comprar?",
-  "description": "Saiba quando o apoio de cabeça faz diferença, quais regulagens procurar e como escolher conforme sua altura e postura de trabalho.",
+  "description": "Apoio de cabeça ajudável compensa para quem reclina a cadeira; para quem mede mais de 1,85 m, requer 10 cm de ajuste.",
   "primary_query": "cadeira com apoio de cabeça vale a pena",
   "updated_at": "2026-10-26",
   "verdict": {
-    "text": "O apoio de cabeça compensa se você reclina a cadeira regularmente ou tem altura acima de 1,85 m; para quem trabalha com o encosto reto durante todo o dia, ele pode não funcionar, segundo a Flexform e a ergocadeiras. Procure modelos com ajustes de altura e inclinação, e verifique se o apoio toca a base do crânio (occipital), não a nuca.",
-    "basis": "reasoning",
+    "text": "O apoio de cabeça encosta na cabeça quando a cadeira é reclinada, segundo a Flexform. Para usuários acima de 1,85 m, a ergocadeiras indica pelo menos 10 cm de ajuste de altura, com o apoio alcançando o occipital (base do crânio), não a nuca.",
+    "basis": "evidence",
     "claim_ids": [
       "clm_ae7111a64a6f",
-      "clm_b63093756271",
+      "clm_0cf3b70dc205",
+      "clm_0d3f664da953",
       "clm_790d5cb51b25"
     ]
   },
@@ -22,15 +23,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O apoio de cabeça é indicado principalmente para quem reclina a cadeira. Segundo a Flexform, no modelo Tecton Unique, o apoio só entra em contato com a cabeça quando você reclina; se ficar reto digitando o dia todo, ele não funciona.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_ae7111a64a6f"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Para usuários acima de 1,85 m, o apoio de cabeça precisa ter amplitude mínima de 10 cm de ajuste de altura, segundo a ergocadeiras. Segundo o fabricante, para um usuário de 1,90 m, o apoio de cabeça deve tocar o occipital (base do crânio), numa posição muito mais alta do que a posição padrão da maioria dos apoios.",
+          "text": "Segundo a ergocadeiras, para usuários acima de 1,85 m, recomenda-se um apoio de cabeça com pelo menos 10 cm de amplitude de ajuste que toque o occipital (base do crânio). Para um usuário de 1,90 m, essa posição fica consideravelmente mais alta do que a posição de referência da maioria dos apoios de cabeça.",
           "basis": "evidence",
           "claim_ids": [
             "clm_b63093756271",
@@ -155,20 +148,19 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você tem mais de 1,85 m, escolha um apoio de cabeça com pelo menos 10 cm de amplitude de ajuste de altura e confira se ele alcança o occipital, a base do crânio, segundo a ergocadeiras.",
+          "text": "Se você reclina a cadeira regularmente, o apoio de cabeça oferece suporte quando o encosto inclina. Segundo a Flexform, no modelo Tecton Unique, o apoio só entra em contato com a cabeça quando você reclina; se ficar reto digitando o dia todo, ele não funciona.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_b63093756271",
-            "clm_0d3f664da953",
-            "clm_16ada5202639"
+            "clm_ae7111a64a6f"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você trabalha digitando com o encosto reto durante todo o dia, não pague mais apenas por um apoio de cabeça sem antes verificar se ele entra em contato nessa postura; no modelo Tecton Unique da Flexform, o apoio só entra em contato quando o encosto é reclinado.",
+          "text": "Segundo a ergocadeiras, pessoas acima de 1,85 m devem procurar um apoio de cabeça com amplitude mínima de 10 cm de ajuste de altura. Para um usuário de 1,90 m, a posição do apoio deve ficar consideravelmente mais alta que a referência da maioria dos apoios.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_ae7111a64a6f"
+            "clm_0cf3b70dc205",
+            "clm_0d3f664da953"
           ]
         },
         {
@@ -181,23 +173,31 @@
             "clm_d80d3ed499c0",
             "clm_790d5cb51b25"
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se a cadeira que você escolhe vem com almofada de cabeça removível, como a XT Racer Platinum W, você pode retirá-la.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_3a44b8895439"
+          ]
         }
       ]
     }
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261026T070847_autopilot_71d8",
+    "run_id": "20261026T070847_autopilot_71d8+editor:20261026T174117_cadeira-com-apoio-de-cabeca-vale-a-pena-ajuste_3bfd",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.0625,
       "criteria": 7,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": false
     }
   }
