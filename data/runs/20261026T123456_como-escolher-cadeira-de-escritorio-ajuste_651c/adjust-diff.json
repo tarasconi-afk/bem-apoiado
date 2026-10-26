@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-26T12:35:08.568Z",
+  "instruction": "No bloco requisitos-nbr-13962#1: O leitor pode entender que toda cadeira da Flexform tem base de alumínio com resistência de 1100 kg, mas esse dado é da cadeira Gamer Flexform Alpha 2 Pro Black. Conserto: Reescrever como: “Na ficha da cadeira Gamer Flexform Alpha 2 Pro Black, a Flexform informa base injetada em alumínio com resistência de 1100 kg conforme a NBR 13962.” No bloco capacidade-carga#0: O leitor pode entender que as cadeiras da Flexform suportam 136 kg, mas o trecho informa esse limite apenas para a cadeira Gamer Flexform Alpha 2 Pro Black. Conserto: Reescrever como: “A cadeira Game",
+  "diffs": [
+    {
+      "where": "Requisitos da norma ABNT NBR 13962 · bloco 2",
+      "before": "Segundo a Flexform, a base injetada em alumínio tem resistência de 1100 kg conforme a NBR 13962.",
+      "after": "Na ficha da cadeira Gamer Flexform Alpha 2 Pro Black, a Flexform informa base injetada em alumínio com resistência de 1100 kg conforme a NBR 13962."
+    },
+    {
+      "where": "Capacidade de carga: peso máximo suportado · bloco 1",
+      "before": "A Flexform informa suporte de peso de 136 kg.",
+      "after": "A cadeira Gamer Flexform Alpha 2 Pro Black tem suporte de peso de 136 kg, segundo a ficha do modelo; confira esse dado na ficha técnica da cadeira escolhida."
+    },
+    {
+      "where": "Seguranca dos componentes: cilindro de altura, rodizios · bloco 3",
+      "before": "Segundo a Flexform, o mecanismo possui regulagem de inclinação do encosto e do assento com 5 posições de bloqueio.",
+      "after": "Na cadeira Gamer Flexform Sigma 2 Pro Black, a Flexform informa regulagem de inclinação do encosto e do assento com 5 posições de bloqueio."
+    }
+  ]
+}
