@@ -1,0 +1,206 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha entre tela e estofada conforme o conforto e a durabilidade que busca: cadeiras com tela precisam de tensão uniforme na superfície, enquanto as estofadas devem declarar densidade de espuma adequada. Confira no anúncio o material do assento e encosto, a densidade da espuma quando informada, e a capacidade de carga conforme seu peso. Um mesh de qualidade, segundo a ergocadeiras, tem tensão uniforme e oferece resistência distribuída sem ceder visivelmente. Para uso diário de 8 horas, a Flexform indica espuma de 45 a 55 kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0d08f45d350c",
+        "clm_9fb867a4b596",
+        "clm_338d4e70e583",
+        "clm_13f1d4c8f5e9"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Cadeira de tela ou estofada: como escolher",
+    "description": "Compare cadeira de tela e estofada pelas regulagens, material e capacidade de carga declarados no anúncio para decidir conforme seu uso.",
+    "verdict": {
+      "text": "Escolha entre tela e estofada conforme o conforto e a durabilidade que busca: cadeiras com tela precisam de tensão uniforme na superfície, enquanto as estofadas devem declarar densidade de espuma adequada. Confira no anúncio o material do assento e encosto, a densidade da espuma quando informada, e a capacidade de carga conforme seu peso. Um mesh de qualidade, segundo a ergocadeiras, tem tensão uniforme e oferece resistência distribuída sem ceder visivelmente. Para uso diário de 8 horas, a Flexform indica espuma de 45 a 55 kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0d08f45d350c",
+        "clm_9fb867a4b596",
+        "clm_338d4e70e583",
+        "clm_13f1d4c8f5e9"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-funciona-tela",
+        "heading": "Como funciona a cadeira de tela",
+        "blocks": [
+          {
+            "text": "Segundo os documentos da moveis-schuster, há modelos com assento estofado e encosto em tela e modelos com assento e encosto em tela natural.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5c2b9d978926",
+              "clm_615d8c7804b3"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-funciona-estofada",
+        "heading": "Como funciona a cadeira estofada",
+        "blocks": [
+          {
+            "text": "Cadeiras estofadas podem ter assento e encosto com espuma e revestimento em couro ou tecido, conforme fabricantes como Funcional e moveis-schuster. A Flexform orienta verificar, na ficha técnica, se a densidade da espuma está na faixa de 45 a 55 kg/m³ para uso diário de 8 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8de95003ec1",
+              "clm_dc69393ab2af",
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "regulagens-disponiveis",
+        "heading": "Regulagens que a NR-17 usa como referência",
+        "blocks": [
+          {
+            "text": "Uma norma do Ministério do Trabalho para postos de atendimento por telefone usa como referência que o encosto seja ajustável em altura e em sentido anteroposterior (para frente e trás), com forma levemente adaptada ao corpo para proteção da região lombar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0745d04d72dd",
+              "clm_0e1f55dc4e65"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A mesma norma lista como referência largura mínima de 40 cm para o assento e, para os encostos, largura mínima de 30,5 cm para essa modalidade de trabalho.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_08f26b7be98f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira no anúncio ou na ficha técnica quais regulagens cada modelo oferece de fato.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir",
+        "heading": "O que conferir no anúncio ou ficha técnica",
+        "blocks": [
+          {
+            "text": "No anúncio ou ficha técnica, confira se estão declarados os materiais do assento e do encosto, a densidade da espuma em kg/m³ quando houver estofamento e a capacidade de carga declarada, segundo a Flexform e a moveis-schuster. Também verifique quais regulagens são informadas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_13f1d4c8f5e9",
+              "clm_5c2b9d978926",
+              "clm_338d4e70e583"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o anúncio descrever a cadeira como tendo assento estofado e encosto em tela, confirme essa configuração específica, pois há modelos que variam essas combinações, segundo a moveis-schuster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5c2b9d978926",
+              "clm_615d8c7804b3"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre tela e estofada",
+        "blocks": [
+          {
+            "text": "Se você optar por uma cadeira com mesh, pressione a tela para verificar se, segundo a ergocadeiras, um mesh de qualidade tem tensão uniforme, resistência distribuída e não cede visivelmente em um ponto específico.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0d08f45d350c",
+              "clm_9fb867a4b596"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você optar por uma cadeira estofada para uso diário de 8 horas, confira se a ficha técnica declara espuma na faixa de 45 a 55 kg/m³, segundo a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_338d4e70e583",
+              "clm_9fc25f39126c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você escolher entre assento estofado e assento em tela, confirme no anúncio qual é a configuração: há modelos com assento estofado e encosto em tela e outros com assento e encosto totalmente em tela, segundo a moveis-schuster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5c2b9d978926",
+              "clm_615d8c7804b3"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#3.r1",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "a coluna \"Cadeira de tela\" repete \"Não informado nos trechos citados\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "a coluna \"Cadeira estofada\" repete \"Não informado nos trechos citados\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "msg": "não escreva \"trechos citados\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\") ou o que não foi informado (\"a ficha não informa\")."
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "msg": "não escreva \"trechos citados\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\") ou o que não foi informado (\"a ficha não informa\")."
+    }
+  ],
+  "usage": {
+    "input_tokens": 12484,
+    "output_tokens": 393
+  }
+}
