@@ -37,7 +37,7 @@ rótulo da 1ª coluna da tabela; frases vagas de fabricante sobre durabilidade. 
 - [ ] produtos no piloto automático (etapa após página aprovada) e renovação da disponibilidade (< 30 dias) (a busca devolve
       Instagram/YouTube/Buscapé antes do fabricante; Emma recusa conexão; Ortobom carrega produtos por JS)
 - [x] hospedagem Hostinger (Business u226814741): https://darkslategrey-rail-669974.hostingersite.com via GitHub Action → ramo deploy (plano B manual: `npm run deploy:hostinger`)
-- [x] painel só-leitura com senha: https://srv2079501.hstgr.cloud/painel/ (timer de 5 min)
+- [x] painel só-leitura com senha: https://admin.bemapoiado.com/ (timer de 5 min; até 26/10 em srv2079501.hstgr.cloud/painel/)
 - [x] etapa "editor": só corta/encurta/junta blocos aprovados; reescrita só cita evidência que já estava no
       bloco; blocos reescritos voltam ao auditor e só a edição reprovada é descartada (1ª página: −2 blocos, ~11 créditos)
 - [x] busca na web (Tavily, plano grátis) com teto mensal duro de 1.400 créditos e contador na VPS

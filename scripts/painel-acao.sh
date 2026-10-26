@@ -59,7 +59,7 @@ preview() {
 }
 
 # Prévia de cada ramo do motor ainda não aceito: o build usa os dados do ramo (git archive de data/)
-# com o código do main, em /painel/previa/<ramo>/ (atrás da senha do painel). Só refaz quando o ramo anda.
+# com o código do main, em admin.bemapoiado.com/previa/<ramo>/ (atrás da senha do painel). Só refaz quando o ramo anda.
 PREVIAS=/var/lib/bem-apoiado/previas
 branch_previews() {
   mkdir -p "$PREVIAS"
@@ -76,7 +76,7 @@ branch_previews() {
     # durante o build da prévia; depois a pasta volta exatamente ao main.
     git archive "$ref" site/src/assets/generated 2>/dev/null | tar -x -C . 2>/dev/null || true
     local ok=0
-    BEM_ROOT="$tmp" SITE_URL=https://srv2079501.hstgr.cloud SITE_SHOW_DRAFTS=true SITE_BASE="/painel/previa/$dir/" \
+    BEM_ROOT="$tmp" SITE_URL=https://srv2079501.hstgr.cloud SITE_SHOW_DRAFTS=true SITE_BASE="/previa/$dir/" \
         SITE_OUT_DIR="$PREVIAS/$dir.new" npm run -s build -w site >/dev/null 2>&1 && ok=1
     git checkout -q -- site/src/assets/generated; git clean -qfd site/src/assets/generated
     if [ $ok = 1 ]; then

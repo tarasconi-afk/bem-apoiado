@@ -165,7 +165,7 @@ export const sourcesCount = (page: PageSpec) => footnotesFor(page).notes.length;
 const IMAGES = loadImageRegistry(ROOT);
 export const imageFor = (idOrKind: string) => IMAGES.find((r) => r.id === idOrKind) ?? IMAGES.find((r) => r.kind === idOrKind);
 
-// Links internos respeitam o caminho-base do build (a prévia de ramo no painel vive em /painel/previa/<ramo>/).
+// Links internos respeitam o caminho-base do build (a prévia de ramo no painel vive em /previa/<ramo>/, em admin.bemapoiado.com).
 export const href = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
 
 // Ordem dos guias na home: a do Search Console (data/home-order.json, gravada pelo ciclo) quando existe;

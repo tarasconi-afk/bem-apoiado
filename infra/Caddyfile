@@ -4,11 +4,10 @@ srv2079501.hstgr.cloud {
 	header X-Robots-Tag "noindex, nofollow"
 	header -Server
 
-	redir /painel /painel/
-	# Senha conferida pelo próprio painel (admin.ts), que permite trocá-la pela tela.
+	# O painel mudou para admin.bemapoiado.com (26/10); o endereço antigo leva para lá, com o mesmo caminho.
+	redir /painel https://admin.bemapoiado.com/ 301
 	handle_path /painel/* {
-		header Cache-Control "no-store"
-		reverse_proxy 127.0.0.1:8787
+		redir https://admin.bemapoiado.com{uri} 301
 	}
 
 	handle {
@@ -17,6 +16,15 @@ srv2079501.hstgr.cloud {
 		header @assets Cache-Control "public, max-age=31536000, immutable"
 		file_server
 	}
+}
+
+# Painel do motor. Senha conferida pelo próprio painel (admin.ts), que permite trocá-la pela tela.
+admin.bemapoiado.com {
+	encode zstd gzip
+	header X-Robots-Tag "noindex, nofollow"
+	header -Server
+	header Cache-Control "no-store"
+	reverse_proxy 127.0.0.1:8787
 }
 
 # Contador de visitas: só recebe POST /c do site (sem cookie, sem IP guardado). Nada mais é servido aqui.

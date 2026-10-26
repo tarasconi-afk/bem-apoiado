@@ -13,11 +13,12 @@ import { MAX_IMPROVE_ATTEMPTS, retryOff } from './stages/improve.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
-import { queueStatus, slugOf } from './stages/autopilot.ts';
+import { creditsToday, DAILY_CREDIT_CAP, queueStatus, slugOf } from './stages/autopilot.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
-import { setReportedBalance } from './credits.ts';
+import { balanceNow, setReportedBalance } from './credits.ts';
+import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
@@ -34,8 +35,9 @@ import { loadAnnounce } from './announce.ts';
 // um job por vez.
 
 const PORT = Number(process.env.BEM_PANEL_PORT ?? 8787);
-const ORIGIN = process.env.BEM_PANEL_ORIGIN ?? 'https://srv2079501.hstgr.cloud';
-const BASE = process.env.BEM_PANEL_BASE ?? '/painel/';
+// Painel em subdomínio próprio desde 26/10 (antes: srv2079501.hstgr.cloud/painel/, que agora redireciona para cá).
+const ORIGIN = process.env.BEM_PANEL_ORIGIN ?? 'https://admin.bemapoiado.com';
+const BASE = process.env.BEM_PANEL_BASE ?? '/';
 const PREVIEW = process.env.BEM_PREVIEW_URL ?? 'https://srv2079501.hstgr.cloud';
 const STATE = process.env.BEM_STATE_DIR ?? '/var/lib/bem-apoiado';
 const JOBS_FILE = join(STATE, 'painel-jobs.json');
@@ -266,18 +268,7 @@ ${announceHtml()}
 
 ${siteAuditHtml()}
 
-<h2>Saldo de créditos</h2>
-<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="saldo">
-<input name="saldo" required inputmode="decimal" placeholder="saldo de créditos mostrado no hPanel agora (ex.: 4850)"><button class="ok">Registrar saldo</button></form>
-<p class="muted">Basta informar de vez em quando (ex.: depois de recarregar). O painel desconta o gasto real registrado a partir daí.</p>
-
-<h2>Senha do painel</h2>
-<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="senha">
-<input type="password" name="atual" required autocomplete="current-password" placeholder="senha atual">
-<input type="password" name="nova" required minlength="${MIN_PASSWORD}" autocomplete="new-password" placeholder="nova (mín. ${MIN_PASSWORD} caracteres)">
-<input type="password" name="confirma" required minlength="${MIN_PASSWORD}" autocomplete="new-password" placeholder="repita a nova">
-<button class="ok">Trocar senha</button></form>
-<p class="muted">Depois de trocar, o navegador pede a senha nova (usuário continua <code>admin</code>).</p>
+${configHtml()}
 
 ${jobs.length ? `<h2>Últimas ações</h2><div class="tw"><table><thead><tr><th>Quando</th><th>Ação</th><th>Resultado</th></tr></thead><tbody>${jobs.slice(0, 10).map((j) => `<tr><td class="muted">${esc(fmt(j.started))}</td><td>${esc(j.label)}</td><td>${j.queued ? '<span class="b neutral">na fila</span>' : !j.ended ? '<span class="b neutral">rodando</span>' : j.code === 0 ? '<span class="b ok">ok</span>' : '<span class="b bad">falhou</span>'}<details><summary class="muted">saída</summary><pre>${esc(j.output.trim() || '(vazia)')}</pre></details></td></tr>`).join('')}</tbody></table></div>` : ''}`;
 }
@@ -707,7 +698,7 @@ if (location.search) history.replaceState(null, '', location.pathname);
 (function () {
   var MAP = [['Quadro de decisões','decisoes'],['Páginas no ar','paginas'],['Pedir ao motor','decisoes'],['Esperando sua decisão','decisoes'],['Páginas: seu veredito','decisoes'],['Fila de pautas','conteudo'],['Produtos à venda','produtos'],['Domínios novos','conteudo'],
     ['Visitas','desempenho'],['Modo sombra','desempenho'],['Google Search Console','desempenho'],['Qualidade do motor','desempenho'],['Créditos de IA','desempenho'],
-    ['Saldo de créditos','config'],['Senha do painel','config']];
+    ['Configurações','config']];
   var NAMES = { decisoes: 'Decisões', paginas: 'Páginas', produtos: 'Produtos', conteudo: 'Conteúdo', desempenho: 'Desempenho', motor: 'Motor', config: 'Configurações' };
   var main = document.querySelector('main'); if (!main) return;
   var grid = main.querySelector('.kpis') || main.querySelector('.grid'); if (!grid) return;
@@ -994,6 +985,18 @@ details.old{margin:24px 0 8px}
 .sug{margin-top:6px}.sug summary{cursor:pointer;font-size:.88rem}.sug ul{margin:4px 0 6px 18px;padding:0}
 .pacts{display:flex;flex-direction:column;gap:6px;margin-top:6px;min-width:260px}
 .flash{background:var(--nbg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}.bad-flash{background:var(--badbg);color:var(--bad);border-color:var(--bad)}
+/* Configurações (26/10): cartões que abrem um painel cada, campos com rótulo (modelo do admin do FC LAB). */
+.cfg-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0 16px}
+.cfg-card{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.cfg-card:hover{border-color:var(--accent)}.cfg-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cfg-card[aria-pressed="true"]{border-color:var(--accent);background:var(--accentbg)}
+.cfg-card .cfg-ic{font-size:1.5rem;line-height:1}.cfg-card b{font:700 1rem/1.25 var(--fd);margin-top:6px}.cfg-card .muted{font-size:.82rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cfg-panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 14px}.cfg-panel h3{font:700 1.05rem/1.25 var(--fd);margin:0 0 10px}
+.cfg-form{display:flex;flex-direction:column;gap:12px;max-width:520px;margin:8px 0}
+.cfg-form fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 14px 12px;margin:0}
+.cfg-form legend{font-size:.82rem;color:var(--muted);padding:0 6px}.cfg-form input{width:100%;padding:8px 10px}.cfg-form small{display:block;margin-top:6px;font-size:.78rem}
+.cfg-actions{display:flex;gap:8px}.cfg-panel .bar{max-width:260px;margin-top:6px}
+@media (max-width:860px){.cfg-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 form.inline{display:inline}form.verdict{display:flex;gap:6px;flex-wrap:wrap}form.verdict input{flex:1;min-width:180px}
 input,select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
 button{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:7px;border:1px solid var(--line);cursor:pointer;background:var(--nbg);color:var(--n)}
@@ -1047,6 +1050,67 @@ function noteShadow(f: URLSearchParams): void {
   } catch {
     /* o registro nunca impede a ação */
   }
+}
+
+// Configurações (26/10, no modelo do admin do FC LAB): cartões no topo, um painel por cartão, campos com rótulo e
+// botões que dizem o que fazem. O painel tem um usuário só (admin, senha conferida aqui), então não há tela de
+// usuários nem de sessões: o navegador guarda a senha até ser fechado. Sem script, os quatro painéis aparecem juntos.
+function configHtml(): string {
+  const bal = balanceNow();
+  const n = (v: number) => Math.round(v).toLocaleString('pt-BR');
+  const tavily = creditsThisMonth();
+  const today = creditsToday();
+  const meter = (used: number, cap: number) => `<div class="bar" title="${n(used)} de ${n(cap)}"><i style="width:${Math.min(100, (used / cap) * 100).toFixed(0)}%"></i></div>`;
+  const card = (id: string, icon: string, title: string, sub: string) =>
+    `<button type="button" class="cfg-card" data-cfg="${id}" aria-controls="cfg-${id}"><span class="cfg-ic" aria-hidden="true">${icon}</span><b>${title}</b><span class="muted">${sub}</span></button>`;
+  const field = (legend: string, input: string, hint = '') => `<fieldset><legend>${legend}</legend>${input}${hint ? `<small class="muted">${hint}</small>` : ''}</fieldset>`;
+  return `<h2>Configurações</h2>
+<p class="muted">Acesso ao painel, senha, créditos e limites do motor. Nada aqui muda o site.</p>
+<div class="cfg-grid">
+${card('senha', '🔒', 'Minha senha', 'Trocar a senha de entrada')}
+${card('saldo', '💳', 'Saldo de créditos', bal.estimate == null ? 'Nenhum saldo informado' : `Estimado: ${n(bal.estimate)}`)}
+${card('acesso', '🌐', 'Acesso ao painel', esc(ORIGIN.replace(/^https?:\/\//, '')))}
+${card('limites', '⚙️', 'Limites do motor', `Hoje: ${n(today)} de ${n(DAILY_CREDIT_CAP)} créditos`)}
+</div>
+
+<section class="cfg-panel" id="cfg-senha"><h3>Minha senha</h3>
+<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="senha">
+${field('Senha atual', '<input type="password" name="atual" required autocomplete="current-password">')}
+${field('Nova senha', `<input type="password" name="nova" required minlength="${MIN_PASSWORD}" autocomplete="new-password">`, `Pelo menos ${MIN_PASSWORD} caracteres.`)}
+${field('Confirmar nova senha', `<input type="password" name="confirma" required minlength="${MIN_PASSWORD}" autocomplete="new-password">`)}
+<div class="cfg-actions"><button class="ok big">Alterar senha</button></div></form>
+<p class="muted">Usuário: <code>admin</code>. Depois de alterar, o navegador pede a senha nova.</p></section>
+
+<section class="cfg-panel" id="cfg-saldo"><h3>Saldo de créditos</h3>
+<dl class="dl">${bal.reported ? `<dt>Último saldo informado</dt><dd>${n(bal.reported.reported)} em ${esc(fmt(bal.reported.reported_at))}</dd><dt>Gasto desde então</dt><dd>${n(bal.spentSince)}</dd><dt>Saldo estimado agora</dt><dd><b>${n(bal.estimate ?? 0)}</b></dd>` : '<dt>Saldo</dt><dd>nenhum informado ainda</dd>'}</dl>
+<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="saldo">
+${field('Saldo mostrado no hPanel agora', '<input name="saldo" required inputmode="decimal" placeholder="ex.: 4850">', 'Informe de vez em quando, por exemplo depois de recarregar. O painel desconta o gasto real registrado a partir daí.')}
+<div class="cfg-actions"><button class="ok big">Registrar saldo</button></div></form></section>
+
+<section class="cfg-panel" id="cfg-acesso"><h3>Acesso ao painel</h3>
+<dl class="dl"><dt>Endereço</dt><dd><a href="${esc(ORIGIN + BASE)}">${esc(ORIGIN.replace(/^https?:\/\//, '') + BASE)}</a></dd>
+<dt>Usuário</dt><dd><code>admin</code> (único)</dd>
+<dt>Proteção</dt><dd>senha conferida pelo painel, com HTTPS; 10 erros seguidos bloqueiam o endereço de quem tentou por 15 minutos</dd>
+<dt>Ações</dt><dd>só são aceitas quando enviadas pelo próprio painel</dd>
+<dt>Google</dt><dd>fora da busca (noindex)</dd>
+<dt>Sair</dt><dd>o navegador guarda a senha até ser fechado; feche o navegador para sair</dd></dl></section>
+
+<section class="cfg-panel" id="cfg-limites"><h3>Limites do motor</h3>
+<dl class="dl"><dt>Por ciclo</dt><dd>até ${n(Number(process.env.BEM_CYCLE_BUDGET ?? 40))} créditos de IA</dd>
+<dt>Por dia (ciclos)</dt><dd>${n(today)} de ${n(DAILY_CREDIT_CAP)} créditos hoje${meter(today, DAILY_CREDIT_CAP)}</dd>
+<dt>Busca na web no mês</dt><dd>${n(tavily)} de ${n(MONTHLY_CREDIT_CAP)} créditos Tavily${meter(tavily, MONTHLY_CREDIT_CAP)}</dd></dl>
+<p class="muted">Ajustes, pedidos e auditorias feitos pelo painel não entram no limite diário. Mudar estes limites ainda é feito na VPS.</p></section>
+<script>(function () {
+  var cards = document.querySelectorAll('.cfg-card'); if (!cards.length) return;
+  function pick(id) {
+    cards.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.cfg === id ? 'true' : 'false'); });
+    document.querySelectorAll('.cfg-panel').forEach(function (p) { p.hidden = p.id !== 'cfg-' + id; });
+    try { localStorage.setItem('painel-cfg', id); } catch (e) {}
+  }
+  cards.forEach(function (c) { c.onclick = function () { pick(c.dataset.cfg); }; });
+  var saved = null; try { saved = localStorage.getItem('painel-cfg'); } catch (e) {}
+  pick(saved && document.getElementById('cfg-' + saved) ? saved : 'senha');
+})();</script>`;
 }
 
 // Auditoria do site (Configurações; camada 1 do ROADMAP F, 26/10): a coerência nas páginas no ar; cada página com

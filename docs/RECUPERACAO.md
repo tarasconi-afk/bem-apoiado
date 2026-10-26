@@ -44,7 +44,7 @@ um do outro: perder um dos dois não perde o projeto.
 ## 4. Cenários
 
 **Perdi o computador ou o acesso à IA (VPS e GitHub intactos).** Nada se perde. O motor continua rodando
-sozinho (4 ciclos por dia) e o painel (`https://srv2079501.hstgr.cloud/painel/`) continua funcionando.
+sozinho (4 ciclos por dia) e o painel (`https://admin.bemapoiado.com/`) continua funcionando.
 - **Acesso à VPS:** terminal do navegador no hPanel, ou uma chave SSH nova cadastrada pelo hPanel.
 - **Retomar com uma IA nova:** clonar o repositório e pedir que ela leia a seção 2 antes de mudar qualquer coisa.
 
@@ -54,7 +54,7 @@ sozinho (4 ciclos por dia) e o painel (`https://srv2079501.hstgr.cloud/painel/`)
 3. Copiar `infra/*.service`, `*.timer` e `*.path` para `/etc/systemd/system/` e o `infra/Caddyfile` para
    `/etc/caddy/`. `systemctl daemon-reload` e ativar os timers.
 4. Recriar `/etc/bem-apoiado/env`, a senha do painel e a chave do Search Console (seção 3).
-5. Apontar o DNS do painel e do contador (`t.bemapoiado.com`) para o IP novo.
+5. Apontar o DNS do painel (`admin.bemapoiado.com`) e do contador (`t.bemapoiado.com`) para o IP novo.
 
 O site não para: ele é servido pela hospedagem, não pela VPS.
 

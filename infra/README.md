@@ -1,7 +1,7 @@
 # Infraestrutura (VPS srv2079501)
 
-- `Caddyfile` → `/etc/caddy/Caddyfile`. Prévia em `/var/www/bem-apoiado` (com rascunhos); `/painel/` é
-  proxy para o painel admin.
+- `Caddyfile` → `/etc/caddy/Caddyfile`. Prévia em `/var/www/bem-apoiado` (com rascunhos); o painel admin
+  fica em `admin.bemapoiado.com` (proxy para 127.0.0.1:8787); `/painel/` antigo redireciona para lá.
 - `bem-apoiado-admin.service`: painel admin (`npm run engine -- admin`, 127.0.0.1:8787, usuário `bemapoiado`).
   A senha é conferida pelo painel (hash scrypt em `/var/lib/bem-apoiado/painel-auth.json`, 600) e trocada
   pela própria tela. Definir sem a tela: `npm run -s engine -- admin-senha` lendo a senha da entrada padrão.
