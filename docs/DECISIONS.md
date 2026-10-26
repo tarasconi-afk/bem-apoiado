@@ -691,3 +691,15 @@ saúde ("hérnia de disco") e fora do tema ("protetor para porta"). Por isso: os
 na lista de proibidos, e "base", "protetor" e "mesa" sozinhos deixaram de ser semente. 6 pautas de sono escolhidas
 à mão entraram na fila. Mesa e suporte para notebook não têm fabricante cadastrado, e as fontes encontradas são
 fichas de loja, o mesmo padrão das cadeiras. Ficam para depois.
+
+## 2026-10-26 · Roupa de cama entra no nicho
+Decisão do editor (opção A). A meta de 50 páginas precisava de umas 30 pautas, e a fila tinha 10. Roupa de cama
+continua no tema sono e tem o tipo de fonte em que o motor vai bem: ficha de fabricante com o número que decide.
+Teste com o extrator do motor: Döhler dá "100% algodão, 130 fios, gramatura de 100 g/m²"; Trussardi dá "Quantidade
+de fios: 300 fios cetim; fio egípcio, mercerizado e sanforizado". Home office (mesa, suporte) ficou para depois: as
+fontes são fichas de loja, o padrão das cadeiras. Entraram 3 tipos (jogo de cama, edredom, cobertor), a categoria
+"Roupa de cama" e 9 fabricantes com página de produto: Döhler, Trussardi, Karsten, Teka, Buddemeyer, Altenburg,
+Plumasul, Corttex e Sultan. Também a dica do regulador (Inmetro, etiquetagem de produtos têxteis). As pautas vieram
+do autocompletar do Google, gratuito, com triagem feita à mão (a triagem automática deixou passar saúde e
+duplicatas). Ficaram de fora: fronha de cetim para cabelo e pele (promessa de beleza e saúde), cobertor ponderado
+(ansiedade e autismo), alergia e rinite, e duplicatas de páginas existentes. 27 pautas novas; a fila tem 43 disponíveis.

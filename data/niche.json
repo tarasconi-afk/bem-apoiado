@@ -1,12 +1,13 @@
 {
   "brand": "Bem Apoiado",
   "site_tagline": "Escolha com o que está escrito, não com o que é prometido.",
-  "site_intro": "Guias sobre colchão, travesseiro e cadeira feitos a partir de normas técnicas, órgãos reguladores e fichas de fabricantes. Cada afirmação aponta para o trecho exato da fonte.",
-  "scope": "compras de sono e home office (colchão, travesseiro, base de cama, cadeira e mesa de trabalho)",
+  "site_intro": "Guias sobre colchão, travesseiro, roupa de cama e cadeira feitos a partir de normas técnicas, órgãos reguladores e fichas de fabricantes. Cada afirmação aponta para o trecho exato da fonte.",
+  "scope": "compras de sono e home office (colchão, travesseiro, base de cama, roupa de cama, cadeira e mesa de trabalho)",
   "audience": "leigos que vão comprar e querem decidir sem cair em propaganda",
   "category_label": "Sono e home office",
   "regulator_hints": [
     "Inmetro (certificação compulsória de colchões de espuma e de molas; perguntas frequentes em gov.br/inmetro)",
+    "Inmetro (etiquetagem de produtos têxteis: composição das fibras e cuidados de conservação na etiqueta de lençol, edredom e cobertor)",
     "Diário Oficial da União (texto das portarias)",
     "ABNT (normas NBR de colchões e de cadeiras de escritório)",
     "Anvisa (só para produtos com finalidade terapêutica registrados)",
@@ -65,6 +66,18 @@
       "id": "pillow_top",
       "label": "Pillow top",
       "accessory": true
+    },
+    {
+      "id": "jogo_de_cama",
+      "label": "Jogo de cama"
+    },
+    {
+      "id": "edredom",
+      "label": "Edredom"
+    },
+    {
+      "id": "cobertor",
+      "label": "Cobertor"
     },
     {
       "id": "outro",
@@ -126,6 +139,16 @@
       "intro": "Altura, material e o que os fabricantes declaram sobre cada tipo de travesseiro.",
       "kinds": [
         "travesseiro"
+      ]
+    },
+    {
+      "id": "roupa-de-cama",
+      "label": "Roupa de cama",
+      "intro": "Lençol, edredom e cobertor: fios, tecido, gramatura e o que a etiqueta e os fabricantes informam.",
+      "kinds": [
+        "jogo_de_cama",
+        "edredom",
+        "cobertor"
       ]
     },
     {

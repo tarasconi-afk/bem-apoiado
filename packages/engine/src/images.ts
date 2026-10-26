@@ -146,7 +146,7 @@ export function productSubject(kindLabel: string, label: string, brand: string, 
   return (
     `ilustração de anúncio: UM único ${kindLabel} genérico com o formato, a cor e o material descritos em "${desc}" ` +
     `(ignore nomes de modelo e de marca). Cena: ${scene}. Enquadramento: ${view}, o produto inteiro e em destaque, no lugar onde é usado ` +
-    `(colchão e base de cama montados no quarto; travesseiro sobre a cama arrumada; cadeira junto à mesa). ` +
+    `(colchão e base de cama montados no quarto; travesseiro sobre a cama arrumada; jogo de cama, edredom e cobertor estendidos ou dobrados sobre a cama; cadeira junto à mesa). ` +
     `Termine o prompt com "Generic design, no recognizable model." O alt começa com "Ilustração: " e descreve tipo, cor e material.`
   );
 }
