@@ -12,6 +12,9 @@ const sourceNote = (s: Source) => s.note;
 import { buildIndex, CLAIMS_DIR, DATA, loadPages, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
 import { claimIdFor, loadTopic } from './research.ts';
 import { loadRegistry } from './discover.ts';
+import { inCatalog, saveCitedModels } from './cited.ts';
+
+export { inCatalog };
 
 // Catálogo de afiliados a partir das fichas de fabricante já capturadas para a pauta:
 // ficha (spec literal) → mesmo produto na Amazon (anúncio capturado via Tavily) → identidade conferida
@@ -449,12 +452,6 @@ export function pageText(page: { verdict: { text: string }; sections: { blocks: 
   return [page.verdict.text, ...page.sections.flatMap((x) => (x.blocks as B[]).map((b) => (b.kind === 'table' ? [...(b.columns ?? []), ...(b.rows ?? []).flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text ?? '')))].join('\n');
 }
 
-// O catálogo já tem este modelo (mesma marca e o nome do modelo no rótulo)?
-export function inCatalog(m: { brand: string; model: string }, products: { brand: string; label: string }[]): boolean {
-  const tokens = loose(m.model).split(/\s+/).filter((t) => t.length >= 3);
-  return products.some((p) => loose(p.brand) === loose(m.brand) && tokens.length > 0 && tokens.every((t) => loose(p.label).includes(t)));
-}
-
 // Busca na Amazon os modelos que a página cita e o catálogo ainda não tem (até 3 por vez, 1 anúncio aceito por modelo).
 export async function findCitedProducts(slug: string, runId: string, fetchImpl?: FetchLike, decide: Decider = jevDecide): Promise<ProductsReport & { cited: string[] }> {
   const report: ProductsReport = { run_id: runId, topic: slug, candidates: 0, added: [], skipped: [] };
@@ -463,6 +460,7 @@ export async function findCitedProducts(slug: string, runId: string, fetchImpl?:
   const niche = loadNiche();
   if (!page || !topic.product_kinds.length) return { ...report, cited: [] };
   const models = await citedModels(page, topic.product_kinds, fetchImpl);
+  saveCitedModels(slug, models);
   const missing = models.filter((m) => !inCatalog(m, loadProducts())).slice(0, 3);
   const ctx: ListingCtx = {
     runId, kinds: topic.product_kinds, labels: new Map(niche.product_kinds.map((k) => [k.id, k.label])), accessory: new Set(niche.product_kinds.filter((k) => k.accessory).map((k) => k.id)),

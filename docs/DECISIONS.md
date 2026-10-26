@@ -714,3 +714,17 @@ tamanhos, algodão ou microfibra, enxuga melhor, não solta pelo, fio penteado o
 atoalhado ou microfibra, como escolher roupão. Comparação de marca ficou fora (o site não faz ranking). O tipo
 "Jogo de cama" passou a se chamar "Lençol e jogo de cama": sem "lençol" no nome, a palavra não entrava nos termos do
 nicho, e páginas de lençol de domínios novos eram filtradas como fora do tema.
+
+## 2026-10-26 · Link pelo nome do modelo citado (editor: "sim")
+O editor mandou o anúncio do Probel Guarda Costas solteiro 88×188×20. Ele não entrou como card. Guarda Costas é uma
+linha com várias densidades (D20 a D33, conforme a altura), e esse solteiro é anunciado até 60 kg. A página do
+casal cita o Guarda Costas "até 150 kg por pessoa". Com a regra "modelo citado primeiro", o card apareceria
+como se fosse o modelo citado.
+
+O que entrou no lugar:
+- **Link de busca pelo nome** ("Ver Probel Guarda Costas na Amazon") para cada modelo citado sem anúncio aceito,
+  no máximo 3. O aviso diz que a linha pode ter versões diferentes e que é preciso conferir a versão na ficha.
+- **Os modelos citados ficam gravados** em `data/cited-models.json`, a cada leitura da manutenção.
+- **Página sem registro entra antes dos 30 dias**, à razão de uma por ciclo, até cobrir as que estão no ar.
+- **O código descarta medida e linha genérica:** "Excede Premium Casal" vira "Excede Premium"; "Simmons Pillow
+  Top" sozinho não gera link.

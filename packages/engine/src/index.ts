@@ -5,3 +5,4 @@ export * from './niche.ts';
 export { loadRegistry as loadImageRegistry, type ImageRecord } from './images.ts';
 export { loadAnchors } from './stages/links.ts';
 export { loadSearchLinks } from './stages/search-links.ts';
+export { citedSearchLinks, loadCitedModels } from './stages/cited.ts';

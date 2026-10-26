@@ -469,7 +469,11 @@ async function maintainProducts(runId: string, steps: string[], only?: string): 
   // Modelos que a página cita pelo nome, à venda (26/10): uma página por ciclo, cada uma a cada 30 dias; a página
   // recém-aprovada (only) primeiro.
   const citedTried = readState<Record<string, string>>('cited-products-attempts.json', {});
-  const citedNext = only ? [only] : loadPages().filter((p) => p.status !== 'draft' && Date.now() - Date.parse(citedTried[p.slug] ?? '1970-01-01') > 30 * 86_400_000).map((p) => p.slug);
+  // Página sem modelos gravados em data/cited-models.json (criado em 26/10) entra antes dos 30 dias: é o que
+  // alimenta o link pelo nome no site.
+  const { loadCitedModels } = await import('./cited.ts');
+  const saved = loadCitedModels().pages;
+  const citedNext = only ? [only] : loadPages().filter((p) => p.status !== 'draft' && (!saved[p.slug] || Date.now() - Date.parse(citedTried[p.slug] ?? '1970-01-01') > 30 * 86_400_000)).map((p) => p.slug);
   for (const slug of citedNext.slice(0, 1)) {
     if (creditsLeft() < PRODUCTS_MIN_CREDITS) break;
     citedTried[slug] = new Date().toISOString();

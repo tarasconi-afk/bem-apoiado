@@ -4,7 +4,7 @@ import Cite from '../components/Cite.astro';
 import Linked from '../components/Linked.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { BRAND, comparesKinds, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
+import { BRAND, comparesKinds, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, citedLinksFor, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
@@ -15,6 +15,7 @@ const { page } = Astro.props as { page: PageSpec };
 const fn = footnotesFor(page);
 const products = productsFor(page);
 const searches = searchLinksFor(page);
+const citedLinks = citedLinksFor(page);
 const n = fn.numberFor;
 const kinds = kindsFor(page);
 // Item específico com capa própria já gerada: capa no lugar da grade de tipos.
@@ -29,7 +30,7 @@ const links = inlineLinks(page);
 const decisionIdx = page.sections.length - 1;
 const sections = decisionIdx >= 0 ? [page.sections[decisionIdx]!, ...page.sections.filter((_, i) => i !== decisionIdx)] : page.sections;
 const n0 = sections.length;
-const examplesAfter = products.length === 0 && searches.length === 0 ? -1 : THEME.examples_position === 'fim' ? n0 - 1 : 0;
+const examplesAfter = products.length === 0 && searches.length === 0 && citedLinks.length === 0 ? -1 : THEME.examples_position === 'fim' ? n0 - 1 : 0;
 const detailsFrom = decisionIdx >= 0 ? 1 : -1;
 const T = THEME.texts;
 const kicker = page.page_type === 'decision_compare' ? 'Guia de decisão' : page.page_type === 'buying_guide' ? 'Guia de compra' : 'Explicação';
@@ -178,6 +179,14 @@ const jsonLd = [
                 </li>
               ))}
             </ul>}
+            {citedLinks.length > 0 && (
+              <div class="amz-search">
+                <p class="examples-note">Modelos citados neste guia. É uma busca pelo nome: a mesma linha pode ter versões diferentes, então confira na ficha a versão que o guia descreve.</p>
+                <ul class="amz-links">
+                  {citedLinks.map((l) => <li><a class={`btn amz-link${THEME.cta.style === 'contorno' ? ' contorno' : ''}`} href={l.url} rel="sponsored nofollow noopener" target="_blank">{l.label} <span aria-hidden="true">↗</span></a></li>)}
+                </ul>
+              </div>
+            )}
             {searches.length > 0 && (
               <div class="amz-search">
                 <p class="examples-note">{products.length ? 'Mais opções na Amazon, já filtradas pelos critérios deste guia:' : 'Veja opções na Amazon, já filtradas pelos critérios deste guia. É uma busca, não a recomendação de um produto: confira na ficha de cada um os pontos do resumo acima.'}</p>

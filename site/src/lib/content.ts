@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { affiliateUrl, amazonSearchUrl, checkProduct, hasListingItem, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
-import { buildIndex, loadAnchors, loadClaims, loadSearchLinks, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
+import { buildIndex, citedSearchLinks, loadAnchors, loadClaims, loadSearchLinks, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
 export const INDEXABLE = process.env.SITE_INDEXABLE === 'true';
@@ -198,6 +198,11 @@ export function relatedPages(page: PageSpec, max = 4): PageSpec[] {
 // Buscas na Amazon da página (data/search-links.json): rótulo para o leitor + link de busca com a nossa tag.
 export function searchLinksFor(page: PageSpec): { label: string; url: string }[] {
   return (loadSearchLinks().pages[page.slug]?.links ?? []).map((l) => ({ label: l.label, url: amazonSearchUrl(l.query) }));
+}
+
+// Modelos que o texto cita pelo nome e que não têm anúncio aceito no catálogo: busca pelo nome (26/10).
+export function citedLinksFor(page: PageSpec): { label: string; url: string }[] {
+  return citedSearchLinks(page.slug, loadProducts()).map((l) => ({ label: l.label, url: amazonSearchUrl(l.query) }));
 }
 
 // Links internos no texto: primeira ocorrência das âncoras de outras páginas no ar (data/link-anchors.json),
