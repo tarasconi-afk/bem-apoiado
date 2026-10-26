@@ -1,0 +1,53 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 121806,
+    "output_tokens": 14863,
+    "calls": 8
+  },
+  "credits": 7.053229199999999,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que ter apoio de cabeça compensa por si só para quem mede mais de 1,85 m, mas os trechos apenas recomendam amplitude de ajuste e alcance do occipital para usuários altos (verdict); Reescrever para: “Para usuários acima de 1,85 m, considere mod"
+    ],
+    "filler_refs": [
+      "nr17-referencia#1"
+    ],
+    "decision_criteria": [
+      "Se você reclina a cadeira regularmente, o apoio de cabeça tende a valer mais a pena.",
+      "Se trabalha com o encosto reto o dia todo, confira se o apoio toca a cabeça nessa postura antes de pagar mais por ele.",
+      "Para usuários acima de 1,85 m, procure pelo menos 10 cm de ajuste de altura e verifique se o apoio alcança o occipital, a base do crânio.",
+      "Para usuários abaixo de 1,60 m, confira a altura do encosto e a posição do apoio para evitar que ele fique na nuca e empurre a cabeça para frente.",
+      "Prefira apoio com ajustes de altura e inclinação, ou com mais dimensões de ajuste, se pretende reclinar a cadeira.",
+      "Confira no anúncio ou na ficha técnica se o apoio vem incluído ou é vendido separadamente.",
+      "Confira se o modelo escolhido alcança e sustenta o occipital sem empurrar a cabeça para frente."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que ter apoio de cabeça compensa por si só para quem mede mais de 1,85 m, mas os trechos apenas recomendam amplitude de ajuste e alcance do occipital para usuários altos (verdict); Reescrever para: “Para usuários acima de 1,85 m, considere mod",
+      "Faixas exatas de ajuste de altura, inclinação e profundidade nos modelos comparados.",
+      "Ângulo de reclinação a partir do qual o apoio encosta na cabeça em cada modelo.",
+      "Indicação de altura do usuário feita diretamente pelo fabricante.",
+      "Comparação de preço entre a cadeira com apoio incluído e o acessório vendido separadamente.",
+      "Informação dos fabricantes sobre eventual diferença de capacidade de peso entre versões com e sem apoio.",
+      "Trecho específico da NR-17 sobre apoio para cabeça ou pescoço, caso exista."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que o apoio de cabeça vale mais a pena para quem reclina a cadeira ou é mais alto, enquanto pode ser pouco útil para quem trabalha sempre com o encosto reto. Também orienta o leitor a conferir ajuste de altura, contato com o occipital e inclusão do acessório no preço. Faltam especificações primárias mais precisas, como faixas de regulagem, ângulos e preços, mas há critérios concretos suficientes para orientar a compra.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor entende que ter apoio de cabeça compensa por si só para quem mede mais de 1,85 m, mas os trechos apenas recomendam amplitude de ajuste e alcance do occipital para usuários altos.",
+        "fix": "Reescrever para: “Para usuários acima de 1,85 m, considere modelos cujo apoio tenha pelo menos 10 cm de ajuste de altura e alcance o occipital.”"
+      }
+    ]
+  }
+}
