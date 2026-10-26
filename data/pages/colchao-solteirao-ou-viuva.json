@@ -3,14 +3,13 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Colchão solteirão ou viúva: qual tamanho escolher",
-  "description": "Solteiro 88×188 cm para quem dorme sozinho. Solteirão 100×200 cm para quem é alto. Viúva 128×188 cm para casais ou mais espaço.",
+  "description": "Solteirão mede 100 × 200 cm para quem dorme sozinho. Viúva mede 128 × 188 cm e é indicada para casais com tamanhos diferentes.",
   "primary_query": "colchão solteirão ou viúva",
-  "updated_at": "2026-10-24",
+  "updated_at": "2026-10-26",
   "verdict": {
-    "text": "Solteiro mede 88 × 188 cm, segundo a Gazin. Solteirão mede 100 × 200 cm, segundo a Probel. Viúva mede 128 × 188 cm e é indicada para casais com biotipos diferentes, segundo a Probel.",
+    "text": "O solteirão mede 100 × 200 cm e o viúva mede 128 × 188 cm, segundo a Probel. Para casais com biotipos diferentes, a Probel indica o viúva.",
     "basis": "evidence",
     "claim_ids": [
-      "clm_d9f1bc44f1c0",
       "clm_6a39a8b44a5f",
       "clm_28c14e893c3d",
       "clm_90394e0e0e2e"
@@ -67,19 +66,38 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você dorme sozinho e tem até 88 cm de largura disponível no quarto: confira na ficha técnica do modelo se o comprimento de 188 cm cabe no seu espaço, segundo a Gazin.",
+          "text": "Se você precisa conferir as dimensões, o solteiro mede 88 × 188 cm, segundo a Gazin. Verifique se essas medidas cabem no quarto e se a base é compatível.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_0222495f509f",
-            "clm_d9f1bc44f1c0"
+            "clm_0222495f509f"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "O solteirão citado mede 100 × 200 cm e suporta 120 kg por pessoa, segundo a Probel. Verifique se essas medidas cabem no quarto e se a base é compatível.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_6a39a8b44a5f",
+            "clm_0afbaf2ef53d"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "O modelo viúva citado mede 128 × 188 cm, é indicado para casais com biotipos diferentes e suporta 120 kg por pessoa, segundo a Probel. Confirme na ficha técnica se essas medidas combinam com o quarto e a base.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_28c14e893c3d",
+            "clm_90394e0e0e2e",
+            "clm_0341cf2cf993"
           ]
         },
         {
           "kind": "table",
-          "caption": "Medidas de cada tamanho, segundo fabricantes",
+          "caption": "Medidas de cada tamanho e para quem indicado",
           "columns": [
             "Tamanho",
-            "Largura × Comprimento"
+            "Largura × Comprimento",
+            "Indicação"
           ],
           "rows": [
             {
@@ -87,16 +105,18 @@
                 {
                   "text": "Solteiro",
                   "claim_ids": [
-                    "clm_0222495f509f",
-                    "clm_d9f1bc44f1c0"
+                    "clm_0222495f509f"
                   ]
                 },
                 {
                   "text": "88 × 188 cm",
                   "claim_ids": [
-                    "clm_0222495f509f",
-                    "clm_d9f1bc44f1c0"
+                    "clm_0222495f509f"
                   ]
+                },
+                {
+                  "text": "não informada nas fontes",
+                  "claim_ids": []
                 }
               ]
             },
@@ -113,6 +133,10 @@
                   "claim_ids": [
                     "clm_6a39a8b44a5f"
                   ]
+                },
+                {
+                  "text": "não informada nas fontes",
+                  "claim_ids": []
                 }
               ]
             },
@@ -121,36 +145,23 @@
                 {
                   "text": "Viúva",
                   "claim_ids": [
-                    "clm_28c14e893c3d",
-                    "clm_81628cba0b29"
+                    "clm_28c14e893c3d"
                   ]
                 },
                 {
                   "text": "128 × 188 cm",
                   "claim_ids": [
-                    "clm_28c14e893c3d",
-                    "clm_81628cba0b29"
+                    "clm_28c14e893c3d"
+                  ]
+                },
+                {
+                  "text": "Casal com biotipos diferentes",
+                  "claim_ids": [
+                    "clm_90394e0e0e2e"
                   ]
                 }
               ]
             }
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "O solteirão oferece 100 cm de largura e 200 cm de comprimento, segundo a Probel. Verifique na ficha se essas medidas cabem em seu quarto e na base.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_6a39a8b44a5f"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Se for para um casal com biotipos diferentes: o colchão viúva mede 128 × 188 cm, segundo a Probel. Confirme na ficha técnica se essas medidas são compatíveis com o espaço e a base.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_28c14e893c3d",
-            "clm_90394e0e0e2e"
           ]
         }
       ]
@@ -158,7 +169,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261023T170213_autopilot_e69c+editor:20261023T172931_colchao-solteirao-ou-viuva-ajuste_72fb+editor:20261024T145723_colchao-solteirao-ou-viuva-ajuste_6f56+editor:20261024T161718_colchao-solteirao-ou-viuva-ajuste_6b0a",
+    "run_id": "20261023T170213_autopilot_e69c+editor:20261023T172931_colchao-solteirao-ou-viuva-ajuste_72fb+editor:20261024T145723_colchao-solteirao-ou-viuva-ajuste_6f56+editor:20261024T161718_colchao-solteirao-ou-viuva-ajuste_6b0a+editor:20261026T185323_colchao-solteirao-ou-viuva-ajuste_4beb",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
