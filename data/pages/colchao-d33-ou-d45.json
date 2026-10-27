@@ -5,11 +5,12 @@
   "title": "D33 ou D45: o que significam no colchão de espuma?",
   "description": "Escolha a densidade do colchão de espuma pelo seu peso: até 80 kg D33 basta; de 81 a 100 kg, D33 ou D45 conforme a firmeza que prefere.",
   "primary_query": "colchão D33 ou D45",
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-10-27",
   "verdict": {
-    "text": "Até 70 kg, a Castor indica D23 a D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 ou D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior. Densidades maiores ajudam a evitar afundamento excessivo e aumentam a durabilidade.",
+    "text": "D33 e D45 são códigos que indicam a densidade da espuma em quilos por metro cúbico: D33 = 33 kg/m³ e D45 = 45 kg/m³. Escolha conforme o seu peso: até 70 kg, a Castor indica D23 a D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 ou D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior. Segundo a Castor, densidades maiores ajudam a evitar afundamento excessivo e aumentam a durabilidade.",
     "basis": "evidence",
     "claim_ids": [
+      "clm_63011d17cff2",
       "clm_03538692a465",
       "clm_04fb4b3f25b0"
     ]
@@ -37,12 +38,12 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade do colchão: pessoas mais leves podem usar densidades menores (mais macias), enquanto pessoas mais pesadas precisam de densidades maiores, que evitam afundamento excessivo, dão suporte adequado, deixam o colchão mais firme e aumentam sua durabilidade.",
+          "text": "Segundo a Castor, o peso corporal é o principal fator para escolher a densidade do colchão: pessoas de 71 a 80 kg precisam de D33; de 81 a 100 kg, D33 ou D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior. Pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo, garantindo suporte adequado e durabilidade.",
           "basis": "evidence",
           "claim_ids": [
             "clm_20ba50c38123",
-            "clm_eb0b4f1fb0b2",
-            "clm_04fb4b3f25b0"
+            "clm_03538692a465",
+            "clm_1205fed30228"
           ]
         }
       ]
@@ -53,7 +54,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Castor, maior densidade resulta em colchão mais firme e resistente. Densidades maiores podem ser necessárias para pessoas mais pesadas, ajudando a evitar que o colchão afunde demais e contribuindo para maior durabilidade.",
+          "text": "Segundo a Castor, maior densidade resulta em colchão mais firme e resistente. Para pessoas mais pesadas, densidades maiores ajudam a evitar que o colchão afunde demais, contribuindo para maior durabilidade.",
           "basis": "evidence",
           "claim_ids": [
             "clm_eb0b4f1fb0b2",
@@ -68,11 +69,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a descrição de um colchão da Probel, a composição inclui Pillow e matelassê com fibra siliconada, além de espumas D40, D28 e D20; a fabricante diz que essas espumas trabalham em conjunto para proporcionar toque firme, sustentação e durabilidade.",
+          "text": "Segundo a Castor, na faixa de 81 a 100 kg, a densidade pode variar entre D33 e D45 conforme a preferência por firmeza, indicando que a preferência também influencia a escolha. Segundo a Ortobom, o conforto firme é atribuído ao núcleo de espuma HR (alta resiliência), que distribui o peso uniformemente e reduz os pontos de pressão.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_6cb6ef74f36a",
-            "clm_84c013098f11"
+            "clm_9ac9012e162d",
+            "clm_f0f463410657"
           ]
         }
       ]
@@ -249,7 +250,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261022T130233_autopilot_62ca+edit:20261022T130233_autopilot_62ca+editor:20261022T133821_colchao-d33-ou-d45-ajuste_984b+editor:20261026T122400_colchao-d33-ou-d45-ajuste_4dbc",
+    "run_id": "20261022T130233_autopilot_62ca+edit:20261022T130233_autopilot_62ca+editor:20261022T133821_colchao-d33-ou-d45-ajuste_984b+editor:20261026T122400_colchao-d33-ou-d45-ajuste_4dbc+editor:20261027T195734_pedido_b2da",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
