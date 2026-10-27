@@ -5,7 +5,7 @@
   "title": "Base de cama box: o que conferir antes de comprar",
   "description": "Confira largura, comprimento e altura da base box na ficha técnica. Leia como o fabricante descreve o peso máximo: com colchão ou além do colchão.",
   "primary_query": "base para cama box: o que conferir",
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-27",
   "verdict": {
     "text": "Confira na ficha técnica a largura, comprimento e altura da base, além de como o fabricante descreve o peso máximo: alguns informam o limite por pessoa com colchão sobre a base, outros indicam peso além do colchão. As dimensões variam entre modelos, e essa diferença na descrição do peso muda o cálculo do total suportado.",
     "basis": "evidence",
@@ -173,9 +173,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Ortobom, o certificado menciona como situação de posicionamento inadequado o produto ser menor ou maior que o colchão e imperfeições no piso que afetem a estabilidade. Consulte o certificado para verificar outras situações mencionadas pelo fabricante.",
+          "text": "Segundo a Ortobom, a garantia legal para a base é de 3 meses a partir da data de aquisição, abrangendo defeitos de fabricação comprovados pela assistência técnica, desde que o produto seja utilizado adequadamente. A marca cita como posicionamento inadequado deixar a base menor ou maior que o colchão ou colocá-la sobre piso com imperfeições que afetem sua estabilidade.",
           "basis": "evidence",
           "claim_ids": [
+            "clm_ac0d02067042",
+            "clm_21bd504a1c0e",
             "clm_3d2d072e15ca"
           ]
         }
@@ -229,7 +231,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir+editor:correcao-queen-casal",
+    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir+editor:correcao-queen-casal+editor:20261027T150419_base-para-cama-box-o-que-conferir-ajuste_e802",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
