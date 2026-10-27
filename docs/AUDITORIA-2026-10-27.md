@@ -44,6 +44,20 @@ Aprovação de primeira: **16 de 55 = 29%**. Os ajustes pedidos pelo editor (30 
 - **Causa no passo do ciclo** (`review.ts`, `failureCause`): `page: NOT_PUBLISHABLE (coerência: …)` ou
   `(revisão: …)` ou `(regra: …)`, para medir a aprovação de primeira por causa sem abrir cada run.
 
+## Validação nas duas pautas que falharam em 26/10 (motor novo, dados do ramo do ciclo das 22h)
+
+| Pauta | Ontem | Hoje, motor novo |
+|---|---|---|
+| Colchão D45 é muito duro | SAFE_STOP após 52 créditos | **PASS** em 4 rodadas, 14,9 créditos; coerência achou 1 problema, o remendo resolveu (coherence-fix-1 kept) |
+| Solteirão ou viúva | NOT_PUBLISHABLE (coerência) 2 vezes | **PASS** em 3 rodadas, 10,2 créditos; coerência limpa |
+
+**Quinta causa, achada na validação (commit 63d9433):** a seleção de evidências para o redator (60 de 112) descartava o
+guia "Medidas de colchão" da Castor, o único que explica os tamanhos, enquanto entravam dezenas de fichas iguais
+("viúva X mede 128 × 188") e garantias; e o alcance deduzido pelo tipo chamava esse guia de "SÓ O PRODUTO".
+Correções: alcance (`scope`: produto | marca | geral) decidido na extração, backfill nas evidências antigas por decisão
+tipada barata, seleção com revezamento por pergunta, no máximo 2 fichas com os mesmos números por fabricante,
+guia/norma pontuando mais, e as evidências das regras de decisão sempre dentro.
+
 ## Sistema para aprovação de primeira (o desenho que estes passos começam)
 
 1. **Decidir antes de escrever.** A checagem de prontidão já extrai as regras "Se você…" com as evidências; cada
