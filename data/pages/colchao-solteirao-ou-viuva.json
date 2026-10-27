@@ -23,10 +23,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "No colchão Solteirão Mola Ensacada Probel Sigma Plus (100 × 200 cm), o fabricante declara suporte de até 120 kg por pessoa.",
+          "text": "No colchão Solteirão Mola Ensacada Probel Sigma Plus (100 × 200 cm), o fabricante declara suporte de até 120 kg por pessoa. No colchão Gazin LOS ANGELES PLUS, a Gazin informa 120 kg de adequação de peso.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_0afbaf2ef53d"
+            "clm_0afbaf2ef53d",
+            "clm_c5fbaac56bcf"
           ]
         },
         {
@@ -36,20 +37,6 @@
           "claim_ids": [
             "clm_1852ac4721c5",
             "clm_28c14e893c3d"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "base-compativel",
-      "heading": "Base ou estrado compatível com cada tamanho",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A Probel descreve a Base Box Baú Probel Luxo como uma escolha ideal no kit com o Colchão Mola Probel Pró Charge viúva citado.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_425af6b6ffe0"
           ]
         }
       ]
@@ -200,17 +187,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261027T115826_colchao-solteirao-ou-viuva_cee4",
+    "run_id": "20261027T115826_colchao-solteirao-ou-viuva_cee4+editor:20261027T152957_colchao-solteirao-ou-viuva-ajuste_a749",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.15384615384615385,
       "criteria": 6,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }

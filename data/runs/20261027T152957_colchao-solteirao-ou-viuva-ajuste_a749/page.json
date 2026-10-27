@@ -1,0 +1,63 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-diferencia#0",
+      "o-que-diferencia#1"
+    ],
+    "decision_criteria": [
+      "Para dormir sozinho e precisar de mais comprimento, escolha um colchão de 100 × 200 cm, chamado de solteirão pela Probel ou de solteiro king pela Castor.",
+      "Para um quarto estreito, prefira o solteiro de 88 × 188 cm, desde que sobrem espaço para móveis e circulação.",
+      "Para ter mais largura, escolha a viúva de 128 × 188 cm, se o quarto e a base comportarem essa medida.",
+      "Confira no anúncio a largura e o comprimento exatos, porque os nomes solteirão e solteiro king variam entre fabricantes.",
+      "Verifique se a medida escolhida é compatível com a base ou o estrado disponível.",
+      "Para modelos específicos, confira também o limite de peso declarado pelo fabricante: há opções de solteirão e viúva com suporte de 110 kg ou 120 kg por pessoa."
+    ],
+    "missing": [
+      "Medidas de solteirão e viúva declaradas por pelo menos dois fabricantes, sem depender de tratar o solteiro king como equivalente ao solteirão.",
+      "Indicação dos fabricantes sobre o tamanho compatível de base ou estrado para cada medida.",
+      "Regra mais explícita relacionando cada tamanho ao número de pessoas que dormirão no colchão."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente pela medida e pelo espaço disponível, oferece uma tabela clara e regras práticas para escolher entre solteiro, solteirão e viúva. O leitor sabe quais dimensões procurar e é alertado de que os nomes variam entre fabricantes; faltam apenas comparações de medidas e compatibilidade de base por mais fabricantes, que melhorariam a completude sem impedir a publicação.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-diferencia#0",
+      "o-que-diferencia#1",
+      "base-compativel#0"
+    ],
+    "decision_criteria": [
+      "Se precisa de mais de 188 cm de comprimento, escolha um colchão de 100 × 200 cm, chamado de solteirão pela Probel ou de solteiro king pela Castor.",
+      "Se o espaço é estreito, o colchão de 88 × 188 cm ocupa menos largura que o solteirão e a viúva; confira também a circulação e os móveis.",
+      "Se quer mais espaço lateral e o quarto comporta 128 cm de largura, escolha a viúva de 128 × 188 cm.",
+      "Confira no anúncio se a medida é do colchão ou da base e se a nomenclatura usada pelo fabricante corresponde ao tamanho desejado.",
+      "Verifique a compatibilidade da base ou do estrado com as medidas exatas do colchão antes da compra.",
+      "Compare o peso suportado por pessoa declarado na ficha do modelo escolhido: há modelos solteirão e viúva com capacidades diferentes."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Medidas de solteirão e viúva informadas por um segundo fabricante, além da Probel, para confirmar a variação entre marcas.",
+      "Indicação objetiva de base ou estrado compatível para cada tamanho, com medidas correspondentes.",
+      "Esclarecimento sobre se as medidas declaradas são sempre do colchão ou se algum fabricante informa dimensões da base."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece medidas concretas e regras úteis para escolher entre solteiro, solteirão e viúva, especialmente conforme comprimento, largura disponível e espaço desejado. A resposta curta, porém, não diz diretamente qual tamanho escolher em cada situação; essa orientação aparece apenas nos blocos seguintes. Também faltam dados de um segundo fabricante para solteirão e viúva e uma indicação completa de bases compatíveis.",
+    "filler_ratio": 0.23076923076923078,
+    "model_opinion": true
+  }
+}
