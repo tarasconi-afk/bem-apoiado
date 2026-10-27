@@ -401,10 +401,26 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
       if (id.startsWith('produto-')) return 'foto de exemplo à venda';
       return `ilustração do tipo ${id}`;
     };
-    const thumbsOf = (it: ChangeItem) => it.paths.filter((x) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x)).map((x) => `<figure class="tfig"><a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="${esc(imgLabel(x))}" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a><figcaption class="muted">${esc(imgLabel(x))}</figcaption></figure>`).join('');
+    const isImg = (x: string) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x);
+    const thumbsOf = (it: ChangeItem, keep: (x: string) => boolean = () => true) => it.paths.filter((x) => isImg(x) && keep(x)).map((x) => `<figure class="tfig"><a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="${esc(imgLabel(x))}" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a><figcaption class="muted">${esc(imgLabel(x))}</figcaption></figure>`).join('');
     const check = (it: ChangeItem, label: string) => `<label class="acc"><input type="checkbox" name="manter" value="${esc(it.id)}" checked> ${label}</label>`;
-    const imgs = items.filter((i) => i.id === 'images').map((it) => `<div class="thumbs">${thumbsOf(it)}</div>${check(it, 'aceitar imagem')}`).join('');
-    const prods = items.filter((i) => i.id.startsWith('product:')).map((it) => `<div>${esc(it.title)}${it.asin ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : ''} ${check(it, 'aceitar')}</div>`).join('');
+    // Cartão de uma página (nova ou ajuste no ar): a linha "Imagem" mostra só a capa DESTA página e "Produtos novos" só
+    // os do tipo dela. O que veio de carona no mesmo ciclo (capa de outra página, ilustração de tipo, produto de outro
+    // tipo) vai para "Também entra", recolhido, com contagem e caixas (27/10, editor: "preciso entender o que estou
+    // publicando sempre"; o cartão do solteirão abria com a cadeira e um roupão).
+    const pageCard = info.kind === 'pagina-nova' || info.kind === 'ajuste-no-ar';
+    const ownImg = (x: string) => new RegExp(`generated/pagina-${slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\.webp$`).test(x);
+    const pageKinds = new Set(loadTopics().find((t) => t.slug === slug)?.product_kinds ?? []);
+    const imgItems = items.filter((i) => i.id === 'images');
+    const imgs = imgItems.map((it) => { const own = pageCard ? it.paths.filter((x) => isImg(x) && ownImg(x)) : it.paths.filter(isImg); return own.length ? `<div class="thumbs">${thumbsOf(it, (x) => own.includes(x))}</div>${check(it, 'aceitar imagem')}` : ''; }).join('');
+    const extraImgPaths = pageCard ? imgItems.flatMap((it) => it.paths.filter((x) => isImg(x) && !ownImg(x))) : [];
+    const extraImgs = imgItems.map((it) => { const rest = it.paths.filter((x) => isImg(x) && extraImgPaths.includes(x)); return rest.length ? `<div class="thumbs">${thumbsOf(it, (x) => rest.includes(x))}</div>${it.paths.some(ownImg) ? '<span class="muted">entra junto com a capa acima (mesmo item)</span>' : check(it, 'aceitar também')}` : ''; }).join('');
+    const prodHtml = (it: ChangeItem) => `<div>${esc(it.title)}${it.asin ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : ''} ${check(it, 'aceitar')}</div>`;
+    const prodItems = items.filter((i) => i.id.startsWith('product:'));
+    const extraProds = pageCard ? prodItems.filter((it) => it.kind && !pageKinds.has(it.kind)) : [];
+    const prods = prodItems.filter((it) => !extraProds.includes(it)).map(prodHtml).join('');
+    const extraN = extraImgPaths.length + extraProds.length;
+    const extras = extraN ? `<details class="extras"><summary class="muted">${extraN} mudança(s) de outras páginas ou tipos vieram no mesmo ciclo: ver</summary>${extraImgs}${extraProds.map(prodHtml).join('')}<p class="muted">Não mudam esta página. Desmarque o que não quiser.</p></details>` : '';
     const others = items.filter((i) => !visual(i)).map((it) => `<input type="hidden" name="manter" value="${esc(it.id)}">`).join('');
     const pageItem = items.find((i) => i.id === `page:${slug}`);
     const diffsHtml = pageItem?.diffs?.length ? `<details><summary class="muted">antes → depois (${pageItem.diffs.length})</summary>${pageItem.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
@@ -426,7 +442,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
       ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}${shadowField(info.kind, info.suggestion, slug)}
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também neste ciclo', esc(alsoTried))}</dl>
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também entra', extras)}${row('Também neste ciclo', esc(alsoTried))}</dl>
 ${forceBox(slug)}</form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da
@@ -975,6 +991,7 @@ body.with-side .dock{left:232px}
 .dfix{margin:8px 0}.dfix textarea{width:100%;box-sizing:border-box;margin:6px 0;font:inherit}.acc{font-size:.88rem;margin-left:4px}
 .b.warn{background:#fbefd9;color:#8a5a0c}.score{display:inline-block;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--nbg)}.score.s4,.score.s3{background:var(--okbg);color:var(--ok)}.score.s2{background:#fbefd9;color:#8a5a0c}.score.s1,.score.s0{background:var(--badbg);color:var(--bad)}.dnext{margin:8px 0 2px}.dfoot{margin-top:8px;text-align:right}button.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:0;cursor:pointer;font-size:.82rem}
 details.old{margin:24px 0 8px}
+details.extras summary{cursor:pointer}details.extras .thumbs{margin-top:8px}details.extras .tfig{max-width:120px}details.extras .thumb{width:120px}
 .adjust{margin-top:6px}.adjust input{min-width:160px}
 .restored{outline:2px solid var(--amber,#f0b252)}
 .result{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;background:var(--card)}.result-head{margin:2px 0 6px}
