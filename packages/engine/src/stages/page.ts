@@ -189,6 +189,25 @@ export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] }
   const nv = verdictFormOf(out.verdict.text);
   if (nv !== out.verdict.text.trim()) { out.verdict = { ...out.verdict, text: nv }; refs.push('verdict'); }
   for (const sec of out.sections) sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && b.text.includes('—')) { b.text = b.text.replace(/\s*—\s*/g, ', '); refs.push(`${sec.id}#${i}`); } });
+  // Tabela com célula sem dado ("não informado nas fontes", "confira na ficha"): a coluna em que isso se repete sai; a
+  // linha que ainda ficou sem dado também. Remover nunca acrescenta fato. 27/10, solteirão: o redator devolveu 3 vezes a
+  // coluna "Para quem serve" vazia, o gate barrou as 3 rodadas e a página parou sem o auditor nem ter lido a tabela.
+  const empty = (t: string) => (/n[ãa]o (informad|consta|declarad|encontrad)|sem informa[çc][ãa]o|^\s*(confira|verifique|consulte|veja)\b/i.test(t) && !/\d/.test(t));
+  for (const sec of out.sections) {
+    sec.blocks = sec.blocks.filter((b, i) => {
+      if (b.kind !== 'table') return true;
+      const drop = b.columns.map((_, c) => c > 0 && b.rows.length > 0 && b.rows.filter((r) => empty(r.cells[c]?.text ?? '')).length >= Math.min(b.rows.length, 2));
+      const rowsBefore = b.rows.length;
+      if (drop.some(Boolean)) {
+        b.columns = b.columns.filter((_, c) => !drop[c]);
+        b.rows = b.rows.map((r) => ({ cells: r.cells.filter((_, c) => !drop[c]) }));
+      }
+      b.rows = b.rows.filter((r) => !r.cells.slice(1).some((c) => empty(c.text)));
+      if (drop.some(Boolean) || b.rows.length !== rowsBefore) refs.push(`${sec.id}#${i}`, ...b.rows.map((_, ri) => `${sec.id}#${i}.r${ri}`));
+      return b.columns.length >= 2 && b.rows.length >= 1;
+    });
+  }
+  out.sections = out.sections.filter((s) => s.blocks.length > 0);
   return { draft: out, refs };
 }
 
