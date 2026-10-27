@@ -1,0 +1,78 @@
+{
+  "findings": [
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "nomes-variaveis-tamanhos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-estrado-compativel#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas a medida de 88 × 188 cm para colchão de solteiro. Não sustenta que ele seja para pessoa que dorme sozinha nem que seja adequado para espaço reduzido.",
+      "fix": "Tamanho: Solteiro | Largura × Comprimento: 88 × 188 cm."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta as medidas de 100 × 200 cm para o solteirão, mas não diz que ele serve para pessoa que dorme sozinha com mais espaço.",
+      "fix": "Tamanho: Solteirão | Largura × Comprimento: 100 × 200 cm."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta o nome Viúva e as medidas de 128 × 188 cm, mas não sustenta que seja para casal ou para pessoa que queira mais largura.",
+      "fix": "Tamanho: Viúva | Largura × Comprimento: 128 × 188 cm."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas a medida de 88 × 188 cm para colchão de solteiro. Não sustenta que ele seja para pessoa que dorme sozinha nem que seja adequado para espaço reduzido. Versão sustentável: Tamanho: Solteiro | Largura × Comprimento: 88 × 188 cm."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta as medidas de 100 × 200 cm para o solteirão, mas não diz que ele serve para pessoa que dorme sozinha com mais espaço. Versão sustentável: Tamanho: Solteirão | Largura × Comprimento: 100 × 200 cm."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. O trecho sustenta o nome Viúva e as medidas de 128 × 188 cm, mas não sustenta que seja para casal ou para pessoa que queira mais largura. Versão sustentável: Tamanho: Viúva | Largura × Comprimento: 128 × 188 cm."
+    }
+  ]
+}

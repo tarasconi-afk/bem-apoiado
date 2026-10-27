@@ -1,0 +1,251 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_81138313f95f"
+          ]
+        },
+        {
+          "text": "88 × 188 cm",
+          "claim_ids": [
+            "clm_81138313f95f"
+          ]
+        },
+        {
+          "text": "não informado nas fontes",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteirão",
+          "claim_ids": [
+            "clm_bc90ff7d7c6d"
+          ]
+        },
+        {
+          "text": "100 × 200 cm",
+          "claim_ids": [
+            "clm_bc90ff7d7c6d"
+          ]
+        },
+        {
+          "text": "não informado nas fontes",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Viúva",
+          "claim_ids": [
+            "clm_be598e65da36"
+          ]
+        },
+        {
+          "text": "128 × 188 cm",
+          "claim_ids": [
+            "clm_be598e65da36"
+          ]
+        },
+        {
+          "text": "não informado nas fontes",
+          "claim_ids": []
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão solteirão ou viúva: qual escolher pelo tamanho",
+    "description": "Compare solteirão (100 × 200 cm) e viúva (128 × 188 cm): medidas, peso suportado e para quem cada um serve segundo fabricantes.",
+    "verdict": {
+      "text": "A Probel informa que o colchão viúva mede 128 cm de largura por 188 cm de comprimento. Confira as dimensões exatas no anúncio antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_be598e65da36"
+      ]
+    },
+    "sections": [
+      {
+        "id": "nomes-variaveis-tamanhos",
+        "heading": "Atenção: nomes de tamanhos variam por fabricante",
+        "blocks": [
+          {
+            "text": "Castor chama 100 × 200 cm de \"solteiro king\", enquanto a Probel apresenta um produto de 100 × 200 cm como \"solteirão\". As fichas citadas mostram que é possível verificar a medida em centímetros além do nome.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_007a1311f7ce",
+              "clm_bc90ff7d7c6d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "peso-suportado",
+        "heading": "Peso máximo suportado",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, o colchão solteirão Sigma Plus suporta 120 kg por pessoa. Nas páginas citadas, modelos viúva da Probel têm suporte declarado de 110 kg por pessoa (Turim) e 120 kg por pessoa (Sigma Plus).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0afbaf2ef53d",
+              "clm_1852ac4721c5",
+              "clm_28c14e893c3d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "base-estrado-compativel",
+        "heading": "Base ou estrado compatível com cada tamanho",
+        "blocks": [
+          {
+            "text": "A Probel apresenta um produto chamado \"Kit Box Baú Viúva + Colchão Mola Probel Pró Charge\". A Castor informa que a altura do colchão costuma variar entre 15 e 40 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6fb2381e8265",
+              "clm_ad43582efaf1"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre solteirão e viúva",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas por tamanho segundo fabricantes",
+            "columns": [
+              "Tamanho",
+              "Largura × Comprimento",
+              "Para quem serve"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_81138313f95f"
+                    ]
+                  },
+                  {
+                    "text": "88 × 188 cm",
+                    "claim_ids": [
+                      "clm_81138313f95f"
+                    ]
+                  },
+                  {
+                    "text": "não informado nas fontes",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Solteirão",
+                    "claim_ids": [
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  },
+                  {
+                    "text": "100 × 200 cm",
+                    "claim_ids": [
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  },
+                  {
+                    "text": "não informado nas fontes",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Viúva",
+                    "claim_ids": [
+                      "clm_be598e65da36"
+                    ]
+                  },
+                  {
+                    "text": "128 × 188 cm",
+                    "claim_ids": [
+                      "clm_be598e65da36"
+                    ]
+                  },
+                  {
+                    "text": "não informado nas fontes",
+                    "claim_ids": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "A Probel lista um solteirão de 100 × 200 cm, enquanto a Castor lista um solteiro de 88 × 188 cm; o solteirão tem 12 cm a mais de comprimento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_bc90ff7d7c6d",
+              "clm_81138313f95f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você tem pouco espaço no quarto ou precisa de uma base estreita: escolha o solteiro (88 cm) ou solteirão (100 cm), segundo a Castor e a Probel. Meça a largura disponível e confira essas medidas no anúncio antes de comprar.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_81138313f95f",
+              "clm_bc90ff7d7c6d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você procura um colchão de 128 × 188 cm, a Probel lista a viúva com essas medidas. Confira se elas cabem no quarto e na base disponível.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_be598e65da36"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas a medida de 88 × 188 cm para colchão de solteiro. Não sustenta que ele seja para pessoa que dorme sozinha nem que seja adequado para espaço reduzido. Versão sustentável: Tamanho: Solteiro | Largura × Comprimento: 88 × 188 cm."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta as medidas de 100 × 200 cm para o solteirão, mas não diz que ele serve para pessoa que dorme sozinha com mais espaço. Versão sustentável: Tamanho: Solteirão | Largura × Comprimento: 100 × 200 cm."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. O trecho sustenta o nome Viúva e as medidas de 128 × 188 cm, mas não sustenta que seja para casal ou para pessoa que queira mais largura. Versão sustentável: Tamanho: Viúva | Largura × Comprimento: 128 × 188 cm."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14387,
+    "output_tokens": 444
+  }
+}
