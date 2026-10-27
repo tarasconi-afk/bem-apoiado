@@ -2,7 +2,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { creditsSpent, type FetchLike } from '../llm.ts';
 import { buildIndex, loadPages, readState, STATE_DIR, writeState } from '../store.ts';
-import { auditCoherence, type CoherenceFinding } from './coherence.ts';
+import { auditCoherence, COHERENCE_CHECKS, type CoherenceFinding } from './coherence.ts';
 import { loadTopic } from './research.ts';
 
 // Auditoria do site pelo botão do painel (camada 1 do ROADMAP F, 26/10): passa a coerência (coherence.ts) nas páginas
@@ -14,7 +14,12 @@ export const SITE_AUDIT_FILE = 'site-audit.json';
 const RECHECK_DAYS = 14;
 const PER_PAGE_ESTIMATE = 1; // créditos por página auditada (medido: ~0,7)
 
-export interface SiteAuditEntry { at: string; findings: CoherenceFinding[] }
+// Que verificações a página já levou. 27/10: entraram "secao_nao_entrega" e "promessa_do_titulo" e a rodada só olhou
+// 5 páginas, pulando 20 auditadas no dia anterior; das 5, 4 tinham problema das verificações novas. Página auditada
+// com uma lista mais curta volta para a fila mesmo dentro dos 14 dias.
+export const checksId = (): string => [...COHERENCE_CHECKS].sort().join(',');
+
+export interface SiteAuditEntry { at: string; findings: CoherenceFinding[]; checks?: string }
 export interface SiteAuditResult {
   audited: { slug: string; findings: CoherenceFinding[] }[];
   skipped: number; // auditadas há menos de 14 dias
@@ -33,7 +38,8 @@ export function auditRequest(findings: CoherenceFinding[]): { text: string; refs
 
 export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?: FetchLike): Promise<SiteAuditResult> {
   const state = readState<Record<string, SiteAuditEntry>>(SITE_AUDIT_FILE, {});
-  const recent = (slug: string) => state[slug] && now.getTime() - Date.parse(state[slug]!.at) < RECHECK_DAYS * 86_400_000;
+  const id = checksId();
+  const recent = (slug: string) => !!state[slug] && state[slug]!.checks === id && now.getTime() - Date.parse(state[slug]!.at) < RECHECK_DAYS * 86_400_000;
   const live = loadPages().filter((p) => p.status !== 'draft');
   const due = live.filter((p) => !recent(p.slug)).sort((a, b) => (state[a.slug]?.at ?? '').localeCompare(state[b.slug]?.at ?? ''));
   const idx = buildIndex();
@@ -47,7 +53,7 @@ export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?
       break;
     }
     const c = await auditCoherence(p, loadTopic(p.slug).primary_query, idx.claims, idx.sources, fetchImpl);
-    state[p.slug] = { at: now.toISOString(), findings: c.findings };
+    state[p.slug] = { at: now.toISOString(), findings: c.findings, checks: id };
     writeState(SITE_AUDIT_FILE, state);
     out.audited.push({ slug: p.slug, findings: c.findings });
     const req = auditRequest(c.findings);
