@@ -17,6 +17,17 @@ import { formatClaims } from './write.ts';
 export const NOTE_PREFIX = 'Regra de decisão sustentada:';
 const WORKPLACE = /NR-?\s?17|teleatendimento|telemarketing|empregador|posto de trabalho|trabalhador/i;
 
+// Falta que nenhuma fonte primária pode suprir, porque o próprio site proíbe publicar (preço, conta de
+// custo-benefício) ou porque fabricante não publica (comparar comprar com não comprar o produto que ele vende).
+// 27/10: "protetor de colchão vale a pena" foi adiada com 3 regras de escolha boas na mão, porque o juiz cobrou
+// "preços de protetores e de limpeza do colchão para calcular quando compensa" — dado que o redator tem proibido
+// usar. Essas faltas viravam lacuna da pauta e a busca semanal as perseguia até o teto do Tavily, sem fechar.
+// Estreito de propósito: só cai a falta que é INTEIRA sobre dinheiro. "Desvantagens em relação a uma base comum,
+// como preço, peso e acesso" continua sendo lacuna, porque o resto dela é pesquisável (27/10: a 1ª versão da regra
+// derrubou 3 lacunas boas de 4).
+const IMPOSSIBLE = /^\s*(compara[çc][ãa]o|comparar|compare)\s+(de\s+)?(pre[çc]os?|custos?)\b|^\s*(pre[çc]os?|custos?)\s+(de|do|da|entre)\b|benef[íi]cio econ[ôo]mico|custo-benef[íi]cio|justifica o (pre[çc]o|custo|investimento)|compensa financeiramente/i;
+export const possibleGaps = (xs: string[]): string[] => xs.filter((x) => !IMPOSSIBLE.test(x));
+
 const BUYER_CLASS = new Set(['manufacturer', 'independent_test', 'standard_body']);
 export function buyerRules<R extends { rule: string; claim_ids: string[] }>(rules: R[], classOfClaim: (id: string) => string | undefined): R[] {
   return rules.filter((x) => x.claim_ids.some((id) => BUYER_CLASS.has(classOfClaim(id) ?? '')) && !WORKPLACE.test(x.rule));
@@ -34,7 +45,10 @@ Antes de redigir, decida se as evidências abaixo bastam para uma página que di
 "rules": as regras de escolha que as evidências sustentam, no formato "Se você <situação ou medida do comprador>, <escolha ou confira X>", cada uma com os claim_ids que a sustentam. A regra tem de DIFERENCIAR as opções da dúvida (em "A ou B", diz quando A e quando B; em guia de compra, diz o que escolher conforme um dado do comprador). Não conta como regra: definição do produto, o que o selo avalia, regra de um setor específico (teleatendimento, obrigação do empregador), dado que serve igual para todas as opções (ex.: densidade por peso numa dúvida entre tipos de colchão).
 "ready": true só se houver pelo menos 2 regras assim, de fonte voltada a quem compra.
 "missing": se não estiver pronta, qual informação de fonte primária faria a página decidir (curto, concreto).
-"queries": até 3 buscas na web, em português, para achar essa informação em páginas de fabricante, norma ou regulador.`;
+"queries": até 3 buscas na web, em português, para achar essa informação em páginas de fabricante, norma ou regulador.
+
+O site NUNCA publica preço, promoção nem conta de custo-benefício, e fabricante não publica comparação entre comprar e não comprar o produto dele: não peça nada disso em "missing" nem deixe a falta disso derrubar "ready".
+Em dúvida do tipo "X vale a pena", a decisão que o leitor precisa é PARA QUEM o produto serve, para quem NÃO serve e o que conferir na ficha antes de comprar, não se o preço compensa. Duas regras desse tipo, sustentadas, já tornam a pauta pronta.`;
 
 export async function decisionReadiness(slug: string, topic: TopicBrief, fetchImpl?: FetchLike): Promise<Readiness> {
   const idx = buildIndex();
@@ -65,9 +79,12 @@ export async function decisionReadiness(slug: string, topic: TopicBrief, fetchIm
   const known = new Set<string>(ids);
   const cleaned = r.data.rules.map((x) => ({ ...x, claim_ids: x.claim_ids.filter((id) => known.has(id)) })).filter((x) => x.claim_ids.length);
   const rules = buyerRules(cleaned, (id) => idx.sources.get(idx.claims.get(id)?.source_id ?? '')?.source_class);
-  const ready = r.data.ready && rules.length >= 2;
-  const missing = ready || r.data.missing.length ? r.data.missing : ['regras de escolha para quem compra, de fabricante ou norma técnica (não de posto de trabalho)'];
-  return { ...r.data, rules, missing, ready };
+  // Falta impossível não derruba a pauta nem vira lacuna: com 2 regras de escolha sustentadas, a página já decide
+  // o que o leitor precisa decidir. O veto do modelo só vale quando ele aponta uma falta que dá para pesquisar.
+  const gaps = possibleGaps(r.data.missing);
+  const ready = rules.length >= 2 && (r.data.ready || gaps.length === 0);
+  const missing = ready || gaps.length ? gaps : ['regras de escolha para quem compra, de fabricante ou norma técnica (não de posto de trabalho)'];
+  return { ...r.data, rules, missing, queries: possibleGaps(r.data.queries), ready };
 }
 
 // Grava as regras aceitas como nota editorial da pauta (o redator lê as notas), trocando as de uma checagem anterior.
