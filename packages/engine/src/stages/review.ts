@@ -105,6 +105,15 @@ export function reviewMetrics(r: ReviewResult): ReviewMetrics {
   return { answers_primary_query: r.answers_primary_query, concrete_guidance: r.concrete_guidance, ...(r.reader_fit === undefined ? {} : { reader_fit: r.reader_fit }), ...(r.quick_answer === undefined ? {} : { quick_answer: r.quick_answer }), filler_ratio: r.filler_ratio, criteria: r.decision_criteria.length, rule_publishable: r.publishable };
 }
 
+// Causa curta de uma reprovação, para o passo do ciclo (27/10): sem ela, "page: NOT_PUBLISHABLE" não dizia se
+// foi o juiz, a regra de enchimento ou a coerência, e medir a aprovação de primeira por causa exigia abrir cada run.
+export function failureCause(r: Pick<ReviewResult, 'coherence' | 'answers_primary_query' | 'concrete_guidance' | 'reader_fit' | 'quick_answer' | 'filler_ratio' | 'decision_criteria'>): string {
+  if (r.coherence?.length) return `coerência: ${[...new Set(r.coherence.map((c) => c.check))].join(', ')}`;
+  const flags = [r.answers_primary_query === 'no' ? 'não decide' : '', r.concrete_guidance ? '' : 'sem orientação concreta', r.reader_fit === false ? 'não é para leigo' : '', r.quick_answer === false ? 'sem resposta rápida' : ''].filter(Boolean);
+  if (flags.length) return `revisão: ${flags.join(', ')}`;
+  return `regra: enchimento ${Math.round(r.filler_ratio * 100)}%, ${r.decision_criteria.length} critério(s)`;
+}
+
 type Vote = { answers_primary_query: 'yes' | 'partial' | 'no'; concrete_guidance: boolean; reader_fit: boolean; quick_answer: boolean; purchase_path: boolean; reader_problems: string[]; filler_refs: string[]; decision_criteria: string[]; missing: string[]; publishable: boolean; summary: string };
 // Maioria por campo; enchimento = bloco apontado pela maioria; o texto (resumo, critérios, faltas) vem da
 // avaliação mais alinhada com a maioria.

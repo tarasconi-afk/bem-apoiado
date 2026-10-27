@@ -51,20 +51,45 @@ export function claimsForTopic(topic: TopicBrief, all: Iterable<Claim>): Claim[]
 // mandou 91 evidências, o Haiku estourou o tempo do roteador duas vezes e a reserva cara entrou). Regulador e
 // norma pesam mais; as já citadas na página (`keep`) entram sempre.
 export const WRITER_MAX_CLAIMS = 60;
+
+// Evidências citadas pelas regras de decisão da checagem antes da redação (nota "Regra de decisão sustentada: …
+// (evidências: clm_…)"): entram sempre, são o dado que decide.
+export function ruleClaimIds(topic: Pick<TopicBrief, 'editorial_notes'>): Set<string> {
+  const out = new Set<string>();
+  for (const n of topic.editorial_notes ?? []) for (const m of n.matchAll(/clm_[a-f0-9]{12}/g)) out.add(m[0]);
+  return out;
+}
+
 export function selectClaims(topic: TopicBrief, all: Iterable<Claim>, classOf: (sourceId: string) => string | undefined, keep: Set<string> = new Set(), max = WRITER_MAX_CLAIMS): Claim[] {
   const pool = claimsForTopic(topic, all);
   if (pool.length <= max) return pool;
-  const qs = new Set(topic.questions.map((q) => q.id));
+  const qs = topic.questions.map((q) => q.id);
+  const qset = new Set(qs);
   const focus = topic.focus_terms.map((t) => t.toLowerCase());
   const weight: Record<string, number> = { regulator: 2, standard_body: 2, independent_test: 1.5, manufacturer: 1 };
-  const score = (c: Claim) => c.question_ids.filter((q) => qs.has(q)).length * 2 + (weight[classOf(c.source_id) ?? ''] ?? 0.5) + focus.filter((f) => c.quote.toLowerCase().includes(f)).length * 0.5;
-  const kept = pool.filter((c) => keep.has(c.id));
-  // Uma vaga por fonte primeiro (variedade de fabricantes), depois pela pontuação.
-  const rest = pool.filter((c) => !keep.has(c.id)).sort((a, b) => score(b) - score(a));
+  // Guia da marca ou norma vale mais que a ficha de um produto: fala do tamanho ou do tipo, não de um modelo.
+  const scopeBonus = (c: Claim) => (c.scope === 'marca' || c.scope === 'geral' ? 1.5 : 0);
+  const score = (c: Claim) => c.question_ids.filter((q) => qset.has(q)).length * 2 + (weight[classOf(c.source_id) ?? ''] ?? 0.5) + focus.filter((f) => c.quote.toLowerCase().includes(f)).length * 0.5 + scopeBonus(c);
+  const must = new Set([...keep, ...ruleClaimIds(topic)]);
+  const kept = pool.filter((c) => must.has(c.id));
+  // Fichas de produto repetem o mesmo número dezenas de vezes ("viúva X mede 128 × 188", "viúva Y mede 128 × 188"):
+  // no máximo 2 por (fonte-mãe, tipo, números), o bastante para "nos modelos citados de X e Y". Sem número não deduplica.
+  const dupKey = (c: Claim) => { const nums = [...new Set((c.statement ?? '').match(/\d+(?:[.,]\d+)?/g) ?? [])].sort().join(','); return nums ? `${classOf(c.source_id) ?? ''}|${c.claim_type}|${nums}` : null; };
+  const seen = new Map<string, number>();
+  const rest = pool.filter((c) => !must.has(c.id)).sort((a, b) => score(b) - score(a)).filter((c) => { const k = dupKey(c); if (!k) return true; const n = seen.get(k) ?? 0; seen.set(k, n + 1); return n < 2; });
+  // 1) Uma vaga por fonte (variedade de fabricantes). 2) Revezamento por pergunta, pela pontuação dentro de cada
+  // uma: 27/10, o solteirão tinha 112 evidências para 60 vagas e as que decidiam (medidas do guia da Castor)
+  // ficaram de fora enquanto garantia e itens inclusos entravam, porque a pontuação não olha de qual pergunta é.
   const bySource = new Set<string>();
   const first = rest.filter((c) => (bySource.has(c.source_id) ? false : (bySource.add(c.source_id), true)));
-  const chosen = [...kept, ...first, ...rest.filter((c) => !first.includes(c))].slice(0, Math.max(max, kept.length));
-  return chosen.sort((a, b) => a.id.localeCompare(b.id));
+  const chosen = new Set<Claim>([...kept, ...first]);
+  const limit = Math.max(max, kept.length);
+  const queues = qs.map((q) => rest.filter((c) => !chosen.has(c) && c.question_ids.includes(q)));
+  for (let i = 0; chosen.size < limit && queues.some((l) => l.length); i = (i + 1) % queues.length) {
+    const c = queues[i]!.shift();
+    if (c && !chosen.has(c)) chosen.add(c);
+  }
+  return [...chosen].slice(0, limit).sort((a, b) => a.id.localeCompare(b.id));
 }
 
 // Referência estável para cada unidade auditável do rascunho.

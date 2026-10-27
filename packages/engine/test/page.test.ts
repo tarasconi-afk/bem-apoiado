@@ -57,10 +57,11 @@ const draft = (verdictText: string) => ({
 });
 
 // Simula o roteador: responde conforme o modelo pedido no corpo da requisição.
-function router(opts: { coherence?: boolean; auditorRejectsAlways: boolean; publishable?: boolean; nearMiss?: boolean; rejectRef?: string; rejectWhileWriter?: string }) {
+function router(opts: { coherence?: boolean; coherenceOnce?: boolean; auditorRejectsAlways: boolean; supportAll?: boolean; verdictText?: string; publishable?: boolean; nearMiss?: boolean; rejectRef?: string; rejectWhileWriter?: string }) {
   let writerCalls = 0;
   let lastWriter = '';
   let reviews = 0;
+  let coherenceCalls = 0;
   return async (_url: string, init: RequestInit) => {
     const body = JSON.parse(String(init.body));
     let content: unknown;
@@ -73,9 +74,12 @@ function router(opts: { coherence?: boolean; auditorRejectsAlways: boolean; publ
           ? opts.rejectRef
             ? { patches: [{ ref: opts.rejectRef, action: 'replace', text: 'Outro texto sustentado, reescrito.', basis: 'evidence', claim_ids: [IDS[5]] }] }
             : { patches: [{ ref: 'verdict', action: 'replace', text: 'Depende do uso, segundo as fontes citadas.', basis: 'reasoning', claim_ids: [IDS[0]] }] }
-          : draft(opts.rejectRef ? 'Depende do uso, segundo as fontes citadas.' : 'Colchão de espuma sempre dura mais em qualquer caso.');
+          : draft(opts.verdictText ?? (opts.rejectRef ? 'Depende do uso, segundo as fontes citadas.' : 'Colchão de espuma sempre dura mais em qualquer caso.'));
     } else if (body.response_format.json_schema.name === 'coherence') {
-      content = { findings: opts.coherence ? [{ check: 'produto_como_solucao', ref: 'verdict', problem: 'O leitor entende que a espuma resolve o caso dele.', fix: 'Dizer só o que a fonte descreve.' }] : [] };
+      coherenceCalls++;
+      // Cada auditoria de coerência são 3 leituras: "once" = só a primeira auditoria aponta problema.
+      const fire = opts.coherenceOnce ? coherenceCalls <= 3 : !!opts.coherence;
+      content = { findings: fire ? [{ check: 'produto_como_solucao', ref: 'verdict', problem: 'O leitor entende que a espuma resolve o caso dele.', fix: 'Dizer só o que a fonte descreve.' }] : [] };
     } else if (body.response_format.json_schema.name === 'editorial_review') {
       reviews++;
       if (opts.nearMiss && reviews <= 3) { // 1ª revisão = 3 avaliações (maioria)
@@ -90,7 +94,7 @@ function router(opts: { coherence?: boolean; auditorRejectsAlways: boolean; publ
       content = {
         findings: refs.map((ref) => ({
           ref,
-          verdict: opts.rejectWhileWriter && lastWriter === opts.rejectWhileWriter ? 'UNSUPPORTED' : ref === opts.rejectRef ? 'UNSUPPORTED' : ref === 'verdict' && !opts.rejectRef && (opts.auditorRejectsAlways || writerCalls === 1) ? 'OVERSTATED' : 'SUPPORTED',
+          verdict: opts.supportAll ? 'SUPPORTED' : opts.rejectWhileWriter && lastWriter === opts.rejectWhileWriter ? 'UNSUPPORTED' : ref === opts.rejectRef ? 'UNSUPPORTED' : ref === 'verdict' && !opts.rejectRef && (opts.auditorRejectsAlways || writerCalls === 1) ? 'OVERSTATED' : 'SUPPORTED',
           problem: ref === 'verdict' ? '"sempre" generaliza' : '',
           fix: '',
         })),
@@ -177,6 +181,44 @@ describe('buildPage', () => {
       expect(JSON.stringify(r.page)).not.toContain('Outro texto sustentado');
       expect(r.page.verdict.text).toBe('Depende do uso, segundo as fontes citadas.');
     }
+  });
+});
+
+describe('aprovação de primeira (27/10)', () => {
+  it('resposta curta que abre com "Segundo a X" não perde a rodada: a forma é consertada antes do gate', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_forma', router({ auditorRejectsAlways: false, supportAll: true, verdictText: 'Segundo a Castor, escolha D33 pelo peso.' }));
+    expect(r.status).toBe('PASS');
+    expect(r.rounds).toBe(1);
+    if (r.status === 'PASS') expect(r.page.verdict.text).toBe('Escolha D33 pelo peso, segundo a Castor.');
+  });
+
+  it('coerência apontada antes da revisão: o redator remenda, o auditor confere e a página passa', async () => {
+    const { buildPage } = await import('../src/stages/page.ts');
+    const r = await buildPage('pagina-teste', 'run_coh_fix', router({ auditorRejectsAlways: false, coherenceOnce: true }));
+    expect(r.status).toBe('PASS');
+    expect(existsSync(join(root, 'data/runs/run_coh_fix/coherence-fix-1.json'))).toBe(true);
+    expect(existsSync(join(root, 'data/runs/run_coh_fix/coherence-1.json'))).toBe(true);
+    if (r.status === 'PASS') expect(r.page.verdict.text).toBe('Depende do uso, segundo as fontes citadas.');
+  });
+
+  it('versão sustentável do auditor e resposta curta ganham a forma do site sem IA', async () => {
+    const { verdictFormOf } = await import('../src/stages/page.ts');
+    expect(verdictFormOf('Segundo a Castor, escolha D33 pelo peso. Confira a ficha.')).toBe('Escolha D33 pelo peso, segundo a Castor. Confira a ficha.');
+    expect(verdictFormOf('De acordo com fabricantes, molas ensacadas reduzem o movimento.')).toBe('Molas ensacadas reduzem o movimento, de acordo com fabricantes.');
+    expect(verdictFormOf('Escolha pelo peso, segundo a Castor.')).toBe('Escolha pelo peso, segundo a Castor.');
+  });
+
+  it('cada evidência diz ao redator o seu alcance', async () => {
+    const { claimScope, formatClaims } = await import('../src/stages/write.ts');
+    expect(claimScope({ claim_type: 'spec' }, { source_class: 'manufacturer' })).toContain('SÓ O PRODUTO');
+    expect(claimScope({ claim_type: 'availability' }, { source_class: 'manufacturer' })).toContain('SÓ O PRODUTO');
+    expect(claimScope({ claim_type: 'definition' }, { source_class: 'manufacturer' })).toContain('posição da marca');
+    expect(claimScope({ claim_type: 'regulation' }, { source_class: 'regulator' })).toContain('regra geral');
+    expect(claimScope({ claim_type: 'spec' }, { source_class: 'standard_body' })).toContain('regra geral');
+    const c = { id: 'clm_a', source_id: 'src_x', quote: 'Mede 100 × 200 cm.', claim_type: 'spec', statement: 'Mede 100 × 200.', captured_at: '2026-10-20T12:00:00.000Z', question_ids: [] } as never;
+    const s = new Map([['src_x', { id: 'src_x', publisher: 'Probel', source_class: 'manufacturer', final_url: 'https://probel.test/x', title: 'Prohotel Royal' } as never]]);
+    expect(formatClaims([c], s)).toContain('alcance: SÓ O PRODUTO');
   });
 });
 

@@ -24,6 +24,7 @@ import { decisionReadiness, logReadiness, saveRules } from './readiness.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS, retryOff } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
+import { failureCause } from './review.ts';
 import { adjustWithResearch } from './requests.ts';
 import { withoutDuplicates } from './duplicates.ts';
 import { planTopic } from './plan.ts';
@@ -595,7 +596,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
       const gate = await readyOrResearch(topic.slug, runId, steps);
       if (!gate) return done({ status: 'STOPPED', slug: topic.slug, query, steps });
       const p = await buildPage(topic.slug, runId);
-      steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : ''}`);
+      steps.push(`page: ${p.status}${p.status === 'SAFE_STOP' ? ` (${p.reason})` : p.status === 'NOT_PUBLISHABLE' ? ` (${failureCause(p.review)})` : ''}`);
       // Parou sem página e sem lacuna registrada: as perguntas sem resposta viram lacunas, senão a fila trata
       // a pauta como esgotada e nunca volta a ela (cadeira de escritório, 21/10: 0 evidências, 0 lacunas).
       const t = loadTopic(topic.slug);

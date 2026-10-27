@@ -465,6 +465,14 @@ async function main(): Promise<number> {
       if (values.apply) console.log(applyCalibration(r) ? 'limites atualizados em data/calibration.json' : r.labels < 8 ? 'amostra pequena: limites mantidos' : 'sem ganho: limites mantidos');
       return 0;
     }
+    case 'scope-backfill': {
+      // Alcance (produto | marca | geral) nas evidências que não têm: scope-backfill [--all]. Decisão tipada barata (Jev).
+      const { values } = parseArgs({ args: rest, options: { all: { type: 'boolean', default: false } } });
+      const { backfillScopes } = await import('./stages/scope.ts');
+      const r = await backfillScopes(undefined, !values.all);
+      console.log(`alcance gravado em ${r.set} de ${r.total} evidência(s): ${Object.entries(r.by).map(([k, v]) => `${k} ${v}`).join(', ')} ~${creditsSpent().toFixed(2)} créditos`);
+      return 0;
+    }
     case 'improve': {
       const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '90' } } });
       if (!positionals[0]) {
