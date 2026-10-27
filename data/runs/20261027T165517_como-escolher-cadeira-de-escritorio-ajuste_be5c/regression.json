@@ -1,0 +1,92 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta e o bloco “Como decidir” dependem quase sempre da Flexform, embora a página deva orientar a compra de forma mais geral e use outras fontes quando disponíveis.",
+      "Os termos “mecanismo relax” e principalmente “datilo” aparecem sem explicação simples para leigos.",
+      "A maior parte das exigências da NR-17 é apresentada no contexto de teleatendimento/telemarketing, o que pode fazer o leitor pensar que as medidas não servem como referência para uso doméstico ou outros tipos de escritório.",
+      "O texto mistura orientação para consumidor com obrigações do empregador e análise ergonômica, desviando da decisão de compra.",
+      "A seção sobre certificação não esclarece diretamente o que existe ou não existe de certificação compulsória do Inmetro para cadeiras de escritório."
+    ],
+    "filler_refs": [
+      "o-que-nr17-exige#2",
+      "certificacao-inmetro#0"
+    ],
+    "decision_criteria": [
+      "Conferir na ficha a altura mínima e máxima do assento e comparar com a altura do usuário.",
+      "Conferir a profundidade do assento e verificar se ela fica dentro de uma faixa confortável para o corpo.",
+      "Para usar por muitas horas, priorizar encosto que inclina junto com o assento e tenha resistência ajustável ao peso, quando essa for a descrição do fabricante.",
+      "Conferir se o apoio para as costas ou apoio lombar tem ajuste e qual é a faixa informada pelo fabricante.",
+      "Verificar a altura e os demais ajustes dos apoios de braço, quando disponíveis.",
+      "Conferir a capacidade de carga declarada para o modelo e considerar o peso do usuário.",
+      "Escolher rodízios compatíveis com o piso, como piso frio, madeira, laminado, cerâmica ou carpete.",
+      "Verificar na ficha se há regulagem de inclinação e se o encosto ou assento trava em posições específicas.",
+      "Procurar na ficha referências à NBR 13962, a ensaios e a laboratório acreditado quando a conformidade com a norma for declarada."
+    ],
+    "missing": [
+      "Para o leitor leigo: A resposta e o bloco “Como decidir” dependem quase sempre da Flexform, embora a página deva orientar a compra de forma mais geral e use outras fontes quando disponíveis.",
+      "Para o leitor leigo: Os termos “mecanismo relax” e principalmente “datilo” aparecem sem explicação simples para leigos.",
+      "Para o leitor leigo: A maior parte das exigências da NR-17 é apresentada no contexto de teleatendimento/telemarketing, o que pode fazer o leitor pensar que as medidas não servem como referência para uso doméstico ou outros tipos de escritório.",
+      "Para o leitor leigo: O texto mistura orientação para consumidor com obrigações do empregador e análise ergonômica, desviando da decisão de compra.",
+      "Para o leitor leigo: A seção sobre certificação não esclarece diretamente o que existe ou não existe de certificação compulsória do Inmetro para cadeiras de escritório.",
+      "Uma regra simples e geral para relacionar altura, profundidade, largura e ajustes da cadeira às medidas do usuário, sem limitar a orientação ao teleatendimento.",
+      "Explicação em linguagem comum dos tipos de mecanismo, incluindo o que significa o encosto inclinar junto com o assento e o que significa inclinar sozinho.",
+      "Conclusão clara, baseada nas fontes, sobre a existência ou não de certificação compulsória do Inmetro para cadeiras de escritório e sobre o papel da NR-17 e da NBR 13962.",
+      "Faixas de regulagem e capacidade de carga de mais de um fabricante ou de modelos diferentes, para evitar que a recomendação pareça específica da Flexform.",
+      "Informação prática sobre as categorias de cadeira previstas na NBR 13962 e qual uso é associado a cada uma, se houver fonte primária disponível.",
+      "Indicação explícita de que as medidas do Anexo II da NR-17 são uma referência específica do teleatendimento, não uma regra geral para toda cadeira de escritório."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios concretos de compra — medidas, ajustes, capacidade de carga, mecanismo e rodízios — e a resposta curta é rápida. Porém, no estado atual, não é adequada ao público leigo: concentra a decisão em uma única marca, usa “datilo” e outros termos sem explicação, dá destaque excessivo ao teleatendimento e não esclarece a questão do Inmetro. Deve ser revisada para transformar as medidas do Anexo II em referência prática, explicar os mecanismos em linguagem simples, separar recomendações de consumidor das obrigações trabalhistas e apresentar uma conclusão clara sobre certificação.",
+    "filler_ratio": 0.10526315789473684,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta apresenta as medidas da NR-17 como se fossem voltadas principalmente a teleatendimento e telemarketing, embora a dúvida seja sobre escolher cadeira para uso geral em casa, escritório ou games.",
+      "O texto usa linguagem e nomes pouco familiares, como “mecanismo relax”, “datilo”, “anteroposterior” e “características antropométricas”, sem priorizar uma explicação prática para o consumidor.",
+      "A orientação se apoia principalmente na Flexform, embora a página cite outros fabricantes apenas de forma pontual.",
+      "O leitor não recebe uma regra clara para relacionar altura, profundidade e ajustes da cadeira ao próprio corpo e à altura da mesa."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Conferir na ficha a altura mínima e máxima do assento e compará-la com a altura da mesa e com o próprio corpo.",
+      "Verificar a profundidade do assento e a faixa de ajuste do apoio para as costas.",
+      "Para as medidas de referência citadas no Anexo II da NR-17, conferir altura do assento entre 37 e 50 cm, profundidade entre 38 e 46 cm e braços entre 20 e 25 cm acima do assento.",
+      "Para uso prolongado, considerar encosto que inclina junto com o assento e resistência ajustável ao peso, conforme a descrição da Flexform.",
+      "Conferir a capacidade de carga declarada pelo fabricante e preferir uma cadeira com margem acima do peso do usuário.",
+      "Verificar se os rodízios são adequados ao piso, como carpete, madeira, laminado ou cerâmica.",
+      "Conferir na ficha se há ajuste de altura dos braços, ajuste lateral ou rotação, quando essas regulagens forem importantes para o usuário.",
+      "Verificar se o fabricante declara estabilidade, resistência, ensaios em laboratório acreditado ou conformidade com a NBR 13962.",
+      "Conferir se o modelo possui bloqueio de inclinação, sistema anti-impacto e regulagem por pistão a gás, quando esses recursos forem desejados."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta apresenta as medidas da NR-17 como se fossem voltadas principalmente a teleatendimento e telemarketing, embora a dúvida seja sobre escolher cadeira para uso geral em casa, escritório ou games.",
+      "Para o leitor leigo: O texto usa linguagem e nomes pouco familiares, como “mecanismo relax”, “datilo”, “anteroposterior” e “características antropométricas”, sem priorizar uma explicação prática para o consumidor.",
+      "Para o leitor leigo: A orientação se apoia principalmente na Flexform, embora a página cite outros fabricantes apenas de forma pontual.",
+      "Para o leitor leigo: O leitor não recebe uma regra clara para relacionar altura, profundidade e ajustes da cadeira ao próprio corpo e à altura da mesa.",
+      "Uma regra prática relacionando altura e profundidade do assento à altura do usuário, ao comprimento das pernas e à altura da mesa.",
+      "Uma explicação simples de que as medidas do Anexo II da NR-17 são uma referência de conferência para o consumidor e não uma restrição a cadeiras usadas em escritório, casa ou games.",
+      "Faixas efetivamente declaradas pelos fabricantes para altura, profundidade, apoio lombar, braços e inclinação em mais de um modelo ou fabricante.",
+      "Informações primárias sobre os tipos de cadeira previstos na NBR 13962 e o uso de cada categoria, como operacional e presidente.",
+      "Uma explicação simples dos mecanismos de inclinação, com os nomes técnicos apresentados apenas quando indispensáveis.",
+      "Uma seção de certificação que diferencie claramente o que as fontes afirmam sobre Inmetro, NR-17, NBR 13962 e responsabilidade do fabricante, sem transformar obrigação do empregador em orientação principal ao comprador."
+    ],
+    "publishable": false,
+    "summary": "A página tem bons itens para conferir na ficha técnica, como medidas, capacidade de carga, rodízios e ajustes, mas não está pronta para publicação. A resposta curta é genérica e não diz claramente como escolher para um caso concreto; além disso, restringe a orientação às cadeiras de teleatendimento, usa jargões e coloca a NR-17 e a obrigação do empregador no centro. É necessário reescrever para o consumidor comum, usando as medidas como referência prática, explicando os mecanismos em linguagem simples e oferecendo regras de escolha aplicáveis a escritório, casa e games.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "score_before": 3,
+  "score_after": 2
+}
