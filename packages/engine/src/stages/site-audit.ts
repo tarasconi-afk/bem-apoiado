@@ -12,6 +12,11 @@ import { loadTopic } from './research.ts';
 
 export const SITE_AUDIT_FILE = 'site-audit.json';
 const RECHECK_DAYS = 14;
+// Página que saiu da auditoria COM problema volta à fila bem antes. 27/10: três páginas tiveram o ajuste
+// descartado (ele apagava evidência) e, marcadas como auditadas no dia, sumiriam da fila por 14 dias com o
+// problema no ar. Página limpa é estável e espera os 14 dias; página com achado aberto é reconferida em 2.
+const RECHECK_DAYS_WITH_FINDINGS = 2;
+export const recheckDays = (findings: CoherenceFinding[]): number => (findings.length ? RECHECK_DAYS_WITH_FINDINGS : RECHECK_DAYS);
 const PER_PAGE_ESTIMATE = 1; // créditos por página auditada (medido: ~0,7)
 
 // Que verificações a página já levou. 27/10: entraram "secao_nao_entrega" e "promessa_do_titulo" e a rodada só olhou
@@ -39,7 +44,10 @@ export function auditRequest(findings: CoherenceFinding[]): { text: string; refs
 export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?: FetchLike): Promise<SiteAuditResult> {
   const state = readState<Record<string, SiteAuditEntry>>(SITE_AUDIT_FILE, {});
   const id = checksId();
-  const recent = (slug: string) => !!state[slug] && state[slug]!.checks === id && now.getTime() - Date.parse(state[slug]!.at) < RECHECK_DAYS * 86_400_000;
+  const recent = (slug: string) => {
+    const e = state[slug];
+    return !!e && e.checks === id && now.getTime() - Date.parse(e.at) < recheckDays(e.findings ?? []) * 86_400_000;
+  };
   const live = loadPages().filter((p) => p.status !== 'draft');
   const due = live.filter((p) => !recent(p.slug)).sort((a, b) => (state[a.slug]?.at ?? '').localeCompare(state[b.slug]?.at ?? ''));
   const idx = buildIndex();
