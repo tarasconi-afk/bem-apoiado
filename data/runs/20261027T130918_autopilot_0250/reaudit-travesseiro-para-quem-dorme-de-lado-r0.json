@@ -1,0 +1,89 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "alturas-fabricantes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "materiais-recomendados#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam páginas de produtos específicos, mas o bloco generaliza para a oferta da Luuna e da Probel no plural (“travesseiros”). Além disso, as características são alegações dos próprios fabricantes, embora o bloco as atribua adequadamente a eles.",
+      "fix": "A Duoflex descreve seu Travesseiro Natural Látex como elástico, macio, resiliente, durável, ventilado e com propriedades hipoalergênicas. Em uma página de produto, a Luuna descreve uma almofada de látex Talalay como tendo textura mais suave e uniforme, maior durabilidade e conforto que o látex comum. Em uma página de produto, a Probel descreve o Travesseiro Nasa Probel Plenitude Visco Gel como oferecendo suporte firme e adaptação à cabeça e ao pescoço."
+    },
+    {
+      "ref": "altura-regulavel#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-regulavel#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o travesseiro é produto têxtil e que devem ser indicados o nome das fibras ou filamentos e sua composição percentual, mas não mostram explicitamente que essas informações devem constar em uma etiqueta nem formulam essa obrigação dessa maneira.",
+      "fix": "Travesseiros são classificados como produtos têxteis e devem atender ao regulamento do Inmetro, que prevê a indicação do nome das fibras ou filamentos e de sua composição em percentual."
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

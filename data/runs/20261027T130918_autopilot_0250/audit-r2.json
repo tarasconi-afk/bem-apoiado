@@ -1,0 +1,150 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-de-protetor#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos mostram um produto Altenburg identificado como “Lençol com elástico” e listam medidas de produtos Altenburg, mas não dizem que protetores com elástico em geral envolvem o colchão nem que podem ter elástico em toda a volta. A afirmação transforma evidência de produtos específicos do fabricante em regra geral.",
+      "fix": "Em produtos Altenburg citados, há modelos identificados como “lençol com elástico” e com alturas de 30 cm, 40 cm e 50 cm; confira a medida indicada na ficha do produto."
+    },
+    {
+      "ref": "tipos-de-protetor#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-de-protetor#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-e-funcoes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-e-funcoes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-e-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-e-cuidados#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que os modelos citados podem ser lavados na máquina, mas não dizem para consultar a instrução do modelo específico antes de lavar.",
+      "fix": "As fichas citadas da Altenburg informam que os modelos apresentados podem ser lavados na máquina."
+    },
+    {
+      "ref": "regulacao-e-certificacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "A afirmação de que a regulamentação não abrange protetores de colchão não aparece nos trechos citados. Eles apenas mencionam regulamentos e dois programas para colchões e colchonetes.",
+      "fix": "O Inmetro regulamenta colchões e colchonetes de espuma flexível de poliuretano e colchões de molas por meio de dois programas distintos de avaliação da conformidade, segundo o documento citado."
+    },
+    {
+      "ref": "regulacao-e-certificacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "regulacao-e-certificacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-do-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-do-colchao#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora esteja em framing, o bloco dá uma orientação factual sobre onde obter informações de garantia, mas não há nenhum trecho citado que a sustente.",
+      "fix": "Consulte diretamente o fabricante ou a documentação do produto para verificar as condições da garantia."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que há um modelo Altenburg com medidas de 0,88 × 1,88 m e 30 cm, mas não que a altura máxima de um protetor em geral seja até 30 cm.",
+      "fix": "Tamanho do colchão: Solteiro | Medidas: 0,88 × 1,88 m | Exemplo de altura de protetor: 30 cm, conforme modelo Altenburg citado"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que há um modelo Altenburg para colchão de casal de 1,38 × 1,88 m e 30 cm, mas não que essa seja a altura máxima de um protetor em geral.",
+      "fix": "Tamanho do colchão: Casal | Medidas: 1,38 × 1,88 m | Exemplo de altura de protetor: 30 cm, conforme modelo Altenburg citado"
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "tipos-de-protetor#0",
+      "msg": "MISATTRIBUTED. Os trechos mostram um produto Altenburg identificado como “Lençol com elástico” e listam medidas de produtos Altenburg, mas não dizem que protetores com elástico em geral envolvem o colchão nem que podem ter elástico em toda a volta. A afirmação transforma evidência de produtos específicos do fabricante em regra geral. Versão sustentável: Em produtos Altenburg citados, há modelos identificados como “lençol com elástico” e com alturas de 30 cm, 40 cm e 50 cm; confira a medida indicada na ficha do produto."
+    },
+    {
+      "ref": "lavagem-e-cuidados#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que os modelos citados podem ser lavados na máquina, mas não dizem para consultar a instrução do modelo específico antes de lavar. Versão sustentável: As fichas citadas da Altenburg informam que os modelos apresentados podem ser lavados na máquina."
+    },
+    {
+      "ref": "regulacao-e-certificacao#0",
+      "msg": "UNSUPPORTED. A afirmação de que a regulamentação não abrange protetores de colchão não aparece nos trechos citados. Eles apenas mencionam regulamentos e dois programas para colchões e colchonetes. Versão sustentável: O Inmetro regulamenta colchões e colchonetes de espuma flexível de poliuretano e colchões de molas por meio de dois programas distintos de avaliação da conformidade, segundo o documento citado."
+    },
+    {
+      "ref": "garantia-do-colchao#1",
+      "msg": "FACT_IN_FRAMING. Embora esteja em framing, o bloco dá uma orientação factual sobre onde obter informações de garantia, mas não há nenhum trecho citado que a sustente. Versão sustentável: Consulte diretamente o fabricante ou a documentação do produto para verificar as condições da garantia."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam que há um modelo Altenburg com medidas de 0,88 × 1,88 m e 30 cm, mas não que a altura máxima de um protetor em geral seja até 30 cm. Versão sustentável: Tamanho do colchão: Solteiro | Medidas: 0,88 × 1,88 m | Exemplo de altura de protetor: 30 cm, conforme modelo Altenburg citado"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. Os trechos sustentam que há um modelo Altenburg para colchão de casal de 1,38 × 1,88 m e 30 cm, mas não que essa seja a altura máxima de um protetor em geral. Versão sustentável: Tamanho do colchão: Casal | Medidas: 1,38 × 1,88 m | Exemplo de altura de protetor: 30 cm, conforme modelo Altenburg citado"
+    }
+  ]
+}
