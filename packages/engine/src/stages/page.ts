@@ -183,12 +183,23 @@ export function verdictFormOf(text: string): string {
   return v;
 }
 
+// Transição que só apresenta o próximo assunto, sem dizer nada ao leitor.
+export const ANNOUNCE = /^(a seguir|abaixo|logo abaixo|na sequ[êe]ncia|nas pr[óo]ximas|neste (bloco|t[óo]pico)|veja (a seguir|abaixo)|confira (a seguir|abaixo))\b|^(veja|confira|entenda|saiba|compare)\s+(o que|como|quais|as informa|os dados)/i;
+
 export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] } {
   const out: Draft = structuredClone(draft);
   const refs: string[] = [];
   const nv = verdictFormOf(out.verdict.text);
   if (nv !== out.verdict.text.trim()) { out.verdict = { ...out.verdict, text: nv }; refs.push('verdict'); }
   for (const sec of out.sections) sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && b.text.includes('—')) { b.text = b.text.replace(/\s*—\s*/g, ', '); refs.push(`${sec.id}#${i}`); } });
+  // Bloco de transição que só anuncia o que vem depois ("A seguir, veja o que os fabricantes dizem…") não muda nada
+  // para quem decide: sai. Só os marcados como "framing" (sem fato nem fonte), então remover não tira informação.
+  // 27/10: 4 blocos assim no "colchão D28 ou D33" no ar e 2 na página do protetor, todos com o juiz dando 4 de 4.
+  for (const sec of out.sections) {
+    const before = sec.blocks.length;
+    sec.blocks = sec.blocks.filter((b) => b.kind === 'table' || b.basis !== 'framing' || !ANNOUNCE.test(b.text.trim()));
+    if (sec.blocks.length !== before) refs.push(...sec.blocks.map((_, i) => `${sec.id}#${i}`));
+  }
   // Tabela com célula sem dado ("não informado nas fontes", "confira na ficha"): a coluna em que isso se repete sai; a
   // linha que ainda ficou sem dado também. Remover nunca acrescenta fato. 27/10, solteirão: o redator devolveu 3 vezes a
   // coluna "Para quem serve" vazia, o gate barrou as 3 rodadas e a página parou sem o auditor nem ter lido a tabela.

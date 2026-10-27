@@ -47,6 +47,7 @@ Regras do gate (o código recusa a página sem ler o conteúdo; cada uma custa u
 - Tabela: pelo menos 2 linhas; nenhuma célula "não informado" ou "confira…"; uma coluna é um modelo só; só cite "a tabela abaixo" na seção em que ela está.
 - Duas orientações "Se você…" com a mesma condição não podem coexistir: junte ou diga outra situação.
 - Nenhum bloco repete outro; nenhum travessão (—); parágrafo com no máximo 70 palavras; página com no máximo 1400.
+- Bloco de transição que só anuncia o próximo assunto ("A seguir, veja o que os fabricantes dizem…", "Confira abaixo as informações…") é cortado: ou a frase diz algo ao leitor, ou o bloco não existe.
 
 Regras de forma:
 - Português do Brasil, frases curtas. Explique termos técnicos na primeira vez.

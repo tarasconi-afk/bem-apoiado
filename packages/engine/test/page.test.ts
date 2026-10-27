@@ -221,6 +221,26 @@ describe('aprovação de primeira (27/10)', () => {
     expect(styleIssues(r.draft).filter((x) => /célula|repete/.test(x.msg))).toEqual([]);
   });
 
+  it('bloco de transição que só anuncia o próximo assunto sai sem IA', async () => {
+    const { fixFormWithoutAI, ANNOUNCE } = await import('../src/stages/page.ts');
+    expect(ANNOUNCE.test('A seguir, veja o que os fabricantes citados dizem sobre durabilidade.')).toBe(true);
+    expect(ANNOUNCE.test('Veja a seguir como peso e altura aparecem nas fontes consultadas.')).toBe(true);
+    expect(ANNOUNCE.test('Compare as informações disponíveis sobre protetores com elástico.')).toBe(true);
+    // Frase que diz algo ao leitor fica, mesmo começando por verbo.
+    expect(ANNOUNCE.test('Confira na ficha a densidade indicada para o seu peso antes de comprar.')).toBe(false);
+    expect(ANNOUNCE.test('Se você divide a cama, prefira molas ensacadas.')).toBe(false);
+    const d = {
+      title: 't', description: 'd'.repeat(60), verdict: { text: 'Escolha pelo peso.', basis: 'evidence', claim_ids: ['clm_x'] },
+      sections: [{ id: 'tipos', heading: 'Tipos', blocks: [
+        { kind: 'paragraph', text: 'A seguir, veja o que os fabricantes citados dizem sobre durabilidade.', basis: 'framing', claim_ids: [] },
+        { kind: 'paragraph', text: 'A Castor informa densidade D33 para 71 a 80 kg.', basis: 'evidence', claim_ids: ['clm_x'] },
+      ] }],
+    };
+    const r = fixFormWithoutAI(d as never);
+    expect(r.draft.sections[0]!.blocks).toHaveLength(1);
+    expect(JSON.stringify(r.draft)).not.toContain('A seguir');
+  });
+
   it('versão sustentável do auditor e resposta curta ganham a forma do site sem IA', async () => {
     const { verdictFormOf } = await import('../src/stages/page.ts');
     expect(verdictFormOf('Segundo a Castor, escolha D33 pelo peso. Confira a ficha.')).toBe('Escolha D33 pelo peso, segundo a Castor. Confira a ficha.');
