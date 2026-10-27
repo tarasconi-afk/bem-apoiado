@@ -26,7 +26,11 @@ Fonte única no código: `packages/core/src/editorial.ts` (redator e revisão us
 
 ## Comandos
 
-- `npm test` · `npm run typecheck` · `npm run validate` · `npm run build`
+- `npm run check` antes de qualquer push: teste, typecheck, validate e build, nessa ordem.
+  27/10: um push com `npm test` e `npm run build` verdes quebrou o typecheck, e com ele TODO botão
+  "Aplicar" do painel (o script roda typecheck antes de enviar) e o build do site no GitHub. Por isso
+  `build` passou a rodar `typecheck` antes.
+- Avulsos: `npm test` · `npm run typecheck` · `npm run validate` · `npm run build`
 - `npm run engine -- snapshot <url> --publisher "X" --class manufacturer|regulator|standard_body|independent_test|retailer_listing|other`
 
 ## Onde ler antes de mudar algo

@@ -15,7 +15,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "engine": "tsx packages/engine/src/cli.ts",
     "validate": "tsx packages/engine/src/cli.ts validate",
-    "build": "npm run validate && npm run build -w site",
+    "build": "npm run typecheck && npm run validate && npm run build -w site",
+    "check": "npm test && npm run build",
     "dev": "npm run dev -w site",
     "deploy:preview": "bash scripts/deploy-preview.sh",
     "deploy:hostinger": "bash scripts/deploy-hostinger.sh"
