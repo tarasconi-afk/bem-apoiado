@@ -15,8 +15,22 @@ const MAX_LESSONS = 12;
 export const EditorLessons = z.object({ lessons: z.array(z.object({ text: z.string(), from: z.string(), at: z.string() })).default([]) });
 export type EditorLessons = z.infer<typeof EditorLessons>;
 
+// Cada ajuste roda num ramo próprio, então o 2º não enxerga a lição que o 1º acabou de gravar noutro ramo e o
+// "already_covered" do modelo não tem como pegar (27/10: duas regras sobre o mesmo assunto, 24 min de diferença).
+// O git também junta as duas listas no merge e o teto de 12 estoura: a lista tinha 15.
+// Só texto igual é cortado aqui. Tentei medir semelhança por palavras em comum e, no teste contra as 15 lições
+// reais, o limiar que pegava a paráfrase também apagava uma regra legítima ("o Como decidir traz uma orientação
+// para cada caso que a resposta curta cita"): apagar conhecimento em silêncio é pior que uma regra repetida.
+// Paráfrase quem tira é o editor, com o botão "remover" da lista de lições (painel, aba Conteúdo).
+const norm = (t: string) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+export function dedupeLessons<L extends { text: string }>(list: L[], limit = MAX_LESSONS): L[] {
+  const seen = new Set<string>();
+  return list.filter((l) => (seen.has(norm(l.text)) ? false : (seen.add(norm(l.text)), true))).slice(0, limit);
+}
+
 export function loadEditorLessons(): EditorLessons {
-  return existsSync(EDITOR_LESSONS_FILE) ? EditorLessons.parse(JSON.parse(readFileSync(EDITOR_LESSONS_FILE, 'utf8'))) : EditorLessons.parse({});
+  const raw = existsSync(EDITOR_LESSONS_FILE) ? EditorLessons.parse(JSON.parse(readFileSync(EDITOR_LESSONS_FILE, 'utf8'))) : EditorLessons.parse({});
+  return { lessons: dedupeLessons(raw.lessons) };
 }
 
 const Out = z.object({ general: z.boolean(), lesson: z.string().nullable(), already_covered: z.boolean() });
@@ -37,7 +51,9 @@ export async function learnFromEditor(slug: string, request: string, fetchImpl?:
   );
   const text = r.data.lesson?.replace(/\s+/g, ' ').trim();
   if (!r.data.general || r.data.already_covered || !text || text.length < 15 || text.length > 240) return null;
-  const lessons = [{ text, from: `editor: ${slug}`, at: now.toISOString() }, ...cur.lessons].slice(0, MAX_LESSONS);
+  const lessons = dedupeLessons([{ text, from: `editor: ${slug}`, at: now.toISOString() }, ...cur.lessons]);
+  // A nova repete uma que já existe (outras palavras, mesma regra): nada muda e o editor não ganha lição duplicada.
+  if (lessons.length === cur.lessons.length && lessons.every((l, i) => l.text === cur.lessons[i]?.text)) return null;
   writeJson(EDITOR_LESSONS_FILE, { lessons });
   return text;
 }
