@@ -1415,11 +1415,24 @@ const head = () => {
 // Faixa de atividade (24/10, opção A escolhida pelo editor na prévia): antes eram 3 caixas em parágrafo (último ciclo,
 // ação em andamento, fila) com o slug e o pedido inteiro, empurrando o quadro para baixo em todas as abas. Agora uma
 // linha: o que roda agora (luz piscando), a fila e o último ciclo, com o detalhe em menu; parado, o próximo ciclo.
-const CYCLE_HOURS = [4, 10, 16, 22]; // infra/bem-apoiado-cycle.timer (+ até 15 min de atraso aleatório)
+const CYCLE_HOURS = [4, 10, 16, 22]; // infra/bem-apoiado-cycle.timer
+const CYCLE_DELAY_MIN = 15; // RandomizedDelaySec=15min: o ciclo das 10:00 pode começar até 10:15.
+const spTime = (d: Date) => {
+  const p = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(d);
+  const v = (t: string) => Number(p.find((x) => x.type === t)!.value);
+  return { day: `${v('year')}-${v('month')}-${v('day')}`, mins: v('hour') * 60 + v('minute') };
+};
 export function nextCycleAt(now: Date): string {
-  const [h, m] = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(now).split(':').map(Number) as [number, number];
-  const next = CYCLE_HOURS.find((x) => x * 60 > h * 60 + m) ?? CYCLE_HOURS[0]!;
+  const next = CYCLE_HOURS.find((x) => x * 60 > spTime(now).mins) ?? CYCLE_HOURS[0]!;
   return `${String(next).padStart(2, '0')}:00`;
+}
+// Hora cheia já passou, mas o atraso aleatório do timer ainda não esgotou e nenhum ciclo rodou desde ela: o ciclo
+// está para começar (27/10, editor: "por que o ciclo das 10 foi pulado?"; ele rodou 10:09 e o painel já dizia 16:00).
+export function cyclePending(now: Date, lastAt: Date | null): string | null {
+  const t = spTime(now);
+  const last = lastAt ? spTime(lastAt) : null;
+  const slot = CYCLE_HOURS.find((x) => t.mins >= x * 60 && t.mins < x * 60 + CYCLE_DELAY_MIN && !(last && last.day === t.day && last.mins >= x * 60));
+  return slot === undefined ? null : `${String(slot).padStart(2, '0')}:00`;
 }
 const JOB_VERB: Record<string, string> = { auditar: 'Auditando o site', ajustar: 'Ajustando', mesclar: 'Aplicando', descartar: 'Descartando', veredito: 'Registrando veredito', pedido: 'Pedido ao motor', editar: 'Editando', 'produto-ler': 'Lendo anúncio', 'produto-adicionar': 'Adicionando produto', 'produto-reconferir': 'Reconferindo produto', 'produto-remover': 'Removendo produto', 'fila-adicionar': 'Fila de pautas', 'fila-remover': 'Fila de pautas', 'licao-remover': 'Removendo lição', 'dominio-aprovar': 'Aprovando domínio', 'dominio-bloquear': 'Bloqueando domínio', 'dominio-desfazer': 'Desfazendo domínio' };
 // "ajustar colchao-x: pedido…" → verbo + título da página; o rótulo inteiro fica no menu.
@@ -1443,7 +1456,8 @@ export function activityBar(now = new Date()): string {
     nowPart = `<details class="act-now pill"><summary><span class="dot live" aria-hidden="true"></span><span class="muted">${esc(t.verb)}</span> <b>${esc(t.subject)}</b> <span class="muted mono">${since(job.ran_at ?? job.started)} min</span></summary><div class="pop"><p>${esc(job.label)}</p><p class="muted">A página atualiza sozinha. Até terminar, os números do topo podem mostrar os dados do resultado que está sendo ajustado.</p></div></details>`;
   } else {
     const asked = existsSync(RUN_NOW);
-    nowPart = `<div class="act-now"><span class="dot idle" aria-hidden="true"></span><span class="muted">${asked ? 'Ciclo pedido: começa em até 1 min' : 'Motor parado'}</span>${asked ? '' : ` <span class="muted">· próximo ciclo</span> <b>${nextCycleAt(now)}</b>`}</div>`;
+    const pending = asked ? null : cyclePending(now, cyc.last?.at ?? null);
+    nowPart = `<div class="act-now"><span class="dot idle" aria-hidden="true"></span><span class="muted">${asked ? 'Ciclo pedido: começa em até 1 min' : pending ? `Ciclo das ${esc(pending)}: começa em instantes` : 'Motor parado'}</span>${asked || pending ? '' : ` <span class="muted">· próximo ciclo</span> <b>${nextCycleAt(now)}</b>`}</div>`;
   }
   const queuePart = queued.length
     ? `<details class="pill"><summary>Fila <span class="b neutral">${queued.length}</span> ▾</summary><div class="pop"><ol>${queued.map((j) => { const t = jobTitle(j); return `<li><b>${esc(t.subject)}</b><span class="muted">${esc(j.label.replace(/^[^:]*:\s*/, ''))}</span></li>`; }).join('')}</ol></div></details>`
