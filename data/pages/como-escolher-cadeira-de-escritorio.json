@@ -5,7 +5,7 @@
   "title": "Como escolher cadeira de escritório",
   "description": "Guia de decisão com requisitos de segurança, ajustes e informações técnicas que o fabricante deve informar.",
   "primary_query": "como escolher cadeira de escritório",
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-10-27",
   "verdict": {
     "text": "Confira na ficha a altura mínima e máxima do assento, a profundidade, o ajuste do apoio para as costas e o peso suportado. Para quem passa 8 horas ou mais sentado, a Flexform descreve como adequado o encosto que inclina junto com o assento, com resistência ajustável ao peso.",
     "basis": "reasoning",
@@ -72,9 +72,10 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Flexform declara conformidade com a ABNT NBR 13962 em sua linha de cadeiras e informa que realizou ensaios no Laboratório Galileo, acreditado pela CGCRE.",
+          "text": "A ABNT NBR 13962 estabelece dimensões e tolerâncias para cadeiras giratórias operacionais: largura de assento de 500 mm (±10 mm), profundidade de 460 mm (±10 mm) e altura variável obrigatória entre 420 mm e 520 mm, além de requisitos de estabilidade, resistência e durabilidade. Fabricantes como Flexform declaram conformidade com a norma, com ensaios realizados em laboratório acreditado pela CGCRE.",
           "basis": "evidence",
           "claim_ids": [
+            "clm_b55b6d169789",
             "clm_992ca57ab03c",
             "clm_70c310be7789"
           ]
@@ -170,9 +171,10 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A NR-17 determina que o conjunto do mobiliário do posto de trabalho tenha regulagens em um ou mais elementos para adaptá-lo às características antropométricas do conjunto dos trabalhadores envolvidos e à natureza do trabalho a ser desenvolvido.",
+          "text": "Segundo a Ergocadeiras, uma cadeira ergonômica de alta qualidade funciona bem quando ajustada ao corpo do usuário. A NR-17 exige que o conjunto do mobiliário do posto de trabalho tenha regulagens que permitam adaptá-lo às características antropométricas dos trabalhadores envolvidos e à natureza do trabalho.",
           "basis": "evidence",
           "claim_ids": [
+            "clm_434e6119e15d",
             "clm_5610257428d7"
           ]
         }
@@ -222,7 +224,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T163659_autopilot_8a5a+editor:20261021T175040_como-escolher-cadeira-de-escritorio-ajuste_84b5+editor:20261021T181130_como-escolher-cadeira-de-escritorio-ajuste_667e+editor:20261021T183030_como-escolher-cadeira-de-escritorio-ajuste_2f4f+reaudit:20261021T190143_autopilot_ff15+repeticao-removida+editor:20261026T123456_como-escolher-cadeira-de-escritorio-ajuste_651c",
+    "run_id": "20261021T163659_autopilot_8a5a+editor:20261021T175040_como-escolher-cadeira-de-escritorio-ajuste_84b5+editor:20261021T181130_como-escolher-cadeira-de-escritorio-ajuste_667e+editor:20261021T183030_como-escolher-cadeira-de-escritorio-ajuste_2f4f+reaudit:20261021T190143_autopilot_ff15+repeticao-removida+editor:20261026T123456_como-escolher-cadeira-de-escritorio-ajuste_651c+editor:20261027T153407_como-escolher-cadeira-de-escritorio-ajuste_02af",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

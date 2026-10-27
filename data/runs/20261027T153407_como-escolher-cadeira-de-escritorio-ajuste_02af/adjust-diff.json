@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-27T15:34:30.299Z",
+  "instruction": "No bloco requisitos-nbr-13962#0: A seção promete apresentar requisitos da ABNT NBR 13962, mas o bloco apenas informa uma declaração de conformidade da Flexform e ensaios em laboratório, sem descrever os requisitos da norma. Conserto: Mude o título para algo como “Como verificar referências à ABNT NBR 13962”. No bloco certificacao-inmetro#0: A seção promete explicar o que as normas exigem e o que não exigem sobre certificação, mas o bloco só informa que a NR-17 exige regulagens no mobiliário. Conserto: Mude o título para algo como “O que a NR-17 exige sobre regulagens do mobiliário”.",
+  "diffs": [
+    {
+      "where": "Requisitos da norma ABNT NBR 13962 · bloco 1",
+      "before": "A Flexform declara conformidade com a ABNT NBR 13962 em sua linha de cadeiras e informa que realizou ensaios no Laboratório Galileo, acreditado pela CGCRE.",
+      "after": "A ABNT NBR 13962 estabelece dimensões e tolerâncias para cadeiras giratórias operacionais: largura de assento de 500 mm (±10 mm), profundidade de 460 mm (±10 mm) e altura variável obrigatória entre 420 mm e 520 mm, além de requisitos de estabilidade, resistência e durabilidade. Fabricantes como Flexform declaram conformidade com a norma, com ensaios realizados em laboratório acreditado pela CGCRE."
+    },
+    {
+      "where": "Certificação: o que as normas exigem e o que não exigem · bloco 1",
+      "before": "A NR-17 determina que o conjunto do mobiliário do posto de trabalho tenha regulagens em um ou mais elementos para adaptá-lo às características antropométricas do conjunto dos trabalhadores envolvidos e à natureza do trabalho a ser desenvolvido.",
+      "after": "Segundo a Ergocadeiras, uma cadeira ergonômica de alta qualidade funciona bem quando ajustada ao corpo do usuário. A NR-17 exige que o conjunto do mobiliário do posto de trabalho tenha regulagens que permitam adaptá-lo às características antropométricas dos trabalhadores envolvidos e à natureza do trabalho."
+    }
+  ]
+}
