@@ -97,7 +97,17 @@ branch_previews() {
 # O site público está na versão do main? (a implantação por Git da Hostinger às vezes não dispara)
 live_check() {
   local live; live=$(curl -fsS -m 20 "https://bemapoiado.com/?v=$(date +%s)" 2>/dev/null | grep -o 'name="bem-build" content="[0-9a-f]*"' | grep -o '[0-9a-f]\{40\}' || true)
-  printf '{"checked_at":"%s","live":"%s","main":"%s","main_at":"%s"}\n' "$(date -u +%FT%TZ)" "$live" "$(git rev-parse HEAD)" "$(git log -1 --format=%cI)" > /var/lib/bem-apoiado/live-site.json
+  local sha at
+  sha=$(git rev-parse HEAD); at=$(git log -1 --format=%cI)
+  printf '{"checked_at":"%s","live":"%s","main":"%s","main_at":"%s"}\n' "$(date -u +%FT%TZ)" "$live" "$sha" "$at" > /var/lib/bem-apoiado/live-site.json
+  # Mesma regra do aviso do painel: só é problema depois de 15 min, porque a implantação leva alguns minutos.
+  # Em 21/10 e em 27/10 o site ficou parado numa versão antiga, e isso só aparecia para quem abrisse o painel.
+  if [ -n "$live" ] && [ "$live" != "$sha" ] && [ $(( $(date +%s) - $(date -d "$at" +%s 2>/dev/null || date +%s) )) -gt 900 ]; then
+    "$REPO/scripts/alerta.sh" site-atrasado "Bem Apoiado: o site está numa versão antiga" \
+      "O site publicado está em ${live:0:7} e o main em ${sha:0:7}, enviado em $at.
+
+A implantação automática da Hostinger não disparou. No hPanel: Sites, Git, Implantar." || true
+  fi
 }
 
 # Commit no main + push. Se o main andou no meio (merge no GitHub), refaz sobre o novo main uma vez.

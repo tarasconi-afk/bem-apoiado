@@ -31,6 +31,15 @@ d.update(state=st, code=code, ended=datetime.datetime.utcnow().strftime('%Y-%m-%
 d['updated'] = d['ended']
 json.dump(d, open(p, 'w'))
 PY
+  # Ciclo que falhou só aparecia no painel, e num dia sem abrir o painel ninguém via. Código 3 é "nada a
+  # publicar neste ciclo": é normal e não vira aviso.
+  if [ "$code" -ne 0 ] && [ "$code" -ne 3 ]; then
+    "$REPO/scripts/alerta.sh" ciclo-falhou "Bem Apoiado: o ciclo falhou (erro $code)" \
+      "O ciclo que terminou às $(date +%H:%M) saiu com erro $code.
+
+Últimas linhas do log:
+$(tail -12 /var/lib/bem-apoiado/cycle-last.log 2>/dev/null)" || true
+  fi
 }
 trap finish EXIT
 export BEM_CYCLE_LIVE=1

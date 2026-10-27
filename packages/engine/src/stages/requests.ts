@@ -120,6 +120,15 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
   const done: string[] = [];
   const failed: string[] = [];
   const known = new Set(pages.map((p) => p.slug));
+  // A lição sai das PALAVRAS DO EDITOR, não da instrução que o planejador derivou delas. 27/10: o editor escreveu
+  // "isto vale para todas as páginas: quando a pauta compara duas opções, só use exemplos dessas opções", o
+  // planejador traduziu para "remover qualquer produto que não seja molas ensacadas ou Bonnel" — citando a página e
+  // os produtos — e o classificador, que recusa regra que cite a página, julgou o pedido específico. A regra geral
+  // se perdeu e o ajuste consertou duas páginas em vez de todas as próximas. Aqui a lição é extraída uma vez por
+  // pedido, antes de qualquer ação, e os ajustes recebem learn: false para a paráfrase nunca chegar ao classificador.
+  const edits = plan.data.actions.filter((a): a is Extract<(typeof plan.data.actions)[number], { type: 'edit_text' }> => a.type === 'edit_text');
+  const lesson = edits.length ? await learnFromEditor(edits[0]!.slug, text, fetchImpl).catch(() => null) : null;
+  if (lesson) done.push(`lição nova para todas as páginas: "${lesson}"`);
   for (const a of plan.data.actions) {
     try {
       if (a.type === 'add_topics') {
@@ -150,7 +159,7 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
       } else if (a.type === 'unpublish') {
         recordVerdict(a.slug, 'reject', a.reason);
         done.push(`${a.slug}: despublicada (${a.reason})`);
-      } else if (a.type === 'edit_text') done.push(await adjustWithResearch(a.slug, a.instruction, runId, fetchImpl, { research: false }));
+      } else if (a.type === 'edit_text') done.push(await adjustWithResearch(a.slug, a.instruction, runId, fetchImpl, { research: false, learn: false }));
       else if (a.type === 'find_products') {
         // Pedido em conversa vira ação do motor (23/10, editor: "o Pedir ao motor deve virar uma extensão do que
         // fazemos no chat"). Mesma etapa e mesmas travas da manutenção do ciclo.

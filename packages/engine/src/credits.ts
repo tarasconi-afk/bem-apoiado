@@ -54,6 +54,14 @@ export function balanceNow(entries = ledger()): { reported: Balance | null; spen
   return { reported: b, spentSince, estimate: b.reported - spentSince };
 }
 
+// Gasto real do dia, do livro-caixa. É diferente do contador do teto diário (llm-usage.json), que só soma os
+// ciclos automáticos: em 27/10 o painel mostrava 199 de 250 e o gasto do dia tinha sido 384, porque as ações do
+// painel (ajuste, auditoria do site, imagem) ficam fora do teto. Mesmo corte de dia do contador (data UTC).
+export function spentToday(entries = ledger(), now = new Date()): number {
+  const d = now.toISOString().slice(0, 10);
+  return entries.filter((e) => e.at.slice(0, 10) === d).reduce((t, e) => t + e.credits, 0);
+}
+
 // Gasto por categoria num período (para o painel e para decidir onde economizar).
 export function spendBy(entries: LedgerEntry[], sinceMs: number, now = Date.now()): Map<string, number> {
   const out = new Map<string, number>();

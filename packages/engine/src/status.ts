@@ -4,7 +4,8 @@ import { trafficSummary } from './hits.ts';
 import { auditStats } from './lessons.ts';
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
 import type { PageSpec } from '@bem-apoiado/core';
-import { balanceNow, ledger, spendBy } from './credits.ts';
+import { balanceNow, ledger, spendBy, spentToday } from './credits.ts';
+import { attempts, summarize, trend } from './first-try.ts';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkClaim, checkPage, checkProduct, type Violation } from '@bem-apoiado/core';
@@ -186,7 +187,7 @@ ${opts.topHtml ?? ''}${opts.adminHtml ? kpisHtml(pages, now) : ''}
 ${opts.adminHtml ? `${opts.topHtml ? '' : cycleLiveHtml(now)}${liveWarning()}${opts.adminHtml}<h2>Números do motor</h2>` : ''}
 <div class="grid">
 ${goalsCard(pages, sum(since(24 * 7)), now)}
-<div class="card"><div class="v">${cr(creditsToday())} <span style="font-size:.9rem;font-weight:500">de ${DAILY_CREDIT_CAP}</span></div><div class="l">créditos hoje (teto do dia; zera à meia-noite)</div></div>
+<div class="card"><div class="v">${cr(creditsToday())} <span style="font-size:.9rem;font-weight:500">de ${DAILY_CREDIT_CAP}</span></div><div class="l">créditos hoje no teto dos ciclos · <b>${cr(spentToday(led, now))}</b> de gasto real, com as ações do painel</div></div>
 <div class="card"><div class="v">${topics.length}</div><div class="l">pautas cadastradas</div></div>
 <div class="card"><div class="v">${cr(sum(since(24 * 7)))}</div><div class="l">créditos em 7 dias (${cr(sum(since(24)))} nas últimas 24 h)</div></div>
 <div class="card"><div class="v">${idx.sources.size} / ${idx.claims.size}</div><div class="l">fontes / evidências</div></div>
@@ -248,6 +249,7 @@ ${m.referrers.length ? `<p class="muted">De onde vieram (30 dias): ${m.referrers
 </div>
 ${q.byType.size ? `<p class="muted">Erros do auditor: ${[...q.byType].sort((a, b) => b[1].n - a[1].n).map(([k, v]) => `${esc(k)} ${v.n}`).join(' · ')}</p>` : ''}
 
+${firstTryHtml(now)}
 <h2>Calibração da revisão</h2>
 <p class="muted">Vereditos do editor (<code>verdict &lt;slug&gt; approve|reject --reason "…"</code>) contra a regra automática. Os limites só mudam com ${MIN_LABELS} ou mais vereditos e ganho real de concordância.</p>
 <div class="grid">
@@ -270,6 +272,35 @@ ${Object.entries(MODELS).map(([role, m]) => `<tr><td>${esc(role)}</td><td><code>
 </main></body></html>`;
 }
 
+// Aprovação de primeira POR CAUSA (27/10). A taxa sozinha não diz o que consertar: as oito causas daquele dia
+// só apareceram abrindo run por run. A janela curta ao lado da anterior mostra se a correção pegou; com poucas
+// tentativas na janela, o painel diz isso em vez de fingir precisão.
+function firstTryHtml(now: Date): string {
+  const all = attempts(undefined, 30 * 86_400_000, now.getTime());
+  if (!all.length) return '';
+  const s = summarize(all);
+  const t = trend(all, 7, now.getTime());
+  const pc = (f: { rate: number | null }) => (f.rate === null ? '—' : `${Math.round(f.rate * 100)}%`);
+  const LABEL: Record<string, string> = {
+    'auditoria não convergiu': 'a auditoria de evidências não fechou em 4 rodadas',
+    'coerência': 'a leitura da página inteira achou problema (produto como solução, dado virando regra, promessa não cumprida)',
+    'revisão': 'o juiz disse que a página não decide, não é para leigo ou não responde rápido',
+    'regra': 'enchimento alto ou poucos critérios concretos',
+    'saída inválida do modelo': 'o redator devolveu JSON fora do schema duas vezes',
+    'rede': 'erro HTTP no roteador',
+    'orçamento': 'teto do ciclo atingido no meio da redação',
+    'outro': 'outro',
+  };
+  return `<h2>Aprovação de primeira, por causa (30 dias)</h2>
+<p class="muted">Tentativa de página nova ou de reescrita. Ajuste pedido por você não conta. A meta do roadmap é 70% antes de abrir um segundo nicho.</p>
+<div class="grid">
+<div class="card"><div class="v">${pc(s)}</div><div class="l">aprovadas de primeira (${s.passed}/${s.total})</div></div>
+<div class="card"><div class="v">${pc(t.recent)}</div><div class="l">últimos 7 dias (${t.recent.passed}/${t.recent.total})${t.recent.total < 5 ? ' · poucas tentativas para concluir' : ''}</div></div>
+<div class="card"><div class="v">${pc(t.before)}</div><div class="l">antes disso (${t.before.passed}/${t.before.total})</div></div>
+</div>
+${s.byCause.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Causa da reprovação</th><th class="num">Tentativas</th><th>O que é</th></tr></thead><tbody>${s.byCause.map(([c, n]) => `<tr><td><b>${esc(c)}</b></td><td class="num">${n}</td><td class="muted">${esc(LABEL[c] ?? '')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nenhuma reprovação no período.</p>'}`;
+}
+
 // Metas do editor (22/10): 20 páginas para ganhar tração, 200 no fim. "Sem ajuste" = página no ar sem pedido de
 // ajuste do editor (o que mede se o motor acerta de primeira); créditos por página = gasto de 7 dias dividido
 // pelas aprovações dos mesmos 7 dias.
@@ -279,12 +310,15 @@ function kpisHtml(pages: Pick<PageSpec, 'status'>[], now: Date): string {
   const live = pages.filter((p) => p.status !== 'draft').length;
   const goal = live < 20 ? 20 : 200;
   const used = creditsToday();
+  // O teto conta só os ciclos; o gasto real inclui as ações do painel. Mostrar os dois lado a lado evita a
+  // leitura de folga que não existe (27/10: 199 de 250 no teto, 384 gastos no dia).
+  const real = spentToday(undefined, now);
   const t = trafficSummary(7, now);
   const pct = (a: number, b: number) => Math.min(100, Math.round((100 * a) / Math.max(b, 1)));
   return `<section class="kpis" aria-label="Resumo">
 <div class="kpi"><span class="l">Páginas no ar</span><span class="v">${live} <small>de ${goal}</small></span><div class="bar"><i style="width:${pct(live, goal)}%"></i></div><span class="s">meta final: 200</span></div>
 <div class="kpi"><span class="l">Pedem você</span><span class="v" id="kpi-pend">–</span><span class="s" id="kpi-pend-s">no quadro de decisões</span></div>
-<div class="kpi"><span class="l">Créditos hoje</span><span class="v">${cr(used)} <small>de ${DAILY_CREDIT_CAP}</small></span><div class="bar"><i style="width:${pct(used, DAILY_CREDIT_CAP)}%"></i></div><span class="s">teto dos ciclos automáticos; zera à meia-noite</span></div>
+<div class="kpi"><span class="l">Créditos hoje</span><span class="v">${cr(used)} <small>de ${DAILY_CREDIT_CAP}</small></span><div class="bar"><i style="width:${pct(used, DAILY_CREDIT_CAP)}%"></i></div><span class="s">teto dos ciclos automáticos · gasto real do dia: ${cr(real)}</span></div>
 <div class="kpi"><span class="l">Cliques na Amazon</span><span class="v">${t.clicks} <small>7 dias</small></span><span class="s">${t.views} página(s) vista(s) no período</span></div>
 </section>`;
 }
