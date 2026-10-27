@@ -38,7 +38,7 @@ export function makePatchSchema(refs: string[], claimIds: string[], columns: Map
     patches: z.array(
       z.object({
         ref: z.enum(refs as [string, ...string[]]),
-        action: allowRemove ? z.enum(['replace', 'remove']) : z.enum(['replace']),
+        action: z.enum(['replace', 'remove']),
         // replace de parágrafo, callout ou veredito
         text: z.string().optional(),
         basis: Basis.optional(),
@@ -46,6 +46,11 @@ export function makePatchSchema(refs: string[], claimIds: string[], columns: Map
         // replace de linha de tabela
         cells: z.array(z.object({ text: z.string(), claim_ids: Refs })).optional(),
       }).superRefine((p, ctx) => {
+        // A recusa fica na validação, não no tipo: um enum menor faria o tipo Patch perder "remove" e o
+        // typecheck quebraria em quem aplica remendos (27/10, e com ele todo "Aplicar" do painel).
+        if (!allowRemove && p.action === 'remove') {
+          ctx.addIssue({ code: 'custom', message: `o bloco ${p.ref} não pode ser apagado: o título da seção já está sendo corrigido, mantenha a informação que as fontes sustentam` });
+        }
         const cols = columns.get(p.ref);
         if (cols && p.action === 'replace' && p.cells?.length !== cols.length) {
           ctx.addIssue({ code: 'custom', message: `a linha ${p.ref} precisa de exatamente ${cols.length} células, uma por coluna (${cols.join(' | ')}); use "Não informado nas fontes" com claim_ids vazio quando faltar dado` });
