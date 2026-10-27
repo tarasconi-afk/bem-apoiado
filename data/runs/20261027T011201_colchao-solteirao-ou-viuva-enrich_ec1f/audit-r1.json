@@ -1,0 +1,98 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas as dimensões dos colchões. Não dizem que o solteirão deve ser escolhido por quem dorme sozinho ou é alto, nem que a viúva deve ser escolhida por quem precisa de mais largura; essas recomendações foram acrescentadas sem evidência citada.",
+      "fix": "Segundo a Probel, o solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto a viúva mede 128 cm por 188 cm. A escolha pode considerar qual dessas dimensões cabe no espaço disponível."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que cada modelo tem suporte de peso de 120 kg por pessoa, mas não dizem que esse peso se refere apenas ao usuário nem que o colchão não está incluído. Também não explicitam a formulação \"até\".",
+      "fix": "Segundo a Probel, os colchões solteirão e viúva têm suporte de peso de 120 kg por pessoa."
+    },
+    {
+      "ref": "base-compativel#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam as dimensões de colchões da Probel e, para a viúva, de um conjunto box específico, mas não estabelecem que toda base ou estrado deve ter essas medidas mínimas. O bloco transforma dimensões de produtos específicos em uma exigência geral para bases ou estrados.",
+      "fix": "Os produtos citados da Probel têm as seguintes dimensões: o colchão solteirão, 100 cm de largura por 200 cm de comprimento; o colchão viúva, 128 cm por 188 cm; e o conjunto box viúva citado, 128 cm por 188 cm. Esses trechos, por si só, não estabelecem uma exigência geral para toda base ou estrado."
+    },
+    {
+      "ref": "diferenca-solteiro-solteiriao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "As medidas de 88 cm por 188 cm são citadas, mas os trechos não dizem que o tamanho serve para uma pessoa nem que é adequado para quartos estreitos.",
+      "fix": "Tamanho Solteiro: largura de 88 cm e comprimento de 188 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as medidas de 100 cm por 200 cm, mas não afirmam que o solteirão é para uma pessoa alta nem que oferece mais espaço que o solteiro.",
+      "fix": "Tamanho Solteirão: largura de 100 cm e comprimento de 200 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as medidas e dizem que o modelo é indicado também para casais com biotipos diferentes. Eles não dizem que serve para uma pessoa que quer mais espaço, e transformar “biotipos diferentes” em “diferença de peso” é mais específico do que a evidência permite.",
+      "fix": "Tamanho Viúva: largura de 128 cm e comprimento de 188 cm; a Probel também o indica para casais com biotipos diferentes."
+    },
+    {
+      "ref": "como-decidir-tamanho#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "As evidências sustentam que o solteirão mede 100 cm por 200 cm e que o viúva mede 188 cm de comprimento, permitindo calcular a diferença de 12 cm. Porém, não dizem que o solteirão é a escolha para quem dorme sozinho e é alto. A recomendação de medir o quarto e a base também não aparece nos trechos.",
+      "fix": "O solteirão mede 100 cm de largura por 200 cm de comprimento, 12 cm a mais de comprimento que o viúva citado, que mede 188 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-tamanho#3",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o conselho para conferir as dimensões seja uma orientação, a afirmação de que fabricantes podem usar nomenclaturas diferentes é um fato sobre o mundo que não tem trecho citado e não deve ser apresentado em um bloco de framing.",
+      "fix": "A seguir, veja as dimensões informadas nas evidências para cada tamanho."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas as dimensões dos colchões. Não dizem que o solteirão deve ser escolhido por quem dorme sozinho ou é alto, nem que a viúva deve ser escolhida por quem precisa de mais largura; essas recomendações foram acrescentadas sem evidência citada. Versão sustentável: Segundo a Probel, o solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto a viúva mede 128 cm por 188 cm. A escolha pode considerar qual dessas dimensões cabe no espaço disponível."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que cada modelo tem suporte de peso de 120 kg por pessoa, mas não dizem que esse peso se refere apenas ao usuário nem que o colchão não está incluído. Também não explicitam a formulação \"até\". Versão sustentável: Segundo a Probel, os colchões solteirão e viúva têm suporte de peso de 120 kg por pessoa."
+    },
+    {
+      "ref": "base-compativel#0",
+      "msg": "OVERSTATED. Os trechos informam as dimensões de colchões da Probel e, para a viúva, de um conjunto box específico, mas não estabelecem que toda base ou estrado deve ter essas medidas mínimas. O bloco transforma dimensões de produtos específicos em uma exigência geral para bases ou estrados. Versão sustentável: Os produtos citados da Probel têm as seguintes dimensões: o colchão solteirão, 100 cm de largura por 200 cm de comprimento; o colchão viúva, 128 cm por 188 cm; e o conjunto box viúva citado, 128 cm por 188 cm. Esses trechos, por si só, não estabelecem uma exigência geral para toda base ou estrado."
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r0",
+      "msg": "UNSUPPORTED. As medidas de 88 cm por 188 cm são citadas, mas os trechos não dizem que o tamanho serve para uma pessoa nem que é adequado para quartos estreitos. Versão sustentável: Tamanho Solteiro: largura de 88 cm e comprimento de 188 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas de 100 cm por 200 cm, mas não afirmam que o solteirão é para uma pessoa alta nem que oferece mais espaço que o solteiro. Versão sustentável: Tamanho Solteirão: largura de 100 cm e comprimento de 200 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r2",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas e dizem que o modelo é indicado também para casais com biotipos diferentes. Eles não dizem que serve para uma pessoa que quer mais espaço, e transformar “biotipos diferentes” em “diferença de peso” é mais específico do que a evidência permite. Versão sustentável: Tamanho Viúva: largura de 128 cm e comprimento de 188 cm; a Probel também o indica para casais com biotipos diferentes."
+    },
+    {
+      "ref": "como-decidir-tamanho#1",
+      "msg": "UNSUPPORTED. As evidências sustentam que o solteirão mede 100 cm por 200 cm e que o viúva mede 188 cm de comprimento, permitindo calcular a diferença de 12 cm. Porém, não dizem que o solteirão é a escolha para quem dorme sozinho e é alto. A recomendação de medir o quarto e a base também não aparece nos trechos. Versão sustentável: O solteirão mede 100 cm de largura por 200 cm de comprimento, 12 cm a mais de comprimento que o viúva citado, que mede 188 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho#3",
+      "msg": "FACT_IN_FRAMING. Embora o conselho para conferir as dimensões seja uma orientação, a afirmação de que fabricantes podem usar nomenclaturas diferentes é um fato sobre o mundo que não tem trecho citado e não deve ser apresentado em um bloco de framing. Versão sustentável: A seguir, veja as dimensões informadas nas evidências para cada tamanho."
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Solteirão mede 100 cm de largura por 200 cm de comprimento; viúva mede 128 cm de largura por 188 cm de comprimento. Escolha solteirão se você dorme sozinho, é alto e a base comporta essas dimensões. Escolha viúva se precisa de mais largura (128 cm) e o espaço disponível permite.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6a39a8b44a5f",
+        "clm_bc90ff7d7c6d",
+        "clm_be598e65da36",
+        "clm_e5ee1b7717e8"
+      ]
+    },
+    {
+      "ref": "como-decidir-tamanho#3",
+      "action": "replace",
+      "text": "Ao comprar, confira sempre as dimensões exatas no anúncio, não apenas o nome do tamanho, pois fabricantes podem usar nomenclaturas diferentes.",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "draft": {
+    "title": "Solteirão ou viúva: qual colchão escolher pelo tamanho",
+    "description": "Compare as dimensões exatas de solteirão (100×200 cm) e viúva (128×188 cm) segundo fabricantes. Escolha pela altura de quem dorme e espaço disponível.",
+    "verdict": {
+      "text": "Solteirão mede 100 cm de largura por 200 cm de comprimento; viúva mede 128 cm de largura por 188 cm de comprimento, segundo a Probel. Escolha solteirão se você dorme sozinho, é alto e a base comporta essas dimensões. Escolha viúva se precisa de mais largura (128 cm) e o espaço disponível permite.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6a39a8b44a5f",
+        "clm_bc90ff7d7c6d",
+        "clm_be598e65da36",
+        "clm_e5ee1b7717e8"
+      ]
+    },
+    "sections": [
+      {
+        "id": "peso-suportado",
+        "heading": "Peso suportado em cada tamanho",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, tanto solteirão quanto viúva suportam até 120 kg por pessoa. Esse peso refere-se apenas ao usuário, não ao colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5b0eda888230",
+              "clm_1d9ef204fbab"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "base-compativel",
+        "heading": "Base ou estrado compatível com cada tamanho",
+        "blocks": [
+          {
+            "text": "Para o solteirão, a base ou estrado deve ter pelo menos 100 cm de largura e 200 cm de comprimento, conforme as dimensões do colchão da Probel. Para a viúva, a base deve ter no mínimo 128 cm de largura e 188 cm de comprimento.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_bc90ff7d7c6d",
+              "clm_be598e65da36",
+              "clm_e5ee1b7717e8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "diferenca-solteiro-solteiriao",
+        "heading": "Diferença entre solteiro e solteirão na altura",
+        "blocks": [
+          {
+            "text": "O solteiro, segundo a Probel e a Ortobom, mede 88 cm de largura por 188 cm de comprimento. O solteirão da Probel tem 100 cm de largura (12 cm a mais) e 200 cm de comprimento (12 cm a mais). Essa diferença beneficia quem é alto ou quer mais espaço lateral.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3b13bb693bf7",
+              "clm_34c96754c13d",
+              "clm_6a39a8b44a5f",
+              "clm_bc90ff7d7c6d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir-tamanho",
+        "heading": "Como decidir entre solteirão e viúva",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas por tamanho: solteiro, solteirão e viúva",
+            "columns": [
+              "Tamanho",
+              "Largura",
+              "Comprimento",
+              "Para quem serve"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_34c96754c13d"
+                    ]
+                  },
+                  {
+                    "text": "88 cm",
+                    "claim_ids": [
+                      "clm_3b13bb693bf7"
+                    ]
+                  },
+                  {
+                    "text": "188 cm",
+                    "claim_ids": [
+                      "clm_3b13bb693bf7"
+                    ]
+                  },
+                  {
+                    "text": "Uma pessoa; quartos estreitos",
+                    "claim_ids": [
+                      "clm_34c96754c13d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Solteirão",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f"
+                    ]
+                  },
+                  {
+                    "text": "100 cm",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f",
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  },
+                  {
+                    "text": "200 cm",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f",
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  },
+                  {
+                    "text": "Uma pessoa alta; mais espaço que solteiro",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Viúva",
+                    "claim_ids": [
+                      "clm_be598e65da36"
+                    ]
+                  },
+                  {
+                    "text": "128 cm",
+                    "claim_ids": [
+                      "clm_be598e65da36",
+                      "clm_e5ee1b7717e8"
+                    ]
+                  },
+                  {
+                    "text": "188 cm",
+                    "claim_ids": [
+                      "clm_be598e65da36",
+                      "clm_e5ee1b7717e8"
+                    ]
+                  },
+                  {
+                    "text": "Uma pessoa com mais espaço ou casal com diferença de peso",
+                    "claim_ids": [
+                      "clm_28c14e893c3d"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você dorme sozinho e é alto, escolha um solteirão. O comprimento de 200 cm oferece 12 cm a mais que o solteiro (188 cm) e o viúva, conforme a Probel. Meça seu quarto e sua base antes de comprar para confirmar se as dimensões de 100 cm de largura e 200 cm de comprimento cabem.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_bc90ff7d7c6d",
+              "clm_be598e65da36"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você precisa de mais largura e o quarto ou a base têm espaço para 128 cm, escolha um viúva. Segundo a Probel, ele mede 128 cm de largura por 188 cm de comprimento. Confira se o comprimento de 188 cm cabe na sua base ou no espaço disponível.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_be598e65da36",
+              "clm_e5ee1b7717e8",
+              "clm_e62f10174a0b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ao comprar, confira sempre as dimensões exatas no anúncio, não apenas o nome do tamanho, pois fabricantes podem usar nomenclaturas diferentes.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir-tamanho#3",
+      "msg": "FRAMING_HAS_NUMBER Os fabricantes usam nomes diferentes para esses tamanhos. A Probel chama 100×200"
+    },
+    {
+      "ref": "verdict",
+      "msg": "resposta curta com 4 frases; deixe em até 3, começando pela resposta prática para quem vai comprar."
+    }
+  ],
+  "usage": {
+    "input_tokens": 11694,
+    "output_tokens": 307
+  }
+}

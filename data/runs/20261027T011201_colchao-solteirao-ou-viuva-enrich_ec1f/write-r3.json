@@ -1,0 +1,300 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto a viúva mede 128 cm por 188 cm. Escolha pela largura disponível no espaço: o viúva cabe em bases padrão de casal e oferece mais largura que o solteiro; o solteirão é mais comprido.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6a39a8b44a5f",
+        "clm_bc90ff7d7c6d",
+        "clm_be598e65da36",
+        "clm_e5ee1b7717e8"
+      ]
+    },
+    {
+      "ref": "como-decidir-tamanho#0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_34c96754c13d"
+          ]
+        },
+        {
+          "text": "88 cm",
+          "claim_ids": [
+            "clm_3b13bb693bf7"
+          ]
+        },
+        {
+          "text": "188 cm",
+          "claim_ids": [
+            "clm_3b13bb693bf7"
+          ]
+        },
+        {
+          "text": "Pessoas que dormem sozinhas",
+          "claim_ids": [
+            "clm_34c96754c13d"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteirão",
+          "claim_ids": [
+            "clm_6a39a8b44a5f"
+          ]
+        },
+        {
+          "text": "100 cm",
+          "claim_ids": [
+            "clm_6a39a8b44a5f",
+            "clm_bc90ff7d7c6d"
+          ]
+        },
+        {
+          "text": "200 cm",
+          "claim_ids": [
+            "clm_6a39a8b44a5f",
+            "clm_bc90ff7d7c6d"
+          ]
+        },
+        {
+          "text": "Pessoas que dormem sozinhas e precisam de mais comprimento",
+          "claim_ids": [
+            "clm_6a39a8b44a5f",
+            "clm_bc90ff7d7c6d"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Solteirão ou viúva: qual colchão escolher pelo tamanho",
+    "description": "Compare as dimensões exatas de solteirão (100×200 cm) e viúva (128×188 cm) segundo fabricantes. Escolha pela altura de quem dorme e espaço disponível.",
+    "verdict": {
+      "text": "O solteirão mede 100 cm de largura por 200 cm de comprimento, enquanto a viúva mede 128 cm por 188 cm, segundo a Probel. Escolha pela largura disponível no espaço: o viúva cabe em bases padrão de casal e oferece mais largura que o solteiro; o solteirão é mais comprido.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6a39a8b44a5f",
+        "clm_bc90ff7d7c6d",
+        "clm_be598e65da36",
+        "clm_e5ee1b7717e8"
+      ]
+    },
+    "sections": [
+      {
+        "id": "peso-suportado",
+        "heading": "Peso suportado em cada tamanho",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, os colchões solteirão e viúva têm suporte de peso de 120 kg por pessoa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5b0eda888230",
+              "clm_1d9ef204fbab"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "base-compativel",
+        "heading": "Base ou estrado compatível com cada tamanho",
+        "blocks": [
+          {
+            "text": "Os produtos citados da Probel têm as seguintes dimensões: o colchão solteirão, 100 cm de largura por 200 cm de comprimento; o colchão viúva, 128 cm por 188 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_bc90ff7d7c6d",
+              "clm_be598e65da36",
+              "clm_e5ee1b7717e8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "diferenca-solteiro-solteiriao",
+        "heading": "Diferença entre solteiro e solteirão na altura",
+        "blocks": [
+          {
+            "text": "O solteiro, segundo a Probel e a Ortobom, mede 88 cm de largura por 188 cm de comprimento. O solteirão da Probel tem 100 cm de largura (12 cm a mais) e 200 cm de comprimento (12 cm a mais). Essa diferença beneficia quem é alto ou quer mais espaço lateral.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3b13bb693bf7",
+              "clm_34c96754c13d",
+              "clm_6a39a8b44a5f",
+              "clm_bc90ff7d7c6d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir-tamanho",
+        "heading": "Como decidir entre solteirão e viúva",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas por tamanho: solteiro, solteirão e viúva",
+            "columns": [
+              "Tamanho",
+              "Largura",
+              "Comprimento",
+              "Para quem serve"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_34c96754c13d"
+                    ]
+                  },
+                  {
+                    "text": "88 cm",
+                    "claim_ids": [
+                      "clm_3b13bb693bf7"
+                    ]
+                  },
+                  {
+                    "text": "188 cm",
+                    "claim_ids": [
+                      "clm_3b13bb693bf7"
+                    ]
+                  },
+                  {
+                    "text": "não informado nas fontes",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Solteirão",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f"
+                    ]
+                  },
+                  {
+                    "text": "100 cm",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f",
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  },
+                  {
+                    "text": "200 cm",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f",
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  },
+                  {
+                    "text": "Pessoas que dormem sozinhas e precisam de mais comprimento",
+                    "claim_ids": [
+                      "clm_6a39a8b44a5f",
+                      "clm_bc90ff7d7c6d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Viúva",
+                    "claim_ids": [
+                      "clm_be598e65da36"
+                    ]
+                  },
+                  {
+                    "text": "128 cm",
+                    "claim_ids": [
+                      "clm_be598e65da36",
+                      "clm_e5ee1b7717e8"
+                    ]
+                  },
+                  {
+                    "text": "188 cm",
+                    "claim_ids": [
+                      "clm_be598e65da36",
+                      "clm_e5ee1b7717e8"
+                    ]
+                  },
+                  {
+                    "text": "Casais com biotipos diferentes, segundo a Probel",
+                    "claim_ids": [
+                      "clm_28c14e893c3d"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "O solteirão mede 100 cm de largura por 200 cm de comprimento, 12 cm a mais de comprimento que o viúva citado, que mede 188 cm, segundo a Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6a39a8b44a5f",
+              "clm_bc90ff7d7c6d",
+              "clm_be598e65da36",
+              "clm_e5ee1b7717e8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você precisa de mais largura e o quarto ou a base têm espaço para 128 cm, escolha um viúva. Segundo a Probel, ele mede 128 cm de largura por 188 cm de comprimento. Confira se o comprimento de 188 cm cabe na sua base ou no espaço disponível.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_be598e65da36",
+              "clm_e5ee1b7717e8",
+              "clm_e62f10174a0b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A seguir, veja as dimensões informadas para cada tamanho.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir-tamanho#0.r0",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir-tamanho#0.r1",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir-tamanho#0",
+      "msg": "a coluna \"Para quem serve\" repete \"não informado nas fontes\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ],
+  "usage": {
+    "input_tokens": 11782,
+    "output_tokens": 644
+  }
+}

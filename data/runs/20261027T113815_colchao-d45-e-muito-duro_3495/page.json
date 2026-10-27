@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 188354,
+    "output_tokens": 35786,
+    "calls": 44
+  },
+  "credits": 14.946729600000003,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-conferir#0"
+    ],
+    "decision_criteria": [
+      "Até 50 kg, a Castor indica D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33.",
+      "Entre 81 e 100 kg, a Castor indica D33 a D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg, a Castor indica D45 ou maior para oferecer mais suporte.",
+      "D45 é descrita como mais firme que D28 no modelo Black & White Air D45 da Castor, mas a firmeza geral também depende das outras camadas.",
+      "Confira na ficha ou etiqueta a densidade nominal de cada lâmina de espuma e, em colchões compostos ou mistos, a espessura das lâminas.",
+      "Verifique também a classificação de conforto ou firmeza informada pelo fabricante, como macio, intermediário, firme ou hiper firme.",
+      "Pillow top, matelassê e camadas adicionais podem deixar a superfície mais confortável ou macia, mesmo quando a base usa espuma D45."
+    ],
+    "missing": [
+      "Uma declaração direta do fabricante explicando em quais modelos a espuma D45 é considerada firme, muito firme ou apenas uma camada estrutural.",
+      "Uma comparação de firmeza entre colchões D45 de diferentes composições, mostrando o efeito da espessura, do pillow top e das camadas de menor densidade.",
+      "Informação de fonte primária da ABNT ou do Inmetro esclarecendo se a densidade deve ser interpretada como firmeza ou como característica de suporte e resistência da espuma.",
+      "Uma especificação normativa sobre quais informações de composição e espessura das camadas, além da densidade nominal, devem aparecer na ficha do produto."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde à dúvida com uma regra prática baseada no peso: D45 não é automaticamente a escolha de todos nem pode ser resumida apenas a “muito duro”; é indicada pela Castor sobretudo acima de 100 kg e, entre 81 e 100 kg, conforme a preferência por firmeza. A explicação de que a firmeza também varia conforme as camadas, o pillow top e a classificação do fabricante ajuda o leitor a conferir a ficha antes da compra.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  }
+}

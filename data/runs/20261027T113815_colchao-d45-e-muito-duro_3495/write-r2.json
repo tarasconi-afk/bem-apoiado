@@ -1,0 +1,433 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A densidade tem relação com a firmeza do colchão. Segundo a Castor, pessoas entre 81 e 100 kg podem usar densidades de 33 a 45 conforme a preferência por firmeza, e pessoas acima de 100 kg podem usar D45 ou maior.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03ace15ced38",
+        "clm_1205fed30228"
+      ]
+    },
+    {
+      "ref": "densidade-o-que-e#0",
+      "action": "replace",
+      "text": "Densidade é a quantidade de espuma, em quilogramas, por metro cúbico. D45 significa 45 kg de espuma por metro cúbico. Segundo a Castor, a densidade tem relação direta com a firmeza do colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17e42810680a",
+        "clm_03ace15ced38"
+      ]
+    },
+    {
+      "ref": "densidade-o-que-e#1",
+      "action": "replace",
+      "text": "O Inmetro exige a informação das densidades nominais das lâminas de espuma em kg/m³ e, para colchões compostos e/ou mistos, suas respectivas espessuras.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_29c33cfe9a2e"
+      ]
+    },
+    {
+      "ref": "densidade-vs-firmeza#0",
+      "action": "replace",
+      "text": "A Simmons apresenta categorias de firmeza Plush, Intermediário e Firme. Em produtos citados da Probel, há um modelo classificado como Hiper Firme com espumas D40, D28 e D20, e outro modelo classificado como Firme.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04426077d722",
+        "clm_0c4a89dd20b8",
+        "clm_111667715d3c"
+      ]
+    },
+    {
+      "ref": "densidade-vs-firmeza#1",
+      "action": "replace",
+      "text": "Um modelo Castor combina espumas D45 e D20. Segundo os fabricantes, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_62e05c41ef9d",
+        "clm_070d1e8dcda0",
+        "clm_399ab0d322be"
+      ]
+    },
+    {
+      "ref": "o-que-conferir#1",
+      "action": "replace",
+      "text": "Densidade nominal das lâminas de espuma em kg/m³: a marcação informa as densidades utilizadas e, no caso de colchão composto ou misto, as respectivas espessuras.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0a61647d4d99"
+      ]
+    },
+    {
+      "ref": "o-que-conferir#2",
+      "action": "replace",
+      "text": "Nível de firmeza ou conforto: fabricantes como Ortobom e Probel informam classificações como Macio e Firme nos rótulos ou fichas técnicas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0684506b4203",
+        "clm_181e3080e777",
+        "clm_111667715d3c"
+      ]
+    },
+    {
+      "ref": "o-que-conferir#3",
+      "action": "replace",
+      "text": "Composição das camadas: fabricantes descrevem o Pillow Top como uma camada extra de conforto posicionada sobre o colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_070d1e8dcda0",
+        "clm_261629aa3474"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Segundo a Castor, a densidade indicada varia conforme a faixa de peso corporal.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1205fed30228"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você pesa até 80 kg, a Castor indica densidades de D23 a D33 para essas faixas, e não D45.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se pesa acima de 100 kg, a Castor indica D45 ou maior para maior suporte.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1205fed30228"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "A Castor informa, em um modelo, a combinação de espumas D45 e D20, enquanto a Ortobom classifica alguns produtos como Firme. Apenas a sigla D45 não permite saber qual será a sensação de cada modelo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_62e05c41ef9d",
+        "clm_0684506b4203"
+      ]
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "Segundo a Castor, a espuma D45 oferece maior firmeza que a D28. Confira na ficha técnica do modelo que está considerando para entender a sensação completa do colchão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_410fcc91c671"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Densidade D45 significa mais dureza no colchão?",
+    "description": "D45 mede a densidade da espuma em kg/m³, não a firmeza. A sensação de dureza vem da estrutura completa do colchão, incluindo camadas de conforto.",
+    "verdict": {
+      "text": "A densidade tem relação com a firmeza do colchão. Segundo a Castor, pessoas entre 81 e 100 kg podem usar densidades de 33 a 45 conforme a preferência por firmeza, e pessoas acima de 100 kg podem usar D45 ou maior.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03ace15ced38",
+        "clm_1205fed30228"
+      ]
+    },
+    "sections": [
+      {
+        "id": "densidade-o-que-e",
+        "heading": "O que a densidade D45 realmente mede",
+        "blocks": [
+          {
+            "text": "Densidade é a quantidade de espuma, em quilogramas, por metro cúbico. D45 significa 45 kg de espuma por metro cúbico. Segundo a Castor, a densidade tem relação direta com a firmeza do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_17e42810680a",
+              "clm_03ace15ced38"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro exige a informação das densidades nominais das lâminas de espuma em kg/m³ e, para colchões compostos e/ou mistos, suas respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29c33cfe9a2e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-vs-firmeza",
+        "heading": "Densidade e firmeza são coisas diferentes",
+        "blocks": [
+          {
+            "text": "A Simmons apresenta categorias de firmeza Plush, Intermediário e Firme. Em produtos citados da Probel, há um modelo classificado como Hiper Firme com espumas D40, D28 e D20, e outro modelo classificado como Firme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04426077d722",
+              "clm_0c4a89dd20b8",
+              "clm_111667715d3c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Um modelo Castor combina espumas D45 e D20. Segundo os fabricantes, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_62e05c41ef9d",
+              "clm_070d1e8dcda0",
+              "clm_399ab0d322be"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir",
+        "heading": "O que conferir na ficha técnica antes de comprar",
+        "blocks": [
+          {
+            "text": "Na etiqueta ou na ficha do colchão, procure por:",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Densidade nominal das lâminas de espuma em kg/m³: a marcação informa as densidades utilizadas e, no caso de colchão composto ou misto, as respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nível de firmeza ou conforto: fabricantes como Ortobom e Probel informam classificações como Macio e Firme nos rótulos ou fichas técnicas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0684506b4203",
+              "clm_181e3080e777",
+              "clm_111667715d3c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Composição das camadas: fabricantes descrevem o Pillow Top como uma camada extra de conforto posicionada sobre o colchão, segundo a Ortobom e a Castor.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_070d1e8dcda0",
+              "clm_261629aa3474"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como escolher densidade pela faixa de peso",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a densidade indicada varia conforme a faixa de peso corporal.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Seu peso",
+              "Densidade indicada (Castor)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33 a D45 (conforme sua preferência por firmeza)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa até 80 kg, a Castor indica densidades de D23 a D33 para essas faixas, e não D45.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03538692a465"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se pesa acima de 100 kg, a Castor indica D45 ou maior para maior suporte.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Castor informa, em um modelo, a combinação de espumas D45 e D20, enquanto a Ortobom classifica alguns produtos como Firme. Apenas a sigla D45 não permite saber qual será a sensação de cada modelo.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_62e05c41ef9d",
+              "clm_0684506b4203"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, a espuma D45 oferece maior firmeza que a D28. Confira na ficha técnica do modelo que está considerando para entender a sensação completa do colchão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_410fcc91c671"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não dizem que densidade mede peso por volume nem sustentam que ela não mede firmeza; ao contrário, afirmam que a densidade tem relação direta com a firmeza. Também não dizem que o D20 fica na superfície, que é uma camada superior de conforto ou que altera o primeiro contato. A recomendação de D45 para acima de 100 kg e de densidade entre 33 e 45 para 81–100 kg conforme a preferência por firmeza é atribuída corretamente à Castor. Versão sustentável: A densidade tem relação com a firmeza do colchão. Segundo a Castor, pessoas entre 81 e 100 kg podem usar densidades de 33 a 45 conforme a preferência por firmeza, e pessoas acima de 100 kg podem usar D45 ou maior. Um produto da Castor é descrito com espumas D45 e D20."
+    },
+    {
+      "ref": "densidade-o-que-e#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a densidade corresponde à quantidade de quilos de espuma por metro cúbico e que tem relação direta com a firmeza, mas não dizem que ela não define sozinha como o colchão se sente ao deitar. Versão sustentável: Densidade é a quantidade de espuma, em quilogramas, por metro cúbico. D45 significa 45 kg de espuma por metro cúbico. Segundo a Castor, a densidade tem relação direta com a firmeza do colchão."
+    },
+    {
+      "ref": "densidade-o-que-e#1",
+      "msg": "OVERSTATED. O trecho não mostra que a informação deve estar especificamente na etiqueta do colchão. Além disso, as espessuras são exigidas, no trecho citado, para colchões compostos e/ou mistos, não simplesmente sempre que houver mais de uma camada. Versão sustentável: O Inmetro exige a informação das densidades nominais das lâminas de espuma em kg/m³ e, para colchões compostos e/ou mistos, suas respectivas espessuras."
+    },
+    {
+      "ref": "densidade-vs-firmeza#0",
+      "msg": "OVERSTATED. Os trechos mostram que a Simmons usa categorias de firmeza e que os produtos citados da Probel têm diferentes composições e classificações, mas não dizem que os níveis da Simmons são independentes nem que combinam espumas de diferentes densidades. Também não mostram produtos Probel com a mesma densidade classificados ora como Firme, ora como Hiper Firme, nem sustentam que as demais camadas expliquem essa diferença. Versão sustentável: A Simmons apresenta categorias de firmeza Plush, Intermediário e Firme. Nos produtos Probel citados, há um modelo Hiper Firme com espumas D40, D28 e D20 e outro modelo classificado como Firme; esses trechos não permitem concluir que a mesma densidade produza sensações diferentes."
+    },
+    {
+      "ref": "densidade-vs-firmeza#1",
+      "msg": "OVERSTATED. Os trechos sustentam apenas que o modelo Castor lista espumas D45 e D20, que o pillow top é uma camada extra de conforto e que um bordado em matelassê preenchido com D20 oferece toque macio. Não dizem que a camada D20 fica na superfície, que altera a percepção inicial de dureza, que espuma viscoelástica contribui para maciez ou que essas camadas deixam inalterada a densidade principal. Versão sustentável: O modelo Castor é descrito com espumas D45 e D20. Segundo os trechos citados, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza mencionada pelo fabricante."
+    },
+    {
+      "ref": "o-que-conferir#1",
+      "msg": "OVERSTATED. O trecho do Inmetro exige a informação das espessuras respectivas no caso de colchão composto e/ou misto, não necessariamente para toda e qualquer camada. Além disso, não afirma que esses dados mostram se existe uma camada macia ou se toda a estrutura é firme. Versão sustentável: Densidade nominal das lâminas de espuma em kg/m³: a marcação informa as densidades utilizadas e, no caso de colchão composto ou misto, as respectivas espessuras."
+    },
+    {
+      "ref": "o-que-conferir#2",
+      "msg": "OVERSTATED. Os trechos mostram exemplos de níveis de conforto ou firmeza Macio e Firme, mas não mostram a categoria Intermediário. Também não dizem que essa classificação ajuda a entender o comportamento do colchão além da densidade. Versão sustentável: Fabricantes como Ortobom e Probel informam níveis de conforto ou firmeza: nos exemplos citados, aparecem as classificações Macio e Firme."
+    },
+    {
+      "ref": "o-que-conferir#3",
+      "msg": "UNSUPPORTED. Os trechos citados tratam apenas de Pillow Top. Eles não mencionam bordado em matelassê, espuma viscoelástica, outras camadas listadas antes da espuma estrutural, nem afirmam que esses componentes influenciam a sensação inicial de firmeza. Versão sustentável: Composição das camadas: fabricantes descrevem o Pillow Top como uma camada extra de conforto posicionada sobre o colchão; a Simmons também informa, no exemplo citado, uma camada extra de 7 cm."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "FACT_IN_FRAMING. O bloco de framing afirma fatos sobre a posição da Castor e sobre a relação entre peso e densidade, mas não cita nenhum trecho que os sustente. Versão sustentável: Segundo a Castor, a densidade indicada varia conforme a faixa de peso corporal."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho sustenta as densidades indicadas pela Castor até 80 kg, mas não sustenta a recomendação de conferir a ficha técnica do modelo específico. Versão sustentável: Se você pesa até 80 kg, a Castor indica densidades de D23 a D33 para essas faixas, e não D45."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho sustenta que, acima de 100 kg, a Castor indica D45 ou maior para maior suporte. Não sustenta que isso evite o afundamento do colchão nem que aumente sua durabilidade. Versão sustentável: Se pesa acima de 100 kg, a Castor indica D45 ou maior para maior suporte."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. Os trechos mostram um modelo Castor com espumas D45 + D20 e um produto Ortobom classificado como Firme. Eles não dizem que a camada D20 oferece primeiro contato mais macio, não mostram a classificação Extra Firme nem sustentam a generalização sobre outros modelos D45. Versão sustentável: A Castor informa, em um modelo, a combinação de espumas D45 + D20, enquanto a Ortobom classifica um produto como Firme. Essas informações não permitem concluir, apenas pela sigla D45, qual será a sensação de todos os modelos."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "UNSUPPORTED. O trecho sustenta que a espuma D45 oferece maior firmeza que a D28, mas não sustenta a recomendação de verificar todas as camadas e a classificação de conforto nem a conclusão sobre desconforto. Versão sustentável: Segundo a Castor, a espuma D45 oferece maior firmeza que a D28; o trecho citado não permite concluir como será o conforto de cada modelo completo."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18668,
+    "output_tokens": 1558
+  }
+}
