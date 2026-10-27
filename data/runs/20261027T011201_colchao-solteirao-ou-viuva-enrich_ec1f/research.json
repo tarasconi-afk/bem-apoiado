@@ -1,0 +1,128 @@
+{
+  "run_id": "20261027T011201_colchao-solteirao-ou-viuva-enrich_ec1f",
+  "topic": "colchao-solteirao-ou-viuva",
+  "accepted": [
+    {
+      "claim_id": "clm_007a1311f7ce",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_faa86224afeb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1d805bab815a",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_faa86224afeb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ad43582efaf1",
+      "question_id": "q_ajuste_0a55e71a",
+      "source_id": "src_faa86224afeb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_81138313f95f",
+      "question_id": "q_ajuste_029c1a3b",
+      "source_id": "src_faa86224afeb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bc8a87286849",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_812522afd466",
+      "new": true
+    },
+    {
+      "claim_id": "clm_eaf6bd000e91",
+      "question_id": "q_garantia",
+      "source_id": "src_812522afd466",
+      "new": true
+    },
+    {
+      "claim_id": "clm_54b277d40677",
+      "question_id": "q_itens_inclusos",
+      "source_id": "src_812522afd466",
+      "new": true
+    },
+    {
+      "claim_id": "clm_db4f7d7a5b22",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_812522afd466",
+      "new": true
+    },
+    {
+      "claim_id": "clm_22dc53979799",
+      "question_id": "q_dimensoes_exatas",
+      "source_id": "src_4743aed36914",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5cb48fb64785",
+      "question_id": "q_peso_suportado",
+      "source_id": "src_4743aed36914",
+      "new": true
+    },
+    {
+      "claim_id": "clm_16fb2caac2a9",
+      "question_id": "q_itens_inclusos",
+      "source_id": "src_4743aed36914",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7ccc51ae396d",
+      "question_id": "q_garantia",
+      "source_id": "src_4743aed36914",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_faa86224afeb",
+      "question_id": "q_ajuste_0a55e71a",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "para os colchões de molejo (ou molas como são mais conhecidos) nas dimensões declaradas pelo fabricante, a largura, comprimento e espessura deve ser tolerada a variação de mais ou menos 1,5 cm segundo"
+    }
+  ],
+  "coverage": {
+    "q_medida_decisiva": 0,
+    "q_dimensoes_exatas": 4,
+    "q_peso_suportado": 2,
+    "q_base_compativel": 0,
+    "q_itens_inclusos": 2,
+    "q_garantia": 2,
+    "q_ajuste_0a55e71a": 1,
+    "q_ajuste_029c1a3b": 1
+  },
+  "unanswered": [
+    "q_medida_decisiva",
+    "q_base_compativel"
+  ],
+  "usage": {
+    "input_tokens": 7393,
+    "output_tokens": 1869,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_faa86224afeb",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.84
+    },
+    {
+      "source_id": "src_812522afd466",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_4743aed36914",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    }
+  ],
+  "credits": 14.8838784
+}

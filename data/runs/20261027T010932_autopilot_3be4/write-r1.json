@@ -1,0 +1,278 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir-d45#1",
+      "action": "replace",
+      "text": "Se você pesa até 80 kg, segundo a Castor a densidade D45 não é a indicação para sua faixa de peso: confira a tabela acima para saber qual densidade a fabricante recomenda e verifique na ficha técnica do modelo os dados completos, incluindo as densidades de cada camada de espuma.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_20ba50c38123"
+      ]
+    },
+    {
+      "ref": "como-decidir-d45#4",
+      "action": "replace",
+      "text": "Se você compara D45 com uma espuma de menor densidade, espere que D45 tenda a ser mais firme. A Castor a compara diretamente com D28 e indica maior firmeza, mas não conclua que será necessariamente desconfortável sem verificar o modelo completo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_410fcc91c671",
+        "clm_364333db9012"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "O que significa D45 em um colchão de espuma?",
+    "description": "D45 refere-se a 45 kg de espuma por metro cúbico. Influencia firmeza e suporte, mas camadas superiores também importam. Confira seu peso para decidir.",
+    "verdict": {
+      "text": "D45 é uma medida de densidade (45 kg/m³ de espuma) que influencia a firmeza e o suporte do colchão, não outras características como durabilidade, segundo a Castor. Porém, a firmeza final depende também de camadas superiores mais macias e da classificação de conforto do modelo. Para saber se D45 é apropriado para você, o peso corporal é o principal fator: pessoas até 80 kg geralmente usam densidades menores; de 81 a 100 kg, D45 é uma opção conforme preferência; acima de 100 kg, D45 ou maior oferece mais suporte.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03ace15ced38",
+        "clm_17e42810680a",
+        "clm_20ba50c38123",
+        "clm_03538692a465",
+        "clm_1205fed30228"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-e-densidade-d45",
+        "heading": "O que densidade D45 realmente mede",
+        "blocks": [
+          {
+            "text": "D45 significa 45 quilogramas de espuma por metro cúbico do material, segundo a Castor. É uma medida de densidade, não de durabilidade ou de firmeza sozinha.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_17e42810680a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, densidade tem relação direta com firmeza do colchão. O Inmetro exige que fabricantes informem a densidade nominal da(s) lâmina(s) de espuma em kg/m³ na etiqueta, incluindo as espessuras em colchões compostos ou mistos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03ace15ced38",
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-versus-firmeza",
+        "heading": "Densidade não é a mesma coisa que firmeza",
+        "blocks": [
+          {
+            "text": "Fabricantes como Ortobom, Probel e Simmons informam na ficha técnica um nível de conforto separado da densidade: Macio, Intermediário ou Firme. Um colchão D45 pode ter classificação Firme ou ter uma camada superior macia que altere a sensação inicial.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0684506b4203",
+              "clm_111667715d3c",
+              "clm_04426077d722",
+              "clm_181e3080e777"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, um colchão D45 com dupla face pode combinar espuma D45 com uma camada HiperSoft® que oferece toque macio no primeiro contato, mantendo a estabilidade ergonômica. Outro exemplo é o colchão com D45 e D20: a camada D20 mais leve contribui para a sensação de maciez na superfície.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_147c8fca8fbc",
+              "clm_62e05c41ef9d",
+              "clm_399ab0d322be"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir-na-etiqueta",
+        "heading": "O que conferir na etiqueta de um colchão D45",
+        "blocks": [
+          {
+            "text": "Na etiqueta obrigatória do Inmetro, confira a densidade nominal da(s) lâmina(s) de espuma em kg/m³ e, se o colchão for composto ou misto, as respectivas espessuras de cada camada. Assim você saberá se há uma camada D45 como base e qual espuma fica na superfície.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29c33cfe9a2e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Fabricantes como Ortobom e Probel informam também o nível de conforto (Macio, Intermediário ou Firme) como dado separado na ficha. Essa informação ajuda a entender como D45 se traduz em sensação prática naquele modelo específico.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0684506b4203",
+              "clm_111667715d3c"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir-d45",
+        "heading": "Como decidir se D45 é para você",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade de espuma recomendada pela Castor conforme faixa de peso",
+            "columns": [
+              "Faixa de peso",
+              "Densidade indicada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45 (conforme sua preferência por firmeza)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa até 80 kg, segundo a Castor a densidade D45 não é a indicação para sua faixa de peso: confira a tabela acima para saber qual densidade a fabricante recomenda e verifique na ficha técnica do modelo os dados completos, incluindo as densidades de cada camada de espuma.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_20ba50c38123"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pesa de 81 a 100 kg, a Castor indica que você pode escolher entre D33 e D45 conforme sua preferência por firmeza. Pessoas acima de 100 kg devem considerar D45 ou maior para obter mais suporte e evitar afundamento excessivo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer evitar uma sensação muito dura, não decida apenas pela sigla D45: confira o nível de conforto declarado pelo fabricante e as camadas do colchão, segundo a Castor e a Ortobom. Modelos D45 podem vir com camadas superiores mais macias que alteram o primeiro contato.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_62e05c41ef9d",
+              "clm_0684506b4203",
+              "clm_364333db9012"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você compara D45 com uma espuma de menor densidade, espere que D45 tenda a ser mais firme. A Castor a compara diretamente com D28 e indica maior firmeza, mas não conclua que será necessariamente desconfortável sem verificar o modelo completo.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_410fcc91c671",
+              "clm_364333db9012"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir-d45#4",
+      "msg": "remova o travessão (—)."
+    },
+    {
+      "ref": "como-decidir-d45#1",
+      "msg": "chama de \"padrao\" um dado que vem só de fichas de produto: diga \"declarado nos modelos citados\" (com a marca) ou cite norma ou fabricante que defina a regra."
+    }
+  ],
+  "usage": {
+    "input_tokens": 13208,
+    "output_tokens": 315
+  }
+}

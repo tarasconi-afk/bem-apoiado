@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "peso-suportado#0",
+      "problem": "O leitor entende que todo colchão solteirão e todo colchão viúva suportam 120 kg por pessoa, mas esse dado é de apenas um modelo de cada tamanho.",
+      "fix": "Escrever “os modelos Prohotel Royal, no tamanho solteirão, e Roma, no tamanho viúva, informam suporte de 120 kg por pessoa” e orientar a conferir o suporte do modelo escolhido."
+    },
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entenderia que o colchão viúva cabe em bases padrão de casal, mas os trechos apenas informam as dimensões do viúva e não afirmam essa compatibilidade.",
+      "fix": "Remover “cabe em bases padrão de casal” e orientar a comparar as dimensões de 128 × 188 cm com a base ou o espaço disponível."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir-tamanho#0.r0",
+      "problem": "A tabela apresenta 100 × 200 cm como medida do tamanho solteirão, mas o trecho citado informa essa medida para o modelo Sigma Plus da Probel.",
+      "fix": "Identificar o produto na tabela, por exemplo: “O modelo Sigma Plus da Probel, no tamanho solteirão, mede 100 × 200 cm”, ou indicar que a medida deve ser conferida na ficha do modelo escolhido."
+    }
+  ],
+  "usage": {
+    "input_tokens": 20442,
+    "output_tokens": 6204,
+    "calls": 3
+  }
+}
