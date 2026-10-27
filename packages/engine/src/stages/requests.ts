@@ -126,8 +126,13 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
   // os produtos — e o classificador, que recusa regra que cite a página, julgou o pedido específico. A regra geral
   // se perdeu e o ajuste consertou duas páginas em vez de todas as próximas. Aqui a lição é extraída uma vez por
   // pedido, antes de qualquer ação, e os ajustes recebem learn: false para a paráfrase nunca chegar ao classificador.
+  // Não depende de haver ajuste: um pedido que é SÓ uma regra ("isto vale para todas as páginas: …") não gera
+  // ação nenhuma, e era justamente o caso em que a lição precisa ser gravada. Pedido que não fala de texto
+  // (relatório, fila, tema, imagem, produto, tipo novo, recado ao desenvolvedor) não passa pelo classificador.
+  const SEM_LICAO = new Set(['report', 'add_topics', 'theme', 'new_image', 'find_products', 'new_kind', 'developer']);
   const edits = plan.data.actions.filter((a): a is Extract<(typeof plan.data.actions)[number], { type: 'edit_text' }> => a.type === 'edit_text');
-  const lesson = edits.length ? await learnFromEditor(edits[0]!.slug, text, fetchImpl).catch(() => null) : null;
+  const sobreTexto = plan.data.actions.length === 0 || plan.data.actions.some((a) => !SEM_LICAO.has(a.type));
+  const lesson = sobreTexto ? await learnFromEditor(edits[0]?.slug ?? pages[0]?.slug ?? 'pedido', text, fetchImpl).catch(() => null) : null;
   if (lesson) done.push(`lição nova para todas as páginas: "${lesson}"`);
   for (const a of plan.data.actions) {
     try {
