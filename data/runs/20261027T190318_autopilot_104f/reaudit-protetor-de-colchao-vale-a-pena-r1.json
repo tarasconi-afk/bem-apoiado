@@ -1,0 +1,29 @@
+{
+  "patches": [
+    {
+      "ref": "tipos-de-protetor#0",
+      "action": "replace",
+      "text": "Confira a altura do seu colchão na ficha técnica. As fichas citadas listam protetores com dimensões de altura de 30 cm, 40 cm e 50 cm; para um colchão de 35 cm, compare essa medida com a especificação do modelo antes de escolher.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1fc590661dd1",
+        "clm_11c2120f6bba",
+        "clm_759843b4e533",
+        "clm_f041334f2e42"
+      ]
+    },
+    {
+      "ref": "material-e-funcoes#0",
+      "action": "replace",
+      "text": "A ficha técnica pode informar se o protetor é impermeável e quais materiais compõem suas diferentes faces. A Altenburg apresenta um exemplo com face superior de algodão e face inferior de poliéster impermeável, e outro com face superior contendo bambu natural e face inferior de poliuretano impermeável. A Ortobom apresenta exemplos com poliéster, poliuretano e polietileno nos revestimentos descritos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_633c9b9354f4",
+        "clm_631f58fbdf04",
+        "clm_8938583a3467",
+        "clm_0b63f717cac6"
+      ]
+    }
+  ],
+  "open_issues": []
+}

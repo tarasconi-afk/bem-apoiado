@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "transferencia-movimento#0",
+      "problem": "A seção promete explicar como cada tipo lida com movimentos, mas os blocos só descrevem molas ensacadas individualmente.",
+      "fix": "Mudar o título para “Como molas ensacadas lidam com o movimento entre pessoas”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 27749,
+    "output_tokens": 2963,
+    "calls": 2
+  }
+}

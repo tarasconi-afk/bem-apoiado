@@ -1,0 +1,95 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-de-protetor#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos listam modelos com dimensões de 30 cm, 40 cm e 50 cm, mas não afirmam que eles cobrem colchões com alturas de até esses limites nem que um protetor de 30 cm não vestirá completamente um colchão de 35 cm.",
+      "fix": "Confira a altura do colchão na ficha técnica. As fichas citadas listam protetores com dimensões de altura de 30 cm, 40 cm e 50 cm; para um colchão de 35 cm, compare essa medida com a especificação do modelo antes de escolher."
+    },
+    {
+      "ref": "tipos-de-protetor#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-e-funcoes#0",
+      "verdict": "OVERSTATED",
+      "problem": "A frase associa a todos os exemplos da Altenburg uma face inferior de poliuretano impermeável, mas um trecho mostra o exemplo com face superior de algodão e face inferior de poliéster impermeável; apenas o exemplo com bambu natural tem face inferior de poliuretano impermeável.",
+      "fix": "A Altenburg apresenta um exemplo com face superior de algodão e face inferior de poliéster impermeável, e outro com face superior contendo bambu natural e face inferior de poliuretano impermeável. A Ortobom apresenta exemplos com poliéster, poliuretano e polietileno nos revestimentos descritos."
+    },
+    {
+      "ref": "material-e-funcoes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-e-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-e-cuidados#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "regulacao-e-certificacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "regulacao-e-certificacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-do-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
