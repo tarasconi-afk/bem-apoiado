@@ -65,6 +65,26 @@ Correções: a coluna (e a linha) sem dado sai por código em toda rodada; o pro
 Regra que fica: **toda regra do gate tem de estar dita no prompt do redator com as mesmas palavras**, e o que o código
 sabe consertar ele conserta antes de gastar rodada.
 
+**Sétima causa, achada no 1º ciclo com o motor novo (commit aab39e0):** "protetor de colchão vale a pena" foi adiada
+antes de escrever, com 3 regras de escolha boas na mão, porque a checagem de prontidão cobrou "preços de protetores e
+de limpeza do colchão para calcular quando compensa" — dado que a regra editorial do site proíbe o redator de usar.
+A exigência impossível virava lacuna da pauta e a busca semanal a perseguia no Tavily sem nunca fechar. Valia para as
+10 pautas "vale a pena" da fila. Correções: o prompt diz que o site não publica preço nem conta de custo-benefício e
+que em "X vale a pena" a decisão é para quem serve, para quem não serve e o que conferir; falta inteiramente sobre
+dinheiro não vira lacuna nem veta a pauta (`possibleGaps`, regra estreita: "desvantagens… como preço, peso e acesso"
+continua sendo lacuna). **Resultado no ciclo seguinte: a mesma pauta virou página aprovada de primeira (39 créditos).**
+
+**Oitava causa, achada na página aprovada (commit ca6ca45):** blocos de transição que só anunciam o próximo assunto
+("A seguir, veja o que os fabricantes dizem…"). O juiz deu 4 de 4 e não os marcou como enchimento; a regra existia no
+prompt mas nenhum gate a aplicava. Havia 4 no "colchão D28 ou D33" no ar e 2 na página nova. Correção: bloco `framing`
+que só anuncia é cortado por código em toda rodada (remover não tira informação, porque `framing` não tem fato nem
+fonte) e a regra entrou no bloco "Regras do gate" do prompt.
+
+**Defeito de painel do mesmo dia (commit 046b373):** o timer tem `RandomizedDelaySec=15min`, então o ciclo das 10:00
+pode começar até 10:15; o painel só olhava a hora cheia e às 10:04 já anunciava "próximo ciclo 16:00", parecendo que
+o ciclo tinha sido pulado. Agora, dentro da janela e sem ciclo desde a hora cheia, a faixa diz "Ciclo das 10:00:
+começa em instantes".
+
 ## Sistema para aprovação de primeira (o desenho que estes passos começam)
 
 1. **Decidir antes de escrever.** A checagem de prontidão já extrai as regras "Se você…" com as evidências; cada
@@ -76,5 +96,10 @@ sabe consertar ele conserta antes de gastar rodada.
 4. **Medir por causa.** O passo do ciclo diz a causa; a meta é aprovação de primeira ≥ 70% (ROADMAP) antes de
    abrir o segundo nicho. Próximas causas a atacar, pela contagem: revisão de leitor (8) e "regra" (3).
 5. **Lacunas que são lista de desejos.** O "missing" do juiz vira lacuna da pauta e dispara buscas semanais que
-   nunca fecham ("tabela de fabricantes relacionando largura do ombro…"). A conferir: só virar lacuna o que uma
-   fonte primária poderia responder.
+   nunca fecham ("tabela de fabricantes relacionando largura do ombro…"). Parte disso caiu com a 7ª causa (dinheiro);
+   o resto continua a conferir: só vira lacuna o que uma fonte primária poderia responder.
+6. **Todo achado do editor vira lição, não só conserto.** O pedido de correção feito pelo painel passa por
+   `learnFromEditor`: quando vale para todas as páginas, entra em `data/editor-lessons.json` e o redator o segue
+   desde a primeira versão de toda página nova. Por isso a correção de uma página deve ser pedida **pelo painel**
+   (botão "Pedir correção" do cartão), e não editada à mão: editar à mão conserta uma página, pedir pelo painel
+   conserta todas as próximas. As lições ficam visíveis e removíveis no painel, em Conteúdo.
