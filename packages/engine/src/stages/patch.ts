@@ -30,13 +30,15 @@ export function tableColumns(draft: Draft, refs: string[]): Map<string, string[]
   return out;
 }
 
-export function makePatchSchema(refs: string[], claimIds: string[], columns: Map<string, string[]> = new Map()) {
+// allowRemove=false: conserto de título não pode virar remoção de bloco (27/10: sem alcançar o título, o redator
+// apagava o parágrafo e a página perdia evidência que as fontes sustentavam).
+export function makePatchSchema(refs: string[], claimIds: string[], columns: Map<string, string[]> = new Map(), allowRemove = true) {
   const Refs = z.array(z.enum(claimIds as [string, ...string[]]));
   return z.object({
     patches: z.array(
       z.object({
         ref: z.enum(refs as [string, ...string[]]),
-        action: z.enum(['replace', 'remove']),
+        action: allowRemove ? z.enum(['replace', 'remove']) : z.enum(['replace']),
         // replace de parágrafo, callout ou veredito
         text: z.string().optional(),
         basis: Basis.optional(),
@@ -99,10 +101,12 @@ export async function writePatches(
   draft: Draft,
   issues: Issue[],
   fetchImpl?: FetchLike,
+  opts: { allowRemove?: boolean } = {},
 ) {
+  const allowRemove = opts.allowRemove ?? true;
   const refs = [...new Set(issues.map((i) => i.ref).filter((r): r is string => r !== null))];
   const columns = tableColumns(draft, refs);
-  const schema = makePatchSchema(refs, claims.map((c) => c.id), columns);
+  const schema = makePatchSchema(refs, claims.map((c) => c.id), columns, allowRemove);
   // Contexto enxuto: só as seções com bloco a corrigir (o resto está trancado e não precisa ser relido).
   // Entrada do redator é o maior custo de um remendo; o roteador não faz cache de prompt.
   const touched = new Set(refs.map((r) => r.split('#')[0]));
@@ -115,7 +119,9 @@ export async function writePatches(
     `Pauta: "${topic.primary_query}"\n\nEvidências disponíveis:\n${formatClaims(claims, sources)}\n\n` +
     `Seções do rascunho com blocos a corrigir (só para contexto; os demais blocos já foram aprovados e NÃO podem mudar):\n${JSON.stringify(context)}\n\n` +
     `Corrija apenas estes blocos. Para cada ref, devolva um remendo: "replace" com o novo texto, basis e claim_ids ` +
-    `(ou "cells" para linha de tabela), ou "remove" se o bloco não se sustenta nem estreitado.\n` +
+    (allowRemove
+      ? `(ou "cells" para linha de tabela), ou "remove" se o bloco não se sustenta nem estreitado.\n`
+      : `(ou "cells" para linha de tabela). O título da seção já está sendo corrigido à parte: NÃO apague o bloco; mantenha a informação que as fontes sustentam.\n`) +
     issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}${columns.has(i.ref!) ? ` [linha de tabela: exatamente ${columns.get(i.ref!)!.length} células, colunas ${columns.get(i.ref!)!.join(' | ')}]` : ''}`).join('\n');
   return callJson({ role: 'writer', system: writerSystem(), user, schema, schemaName: 'page_patches', maxTokens: 8000 }, fetchImpl);
 }

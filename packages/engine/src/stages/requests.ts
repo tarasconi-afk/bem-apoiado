@@ -236,6 +236,9 @@ export const decisionMarkers = (t: string) => (t.match(/\b(escolha|prefira|opte|
 
 // opts.refs: blocos já escolhidos (correção automática a partir da coerência): pula o seletor, que transformava
 // "troque esta frase" em reescrita da resposta curta inteira (25/10: cadeira de tela e apoio de cabeça).
+// O conserto que a auditoria de coerência escreve fala em título ("Mude o título para…", "a seção promete…").
+export const asksForTitle = (instruction: string): boolean => /t[íi]tulo|promete|anuncia|chamada da se[çc][ãa]o/i.test(instruction);
+
 export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean; refs?: string[] } = {}): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
@@ -287,8 +290,28 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   const movable = [...refs.filter((r) => r !== 'verdict'), ...tables.map((t) => t.ref)] as [string, ...string[]];
   const secIds = page.sections.map((x) => x.id) as [string, ...string[]];
   const forced = (opts.refs ?? []).filter((r) => (refs as string[]).includes(r)) as (typeof refs)[number][];
+  // Com os blocos já escolhidos (auditoria do site, --blocos) o seletor não rodava, e com ele ficava de fora o
+  // único conserto que a verificação "secao_nao_entrega" pede: mudar o título da seção (27/10: 17 dos 27 achados
+  // do site eram desse tipo e NENHUM cartão mudou um título). Sem alcançar o título, o redator reescrevia o
+  // parágrafo ou TIRAVA o bloco, e três páginas perderam evidência boa (garantia da Probel, suporte de peso).
+  // Agora um passo barato só de títulos roda também nesse caminho, e aí tirar o bloco deixa de ser alternativa.
+  const titleFix = forced.length > 0 && asksForTitle(instruction);
+  const forcedHeads = titleFix
+    ? await callJson(
+        {
+          role: 'extractor',
+          system:
+            'O pedido diz que o título de uma seção promete mais do que a seção entrega. Devolva em "headings" o id da seção e o título novo, que deve dizer só o que os blocos dela realmente trazem (até 70 caracteres, sem afirmar fato que o texto não sustenta, sem anunciar o que vem depois). Só as seções que o pedido aponta; se nenhuma, devolva lista vazia.',
+          user: `Pedido: ${instruction}\n\nSeções: ${page.sections.map((x) => `${x.id} = "${x.heading}"`).join(' | ')}\n\nBlocos:\n${blocks.map((b) => `- ${b.ref} (${b.label}): ${b.text.slice(0, 140)}`).join('\n')}`,
+          schema: z.object({ headings: z.array(z.object({ id: z.enum(secIds), heading: z.string().min(3).max(70) })).max(5).default([]) }),
+          schemaName: 'pick_headings',
+          maxTokens: 300,
+        },
+        fetchImpl,
+      ).then((r) => r.data.headings).catch(() => [])
+    : [];
   const pick = forced.length
-    ? { data: { rewrite_summary: false, refs: forced, headings: [] as { id: (typeof secIds)[number]; heading: string }[], moves: [] as { ref: (typeof movable)[number]; to: (typeof secIds)[number]; position: 'start' | 'after_first' | 'end' }[], removes: [] as (typeof movable)[number][], drop_columns: [] as { ref: string; column: string }[], unsupported: '' } }
+    ? { data: { rewrite_summary: false, refs: forced, headings: forcedHeads as { id: (typeof secIds)[number]; heading: string }[], moves: [] as { ref: (typeof movable)[number]; to: (typeof secIds)[number]; position: 'start' | 'after_first' | 'end' }[], removes: [] as (typeof movable)[number][], drop_columns: [] as { ref: string; column: string }[], unsupported: '' } }
     : await callJson(
     {
       role: 'extractor',
@@ -376,7 +399,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   }
   const inSummary = (r: string) => r === 'verdict' || (decIdx >= 0 && r.startsWith(`${draft.sections[decIdx]!.id}#`));
   const rest = refsToWrite.map(remap).filter((r): r is string => !!r).filter((r) => !(pick.data.rewrite_summary && inSummary(r)));
-  const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.${freshNote}` })), fetchImpl) : { data: { patches: [] } };
+  const p = rest.length ? await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, base as never, rest.map((ref) => ({ ref, msg: `Pedido do editor: ${instruction}. Use as evidências novas que respondem a isso (cite-as em claim_ids); não afirme nada além dos trechos.${freshNote}` })), fetchImpl, { allowRemove: !heads.size }) : { data: { patches: [] } };
   let patched = applyPatches(base as never, p.data.patches) as Draft;
   // Regra de forma (parágrafo longo etc.) volta ao redator em vez de derrubar o ajuste (21/10: dois ajustes
   // com pesquisa perdidos por um parágrafo de 130 palavras).
