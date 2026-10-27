@@ -57,8 +57,8 @@ describe('resumo e tendência', () => {
   const dia = 86_400_000;
   const agora = 1_000 * dia;
   const list = [
-    at('a', 'aprovada', agora - 20 * dia),
-    at('b', 'coerência', agora - 20 * dia),
+    at('a', 'aprovada', agora - 10 * dia),
+    at('b', 'coerência', agora - 10 * dia),
     at('c', 'coerência', agora - 2 * dia),
     at('d', 'aprovada', agora - 1 * dia),
   ];
@@ -83,5 +83,13 @@ describe('resumo e tendência', () => {
     expect(t.recent.total).toBe(2);
     expect(t.before.total).toBe(2);
     expect(t.recent.rate).toBe(0.5);
+  });
+
+  // Num projeto de 7 dias, "todo o resto" eram 7 tentativas contra 57, e a comparação dizia que o motor tinha
+  // piorado quando só estava comparando tamanhos diferentes.
+  it('a janela anterior é fechada, do mesmo tamanho, e não "todo o resto"', () => {
+    const velho = [...list, at('e', 'aprovada', agora - 40 * dia), at('f', 'aprovada', agora - 60 * dia)];
+    const t = trend(velho, 7, agora);
+    expect(t.before.total).toBe(2);
   });
 });

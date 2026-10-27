@@ -296,7 +296,7 @@ function firstTryHtml(now: Date): string {
 <div class="grid">
 <div class="card"><div class="v">${pc(s)}</div><div class="l">aprovadas de primeira (${s.passed}/${s.total})</div></div>
 <div class="card"><div class="v">${pc(t.recent)}</div><div class="l">últimos 7 dias (${t.recent.passed}/${t.recent.total})${t.recent.total < 5 ? ' · poucas tentativas para concluir' : ''}</div></div>
-<div class="card"><div class="v">${pc(t.before)}</div><div class="l">antes disso (${t.before.passed}/${t.before.total})</div></div>
+<div class="card"><div class="v">${pc(t.before)}</div><div class="l">7 dias anteriores (${t.before.passed}/${t.before.total})${t.before.total < 5 ? ' · poucas tentativas para comparar' : ''}</div></div>
 </div>
 ${s.byCause.length ? `<div class="tw" style="margin-top:12px"><table><thead><tr><th>Causa da reprovação</th><th class="num">Tentativas</th><th>O que é</th></tr></thead><tbody>${s.byCause.map(([c, n]) => `<tr><td><b>${esc(c)}</b></td><td class="num">${n}</td><td class="muted">${esc(LABEL[c] ?? '')}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Nenhuma reprovação no período.</p>'}`;
 }

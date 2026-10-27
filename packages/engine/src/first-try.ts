@@ -68,9 +68,12 @@ export function summarize(list: Attempt[]): FirstTry {
   };
 }
 
-// Duas janelas para ver se uma correção pegou. O corte é em dias corridos, não por semana do calendário:
-// o motor muda no dia em que o commit entra, não na segunda-feira.
+// Duas janelas DO MESMO TAMANHO para ver se uma correção pegou. O corte é em dias corridos, não por semana do
+// calendário: o motor muda no dia em que o commit entra, não na segunda-feira.
+// Janela anterior fechada, e não "todo o resto": num projeto de 7 dias, "o resto" eram 7 tentativas contra 57 e
+// a comparação dizia que o motor tinha PIORADO, quando só estava comparando tamanhos diferentes.
 export function trend(list: Attempt[], days = 7, now = Date.now()): { recent: FirstTry; before: FirstTry } {
   const cut = now - days * 86_400_000;
-  return { recent: summarize(list.filter((a) => a.at >= cut)), before: summarize(list.filter((a) => a.at < cut)) };
+  const start = now - 2 * days * 86_400_000;
+  return { recent: summarize(list.filter((a) => a.at >= cut)), before: summarize(list.filter((a) => a.at >= start && a.at < cut)) };
 }
