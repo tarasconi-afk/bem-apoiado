@@ -1,0 +1,64 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Se já tem fronha de 50 x 70 cm, procurar travesseiro de 40 x 60 cm anunciado como compatível.",
+      "Para fronha de 45 x 65 cm, conferir o modelo NASA X Cervical da Duoflex.",
+      "Para fronha de 50 x 90 cm, conferir o modelo NASA King Alto da Duoflex.",
+      "Conferir a altura do modelo na ficha: os exemplos variam de 12 cm a 17 cm.",
+      "Não escolher apenas pelo nome padrão, queen ou king; conferir as medidas e a fronha compatível no anúncio."
+    ],
+    "missing": [
+      "Uma tabela de medidas padronizadas de travesseiros padrão, queen e king baseada em fichas de vários fabricantes.",
+      "Uma regra de escolha pelo tamanho da cama, incluindo compatibilidade com camas de solteiro, casal, queen e king.",
+      "Orientação dos fabricantes sobre quantos travesseiros usar em cada tamanho de cama.",
+      "Medidas do corpo, como largura dos ombros ou posição de dormir, relacionadas à escolha do tamanho do travesseiro.",
+      "Informação mais clara sobre as medidas exatas dos modelos citados como NASA X Cervical e NASA King Alto."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque dá uma regra prática e rápida: escolher o travesseiro pela medida da fronha e conferir a altura na ficha do produto. Ela atende bem quem já tem uma fronha, mas é limitada para quem quer escolher pelo tamanho da cama ou comparar categorias padrão, queen e king.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Para fronha de 50 x 70 cm, escolher travesseiro de 40 x 60 cm, conforme os modelos citados.",
+      "Para fronha de 45 x 65 cm, conferir o modelo NASA X Cervical da Duoflex anunciado para essa medida.",
+      "Para fronha de 50 x 90 cm, conferir o modelo NASA King Alto da Duoflex anunciado para essa medida.",
+      "Conferir a altura na ficha do produto: os modelos citados variam de 12 a 17 cm.",
+      "Comparar a medida declarada do travesseiro com a medida da fronha antes da compra."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando tamanho do travesseiro a tamanho de cama, como solteiro, casal, queen e king.",
+      "Orientação dos fabricantes sobre qual tamanho escolher com base na altura ou na largura dos ombros de quem dorme.",
+      "Medidas completas e padronizadas dos tamanhos padrão, queen e king, com mais de um fabricante.",
+      "Quantidade de travesseiros recomendada para cada tamanho de cama.",
+      "Relação entre cada tamanho de travesseiro e sua altura ou espessura, separada por modelo ou categoria."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque dá uma regra prática para escolher o travesseiro pela fronha e informa medidas e alturas concretas. Porém, responde apenas parcialmente ao guia de tamanhos: não relaciona os travesseiros aos tamanhos de cama, ao corpo de quem dorme nem à quantidade recomendada por cama.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  },
+  "score_before": 4,
+  "score_after": 3.5
+}
