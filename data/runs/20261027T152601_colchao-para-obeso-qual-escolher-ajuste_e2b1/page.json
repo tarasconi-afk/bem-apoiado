@@ -1,0 +1,69 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir-densidade#1",
+      "como-decidir-densidade#2"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: D23; de 51 a 60 kg: D26; de 61 a 70 kg: D28; de 71 a 80 kg: D33.",
+      "De 81 a 100 kg, escolher entre D33 e D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg, escolher D45 ou maior, segundo a tabela da Castor.",
+      "Considerar peso e altura juntos, pois pessoas com o mesmo peso podem ter recomendações de densidade diferentes conforme a altura.",
+      "Conferir na etiqueta ou ficha técnica a densidade nominal em kg/m³ e a espessura de cada lâmina de espuma.",
+      "Em colchões de molas, verificar a capacidade de peso declarada por pessoa e se o limite inclui ou não o peso do colchão.",
+      "Para quem prefere um colchão firme e com elevada capacidade de sustentação, conferir se o fabricante especifica espuma AG D65 ou superior."
+    ],
+    "missing": [
+      "Uma recomendação primária de espessura mínima para pessoas de maior peso corporal.",
+      "Uma recomendação do fabricante sobre tamanho ou largura do colchão conforme o peso do usuário.",
+      "Mais modelos com capacidade declarada acima de 120 ou 150 kg por pessoa, especialmente para usuários acima de 100 kg.",
+      "Uma explicação mais direta sobre como escolher entre colchão de espuma e colchão de molas para usuários de maior peso corporal."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde de forma rápida que pessoas acima de 100 kg devem procurar D45 ou maior e oferece uma tabela de densidade por peso, além de orientar o leitor a conferir densidade, espessura e capacidade de suporte na ficha técnica. Faltam espessura mínima e recomendações de tamanho, mas esses pontos não impedem a decisão principal.",
+    "filler_ratio": 0.10526315789473684,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir-densidade#1",
+      "como-decidir-densidade#2"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23.",
+      "De 51 a 60 kg: conferir densidade D26.",
+      "De 61 a 70 kg: conferir densidade D28.",
+      "De 71 a 80 kg: conferir densidade D33.",
+      "De 81 a 100 kg: escolher entre D33 e D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg: procurar densidade D45 ou maior.",
+      "Conferir no anúncio, na etiqueta ou na embalagem as densidades nominais em kg/m³ e as espessuras de cada lâmina de espuma.",
+      "Verificar na ficha técnica a capacidade de peso por pessoa e se o limite inclui ou não o peso do colchão.",
+      "Considerar peso e altura juntos, pois pessoas na mesma faixa de peso podem receber recomendações diferentes conforme a altura.",
+      "Para quem prefere um colchão firme e com elevada capacidade de sustentação, verificar se há espuma AG D65 ou superior."
+    ],
+    "missing": [
+      "Uma recomendação primária de fabricante que relacione explicitamente obesidade ou faixas de IMC às densidades e à capacidade de suporte.",
+      "A espessura mínima recomendada pelo fabricante para usuários de maior peso corporal.",
+      "A orientação do fabricante sobre largura ou tamanho do colchão para usuários de maior peso.",
+      "Mais especificações de modelos para confirmar como a densidade indicada se combina com molas, camadas de espuma e capacidade máxima por pessoa.",
+      "Uma explicação sobre se a densidade D45 ou maior deve estar na camada principal, em todas as lâminas ou apenas em uma camada específica."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde diretamente qual densidade procurar, com tabela de peso e uma regra clara para quem pesa acima de 100 kg. Também oferece um caminho prático de compra ao orientar a conferência da etiqueta, das camadas de espuma e da capacidade por pessoa; faltam apenas informações complementares sobre espessura, tamanho e recomendações específicas para obesidade.",
+    "filler_ratio": 0.10526315789473684,
+    "model_opinion": true
+  }
+}
