@@ -25,6 +25,25 @@ describe('auditoria de coerência', () => {
   });
 });
 
+describe('lista fechada de problemas (27/10)', () => {
+  it('as 5 verificações têm rótulo para o cartão do editor', async () => {
+    const { COHERENCE_CHECKS, CHECK_LABEL } = await import('../src/stages/coherence.ts');
+    expect(COHERENCE_CHECKS).toContain('secao_nao_entrega');
+    expect(COHERENCE_CHECKS).toContain('promessa_do_titulo');
+    for (const c of COHERENCE_CHECKS) expect(CHECK_LABEL[c].length).toBeGreaterThan(10);
+  });
+
+  it('a maioria das 3 leituras também vale para as verificações novas', () => {
+    const out = coherenceMajority([
+      [f('secao_nao_entrega', 'tipos#0', 'O título promete 3 tipos e a seção só fala de altura.')],
+      [f('secao_nao_entrega', 'tipos#0')],
+      [f('promessa_do_titulo', 'verdict')],
+    ]);
+    expect(out).toHaveLength(1);
+    expect(out[0]!.check).toBe('secao_nao_entrega');
+  });
+});
+
 describe('auditoria do site', () => {
   it('pedido de ajuste só com blocos editáveis (linha de tabela fica de fora)', async () => {
     const { auditRequest } = await import('../src/stages/site-audit.ts');
