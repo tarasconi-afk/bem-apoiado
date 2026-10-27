@@ -10,7 +10,11 @@ import { DATA, writeJson } from './store.ts';
 // 21/10: os pedidos do editor corrigiam só a página pedida e o motor repetia o erro na seguinte.
 
 export const EDITOR_LESSONS_FILE = join(DATA, 'editor-lessons.json');
-const MAX_LESSONS = 12;
+// 27/10: o teto de 12 descartou em silêncio 4 lições de auditorias do editor quando duas novas entraram, entre elas
+// "o mesmo dado não aparece em mais de uma seção". Lição que some é aprendizado perdido, e o custo de carregar 20
+// regras curtas no prompt é pequeno perto de repetir o erro. Quando encher, quem escolhe o que sai é o editor,
+// pelo botão "remover" da lista (painel, em "Pedir ao motor").
+const MAX_LESSONS = 20;
 
 export const EditorLessons = z.object({ lessons: z.array(z.object({ text: z.string(), from: z.string(), at: z.string() })).default([]) });
 export type EditorLessons = z.infer<typeof EditorLessons>;

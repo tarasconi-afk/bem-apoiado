@@ -10,9 +10,10 @@ describe('lista de lições (27/10)', () => {
     expect(dedupeLessons([a, b, l('a RESPOSTA curta começa pela resposta prática para quem vai comprar!')])).toEqual([a, b]);
   });
 
-  it('respeita o teto de 12 mesmo quando o git junta duas listas', () => {
-    const muitas = Array.from({ length: 20 }, (_, i) => l(`Regra distinta de número ${i} para o redator seguir.`));
-    expect(dedupeLessons(muitas)).toHaveLength(12);
+  it('respeita o teto mesmo quando o git junta duas listas', () => {
+    const muitas = Array.from({ length: 40 }, (_, i) => l(`Regra distinta de número ${i} para o redator seguir.`));
+    expect(dedupeLessons(muitas)).toHaveLength(20);
+    expect(dedupeLessons(muitas, 5)).toHaveLength(5);
   });
 
   it('não apaga regra parecida: isso é decisão do editor no painel', () => {
