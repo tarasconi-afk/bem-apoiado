@@ -126,13 +126,13 @@ export async function handleRequest(text: string, runId: string, fetchImpl?: Fet
   // os produtos — e o classificador, que recusa regra que cite a página, julgou o pedido específico. A regra geral
   // se perdeu e o ajuste consertou duas páginas em vez de todas as próximas. Aqui a lição é extraída uma vez por
   // pedido, antes de qualquer ação, e os ajustes recebem learn: false para a paráfrase nunca chegar ao classificador.
-  // Não depende de haver ajuste: um pedido que é SÓ uma regra ("isto vale para todas as páginas: …") não gera
-  // ação nenhuma, e era justamente o caso em que a lição precisa ser gravada. Pedido que não fala de texto
-  // (relatório, fila, tema, imagem, produto, tipo novo, recado ao desenvolvedor) não passa pelo classificador.
-  const SEM_LICAO = new Set(['report', 'add_topics', 'theme', 'new_image', 'find_products', 'new_kind', 'developer']);
+  // E SEM CONDIÇÃO: o classificador roda em todo pedido, sempre sobre o texto do editor. A mesma regra se perdeu
+  // três vezes em 27/10, cada vez por um caminho diferente — primeiro a paráfrase do planejador; depois a lição só
+  // era procurada quando havia ajuste, e um pedido que é só uma regra não gera ajuste; depois o planejador
+  // classificou o pedido como recado ao desenvolvedor, que estava na lista de exceções. Lista de exceções erra de
+  // novo. O classificador já devolve "não é geral" para o que não é regra, e a chamada custa ~0,13 crédito.
   const edits = plan.data.actions.filter((a): a is Extract<(typeof plan.data.actions)[number], { type: 'edit_text' }> => a.type === 'edit_text');
-  const sobreTexto = plan.data.actions.length === 0 || plan.data.actions.some((a) => !SEM_LICAO.has(a.type));
-  const lesson = sobreTexto ? await learnFromEditor(edits[0]?.slug ?? pages[0]?.slug ?? 'pedido', text, fetchImpl).catch(() => null) : null;
+  const lesson = await learnFromEditor(edits[0]?.slug ?? pages[0]?.slug ?? 'pedido', text, fetchImpl).catch(() => null);
   if (lesson) done.push(`lição nova para todas as páginas: "${lesson}"`);
   for (const a of plan.data.actions) {
     try {
