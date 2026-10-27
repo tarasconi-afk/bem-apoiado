@@ -1,0 +1,312 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "alturas-fabricantes#1",
+      "action": "replace",
+      "text": "A Probel lista modelos de 12 cm e 14 cm como ideais para quem dorme de lado. A Duoflex lista um modelo de 10 cm e recomenda travesseiro baixo ou médio para quem dorme de costas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_97222d79822a",
+        "clm_af008e779265",
+        "clm_755d8f55b783",
+        "clm_27d558f46e41",
+        "clm_166e9af8e75e"
+      ]
+    },
+    {
+      "ref": "materiais-recomendados#2",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Duoflex",
+          "claim_ids": [
+            "clm_74cb6cace2dd"
+          ]
+        },
+        {
+          "text": "Espuma viscoelástica",
+          "claim_ids": [
+            "clm_74cb6cace2dd"
+          ]
+        },
+        {
+          "text": "17",
+          "claim_ids": [
+            "clm_74cb6cace2dd"
+          ]
+        },
+        {
+          "text": "Segundo a Duoflex, dormir de lado exige travesseiros mais altos",
+          "claim_ids": [
+            "clm_c5267b077d94"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro para dormir de lado: altura e material",
+    "description": "Como escolher altura e material de travesseiro para quem dorme de lado, segundo fabricantes e etiquetagem do Inmetro.",
+    "verdict": {
+      "text": "Quem dorme de lado pode considerar, segundo a Duoflex, um travesseiro mais alto, que preencha o espaço entre a cabeça e o colchão e forme um ângulo de 90 graus no pescoço. Alguns travesseiros da Ortobom permitem ajustar a altura.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_c5267b077d94",
+        "clm_bc02525ba76b",
+        "clm_bd3441dc9b21",
+        "clm_e2ea40d2ebea"
+      ]
+    },
+    "sections": [
+      {
+        "id": "alturas-fabricantes",
+        "heading": "Alturas declaradas por posição de dormir",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, travesseiros para dormir de lado devem ser mais altos; para dormir de costas, de altura intermediária; e para dormir de bruços, modelos mais baixos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c5267b077d94"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel lista modelos de 12 cm e 14 cm como ideais para quem dorme de lado. A Duoflex lista um modelo de 10 cm e recomenda travesseiro baixo ou médio para quem dorme de costas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_97222d79822a",
+              "clm_af008e779265",
+              "clm_755d8f55b783",
+              "clm_27d558f46e41",
+              "clm_166e9af8e75e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "materiais-recomendados",
+        "heading": "Materiais indicados para dormir de lado",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, o travesseiro de látex natural é produzido a partir da seiva da seringueira e é descrito como elástico, macio, resiliente, durável, ventilado e com propriedades hipoalergênicas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_040d170f6500"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel oferece travesseiros de espuma viscoelástica com gel para dormir de lado, descritos como tendo suporte firme e excelente adaptação à cabeça e pescoço.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c04222681775",
+              "clm_755d8f55b783"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "altura-regulavel",
+        "heading": "Travesseiros com altura ajustável",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, o modelo Conforto Regulável pode ser ajustado em duas alturas e é indicado para quem busca conforto e personalização em diferentes posições de dormir, inclusive de lado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e2ea40d2ebea",
+              "clm_34ee745b5e83"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, o Travesseiro King Premium tem uma placa removível de espuma viscoelástica que permite ajustar a altura conforme as necessidades de conforto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_bd3441dc9b21"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-inmetro",
+        "heading": "O que conferir na etiqueta do travesseiro",
+        "blocks": [
+          {
+            "text": "Travesseiros são produtos têxteis e devem ter etiqueta conforme regra do Inmetro. A etiqueta obrigatoriamente traz o nome das fibras ou filamentos e sua composição em percentual.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39",
+              "clm_fbccdfac07d7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta também deve informar instruções de conservação (lavagem, alvejamento, secagem, passadoria e limpeza a seco) em símbolos ou textos, de acordo com a norma NM ISO 3758:2013.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d0e930280b39",
+              "clm_d4deb5834cee"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom informa, em produtos citados, capa de tecido 100% algodão em um modelo e, em outro, enchimento de espuma viscoelástica 100% poliuretano.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_040d9af9e607",
+              "clm_d15e9f191a77"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela altura",
+        "blocks": [
+          {
+            "text": "Se você dorme de lado, escolha um travesseiro mais alto, segundo a Duoflex. A altura deve preencher o espaço entre a cabeça e o colchão; ao deitar, confira se o pescoço fica próximo de um ângulo de 90 graus.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c5267b077d94",
+              "clm_bc02525ba76b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Alturas declaradas por fabricantes para travesseiros indicados a dormir de lado",
+            "columns": [
+              "Fabricante",
+              "Material",
+              "Altura (cm)",
+              "Para que posição"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Probel",
+                    "claim_ids": [
+                      "clm_af008e779265"
+                    ]
+                  },
+                  {
+                    "text": "Espuma D15",
+                    "claim_ids": [
+                      "clm_af008e779265"
+                    ]
+                  },
+                  {
+                    "text": "14",
+                    "claim_ids": [
+                      "clm_af008e779265"
+                    ]
+                  },
+                  {
+                    "text": "De lado",
+                    "claim_ids": [
+                      "clm_af008e779265"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Probel",
+                    "claim_ids": [
+                      "clm_755d8f55b783"
+                    ]
+                  },
+                  {
+                    "text": "Visco Gel D40",
+                    "claim_ids": [
+                      "clm_755d8f55b783"
+                    ]
+                  },
+                  {
+                    "text": "12",
+                    "claim_ids": [
+                      "clm_755d8f55b783"
+                    ]
+                  },
+                  {
+                    "text": "De lado",
+                    "claim_ids": [
+                      "clm_755d8f55b783"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Duoflex",
+                    "claim_ids": [
+                      "clm_74cb6cace2dd"
+                    ]
+                  },
+                  {
+                    "text": "Espuma viscoelástica",
+                    "claim_ids": [
+                      "clm_74cb6cace2dd"
+                    ]
+                  },
+                  {
+                    "text": "17",
+                    "claim_ids": [
+                      "clm_74cb6cace2dd"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Duoflex, dormir de lado exige travesseiros mais altos",
+                    "claim_ids": [
+                      "clm_c5267b077d94"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Segundo a Ortobom, seus travesseiros reguláveis permitem ajustar a altura às necessidades de conforto; um modelo tem placa removível e outro pode ser ajustado em duas alturas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_bd3441dc9b21",
+              "clm_e2ea40d2ebea"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "alturas-fabricantes#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a Probel apresenta modelos de 12 cm e 14 cm como ideais para quem dorme de lado, e que a Duoflex lista um modelo de 10 cm e recomenda travesseiro baixo ou médio para quem dorme de costas. Nenhum trecho citado menciona um modelo Duoflex de 17 cm. Versão sustentável: A Probel lista modelos de 12 cm e 14 cm como ideais para quem dorme de lado. A Duoflex lista um modelo de 10 cm e recomenda travesseiro baixo ou médio para quem dorme de costas."
+    },
+    {
+      "ref": "materiais-recomendados#2",
+      "msg": "UNSUPPORTED. O trecho citado indica um travesseiro para quem dorme de lado, mas não afirma que ele é de espuma. Versão sustentável: A Probel oferece um travesseiro indicado para quem dorme de lado."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "msg": "OVERSTATED. Os trechos sustentam que o produto tem 17 cm e que, segundo a Duoflex, quem dorme de lado exige travesseiros mais altos. Eles não dizem que o modelo Travesseiro Nasa é indicado especificamente para dormir de lado. Versão sustentável: Duoflex: espuma viscoelástica, altura de 17 cm. Segundo a Duoflex, dormir de lado exige travesseiros mais altos."
+    }
+  ],
+  "usage": {
+    "input_tokens": 11617,
+    "output_tokens": 419
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "materiais-recomendados#0",
+      "problem": "O leitor entende que o látex natural é indicado para dormir de lado, mas o trecho apenas descreve suas propriedades e não relaciona o material a essa posição.",
+      "fix": "Reescreva para: \"A Duoflex descreve o travesseiro de látex natural como elástico, macio, resiliente, durável, ventilado e com propriedades hipoalergênicas\"; não o apresente como indicado especificamente para dormir de lado."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19104,
+    "output_tokens": 4383,
+    "calls": 3
+  }
+}

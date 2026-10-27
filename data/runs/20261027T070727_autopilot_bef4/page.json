@@ -1,0 +1,51 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 127490,
+    "output_tokens": 28324,
+    "calls": 42
+  },
+  "credits": 27.08634120000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que o látex natural é indicado para dormir de lado, mas o trecho apenas descreve suas propriedades e não relaciona o material a essa posição (materiais-recomendados#0); Reescreva para: \"A Duoflex descreve o travesseiro de látex natural como el"
+    ],
+    "filler_refs": [
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Quem dorme de lado deve escolher um travesseiro mais alto, que preencha o espaço entre a cabeça e o colchão.",
+      "Ao deitar, o pescoço deve ficar próximo de um ângulo de 90 graus.",
+      "Confira a altura declarada na ficha: a Probel lista modelos de 12 cm e 14 cm para dormir de lado, e a Duoflex lista um modelo de 10 cm.",
+      "Se quiser adaptar a altura, procure modelos com enchimento removível ou ajuste em duas alturas, como os modelos citados da Ortobom.",
+      "Para escolher o material, a página apresenta látex natural como macio e ventilado e espuma viscoelástica com gel como firme e adaptável.",
+      "Confira na etiqueta a composição das fibras, os percentuais e as instruções de conservação."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que o látex natural é indicado para dormir de lado, mas o trecho apenas descreve suas propriedades e não relaciona o material a essa posição (materiais-recomendados#0); Reescreva para: \"A Duoflex descreve o travesseiro de látex natural como el",
+      "Medidas do ombro ou distância entre ombro e pescoço relacionadas pelos fabricantes a faixas específicas de altura do travesseiro.",
+      "Comparação mais completa das alturas declaradas para dormir de lado, de costas e de bruços.",
+      "Regra dos fabricantes relacionando cada material e nível de firmeza à posição de dormir de lado.",
+      "Instruções dos fabricantes explicando quantas camadas ou quanto enchimento remover para ajustar a altura para quem dorme de lado.",
+      "Informação do fabricante sobre se a capa ou o forro altera a altura final declarada do travesseiro."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde de forma direta que quem dorme de lado deve procurar um travesseiro mais alto, preencher o espaço entre cabeça e colchão e conferir o alinhamento do pescoço. Também oferece alturas, opções reguláveis e itens para conferir na ficha, embora faltem faixas baseadas na medida do ombro e instruções detalhadas de ajuste.",
+    "filler_ratio": 0.07142857142857142,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "materiais-recomendados#0",
+        "problem": "O leitor entende que o látex natural é indicado para dormir de lado, mas o trecho apenas descreve suas propriedades e não relaciona o material a essa posição.",
+        "fix": "Reescreva para: \"A Duoflex descreve o travesseiro de látex natural como elástico, macio, resiliente, durável, ventilado e com propriedades hipoalergênicas\"; não o apresente como indicado especificamente para dormir de lado."
+      }
+    ]
+  }
+}
