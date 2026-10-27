@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 168119,
+    "output_tokens": 38295,
+    "calls": 49
+  },
+  "credits": 28.028603879999995,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "tipos-de-protetor#1",
+      "regulacao-e-certificacao#2"
+    ],
+    "decision_criteria": [
+      "Se a prioridade é evitar que líquidos e sujeiras penetrem no colchão, escolher um protetor cuja ficha declare impermeabilidade.",
+      "Medir a altura do colchão e escolher apenas um protetor cuja ficha técnica cubra essa medida; os exemplos citados informam alturas de 30 cm, 35 cm, 40 cm e 50 cm.",
+      "Conferir se o tamanho e as medidas do protetor correspondem ao colchão; para queen, a tabela indica 1,58 × 1,98 m, e para king, 1,93 × 2,03 m.",
+      "Se a prioridade é lavar com praticidade, conferir na ficha se o modelo pode ser lavado à máquina.",
+      "Ler a composição e as propriedades declaradas na ficha, como impermeabilidade, materiais das faces e tratamentos informados pelo fabricante.",
+      "Seguir as instruções específicas de lavagem, temperatura, uso de alvejante, secagem e passagem a ferro para preservar o produto."
+    ],
+    "missing": [
+      "Uma comparação mais completa das medidas de largura, comprimento e altura dos modelos para solteiro, casal, queen e king.",
+      "Dados dos fabricantes relacionando cada tipo de ajuste — elástico simples, elástico ajustável ou zíper — à altura máxima do colchão.",
+      "Termos de garantia dos fabricantes de colchões esclarecendo se o uso de protetor é condição para cobertura de manchas ou danos causados por líquidos.",
+      "Uma conclusão mais explícita sobre quando o protetor pode não valer a pena, considerando o uso pretendido e a necessidade de impermeabilidade.",
+      "Uma fonte primária que esclareça diretamente se protetores de colchão estão fora da certificação compulsória aplicável a colchões."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde rapidamente que o protetor vale a pena para quem quer proteger o colchão de líquidos e sujeiras e dá critérios concretos de compra, como impermeabilidade, altura compatível, tamanho e possibilidade de lavagem à máquina. Faltam alguns dados da pauta, especialmente a cobertura completa por tamanhos e tipos de ajuste e os efeitos das garantias dos colchões, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.11764705882352941,
+    "model_opinion": true
+  }
+}
