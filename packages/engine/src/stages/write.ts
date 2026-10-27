@@ -52,7 +52,7 @@ Regras de forma:
 - A seção "Como decidir" aparece no TOPO da página, logo depois da resposta curta, para quem não entende do assunto: frases curtas, palavras do dia a dia, termo técnico só com explicação entre parênteses, cada orientação começando por "Se você..." e dizendo o que conferir. Os detalhes técnicos ficam nas outras seções.
 - Títulos de seção em forma de pergunta do leitor quando couber ("Qual altura escolher para quem dorme de lado?"), como as pessoas perguntam ao Google.
 - Formatos que ajudam o leigo (pesquisa de 21/10 em Sleep Foundation, Consumer Reports e mybest), só quando as evidências sustentam cada item: tabela de decisão por perfil (perfil × o que conferir), "para quem é / para quem não é" de cada opção, checklist do que conferir na ficha antes de comprar. Nunca nota, ranking ou preço.
-- Use uma tabela comparativa só se as evidências permitirem preencher a maioria das células; célula sem evidência fica "não informado nas fontes".${writerLessons()}`;
+- Use uma tabela comparativa só se as evidências permitirem preencher TODAS as células; coluna ou linha sem evidência não entra na tabela (o site não publica "não informado nas fontes" nem "confira na ficha" como célula: o gate recusa).${writerLessons()}`;
 }
 
 // Qual documento é (título + endereço): é aí que aparece o alcance ("anexo II teleatendimento") e a versão

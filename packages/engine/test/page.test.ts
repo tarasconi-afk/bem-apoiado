@@ -202,6 +202,25 @@ describe('aprovação de primeira (27/10)', () => {
     if (r.status === 'PASS') expect(r.page.verdict.text).toBe('Depende do uso, segundo as fontes citadas.');
   });
 
+  it('coluna de tabela sem dado sai sem IA; a tabela que sobra passa no gate', async () => {
+    const { fixFormWithoutAI, styleIssues } = await import('../src/stages/page.ts');
+    const cell = (text: string) => ({ text, claim_ids: ['clm_x'] });
+    const d = {
+      title: 't', description: 'd'.repeat(60), verdict: { text: 'Escolha pela medida.', basis: 'evidence', claim_ids: ['clm_x'] },
+      sections: [{ id: 'como-decidir', heading: 'Como decidir', blocks: [{ kind: 'table', caption: 'Medidas', columns: ['Tamanho', 'Medida', 'Para quem serve'], rows: [
+        { cells: [cell('Solteiro'), cell('88 × 188 cm'), cell('não informada nas fontes')] },
+        { cells: [cell('Solteirão'), cell('100 × 200 cm'), cell('não informada nas fontes')] },
+        { cells: [cell('Viúva'), cell('128 × 188 cm'), cell('Casal com biotipos diferentes')] },
+      ] }] }],
+    };
+    const r = fixFormWithoutAI(d as never);
+    const t = r.draft.sections[0]!.blocks[0] as { columns: string[]; rows: unknown[] };
+    expect(t.columns).toEqual(['Tamanho', 'Medida']);
+    expect(t.rows).toHaveLength(3);
+    expect(r.refs).toContain('como-decidir#0');
+    expect(styleIssues(r.draft).filter((x) => /célula|repete/.test(x.msg))).toEqual([]);
+  });
+
   it('versão sustentável do auditor e resposta curta ganham a forma do site sem IA', async () => {
     const { verdictFormOf } = await import('../src/stages/page.ts');
     expect(verdictFormOf('Segundo a Castor, escolha D33 pelo peso. Confira a ficha.')).toBe('Escolha D33 pelo peso, segundo a Castor. Confira a ficha.');
