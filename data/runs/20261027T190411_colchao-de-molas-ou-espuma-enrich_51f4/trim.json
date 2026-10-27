@@ -1,0 +1,71 @@
+{
+  "removed": [
+    "transferencia-movimento#2",
+    "certificacao-inmetro#2",
+    "durabilidade#0",
+    "durabilidade#3"
+  ],
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "transferencia-movimento#2",
+      "certificacao-inmetro#2",
+      "durabilidade#0",
+      "durabilidade#3"
+    ],
+    "decision_criteria": [
+      "Se divide a cama ou dorme com outra pessoa, considerar molas ensacadas individualmente para reduzir a transferência de movimento.",
+      "Se prefere uma superfície mais firme, considerar um colchão de espuma, descrito pela Probel como geralmente mais firme que os de molas.",
+      "Em colchões de espuma, conferir a densidade nominal na etiqueta ou embalagem e relacioná-la ao peso e à altura do usuário.",
+      "Pessoa mais leve pode preferir um colchão mais macio, enquanto pessoa mais pesada pode preferir um mais firme.",
+      "A firmeza e o conforto dependem da composição completa do colchão, incluindo a quantidade de materiais e a forma como são montados.",
+      "Conferir na etiqueta o tipo de colchão, fabricante ou importador, marca, modelo, dimensões e densidade de cada lâmina de espuma.",
+      "Em colchões mistos, conferir a densidade e a espessura de cada lâmina.",
+      "Verificar o Selo de Identificação da Conformidade e lembrar que a certificação não comprova alegações terapêuticas ou ortopédicas."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Tabela relacionando faixas de peso a densidades de espuma, como D23, D26, D33 e D45.",
+      "Regra mais completa para escolher entre espuma, molas ensacadas, molas interligadas e colchões híbridos conforme peso, posição de dormir e preferência de firmeza.",
+      "Comparação mais objetiva da firmeza entre os tipos de molas e diferentes composições de espuma.",
+      "Informações primárias sobre a durabilidade esperada de cada tipo, com condições de uso, prazo ou critérios comparáveis.",
+      "Informações obrigatórias específicas da etiqueta e da embalagem para colchões de molas, além das exigidas para colchões de espuma."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece critérios concretos: molas ensacadas para quem divide a cama, espuma para quem busca maior firmeza e conferência da densidade conforme o usuário. Porém, a resposta curta não resolve sozinha a escolha com dados concretos e falta uma regra mais completa para comparar espuma, molas interligadas e híbridos; deve ser aprimorada para ficar no mesmo nível das páginas de referência.",
+    "filler_ratio": 0.11764705882352941,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se divide a cama, escolha ou considere molas ensacadas, pois elas reduzem a transferência de movimento entre as pessoas.",
+      "Se prefere uma superfície mais firme, considere um colchão de espuma, que a Probel descreve como geralmente mais firme que os de molas.",
+      "Pessoas mais leves tendem a se adaptar melhor a colchões macios, enquanto pessoas mais pesadas podem preferir colchões mais firmes.",
+      "Em colchões de espuma, confira a densidade nominal na etiqueta ou embalagem e relacione-a ao peso e à altura de quem usará o produto.",
+      "Não escolha apenas pelo tipo de colchão: a quantidade de materiais e a composição completa também influenciam o conforto.",
+      "Para comparar modelos, confira na ficha ou etiqueta o tipo de construção, a densidade das lâminas, as dimensões, o fabricante, o modelo e o Selo de Identificação da Conformidade.",
+      "Não use a certificação do Inmetro como prova de propriedades terapêuticas ou ortopédicas, pois essas funcionalidades não são avaliadas pelo processo de certificação."
+    ],
+    "missing": [
+      "Tabela de fabricante relacionando faixas de peso e altura às densidades recomendadas para colchões de espuma.",
+      "Critério comparável de firmeza ou conforto informado pelos fabricantes para cada tipo de colchão, além da afirmação geral de que a espuma tende a ser mais firme.",
+      "Orientação primária sobre quando escolher molas ou espuma para quem não divide a cama e não tem preferência definida por firmeza."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente à escolha entre molas e espuma com critérios práticos para casais, preferência de firmeza, peso, altura e conferência da densidade e da etiqueta. A resposta curta é compreensível e o bloco “Como decidir” leva o leitor à ficha do produto, embora uma tabela de densidade por peso e uma comparação mais objetiva para quem não divide a cama deixassem a decisão ainda mais completa.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

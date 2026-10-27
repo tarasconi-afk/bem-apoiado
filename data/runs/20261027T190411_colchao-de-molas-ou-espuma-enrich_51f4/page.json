@@ -1,0 +1,48 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 185658,
+    "output_tokens": 37529,
+    "calls": 49
+  },
+  "credits": 19.914633600000002,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete explicar como cada tipo lida com movimentos, mas os blocos só descrevem molas ensacadas individualmente (transferencia-movimento#0); Mudar o título para “Como molas ensacadas lidam com o movimento entre pessoas”"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se divide a cama, escolha ou considere molas ensacadas, pois elas reduzem a transferência de movimento entre as pessoas.",
+      "Se prefere uma superfície mais firme, considere um colchão de espuma, que a Probel descreve como geralmente mais firme que os de molas.",
+      "Pessoas mais leves tendem a se adaptar melhor a colchões macios, enquanto pessoas mais pesadas podem preferir colchões mais firmes.",
+      "Em colchões de espuma, confira a densidade nominal na etiqueta ou embalagem e relacione-a ao peso e à altura de quem usará o produto.",
+      "Não escolha apenas pelo tipo de colchão: a quantidade de materiais e a composição completa também influenciam o conforto.",
+      "Para comparar modelos, confira na ficha ou etiqueta o tipo de construção, a densidade das lâminas, as dimensões, o fabricante, o modelo e o Selo de Identificação da Conformidade.",
+      "Não use a certificação do Inmetro como prova de propriedades terapêuticas ou ortopédicas, pois essas funcionalidades não são avaliadas pelo processo de certificação."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção promete explicar como cada tipo lida com movimentos, mas os blocos só descrevem molas ensacadas individualmente (transferencia-movimento#0); Mudar o título para “Como molas ensacadas lidam com o movimento entre pessoas”",
+      "Tabela de fabricante relacionando faixas de peso e altura às densidades recomendadas para colchões de espuma.",
+      "Critério comparável de firmeza ou conforto informado pelos fabricantes para cada tipo de colchão, além da afirmação geral de que a espuma tende a ser mais firme.",
+      "Orientação primária sobre quando escolher molas ou espuma para quem não divide a cama e não tem preferência definida por firmeza."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente à escolha entre molas e espuma com critérios práticos para casais, preferência de firmeza, peso, altura e conferência da densidade e da etiqueta. A resposta curta é compreensível e o bloco “Como decidir” leva o leitor à ficha do produto, embora uma tabela de densidade por peso e uma comparação mais objetiva para quem não divide a cama deixassem a decisão ainda mais completa.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "transferencia-movimento#0",
+        "problem": "A seção promete explicar como cada tipo lida com movimentos, mas os blocos só descrevem molas ensacadas individualmente.",
+        "fix": "Mudar o título para “Como molas ensacadas lidam com o movimento entre pessoas”."
+      }
+    ]
+  }
+}

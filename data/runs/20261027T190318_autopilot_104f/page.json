@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 140252,
+    "output_tokens": 24993,
+    "calls": 33
+  },
+  "credits": 44.147134080000015,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira na ficha se o lençol é de percal ou cetim de algodão, conforme a preferência pelo tipo de tecido.",
+      "Para escolher 100% algodão ou uma mistura, confira a composição declarada na ficha do produto.",
+      "Lençóis de 200 fios podem ser encontrados em percal 100% algodão ou em uma mistura de 60% algodão e 40% poliéster; a composição não é definida apenas pela contagem de fios.",
+      "O modelo de 400 fios citado é cetim de algodão com 100% algodão; confirme essa informação na ficha do produto específico.",
+      "Confira as instruções de lavagem, secagem e passagem do modelo comprado, pois elas podem variar entre os produtos."
+    ],
+    "missing": [
+      "Uma comparação direta do que o comprador pode esperar de 200 e 400 fios em toque, aparência, espessura, ventilação ou durabilidade, com base em fonte primária.",
+      "Uma regra mais clara para escolher 200 ou 400 fios conforme a preferência de uso, como frescor, maciez ou sensação mais encorpada.",
+      "Fonte primária mostrando se a contagem de fios, sozinha, determina qualidade, conforto ou durabilidade.",
+      "Instruções de conservação de um modelo de 400 fios para comparar com as orientações dos modelos de 200 fios."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque explica o que a contagem de fios representa e dá critérios práticos para conferir composição e tipo de tecido na ficha do produto. Porém, responde apenas parcialmente à dúvida: faltou explicar de forma mais direta o que muda para o comprador ao escolher 200 ou 400 fios e em quais situações cada opção seria mais adequada.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

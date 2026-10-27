@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir#0.r1",
+      "problem": "O leitor pode entender que todo lençol de 400 fios é de cetim de algodão e 100% algodão, mas esses dados vêm dos modelos Creta da Altenburg citados.",
+      "fix": "Reescrever a linha para atribuí-la explicitamente aos modelos Creta da Altenburg: “Nos modelos Creta citados: 400 fios, cetim de algodão e 100% algodão”; ou retirar essa linha da tabela."
+    }
+  ],
+  "usage": {
+    "input_tokens": 26087,
+    "output_tokens": 5316,
+    "calls": 3
+  }
+}
