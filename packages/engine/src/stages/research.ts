@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { Claim, ClaimType, checkClaim, normalizeForMatch, TopicBrief, type Source } from '@bem-apoiado/core';
+import { Claim, ClaimScope, ClaimType, checkClaim, normalizeForMatch, TopicBrief, type Source } from '@bem-apoiado/core';
 import { callJson, creditsSpent, type FetchLike } from '../llm.ts';
 import { jevDecide, usefulnessQuestion, type Decider } from '../jev.ts';
 import { buildIndex, CLAIMS_DIR, DATA, sourceText, TOPICS_DIR, writeJson } from '../store.ts';
@@ -60,7 +60,8 @@ Regras obrigatórias:
 3. "statement" é uma paráfrase fiel e curta, em português, do que o trecho afirma. Não acrescente nada que o trecho não diga. Se a fonte é um fabricante falando dos produtos em geral (e não da ficha do próprio produto), comece com "Segundo <fabricante>,".
 4. "claim_type": spec = dado técnico declarado; certification = certificação de produto; regulation = o que norma ou portaria exige; definition = definição de termo; availability = produto à venda numa data.
 5. Se nada no trecho responde às perguntas, devolva "candidates": [].
-6. No máximo 10 candidatos, sem repetir a mesma informação.`;
+6. No máximo 10 candidatos, sem repetir a mesma informação.
+7. "scope" (alcance do que o trecho afirma): produto = ficha ou anúncio de UM modelo, o dado vale só para ele; marca = guia, tabela, FAQ ou página institucional do fabricante falando dos seus produtos, tamanhos ou tipos em geral; geral = norma, regulamento, órgão regulador ou laboratório. Página de um modelo que traz uma tabela geral de tamanhos: a tabela é "marca", a ficha é "produto".`;
 
 export interface ResearchReport {
   run_id: string;
@@ -89,7 +90,7 @@ export async function research(
   // Enum fechado: o modelo só pode apontar para perguntas que existem na pauta.
   const Out = z.object({
     candidates: z
-      .array(z.object({ question_id: z.enum(qIds), quote: z.string(), claim_type: ClaimType, statement: z.string() }))
+      .array(z.object({ question_id: z.enum(qIds), quote: z.string(), claim_type: ClaimType, statement: z.string(), scope: ClaimScope.optional() }))
       .max(12),
   });
 
@@ -166,7 +167,7 @@ export async function research(
 }
 
 function accept(
-  c: { question_id: string; quote: string; claim_type: z.infer<typeof ClaimType>; statement: string },
+  c: { question_id: string; quote: string; claim_type: z.infer<typeof ClaimType>; statement: string; scope?: z.infer<typeof ClaimScope> },
   source: Source,
   idx: ReturnType<typeof buildIndex>,
   runId: string,
@@ -187,6 +188,7 @@ function accept(
     captured_at: existing?.captured_at ?? new Date().toISOString(),
     question_ids: [...new Set([...(existing?.question_ids ?? []), c.question_id])],
     run_id: existing?.run_id ?? runId,
+    ...(c.scope ?? existing?.scope ? { scope: c.scope ?? existing?.scope } : {}),
   });
   if (!parsed.success) return reject(`SCHEMA: ${parsed.error.issues[0]?.message ?? 'inválido'}`);
   // Mesma checagem do gate final: trecho literal e classe de fonte permitida para o tipo.

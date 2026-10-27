@@ -89,7 +89,11 @@ export function quoteLocation(s: Source, quote: string): string | null {
 // coerência porque a medida e o peso de UM modelo da Probel viraram "o solteirão mede/suporta"; o redator recebia
 // ~150 evidências sem saber qual era ficha de produto e qual era regra). Dado técnico ou disponibilidade vindo de
 // fabricante vale só para aquele produto; norma e regulador valem em geral; o resto é posição da marca.
-export function claimScope(c: Pick<Claim, 'claim_type'>, s: Pick<Source, 'source_class'> | undefined): string {
+export function claimScope(c: Pick<Claim, 'claim_type' | 'scope'>, s: Pick<Source, 'source_class'> | undefined): string {
+  // Decidido na extração quando existe (evidências a partir de 27/10); senão, deduzido pelo tipo e pela classe.
+  if (c.scope === 'produto') return 'SÓ O PRODUTO deste documento: escreva com o nome do modelo ("no X da Marca, …"), nunca como medida ou capacidade do tamanho, do tipo ou da categoria';
+  if (c.scope === 'marca') return 'guia ou tabela da marca sobre seus produtos em geral: vale para os tamanhos ou tipos que a marca lista ("segundo a Marca, o solteiro king mede…")';
+  if (c.scope === 'geral') return 'regra geral (norma ou regulador)';
   if (s?.source_class === 'regulator' || s?.source_class === 'standard_body' || c.claim_type === 'regulation') return 'regra geral (norma ou regulador)';
   if (s?.source_class === 'manufacturer' && (c.claim_type === 'spec' || c.claim_type === 'availability')) return 'SÓ O PRODUTO deste documento: escreva com o nome do modelo ("no X da Marca, …"), nunca como medida ou capacidade do tamanho, do tipo ou da categoria';
   if (s?.source_class === 'manufacturer') return 'posição da marca ("segundo a Marca")';

@@ -55,6 +55,14 @@ export const ClaimType = z.enum([
   'availability', // produto listado em loja numa data (não é especificação)
 ]);
 
+// Alcance da evidência, decidido na extração, onde o modelo vê o documento (27/10: o guia "Medidas de colchão"
+// da Castor virava "SÓ O PRODUTO" quando o alcance era deduzido só do tipo da evidência e da classe da fonte).
+export const ClaimScope = z.enum([
+  'produto', // ficha ou anúncio de UM modelo: o dado vale só para ele
+  'marca', // guia, tabela ou página institucional do fabricante sobre seus produtos, tamanhos ou tipos em geral
+  'geral', // norma, regulamento, regulador, laboratório
+]);
+
 // Tipo de produto: vocabulário definido pelo perfil de nicho (data/niche.json), não pelo código.
 export const ProductKind = z.string().regex(/^[a-z0-9_]+$/);
 
@@ -119,6 +127,8 @@ export const Claim = z.object({
   // Pergunta da pauta que este trecho responde; um claim pode servir a mais de uma página.
   question_ids: z.array(z.string()).default([]),
   run_id: z.string().optional(),
+  // Ausente nas evidências anteriores a 27/10: o redator deduz pelo tipo e pela classe da fonte.
+  scope: ClaimScope.optional(),
 });
 export type Claim = z.infer<typeof Claim>;
 
