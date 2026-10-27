@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-27T15:51:05.553Z",
+  "instruction": "No bloco peso-suportado#0: A seção anuncia se o apoio de cabeça muda o peso suportado, mas o bloco só lista capacidades de peso de modelos e afirma que o trecho não relaciona esses dados ao apoio. Conserto: Mudar o título para “Exemplos de peso suportado em modelos citados”. No bloco nr17-referencia#0: A seção anuncia o que a NR-17 menciona sobre apoio de cabeça, mas os blocos não trazem uma orientação da NR-17 sobre esse item; apenas citam uma certificação e recomendam procurar um profissional de saúde. Conserto: Mudar o título para “Certificação e orientação de saúde”.",
+  "diffs": [
+    {
+      "where": "O peso suportado muda com o apoio de cabeça? · bloco 1",
+      "before": "A tabela da ergocadeiras lista 130 kg (recomendado) para a DT3 Moira, 200 kg para a Luvinco BT03 Dinamarca e 150 kg para a DT3 Diana V2. O trecho citado não traz informação sobre a relação entre apoio de cabeça e capacidade de peso.",
+      "after": "A ergocadeiras lista as seguintes capacidades de peso: DT3 Moira, 130 kg (recomendado); Luvinco BT03 Dinamarca, 200 kg; e DT3 Diana V2, 150 kg. As fontes citadas não informam se a presença ou ausência do apoio de cabeça altera o peso suportado."
+    },
+    {
+      "where": "O que a NR-17 menciona sobre apoio de cabeça · bloco 1",
+      "before": "A Elements Vertta Pro da ergocadeiras possui, segundo a fabricante, certificação BIFMA + NR-17. Para recomendações sobre postura ou dor no pescoço, procure um profissional de saúde.",
+      "after": "A Elements Vertta Pro da ergocadeiras possui certificação BIFMA + NR-17, segundo o fabricante. Para recomendações sobre postura ou saúde do pescoço, procure um profissional de saúde."
+    }
+  ]
+}
