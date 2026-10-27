@@ -193,6 +193,9 @@ Feito em 22/10:
 - [ ] avaliar outras receitas só com tráfego estável: AdSense (política de privacidade já existe), outros programas de afiliados
 
 ### E. Replicação — segundo nicho
+- [x] 27/10: auditoria das causas de reprovação (29% de aprovação de primeira desde 20/10) e 4 correções no motor:
+      forma sem IA em toda rodada, alcance da evidência no prompt do redator, coerência antes da revisão com remendo,
+      causa da reprovação no passo do ciclo. Ver docs/AUDITORIA-2026-10-27.md
 - [ ] métricas por página publicada: custo, tentativas, nota de leitor, aprovação de primeira
 - [ ] segundo nicho com `niche-bootstrap` quando o primeiro passar de 50 páginas com aprovação de primeira ≥ 70%
 - [ ] alerta quando ciclo falhar ou o site ficar desatualizado (hoje só no painel)

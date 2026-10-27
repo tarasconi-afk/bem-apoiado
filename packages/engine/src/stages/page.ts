@@ -12,7 +12,7 @@ import { attributeSingleSource, decisionLast } from './structure.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
-import { auditCoherence } from './coherence.ts';
+import { auditCoherence, CHECK_LABEL, problemText, type CoherenceFinding } from './coherence.ts';
 // BEM_COHERENCE=0 desliga a auditoria de coerência (para comparar custo ou resultado).
 const COHERENCE = process.env.BEM_COHERENCE !== '0';
 import { loadThresholds } from '../feedback.ts';
@@ -20,6 +20,10 @@ import { applyEdits } from './edit.ts';
 import { writeDraft } from './write.ts';
 
 const MAX_FIX_ROUNDS = 3;
+// Coerência (página inteira) antes da revisão: quantas vezes o redator remenda o que ela apontou (27/10: das 15
+// páginas reprovadas na revisão desde 20/10, 4 eram só coerência, todas com o juiz dando 4 de 4, e a correção
+// automática depois do fato, sem as evidências à mão, não fechava).
+const COHERENCE_FIX_ROUNDS = 1;
 // Até quantos blocos sem prova a página pode perder no fim (por remoção) e ainda seguir para a revisão.
 const SALVAGE_MAX = 3;
 const MIN_CLAIMS = 8;
@@ -166,18 +170,24 @@ export function decisionIssues(draft: Draft, claimType?: (id: string) => string 
 // Conserto de forma sem IA (22/10: o redator recebeu 4 vezes a regra e reescreveu sempre "Segundo a
 // Ortobom, ..."): a atribuição que abre a resposta curta vai para o fim da primeira frase; travessão vira
 // vírgula. Mesmo conteúdo e mesmas fontes; a resposta volta para o auditor.
-export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] } {
-  const out: Draft = structuredClone(draft);
-  const refs: string[] = [];
-  const v = out.verdict.text.trim();
+// Também para a "versão sustentável" do auditor (27/10, D45: ele propôs "Segundo a Castor, …", o redator copiou,
+// a regra de forma barrou a rodada e a página parou sem convergir).
+export function verdictFormOf(text: string): string {
+  let v = text.trim().replace(/\s*—\s*/g, ', ');
   const m = /^((?:[Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s+(?:(?:a|o|os|as)\s+)?[^,]{2,60}),\s+(.+?)([.!?])(\s|$)([\s\S]*)$/.exec(v);
   if (m) {
     const attrib = m[1]!.charAt(0).toLowerCase() + m[1]!.slice(1);
     const first = m[2]!.charAt(0).toUpperCase() + m[2]!.slice(1);
-    out.verdict = { ...out.verdict, text: `${first}, ${attrib}${m[3]}${m[5] ? ` ${m[5].trim()}` : ''}`.trim() };
-    refs.push('verdict');
+    v = `${first}, ${attrib}${m[3]}${m[5] ? ` ${m[5].trim()}` : ''}`.trim();
   }
-  if (out.verdict.text.includes('—')) { out.verdict = { ...out.verdict, text: out.verdict.text.replace(/\s*—\s*/g, ', ') }; if (!refs.includes('verdict')) refs.push('verdict'); }
+  return v;
+}
+
+export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] } {
+  const out: Draft = structuredClone(draft);
+  const refs: string[] = [];
+  const nv = verdictFormOf(out.verdict.text);
+  if (nv !== out.verdict.text.trim()) { out.verdict = { ...out.verdict, text: nv }; refs.push('verdict'); }
   for (const sec of out.sections) sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && b.text.includes('—')) { b.text = b.text.replace(/\s*—\s*/g, ', '); refs.push(`${sec.id}#${i}`); } });
   return { draft: out, refs };
 }
@@ -189,7 +199,7 @@ export function adoptAuditorFixes(draft: Draft, findings: { ref: string; verdict
     .filter((f) => f.verdict !== 'SUPPORTED' && f.fix && f.fix.trim().length >= 15 && !f.ref.includes('.r'))
     .map((f) => {
       const u = blockRefs(draft).find((b) => b.ref === f.ref);
-      return u ? { ref: f.ref, action: 'replace' as const, text: f.fix.trim().replace(/\s*—\s*/g, ', '), basis: u.basis as never, claim_ids: u.claim_ids } : null;
+      return u ? { ref: f.ref, action: 'replace' as const, text: f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix.trim().replace(/\s*—\s*/g, ', '), basis: u.basis as never, claim_ids: u.claim_ids } : null;
     })
     .filter((x): x is NonNullable<typeof x> => x !== null);
   return { draft: applyPatches(draft, patches as never), refs: patches.map((p) => p.ref) };
@@ -251,9 +261,56 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     return { status: 'SAFE_STOP', reason: `INSUFFICIENT_EVIDENCE (${claims.length})`, rounds: 0, open_issues: [], usage };
   }
 
+  const cache: AuditCache = new Map();
+  // Fonte de cada evidência, para a atribuição por código (fabricante único sem nome no texto).
+  const sourceOf = (id: string) => { const src = idx.sources.get(idx.claims.get(id)?.source_id ?? ''); return src ? { publisher: src.publisher, source_class: src.source_class } : undefined; };
+
+  // Coerência apontou blocos: o redator remenda só eles (com todas as evidências), forma e gate conferem, o auditor
+  // julga só os blocos tocados. Qualquer recusa devolve null e o rascunho fica como estava.
+  const fixCoherence = async (d: Draft, findings: CoherenceFinding[], stage: string): Promise<Draft | null> => {
+    const have = new Set(blockRefs(d).map((u) => u.ref));
+    const issues: Issue[] = findings.filter((f) => have.has(f.ref)).map((f) => ({ ref: f.ref, msg: `${CHECK_LABEL[f.check]}: ${f.problem.replace(/[.\s]+$/, '')}. Conserto: ${f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix}` }));
+    if (!issues.length) return null;
+    const p = await writePatches(topic, claims, idx.sources, d, issues, fetchImpl);
+    add(p.usage);
+    const cand = attributeSingleSource(fixFormWithoutAI(decisionLast(applyPatches(d, p.data.patches))).draft, sourceOf).draft;
+    // Remoção desloca a numeração: audita as seções tocadas inteiras (e a resposta curta, se mudou).
+    const secs = new Set(issues.map((i) => i.ref!.split('#')[0]!));
+    const touched = blockRefs(cand).map((u) => u.ref).filter((r) => secs.has(r.split('#')[0]!));
+    const gate = [...checkPage(toPageSpec(cand, topic, runId, 'pending'), idx).map((v) => ({ ref: refFromWhere(v.where), msg: `${v.code} ${v.detail}` })), ...styleIssues(cand), ...decisionIssues(cand, (id) => idx.claims.get(id)?.claim_type)];
+    const blocked = gate.filter((i) => i.ref === null || touched.includes(i.ref));
+    if (blocked.length || !touched.length) {
+      writeStage(runId, stage, { patches: p.data.patches, kept: false, blocked: blocked.map(show) });
+      return null;
+    }
+    const a = await auditDraft(cand, idx.claims, idx.sources, fetchImpl, cache, new Set(touched));
+    add(a.usage, a.usage.calls);
+    const still = a.findings.filter((f) => f.verdict !== 'SUPPORTED');
+    writeStage(runId, stage, { patches: p.data.patches, kept: still.length === 0, audited: touched, still: still.map((f) => `${f.ref}: ${f.verdict}`) });
+    return still.length ? null : cand;
+  };
+
   // 3) Revisão editorial e gravação: igual para página convergida e para página salva por remoção.
   const finish = async (final: Draft, rounds: number): Promise<PageOutcome> => {
     let draft = final;
+    // 3a) Coerência da página inteira ANTES da revisão, ainda com o redator e as evidências à mão: o que ela
+    // apontar vira remendo nos blocos apontados, auditado e conferido de novo (COHERENCE_FIX_ROUNDS vezes).
+    let coherence: CoherenceFinding[] = [];
+    if (COHERENCE) {
+      let c = await auditCoherence(toPageSpec(draft, topic, runId, 'pass'), topic.primary_query, idx.claims, idx.sources, fetchImpl);
+      add(c.usage, c.usage.calls);
+      writeStage(runId, 'coherence', { findings: c.findings, usage: c.usage });
+      for (let i = 0; c.findings.length && i < COHERENCE_FIX_ROUNDS; i++) {
+        const fixed = await fixCoherence(draft, c.findings, `coherence-fix-${i + 1}`);
+        if (!fixed) break;
+        draft = fixed;
+        c = await auditCoherence(toPageSpec(draft, topic, runId, 'pass'), topic.primary_query, idx.claims, idx.sources, fetchImpl);
+        add(c.usage, c.usage.calls);
+        writeStage(runId, `coherence-${i + 1}`, { findings: c.findings, usage: c.usage });
+      }
+      coherence = c.findings;
+    }
+    const afterCoherence = draft;
     // 3) Revisão editorial: correta não basta, tem de servir. Reprovada fica como rascunho.
     let passed = toPageSpec(draft, topic, runId, 'pass');
     let rv = await reviewPage(passed, topic, fetchImpl);
@@ -273,16 +330,18 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
         rv = rv2;
       }
     }
-    // 4) Coerência da página inteira, só quando o juiz aprovou (24/10: as 3 páginas novas da noite tiveram 4 de 4
-    // e o editor corrigiu as 3). Problema achado reprova: vira o pedido de correção do cartão e da correção
-    // automática. Teste retroativo: pegou os 3 casos que o editor corrigiu e nenhum no solteirão já corrigido.
-    if (rv.review.publishable && COHERENCE) {
+    // 4) Coerência que sobrou reprova (24/10: as 3 páginas novas da noite tiveram 4 de 4 e o editor corrigiu as 3):
+    // vira o pedido de correção do cartão e da correção automática. O corte de enchimento só remove blocos; se
+    // removeu, confere a coerência de novo (tirar um bloco pode deixar um caso sem orientação).
+    if (COHERENCE && rv.review.publishable && draft !== afterCoherence && !coherence.length) {
       const c = await auditCoherence(passed, topic.primary_query, idx.claims, idx.sources, fetchImpl);
       add(c.usage, c.usage.calls);
-      writeStage(runId, 'coherence', { findings: c.findings, usage: c.usage });
-      if (c.findings.length) {
-        rv = { ...rv, review: { ...rv.review, publishable: false, coherence: c.findings, reader_problems: [...c.problems, ...(rv.review.reader_problems ?? [])], missing: [...c.problems.map((x) => `Para o leitor leigo: ${x}`), ...rv.review.missing] } };
-      }
+      writeStage(runId, 'coherence-after-trim', { findings: c.findings, usage: c.usage });
+      coherence = c.findings;
+    }
+    if (rv.review.publishable && coherence.length) {
+      const problems = coherence.map(problemText);
+      rv = { ...rv, review: { ...rv.review, publishable: false, coherence, reader_problems: [...problems, ...(rv.review.reader_problems ?? [])], missing: [...problems.map((x) => `Para o leitor leigo: ${x}`), ...rv.review.missing] } };
     }
     const reviewed: PageSpec = { ...passed, provenance: { ...passed.provenance, review: reviewMetrics(rv.review) } };
     const page: PageSpec = rv.review.publishable ? reviewed : { ...reviewed, status: 'draft' };
@@ -294,9 +353,6 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     return { status, rounds: rounds, page, usage, review: rv.review };
   };
 
-  const cache: AuditCache = new Map();
-  // Fonte de cada evidência, para a atribuição por código (fabricante único sem nome no texto).
-  const sourceOf = (id: string) => { const src = idx.sources.get(idx.claims.get(id)?.source_id ?? ''); return src ? { publisher: src.publisher, source_class: src.source_class } : undefined; };
   let draft: Draft | null = null;
   let issues: Issue[] = [];
   let lastFindings: AuditFinding[] = [];
@@ -309,12 +365,14 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       // "Como decidir" para o fim já aqui, antes de qualquer checagem (22/10, cadeira para obeso: o redator o pôs
       // em 1º nas 4 rodadas, o auditor aprovou todos os blocos e a página parou só pela regra "a última seção tem
       // de ser Como decidir"; a reordenação só acontecia na gravação, depois da checagem que travou).
-      draft = attributeSingleSource(decisionLast(w.data), sourceOf).draft;
+      // Forma sem IA já aqui, em toda rodada (e não só depois do laço): a rodada não se perde por "Segundo a X, …"
+      // na resposta curta (27/10, D45: a 3ª rodada parou no gate por isso e a página não convergiu).
+      draft = attributeSingleSource(fixFormWithoutAI(decisionLast(w.data)).draft, sourceOf).draft;
       writeStage(runId, `write-r${round}`, { mode: 'full', draft, issues_in: issues, usage: w.usage, model: w.model });
     } else {
       const p = await writePatches(topic, claims, idx.sources, draft, issues, fetchImpl);
       add(p.usage);
-      draft = attributeSingleSource(decisionLast(applyPatches(draft, p.data.patches)), sourceOf).draft;
+      draft = attributeSingleSource(fixFormWithoutAI(decisionLast(applyPatches(draft, p.data.patches))).draft, sourceOf).draft;
       writeStage(runId, `write-r${round}`, { mode: 'patch', patches: p.data.patches, draft, issues_in: issues, usage: p.usage });
     }
 
@@ -333,7 +391,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       lastFindings = findings;
       issues = findings
         .filter((f) => f.verdict !== 'SUPPORTED')
-        .map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}${f.fix ? ` Versão sustentável: ${f.fix}` : ''}` }));
+        .map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}${f.fix ? ` Versão sustentável: ${f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix}` : ''}` }));
     }
     writeStage(runId, `audit-r${round}`, { findings, open_issues: issues });
 

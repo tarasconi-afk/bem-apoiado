@@ -19,6 +19,7 @@ Regras de conteúdo (obrigatórias):
 4b. O que a página de um produto diz DESSE produto vale só para ele: "no colchão X, a Ortobom informa…", nunca "o pillow top oferece…" como característica do tipo (22/10: o pillow top parou na auditoria por 3 blocos assim). Para falar do tipo em geral, só com dois ou mais fabricantes dizendo o mesmo, ou norma.
 4c. Chame o documento pelo que ele é, como aparece em "documento:": página do produto, guia ou artigo do fabricante, ficha técnica (só se o documento for uma ficha técnica), norma, regulamento.
 5. Proibido: preços, promoções, "testamos", "na nossa experiência", notas ou rankings de produtos, recomendar marca específica.
+4d. Cada evidência traz o "alcance". Com alcance "SÓ O PRODUTO", o dado (medida, peso suportado, garantia, densidade) entra com o nome do modelo e da marca ("no Prohotel Royal da Probel, o solteirão mede 100 × 200 cm"); nunca "o solteirão mede 100 × 200 cm" ou "o viúva suporta 120 kg". Para dizer que um tamanho ou tipo "mede" ou "suporta" algo, use uma evidência de alcance "regra geral" ou de guia do fabricante que fale do tamanho ou do tipo, e não de um produto; se só houver fichas de produto, escreva "nos modelos citados de X e Y". Tabela "tamanho × medida" com dado de produto diz de qual modelo é cada célula (na célula ou no título da tabela).
 6. ${n.safety_rule}
 7. Números (medidas, prazos, quantidades, faixas) só se estiverem no trecho literal citado.
 8. Se uma pergunta da pauta não tem evidência suficiente, não a responda; não preencha lacunas.
@@ -84,11 +85,22 @@ export function quoteLocation(s: Source, quote: string): string | null {
   return `${head}${next ? ` · ${next.slice(0, 80)}` : ''}`;
 }
 
+// Alcance da evidência, dito ao redator em cada uma (27/10: o solteirão foi reescrito 2 vezes e as 2 pararam na
+// coerência porque a medida e o peso de UM modelo da Probel viraram "o solteirão mede/suporta"; o redator recebia
+// ~150 evidências sem saber qual era ficha de produto e qual era regra). Dado técnico ou disponibilidade vindo de
+// fabricante vale só para aquele produto; norma e regulador valem em geral; o resto é posição da marca.
+export function claimScope(c: Pick<Claim, 'claim_type'>, s: Pick<Source, 'source_class'> | undefined): string {
+  if (s?.source_class === 'regulator' || s?.source_class === 'standard_body' || c.claim_type === 'regulation') return 'regra geral (norma ou regulador)';
+  if (s?.source_class === 'manufacturer' && (c.claim_type === 'spec' || c.claim_type === 'availability')) return 'SÓ O PRODUTO deste documento: escreva com o nome do modelo ("no X da Marca, …"), nunca como medida ou capacidade do tamanho, do tipo ou da categoria';
+  if (s?.source_class === 'manufacturer') return 'posição da marca ("segundo a Marca")';
+  return 'posição desta fonte ("segundo <fonte>")';
+}
+
 export function formatClaims(claims: Claim[], sources: Map<string, Source>): string {
   return claims
     .map((c) => {
       const s = sources.get(c.source_id);
-      return `[${c.id}] fonte: ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) | documento: ${docLabel(s, c.quote)} | tipo: ${c.claim_type}\n  paráfrase: ${c.statement}\n  trecho literal: "${c.quote}"`;
+      return `[${c.id}] fonte: ${s?.publisher ?? '?'} (${s?.source_class ?? '?'}) | documento: ${docLabel(s, c.quote)} | tipo: ${c.claim_type} | alcance: ${claimScope(c, s)}\n  paráfrase: ${c.statement}\n  trecho literal: "${c.quote}"`;
     })
     .join('\n');
 }
