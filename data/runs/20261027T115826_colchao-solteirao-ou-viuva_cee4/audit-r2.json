@@ -1,0 +1,114 @@
+{
+  "findings": [
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-suportado#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-suportado#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Nenhum trecho citado sustenta a recomendação de conferir a ficha técnica antes da compra.",
+      "fix": "Remova a frase ou acrescente uma evidência que recomende verificar a ficha técnica do modelo específico."
+    },
+    {
+      "ref": "base-compativel#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-diferencia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-diferencia#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A medida de 88 × 188 cm é informada pela Castor para colchão de solteiro, mas o bloco a apresenta como regra geral, sem atribuir a classificação à Castor.",
+      "fix": "Tamanho: Solteiro — largura: 88 cm — comprimento: 188 cm (conforme a Castor)."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A medida de 100 × 200 cm aparece em uma página de produto da Probel chamado solteirão, mas o bloco a apresenta como classificação geral, sem atribuição à Probel.",
+      "fix": "Solteirão, segundo a Probel — largura: 100 cm — comprimento: 200 cm."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A classificação e as medidas de viúva vêm de um produto da Probel, mas o bloco as apresenta como regra geral, sem atribuição à Probel.",
+      "fix": "Viúva, segundo a Probel — largura: 128 cm — comprimento: 188 cm."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as medidas de 200 cm e 188 cm e a atribuição às marcas, mas não dizem que esses colchões são destinados a quem dorme sozinho nem que o colchão de 188 cm pode ficar apertado para uma pessoa mais alta.",
+      "fix": "Se você precisa de mais de 188 cm de comprimento, compare o solteirão da Probel, de 200 cm, ou o solteiro king listado pela Castor, também de 200 cm; o solteiro citado pela Castor mede 188 cm."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que Probel e Castor usam nomes diferentes para a medida de 100 × 200 cm, mas não mencionam comprar nem conferir a medida em uma ficha técnica.",
+      "fix": "Os nomes variam entre os fabricantes: a Probel chama 100 × 200 cm de solteirão, enquanto a Castor chama a mesma medida de solteiro king."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "peso-suportado#2",
+      "msg": "UNSUPPORTED. Nenhum trecho citado sustenta a recomendação de conferir a ficha técnica antes da compra. Versão sustentável: Remova a frase ou acrescente uma evidência que recomende verificar a ficha técnica do modelo específico."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. A medida de 88 × 188 cm é informada pela Castor para colchão de solteiro, mas o bloco a apresenta como regra geral, sem atribuir a classificação à Castor. Versão sustentável: Tamanho: Solteiro — largura: 88 cm — comprimento: 188 cm (conforme a Castor)."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. A medida de 100 × 200 cm aparece em uma página de produto da Probel chamado solteirão, mas o bloco a apresenta como classificação geral, sem atribuição à Probel. Versão sustentável: Solteirão, segundo a Probel — largura: 100 cm — comprimento: 200 cm."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. A classificação e as medidas de viúva vêm de um produto da Probel, mas o bloco as apresenta como regra geral, sem atribuição à Probel. Versão sustentável: Viúva, segundo a Probel — largura: 128 cm — comprimento: 188 cm."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas de 200 cm e 188 cm e a atribuição às marcas, mas não dizem que esses colchões são destinados a quem dorme sozinho nem que o colchão de 188 cm pode ficar apertado para uma pessoa mais alta. Versão sustentável: Se você precisa de mais de 188 cm de comprimento, compare o solteirão da Probel, de 200 cm, ou o solteiro king listado pela Castor, também de 200 cm; o solteiro citado pela Castor mede 188 cm."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. Os trechos sustentam que Probel e Castor usam nomes diferentes para a medida de 100 × 200 cm, mas não mencionam comprar nem conferir a medida em uma ficha técnica. Versão sustentável: Os nomes variam entre os fabricantes: a Probel chama 100 × 200 cm de solteirão, enquanto a Castor chama a mesma medida de solteiro king."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que o modelo viúva tem 128 cm de largura e 188 cm de comprimento e que o solteirão suporta 120 kg por pessoa. Não sustentam as dimensões do solteirão, que ele seja adequado para quem dorme sozinho e é alto, que a viúva ofereça mais largura para casais, nem a regra geral de escolher pela medida do quarto, da base e pelo número de pessoas.",
+      "fix": "A Probel informa que o colchão viúva mede 128 cm de largura por 188 cm de comprimento. Confira as dimensões exatas no anúncio antes de comprar."
+    },
+    {
+      "ref": "nomes-variaveis-tamanhos#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que Castor usa “solteiro king” e Probel usa “solteirão” para um produto de 100 × 200 cm, mas não sustentam a instrução categórica de conferir sempre a medida em centímetros nem a formulação “não apenas o nome”.",
+      "fix": "Castor chama 100 × 200 cm de “solteiro king”, enquanto a Probel apresenta um produto de 100 × 200 cm como “solteirão”. As fichas citadas mostram que é possível verificar a medida em centímetros além do nome."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são páginas da fabricante Probel, mas o bloco apresenta as capacidades como fatos gerais, sem atribuí-las à Probel. Além disso, nenhum trecho diz que o peso declarado se refere apenas a quem dorme ou exclui o peso do colchão.",
+      "fix": "Segundo a Probel, o colchão solteirão Sigma Plus suporta 120 kg por pessoa. Nas páginas citadas, modelos viúva da Probel têm suporte declarado de 110 kg por pessoa (Turim) e 120 kg por pessoa (Sigma Plus)."
+    },
+    {
+      "ref": "base-estrado-compativel#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos não dizem que a base é compatível com colchões viúva nem oferecem orientação para medir colchões solteirão ou solteiro. Além disso, o trecho da Castor informa a variação de altura do colchão, não da base; portanto, atribuir à base a faixa de 15 a 40 cm é incorreto.",
+      "fix": "A Probel apresenta um produto chamado “Kit Box Baú Viúva + Colchão Mola Probel Pró Charge”. A Castor informa que a altura do colchão costuma variar entre 15 e 40 cm."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas a medida de 88 × 188 cm para o colchão de solteiro. Não dizem que ele serve para uma pessoa nem que é indicado para espaço reduzido.",
+      "fix": "Tamanho: Solteiro | Largura × Comprimento: 88 × 188 cm"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta as medidas de 100 × 200 cm, mas não afirma que o solteirão serve para uma pessoa alta nem que oferece mais espaço de comprimento.",
+      "fix": "Tamanho: Solteirão | Largura × Comprimento: 100 × 200 cm"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta o nome Viúva e as medidas de 128 × 188 cm, mas não afirma que o produto serve para duas pessoas ou oferece mais largura.",
+      "fix": "Tamanho: Viúva | Largura × Comprimento: 128 × 188 cm"
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "As fontes sustentam que há um solteirão de 100 × 200 cm e um solteiro de 88 × 188 cm, inclusive a diferença de 12 cm no comprimento. Não sustentam a recomendação para quem dorme sozinho e é alto.",
+      "fix": "A Probel lista um solteirão de 100 × 200 cm, enquanto a Castor lista um solteiro de 88 × 188 cm; o solteirão tem 12 cm a mais de comprimento."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a Probel lista uma viúva de 128 × 188 cm e um conjunto box com essas medidas. Não dizem que a viúva é indicada para quem divide a cama nem estabelecem que ela oferece mais largura em comparação com outro tamanho.",
+      "fix": "Se você procura um colchão de 128 × 188 cm, a Probel lista a viúva com essas medidas. Confira se elas cabem no quarto e na base disponível."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que o modelo viúva tem 128 cm de largura e 188 cm de comprimento e que o solteirão suporta 120 kg por pessoa. Não sustentam as dimensões do solteirão, que ele seja adequado para quem dorme sozinho e é alto, que a viúva ofereça mais largura para casais, nem a regra geral de escolher pela medida do quarto, da base e pelo número de pessoas. Versão sustentável: A Probel informa que o colchão viúva mede 128 cm de largura por 188 cm de comprimento. Confira as dimensões exatas no anúncio antes de comprar."
+    },
+    {
+      "ref": "nomes-variaveis-tamanhos#0",
+      "msg": "OVERSTATED. Os trechos sustentam que Castor usa “solteiro king” e Probel usa “solteirão” para um produto de 100 × 200 cm, mas não sustentam a instrução categórica de conferir sempre a medida em centímetros nem a formulação “não apenas o nome”. Versão sustentável: Castor chama 100 × 200 cm de “solteiro king”, enquanto a Probel apresenta um produto de 100 × 200 cm como “solteirão”. As fichas citadas mostram que é possível verificar a medida em centímetros além do nome."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "msg": "MISATTRIBUTED. Os trechos são páginas da fabricante Probel, mas o bloco apresenta as capacidades como fatos gerais, sem atribuí-las à Probel. Além disso, nenhum trecho diz que o peso declarado se refere apenas a quem dorme ou exclui o peso do colchão. Versão sustentável: Segundo a Probel, o colchão solteirão Sigma Plus suporta 120 kg por pessoa. Nas páginas citadas, modelos viúva da Probel têm suporte declarado de 110 kg por pessoa (Turim) e 120 kg por pessoa (Sigma Plus)."
+    },
+    {
+      "ref": "base-estrado-compativel#0",
+      "msg": "MISATTRIBUTED. Os trechos não dizem que a base é compatível com colchões viúva nem oferecem orientação para medir colchões solteirão ou solteiro. Além disso, o trecho da Castor informa a variação de altura do colchão, não da base; portanto, atribuir à base a faixa de 15 a 40 cm é incorreto. Versão sustentável: A Probel apresenta um produto chamado “Kit Box Baú Viúva + Colchão Mola Probel Pró Charge”. A Castor informa que a altura do colchão costuma variar entre 15 e 40 cm."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas a medida de 88 × 188 cm para o colchão de solteiro. Não dizem que ele serve para uma pessoa nem que é indicado para espaço reduzido. Versão sustentável: Tamanho: Solteiro | Largura × Comprimento: 88 × 188 cm"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta as medidas de 100 × 200 cm, mas não afirma que o solteirão serve para uma pessoa alta nem que oferece mais espaço de comprimento. Versão sustentável: Tamanho: Solteirão | Largura × Comprimento: 100 × 200 cm"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. O trecho sustenta o nome Viúva e as medidas de 128 × 188 cm, mas não afirma que o produto serve para duas pessoas ou oferece mais largura. Versão sustentável: Tamanho: Viúva | Largura × Comprimento: 128 × 188 cm"
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. As fontes sustentam que há um solteirão de 100 × 200 cm e um solteiro de 88 × 188 cm, inclusive a diferença de 12 cm no comprimento. Não sustentam a recomendação para quem dorme sozinho e é alto. Versão sustentável: A Probel lista um solteirão de 100 × 200 cm, enquanto a Castor lista um solteiro de 88 × 188 cm; o solteirão tem 12 cm a mais de comprimento."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Probel lista uma viúva de 128 × 188 cm e um conjunto box com essas medidas. Não dizem que a viúva é indicada para quem divide a cama nem estabelecem que ela oferece mais largura em comparação com outro tamanho. Versão sustentável: Se você procura um colchão de 128 × 188 cm, a Probel lista a viúva com essas medidas. Confira se elas cabem no quarto e na base disponível."
+    }
+  ]
+}

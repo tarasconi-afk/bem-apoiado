@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 171426,
+    "output_tokens": 38744,
+    "calls": 33
+  },
+  "credits": 15.049394400000004,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-diferencia#0",
+      "o-que-diferencia#1"
+    ],
+    "decision_criteria": [
+      "Para quem dorme sozinho e precisa de mais comprimento, escolher o solteirão de 100 × 200 cm ou o solteiro king de 100 × 200 cm.",
+      "Para quarto estreito, considerar o solteiro de 88 × 188 cm e conferir se ainda sobra espaço para móveis e circulação.",
+      "Para quem quer mais largura, escolher o viúva de 128 × 188 cm, desde que ele caiba no quarto e na base.",
+      "Conferir no anúncio a medida exata, porque um fabricante pode chamar de solteirão uma medida que outro chama de solteiro king.",
+      "Verificar se o comprimento de 188 cm ou 200 cm cabe na base, no estrado e no espaço disponível.",
+      "Conferir a capacidade de peso por pessoa informada pelo fabricante do modelo escolhido."
+    ],
+    "missing": [
+      "Medidas exatas da base ou do estrado compatível com cada tamanho, de preferência informadas pelos fabricantes.",
+      "Confirmação, nas fichas dos fabricantes, se a capacidade de peso declarada inclui o peso do colchão ou apenas o dos usuários.",
+      "Mais opções de fabricantes que informem claramente as medidas de solteirão e viúva e suas bases compatíveis."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que a escolha depende principalmente da largura e do comprimento disponíveis, mostra medidas concretas para solteiro, solteirão e viúva e explica qual opção atende a quarto estreito, pessoa alta ou quem quer mais espaço. Também orienta a conferir a nomenclatura e as medidas no anúncio; faltam apenas informações mais completas sobre bases compatíveis e sobre o critério de cálculo da capacidade de peso.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  }
+}
