@@ -1,0 +1,146 @@
+{
+  "findings": [
+    {
+      "ref": "o-que-conferir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação geral de que a densidade tem relação com a firmeza é apresentada sem atribuição, embora o trecho citado seja de um fabricante. A faixa de pesos e densidades está corretamente atribuída à Castor.",
+      "fix": "Segundo a Castor, a densidade tem relação direta com a firmeza do colchão. Para pessoas entre 81 e 100 kg, a Castor indica densidades de 33 a 45 conforme a preferência por firmeza; acima de 100 kg, indica densidade 45 ou maior."
+    },
+    {
+      "ref": "densidade-o-que-e#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-o-que-e#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-vs-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-vs-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram classificações de conforto ou firmeza em páginas de produtos, mas não dizem que elas aparecem em rótulos ou fichas técnicas.",
+      "fix": "Em páginas de produtos, a Ortobom informa níveis de conforto “Macio” e “Firme”, e a Probel informa nível de firmeza “Firme”."
+    },
+    {
+      "ref": "o-que-conferir#3",
+      "verdict": "OVERSTATED",
+      "problem": "A Ortobom descreve o Pillow Top como uma camada extra de conforto, mas o trecho citado não informa que ela fica sobre o colchão. Essa posição é afirmada apenas no trecho da Castor.",
+      "fix": "A Ortobom descreve o Pillow Top como uma camada extra de conforto; a Castor o descreve como uma camada extra posicionada sobre o colchão."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado mostra apenas um produto da Ortobom classificado como “Firme”, mas o bloco generaliza para “alguns produtos”.",
+      "fix": "A Castor informa, em um modelo, a combinação de espumas D45 e D20, enquanto a Ortobom classifica um produto como Firme. Assim, a sigla D45, isoladamente, não descreve toda a composição ou classificação de conforto de um modelo."
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta que, segundo a Castor, a D45 é mais firme que a D28, mas não diz que é necessário consultar a ficha técnica para entender a sensação completa do colchão.",
+      "fix": "Segundo a Castor, a espuma D45 oferece maior firmeza que a D28."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A afirmação geral de que a densidade tem relação com a firmeza é apresentada sem atribuição, embora o trecho citado seja de um fabricante. A faixa de pesos e densidades está corretamente atribuída à Castor. Versão sustentável: A densidade tem relação direta com a firmeza do colchão, segundo a Castor. Para pessoas entre 81 e 100 kg, a Castor indica densidades de 33 a 45 conforme a preferência por firmeza; acima de 100 kg, indica densidade 45 ou maior."
+    },
+    {
+      "ref": "o-que-conferir#2",
+      "msg": "OVERSTATED. Os trechos mostram classificações de conforto ou firmeza em páginas de produtos, mas não dizem que elas aparecem em rótulos ou fichas técnicas. Versão sustentável: Em páginas de produtos, a Ortobom informa níveis de conforto “Macio” e “Firme”, e a Probel informa nível de firmeza “Firme”."
+    },
+    {
+      "ref": "o-que-conferir#3",
+      "msg": "OVERSTATED. A Ortobom descreve o Pillow Top como uma camada extra de conforto, mas o trecho citado não informa que ela fica sobre o colchão. Essa posição é afirmada apenas no trecho da Castor. Versão sustentável: A Ortobom descreve o Pillow Top como uma camada extra de conforto; a Castor o descreve como uma camada extra posicionada sobre o colchão."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. O trecho citado mostra apenas um produto da Ortobom classificado como “Firme”, mas o bloco generaliza para “alguns produtos”. Versão sustentável: A Castor informa, em um modelo, a combinação de espumas D45 e D20, enquanto a Ortobom classifica um produto como Firme. Assim, a sigla D45, isoladamente, não descreve toda a composição ou classificação de conforto de um modelo."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "UNSUPPORTED. O trecho sustenta que, segundo a Castor, a D45 é mais firme que a D28, mas não diz que é necessário consultar a ficha técnica para entender a sensação completa do colchão. Versão sustentável: Segundo a Castor, a espuma D45 oferece maior firmeza que a D28."
+    }
+  ]
+}

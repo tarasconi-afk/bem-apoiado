@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir#4",
+      "problem": "O texto apresenta como regra geral que toda espuma D45 é mais firme que a D28, mas o trecho citado afirma isso para um produto específico da Castor.",
+      "fix": "Reescrever como: \"Nesse modelo Black & White Air D45 da Castor, a espuma D45 é descrita como mais firme que a D28.\""
+    }
+  ],
+  "usage": {
+    "input_tokens": 22924,
+    "output_tokens": 4321,
+    "calls": 3
+  }
+}
