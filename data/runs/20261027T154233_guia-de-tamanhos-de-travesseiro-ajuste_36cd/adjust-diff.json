@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-27T15:42:58.829Z",
+  "instruction": "No bloco verdict: O título promete orientar a escolha pela cama, mas a seção “Como decidir” só orienta a partir da fronha e da altura; quem parte do tamanho da cama não sabe qual travesseiro escolher ou conferir. Conserto: Remover “pela cama” do título e da descrição, já que os trechos sustentam apenas a escolha pela fronha e pela altura. No bloco medidas-tamanho-queen-king#0: A seção anuncia medidas de travesseiros queen e king, mas os blocos trazem apenas exemplos de king e nenhum dado de queen. Conserto: Mudar o título para “Medidas de travesseiros king” ou tirar a promessa de medidas queen",
+  "diffs": [
+    {
+      "where": "Resposta curta",
+      "before": "Escolha o tamanho do travesseiro pela fronha que você tem ou quer comprar. Travesseiros de 40x60 cm combinam com fronhas de 50x70 cm; o NASA X Cervical da Duoflex, com fronha de 45x65 cm; o NASA King Alto da Duoflex, com fronha de 50x90 cm. A altura varia entre 12 cm e 17 cm conforme o modelo.",
+      "after": "Travesseiros de 40x60 cm da Probel atendem fronhas de 50x70 cm. A Duoflex oferece modelos Nasa compatíveis com fronhas de 45x65 cm e 50x90 cm, com altura de 17 cm em alguns."
+    },
+    {
+      "where": "Medidas de travesseiros queen e king · bloco 1",
+      "before": "Segundo a Ortobom, o travesseiro King Premium tem 70 cm de comprimento e 50 cm de largura. Segundo a Duoflex, um travesseiro Nasa tem 17 cm de altura e é compatível com fronha de 50 × 90 cm.",
+      "after": "Segundo a Ortobom, o travesseiro King Premium tem 70 cm de comprimento e 50 cm de largura. Segundo a Duoflex, um travesseiro Nasa King Alto tem 17 cm de altura e é compatível com fronha de 50 × 90 cm."
+    }
+  ]
+}
