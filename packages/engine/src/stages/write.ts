@@ -40,6 +40,14 @@ Exemplo de página que o editor aprovou como modelo (colchão firme ou macio, 22
 Padrão editorial (cada bloco tem de passar nestas perguntas; a revisão reprova a página que não passa):
 ${editorialChecklist()}
 
+Regras do gate (o código recusa a página sem ler o conteúdo; cada uma custa uma rodada inteira quando não é obedecida de primeira):
+- Resposta curta ("verdict"): no máximo 3 frases; começa pela resposta prática (o que escolher e para quem), nunca por "Segundo…", "De acordo com…", "Conforme…", nem por norma, regulador ou anexo; a fonte entra no fim da frase ("…, segundo a Castor").
+- Nunca escreva "trechos citados" ou "nos trechos": diga quem afirma ("segundo a Ortobom") ou o que a ficha não informa.
+- Título "A ou B": a resposta curta ou o "Como decidir" dizem quando escolher A e quando escolher B, com o dado da fonte.
+- Tabela: pelo menos 2 linhas; nenhuma célula "não informado" ou "confira…"; uma coluna é um modelo só; só cite "a tabela abaixo" na seção em que ela está.
+- Duas orientações "Se você…" com a mesma condição não podem coexistir: junte ou diga outra situação.
+- Nenhum bloco repete outro; nenhum travessão (—); parágrafo com no máximo 70 palavras; página com no máximo 1400.
+
 Regras de forma:
 - Português do Brasil, frases curtas. Explique termos técnicos na primeira vez.
 - Não use travessão (—); use vírgula, dois-pontos ou ponto.

@@ -58,6 +58,13 @@ Correções: alcance (`scope`: produto | marca | geral) decidido na extração, 
 tipada barata, seleção com revezamento por pergunta, no máximo 2 fichas com os mesmos números por fabricante,
 guia/norma pontuando mais, e as evidências das regras de decisão sempre dentro.
 
+**Sexta causa, achada na 3ª reescrita do solteirão (commit 268e06f):** o prompt do redator mandava preencher célula
+sem evidência com "não informado nas fontes" e o gate recusa exatamente isso. O redator devolveu 3 vezes a coluna
+"Para quem serve" vazia, 2 rodadas pararam no gate sem o auditor ler a tabela, e a página não convergiu (9,1 créditos).
+Correções: a coluna (e a linha) sem dado sai por código em toda rodada; o prompt diz que coluna sem evidência não entra.
+Regra que fica: **toda regra do gate tem de estar dita no prompt do redator com as mesmas palavras**, e o que o código
+sabe consertar ele conserta antes de gastar rodada.
+
 ## Sistema para aprovação de primeira (o desenho que estes passos começam)
 
 1. **Decidir antes de escrever.** A checagem de prontidão já extrai as regras "Se você…" com as evidências; cada
