@@ -1,0 +1,78 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O título da seção apresenta látex natural e látex Talalay como materiais indicados para quem dorme de lado, mas os trechos citados apenas descrevem suas características e não dizem que atendem a essa posição (materiais-recomendados#0); Reescrever a seção como ",
+      "O título promete ajudar a escolher altura e material, mas a seção Como decidir orienta apenas sobre a altura e não diz o que escolher ou conferir quanto ao material (como-decidir#0); Remover a promessa de escolha de material do título e da descrição; ou acresc"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se você dorme de lado, prefira um travesseiro mais alto que preencha o espaço entre a cabeça e o colchão.",
+      "Ao deitar, confira se o pescoço fica próximo de um ângulo de 90 graus.",
+      "Compare a altura declarada na ficha: a Probel lista modelos de 12 cm e 14 cm para dormir de lado, enquanto a Duoflex lista um modelo de 10 cm.",
+      "Se prefere espuma com suporte firme e adaptação à cabeça e ao pescoço, considere um modelo de visco gel indicado para dormir de lado.",
+      "Para ajustar a altura, confira se o modelo tem placa removível ou regulagem em duas alturas, como nos modelos citados da Ortobom.",
+      "Confira na etiqueta a composição das fibras e as instruções de lavagem, secagem, passadoria e limpeza."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando largura ou distância do ombro à altura recomendada do travesseiro, com faixas em centímetros.",
+      "Mais alturas declaradas por fabricantes para dormir de lado, de costas e de barriga, permitindo uma comparação mais ampla.",
+      "Recomendações explícitas de cada fabricante sobre materiais e firmeza para quem dorme de lado, incluindo fibra e pluma.",
+      "Instruções escritas dos fabricantes explicando quanto de enchimento remover ou como ajustar a altura para dormir de lado.",
+      "Informação do fabricante sobre se a capa ou o forro altera a altura final declarada do travesseiro."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que quem dorme de lado deve procurar um travesseiro mais alto, preencher o espaço entre a cabeça e o colchão e conferir o alinhamento do pescoço. Também traz alturas concretas, opções reguláveis e itens para conferir na ficha ou etiqueta; faltam apenas dados mais completos sobre medidas do ombro, materiais e ajustes.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "materiais-recomendados#0",
+        "problem": "O título da seção apresenta látex natural e látex Talalay como materiais indicados para quem dorme de lado, mas os trechos citados apenas descrevem suas características e não dizem que atendem a essa posição.",
+        "fix": "Reescrever a seção como descrição das características dos materiais, sem chamá-los de indicados para dormir de lado; ou manter a indicação apenas se houver trecho que relacione o material a essa posição."
+      },
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "como-decidir#0",
+        "problem": "O título promete ajudar a escolher altura e material, mas a seção Como decidir orienta apenas sobre a altura e não diz o que escolher ou conferir quanto ao material.",
+        "fix": "Remover a promessa de escolha de material do título e da descrição; ou acrescentar uma orientação sobre material sustentada pelos trechos, como identificar o modelo de visco gel da Probel explicitamente indicado para dormir de lado."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Quem dorme de lado deve procurar um travesseiro mais alto, que preencha o espaço entre a cabeça e o colchão.",
+      "Ao deitar, confira se o pescoço fica próximo de um ângulo de 90 graus.",
+      "Compare a altura declarada na ficha: a Probel informa modelos de 12 cm e 14 cm para dormir de lado.",
+      "Se quiser suporte firme e adaptação à cabeça e ao pescoço, confira modelos de espuma viscoelástica com gel, como os descritos pela Probel.",
+      "Se quiser ajustar a altura, procure modelos com enchimento ou placa removível, como os reguláveis da Ortobom.",
+      "Confira na etiqueta a composição das fibras ou materiais e as instruções de conservação antes da compra."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando largura do ombro ou distância entre ombro e pescoço às faixas de altura recomendadas.",
+      "Mais alturas exatas declaradas por fabricantes para dormir de lado e uma comparação equivalente com modelos para dormir de costas e de barriga.",
+      "Recomendações explícitas dos fabricantes sobre materiais e níveis de firmeza específicos para quem dorme de lado, incluindo fibra e pluma.",
+      "Instruções escritas do fabricante sobre como ajustar a altura dos modelos reguláveis para dormir de lado.",
+      "Informação do fabricante sobre se a capa ou o forro altera a altura final informada do travesseiro."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde de forma rápida que quem dorme de lado deve procurar um travesseiro mais alto, que preencha o espaço entre a cabeça e o colchão, e oferece um critério prático de conferência do alinhamento do pescoço. Também traz alturas declaradas, opções reguláveis e informações para conferir na etiqueta. Faltam medidas do ombro e recomendações mais completas de materiais, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.07142857142857142,
+    "model_opinion": true
+  }
+}
