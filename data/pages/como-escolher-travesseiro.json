@@ -5,7 +5,7 @@
   "title": "Como escolher travesseiro: especificações técnicas",
   "description": "Escolha travesseiro por altura, firmeza e material. Compare as dimensões com sua fronha e verifique se é lavável antes de comprar.",
   "primary_query": "como escolher travesseiro",
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-27",
   "verdict": {
     "text": "Compare na ficha três pontos: a altura (nas fichas citadas, de 12 a 14 cm), a firmeza declarada (de extra macio a firme) e o material do enchimento, como fibra siliconada ou espuma viscoelástica. Confira também se o tamanho combina com a sua fronha e se o travesseiro pode ser lavado em casa.",
     "basis": "reasoning",
@@ -75,18 +75,6 @@
       "id": "dimensoes-altura-padroes",
       "heading": "Dimensões e altura padrão",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A Probel informa 12 cm em um modelo e 14 cm em outro; o modelo de 12 cm mede 40×60 cm e atende a fronhas de 50×70 cm. A Luuna informa que seu modelo Grid Tech mede 40×65×14 cm. Segundo a Probel, o modelo de 14 cm é ideal para quem dorme de bruços ou para cima.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_0373b10bfbe5",
-            "clm_4cc483bf8801",
-            "clm_7526417478e3",
-            "clm_08c48f4db371",
-            "clm_8a9e65d427d7"
-          ]
-        },
         {
           "kind": "paragraph",
           "text": "Segundo a Ortobom, são informados os tamanhos de 52x38 cm e de 70x50 cm.",
@@ -221,7 +209,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T151909_autopilot_24bf+edit:20261021T151909_autopilot_24bf+reaudit:20261021T160034_autopilot_fd79+editor:pesquisa-como-escolher-travesseiro",
+    "run_id": "20261021T151909_autopilot_24bf+edit:20261021T151909_autopilot_24bf+reaudit:20261021T160034_autopilot_fd79+editor:pesquisa-como-escolher-travesseiro+editor:20261027T153824_como-escolher-travesseiro-ajuste_22c4",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
