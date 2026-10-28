@@ -524,6 +524,22 @@ async function main(): Promise<number> {
       console.log(`  ${report.rejected.length} domínios rejeitados; ~${report.llm_credits.toFixed(1)} créditos; Tavily no mês: ${report.tavily_credits_month}`);
       return 0;
     }
+    // Fonte indicada pelo editor: o motor dizia "só uma fonte indicada por você resolve" e não havia como
+    // indicar (28/10). Lê a URL, liga à pauta e extrai evidência só dela.
+    case 'fonte': {
+      const { positionals, values } = parseArgs({ args: rest, allowPositionals: true, options: { budget: { type: 'string', default: '8' } } });
+      const [slug, url] = positionals;
+      if (!slug || !url) {
+        console.error('uso: fonte <slug da pauta> <url>');
+        return 2;
+      }
+      setRunBudget(Number(values.budget));
+      const { addIndicatedSource } = await import('./stages/indicated-source.ts');
+      const r = await addIndicatedSource(slug, url, newRunId(`${slug}-fonte`));
+      console.log(r.message);
+      console.log(`~${creditsSpent().toFixed(2)} créditos`);
+      return r.ok ? 0 : 1;
+    }
     // Antes de gastar: o provedor aceita trabalhar agora? (28/10, ver preflight.ts.) Código 4 = bloqueado, e
     // quem chamou avisa o dono em vez de queimar um ciclo inteiro para descobrir no fim.
     case 'preflight': {

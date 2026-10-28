@@ -1,13 +1,13 @@
 import { loadThresholds, loadVerdicts } from './feedback.ts';
 import { readerScore } from './stages/review.ts';
-import { classifyBranch, classifyDraft, CORRECTION_MAX, KIND_LABEL, rulesFromNotes, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
+import { classifyBranch, classifyDraft, CORRECTION_MAX, cutAtWord, KIND_LABEL, rulesFromNotes, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
 import { AUTO_MIN_AGREE, AUTO_MIN_DAYS, AUTO_WINDOW, loadShadow, motorPublishes, recordShadow, shadowStats, type EditorAction, type ShadowEntry } from './shadow.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { join } from 'node:path';
-import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, Slug } from '@bem-apoiado/core';
+import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, type PageSpec, Slug } from '@bem-apoiado/core';
 import { cycleBadge, cycleInfo, renderStatus } from './status.ts';
 import { MAX_IMPROVE_ATTEMPTS, retryOff } from './stages/improve.ts';
 import { lessonId, loadEditorLessons } from './editor-lessons.ts';
@@ -235,6 +235,7 @@ ${livePagesHtml(pages)}
 
 <h2>Pedir ao motor</h2>
 ${requestsHtml()}
+${fonteIndicadaHtml(pages)}
 
 <h2>Domínios novos encontrados nas buscas</h2>
 ${domainsHtml()}
@@ -1072,6 +1073,24 @@ function noteShadow(f: URLSearchParams): void {
   }
 }
 
+// Indicar uma fonte (28/10). O motor já dizia, quando a busca falhava três semanas, que "só um fabricante ou
+// fonte indicada por você resolve" — e não havia onde indicar: o painel só aprovava ou bloqueava domínio. A
+// saída prometida não existia, e a alternativa era entrar na VPS. Caso que motivou: a etiquetagem têxtil do
+// Inmetro, que responde perguntas de 29 das 80 pautas da fila e a busca não trouxe.
+function fonteIndicadaHtml(pages: PageSpec[]): string {
+  const comLacuna = loadTopics()
+    .filter((t) => t.evidence_gaps.length)
+    .map((t) => ({ slug: t.slug, titulo: pages.find((p) => p.slug === t.slug)?.title ?? t.primary_query, falta: t.evidence_gaps[0]! }))
+    .slice(0, 40);
+  if (!comLacuna.length) return '';
+  return `<details class="dfix"><summary><strong>Indicar uma fonte que a busca não achou</strong> <span class="muted">(quando você conhece o documento certo: norma, portaria, ficha do fabricante)</span></summary>
+<p class="muted">O motor lê a página, liga à pauta e guarda as evidências. Nada muda no site agora: a página é reescrita depois, no enriquecimento, e o resultado vem para o seu quadro. Só vale URL de domínio já aprovado em <b>Domínios</b> — aprovar domínio continua sendo decisão à parte, e é ela que diz de quem é o site.</p>
+<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="fonte-indicar">
+<fieldset><legend>Pauta</legend><select name="slug" required>${comLacuna.map((t) => `<option value="${esc(t.slug)}">${esc(t.titulo)} — falta: ${esc(cutAtWord(t.falta, 90))}</option>`).join('')}</select></fieldset>
+<fieldset><legend>Endereço da página</legend><input name="url" required type="url" inputmode="url" maxlength="500" placeholder="https://www.gov.br/inmetro/..." autocomplete="off"></fieldset>
+<div class="cfg-actions"><button class="ok">Ler e ligar à pauta</button></div></form></details>`;
+}
+
 // Configurações (26/10, no modelo do admin do FC LAB): cartões no topo, um painel por cartão, campos com rótulo e
 // botões que dizem o que fazem. O painel tem um usuário só (admin, senha conferida aqui), então não há tela de
 // usuários nem de sessões: o navegador guarda a senha até ser fechado. Sem script, os quatro painéis aparecem juntos.
@@ -1259,6 +1278,15 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     if (classe === 'regulator' && !/\.gov\.br$/.test(host)) return `"${host}" não é órgão público: regulador é quem cria ou fiscaliza regra (gov.br). Organismo certificador ou laboratório: "Teste independente"; quem publica norma: "Norma técnica"; marca: "Fabricante".`;
     if (!/[A-ZÀ-Ú]/.test(pub)) return 'escreva o nome do publicador como ele aparece no texto (ex.: "Cavaletti", "BRICS OCP"), com maiúscula';
     return { label: `aprovar domínio ${host} (${pub})`, args: ['dominio-aprovar', host, classe, pub] };
+  }
+  // Fonte indicada pelo editor: só confere o formato aqui. Quem decide se o domínio presta é o cadastro de
+  // fontes, no motor — e é de propósito: validar procedência na tela abriria um caminho de contorno.
+  if (acao === 'fonte-indicar') {
+    const slug = f.get('slug') ?? '';
+    const url = clean(f.get('url'), 500);
+    if (!Slug.safeParse(slug).success || !loadTopics().some((t) => t.slug === slug)) return 'pauta inválida';
+    if (!/^https?:\/\/[^\s]+\.[^\s]{2,}/i.test(url)) return 'cole o endereço inteiro da página, começando com https://';
+    return { label: `fonte indicada em ${slug}: ${url.slice(0, 60)}`, args: ['fonte', slug, url] };
   }
   if (acao === 'produto-ler') {
     const link = clean(f.get('link'), 500);

@@ -340,6 +340,14 @@ case "$action" in
     npm run -s engine -- lesson-remove "$2"
     publish "Painel: lição do editor removida ($2)"
     ;;
+  fonte)
+    # fonte <slug da pauta> <url>: o editor aponta um documento que a busca não achou. Fonte e evidências são
+    # aprendizado (não mudam o site), então entram direto no main, como todo aprendizado. A página só é
+    # reescrita depois, no enriquecimento, e aí sim o resultado vai para o quadro do editor.
+    fresh
+    npm run -s engine -- fonte "$2" "$3" || exit 1
+    publish "Painel: fonte indicada pelo editor em $2"
+    ;;
   dominio-aprovar)
     fresh
     npm run -s engine -- registry allow "$2" "$3" "$4"
