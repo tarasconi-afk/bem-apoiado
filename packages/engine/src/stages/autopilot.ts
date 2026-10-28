@@ -1,3 +1,4 @@
+import { cutAtWord } from '../board.ts';
 import { reuseEvidence } from './reuse.ts';
 import { ensureAnchors } from './links.ts';
 import { ensureSearchLinks } from './search-links.ts';
@@ -38,6 +39,14 @@ const Queue = z.object({
 });
 
 // Fila editada pelo painel: adiciona no fim (sem duplicar) ou remove pela consulta exata.
+// Corta texto editorial para a lista de etapas SEM partir palavra (28/10, o editor leu "conforme frio,
+// volume, uso ou prefe" no cartao). Mensagem de erro tecnica continua cortada como estava: ali o que importa
+// e o inicio, e ninguem le aquilo como frase.
+const corte = (t: string, max: number) => {
+  const c = cutAtWord(t, max);
+  return c.length < t.length ? `${c}…` : c;
+};
+
 export function editQueue(op: 'add' | 'remove', query: string, now = new Date()): boolean {
   const path = join(DATA, 'queue.json');
   const raw = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : { items: [] };
@@ -309,7 +318,7 @@ async function maintainGapSources(steps: string[]): Promise<boolean> {
     // 3 semanas sem fonte: desiste e diz o que falta (só um fabricante indicado pelo editor resolve).
     const { [slug]: _, ...rest } = marked;
     writeJson(sf, added || tries < 3 ? { ...marked, [slug]: { ...m, tries, last: new Date().toISOString() } } : rest);
-    steps.push(`busca de fonte para a lacuna de ${slug} ("${m.gaps[0]!.slice(0, 80)}"): ${added ? `${added} fonte(s) nova(s); a página é reescrita com elas no enriquecimento` : tries < 3 ? `nada novo; tenta de novo em 7 dias (${tries} de 3)` : 'nada em 3 semanas; a busca para. Só um fabricante ou fonte indicada por você resolve'}`);
+    steps.push(`busca de fonte para a lacuna de ${slug} ("${corte(m.gaps[0]!, 80)}"): ${added ? `${added} fonte(s) nova(s); a página é reescrita com elas no enriquecimento` : tries < 3 ? `nada novo; tenta de novo em 7 dias (${tries} de 3)` : 'nada em 3 semanas; a busca para. Só um fabricante ou fonte indicada por você resolve'}`);
     return true;
   } catch (e) {
     steps.push(`busca de fonte para a lacuna de ${slug}: falhou (${(e as Error).message.slice(0, 80)})`);
@@ -389,7 +398,7 @@ async function maintainSummary(runId: string, steps: string[]): Promise<boolean>
   writeState('summary-fix.json', { ...tried, [page.slug]: new Date().toISOString() });
   try {
     const msg = await adjustWithResearch(page.slug, SUMMARY_FIX, runId, undefined, { research: false, learn: false });
-    steps.push(`resumo de ${page.slug}: ${msg.startsWith('texto ajustado') ? 'reescrito para leigo (confira na prévia antes de aceitar)' : msg.slice(0, 120)}`);
+    steps.push(`resumo de ${page.slug}: ${msg.startsWith('texto ajustado') ? 'reescrito para leigo (confira na prévia antes de aceitar)' : corte(msg, 120)}`);
     return msg.startsWith('texto ajustado');
   } catch (e) {
     steps.push(`resumo de ${page.slug}: falhou (${(e as Error).message.slice(0, 80)})`);
@@ -692,7 +701,7 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
   let r = await decisionReadiness(slug, loadTopic(slug));
   logReadiness(runId, 0, r);
   if (!r.ready) {
-    steps.push(`checagem antes de escrever: falta ${r.missing[0]?.slice(0, 140) ?? 'regra de escolha'}; busca dirigida`);
+    steps.push(`checagem antes de escrever: falta ${r.missing[0] ? corte(r.missing[0], 140) : 'regra de escolha'}; busca dirigida`);
     const t = loadTopic(slug);
     writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: [...new Set([...r.missing, ...r.queries])].slice(0, 5) }));
     // Busca dirigida mais larga antes de desistir: mais fabricantes do tipo, um a um (23/10: "pena ou fibra" foi
@@ -704,7 +713,7 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
     if (!r.ready) {
       const t2 = loadTopic(slug);
       writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t2, evidence_gaps: r.missing.length ? r.missing : t2.evidence_gaps }));
-      steps.push(`pauta adiada antes da redação: as evidências não dizem o que escolher (${r.missing[0]?.slice(0, 140) ?? 'sem regra de escolha'})`);
+      steps.push(`pauta adiada antes da redação: as evidências não dizem o que escolher (${r.missing[0] ? corte(r.missing[0], 140) : 'sem regra de escolha'})`);
       writeState(DEFERRED_FILE, { ...readState<Record<string, string>>(DEFERRED_FILE, {}), [slug]: new Date().toISOString() });
       return false;
     }
@@ -721,7 +730,10 @@ function writePrSummary(r: CycleResult, runId: string): void {
   const title = r.status === 'MAINTENANCE' ? 'Manutenção: produtos, imagens e re-auditoria' : r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : `Tentativa (rascunho): ${r.query}`;
   const body = [
     `**Pauta:** ${r.query ?? '— (manutenção)'}`,
-    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 manutenção: produtos (disponibilidade, exemplos novos), imagens e correções da re-auditoria em páginas no ar; veja a prévia antes de aceitar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não será publicada; o merge só guarda o aprendizado (fontes, evidências, lacunas)'}`,
+    // 28/10: dizia "não será publicada; o merge só guarda o aprendizado", e não é verdade — o rascunho entra em
+    // "Páginas: seu veredito" e o editor pode aprová-lo (foi o que aconteceu com os dois travesseiros, hoje no
+    // ar). O painel já dizia certo; o texto do commit tinha ficado para trás e contradizia a tela.
+    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 manutenção: produtos (disponibilidade, exemplos novos), imagens e correções da re-auditoria em páginas no ar; veja a prévia antes de aceitar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não vai ao ar com o merge. Ele guarda o aprendizado (fontes, evidências, lacunas) e deixa o rascunho em "Páginas: seu veredito", onde você aprova, pede correção ou recusa'}`,
     '',
     '**Etapas:**',
     ...r.steps.map((s) => `- ${s}`),
