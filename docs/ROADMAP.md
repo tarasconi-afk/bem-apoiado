@@ -204,8 +204,10 @@ Feito em 22/10:
 Três camadas, com risco crescente; cada uma só começa quando a anterior se pagar no modo sombra.
 - [x] **F1. Botão "Auditar o site" (Configurações), 26/10:** coerência nas páginas no ar, da auditada há mais tempo,
       até o teto de créditos; cada página com problema vira um ajuste só nos blocos apontados (resultado no quadro).
-      Pula a auditada há menos de 14 dias. Falta: checagens determinísticas no mesmo relatório e rodada semanal
-      automática (depois de medir quantos ajustes o editor aplica)
+      Pula a auditada há menos de 14 dias (2 dias se ficou com achado aberto, 27/10).
+      **Semanal automática ligada em 28/10** (`infra/bem-apoiado-audit.timer`, quinta 05h, teto 40), depois de
+      medir o que o editor aplica: 7 dos 10 primeiros cartões e todos os da rodada seguinte. Nada vai ao ar sem o
+      aceite dele. Falta: checagens determinísticas (links, imagens, produtos vencidos) no mesmo relatório
 - [ ] ~~F1 original~~ **Botão "Auditar o site" (Configurações)** com teto de créditos por rodada. Ele passa por todas as
       páginas, produtos e cartões e roda:
       - checagens determinísticas: links, imagens, produtos vencidos, regras de forma, coerência entre o título e a
