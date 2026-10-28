@@ -1,0 +1,148 @@
+{
+  "run_id": "20261028T112955_travesseiro-de-pena-de-ganso-ou-de-fibra-ajuste_2195-releitura",
+  "topic": "travesseiro-de-pena-de-ganso-ou-de-fibra",
+  "accepted": [
+    {
+      "claim_id": "clm_da2c2f2c6f85",
+      "question_id": "q_composicao_gramatura_fibra",
+      "source_id": "src_bbd06713efef",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d3ea356e03b8",
+      "question_id": "q_cuidado_lavagem_indica_escolha",
+      "source_id": "src_bbd06713efef",
+      "new": true
+    },
+    {
+      "claim_id": "clm_81fced68d85a",
+      "question_id": "q_dimensoes_padrao_cada_opcao",
+      "source_id": "src_bbd06713efef",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f320e9d0a6af",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_8765b2d942d8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c8b17e157352",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_8765b2d942d8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d0e930280b39",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_8765b2d942d8",
+      "new": false
+    },
+    {
+      "claim_id": "clm_d7f8e50c91f7",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_8765b2d942d8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1ed51f1b07b3",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_8765b2d942d8",
+      "new": false
+    },
+    {
+      "claim_id": "clm_c9f0365a3ed7",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_8765b2d942d8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1054bc9ab913",
+      "question_id": "q_composicao_gramatura_fibra",
+      "source_id": "src_27994f10fd61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1cea45ecc3aa",
+      "question_id": "q_dimensoes_padrao_cada_opcao",
+      "source_id": "src_27994f10fd61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e5443e369a39",
+      "question_id": "q_dimensoes_padrao_cada_opcao",
+      "source_id": "src_27994f10fd61",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_8765b2d942d8",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "2) É vedada a omissão de fibras ou filamentos existentes no produto, que deveriam constar obrigatoriamente no enunciado da composição."
+    }
+  ],
+  "coverage": {
+    "q_cuidado_lavagem_indica_escolha": 1,
+    "q_composicao_gramatura_pena_ganso": 0,
+    "q_composicao_gramatura_fibra": 2,
+    "q_dimensoes_padrao_cada_opcao": 3,
+    "q_etiqueta_composicao_fibras_obrigatoria": 6,
+    "q_durabilidade_reposicao_declarada": 0,
+    "q_ajuste_4c01927c": 0
+  },
+  "unanswered": [
+    "q_composicao_gramatura_pena_ganso",
+    "q_durabilidade_reposicao_declarada",
+    "q_ajuste_4c01927c"
+  ],
+  "usage": {
+    "input_tokens": 16680,
+    "output_tokens": 1969,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_64e9406b7d4f"
+  ],
+  "triage": [
+    {
+      "source_id": "src_bbd06713efef",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_8765b2d942d8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.88
+    },
+    {
+      "source_id": "src_8765b2d942d8",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.5
+    },
+    {
+      "source_id": "src_8765b2d942d8",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.11
+    },
+    {
+      "source_id": "src_64e9406b7d4f",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.15
+    },
+    {
+      "source_id": "src_27994f10fd61",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    }
+  ],
+  "credits": 1.6820239200000002
+}

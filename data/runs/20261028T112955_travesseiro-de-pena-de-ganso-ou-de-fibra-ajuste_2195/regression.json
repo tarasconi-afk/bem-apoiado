@@ -1,0 +1,77 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela atribui à Ortobom a medida de 40 × 60 cm e a indicação de fronha 50 × 70 cm, mas o próprio texto informa que esses dados são do modelo Conect Comfort da Probel. Isso pode levar o leitor a conferir ou comprar o produto errado.",
+      "A comparação não deixa claro que os modelos citados são exemplos de fabricantes diferentes, especialmente na linha de dimensões."
+    ],
+    "filler_refs": [
+      "como-decidir#0.r1"
+    ],
+    "decision_criteria": [
+      "Se pretende lavar o travesseiro em casa, escolha um modelo cuja ficha permita lavagem suave a até 40 °C, como o Conforto Regulável da Ortobom.",
+      "Se aceita levar o produto para limpeza profissional, o modelo de plumas de ganso citado permite limpeza a seco, enquanto o modelo de fibra citado não permite esse procedimento.",
+      "Para escolher fibra, confira na ficha se o enchimento é fibra siliconada 100% poliéster.",
+      "Para escolher plumas, confira na ficha se o enchimento é declarado como 100% plumas de ganso.",
+      "Confira as dimensões do modelo e o tamanho de fronha compatível antes da compra: o modelo da Probel mede 40 × 60 cm e o modelo de plumas da Ortobom mede 50 × 70 cm.",
+      "Compare as instruções de secagem: o modelo de fibra citado permite secagem em tambor até 60 °C, enquanto o modelo de plumas proíbe secagem em tambor e deve secar na horizontal, à sombra."
+    ],
+    "missing": [
+      "Para o leitor leigo: A tabela atribui à Ortobom a medida de 40 × 60 cm e a indicação de fronha 50 × 70 cm, mas o próprio texto informa que esses dados são do modelo Conect Comfort da Probel. Isso pode levar o leitor a conferir ou comprar o produto errado.",
+      "Para o leitor leigo: A comparação não deixa claro que os modelos citados são exemplos de fabricantes diferentes, especialmente na linha de dimensões.",
+      "Gramatura do enchimento de fibra e de plumas de ganso informada pelos fabricantes.",
+      "Percentual detalhado de penas e plumas de ganso, caso o produto tenha mistura entre esses materiais.",
+      "Correção da célula da tabela para identificar o modelo Conect Comfort como produto da Probel, e não da Ortobom.",
+      "Informação de vida útil ou recomendação de troca específica para os modelos de fibra e de plumas comparados.",
+      "Uma regra adicional sobre conforto, volume ou sustentação que ajude a escolher entre fibra e plumas quando a prioridade não for a lavagem."
+    ],
+    "publishable": true,
+    "summary": "A página responde à dúvida com uma regra prática baseada na possibilidade de lavar em casa e informa o que conferir na composição e nas instruções de cuidado. Porém, a tabela mistura a dimensão do modelo Conect Comfort da Probel com os produtos da Ortobom, um erro de identificação que pode prejudicar a compra; corrija essa célula antes de publicar.",
+    "filler_ratio": 0.058823529411764705,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção “Como decidir” se apoia quase toda em modelos da Ortobom, embora a página também cite a Probel, sem explicar claramente que os critérios podem ser aplicados a outras marcas.",
+      "A tabela associa ao produto de fibra uma medida e uma fronha que pertencem a outro modelo e fabricante, o que pode confundir a compra.",
+      "O texto usa “pena de ganso” no título, mas a ficha citada informa “100% plumas de ganso”, sem explicar essa diferença para o leitor leigo."
+    ],
+    "filler_refs": [
+      "dimensoes-produto#1",
+      "como-decidir#0.r1"
+    ],
+    "decision_criteria": [
+      "Se a prioridade é lavar o travesseiro em casa, escolher um modelo de fibra cuja ficha permita lavagem suave a 40 °C; o modelo de plumas citado proíbe lavagem.",
+      "Se a prioridade é usar enchimento de origem animal, conferir se a ficha informa 100% de plumas de ganso.",
+      "Conferir na ficha a composição exata do enchimento: fibra siliconada 100% poliéster ou 100% plumas de ganso.",
+      "Para o modelo de plumas citado, verificar se a conservação exige secagem na horizontal à sombra e permite limpeza a seco.",
+      "Conferir as dimensões do modelo escolhido e a medida compatível da fronha, sem assumir que a medida de um produto vale para outro."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção “Como decidir” se apoia quase toda em modelos da Ortobom, embora a página também cite a Probel, sem explicar claramente que os critérios podem ser aplicados a outras marcas.",
+      "Para o leitor leigo: A tabela associa ao produto de fibra uma medida e uma fronha que pertencem a outro modelo e fabricante, o que pode confundir a compra.",
+      "Para o leitor leigo: O texto usa “pena de ganso” no título, mas a ficha citada informa “100% plumas de ganso”, sem explicar essa diferença para o leitor leigo.",
+      "Gramatura do enchimento de fibra e de plumas de ganso informada pelos fabricantes.",
+      "Percentual detalhado de penas e plumas de ganso, caso o produto tenha mistura entre esses materiais.",
+      "Correção da tabela para identificar o produto correto: a medida de 40 × 60 cm e a indicação de fronha 50 × 70 cm devem ser atribuídas ao Conect Comfort da Probel, não a um travesseiro de fibra da Ortobom.",
+      "Explicação mais completa das informações de composição exigidas na etiqueta para os materiais comparados.",
+      "Orientação de troca ou vida útil específica para cada tipo de travesseiro, além da recomendação geral da Duoflex.",
+      "Uma regra mais explícita relacionando cada preferência do comprador à escolha: fibra para quem precisa lavar em casa e plumas para quem prefere esse tipo de enchimento e aceita limpeza mais restrita."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma regra prática útil: a fibra é a opção mais adequada para quem precisa lavar em casa, enquanto o modelo de plumas citado exige cuidados mais restritos. Porém, não deve ser publicada ainda porque a tabela mistura produtos e marcas, há dependência excessiva da Ortobom na seção de decisão e faltam gramaturas e percentuais detalhados; esses problemas podem levar o leitor a conferir o produto errado.",
+    "filler_ratio": 0.11764705882352941,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 3
+}
