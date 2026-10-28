@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "duvet-capa#0",
+      "problem": "A seção intitulada \"Edredom e capa (duvet)\" não explica a relação entre edredom, capa e duvet; apenas orienta conferir esses termos na ficha.",
+      "fix": "Mudar o título para \"Como verificar se a ficha menciona duvet ou capa\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 12639,
+    "output_tokens": 1833,
+    "calls": 3
+  }
+}

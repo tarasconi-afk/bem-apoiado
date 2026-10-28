@@ -1,0 +1,79 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O título promete ensinar a verificar na ficha se há duvet ou capa, mas o bloco apenas define o edredom e cita um jogo de duvet com fechamento por zíper (duvet-capa#0); Mudar o título da seção para algo como “Exemplo de jogo de duvet com fechamento por zíper”, "
+    ],
+    "filler_refs": [
+      "composicao-cobertor#1",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Escolha o edredom se você busca uma peça mais volumosa, com enchimento entre camadas de tecido.",
+      "Escolha o cobertor se prefere uma peça de tecido mais grosso, como lã, poliéster ou manta acrílica.",
+      "No edredom, confira na ficha o tipo de enchimento e o tecido externo.",
+      "No cobertor, confira o material e a gramatura informados pelo fabricante.",
+      "Edredons podem ter enchimento de poliéster ou de plumas de ganso, enquanto cobertores citados têm microfibra ou plush flanel fleece.",
+      "Confira o tamanho e as medidas do cobertor no anúncio; o modelo citado tem opções solteiro, casal, queen e king.",
+      "Se optar por um edredom de plumas, confira também as instruções de conservação, pois o modelo citado não pode ser lavado à água nem seco em tambor."
+    ],
+    "missing": [
+      "Indicação dos fabricantes sobre temperatura, estação do ano ou nível de aquecimento correspondente a cada peça e gramatura.",
+      "Mais exemplos de fichas técnicas de edredons relacionando composição do enchimento e gramatura.",
+      "Mais exemplos de fichas técnicas de cobertores com composição e gramatura.",
+      "Explicação, com fonte primária, do que a etiqueta de composição do Inmetro deve informar para edredons e cobertores.",
+      "Resumo dos símbolos de lavagem, secagem e passagem exigidos nas etiquetas, além do exemplo específico do edredom de plumas.",
+      "Medidas correspondentes aos tamanhos de edredom solteiro, casal, queen e king.",
+      "Confirmação, em ficha de fabricante, se o edredom é vendido para uso com capa separada e distinção mais clara entre duvet e edredom comum."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente à diferença entre edredom e cobertor e dá critérios práticos para conferir composição, enchimento, gramatura e medidas no anúncio. Há repetição entre alguns blocos e faltam dados de temperatura, medidas completas, exigências do Inmetro e informações mais abrangentes de conservação, mas essas lacunas não impedem a decisão principal.",
+    "filler_ratio": 0.18181818181818182,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "duvet-capa#0",
+        "problem": "O título promete ensinar a verificar na ficha se há duvet ou capa, mas o bloco apenas define o edredom e cita um jogo de duvet com fechamento por zíper.",
+        "fix": "Mudar o título da seção para algo como “Exemplo de jogo de duvet com fechamento por zíper”, sem prometer uma orientação de verificação que o bloco não traz."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "composicao-cobertor#1",
+      "como-decidir#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Escolha o edredom se quiser uma peça mais volumosa, com enchimento separado do tecido externo.",
+      "Escolha o cobertor se preferir uma peça de tecido mais grosso, como lã, poliéster ou manta acrílica.",
+      "No edredom, confira na ficha o tipo de enchimento e o tecido externo.",
+      "No cobertor, confira o material declarado e a gramatura, como 280 g/m² ou 400 g/m² nos modelos citados.",
+      "Confira tamanho e medidas antes da compra, pois os cobertores citados têm medidas diferentes conforme solteiro, casal, queen ou king.",
+      "Se optar por um edredom de plumas, confira também as orientações específicas de lavagem, secagem e conservação."
+    ],
+    "missing": [
+      "Indicação dos fabricantes sobre temperatura ambiente ou estação de uso relacionada à gramatura de edredons e cobertores.",
+      "Medidas completas dos edredons e dos cobertores citados, incluindo todos os tamanhos.",
+      "Informação de fabricante confirmando se cada edredom é vendido para uso com capa duvet separada.",
+      "Explicação baseada em fonte primária sobre as informações de composição e os símbolos de conservação exigidos nas etiquetas pelo Inmetro.",
+      "Mais exemplos de gramatura e composição de edredons, além dos modelos citados."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente à diferença entre edredom e cobertor e oferece uma regra simples de escolha: edredom para quem quer volume e enchimento; cobertor para quem prefere tecido mais grosso. Também orienta o que conferir na ficha do produto, embora faltem medidas completas, indicação de temperatura e uma resposta efetiva sobre uso com capa duvet.",
+    "filler_ratio": 0.2727272727272727,
+    "model_opinion": true
+  }
+}
