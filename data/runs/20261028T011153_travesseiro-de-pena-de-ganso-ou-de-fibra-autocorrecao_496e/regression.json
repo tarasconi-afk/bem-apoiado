@@ -1,0 +1,67 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0.r1"
+    ],
+    "decision_criteria": [
+      "Se pretende lavar o travesseiro em casa, escolha um modelo cuja ficha permita lavagem suave a 40 °C; o modelo de fibra citado permite esse processo.",
+      "Se aceita ou prefere limpeza profissional, o modelo de plumas de ganso citado proíbe lavagem e secagem em tambor, mas permite limpeza a seco e secagem horizontal à sombra.",
+      "Para escolher fibra, confira na ficha se o enchimento é fibra siliconada 100% poliéster.",
+      "Para escolher plumas de ganso, confira na ficha se o enchimento é declarado como 100% plumas de ganso.",
+      "Confira as dimensões do produto e a compatibilidade com a fronha: os exemplos citados medem 40 × 60 cm ou 50 × 70 cm.",
+      "Confira na etiqueta os símbolos ou textos de lavagem, alvejamento, secagem, passadoria e limpeza a seco."
+    ],
+    "missing": [
+      "Gramatura do enchimento de fibra e de plumas de ganso informada pelos fabricantes.",
+      "Percentual detalhado de penas e plumas de ganso, caso o produto tenha mistura entre esses materiais.",
+      "Especificação mais completa das informações de composição que devem aparecer na etiqueta para cada tipo de travesseiro.",
+      "Recomendação de vida útil ou troca para o travesseiro de fibra; a página só cita a recomendação da Duoflex para troca de travesseiros em geral.",
+      "Critérios de conforto, altura e sustentação que ajudem a escolher entre fibra e plumas quando a lavagem não for o fator principal."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: transforma a comparação em critérios práticos de compra, principalmente lavagem, composição e dimensões. A resposta curta é concreta e o leitor sabe o que conferir na ficha, embora faltem gramaturas, composição detalhada de penas e plumas e recomendações de troca específicas para cada tipo.",
+    "filler_ratio": 0.058823529411764705,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A comparação prática se apoia nos modelos da Ortobom, embora a página também cite a Duoflex; faltam critérios mais gerais para comparar os tipos de enchimento sem depender de uma única marca.",
+      "A página orienta principalmente pela possibilidade de lavar em casa, mas não explica diferenças de conforto, sustentação, calor ou adaptação a alergias."
+    ],
+    "filler_refs": [
+      "como-decidir#0.r1"
+    ],
+    "decision_criteria": [
+      "Se pretende lavar o travesseiro em casa, confira se a ficha permite lavagem; o modelo de fibra citado permite lavagem suave a até 40 °C.",
+      "Se escolher o modelo de plumas de ganso citado, confira se aceita limpeza a seco, pois a lavagem e a secagem em tambor são proibidas.",
+      "Confira na ficha a composição do enchimento: fibra siliconada 100% poliéster ou 100% plumas de ganso.",
+      "Para o modelo de plumas de ganso citado, verifique se há espaço para secagem na horizontal e à sombra.",
+      "Confira as instruções de conservação do modelo, incluindo lavagem, alvejamento, secagem, passadoria e limpeza a seco."
+    ],
+    "missing": [
+      "Para o leitor leigo: A comparação prática se apoia nos modelos da Ortobom, embora a página também cite a Duoflex; faltam critérios mais gerais para comparar os tipos de enchimento sem depender de uma única marca.",
+      "Para o leitor leigo: A página orienta principalmente pela possibilidade de lavar em casa, mas não explica diferenças de conforto, sustentação, calor ou adaptação a alergias.",
+      "Uma comparação de fabricante entre os dois tipos relacionando o enchimento a maciez, sustentação, calor e sensação ao dormir.",
+      "A dimensão do travesseiro de fibra e, idealmente, as dimensões dos dois modelos comparados.",
+      "A gramatura do enchimento de fibra e de plumas, além da proporção de penas e plumas quando declarada pelo fabricante.",
+      "Orientação de fabricante sobre adequação para pessoas alérgicas ou sensíveis a ácaros e sobre a frequência de troca de cada tipo."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque dá uma regra prática: escolha pela composição e, principalmente, pela possibilidade de lavar em casa. A resposta curta é direta e leva o leitor a conferir a ficha do produto, mas a comparação está concentrada em modelos da Ortobom e poderia incluir critérios de conforto e dados técnicos dos dois tipos.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": true
+  },
+  "score_before": 4,
+  "score_after": 3
+}

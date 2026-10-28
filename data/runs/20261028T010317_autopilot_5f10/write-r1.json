@@ -1,0 +1,504 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se pretende lavar em casa, um modelo Ortobom citado permite lavagem suave a até 40°C. Um modelo Ortobom de plumas de ganso proíbe lavagem e permite limpeza a seco. Confira na ficha do produto a composição exata (fibra siliconada 100% poliéster ou 100% plumas de ganso) e as instruções de cuidado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_43803ac739cc",
+        "clm_439eebde3cf1",
+        "clm_3bd128d38af6",
+        "clm_9ba2684f8015"
+      ]
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "action": "replace",
+      "text": "Segundo a Ortobom, no travesseiro Conforto Regulável o enchimento é fibra siliconada 100% poliéster e a capa é tecido 100% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_91c0d608633f"
+      ]
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, no travesseiro Pluma de Ganso o enchimento é 100% plumas de ganso e o revestimento é tecido 100% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9ba2684f8015"
+      ]
+    },
+    {
+      "ref": "dimensoes-produto#0",
+      "action": "replace",
+      "text": "Segundo a Probel, o travesseiro Conect Comfort mede 40 cm de comprimento por 60 cm de largura e atende a fronhas de tamanho 50 × 70 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5e838cea33c7"
+      ]
+    },
+    {
+      "ref": "dimensoes-produto#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, o travesseiro Pluma de Ganso mede 50 × 70 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4823aa587de7"
+      ]
+    },
+    {
+      "ref": "etiquetagem-textil#0",
+      "action": "replace",
+      "text": "Conforme o Inmetro, a etiqueta do travesseiro deve informar os processos de conservação, incluindo lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1ed51f1b07b3"
+      ]
+    },
+    {
+      "ref": "etiquetagem-textil#1",
+      "action": "replace",
+      "text": "O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_abc7525d8d39"
+      ]
+    },
+    {
+      "ref": "duracao-util#0",
+      "action": "replace",
+      "text": "Segundo a Duoflex, é preciso trocar o travesseiro a cada 2 anos porque ele acumula ácaros e perde a sustentação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4ecc8b464f28"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Enchimento",
+          "claim_ids": [
+            "clm_3bd128d38af6",
+            "clm_9ba2684f8015"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom: fibra siliconada 100% poliéster. Segundo a Probel: fibra siliconada 100% poliéster.",
+          "claim_ids": [
+            "clm_3bd128d38af6"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom: 100% plumas de ganso",
+          "claim_ids": [
+            "clm_9ba2684f8015"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Dimensões",
+          "claim_ids": [
+            "clm_5e838cea33c7",
+            "clm_4823aa587de7"
+          ]
+        },
+        {
+          "text": "Segundo a Probel: 40 × 60 cm, compatível com fronha 50 × 70 cm",
+          "claim_ids": [
+            "clm_5e838cea33c7"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom: 50 × 70 cm",
+          "claim_ids": [
+            "clm_4823aa587de7"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Lavagem em casa",
+          "claim_ids": [
+            "clm_43803ac739cc",
+            "clm_439eebde3cf1"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom: permitida a 40°C em processo suave",
+          "claim_ids": [
+            "clm_43803ac739cc"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom: proibida",
+          "claim_ids": [
+            "clm_439eebde3cf1"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você quer fibra siliconada, confira se a ficha informa fibra siliconada 100% poliéster, como no travesseiro Hug da Ortobom.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3bd128d38af6"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se pretende lavar em casa, considere um modelo cujas instruções permitam lavagem a 40°C em processo suave e secagem em tambor até 60°C, como o Conforto Regulável da Ortobom.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_43803ac739cc"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "No modelo de plumas de ganso da Ortobom citado, a lavagem e a secagem em tambor são proibidas; a secagem permitida é na horizontal à sombra e a limpeza a seco é permitida.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_439eebde3cf1"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro de pena de ganso ou fibra: qual escolher",
+    "description": "Compare cuidados de lavagem, composição e dimensões entre travesseiros de pluma de ganso e fibra siliconada para decidir qual se adequa ao seu caso.",
+    "verdict": {
+      "text": "Se pretende lavar em casa, um modelo Ortobom citado permite lavagem suave a até 40°C. Um modelo Ortobom de plumas de ganso proíbe lavagem e permite limpeza a seco. Confira na ficha do produto a composição exata (fibra siliconada 100% poliéster ou 100% plumas de ganso) e as instruções de cuidado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_43803ac739cc",
+        "clm_439eebde3cf1",
+        "clm_3bd128d38af6",
+        "clm_9ba2684f8015"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-fibra",
+        "heading": "Composição declarada na ficha técnica",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, no travesseiro Conforto Regulável o enchimento é fibra siliconada 100% poliéster e a capa é tecido 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_91c0d608633f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, no travesseiro Pluma de Ganso o enchimento é 100% plumas de ganso e o revestimento é tecido 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9ba2684f8015"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-produto",
+        "heading": "Dimensões informadas pelos fabricantes",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, o travesseiro Conect Comfort mede 40 cm de comprimento por 60 cm de largura e atende a fronhas de tamanho 50 × 70 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5e838cea33c7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, o travesseiro Pluma de Ganso mede 50 × 70 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4823aa587de7"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiquetagem-textil",
+        "heading": "O que a etiqueta deve informar",
+        "blocks": [
+          {
+            "text": "Conforme o Inmetro, a etiqueta do travesseiro deve informar os processos de conservação, incluindo lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1ed51f1b07b3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "duracao-util",
+        "heading": "Tempo de vida útil",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, é preciso trocar o travesseiro a cada 2 anos porque ele acumula ácaros e perde a sustentação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4ecc8b464f28"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Comparação: travesseiro de fibra siliconada vs. pena de ganso",
+            "columns": [
+              "Característica",
+              "Fibra siliconada (Ortobom)",
+              "Pena de ganso (Ortobom)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Enchimento",
+                    "claim_ids": [
+                      "clm_3bd128d38af6",
+                      "clm_9ba2684f8015"
+                    ]
+                  },
+                  {
+                    "text": "Fibra siliconada 100% poliéster",
+                    "claim_ids": [
+                      "clm_3bd128d38af6"
+                    ]
+                  },
+                  {
+                    "text": "100% plumas de ganso",
+                    "claim_ids": [
+                      "clm_9ba2684f8015"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Enchimento",
+                    "claim_ids": [
+                      "clm_3bd128d38af6",
+                      "clm_9ba2684f8015"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom: fibra siliconada 100% poliéster. Segundo a Probel: fibra siliconada 100% poliéster.",
+                    "claim_ids": [
+                      "clm_3bd128d38af6"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom: 100% plumas de ganso",
+                    "claim_ids": [
+                      "clm_9ba2684f8015"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Dimensões",
+                    "claim_ids": [
+                      "clm_5e838cea33c7",
+                      "clm_4823aa587de7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel: 40 × 60 cm, compatível com fronha 50 × 70 cm",
+                    "claim_ids": [
+                      "clm_5e838cea33c7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom: 50 × 70 cm",
+                    "claim_ids": [
+                      "clm_4823aa587de7"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Lavagem em casa",
+                    "claim_ids": [
+                      "clm_43803ac739cc",
+                      "clm_439eebde3cf1"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom: permitida a 40°C em processo suave",
+                    "claim_ids": [
+                      "clm_43803ac739cc"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom: proibida",
+                    "claim_ids": [
+                      "clm_439eebde3cf1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Limpeza profissional",
+                    "claim_ids": [
+                      "clm_43803ac739cc",
+                      "clm_439eebde3cf1"
+                    ]
+                  },
+                  {
+                    "text": "Limpeza a seco proibida",
+                    "claim_ids": [
+                      "clm_43803ac739cc"
+                    ]
+                  },
+                  {
+                    "text": "Limpeza a seco permitida",
+                    "claim_ids": [
+                      "clm_439eebde3cf1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer fibra siliconada, confira se a ficha informa fibra siliconada 100% poliéster, como no travesseiro Hug da Ortobom.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3bd128d38af6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se prefere plumas de origem animal, confira se a ficha informa 100% plumas de ganso, como no travesseiro Pluma de Ganso da Ortobom.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_9ba2684f8015"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se pretende lavar em casa, considere um modelo cujas instruções permitam lavagem a 40°C em processo suave e secagem em tambor até 60°C, como o Conforto Regulável da Ortobom.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_43803ac739cc"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No modelo de plumas de ganso da Ortobom citado, a lavagem e a secagem em tambor são proibidas; a secagem permitida é na horizontal à sombra e a limpeza a seco é permitida.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_439eebde3cf1"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que um produto Ortobom específico permite lavagem a 40 °C e que outro produto específico, de plumas de ganso, proíbe lavagem e permite limpeza a seco. Eles não mostram que o produto lavável seja de fibra siliconada, nem que essas características valham para todos os enchimentos sintéticos ou de origem animal. Também não sustentam a recomendação geral de buscar fibra siliconada 100% poliéster para qualquer enchimento sintético. Versão sustentável: Se pretende lavar em casa, o produto Ortobom citado nas evidências permite lavagem suave a até 40 °C. O produto Ortobom de plumas de ganso citado proíbe lavagem e permite limpeza a seco. Em outro produto Ortobom citado, o enchimento é fibra siliconada 100% poliéster; confirme as instruções e a composição do modelo específico."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "msg": "MISATTRIBUTED. Os dados de composição aparecem apenas como declaração da fabricante Ortobom, mas o bloco os apresenta como fato sem atribuição. Versão sustentável: Segundo a Ortobom, o travesseiro Conforto Regulável tem enchimento de fibra siliconada 100% poliéster e capa de tecido 100% algodão."
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "msg": "MISATTRIBUTED. A composição é informada apenas pela fabricante Ortobom, mas o bloco a apresenta como fato sem atribuição à fonte. Versão sustentável: Segundo a Ortobom, o travesseiro Pluma de Ganso tem enchimento de 100% plumas de ganso e revestimento de tecido 100% algodão."
+    },
+    {
+      "ref": "dimensoes-produto#0",
+      "msg": "MISATTRIBUTED. As medidas e a compatibilidade com fronhas são afirmações do fabricante Probel, mas o bloco as apresenta como fato sem atribuição explícita à marca. Versão sustentável: Segundo a Probel, o travesseiro mede 40 × 60 cm e atende a fronhas de 50 × 70 cm."
+    },
+    {
+      "ref": "dimensoes-produto#1",
+      "msg": "MISATTRIBUTED. O tamanho de 70 × 50 cm é informado pela fabricante Ortobom, mas o bloco o apresenta como fato sem atribuição explícita à marca. Além disso, o trecho não sustenta a comparação de que essas dimensões sejam maiores que as dos modelos de fibra siliconada. Versão sustentável: Segundo a Ortobom, o travesseiro mede 50 × 70 cm. Remova a comparação com modelos de fibra siliconada ou cite evidências específicas para ela."
+    },
+    {
+      "ref": "etiquetagem-textil#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que as informações sobre lavagem, alvejamento, secagem, passadoria e limpeza a seco são obrigatórias e podem ser indicadas por símbolos e/ou textos. Porém, não dizem que essas instruções ajudam a decidir qual opção exige menos cuidados de manutenção. Versão sustentável: Conforme o Inmetro, devem ser informados os processos de conservação, incluindo lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos."
+    },
+    {
+      "ref": "etiquetagem-textil#1",
+      "msg": "UNSUPPORTED. O trecho apenas afirma que o travesseiro é classificado como produto têxtil e deve atender ao regulamento técnico citado. Não afirma que a etiqueta deve conter a composição do enchimento nem sustenta os exemplos de fibra sintética, fibra siliconada de poliéster ou plumas de ganso. Versão sustentável: O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021."
+    },
+    {
+      "ref": "duracao-util#0",
+      "msg": "OVERSTATED. O trecho citado sustenta a orientação da Duoflex de trocar o travesseiro a cada dois anos pelos motivos mencionados, mas não diz que ela vale para dois tipos nem que ambos sofrem com o uso e o tempo. Essa extensão não está evidenciada. Versão sustentável: Segundo a Duoflex, é preciso trocar o travesseiro a cada dois anos porque ele acumula ácaros e perde a sustentação."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. A dimensão de 40 × 60 cm e a compatibilidade com fronha de 50 × 70 cm são informadas pela Probel, não pela Ortobom como indicado na tabela. O trecho da Ortobom citado só sustenta 50 × 70 cm para o produto de plumas. Versão sustentável: Indicar a fibra siliconada como produto da Probel: “Fibra siliconada (Probel): 40 × 60 cm, compatível com fronha 50 × 70 cm”; manter “Pena de ganso (Ortobom): 50 × 70 cm”."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. Os trechos sustentam as instruções de lavagem de um produto específico da Ortobom, mas a tabela as apresenta como regra para a categoria “fibra siliconada”. O trecho citado não mostra que esse produto é de fibra siliconada. Versão sustentável: Especificar o produto: “No modelo da Ortobom citado: lavagem permitida a 40°C em processo suave; secagem em tambor permitida até 60°C.”"
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "OVERSTATED. Os trechos sustentam essas instruções de secagem para um produto específico da Ortobom, não para travesseiros de fibra siliconada em geral. O trecho citado também não informa o enchimento do produto. Versão sustentável: Especificar o alcance: “No modelo da Ortobom citado, é permitida a secagem em tambor até 60°C; no modelo de plumas, a secagem em tambor é proibida e a secagem horizontal à sombra é permitida.”"
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. O trecho citado informa fibra siliconada 100% poliéster para o travesseiro Hug, mas o bloco atribui esse dado ao travesseiro Conforto Regulável. Além disso, o trecho não usa explicitamente a expressão “enchimento sintético”. Versão sustentável: “Se você quer fibra siliconada, confira se a ficha informa fibra siliconada 100% poliéster, como no travesseiro Hug da Ortobom.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho sustenta que a Ortobom permite essas práticas de cuidado para o produto específico citado, mas não sustenta a recomendação geral de escolher fibra siliconada nem que essa regra valha para toda a categoria. Versão sustentável: “Se pretende lavar em casa, considere um modelo cujas instruções da Ortobom permitam lavagem a 40°C em processo suave e secagem em tambor até 60°C.”"
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. O trecho sustenta as instruções do produto específico de plumas citado, mas o bloco generaliza para qualquer travesseiro de plumas de ganso. “Em casa” e “profissional” também não aparecem literalmente no trecho; ele apenas proíbe a lavagem e permite a limpeza a seco. Versão sustentável: “No modelo de plumas de ganso citado, a lavagem e a secagem em tambor são proibidas; a secagem permitida é na horizontal à sombra e a limpeza a seco é permitida.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 13186,
+    "output_tokens": 1895
+  }
+}

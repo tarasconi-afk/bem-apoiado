@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir#0.r2",
+      "problem": "A tabela faz parecer que travesseiros de fibra siliconada da Ortobom medem 40 × 60 cm e usam fronha 50 × 70 cm, mas esse dado é do modelo Conect Comfort da Probel.",
+      "fix": "Reescrever a célula para identificar o produto correto: “Probel Conect Comfort: 40 × 60 cm, compatível com fronha 50 × 70 cm”, ou retirar essa comparação de dimensões."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19512,
+    "output_tokens": 4071,
+    "calls": 3
+  }
+}
