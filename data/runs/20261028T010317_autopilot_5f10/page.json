@@ -1,0 +1,53 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 127858,
+    "output_tokens": 29889,
+    "calls": 43
+  },
+  "credits": 33.30192636000003,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela faz parecer que travesseiros de fibra siliconada da Ortobom medem 40 × 60 cm e usam fronha 50 × 70 cm, mas esse dado é do modelo Conect Comfort da Probel (como-decidir#0.r2); Reescrever a célula para identificar o produto correto: “Probel Conect Comfo"
+    ],
+    "filler_refs": [
+      "como-decidir#0.r1",
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Se pretende lavar o travesseiro em casa, escolha um modelo cuja ficha permita lavagem suave a 40 °C; o modelo de fibra citado permite esse processo.",
+      "Se aceita ou prefere limpeza profissional, o modelo de plumas de ganso citado proíbe lavagem e secagem em tambor, mas permite limpeza a seco e secagem horizontal à sombra.",
+      "Para escolher fibra, confira na ficha se o enchimento é fibra siliconada 100% poliéster.",
+      "Para escolher plumas de ganso, confira na ficha se o enchimento é declarado como 100% plumas de ganso.",
+      "Confira as dimensões do produto e a compatibilidade com a fronha: os exemplos citados medem 40 × 60 cm ou 50 × 70 cm.",
+      "Confira na etiqueta os símbolos ou textos de lavagem, alvejamento, secagem, passadoria e limpeza a seco."
+    ],
+    "missing": [
+      "Para o leitor leigo: A tabela faz parecer que travesseiros de fibra siliconada da Ortobom medem 40 × 60 cm e usam fronha 50 × 70 cm, mas esse dado é do modelo Conect Comfort da Probel (como-decidir#0.r2); Reescrever a célula para identificar o produto correto: “Probel Conect Comfo",
+      "Gramatura do enchimento de fibra e de plumas de ganso informada pelos fabricantes.",
+      "Percentual detalhado de penas e plumas de ganso, caso o produto tenha mistura entre esses materiais.",
+      "Especificação mais completa das informações de composição que devem aparecer na etiqueta para cada tipo de travesseiro.",
+      "Recomendação de vida útil ou troca para o travesseiro de fibra; a página só cita a recomendação da Duoflex para troca de travesseiros em geral.",
+      "Critérios de conforto, altura e sustentação que ajudem a escolher entre fibra e plumas quando a lavagem não for o fator principal."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: transforma a comparação em critérios práticos de compra, principalmente lavagem, composição e dimensões. A resposta curta é concreta e o leitor sabe o que conferir na ficha, embora faltem gramaturas, composição detalhada de penas e plumas e recomendações de troca específicas para cada tipo.",
+    "filler_ratio": 0.17647058823529413,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir#0.r2",
+        "problem": "A tabela faz parecer que travesseiros de fibra siliconada da Ortobom medem 40 × 60 cm e usam fronha 50 × 70 cm, mas esse dado é do modelo Conect Comfort da Probel.",
+        "fix": "Reescrever a célula para identificar o produto correto: “Probel Conect Comfort: 40 × 60 cm, compatível com fronha 50 × 70 cm”, ou retirar essa comparação de dimensões."
+      }
+    ]
+  }
+}
