@@ -524,6 +524,25 @@ async function main(): Promise<number> {
       console.log(`  ${report.rejected.length} domínios rejeitados; ~${report.llm_credits.toFixed(1)} créditos; Tavily no mês: ${report.tavily_credits_month}`);
       return 0;
     }
+    // Antes de gastar: o provedor aceita trabalhar agora? (28/10, ver preflight.ts.) Código 4 = bloqueado, e
+    // quem chamou avisa o dono em vez de queimar um ciclo inteiro para descobrir no fim.
+    case 'preflight': {
+      const { algumProblema, impedeTrabalhar, preflight } = await import('./preflight.ts');
+      const r = await preflight();
+      for (const c of r.checagens) console.log(`${c.veredito === 'ok' ? '✓' : '✗'} ${c.servico}: ${c.detalhe}`);
+      for (const c of algumProblema(r.checagens)) console.log(`  o que fazer: ${c.resolver}`);
+      const grave = impedeTrabalhar(r.checagens);
+      if (grave) console.log(`BLOQUEADO|${grave.servico}|${grave.veredito}|${grave.detalhe}|${grave.resolver}`);
+      return grave ? 4 : 0;
+    }
+    // Classifica o resultado de um ciclo que não publicou: falta de pauta (normal) ou provedor recusando (aviso).
+    case 'preflight-texto': {
+      const { provedorNoTexto } = await import('./preflight.ts');
+      const c = provedorNoTexto(rest.join(' '));
+      if (!c) return 3;
+      console.log(`BLOQUEADO|${c.servico}|${c.veredito}|${c.detalhe}|${c.resolver}`);
+      return 4;
+    }
     case 'autopilot': {
       const { values } = parseArgs({ args: rest, options: { budget: { type: 'string', default: '40' } } });
       // Nunca passa do que resta do teto diário (4 ciclos por dia somados).

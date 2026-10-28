@@ -1075,6 +1075,20 @@ function noteShadow(f: URLSearchParams): void {
 // Configurações (26/10, no modelo do admin do FC LAB): cartões no topo, um painel por cartão, campos com rótulo e
 // botões que dizem o que fazem. O painel tem um usuário só (admin, senha conferida aqui), então não há tela de
 // usuários nem de sessões: o navegador guarda a senha até ser fechado. Sem script, os quatro painéis aparecem juntos.
+// Estado do provedor, da última conferência (antes de cada ciclo e três vezes ao dia, fora deles). 28/10: o
+// roteador recusou por falta de crédito e o painel não tinha como dizer isso — mostrava limites em ordem e
+// "nada a publicar", enquanto o motor estava parado.
+function provedorHtml(): string {
+  const r = readState<{ at: string; checagens: { servico: string; veredito: string; detalhe: string; resolver: string }[] } | null>('preflight.json', null);
+  if (!r) return '';
+  const linha = (c: { servico: string; veredito: string; detalhe: string; resolver: string }) => {
+    const nome = c.servico === 'ia' ? 'IA (roteador)' : 'Busca na web';
+    const b = c.veredito === 'ok' ? '<span class="b ok">respondendo</span>' : `<span class="b bad">${esc(c.veredito.replace('_', ' '))}</span>`;
+    return `<dt>${nome}</dt><dd>${b} ${esc(c.detalhe)}${c.resolver ? `<span class="sub">o que fazer: ${esc(c.resolver)}</span>` : ''}</dd>`;
+  };
+  return `${r.checagens.map(linha).join('')}<dt>Conferido em</dt><dd class="muted">${esc(fmt(r.at))}</dd>`;
+}
+
 function configHtml(): string {
   const bal = balanceNow();
   const n = (v: number) => Math.round(v).toLocaleString('pt-BR');
@@ -1127,7 +1141,8 @@ ${field('Saldo mostrado no hPanel agora', '<input name="saldo" required inputmod
 <dl class="dl"><dt>Por ciclo</dt><dd>até ${n(Number(process.env.BEM_CYCLE_BUDGET ?? 40))} créditos de IA</dd>
 <dt>Por dia (ciclos)</dt><dd>${n(today)} de ${n(DAILY_CREDIT_CAP)} créditos hoje${meter(today, DAILY_CREDIT_CAP)}</dd>
 <dt>Gasto real de hoje</dt><dd>${n(spentToday())} créditos, contando as ações do painel</dd>
-<dt>Busca na web no mês</dt><dd>${n(tavily)} de ${n(MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))} créditos Tavily${meter(tavily, MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))}</dd></dl>
+<dt>Busca na web no mês</dt><dd>${n(tavily)} de ${n(MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))} créditos Tavily${meter(tavily, MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))}</dd>
+${provedorHtml()}</dl>
 <p class="muted">Ajustes, pedidos e auditorias feitos pelo painel não entram no limite diário. Mudar estes limites ainda é feito na VPS.</p></section>
 
 <section class="cfg-panel" id="cfg-chaves"><h3>Chaves do projeto</h3>

@@ -1,0 +1,14 @@
+[Unit]
+Description=Bem Apoiado: confere se o motor tem como trabalhar (IA e busca)
+After=network-online.target
+[Service]
+Type=oneshot
+User=bemapoiado
+WorkingDirectory=/opt/bem-apoiado/repo
+Environment=HOME=/opt/bem-apoiado
+Environment=BEM_REPO=/opt/bem-apoiado/repo
+EnvironmentFile=/etc/bem-apoiado/env
+# Uma chamada mínima de IA por passada (~0,0003 crédito) e nenhuma busca. Avisa por email o que o dono não tem
+# como adivinhar: provedor recusando, ou nenhum ciclo rodando há 9 horas.
+ExecStart=/bin/bash /opt/bem-apoiado/repo/scripts/vigia.sh
+TimeoutStartSec=5min

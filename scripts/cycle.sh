@@ -60,6 +60,35 @@ export BEM_PENDING_SLUGS=$(git branch -r --no-merged origin/main --list 'origin/
   | sed -E 's#^ *origin/pagina/##; s#-[0-9]{8}-[0-9]{4}$##' | sort -u | paste -sd, -)
 [ -n "$BEM_PENDING_SLUGS" ] && echo "aguardando merge: $BEM_PENDING_SLUGS"
 
+# Avisa o dono do que ele não tem como adivinhar, com a linha "BLOQUEADO|serviço|veredito|detalhe|o que fazer"
+# que o motor imprime. 28/10: o roteador recusou por falta de crédito e o ciclo virou "nada a publicar" — o
+# alerta não dispara no código 3, e o silêncio durou horas.
+avisa_bloqueio() {
+  local linha=$1 quando=$2
+  local servico detalhe resolver
+  servico=$(cut -d'|' -f2 <<<"$linha"); detalhe=$(cut -d'|' -f4 <<<"$linha"); resolver=$(cut -d'|' -f5 <<<"$linha")
+  "$REPO/scripts/alerta.sh" "provedor-$servico" "Bem Apoiado: o motor está parado ($servico)" \
+    "$quando
+
+$detalhe
+
+O que fazer: $resolver
+
+Enquanto isso, nenhuma página nova sai. O site no ar continua normal." || true
+}
+
+# Camada 1: conferir ANTES de gastar. Custa ~0,0003 crédito; o ciclo de 28/10 gastou 34,6 para descobrir o mesmo.
+set +e
+PRE=$(npm run -s engine -- preflight 2>&1)
+PRECODE=$?
+set -e
+printf '%s\n' "$PRE"
+if [ $PRECODE -eq 4 ]; then
+  avisa_bloqueio "$(grep '^BLOQUEADO|' <<<"$PRE" | head -1)" "O ciclo das $(date +%H:%M) nem começou: o provedor recusou antes de qualquer gasto."
+  echo "provedor bloqueado; ciclo não começou"
+  exit 0
+fi
+
 set +e
 OUT=$(npm run -s engine -- autopilot --budget "${BEM_CYCLE_BUDGET:-40}" 2>&1)
 CODE=$?
@@ -67,6 +96,14 @@ set -e
 echo "$OUT" | tail -5
 printf '%s\n' "$OUT" | tail -40 > /var/lib/bem-apoiado/cycle-last.log
 [ $CODE -ne 0 ] && [ $CODE -ne 3 ] && echo "$OUT" | tail -40   # erro: mostra o contexto inteiro no log
+# Camada 2: "nada a publicar" é normal por falta de pauta, e NÃO é normal quando o provedor recusou no meio.
+if [ $CODE -eq 3 ]; then
+  set +e
+  CLASS=$(npm run -s engine -- preflight-texto "$OUT" 2>&1)
+  CLASSCODE=$?
+  set -e
+  [ $CLASSCODE -eq 4 ] && avisa_bloqueio "$(grep '^BLOQUEADO|' <<<"$CLASS" | head -1)" "O ciclo das $(date +%H:%M) rodou e não produziu nada."
+fi
 [ $CODE -eq 3 ] && { echo "nada a publicar neste ciclo"; exit 0; }
 [ $CODE -ne 0 ] && { echo "autopilot falhou ($CODE)"; exit $CODE; }
 
