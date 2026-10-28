@@ -1,0 +1,64 @@
+{
+  "run_id": "20261028T223104_edredom-ou-cobertor-diferenca-fonte_fec0",
+  "topic": "edredom-ou-cobertor-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_c2551e4d77eb",
+      "question_id": "q_etiqueta_inmetro",
+      "source_id": "src_18a13c4350ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7826221856ab",
+      "question_id": "q_etiqueta_inmetro",
+      "source_id": "src_18a13c4350ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6b18a74c7007",
+      "question_id": "q_tamanhos_medidas",
+      "source_id": "src_18a13c4350ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7826221856ab",
+      "question_id": "q_ajuste_7c299248",
+      "source_id": "src_18a13c4350ca",
+      "new": false
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_temperatura_gramatura": 0,
+    "q_edredom_composicao": 0,
+    "q_cobertor_composicao": 0,
+    "q_etiqueta_inmetro": 2,
+    "q_simbolos_conservacao": 0,
+    "q_tamanhos_medidas": 1,
+    "q_uso_com_capa": 0,
+    "q_ajuste_7c299248": 1
+  },
+  "unanswered": [
+    "q_temperatura_gramatura",
+    "q_edredom_composicao",
+    "q_cobertor_composicao",
+    "q_simbolos_conservacao",
+    "q_uso_com_capa"
+  ],
+  "usage": {
+    "input_tokens": 1574,
+    "output_tokens": 412,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_18a13c4350ca",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.89
+    }
+  ],
+  "credits": 0.27685919999999997
+}
