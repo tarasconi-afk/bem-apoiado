@@ -7,7 +7,7 @@
 #   painel-acao.sh veredito <slug> approve|reject <motivo>
 #   painel-acao.sh fila-adicionar <consulta>
 #   painel-acao.sh fila-remover <consulta>
-#   painel-acao.sh ajustar <ramo|main> <slug> <pedido.txt>  # ajuste de texto antes de aceitar
+#   painel-acao.sh ajustar <ramo|main> <slug> <pedido.txt> [pesquisar] [blocos]  # ajuste de texto antes de aceitar
 #   painel-acao.sh pedido <arquivo.txt>         # pedido em texto livre (agente do painel)
 #   painel-acao.sh editar <slug> <edits.json>   # edição manual de texto (só grava se o auditor sustentar)
 #   painel-acao.sh produto-ler <link> | produto-adicionar <link> <tipo> <marca> <nome> | produto-reconferir <ASIN> | produto-remover <ASIN>
@@ -259,10 +259,11 @@ case "$action" in
     publish "Painel: fila ${action#fila-} \"$2\""
     ;;
   ajustar)
-    # ajustar <ramo pagina/...|main> <slug> <pedido.txt> [pesquisar]: ajusta o texto da página no próprio resultado
-    # do motor (antes do aceite) ou, se for página no ar, num resultado novo; nos dois casos o editor aprova.
+    # ajustar <ramo pagina/...|main> <slug> <pedido.txt> [pesquisar] [blocos]: ajusta o texto da página no próprio
+    # resultado do motor (antes do aceite) ou, se for página no ar, num resultado novo; nos dois casos o editor aprova.
+    # Com <blocos>, o conserto vai direto neles (reprovação de coerência), como já faz a auditoria do site.
     fresh
-    adjust_page "$2" "$3" "$4" "${5:-}" "" || exit 1
+    adjust_page "$2" "$3" "$4" "${5:-}" "${6:-}" || exit 1
     ;;
   auditar)
     # auditar <teto de créditos>: coerência nas páginas no ar (stages/site-audit.ts); cada página com problema vira

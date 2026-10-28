@@ -107,6 +107,23 @@ export function styleIssues(draft: Draft): Issue[] {
       if (rep) out.push({ ref: `${sec.id}#${i}`, msg: `a coluna "${b.columns[c]}" repete "${rep[0]}" em ${rep[1]} linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna.` });
     }
   });
+  // Linha repetida: mesmo rótulo E mesmo conteúdo, com uma delas só acrescentando a atribuição (28/10, pena de
+  // ganso ou fibra: "Enchimento | fibra siliconada 100% poliéster" e, abaixo, "Enchimento | Segundo a Ortobom:
+  // fibra siliconada 100% poliéster"). O leitor lê a mesma linha duas vezes; a revisão marcou uma como enchimento
+  // e nenhum gate pegava. Exige o conteúdo igual de propósito: numa tabela cuja 1ª coluna é o fabricante, duas
+  // linhas "Probel" com modelos diferentes são legítimas (travesseiro para quem dorme de lado).
+  const semAtribuicao = (t: string) => fold(t).replace(/^\s*(segundo|conforme|de acordo com)\s+(a|o|os|as)?\s*[^:,]{2,40}[:,]\s*/u, '').replace(/\s+/g, ' ').trim();
+  for (const sec of draft.sections) sec.blocks.forEach((b, i) => {
+    if (b.kind !== 'table') return;
+    const vistas = new Map<string, number>();
+    b.rows.forEach((r, ri) => {
+      const chave = r.cells.map((c) => semAtribuicao(c.text)).join('\u001f');
+      if (!chave.replace(/\u001f/g, '').trim()) return;
+      const antes = vistas.get(chave);
+      if (antes === undefined) vistas.set(chave, ri);
+      else out.push({ ref: `${sec.id}#${i}.r${ri}`, msg: `esta linha diz o mesmo que a linha ${antes + 1} ("${r.cells[0]?.text}"), mudando só a atribuição: deixe uma linha só, com a atribuição, e tire a outra.` });
+    });
+  });
   // Resposta curta (a frase mais lida da página e a que a busca com IA cita): no máximo 3 frases, começa pela
   // resposta prática e nunca por norma ou regulador. "Trechos citados" é jargão do motor, não do leitor.
   const v = draft.verdict.text.trim();

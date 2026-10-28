@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import './env.ts';
@@ -22,13 +23,19 @@ export interface SearchResult {
 async function httpError(res: Response): Promise<SearchError> {
   const text = (await res.text()).slice(0, 200);
   const quota = res.status === 432 || res.status === 433 || (res.status === 429 && /limit|quota|credit/i.test(text));
-  return new SearchError(`${quota ? 'cota do plano Tavily esgotada: ' : ''}HTTP ${res.status} ${text}`, quota ? 'MONTHLY_CAP' : 'HTTP');
+  return new SearchError(`${quota ? 'cota do plano Tavily esgotada: ' : ''}HTTP ${res.status} ${text}`, quota ? 'MONTHLY_CAP' : 'HTTP', res.status);
 }
+
+// Dar a chave por esgotada no mês é decisão séria (ela some até virar o mês), então só vale para os códigos que
+// a Tavily usa para dizer "acabou o plano". Um 429 pode ser só excesso de chamadas por minuto: ele ainda manda o
+// motor para a reserva naquela busca, mas não queima a conta.
+const PLANO_ESGOTADO = new Set([432, 433]);
 
 export class SearchError extends Error {
   constructor(
     message: string,
     readonly code: 'NO_KEY' | 'MONTHLY_CAP' | 'HTTP',
+    readonly status?: number,
   ) {
     super(message);
   }
@@ -42,12 +49,85 @@ export function creditsThisMonth(): number {
   return l[month()] ?? 0;
 }
 
-function charge(credits: number): void {
+function charge(credits: number, keyId = 'env'): void {
   mkdirSync(dirname(LEDGER), { recursive: true });
   const l: Record<string, number> = existsSync(LEDGER) ? JSON.parse(readFileSync(LEDGER, 'utf8')) : {};
   l[month()] = (l[month()] ?? 0) + credits;
   writeFileSync(`${LEDGER}.tmp`, JSON.stringify(l, null, 2));
   renameSync(`${LEDGER}.tmp`, LEDGER);
+  const b = readByKey();
+  const m = b[month()] ?? (b[month()] = {});
+  m[keyId] = (m[keyId] ?? 0) + credits;
+  writeFileSync(`${BY_KEY}.tmp`, JSON.stringify(b, null, 2));
+  renameSync(`${BY_KEY}.tmp`, BY_KEY);
+}
+
+// Várias contas Tavily, uma por vez (28/10, decisão do editor: o plano grátis de uma conta não cobre o ritmo do
+// motor, e criar outra conta com outro email funcionou no Ferramenta Clara). Cada conta tem o seu teto mensal;
+// o motor usa a primeira que ainda tem folga e só cai no Brave quando TODAS acabarem. As chaves ficam fora do
+// git, num arquivo de estado que só o usuário do motor lê, e o editor as cadastra pelo painel.
+const BY_KEY = join(STATE_DIR, 'tavily-usage-by-key.json');
+const KEYS_FILE = join(STATE_DIR, 'tavily-keys.json');
+
+export interface TavilyKey { id: string; key: string; label: string; added_at: string }
+
+const readByKey = (): Record<string, Record<string, number>> => (existsSync(BY_KEY) ? JSON.parse(readFileSync(BY_KEY, 'utf8')) : {});
+export const usageByKey = (): Record<string, number> => readByKey()[month()] ?? {};
+
+// A chave do env continua valendo e vem primeiro: nada quebra em quem já tem só ela.
+export function tavilyKeys(): TavilyKey[] {
+  const env = process.env.TAVILY_API_KEY;
+  const extra: TavilyKey[] = existsSync(KEYS_FILE) ? (JSON.parse(readFileSync(KEYS_FILE, 'utf8')).keys ?? []) : [];
+  return [...(env ? [{ id: 'env', key: env, label: 'chave principal (env)', added_at: '' }] : []), ...extra.filter((k) => k.key !== env)];
+}
+
+// Nunca devolve a chave inteira: o painel mostra só o fim, para o editor reconhecer qual é.
+export const maskKey = (k: string) => `…${k.slice(-4)}`;
+
+function writeKeys(keys: TavilyKey[]): void {
+  mkdirSync(dirname(KEYS_FILE), { recursive: true });
+  writeFileSync(`${KEYS_FILE}.tmp`, JSON.stringify({ keys }, null, 2), { mode: 0o600 });
+  renameSync(`${KEYS_FILE}.tmp`, KEYS_FILE);
+}
+
+export function addTavilyKey(key: string, label: string, now = new Date()): TavilyKey | string {
+  const k = key.trim();
+  if (!/^tvly-[A-Za-z0-9_-]{10,}$/.test(k)) return 'a chave da Tavily começa com "tvly-"; confira se copiou inteira';
+  if (tavilyKeys().some((x) => x.key === k)) return 'essa chave já está cadastrada';
+  const cur: TavilyKey[] = existsSync(KEYS_FILE) ? (JSON.parse(readFileSync(KEYS_FILE, 'utf8')).keys ?? []) : [];
+  const fresh: TavilyKey = { id: `k_${createHash('sha1').update(k).digest('hex').slice(0, 8)}`, key: k, label: label.trim().slice(0, 40) || 'conta extra', added_at: now.toISOString() };
+  writeKeys([...cur, fresh]);
+  return fresh;
+}
+
+export function removeTavilyKey(id: string): string | null {
+  if (id === 'env') return null; // a do env sai de /etc/bem-apoiado/env, não daqui
+  const cur: TavilyKey[] = existsSync(KEYS_FILE) ? (JSON.parse(readFileSync(KEYS_FILE, 'utf8')).keys ?? []) : [];
+  const hit = cur.find((k) => k.id === id);
+  if (!hit) return null;
+  writeKeys(cur.filter((k) => k !== hit));
+  return hit.label;
+}
+
+// Primeira chave com folga no mês. Sem nenhuma, é teto mensal (não "sem chave"): quem chama cai no Brave.
+function pickKey(): TavilyKey {
+  const keys = tavilyKeys();
+  if (!keys.length) throw new SearchError('nenhuma chave Tavily cadastrada', 'NO_KEY');
+  const used = usageByKey();
+  const free = keys.find((k) => (used[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP);
+  if (!free) throw new SearchError(`teto mensal de ${MONTHLY_CREDIT_CAP} créditos atingido nas ${keys.length} chave(s) Tavily`, 'MONTHLY_CAP');
+  return free;
+}
+
+// A conta pode acabar antes do nosso contador (crédito gasto fora do motor). Quando a própria Tavily diz que a
+// cota acabou, a chave é dada por esgotada no mês e a próxima assume, em vez de o motor ficar insistindo nela.
+function exhaust(keyId: string): void {
+  const b = readByKey();
+  const m = b[month()] ?? (b[month()] = {});
+  m[keyId] = MONTHLY_CREDIT_CAP;
+  mkdirSync(dirname(BY_KEY), { recursive: true });
+  writeFileSync(`${BY_KEY}.tmp`, JSON.stringify(b, null, 2));
+  renameSync(`${BY_KEY}.tmp`, BY_KEY);
 }
 
 export interface SearchOptions {
@@ -123,12 +203,8 @@ export async function braveSearch(query: string, opts: SearchOptions = {}, fetch
 }
 
 async function tavilySearch(query: string, opts: SearchOptions = {}, fetchImpl: typeof fetch = fetch): Promise<SearchResult[]> {
-  const key = process.env.TAVILY_API_KEY;
-  if (!key) throw new SearchError('TAVILY_API_KEY ausente', 'NO_KEY');
-  // Checa ANTES de gastar. Busca básica = 1 crédito.
-  if (creditsThisMonth() + 1 > MONTHLY_CREDIT_CAP) {
-    throw new SearchError(`teto mensal de ${MONTHLY_CREDIT_CAP} créditos Tavily atingido`, 'MONTHLY_CAP');
-  }
+  // Checa ANTES de gastar. Busca básica = 1 crédito. A chave é a primeira com folga no mês.
+  const { id, key } = pickKey();
   const includeDomains = cleanDomains(opts.includeDomains);
   const res = await fetchImpl('https://api.tavily.com/search', {
     method: 'POST',
@@ -146,9 +222,17 @@ async function tavilySearch(query: string, opts: SearchOptions = {}, fetchImpl: 
     }),
     signal: AbortSignal.timeout(30_000),
   });
-  if (!res.ok) throw await httpError(res);
+  if (!res.ok) {
+    const err = await httpError(res);
+    // Cota desta conta acabou: marca a chave e tenta a próxima na mesma busca, sem gastar uma rodada do motor.
+    if (err.code === 'MONTHLY_CAP' && PLANO_ESGOTADO.has(err.status ?? 0)) {
+      exhaust(id);
+      if (tavilyKeys().some((k) => (usageByKey()[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP)) return tavilySearch(query, opts, fetchImpl);
+    }
+    throw err;
+  }
   const body = (await res.json()) as { results?: SearchResult[]; usage?: { credits?: number } };
-  charge(body.usage?.credits ?? 1);
+  charge(body.usage?.credits ?? 1, id);
   return (body.results ?? []).map((r) => ({ title: r.title, url: r.url, content: r.content, score: r.score }));
 }
 
@@ -157,18 +241,23 @@ async function tavilySearch(query: string, opts: SearchOptions = {}, fetchImpl: 
 // Página de loja às vezes volta vazia para leitor automático (21/10: os 5 anúncios de travesseiro). Nesse
 // caso, uma nova tentativa com extract_depth "advanced" (2 créditos Tavily) antes de desistir.
 export async function webExtract(url: string, fetchImpl: typeof fetch = fetch, depth: 'basic' | 'advanced' = 'basic'): Promise<string> {
-  const key = process.env.TAVILY_API_KEY;
-  if (!key) throw new SearchError('TAVILY_API_KEY ausente', 'NO_KEY');
-  if (creditsThisMonth() + 1 > MONTHLY_CREDIT_CAP) throw new SearchError('teto mensal Tavily atingido', 'MONTHLY_CAP');
+  const { id, key } = pickKey();
   const res = await fetchImpl('https://api.tavily.com/extract', {
     method: 'POST',
     headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
     body: JSON.stringify({ urls: [url], extract_depth: depth, include_usage: true }),
     signal: AbortSignal.timeout(60_000),
   });
-  if (!res.ok) throw await httpError(res);
+  if (!res.ok) {
+    const err = await httpError(res);
+    if (err.code === 'MONTHLY_CAP' && PLANO_ESGOTADO.has(err.status ?? 0)) {
+      exhaust(id);
+      if (tavilyKeys().some((k) => (usageByKey()[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP)) return webExtract(url, fetchImpl, depth);
+    }
+    throw err;
+  }
   const body = (await res.json()) as { results?: { raw_content?: string }[]; usage?: { credits?: number } };
-  charge(body.usage?.credits ?? 0);
+  charge(body.usage?.credits ?? 0, id);
   const text = body.results?.[0]?.raw_content ?? '';
   if (text.length < 200) {
     if (depth === 'basic' && /amazon\./.test(url)) return webExtract(url, fetchImpl, 'advanced');

@@ -12,6 +12,10 @@ export interface CardInfo {
   suggestion: Suggestion;
   why: string;
   correction: string; // texto pronto para "Pedir correção" (vazio = nada a sugerir)
+  // Blocos que a coerência apontou. 28/10: o pedido do editor saía sem eles, o seletor do ajuste escolhia outro
+  // bloco e o conserto não encostava no defeito (pena de ganso: mexeu num parágrafo, e o erro estava na tabela).
+  // A auditoria do site já manda os blocos direto; o botão do cartão passa a fazer igual.
+  blocks: string[];
 }
 
 export interface ReviewLike {
@@ -22,7 +26,7 @@ export interface ReviewLike {
   purchase_path?: boolean;
   missing?: string[];
   reader_problems?: string[];
-  coherence?: { check: string }[];
+  coherence?: { check: string; ref?: string }[];
 }
 
 // Auditoria de coerência (stages/coherence.ts), em palavras do editor.
@@ -71,7 +75,23 @@ export function correctionText(r: ReviewLike | null | undefined, rules: string[]
     ? `Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: ${rules.slice(0, 4).map((x, i) => `${i + 1}) ${x}`).join(' ')}. `
     : '';
   const probPart = problems.length ? `${rules.length ? 'Resolva também' : 'Corrija, só com o que as fontes sustentarem'}: ${problems.map((x, i) => `${rules.length ? String.fromCharCode(97 + i) : i + 1}) ${x}`).join(' ')}` : '';
-  return `${rulePart}${probPart}`.trim().slice(0, 600);
+  return cutAtWord(`${rulePart}${probPart}`.trim(), CORRECTION_MAX);
+}
+
+// 28/10, editor: o texto pronto chegava cortado no meio de uma palavra ("Resolva também: a) A "), porque eram três
+// tetos diferentes e o menor (400, na caixa de recusa) mandava. Agora o teto é um só, e o corte respeita a palavra:
+// pedido truncado no meio vira instrução truncada para o redator.
+export const CORRECTION_MAX = 1000;
+
+// Blocos que a coerência apontou, sem repetir e sem o sufixo de linha de tabela (o ajuste trabalha no bloco e a
+// linha vai junto). Vazio quando a reprovação não veio da coerência: aí o seletor do ajuste continua escolhendo.
+export const coherenceRefs = (r: ReviewLike | null | undefined): string[] =>
+  [...new Set((r?.coherence ?? []).map((c) => (c.ref ?? '').split('.r')[0]!).filter(Boolean))];
+export function cutAtWord(t: string, max: number): string {
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const i = cut.lastIndexOf(' ');
+  return (i > max * 0.6 ? cut.slice(0, i) : cut).replace(/[\s,;:]+$/, '');
 }
 
 // Regras gravadas pela checagem antes da redação, como texto limpo ("Se você…, escolha…").
@@ -93,10 +113,11 @@ export function classifyBranch(b: {
 }): CardInfo {
   const page = b.items.find((i) => i.id === `page:${b.slug}`);
   const correction = correctionText(b.review, b.rules);
+  const blocks = coherenceRefs(b.review);
   if (page && /Página nova/.test(page.title)) {
-    if (b.failedAdjust) return { kind: 'pagina-nova', situation: 'Pronta, mas o último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'O ajuste não entrou; peça de novo ou publique assim mesmo.', correction };
-    if (b.review && !b.review.publishable) return { kind: 'pagina-nova', situation: 'Passou na auditoria das fontes, mas a revisão de leitor achou pontos fracos.', suggestion: 'corrigir', why: fourQuestions(b.review), correction };
-    return { kind: 'pagina-nova', situation: 'Pronta: aprovada pela auditoria das fontes e pela revisão de leitor.', suggestion: 'publicar', why: fourQuestions(b.review), correction };
+    if (b.failedAdjust) return { kind: 'pagina-nova', situation: 'Pronta, mas o último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'O ajuste não entrou; peça de novo ou publique assim mesmo.', correction, blocks };
+    if (b.review && !b.review.publishable) return { kind: 'pagina-nova', situation: 'Passou na auditoria das fontes, mas a revisão de leitor achou pontos fracos.', suggestion: 'corrigir', why: fourQuestions(b.review), correction, blocks };
+    return { kind: 'pagina-nova', situation: 'Pronta: aprovada pela auditoria das fontes e pela revisão de leitor.', suggestion: 'publicar', why: fourQuestions(b.review), correction, blocks };
   }
   if (page) {
     const st = b.steps.find((x) => x.includes(b.slug)) ?? '';
@@ -107,11 +128,11 @@ export function classifyBranch(b: {
         : /^enriquecimento/.test(st)
           ? 'Fontes novas foram lidas e a página foi reescrita com elas.'
           : 'O seu ajuste está pronto para conferir.';
-    if (b.failedAdjust) return { kind: 'ajuste-no-ar', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo; a página no ar continua como estava.', correction };
+    if (b.failedAdjust) return { kind: 'ajuste-no-ar', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo; a página no ar continua como estava.', correction, blocks };
     // Passou na auditoria mas a revisão de leitor ainda acha fraca (23/10: cadeira gamer 0,5 → 0,5 sugeria "Aplicar"
     // e o campo de correção vinha vazio): sugere corrigir, com o texto pronto.
-    if (b.review && !b.review.publishable) return { kind: 'ajuste-no-ar', situation: `${situation} A revisão de leitor ainda acha a página fraca.`, suggestion: 'corrigir', why: fourQuestions(b.review), correction };
-    return { kind: 'ajuste-no-ar', situation, suggestion: 'aplicar', why: 'A mudança passou na auditoria; confira o antes × depois.', correction: '' };
+    if (b.review && !b.review.publishable) return { kind: 'ajuste-no-ar', situation: `${situation} A revisão de leitor ainda acha a página fraca.`, suggestion: 'corrigir', why: fourQuestions(b.review), correction, blocks };
+    return { kind: 'ajuste-no-ar', situation, suggestion: 'aplicar', why: 'A mudança passou na auditoria; confira o antes × depois.', correction: '', blocks };
   }
   if (b.items.length) {
     const parts = [
@@ -121,7 +142,7 @@ export function classifyBranch(b: {
       b.items.some((i) => i.id === 'theme' || i.id === 'home') ? 'visual da home' : '',
       b.items.find((i) => i.id === 'niche')?.title.toLowerCase() ?? '',
     ].filter(Boolean);
-    return { kind: 'manutencao', situation: `Mudanças de manutenção prontas: ${parts.join(', ') || 'itens do site'}.`, suggestion: 'aplicar', why: 'Aceite ou rejeite cada item abaixo; o resto entra junto.', correction: '' };
+    return { kind: 'manutencao', situation: `Mudanças de manutenção prontas: ${parts.join(', ') || 'itens do site'}.`, suggestion: 'aplicar', why: 'Aceite ou rejeite cada item abaixo; o resto entra junto.', correction: '', blocks: [] };
   }
   const deferred = b.steps.some((s) => s.startsWith('pauta adiada antes da redação'));
   const draft = b.steps.some((s) => /page: NOT_PUBLISHABLE|improve: página NOT_PUBLISHABLE/.test(s));
@@ -142,6 +163,7 @@ export function classifyBranch(b: {
       ? (/Falta: ([^.]+)/.exec(b.outcome ?? '')?.[1] ?? 'falta fonte com regra de escolha')
       : 'Nada a decidir: as fontes e evidências deste ciclo entram sozinhas em até 5 minutos, e a próxima tentativa parte delas.',
     correction: '',
+    blocks: [],
   };
 }
 
@@ -149,11 +171,12 @@ export function classifyBranch(b: {
 // pede o editor (26/10: os rascunhos de cadeira ficavam como pendência enquanto o motor ainda trabalhava neles).
 export function classifyDraft(d: { review: ReviewLike | null; failedAdjust: boolean; rules?: string[]; retrying?: { attempt: number; max: number } }): CardInfo {
   const correction = correctionText(d.review, d.rules);
-  if (d.failedAdjust) return { kind: 'rascunho', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo antes de aprovar.', correction };
-  if (d.review?.publishable) return { kind: 'rascunho', situation: 'A revisão de leitor aprova esta versão.', suggestion: 'aprovar', why: fourQuestions(d.review), correction };
-  if (d.retrying) return { kind: 'rascunho', situation: `O motor ainda tenta melhorar sozinho (usou ${d.retrying.attempt} de ${d.retrying.max} novas tentativas). Se não der, o cartão volta pedindo você.`, suggestion: 'nada', why: fourQuestions(d.review), correction };
-  if (correction) return { kind: 'rascunho', situation: 'A revisão de leitor achou pontos fracos que dá para corrigir.', suggestion: 'corrigir', why: fourQuestions(d.review), correction };
-  return { kind: 'rascunho', situation: 'A revisão de leitor reprova esta versão.', suggestion: 'recusar', why: fourQuestions(d.review), correction };
+  const blocks = coherenceRefs(d.review);
+  if (d.failedAdjust) return { kind: 'rascunho', situation: 'O último ajuste que você pediu não foi salvo.', suggestion: 'corrigir', why: 'Peça de novo antes de aprovar.', correction, blocks };
+  if (d.review?.publishable) return { kind: 'rascunho', situation: 'A revisão de leitor aprova esta versão.', suggestion: 'aprovar', why: fourQuestions(d.review), correction, blocks };
+  if (d.retrying) return { kind: 'rascunho', situation: `O motor ainda tenta melhorar sozinho (usou ${d.retrying.attempt} de ${d.retrying.max} novas tentativas). Se não der, o cartão volta pedindo você.`, suggestion: 'nada', why: fourQuestions(d.review), correction, blocks };
+  if (correction) return { kind: 'rascunho', situation: 'A revisão de leitor achou pontos fracos que dá para corrigir.', suggestion: 'corrigir', why: fourQuestions(d.review), correction, blocks };
+  return { kind: 'rascunho', situation: 'A revisão de leitor reprova esta versão.', suggestion: 'recusar', why: fourQuestions(d.review), correction, blocks };
 }
 
 // Ordem do quadro: o que pede o seu clique primeiro; informativo por último.

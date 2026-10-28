@@ -1,6 +1,6 @@
 import { loadThresholds, loadVerdicts } from './feedback.ts';
 import { readerScore } from './stages/review.ts';
-import { classifyBranch, classifyDraft, KIND_LABEL, rulesFromNotes, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
+import { classifyBranch, classifyDraft, CORRECTION_MAX, KIND_LABEL, rulesFromNotes, SUGGESTION_LABEL, SUGGESTION_ORDER, type Suggestion } from './board.ts';
 import { AUTO_MIN_AGREE, AUTO_MIN_DAYS, AUTO_WINDOW, loadShadow, motorPublishes, recordShadow, shadowStats, type EditorAction, type ShadowEntry } from './shadow.ts';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
@@ -17,8 +17,8 @@ import { creditsToday, DAILY_CREDIT_CAP, queueStatus, slugOf } from './stages/au
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
-import { balanceNow, setReportedBalance } from './credits.ts';
-import { creditsThisMonth, MONTHLY_CREDIT_CAP } from './search.ts';
+import { balanceNow, setReportedBalance, spentToday } from './credits.ts';
+import { addTavilyKey, braveThisMonth, BRAVE_MONTHLY_CAP, creditsThisMonth, maskKey, MONTHLY_CREDIT_CAP, removeTavilyKey, tavilyKeys, usageByKey } from './search.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
@@ -371,8 +371,10 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
   const sugBadge = (sg: Suggestion) => `<span class="b ${sg === 'nada' ? 'neutral' : sg === 'recusar' ? 'bad' : sg === 'corrigir' ? 'warn' : 'ok'}">${esc(SUGGESTION_LABEL[sg])}</span>`;
   // Modo sombra: cada formulário do cartão leva o que o motor sugeria; o clique do editor é gravado com isso.
   const shadowField = (kind: string, sg: Suggestion, slug: string) => `<input type="hidden" name="sombra" value="${esc(`${kind}|${sg}|${slug}`)}">`;
-  const correctionForm = (ramo: string, slug: string, text: string, open: boolean, sombra = '') =>
-    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">${text.trim() ? '(texto pronto; edite à vontade)' : '(escreva o que mudar)'}</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}">${sombra}<textarea name="pedido" required minlength="5" maxlength="600" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
+  // Com blocos (reprovação de coerência), o ajuste vai direto neles, como faz a auditoria do site. Sem blocos, o
+  // seletor do ajuste escolhe (28/10: sem isso o conserto do pena de ganso mexeu num parágrafo e o erro estava na tabela).
+  const correctionForm = (ramo: string, slug: string, text: string, open: boolean, sombra = '', blocos: string[] = []) =>
+    `<details class="dfix"${open ? ' open' : ''}><summary><strong>Pedir correção</strong> <span class="muted">${text.trim() ? '(texto pronto; edite à vontade)' : '(escreva o que mudar)'}</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}">${blocos.length ? `<input type="hidden" name="blocos" value="${esc(blocos.join(','))}">` : ''}${sombra}<textarea name="pedido" required minlength="5" maxlength="${CORRECTION_MAX}" rows="4" placeholder="o que mudar (ex.: mova a tabela 'Medidas por tamanho' para o Como decidir)">${esc(text)}</textarea><label class="muted"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar fontes novas (mais caro)</label> <button>Pedir correção</button></form></details>`;
 
   for (const b of branches) {
     const dir = b.branch.replace(/^pagina\//, '');
@@ -468,7 +470,7 @@ ${forceBox(slug)}</form>`
     const html = `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
 <summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(bornAt)}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></span><span class="dsc">${sc}</span>${btn}</summary>
 <div class="dbody">${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
-${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir', shadowField(info.kind, info.suggestion, slug)) : ''}${extra}${!goes && btnTag ? `<div class="dactions"><span class="muted">ou, sem corrigir:</span> ${btnTag}</div>` : ''}
+${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir', shadowField(info.kind, info.suggestion, slug), info.blocks) : ''}${extra}${!goes && btnTag ? `<div class="dactions"><span class="muted">ou, sem corrigir:</span> ${btnTag}</div>` : ''}
 ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
   ? `<div class="dfoot">${form('descartar', { ramo: b.branch, sombra: `${info.kind}|${info.suggestion}|${slug}` }, 'Descartar este ajuste', 'link', 'Descartar este ajuste? A página no ar não muda; as fontes, evidências e lacunas que ele achou ficam guardadas.')} <span class="muted">(a página no ar fica como está; o que o motor aprendeu fica guardado)</span></div>`
   : `<div class="dfoot"><span class="muted">raramente necessário:</span> ${form('descartar', { ramo: b.branch, sombra: `${info.kind}|${info.suggestion}|${slug}` }, 'Descartar este resultado', 'link', 'Descartar apaga tudo o que este ciclo produziu (fontes, evidências, página) e a pauta é refeita do zero, gastando créditos de novo. Continuar?')} <span class="muted">(apaga tudo deste ciclo e refaz a pauta do zero)</span></div>`}
@@ -489,14 +491,14 @@ ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
     // cadeira de tela esgotada foi recusada e gastou mais 17,5 créditos). Encerrar tira da fila e não tenta mais.
     const queueItem = t && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || retryOff(t.product_kinds)) ? queueItems().find((q) => slugOf(q) === p.slug) : undefined;
     const close = queueItem ? `<div class="dactions">${form('fila-remover', { consulta: queueItem }, 'Encerrar esta pauta', '', `Encerrar "${queueItem}"? O motor não tenta mais este assunto; o rascunho fica fora do site e o que ele já aprendeu continua guardado.`)} <span class="muted">${esc(retryOff(t!.product_kinds) ?? `o motor já tentou ${t!.improve_attempts + 1} vezes`)}; encerrar não gasta créditos.</span></div>` : '';
-    const reject = `${close}<details class="dfix"${info.suggestion === 'recusar' && !queueItem ? ' open' : ''}><summary><strong>Recusar e tentar de novo</strong> <span class="muted">(o motivo vira instrução; o motor refaz a pauta num próximo ciclo, ~15 créditos)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="400" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, 400) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
+    const reject = `${close}<details class="dfix"${info.suggestion === 'recusar' && !queueItem ? ' open' : ''}><summary><strong>Recusar e tentar de novo</strong> <span class="muted">(o motivo vira instrução; o motor refaz a pauta num próximo ciclo, ~15 créditos)</span></summary><form method="post" action="acao"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject">${shadowField('rascunho', info.suggestion, p.slug)}<textarea name="motivo" required minlength="3" maxlength="${CORRECTION_MAX}" rows="3">${esc(info.correction.replace(/^(Corrija, só com o que as fontes sustentarem|Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam): /, '').slice(0, CORRECTION_MAX) || 'fraca para o leitor')}</textarea><button class="bad">Recusar</button></form></details>`;
     cards.push({
       order: SUGGESTION_ORDER.indexOf(info.suggestion),
       html: `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
 <summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(p.title)}</b><span class="muted">${esc(KIND_LABEL.rascunho)}</span></span><span class="dsc">${scoreHtml(readMain, p.slug).replace(/ <span class="muted">.*$/, '')}</span>${info.suggestion === 'aprovar' ? `<button form="f-ap-${esc(p.slug)}" class="ok">Aprovar e publicar</button>` : ''}</summary>
 <div class="dbody"><dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', scoreHtml(readMain, p.slug))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">abrir prévia</a>`)}</dl>
 ${failedNote(p.slug)}<div class="dactions">${approve}${info.suggestion === 'aprovar' ? '' : `<span class="muted">ou, sem corrigir:</span> <button form="f-ap-${esc(p.slug)}" class="link" name="forcar" value="1">Aprovar e publicar assim mesmo</button>`}</div>${adjustDiffsHtml(readMain, p.slug)}
-${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir', shadowField('rascunho', info.suggestion, p.slug))}${reject}
+${correctionForm('main', p.slug, info.correction, info.suggestion === 'corrigir', shadowField('rascunho', info.suggestion, p.slug), info.blocks)}${reject}
 </div></details>`,
     });
   }
@@ -584,7 +586,7 @@ function verdictsHtml(pages: ReturnType<typeof loadPages>): string {
   const verdicts = loadVerdicts();
   const lastFor = (p: (typeof pages)[number]) => verdicts.filter((v) => v.slug === p.slug && v.run_id === p.provenance.run_id).at(-1);
   const editLink = (p: (typeof pages)[number]) => `<a href="${BASE}editar/${esc(p.slug)}">Editar texto</a>`;
-  const box = (p: (typeof pages)[number], approve: boolean, label: string) => `<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo (obrigatório)">${approve ? `${forceBox(p.slug)}<button name="veredito" value="approve" class="ok">Aprovar</button>` : ''}<button name="veredito" value="reject" class="bad">${label}</button></form>`;
+  const box = (p: (typeof pages)[number], approve: boolean, label: string) => `<form method="post" action="acao" class="verdict"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input name="motivo" required minlength="3" maxlength="${CORRECTION_MAX}" placeholder="motivo (obrigatório)">${approve ? `${forceBox(p.slug)}<button name="veredito" value="approve" class="ok">Aprovar</button>` : ''}<button name="veredito" value="reject" class="bad">${label}</button></form>`;
   const link = (p: (typeof pages)[number]) => `<a href="${PREVIEW}/${esc(p.slug)}/" target="_blank" rel="noopener">${esc(p.title)}</a>`;
   const drafts = pages.filter((p) => p.status === 'draft');
   const waiting = drafts.filter((p) => !lastFor(p));
@@ -631,7 +633,7 @@ export function livePagesHtml(pages: ReturnType<typeof loadPages>): string {
 ${adjustForm('main', p.slug)}
 ${ask(`Busque exemplos à venda na Amazon para a página ${p.slug}.`, 'Buscar exemplos à venda', 'Buscar exemplos à venda para esta página? Gasta poucos créditos; o resultado vai para o quadro.')}
 ${ask(`Gere uma capa nova para a página ${p.slug}, mostrando o tema do guia.`, 'Gerar capa nova', 'Gerar uma capa nova (~5 créditos)? Ela vai para o quadro para você aceitar.')}
-<form method="post" action="acao" class="verdict" onsubmit="return confirm('Tirar esta página do ar?')"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><input name="motivo" required minlength="3" maxlength="400" placeholder="motivo para despublicar"><button class="bad">Despublicar</button></form>
+<form method="post" action="acao" class="verdict" onsubmit="return confirm('Tirar esta página do ar?')"><input type="hidden" name="acao" value="veredito"><input type="hidden" name="slug" value="${esc(p.slug)}"><input type="hidden" name="veredito" value="reject"><input name="motivo" required minlength="3" maxlength="${CORRECTION_MAX}" placeholder="motivo para despublicar"><button class="bad">Despublicar</button></form>
 </div></details>`;
     const num = (v: number | null | undefined, txt?: string) => `<td class="num" data-v="${v ?? -1}">${v === null || v === undefined ? '<span class="muted">–</span>' : (txt ?? v)}</td>`;
     // Nota em 4 barrinhas (a cor diz o estado): o que precisa de atenção salta na tabela.
@@ -818,7 +820,7 @@ const draftsJs = (secs: number, version: string) => `<script>
 function adjustForm(ramo: string, slug: string): string {
   const hasPage = ramo === 'main' || readBranch(ramo)(`data/pages/${slug}.json`) !== null;
   if (!hasPage) return '';
-  return `<form method="post" action="acao" class="verdict adjust"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}"><input name="pedido" required minlength="5" maxlength="600" placeholder="pedir ajuste (ex.: resposta curta mais direta)" title="Para mover uma tabela, cite o título dela: mova a tabela &quot;Medidas por tamanho&quot; para o Como decidir. A resposta mostra no fim o que não foi feito por falta de fonte."><label class="muted" title="Busca fontes novas sobre o pedido antes de reescrever (~10 a 20 créditos)"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar</label><button>Ajustar</button></form>`;
+  return `<form method="post" action="acao" class="verdict adjust"><input type="hidden" name="acao" value="ajustar"><input type="hidden" name="ramo" value="${esc(ramo)}"><input type="hidden" name="slug" value="${esc(slug)}"><input name="pedido" required minlength="5" maxlength="${CORRECTION_MAX}" placeholder="pedir ajuste (ex.: resposta curta mais direta)" title="Para mover uma tabela, cite o título dela: mova a tabela &quot;Medidas por tamanho&quot; para o Como decidir. A resposta mostra no fim o que não foi feito por falta de fonte."><label class="muted" title="Busca fontes novas sobre o pedido antes de reescrever (~10 a 20 créditos)"><input type="checkbox" name="pesquisar" value="1"> pode pesquisar</label><button>Ajustar</button></form>`;
 }
 
 // Sugestão do motor (aceitar/recusar) com os motivos da revisão editorial: o editor vê o que não passou e
@@ -1077,6 +1079,8 @@ function configHtml(): string {
   const n = (v: number) => Math.round(v).toLocaleString('pt-BR');
   const tavily = creditsThisMonth();
   const today = creditsToday();
+  const keys = tavilyKeys();
+  const keyUse = usageByKey();
   const meter = (used: number, cap: number) => `<div class="bar" title="${n(used)} de ${n(cap)}"><i style="width:${Math.min(100, (used / cap) * 100).toFixed(0)}%"></i></div>`;
   const card = (id: string, icon: string, title: string, sub: string) =>
     `<button type="button" class="cfg-card" data-cfg="${id}" aria-controls="cfg-${id}"><span class="cfg-ic" aria-hidden="true">${icon}</span><b>${title}</b><span class="muted">${sub}</span></button>`;
@@ -1088,6 +1092,7 @@ ${card('senha', '🔒', 'Minha senha', 'Trocar a senha de entrada')}
 ${card('saldo', '💳', 'Saldo de créditos', bal.estimate == null ? 'Nenhum saldo informado' : `Estimado: ${n(bal.estimate)}`)}
 ${card('acesso', '🌐', 'Acesso ao painel', esc(ORIGIN.replace(/^https?:\/\//, '')))}
 ${card('limites', '⚙️', 'Limites do motor', `Hoje: ${n(today)} de ${n(DAILY_CREDIT_CAP)} créditos`)}
+${card('chaves', '🔑', 'Chaves de busca', keys.length ? `${keys.length} conta(s) Tavily · ${n(tavily)} buscas no mês` : 'nenhuma chave')}
 </div>
 
 <section class="cfg-panel" id="cfg-senha"><h3>Minha senha</h3>
@@ -1115,8 +1120,24 @@ ${field('Saldo mostrado no hPanel agora', '<input name="saldo" required inputmod
 <section class="cfg-panel" id="cfg-limites"><h3>Limites do motor</h3>
 <dl class="dl"><dt>Por ciclo</dt><dd>até ${n(Number(process.env.BEM_CYCLE_BUDGET ?? 40))} créditos de IA</dd>
 <dt>Por dia (ciclos)</dt><dd>${n(today)} de ${n(DAILY_CREDIT_CAP)} créditos hoje${meter(today, DAILY_CREDIT_CAP)}</dd>
-<dt>Busca na web no mês</dt><dd>${n(tavily)} de ${n(MONTHLY_CREDIT_CAP)} créditos Tavily${meter(tavily, MONTHLY_CREDIT_CAP)}</dd></dl>
+<dt>Gasto real de hoje</dt><dd>${n(spentToday())} créditos, contando as ações do painel</dd>
+<dt>Busca na web no mês</dt><dd>${n(tavily)} de ${n(MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))} créditos Tavily${meter(tavily, MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))}</dd></dl>
 <p class="muted">Ajustes, pedidos e auditorias feitos pelo painel não entram no limite diário. Mudar estes limites ainda é feito na VPS.</p></section>
+
+<section class="cfg-panel" id="cfg-chaves"><h3>Chaves de busca (Tavily)</h3>
+<p class="muted">O plano grátis da Tavily dá ${n(MONTHLY_CREDIT_CAP)} buscas por mês em cada conta. Com mais de uma chave, o motor usa uma por vez: quando a primeira acaba, ele passa para a próxima sozinho e só cai no Brave quando todas acabarem. Crie a conta nova com outro email, copie a chave e cole aqui. Ela nunca aparece inteira de novo.</p>
+<div class="tw"><table><thead><tr><th>Conta</th><th>Chave</th><th class="num">Usadas no mês</th><th>Situação</th><th></th></tr></thead><tbody>
+${keys.length ? keys.map((k) => {
+  const u = keyUse[k.id] ?? 0;
+  const cheia = u >= MONTHLY_CREDIT_CAP;
+  return `<tr><td>${esc(k.label)}${k.id === 'env' ? '' : `<span class="sub">cadastrada em ${esc(fmt(k.added_at))}</span>`}</td><td><code>${esc(maskKey(k.key))}</code></td><td class="num">${n(u)} de ${n(MONTHLY_CREDIT_CAP)}${meter(u, MONTHLY_CREDIT_CAP)}</td><td><span class="b ${cheia ? 'bad' : 'ok'}">${cheia ? 'esgotada neste mês' : 'com folga'}</span></td><td class="actions">${k.id === 'env' ? '<span class="muted">fica no servidor</span>' : form('chave-remover', { id: k.id }, 'Remover', '', `Remover a chave "${k.label}"? O motor deixa de usá-la.`)}</td></tr>`;
+}).join('') : '<tr><td colspan="5" class="muted">Nenhuma chave cadastrada.</td></tr>'}
+</tbody></table></div>
+<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="chave-adicionar">
+${field('Chave da Tavily', '<input name="chave" required minlength="20" maxlength="120" placeholder="tvly-..." autocomplete="off">', 'Pegue em app.tavily.com, em API Keys. Guardada fora do site e fora do git.')}
+${field('Como você chama essa conta', '<input name="rotulo" maxlength="40" placeholder="ex.: conta 2 (email do Ferramenta Clara)">')}
+<div class="cfg-actions"><button class="ok big">Adicionar chave</button></div></form>
+<p class="muted">A reserva Brave está ${process.env.BRAVE_API_KEY ? `ligada (${n(braveThisMonth())} de ${n(BRAVE_MONTHLY_CAP)} buscas no mês)` : 'desligada (sem chave)'}.</p></section>
 <script>(function () {
   var cards = document.querySelectorAll('.cfg-card'); if (!cards.length) return;
   function pick(id) {
@@ -1168,7 +1189,7 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   if (acao === 'veredito') {
     const slug = f.get('slug') ?? '';
     const v = f.get('veredito');
-    const motivo = clean(f.get('motivo'), 400);
+    const motivo = clean(f.get('motivo'), CORRECTION_MAX);
     if (!Slug.safeParse(slug).success || (v !== 'approve' && v !== 'reject') || motivo.length < 3) return 'veredito inválido';
     if (v === 'approve' && failedNow(slug) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
     return { label: `${v === 'approve' ? 'aprovar' : 'recusar'} ${slug}`, args: ['veredito', slug, v, motivo] };
@@ -1328,7 +1349,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
         const b = pendingBranches().find((x) => x.branch.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '') === slug);
         if (b) ramo = b.branch;
       }
-      const pedido = clean(f.get('pedido'), 600);
+      const pedido = clean(f.get('pedido'), CORRECTION_MAX);
       if ((ramo !== 'main' && !BRANCH.test(ramo)) || !Slug.safeParse(slug).success || pedido.length < 5) msg = 'ajuste inválido';
       else {
         const dir = join(STATE, 'pedidos');
@@ -1337,7 +1358,9 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
         writeFileSync(file, pedido);
         const pesquisar = f.get('pesquisar') === '1';
         noteShadow(f);
-        msg = startJob(`ajustar ${slug}${pesquisar ? ' (com pesquisa)' : ''}: ${pedido.slice(0, 50)}`, ['ajustar', ramo, slug, file, ...(pesquisar ? ['pesquisar'] : [])]) ?? `ajustando ${slug}${pesquisar ? ' com pesquisa (alguns minutos)' : ''} (o auditor confere; a prévia se refaz em até 5 min)`;
+        // Blocos vêm do cartão quando a reprovação foi de coerência; o script já sabe passá-los ao ajuste.
+        const blocos = (f.get('blocos') ?? '').split(',').map((x) => x.trim()).filter((x) => /^[a-z0-9-]+#\d+(\.r\d+)?$/.test(x)).slice(0, 8);
+        msg = startJob(`ajustar ${slug}${pesquisar ? ' (com pesquisa)' : ''}: ${pedido.slice(0, 50)}`, ['ajustar', ramo, slug, file, pesquisar ? 'pesquisar' : '', blocos.join(',')]) ?? `ajustando ${slug}${pesquisar ? ' com pesquisa (alguns minutos)' : ''} (o auditor confere; a prévia se refaz em até 5 min)`;
       }
     } else if (f.get('acao') === 'pedido') {
       const texto = (f.get('texto') ?? '').trim().slice(0, 2000);
@@ -1378,6 +1401,14 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       } catch (e) {
         msg = `chave não aceita: ${(e as Error).message}`;
       }
+    } else if (f.get('acao') === 'chave-adicionar') {
+      // A chave vai direto para o diretório de estado (fora do git, 600) e já vale na busca seguinte: não é job,
+      // não mexe no site e não precisa de commit. Depois de gravada, o painel só mostra os quatro últimos dígitos.
+      const r = addTavilyKey(f.get('chave') ?? '', f.get('rotulo') ?? '');
+      msg = typeof r === 'string' ? r : `chave "${r.label}" cadastrada (${maskKey(r.key)}); o motor passa a usá-la quando a conta anterior esgotar`;
+    } else if (f.get('acao') === 'chave-remover') {
+      const r = removeTavilyKey(f.get('id') ?? '');
+      msg = r ? `chave "${r}" removida` : 'chave não encontrada (a principal fica no servidor e não sai por aqui)';
     } else if (f.get('acao') === 'saldo') {
       const v = Number((f.get('saldo') ?? '').replace(/\./g, '').replace(',', '.'));
       if (!Number.isFinite(v) || v < 0 || v > 10_000_000) msg = 'saldo inválido';
