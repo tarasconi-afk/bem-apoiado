@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-28T13:23:04.450Z",
+  "instruction": "No bloco cuidados-de-lavagem-por-tipo#0: A seção promete instruções de cuidado para pluma de ganso e fibra, mas o bloco traz apenas as instruções do modelo Hug, de fibra; não informa os cuidados da pluma nessa seção. Conserto: Mudar o título para algo como \"Instruções de cuidado na etiqueta: modelo Hug de fibra\" ou tirar da promessa da seção a referência à pluma de ganso.",
+  "diffs": [
+    {
+      "where": "Instruções de cuidado na etiqueta: modelo Hug de fibra · bloco 1",
+      "before": "No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco.",
+      "after": "No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco. Já no Pluma de Ganso Plus da Ortobom, a etiqueta proíbe lavagem, alvejamento e secagem em tambor; permite apenas secagem na horizontal à sombra e limpeza a seco."
+    }
+  ]
+}

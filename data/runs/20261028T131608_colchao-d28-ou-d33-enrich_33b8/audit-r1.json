@@ -1,0 +1,108 @@
+{
+  "findings": [
+    {
+      "ref": "o-que-confira-na-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-significa-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-significa-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-confira-na-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho não estabelece o limite numérico de até 60 kg nem diz que D28 é especificamente “indicado” nessa faixa. Ele apenas descreve D28 como melhor para peso leve a médio e D33 como adequado para peso médio a elevado. Além disso, não há trecho da Probel citado.",
+      "fix": "Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio; D33 oferece mais firmeza e é adequado para pessoas de peso médio a elevado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado não define a faixa numérica de 61 a 80 kg nem afirma que ambos os modelos são indicados exatamente nessa faixa. Também não há evidência citada da Probel.",
+      "fix": "Segundo a Castor, D28 é melhor para pessoas de peso leve a médio, enquanto D33 é adequado para pessoas de peso médio a elevado; as faixas não são convertidas em limites numéricos específicos."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho não estabelece o limite numérico “acima de 80 kg” nem afirma que D33 é indicado para toda essa faixa. Ele apenas diz que D33 é adequado para pessoas de peso médio a elevado e que D28 é melhor para peso leve a médio. Também não há evidência citada da Probel.",
+      "fix": "Segundo a Castor, D33 oferece mais firmeza e é adequado para pessoas de peso médio a elevado, enquanto D28 é melhor para pessoas de peso leve a médio."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. O trecho não estabelece o limite numérico de até 60 kg nem diz que D28 é especificamente “indicado” nessa faixa. Ele apenas descreve D28 como melhor para peso leve a médio e D33 como adequado para peso médio a elevado. Além disso, não há trecho da Probel citado. Versão sustentável: Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio; D33 oferece mais firmeza e é adequado para pessoas de peso médio a elevado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. O trecho citado não define a faixa numérica de 61 a 80 kg nem afirma que ambos os modelos são indicados exatamente nessa faixa. Também não há evidência citada da Probel. Versão sustentável: Segundo a Castor, D28 é melhor para pessoas de peso leve a médio, enquanto D33 é adequado para pessoas de peso médio a elevado; as faixas não são convertidas em limites numéricos específicos."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. O trecho não estabelece o limite numérico “acima de 80 kg” nem afirma que D33 é indicado para toda essa faixa. Ele apenas diz que D33 é adequado para pessoas de peso médio a elevado e que D28 é melhor para peso leve a médio. Também não há evidência citada da Probel. Versão sustentável: Segundo a Castor, D33 oferece mais firmeza e é adequado para pessoas de peso médio a elevado, enquanto D28 é melhor para pessoas de peso leve a médio."
+    }
+  ]
+}

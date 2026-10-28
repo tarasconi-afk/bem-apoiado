@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "durabilidade-e-deformacao#0",
+      "problem": "A seção promete explicar durabilidade e deformação conforme a densidade, mas os blocos não tratam de deformação nem comparam D28 e D33; o primeiro bloco só descreve a durabilidade de um modelo D33 da Probel.",
+      "fix": "Mudar o título da seção para “Informações de durabilidade e manutenção dos modelos citados”."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "durabilidade-e-deformacao#0",
+      "problem": "O leitor pode entender que todo colchão D33 tem a durabilidade, a distribuição de peso e a resistência descritas, mas os trechos vêm de um modelo específico, o ProIntense D33 da Probel.",
+      "fix": "Reescrever como: “No modelo ProIntense D33 citado, a Probel informa que a espuma é conhecida pela durabilidade e pela capacidade de suporte, mantendo a forma e o conforto ao longo do tempo.”"
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "durabilidade-e-deformacao#1",
+      "problem": "O leitor pode entender que qualquer espuma D33 oferece as propriedades de conforto e durabilidade citadas, embora o trecho descreva o produto Elite D33/D28 da Castor.",
+      "fix": "Reescrever como: “No modelo Elite D33/D28 citado, a Castor informa que a espuma D33 oferece propriedades de conforto e durabilidade.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 12282,
+    "output_tokens": 3513,
+    "calls": 3
+  }
+}

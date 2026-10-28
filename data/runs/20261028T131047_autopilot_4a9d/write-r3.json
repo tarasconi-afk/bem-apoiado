@@ -1,0 +1,216 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#0",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você quer confirmar se está comprando fibra ou pluma de ganso, confira na etiqueta o nome do enchimento e os percentuais de composição. O Inmetro exige que o nome das fibras e sua participação percentual apareçam na etiqueta. Modelos com fibra siliconada 100% poliéster, como o Hug da Ortobom, declaram isso claramente; modelos com plumas de ganso, como o da Simmons, informam \"100% plumas de ganso\".",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_f320e9d0a6af",
+        "clm_3bd128d38af6",
+        "clm_9ba2684f8015",
+        "clm_6228f8bb172f",
+        "clm_444f49032317"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro de pena de ganso ou de fibra: qual escolher",
+    "description": "Compare cuidados de lavagem, composição e dimensões de travesseiros de pena de ganso e fibra sintética para decidir qual se encaixa no seu caso.",
+    "verdict": {
+      "text": "Se você lava travesseiros em casa, o Hug da Ortobom permite lavagem suave até 40 °C. Para o travesseiro de pluma de ganso, a Ortobom e Simmons proíbem lavar e secar em tambor; permitem limpeza a seco e secagem natural.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3fb7b71e5656",
+        "clm_439eebde3cf1",
+        "clm_444f49032317"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-conferir-na-etiqueta",
+        "heading": "O que a etiqueta têxtil deve informar sobre composição",
+        "blocks": [
+          {
+            "text": "A etiqueta têxtil do Inmetro exige que apareçam o nome das fibras e seu percentual de participação, em ordem decrescente e com igual destaque.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f320e9d0a6af",
+              "clm_d7f8e50c91f7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta deve informar cuidados de conservação relativos a lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d0e930280b39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-de-lavagem-por-tipo",
+        "heading": "Instruções de cuidado na etiqueta: pluma de ganso e fibra",
+        "blocks": [
+          {
+            "text": "No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3fb7b71e5656"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-declarada",
+        "heading": "Composição de penas e plumas de ganso declarada pelos fabricantes",
+        "blocks": [
+          {
+            "text": "Na ficha da Ortobom, o travesseiro de pluma de ganso declara enchimento de 100% de plumas de ganso. A Simmons também informa 100% pluma de ganso no modelo consultado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9ba2684f8015",
+              "clm_6228f8bb172f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para fibra sintética, no Hug da Ortobom a ficha declara fibra siliconada 100% poliéster. No Conect Comfort da Probel, a ficha informa que o enchimento é fibra siliconada, mas não especifica a composição percentual.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3bd128d38af6",
+              "clm_1054bc9ab913"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-informadas",
+        "heading": "Dimensões (comprimento e largura) informadas para cada tipo",
+        "blocks": [
+          {
+            "text": "O travesseiro Pluma de Ganso da Simmons mede 50 × 70 cm. A Ortobom oferece o modelo Pluma de Ganso Plus em 90 × 50 cm e o Hug em 140 × 50 cm. O Conect Comfort da Probel mede 40 × 60 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_042b85d24b34",
+              "clm_a430d3eb214c",
+              "clm_b3a4f0e241fb",
+              "clm_1cea45ecc3aa"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "recomendacao-troca",
+        "heading": "Tempo de vida útil e recomendação de troca",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, a vida útil média de um travesseiro é de cerca de cinco anos, mas recomenda-se trocá-lo a cada dois anos, pois o uso prolongado pode ser uma fonte de contaminação por microrganismos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_baf2ba0de4d8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre pluma de ganso e fibra",
+        "blocks": [
+          {
+            "text": "Se você precisa lavar o travesseiro em casa, escolha um modelo de fibra cuja etiqueta permita lavagem. No Hug da Ortobom, a etiqueta informa lavagem suave até 40 °C em máquina. Nos modelos de pluma de ganso da Ortobom e Simmons consultados, a etiqueta proíbe lavar à água e secar em tambor.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3fb7b71e5656",
+              "clm_439eebde3cf1",
+              "clm_444f49032317"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você aceita levar o travesseiro para limpeza a seco ou deixá-lo secar naturalmente, pode escolher pluma de ganso. No modelo da Ortobom, a etiqueta permite secagem na horizontal à sombra e limpeza a seco; no modelo da Simmons, permite limpeza a seco e secagem natural no varal, com ambos proibindo lavagem à água.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_439eebde3cf1",
+              "clm_444f49032317"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer confirmar se está comprando fibra ou pluma de ganso, confira na etiqueta o nome do enchimento e os percentuais de composição. O Inmetro exige que o nome das fibras e sua participação percentual apareçam na etiqueta. Há modelos com fibra siliconada 100% poliéster e plumas de ganso declaradas dessa forma.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_f320e9d0a6af",
+              "clm_3bd128d38af6",
+              "clm_9ba2684f8015"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Composição, cuidados de lavagem e dimensões de travesseiros de pena de ganso e fibra (segundo a Ortobom)",
+            "columns": [
+              "Tipo",
+              "Composição do enchimento",
+              "Cuidados na etiqueta",
+              "Dimensões"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Fibra siliconada (Ortobom Hug)",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Fibra siliconada 100% poliéster",
+                    "claim_ids": [
+                      "clm_3bd128d38af6"
+                    ]
+                  },
+                  {
+                    "text": "Permitido lavar suave até 40 °C, permitido secar em tambor até 60 °C, permitido passar até 110 °C sem vapor, proibido limpeza a seco",
+                    "claim_ids": [
+                      "clm_3fb7b71e5656"
+                    ]
+                  },
+                  {
+                    "text": "140 × 50 cm",
+                    "claim_ids": [
+                      "clm_b3a4f0e241fb"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#0",
+      "msg": "repete o bloco como-decidir#1 (84% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "tabela com uma linha só não compara nada: traga uma linha por opção (com o dado de cada uma) ou passe o dado para o texto."
+    }
+  ],
+  "usage": {
+    "input_tokens": 13076,
+    "output_tokens": 292
+  }
+}
