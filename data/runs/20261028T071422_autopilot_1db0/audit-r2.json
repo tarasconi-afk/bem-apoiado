@@ -1,0 +1,118 @@
+{
+  "findings": [
+    {
+      "ref": "dimensoes-e-fronha#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-e-fronha#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-e-fronha#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-cuidados#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam modelos Duoflex com 10 cm e 17 cm, mas nenhum menciona um modelo com 14 cm. Portanto, a lista de alturas oferecidas pela Duoflex acrescenta um número não sustentado.",
+      "fix": "Travesseiros NASA são uma opção se você quer espuma viscoelástica e precisa escolher pela altura e posição de dormir. No Travesseiro Nasa Paz da Probel, a altura é 12 cm e o modelo é indicado para dormir de bruços ou de costas; a Duoflex oferece modelos NASA com 10 e 17 cm de altura. Confira a altura e a posição recomendada na ficha do modelo que está comprando."
+    },
+    {
+      "ref": "espuma-viscoelastica#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-da-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a descrição do Inmetro e a afirmação da Ortobom sobre adaptação aos contornos do corpo e alívio de pressões e tensões, mas não dizem que essas propriedades não são avaliadas pelo Inmetro. Além disso, o trecho citado mostra uma afirmação de um fabricante sobre um produto específico, não necessariamente sobre travesseiros NASA em geral.",
+      "fix": "O trecho do Inmetro descreve diferenças entre fibras e características como resistência, delicadeza e comportamento na lavagem. A Ortobom afirma que a espuma viscoelástica de seu travesseiro, desenvolvida a partir de tecnologia da NASA, se adapta aos contornos do corpo e proporciona alívio de pressões e tensões."
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados são apenas da Probel; não há evidência da Duoflex. Além disso, eles descrevem o modelo de 12 cm como adequado para quem dorme de lado, mas não estabelecem uma recomendação geral de altura feita por Probel e Duoflex.",
+      "fix": "Posição de dormir: de lado | Altura do modelo: 12 cm | Modelo exemplo (Probel): Plenitude Visco Gel D40 Firme (12 cm). A Probel descreve o modelo como adequado para quem dorme de lado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados são apenas da Probel; não há evidência da Duoflex. Eles sustentam que o modelo de 12 cm é descrito para quem dorme de bruços ou de costas, mas não uma recomendação geral de altura feita por Probel e Duoflex.",
+      "fix": "Posição de dormir: de bruços ou de costas | Altura do modelo: 12 cm | Modelo exemplo (Probel): Paz Viscoelástico D30 Firme (12 cm). A Probel descreve o modelo para essas posições."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos citam modelos Duoflex com 10 cm e 17 cm, mas nenhum menciona um modelo com 14 cm. Portanto, a lista de alturas oferecidas pela Duoflex acrescenta um número não sustentado. Versão sustentável: Travesseiros NASA são uma opção se você quer espuma viscoelástica e precisa escolher pela altura e posição de dormir. No Travesseiro Nasa Paz da Probel, a altura é 12 cm e o modelo é indicado para dormir de bruços ou de costas; a Duoflex oferece modelos NASA com 10 e 17 cm de altura. Confira a altura e a posição recomendada na ficha do modelo que está comprando."
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a descrição do Inmetro e a afirmação da Ortobom sobre adaptação aos contornos do corpo e alívio de pressões e tensões, mas não dizem que essas propriedades não são avaliadas pelo Inmetro. Além disso, o trecho citado mostra uma afirmação de um fabricante sobre um produto específico, não necessariamente sobre travesseiros NASA em geral. Versão sustentável: O trecho do Inmetro descreve diferenças entre fibras e características como resistência, delicadeza e comportamento na lavagem. A Ortobom afirma que a espuma viscoelástica de seu travesseiro, desenvolvida a partir de tecnologia da NASA, se adapta aos contornos do corpo e proporciona alívio de pressões e tensões."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. Os trechos citados são apenas da Probel; não há evidência da Duoflex. Além disso, eles descrevem o modelo de 12 cm como adequado para quem dorme de lado, mas não estabelecem uma recomendação geral de altura feita por Probel e Duoflex. Versão sustentável: Posição de dormir: de lado | Altura do modelo: 12 cm | Modelo exemplo (Probel): Plenitude Visco Gel D40 Firme (12 cm). A Probel descreve o modelo como adequado para quem dorme de lado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. Os trechos citados são apenas da Probel; não há evidência da Duoflex. Eles sustentam que o modelo de 12 cm é descrito para quem dorme de bruços ou de costas, mas não uma recomendação geral de altura feita por Probel e Duoflex. Versão sustentável: Posição de dormir: de bruços ou de costas | Altura do modelo: 12 cm | Modelo exemplo (Probel): Paz Viscoelástico D30 Firme (12 cm). A Probel descreve o modelo para essas posições."
+    }
+  ]
+}

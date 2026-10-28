@@ -1,0 +1,26 @@
+{
+  "patches": [
+    {
+      "ref": "densidade-da-espuma#0",
+      "action": "replace",
+      "text": "No Travesseiro Nasa Probel Paz Viscoelástico, a Probel informa densidade D30, e no Travesseiro Nasa Probel Plenitude Visco Gel, densidade D40. Segundo a Probel, o D30 se adapta à anatomia da cabeça e região cervical, enquanto o D40 oferece suporte firme e excelente adaptação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d577e9f8ff96",
+        "clm_853e5db2f6cb",
+        "clm_4da91fda4a56",
+        "clm_c04222681775"
+      ]
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#0",
+      "action": "remove"
+    }
+  ],
+  "kept": true,
+  "audited": [
+    "densidade-da-espuma#0",
+    "propriedades-nao-avaliadas#0"
+  ],
+  "still": []
+}

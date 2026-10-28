@@ -1,0 +1,52 @@
+{
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 186018,
+    "output_tokens": 37222,
+    "calls": 53
+  },
+  "credits": 54.3950304,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção anuncia o que o Inmetro não avalia sobre propriedades terapêuticas e alívio de dor, mas o bloco apenas recomenda consultar um profissional de saúde (propriedades-nao-avaliadas#0); Mudar o título para algo como “Quando consultar um profissional antes de"
+    ],
+    "filler_refs": [
+      "densidade-da-espuma#0"
+    ],
+    "decision_criteria": [
+      "Escolha um travesseiro NASA se você procura espuma viscoelástica e o modelo tiver altura adequada à sua posição de dormir.",
+      "Para dormir de lado, a página indica o modelo de 12 cm da Probel Plenitude Visco Gel D40.",
+      "Para dormir de costas ou de bruços, a página indica o modelo de 12 cm da Probel Paz Viscoelástico D30.",
+      "Confira a altura declarada na ficha, pois há modelos Duoflex de 10, 14 e 17 cm.",
+      "Confira o tamanho de fronha compatível: os modelos citados usam fronhas 50x70 cm ou 50x90 cm.",
+      "Verifique na ficha a densidade da espuma: os modelos citados têm D30 ou D40.",
+      "Confira o prazo de garantia informado pelo fabricante, que é de 3 meses ou 90 dias nos exemplos citados."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção anuncia o que o Inmetro não avalia sobre propriedades terapêuticas e alívio de dor, mas o bloco apenas recomenda consultar um profissional de saúde (propriedades-nao-avaliadas#0); Mudar o título para algo como “Quando consultar um profissional antes de",
+      "Uma comparação direta entre o travesseiro NASA e alternativas comuns, explicando em quais situações a espuma viscoelástica oferece vantagem ou desvantagem.",
+      "Uma orientação do fabricante relacionando altura do travesseiro à posição de dormir ou à medida do ombro para mais casos.",
+      "As dimensões completas de comprimento, largura e altura dos modelos, e não apenas a altura e a fronha compatível.",
+      "As condições que invalidam a garantia de cada fabricante.",
+      "Uma explicação direta, baseada em fonte reguladora, de que o termo NASA não comprova benefícios terapêuticos, alívio de dor ou melhora da postura."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde à dúvida com uma regra prática: vale considerar o travesseiro NASA quando se busca espuma viscoelástica, escolhendo a altura conforme a posição de dormir e conferindo a fronha compatível na ficha. Há boa orientação de compra, embora falte comparar vantagens e limitações com outros tipos de travesseiro e detalhar dimensões e condições de garantia.",
+    "filler_ratio": 0.07692307692307693,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "propriedades-nao-avaliadas#0",
+        "problem": "A seção anuncia o que o Inmetro não avalia sobre propriedades terapêuticas e alívio de dor, mas o bloco apenas recomenda consultar um profissional de saúde.",
+        "fix": "Mudar o título para algo como “Quando consultar um profissional antes de escolher o travesseiro”."
+      }
+    ]
+  }
+}

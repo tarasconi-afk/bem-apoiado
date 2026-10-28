@@ -1,0 +1,67 @@
+{
+  "removed": [
+    "o-que-representa-contagem-fios#0",
+    "cuidados-conservacao#0"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-representa-contagem-fios#0",
+      "cuidados-conservacao#0"
+    ],
+    "decision_criteria": [
+      "A contagem de fios indica o total de fios entrelaçados em uma polegada quadrada, somando comprimento e largura.",
+      "Confira na ficha se o lençol de 200 fios é de percal e se a composição é 100% algodão ou 60% algodão e 40% poliéster.",
+      "Se você prefere percal, escolha um modelo cuja ficha declare explicitamente esse tipo de tecido.",
+      "Se você prefere cetim de algodão, confira se a ficha declara esse acabamento, como nos modelos de 400 fios citados.",
+      "Para comprar 100% algodão, verifique a composição na ficha, pois há modelos de 200 fios com composições diferentes.",
+      "O percal de algodão é associado pela Appel a uma sensação mais fresca em dias quentes."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma comparação direta entre 200 e 400 fios quanto à densidade, toque, maciez, resistência e eventual vantagem prática.",
+      "Uma regra clara de escolha dizendo em que situação vale optar por 200 ou por 400 fios.",
+      "Explicação de que a contagem de fios, sozinha, não define a composição da fibra nem a qualidade geral do lençol.",
+      "Instruções de conservação concretas, com lavagem e secagem, para os modelos citados.",
+      "Definições dos termos percal e cetim e esclarecimento sobre onde essa informação aparece na etiqueta ou ficha técnica.",
+      "Mais exemplos de produtos de 400 fios, incluindo possíveis variações de composição, para evitar que um único exemplo pareça representar toda a categoria."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios úteis para conferir tipo de tecido e composição na ficha, mas responde apenas parcialmente à diferença entre lençóis de 200 e 400 fios. Falta uma comparação direta e uma regra de escolha; a resposta curta também não orienta claramente qual opção serve para cada preferência. Ainda assim, pode ser publicada como conteúdo parcial, desde que a limitação seja aceita editorialmente.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "cuidados-conservacao#0"
+    ],
+    "decision_criteria": [
+      "Se você prefere percal, confira se a ficha técnica declara explicitamente esse tipo de tecido; os exemplos citados são de 200 fios.",
+      "Se você prefere cetim de algodão, confira se a ficha declara esse acabamento; o modelo citado é de 400 fios.",
+      "Se você quer 100% algodão, confira a composição na ficha, porque há modelos de 200 fios tanto 100% algodão quanto mistos com poliéster, enquanto o exemplo de 400 fios é 100% algodão.",
+      "A contagem de fios representa o total de fios entrelaçados em uma polegada quadrada, considerando comprimento e largura."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma regra direta comparando quando escolher 200 ou 400 fios, com diferenças de toque, espessura, ventilação, durabilidade ou manutenção.",
+      "Uma explicação baseada em fonte primária sobre se a maior contagem de fios, por si só, indica maior maciez ou qualidade.",
+      "Orientações de conservação específicas para os modelos de 200 e 400 fios citados, em vez de apenas recomendar consultar o produto.",
+      "Uma fonte primária que esclareça como percal e cetim se relacionam com a contagem de fios e se esses termos aparecem na etiqueta."
+    ],
+    "publishable": false,
+    "summary": "A página traz dados concretos para conferir composição e tipo de tecido, mas não responde rapidamente qual opção escolher entre 200 e 400 fios. Ela também compara 200 fios com 160, não diretamente com 400, e o bloco de cuidados é vago. Para ser publicada, precisa transformar os exemplos em uma regra de escolha baseada em diferenças práticas entre as duas contagens.",
+    "filler_ratio": 0.09090909090909091,
+    "model_opinion": false
+  }
+}

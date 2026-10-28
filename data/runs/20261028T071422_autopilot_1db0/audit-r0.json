@@ -1,0 +1,138 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Duoflex informam espuma e alturas, mas não dizem quais posições de dormir são indicadas. Além disso, os trechos da Probel tratam de modelos específicos, não de todos os travesseiros NASA. Assim, “segundo a Probel e a Duoflex” atribui às duas marcas uma recomendação de posições que os trechos não sustentam igualmente.",
+      "fix": "Travesseiros NASA podem ser uma opção para quem procura espuma viscoelástica e uma altura específica. Nos trechos citados, a Probel indica um modelo de 12 cm para dormir de lado e outro de 12 cm para dormir de bruços ou de costas; a Duoflex lista modelos de 10, 14 e 17 cm. Confira a altura e a posição indicada na ficha do modelo escolhido."
+    },
+    {
+      "ref": "espuma-viscoelastica#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A primeira frase apresenta como fato geral que a espuma viscoelástica, também chamada de “memória de forma”, se adapta aos contornos da cabeça e da região cervical. Os trechos apenas trazem alegações da Probel sobre a adaptação nos produtos específicos; não sustentam essa generalização nem a equivalência com “memória de forma”. As demais afirmações estão explicitamente atribuídas à fabricante.",
+      "fix": "Nos produtos citados, a Probel declara que a espuma viscoelástica D30 do Travesseiro Nasa Probel Paz se adapta precisamente à anatomia da cabeça e da região cervical, e informa que a espuma D40 do Travesseiro Nasa Probel Plenitude Visco Gel proporciona suporte firme e excelente adaptação, envolvendo a cabeça e o pescoço."
+    },
+    {
+      "ref": "densidade-da-espuma#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados apenas identificam os produtos como tendo espuma viscoelástica D30 e D40 e descrevem características atribuídas pela Probel. Eles não dizem que D seguido de número indica peso em quilos por metro cúbico, nem sustentam que um número maior signifique espuma mais densa e firme.",
+      "fix": "As páginas da Probel identificam o Travesseiro Nasa Probel Paz Viscoelástico como composto por espuma viscoelástica D30 e o Travesseiro Nasa Probel Plenitude Visco Gel como composto por espuma viscoelástica D40."
+    },
+    {
+      "ref": "dimensoes-e-fronha#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-e-fronha#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-e-fronha#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-cuidados#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco repete e sugere alegações de alívio de dor, melhora de postura e redução de formigamentos, ainda que as atribua a fabricantes. Além disso, os trechos citados não mostram que o Inmetro avalia composição, resistência e conservação, nem que não avalia ou não comprova propriedades terapêuticas.",
+      "fix": "O trecho do Inmetro descreve diferenças entre fibras e características como resistência, delicadeza e comportamento na lavagem. Os excertos citados não permitem concluir o que o Inmetro avalia ou comprova sobre propriedades terapêuticas."
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que a Probel informa garantia de 3 meses e a Ortobom informa garantia de 90 dias. Não dizem que a garantia cobre defeitos de fabricação nem que as condições e hipóteses de invalidação dependem do fabricante.",
+      "fix": "No Travesseiro Nasa Probel Paz Viscoelástico D30 Firme 12 cm, a Probel informa garantia de 3 meses. Na Ortobom, o Travesseiro Anatomic Visco tem garantia de 90 dias."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco sugere que o produto mantém cabeça, pescoço e ombros em postura alinhada, uma alegação sobre postura que não é permitida, mesmo quando atribuída à fabricante. Além disso, os trechos citados não trazem evidência da Duoflex nem sustentam a afirmação de recomendação pelas duas marcas.",
+      "fix": "A página da Probel descreve o modelo Plenitude Visco Gel D40 Firme como indicado para quem dorme de lado e informa que ele usa espuma viscoelástica. Remova a alegação sobre postura alinhada e a referência à Duoflex."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados são apenas da Probel e não mostram que a Duoflex recomenda essa posição, essa altura ou esse modelo. Portanto, a atribuição da recomendação às duas marcas excede as evidências apresentadas.",
+      "fix": "Segundo a Probel, o modelo Paz Viscoelástico D30 Firme tem 12 cm e é indicado para quem dorme de bruços ou para cima."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco repete uma alegação sobre manter cabeça, pescoço e ombros alinhados, isto é, uma alegação relacionada a postura. A regra de segurança proíbe essa formulação mesmo quando explicitamente atribuída à Probel.",
+      "fix": "Se você dorme de lado, a Probel descreve o Travesseiro Nasa Probel Plenitude Visco Gel D40 Firme 12 cm como indicado para essa posição e afirma que ele oferece apoio."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a Duoflex lista alturas de 10, 14 e 17 cm e que há versões de 17 cm para fronhas 50x70 e 50x90. Porém, não mostram que todos esses modelos são destinados a fronhas diferentes: não há fronha informada para o modelo de 10 cm, e modelos de 14 e 17 cm compartilham a fronha 50x70. A conclusão de que “NASA” não define uma altura única é sustentada.",
+      "fix": "Ao comparar travesseiros NASA, confira a altura e a fronha indicada na ficha. A Duoflex lista modelos de 10, 14 e 17 cm e informa versões de 17 cm para fronhas 50x70 e 50x90."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos da Duoflex informam espuma e alturas, mas não dizem quais posições de dormir são indicadas. Além disso, os trechos da Probel tratam de modelos específicos, não de todos os travesseiros NASA. Assim, “segundo a Probel e a Duoflex” atribui às duas marcas uma recomendação de posições que os trechos não sustentam igualmente. Versão sustentável: Travesseiros NASA podem ser uma opção para quem procura espuma viscoelástica e uma altura específica. Nos trechos citados, a Probel indica um modelo de 12 cm para dormir de lado e outro de 12 cm para dormir de bruços ou de costas; a Duoflex lista modelos de 10, 14 e 17 cm. Confira a altura e a posição indicada na ficha do modelo escolhido."
+    },
+    {
+      "ref": "espuma-viscoelastica#0",
+      "msg": "MISATTRIBUTED. A primeira frase apresenta como fato geral que a espuma viscoelástica, também chamada de “memória de forma”, se adapta aos contornos da cabeça e da região cervical. Os trechos apenas trazem alegações da Probel sobre a adaptação nos produtos específicos; não sustentam essa generalização nem a equivalência com “memória de forma”. As demais afirmações estão explicitamente atribuídas à fabricante. Versão sustentável: Nos produtos citados, a Probel declara que a espuma viscoelástica D30 do Travesseiro Nasa Probel Paz se adapta precisamente à anatomia da cabeça e da região cervical, e informa que a espuma D40 do Travesseiro Nasa Probel Plenitude Visco Gel proporciona suporte firme e excelente adaptação, envolvendo a cabeça e o pescoço."
+    },
+    {
+      "ref": "densidade-da-espuma#0",
+      "msg": "UNSUPPORTED. Os trechos citados apenas identificam os produtos como tendo espuma viscoelástica D30 e D40 e descrevem características atribuídas pela Probel. Eles não dizem que D seguido de número indica peso em quilos por metro cúbico, nem sustentam que um número maior signifique espuma mais densa e firme. Versão sustentável: As páginas da Probel identificam o Travesseiro Nasa Probel Paz Viscoelástico como composto por espuma viscoelástica D30 e o Travesseiro Nasa Probel Plenitude Visco Gel como composto por espuma viscoelástica D40."
+    },
+    {
+      "ref": "propriedades-nao-avaliadas#0",
+      "msg": "SAFETY_CLAIM. O bloco repete e sugere alegações de alívio de dor, melhora de postura e redução de formigamentos, ainda que as atribua a fabricantes. Além disso, os trechos citados não mostram que o Inmetro avalia composição, resistência e conservação, nem que não avalia ou não comprova propriedades terapêuticas. Versão sustentável: O trecho do Inmetro descreve diferenças entre fibras e características como resistência, delicadeza e comportamento na lavagem. Os excertos citados não permitem concluir o que o Inmetro avalia ou comprova sobre propriedades terapêuticas."
+    },
+    {
+      "ref": "garantia#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que a Probel informa garantia de 3 meses e a Ortobom informa garantia de 90 dias. Não dizem que a garantia cobre defeitos de fabricação nem que as condições e hipóteses de invalidação dependem do fabricante. Versão sustentável: No Travesseiro Nasa Probel Paz Viscoelástico D30 Firme 12 cm, a Probel informa garantia de 3 meses. Na Ortobom, o Travesseiro Anatomic Visco tem garantia de 90 dias."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "SAFETY_CLAIM. O bloco sugere que o produto mantém cabeça, pescoço e ombros em postura alinhada, uma alegação sobre postura que não é permitida, mesmo quando atribuída à fabricante. Além disso, os trechos citados não trazem evidência da Duoflex nem sustentam a afirmação de recomendação pelas duas marcas. Versão sustentável: A página da Probel descreve o modelo Plenitude Visco Gel D40 Firme como indicado para quem dorme de lado e informa que ele usa espuma viscoelástica. Remova a alegação sobre postura alinhada e a referência à Duoflex."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. Os trechos citados são apenas da Probel e não mostram que a Duoflex recomenda essa posição, essa altura ou esse modelo. Portanto, a atribuição da recomendação às duas marcas excede as evidências apresentadas. Versão sustentável: Segundo a Probel, o modelo Paz Viscoelástico D30 Firme tem 12 cm e é indicado para quem dorme de bruços ou para cima."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "SAFETY_CLAIM. O bloco repete uma alegação sobre manter cabeça, pescoço e ombros alinhados, isto é, uma alegação relacionada a postura. A regra de segurança proíbe essa formulação mesmo quando explicitamente atribuída à Probel. Versão sustentável: Se você dorme de lado, a Probel descreve o Travesseiro Nasa Probel Plenitude Visco Gel D40 Firme 12 cm como indicado para essa posição e afirma que ele oferece apoio."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam que a Duoflex lista alturas de 10, 14 e 17 cm e que há versões de 17 cm para fronhas 50x70 e 50x90. Porém, não mostram que todos esses modelos são destinados a fronhas diferentes: não há fronha informada para o modelo de 10 cm, e modelos de 14 e 17 cm compartilham a fronha 50x70. A conclusão de que “NASA” não define uma altura única é sustentada. Versão sustentável: Ao comparar travesseiros NASA, confira a altura e a fronha indicada na ficha. A Duoflex lista modelos de 10, 14 e 17 cm e informa versões de 17 cm para fronhas 50x70 e 50x90."
+    }
+  ]
+}

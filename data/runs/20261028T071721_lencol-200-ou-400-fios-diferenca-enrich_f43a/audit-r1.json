@@ -1,0 +1,112 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A definição da contagem de fios é citada apenas da Karsten, mas o bloco a atribui a fabricantes como Karsten, Appel e Altenburg. Além disso, os trechos não sustentam que a diferença principal esteja na composição e no tipo de trama, nem recomendam conferir a etiqueta.",
+      "fix": "A Karsten explica que a contagem de fios é o número total de fios entrelaçados em uma polegada quadrada, considerando urdume e trama. Nos exemplos citados, há lençóis de 200 fios em percal com 100% algodão ou com 60% algodão e 40% poliéster, e produtos de 400 fios em cetim de algodão, sendo um deles declarado como 100% algodão."
+    },
+    {
+      "ref": "o-que-representa-contagem-fios#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-representa-contagem-fios#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado compara especificamente lençóis de 200 fios com os de 160 fios. O bloco amplia essa comparação para “contagens menores” em geral, sem que o trecho sustente essa generalização.",
+      "fix": "Lençóis de 200 fios têm trama mais densa e estruturada do que os de 160 fios, oferecendo toque mais suave e maciez maior graças ao entrelaçamento mais fechado das fibras, segundo a Karsten."
+    },
+    {
+      "ref": "composicao-e-tipo-de-tecido#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-tipo-de-tecido#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-tipo-de-tecido#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-tipo-de-tecido#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-tipo-de-tecido#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora baseado em framing, afirma como fato que os cuidados variam conforme o fabricante e a composição, mas não há trechos citados que sustentem essa afirmação.",
+      "fix": "Use uma transição sem afirmação factual, como: \"Consulte as orientações específicas de conservação do produto.\""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados informam apenas a composição e a quantidade de fios dos modelos; não dizem que as fichas não trazem informações detalhadas de conservação, nem fundamentam a recomendação sobre temperaturas de lavagem, secagem ou alvejante.",
+      "fix": "Versão mais estreita: \"Os trechos citados informam a composição dos modelos: há opções de 200 fios em algodão ou em mistura de algodão e poliéster, e uma opção de 400 fios em cetim de algodão. Consulte o rótulo ou manual do produto para verificar os cuidados específicos.\""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não sustentam que a contagem de fios, sozinha, não garanta a trama percal, pois todos os exemplos citados são de percal 200 fios. Também não há trecho dizendo que a composição influencia o toque e a durabilidade.",
+      "fix": "Se você prefere percal, confira se a ficha declara explicitamente esse tecido. Nos exemplos citados, há modelos de percal 200 fios declarados como 100% algodão e como 60% algodão e 40% poliéster. A Appel associa o percal de algodão à sensação de frescor em dias quentes."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram que os modelos Creta citados são declarados como cetim de algodão 400 fios, mas não sustentam a afirmação geral de que todo lençol de 400 fios não deve ser tratado como cetim sem essa declaração.",
+      "fix": "Se você prefere cetim de algodão, confira um modelo de 400 fios que declare explicitamente esse acabamento na ficha, como os modelos Creta citados da Altenburg."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam apenas um modelo de 400 fios com composição 100% algodão, não vários modelos. A comparação entre dois tipos de composição nos modelos de 200 fios está sustentada.",
+      "fix": "Se você quer 100% algodão, confira a composição na ficha antes de escolher: os trechos citam lençóis de 200 fios declarados tanto como 100% algodão quanto como 60% algodão e 40% poliéster, e um modelo de 400 fios declarado como 100% algodão, segundo as fichas da Appel e da Altenburg."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A definição da contagem de fios é citada apenas da Karsten, mas o bloco a atribui a fabricantes como Karsten, Appel e Altenburg. Além disso, os trechos não sustentam que a diferença principal esteja na composição e no tipo de trama, nem recomendam conferir a etiqueta. Versão sustentável: A Karsten explica que a contagem de fios é o número total de fios entrelaçados em uma polegada quadrada, considerando urdume e trama. Nos exemplos citados, há lençóis de 200 fios em percal com 100% algodão ou com 60% algodão e 40% poliéster, e produtos de 400 fios em cetim de algodão, sendo um deles declarado como 100% algodão."
+    },
+    {
+      "ref": "o-que-representa-contagem-fios#1",
+      "msg": "OVERSTATED. O trecho citado compara especificamente lençóis de 200 fios com os de 160 fios. O bloco amplia essa comparação para “contagens menores” em geral, sem que o trecho sustente essa generalização. Versão sustentável: Lençóis de 200 fios têm trama mais densa e estruturada do que os de 160 fios, oferecendo toque mais suave e maciez maior graças ao entrelaçamento mais fechado das fibras, segundo a Karsten."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora baseado em framing, afirma como fato que os cuidados variam conforme o fabricante e a composição, mas não há trechos citados que sustentem essa afirmação. Versão sustentável: Use uma transição sem afirmação factual, como: \"Consulte as orientações específicas de conservação do produto.\""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "UNSUPPORTED. Os trechos citados informam apenas a composição e a quantidade de fios dos modelos; não dizem que as fichas não trazem informações detalhadas de conservação, nem fundamentam a recomendação sobre temperaturas de lavagem, secagem ou alvejante. Versão sustentável: Versão mais estreita: \"Os trechos citados informam a composição dos modelos: há opções de 200 fios em algodão ou em mistura de algodão e poliéster, e uma opção de 400 fios em cetim de algodão. Consulte o rótulo ou manual do produto para verificar os cuidados específicos.\""
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos não sustentam que a contagem de fios, sozinha, não garanta a trama percal, pois todos os exemplos citados são de percal 200 fios. Também não há trecho dizendo que a composição influencia o toque e a durabilidade. Versão sustentável: Se você prefere percal, confira se a ficha declara explicitamente esse tecido. Nos exemplos citados, há modelos de percal 200 fios declarados como 100% algodão e como 60% algodão e 40% poliéster. A Appel associa o percal de algodão à sensação de frescor em dias quentes."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos mostram que os modelos Creta citados são declarados como cetim de algodão 400 fios, mas não sustentam a afirmação geral de que todo lençol de 400 fios não deve ser tratado como cetim sem essa declaração. Versão sustentável: Se você prefere cetim de algodão, confira um modelo de 400 fios que declare explicitamente esse acabamento na ficha, como os modelos Creta citados da Altenburg."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos citam apenas um modelo de 400 fios com composição 100% algodão, não vários modelos. A comparação entre dois tipos de composição nos modelos de 200 fios está sustentada. Versão sustentável: Se você quer 100% algodão, confira a composição na ficha antes de escolher: os trechos citam lençóis de 200 fios declarados tanto como 100% algodão quanto como 60% algodão e 40% poliéster, e um modelo de 400 fios declarado como 100% algodão, segundo as fichas da Appel e da Altenburg."
+    }
+  ]
+}

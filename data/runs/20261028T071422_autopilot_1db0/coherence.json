@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "densidade-da-espuma#0",
+      "problem": "O título promete explicar o que significam as letras D, mas o bloco apenas informa que alguns modelos usam D30 ou D40 e descreve suas características.",
+      "fix": "Mudar o título para algo como “Densidades informadas nos modelos de travesseiro NASA citados”."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "propriedades-nao-avaliadas#0",
+      "problem": "O título afirma que o Inmetro não avalia propriedades terapêuticas e alívio de dor, mas os blocos não trazem essa informação; eles falam de características de fibras e de uma adaptação declarada pela Ortobom.",
+      "fix": "Mudar o título para algo como “Características das fibras e adaptação declarada pelo fabricante”, ou tirar da promessa a afirmação sobre o que o Inmetro não avalia."
+    }
+  ],
+  "usage": {
+    "input_tokens": 17100,
+    "output_tokens": 3373,
+    "calls": 3
+  }
+}

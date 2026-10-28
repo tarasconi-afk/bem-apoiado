@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "propriedades-nao-avaliadas#0",
+      "problem": "A seção anuncia o que o Inmetro não avalia sobre propriedades terapêuticas e alívio de dor, mas o bloco apenas recomenda consultar um profissional de saúde.",
+      "fix": "Mudar o título para algo como “Quando consultar um profissional antes de escolher o travesseiro”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16506,
+    "output_tokens": 3067,
+    "calls": 3
+  }
+}
