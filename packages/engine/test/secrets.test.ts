@@ -7,7 +7,7 @@ process.env.BEM_STATE_DIR = mkdtempSync(join(tmpdir(), 'bem-cofre-'));
 process.env.TAVILY_API_KEY = 'tvly-do-servidor-1234567890';
 process.env.NEXOS_API_KEY = 'sk-do-servidor-1234567890';
 
-const { addKey, addService, keysOf, maskKey, removeKey, removeService, secret, services, vaultBackup } = await import('../src/secrets.ts');
+const { addKey, addService, FILE_SECRETS, keysOf, maskKey, removeKey, removeService, secret, services, vaultBackup } = await import('../src/secrets.ts');
 const zera = () => rmSync(join(process.env.BEM_STATE_DIR!, 'keys.json'), { force: true });
 
 // 28/10, pedido do editor: "um repositório universal do projeto… cada vez menos usar essa instância do Claude e
@@ -82,5 +82,18 @@ describe('cofre de chaves do projeto', () => {
     expect(b.chaves_no_servidor.tavily.valor).toBe('tvly-do-servidor-1234567890');
     expect(b.onde_restaurar.servidor).toContain('/etc/bem-apoiado/env');
     expect(b.aviso).toContain('CHAVES EM TEXTO');
+  });
+
+  // A chave do Search Console é a mais difícil de repor: a conta Google do dono bloqueia criar chave de conta de
+  // serviço (DECISIONS, 21/10). Ela não entra no cofre (é cadastrada na tela do Search Console), mas tem de estar
+  // na cópia de segurança, senão perder a VPS é perder o acesso aos dados do Google.
+  it('credencial que é arquivo entra na cópia de segurança, com onde restaurar', async () => {
+    const { writeFileSync } = await import('node:fs');
+    const gsc = FILE_SECRETS.find((x) => x.id === 'gsc')!;
+    writeFileSync(gsc.file(), JSON.stringify({ client_email: 'motor@projeto.iam.gserviceaccount.com' }));
+    const b = JSON.parse(vaultBackup());
+    expect(b.chaves_em_arquivo.gsc.conteudo.client_email).toBe('motor@projeto.iam.gserviceaccount.com');
+    expect(b.chaves_em_arquivo.gsc.restaurar_em).toContain('gsc-key.json');
+    expect(b.chaves_em_arquivo.gsc.cadastrada_em).toContain('Search Console');
   });
 });

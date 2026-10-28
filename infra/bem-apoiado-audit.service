@@ -1,0 +1,14 @@
+[Unit]
+Description=Bem Apoiado: auditoria de coerência das páginas no ar
+After=network-online.target
+[Service]
+Type=oneshot
+User=bemapoiado
+WorkingDirectory=/opt/bem-apoiado/repo
+Environment=HOME=/opt/bem-apoiado
+# Mesmo caminho do botão "Auditar o site": cada página com problema vira um ajuste no quadro, e NADA vai ao ar
+# sem o aceite do editor. Ligada em 28/10, depois de medir quantos ajustes ele aplicava: 7 dos 10 primeiros, e
+# todos os da rodada seguinte. O teto de 40 cobre a fila das páginas vencidas sem competir com a produção de
+# página nova (a auditoria roda às 05h, uma hora depois do ciclo das 04h, e espera a trava se ele atrasar).
+ExecStart=/bin/bash /opt/bem-apoiado/repo/scripts/painel-acao.sh auditar 40
+TimeoutStartSec=2h

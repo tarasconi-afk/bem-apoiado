@@ -142,9 +142,24 @@ export function removeKey(s: Service, id: string): string | null {
   return hit.label;
 }
 
+// Credencial que é ARQUIVO, não texto: não entra no cofre (é cadastrada na tela do próprio serviço), mas entra na
+// cópia de segurança, que é o que importa para recuperar. A do Search Console é a mais crítica do projeto: a conta
+// Google do dono bloqueia a criação de chave de conta de serviço (DECISIONS, 21/10), então perdê-la não é "gerar
+// outra em dois minutos". A chave de envio ao GitHub fica de fora de propósito: ela se refaz em minutos
+// (RECUPERACAO) e manter uma cópia dela por aí aumenta o estrago se o arquivo vazar.
+export const FILE_SECRETS: { id: string; label: string; file: () => string; managed: string; note: string }[] = [
+  {
+    id: 'gsc',
+    label: 'Google Search Console (conta de serviço)',
+    file: () => join(STATE_DIR, 'gsc-key.json'),
+    managed: 'painel, em Desempenho → Google Search Console',
+    note: 'arquivo JSON da conta de serviço; restaure com permissão 600, do usuário do motor',
+  },
+];
+
 // Cópia de segurança do cofre, para baixar pelo painel (28/10, editor: "tudo recuperável caso eu perca acesso").
-// O cofre vive só na VPS; sem uma cópia fora dela, perder a máquina é perder as chaves. Traz as do cofre e os
-// NOMES das que ficam no servidor, com instrução de onde cada uma entra de volta.
+// O cofre vive só na VPS; sem uma cópia fora dela, perder a máquina é perder as chaves. Traz as do cofre, as do
+// servidor e as que são arquivo, com instrução de onde cada uma entra de volta.
 export function vaultBackup(now = new Date()): string {
   const v = read();
   const svc = services();
@@ -158,5 +173,12 @@ export function vaultBackup(now = new Date()): string {
     servicos: Object.fromEntries(Object.entries(svc).map(([id, i]) => [id, { nome: i.label, onde_pegar: i.where, variavel_no_servidor: i.env ?? null, usado_em: i.used ?? 'guardada para o futuro' }])),
     chaves_do_cofre: v.keys ?? {},
     chaves_no_servidor: Object.fromEntries(Object.entries(svc).filter(([, i]) => i.env && process.env[i.env]).map(([id, i]) => [id, { variavel: i.env, valor: process.env[i.env!] }])),
+    chaves_em_arquivo: Object.fromEntries(FILE_SECRETS.filter((x) => existsSync(x.file())).map((x) => [x.id, {
+      nome: x.label,
+      restaurar_em: x.file(),
+      observacao: x.note,
+      cadastrada_em: x.managed,
+      conteudo: JSON.parse(readFileSync(x.file(), 'utf8')),
+    }])),
   }, null, 2);
 }

@@ -19,7 +19,7 @@ import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
 import { balanceNow, setReportedBalance, spentToday } from './credits.ts';
 import { braveThisMonth, braveUsageByKey, BRAVE_MONTHLY_CAP, creditsThisMonth, MONTHLY_CREDIT_CAP, usageByKey } from './search.ts';
-import { addKey, addService, BUILTIN, keysOf, maskKey, removeKey, removeService, services, vaultBackup, type Service } from './secrets.ts';
+import { addKey, addService, BUILTIN, FILE_SECRETS, keysOf, maskKey, removeKey, removeService, services, vaultBackup, type Service } from './secrets.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
@@ -1151,6 +1151,12 @@ ${field('Chave', `<input name="chave" required minlength="16" maxlength="200" pl
 ${field('Como você chama essa conta', '<input name="rotulo" maxlength="40" placeholder="ex.: conta 2 (outro email)">')}
 <div class="cfg-actions"><button class="ok">Adicionar chave</button></div></form>`;
 }).join('')}
+<h4>Credenciais que são arquivo</h4>
+<p class="muted">Não entram no cofre porque são cadastradas na tela do próprio serviço, mas <b>entram na cópia de segurança</b>, que é o que importa para recuperar.</p>
+<div class="tw"><table><thead><tr><th>Credencial</th><th>Situação</th><th>Onde se cadastra</th></tr></thead><tbody>
+${FILE_SECRETS.map((x) => `<tr><td>${esc(x.label)}</td><td><span class="b ${existsSync(x.file()) ? 'ok' : 'neutral'}">${existsSync(x.file()) ? 'configurada' : 'não configurada'}</span></td><td class="muted">${esc(x.managed)}</td></tr>`).join('')}
+</tbody></table></div>
+
 <h4>Guardar a chave de um serviço novo</h4>
 <p class="muted">Amazon, outra VPS, o que for. O motor ainda não consulta um serviço criado aqui, mas a chave fica guardada, visível e na cópia de segurança — e quando algum código precisar dela, já está no lugar certo. Serviço criado por você pode ser removido; os que o motor usa, não.</p>
 <form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="servico-criar">

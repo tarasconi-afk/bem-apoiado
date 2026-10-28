@@ -1,0 +1,9 @@
+[Unit]
+Description=Bem Apoiado: auditoria semanal do site
+[Timer]
+# Quinta às 05h: depois do ciclo das 04h e com o dia inteiro pela frente para o editor decidir os cartões.
+OnCalendar=Thu *-*-* 05:00:00 America/Sao_Paulo
+Persistent=true
+RandomizedDelaySec=20min
+[Install]
+WantedBy=timers.target
