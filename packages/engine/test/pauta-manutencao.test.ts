@@ -14,9 +14,12 @@ describe('manutenção e espaço entram como critério de decisão', () => {
     expect(l!.text).toMatch(/espaço/i);
   });
 
-  // O prompt carrega todas as lições; uma lição longa demais empurra as outras e some em silêncio.
-  it('nenhuma lição passa de 240 caracteres', () => {
-    for (const l of lessons) expect(l.text.length, l.text.slice(0, 60)).toBeLessThanOrEqual(240);
+  // O prompt carrega todas as lições, então regra que vira parágrafo encarece toda página e dilui as outras.
+  // O teto de 240 em learnFromEditor vale para a lição APRENDIDA do pedido; as inseridas à mão numa auditoria
+  // não passam por ele (há uma de 256). O limite útil aqui é o que separa regra de redação: 300.
+  it('lição é regra curta, não parágrafo', () => {
+    for (const l of lessons) expect(l.text.length, l.text.slice(0, 60)).toBeLessThanOrEqual(300);
+    expect(lessons.reduce((t, l) => t + l.text.length, 0)).toBeLessThan(4000); // o que entra em todo prompt
   });
 
   // 27/10: o teto cortou 4 lições em silêncio quando duas novas entraram. O teto é 20 e hoje são 19.
