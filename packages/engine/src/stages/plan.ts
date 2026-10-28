@@ -56,6 +56,15 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `editor aprovou de primeira cruzam duas grandezas, como peso e densidade).\n` +
         `Pauta "A ou B": uma pergunta por opção pedindo o dado que a distingue (medida, capacidade, densidade), com o nome da ` +
         `opção na pergunta, para nenhuma ficar sem fonte (23/10: "solteirão ou viúva" saiu sem a medida do solteirão).\n` +
+        // 28/10, o editor sobre o rascunho de edredom ou cobertor: "sinto falta de diferenças na limpeza, espaço
+        // para guardar". Não foi o redator que omitiu — nenhuma das 7 perguntas da pauta tratava disso, e a
+        // página só responde o que a pauta perguntou. A regra acima, de priorizar o dado que decide, deixara o
+        // planejador cego para critério que não é medida de produto.
+        `Nem todo critério de decisão é medida de desempenho: quem compra também escolhe pelo trabalho que a peça dá e pelo ` +
+        `espaço que ocupa. Quando o produto tiver cuidado de conservação na etiqueta ou na ficha (têxteis, capas, ` +
+        `revestimentos), UMA das perguntas é sobre lavar, secar e guardar — o que o fabricante ou a norma de etiquetagem ` +
+        `mandam informar. Quando a peça for volumosa guardada, peça peso e medidas da peça. Continua valendo: só o que ` +
+        `fabricante, norma ou regulador respondem por escrito; nada de teste prático, preço ou opinião.\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
         `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Também quando a dúvida é entre tamanhos: os tamanhos comparados (ex.: ["solteiro", "solteirão", "viúva"]), senão a página mostra colchão casal numa dúvida de solteiro. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +
         `"product_kinds": só os tipos do vocabulário que a página vai explicar.` +
