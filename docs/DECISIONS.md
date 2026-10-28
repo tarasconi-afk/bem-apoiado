@@ -728,3 +728,31 @@ O que entrou no lugar:
 - **Página sem registro entra antes dos 30 dias**, à razão de uma por ciclo, até cobrir as que estão no ar.
 - **O código descarta medida e linha genérica:** "Excede Premium Casal" vira "Excede Premium"; "Simmons Pillow
   Top" sozinho não gera link.
+
+## 2026-10-28 · O motor avisa quando o provedor o impede de trabalhar
+O roteador de IA parou de aceitar chamadas às 16h21. O ciclo das 16h rodou sete minutos, gastou 34,6 créditos,
+viu três etapas falharem com HTTP 402 e terminou como "nada a publicar" — o mesmo resultado de um ciclo sem pauta
+pronta. Nenhum aviso saiu: `alerta.sh` só é chamado quando o código de saída não é 0 nem 3, e 3 é justamente
+"nada a publicar". A causa era da conta, não nossa: o painel da Hostinger exibia 40.153 créditos que o AI Router
+não enxergava, e só crédito comprado destravou. Ninguém procura defeito de cobrança enquanto o painel diz que há
+saldo — por isso a demora.
+
+Três camadas, da mais barata para a mais abrangente:
+- **Conferir antes de gastar** (`engine preflight`, chamado no início do ciclo): uma chamada mínima de verdade ao
+  roteador, ~0,0003 crédito. Chamar `/v1/models` não serve — a chave autentica e lista os 161 modelos mesmo sem
+  crédito, provado nas três chaves em 28/10. Bloqueado, o ciclo **nem começa**.
+- **Classificar o "nada a publicar"** (`engine preflight-texto`): continua normal por falta de pauta; vira aviso
+  quando o resultado traz 402, `insufficient_quota`, chave recusada ou cota de busca esgotada.
+- **Vigia três vezes ao dia** (`scripts/vigia.sh`, 07h40/13h40/19h40), fora dos horários de ciclo: cobre o que o
+  ciclo não tem como contar, que é o ciclo deixar de rodar. Também avisa se passarem 9 horas sem nenhum.
+
+Decisões dentro disso:
+- **O aviso diz o que fazer**, não só o que quebrou — inclusive que o saldo da tela de IA não é o que o AI Router
+  gasta. Foi o que custou as horas: o diagnóstico foi rápido, saber qual botão apertar não.
+- **Comprar crédito continua sendo decisão humana.** Dá para automatizar pela API de faturamento e não é prudente:
+  compra automática sem ninguém olhando é como se perde dinheiro em silêncio.
+- **Saída truncada conta como sucesso.** Validando na VPS, `max_tokens: 1` devolveu HTTP 400 "output limit
+  reached" com crédito e tudo funcionando: o modelo gasta tokens de raciocínio antes de escrever. Mantido como
+  falha, o preflight mandaria um email por ciclo com o motor sadio. Alarme falso é pior que alarme nenhum, porque
+  ensina a ignorar o email de verdade.
+- **Só a falta de IA impede o ciclo.** Sem busca, o motor ainda melhora página no ar com o que já tem em casa.
