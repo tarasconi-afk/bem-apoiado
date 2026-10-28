@@ -7,7 +7,7 @@ process.env.BEM_STATE_DIR = mkdtempSync(join(tmpdir(), 'bem-cofre-'));
 process.env.TAVILY_API_KEY = 'tvly-do-servidor-1234567890';
 process.env.NEXOS_API_KEY = 'sk-do-servidor-1234567890';
 
-const { addKey, keysOf, maskKey, removeKey, secret } = await import('../src/secrets.ts');
+const { addKey, addService, keysOf, maskKey, removeKey, removeService, secret, services, vaultBackup } = await import('../src/secrets.ts');
 const zera = () => rmSync(join(process.env.BEM_STATE_DIR!, 'keys.json'), { force: true });
 
 // 28/10, pedido do editor: "um repositório universal do projeto… cada vez menos usar essa instância do Claude e
@@ -49,5 +49,38 @@ describe('cofre de chaves do projeto', () => {
   it('a chave nunca aparece inteira', () => {
     expect(maskKey('tvly-do-servidor-1234567890')).toBe('…7890');
     expect(maskKey('tvly-do-servidor-1234567890')).not.toContain('servidor');
+  });
+
+  // 28/10, 2ª pergunta do editor: "caso seja necessário mais chaves no futuro (amazon, própria VPS ou outra VPS
+  // etc) consigo colocar?". Sim, e sem mexer em código.
+  it('o editor cria um serviço novo e guarda a chave dele', () => {
+    const sv = addService('amazon', 'Amazon PA-API', 'Associados', false);
+    expect(typeof sv).not.toBe('string');
+    expect(services().amazon!.custom).toBe(true);
+    expect(addKey('amazon', 'qualquer-credencial-longa-o-bastante', 'conta principal')).not.toBe('string');
+    expect(secret('amazon')).toBe('qualquer-credencial-longa-o-bastante');
+  });
+
+  it('serviço que o motor usa não sai pelo painel; o criado pelo editor sai', () => {
+    expect(removeService('tavily')).toBeNull();
+    addService('vps-2', 'Outra VPS', 'Hostinger', false);
+    expect(removeService('vps-2')).toBe('Outra VPS');
+    expect(services()['vps-2']).toBeUndefined();
+  });
+
+  it('apelido repetido e apelido curto demais são recusados', () => {
+    addService('amazon', 'Amazon', 'x', false);
+    expect(addService('amazon', 'Amazon de novo', 'x', false)).toContain('já existe');
+    expect(addService('!', 'X', 'x', false)).toContain('apelido curto');
+  });
+
+  // O cofre vive só na VPS: sem cópia fora dela, perder a máquina é perder as chaves.
+  it('a cópia de segurança traz as chaves do cofre e as do servidor, com onde restaurar', () => {
+    addKey('tavily', 'tvly-segunda-conta-0987654321', 'conta 2');
+    const b = JSON.parse(vaultBackup());
+    expect(b.chaves_do_cofre.tavily[0].key).toBe('tvly-segunda-conta-0987654321');
+    expect(b.chaves_no_servidor.tavily.valor).toBe('tvly-do-servidor-1234567890');
+    expect(b.onde_restaurar.servidor).toContain('/etc/bem-apoiado/env');
+    expect(b.aviso).toContain('CHAVES EM TEXTO');
   });
 });

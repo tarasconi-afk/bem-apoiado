@@ -19,7 +19,7 @@ import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
 import { balanceNow, setReportedBalance, spentToday } from './credits.ts';
 import { braveThisMonth, braveUsageByKey, BRAVE_MONTHLY_CAP, creditsThisMonth, MONTHLY_CREDIT_CAP, usageByKey } from './search.ts';
-import { addKey, keysOf, maskKey, removeKey, SERVICE, SERVICES, type Service } from './secrets.ts';
+import { addKey, addService, BUILTIN, keysOf, maskKey, removeKey, removeService, services, vaultBackup, type Service } from './secrets.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
@@ -1086,6 +1086,7 @@ function configHtml(): string {
     brave: { used: braveUsageByKey(), cap: BRAVE_MONTHLY_CAP },
   };
   const keys = keysOf('tavily');
+  const todosServicos = services();
   const meter = (used: number, cap: number) => `<div class="bar" title="${n(used)} de ${n(cap)}"><i style="width:${Math.min(100, (used / cap) * 100).toFixed(0)}%"></i></div>`;
   const card = (id: string, icon: string, title: string, sub: string) =>
     `<button type="button" class="cfg-card" data-cfg="${id}" aria-controls="cfg-${id}"><span class="cfg-ic" aria-hidden="true">${icon}</span><b>${title}</b><span class="muted">${sub}</span></button>`;
@@ -1130,13 +1131,13 @@ ${field('Saldo mostrado no hPanel agora', '<input name="saldo" required inputmod
 <p class="muted">Ajustes, pedidos e auditorias feitos pelo painel não entram no limite diário. Mudar estes limites ainda é feito na VPS.</p></section>
 
 <section class="cfg-panel" id="cfg-chaves"><h3>Chaves do projeto</h3>
-<p class="muted">Todas as chaves que o motor usa, num lugar só. Cadastre aqui e vale na próxima chamada, sem entrar no servidor. A chave só aparece inteira na hora de colar; depois disso, só os quatro últimos dígitos. A <b>chave principal</b> de cada serviço mora no servidor e não sai por aqui.</p>
-${SERVICES.map((sv) => {
-  const info = SERVICE[sv];
+<p class="muted">Todas as chaves do projeto num lugar só, fora do site e fora do git. Cadastre aqui e vale na próxima chamada, sem entrar no servidor. A chave só aparece inteira na hora de colar; depois disso, só os quatro últimos dígitos. A <b>chave principal</b> de cada serviço mora no servidor e não sai por aqui.</p>
+<p class="muted"><b>O cofre vive só nesta máquina.</b> Baixe uma cópia e guarde num gerenciador de senhas: sem ela, perder a VPS é perder as chaves. ${form('cofre-backup', {}, 'Baixar cópia do cofre', '', 'O arquivo contém as chaves em texto. Guarde num gerenciador de senhas e nunca no git nem por email.')}</p>
+${Object.entries(todosServicos).map(([sv, info]) => {
   const list = keysOf(sv);
   const u = uso[sv];
   return `<h4>${esc(info.label)}</h4>
-<p class="muted">${info.multiple ? `Aceita várias contas: o motor usa uma por vez e passa para a próxima quando a cota mensal (${n(u?.cap ?? 0)}) acaba. Abra a conta nova com outro email.` : 'Uma chave por vez; a primeira da lista é a que o motor usa.'} Pegue em ${esc(info.where)}.</p>
+<p class="muted">${info.multiple ? `Aceita várias contas: o motor usa uma por vez${u ? ` e passa para a próxima quando a cota mensal (${n(u.cap)}) acaba` : ''}. Abra a conta nova com outro email.` : 'Uma chave por vez; a primeira da lista é a que o motor usa.'} Pegue em ${esc(info.where)}. Usada em: ${esc(info.used ?? 'nada ainda; guardada para o futuro')}.${info.custom ? ` ${form('servico-remover', { id: sv }, 'Remover serviço', '', `Remover o serviço "${info.label}" e as chaves dele do cofre?`)}` : ''}</p>
 <div class="tw"><table><thead><tr><th>Conta</th><th>Chave</th>${u ? '<th class="num">Usadas no mês</th><th>Situação</th>' : '<th>Situação</th>'}<th></th></tr></thead><tbody>
 ${list.length ? list.map((k, i) => {
     const used = u ? (u.used[k.id] ?? 0) : 0;
@@ -1150,6 +1151,14 @@ ${field('Chave', `<input name="chave" required minlength="16" maxlength="200" pl
 ${field('Como você chama essa conta', '<input name="rotulo" maxlength="40" placeholder="ex.: conta 2 (outro email)">')}
 <div class="cfg-actions"><button class="ok">Adicionar chave</button></div></form>`;
 }).join('')}
+<h4>Guardar a chave de um serviço novo</h4>
+<p class="muted">Amazon, outra VPS, o que for. O motor ainda não consulta um serviço criado aqui, mas a chave fica guardada, visível e na cópia de segurança — e quando algum código precisar dela, já está no lugar certo. Serviço criado por você pode ser removido; os que o motor usa, não.</p>
+<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="servico-criar">
+${field('Apelido curto', '<input name="id" required minlength="2" maxlength="24" placeholder="ex.: amazon, vps-2">', 'Só letras, números e hífen. É como o motor vai chamá-lo.')}
+${field('Nome por extenso', '<input name="label" required minlength="2" maxlength="60" placeholder="ex.: Amazon PA-API">')}
+${field('Onde pegar a chave', '<input name="where" maxlength="80" placeholder="ex.: Associados, Ferramentas de produto">')}
+${field('Quantas contas', '<label class="muted"><input type="checkbox" name="multiple" value="1"> aceita várias contas (serviço com cota mensal)</label>')}
+<div class="cfg-actions"><button class="ok">Criar serviço</button></div></form>
 <p class="muted">A chave do Search Console é de outro tipo (arquivo de conta de serviço) e fica logo abaixo, no seu próprio campo.</p></section>
 <script>(function () {
   var cards = document.querySelectorAll('.cfg-card'); if (!cards.length) return;
@@ -1418,15 +1427,33 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       // A chave vai direto para o diretório de estado (fora do git, 600) e já vale na busca seguinte: não é job,
       // não mexe no site e não precisa de commit. Depois de gravada, o painel só mostra os quatro últimos dígitos.
       const sv = (f.get('servico') ?? '') as Service;
-      if (!SERVICES.includes(sv)) msg = 'serviço desconhecido';
+      const info = services()[sv];
+      if (!info) msg = 'serviço desconhecido';
       else {
         const r = addKey(sv, f.get('chave') ?? '', f.get('rotulo') ?? '');
-        msg = typeof r === 'string' ? r : `chave "${r.label}" cadastrada em ${SERVICE[sv].label} (${maskKey(r.key)}); vale já na próxima chamada`;
+        msg = typeof r === 'string' ? r : `chave "${r.label}" cadastrada em ${info.label} (${maskKey(r.key)})${info.used ? '; vale já na próxima chamada' : '; guardada no cofre'}`;
       }
     } else if (f.get('acao') === 'chave-remover') {
       const sv = (f.get('servico') ?? '') as Service;
-      const r = SERVICES.includes(sv) ? removeKey(sv, f.get('id') ?? '') : null;
+      const r = services()[sv] ? removeKey(sv, f.get('id') ?? '') : null;
       msg = r ? `chave "${r}" removida` : 'chave não encontrada (a principal fica no servidor e não sai por aqui)';
+    } else if (f.get('acao') === 'cofre-backup') {
+      // Única ação que responde com arquivo em vez de voltar ao painel: é uma cópia para guardar fora da VPS.
+      const corpo = vaultBackup();
+      res.writeHead(200, {
+        'content-type': 'application/json; charset=utf-8',
+        'content-disposition': `attachment; filename="cofre-bem-apoiado-${new Date().toISOString().slice(0, 10)}.json"`,
+        'cache-control': 'no-store',
+      });
+      res.end(corpo);
+      return;
+    } else if (f.get('acao') === 'servico-criar') {
+      const r = addService(f.get('id') ?? '', f.get('label') ?? '', f.get('where') ?? '', f.get('multiple') === '1');
+      msg = typeof r === 'string' ? r : `serviço "${r.label}" criado; agora cadastre a chave dele acima`;
+    } else if (f.get('acao') === 'servico-remover') {
+      const id = f.get('id') ?? '';
+      const r = BUILTIN[id] ? null : removeService(id);
+      msg = r ? `serviço "${r}" e as chaves dele saíram do cofre` : 'serviço não encontrado, ou é um que o motor usa (esse sai pelo desenvolvedor)';
     } else if (f.get('acao') === 'saldo') {
       const v = Number((f.get('saldo') ?? '').replace(/\./g, '').replace(',', '.'));
       if (!Number.isFinite(v) || v < 0 || v > 10_000_000) msg = 'saldo inválido';

@@ -11,7 +11,7 @@ mais que lembrança: confira no código antes de agir.
 | Site publicado | Hostinger, conta `u226814741`, site `bemapoiado.com`, publica o ramo `deploy` | o ramo `deploy` é gerado pela Action `deploy.yml` |
 | Motor (ciclos, painel, sync, contador) | VPS Hostinger `srv2079501` (IP 200.141.17.249, Ubuntu 24.04) | serviços em `infra/` (idênticos aos da VPS) |
 | Estado da VPS | `/var/lib/bem-apoiado/` | não (ver seção 3) |
-| Segredos | `/etc/bem-apoiado/env` e `/var/lib/bem-apoiado/gsc-key.json` na VPS; segredo `HOSTINGER_API_TOKEN` no GitHub | não, nunca |
+| Segredos | `/etc/bem-apoiado/env`, o cofre `/var/lib/bem-apoiado/keys.json` e `gsc-key.json` na VPS; segredo `HOSTINGER_API_TOKEN` no GitHub | não, nunca |
 | Search Console | propriedade `sc-domain:bemapoiado.com`, conta de serviço com acesso "Completo" | não |
 | Afiliado | tag Amazon `bemapoiado-20` (`packages/core/src/schemas.ts`) | sim |
 | IndexNow | chave pública em `site/public/<chave>.txt` e `packages/engine/src/announce.ts` | sim |
@@ -37,6 +37,7 @@ um do outro: perder um dos dois não perde o projeto.
 | `gsc-key.json` | leitura do Search Console e reenvio do sitemap | criar chave nova da conta de serviço no Google Cloud e colar no painel (Desempenho → Google Search Console) |
 | `painel-auth.json` | senha do painel | `npm run -s engine -- admin-senha` (lê a senha da entrada padrão) |
 | `/opt/bem-apoiado/.ssh/github_deploy` | a VPS envia commits ao GitHub | gerar par novo, cadastrar a chave pública em GitHub → Settings → Deploy keys com escrita |
+| `keys.json` (cofre de chaves, 28/10) | chaves que o editor cadastrou pelo painel: contas extras de busca, chave de IA trocada, serviços criados por ele (Amazon, outra VPS…) | **baixe a cópia antes**: painel → Configurações → Chaves do projeto → "Baixar cópia do cofre". O arquivo diz onde cada chave volta. Sem a cópia, só gerando chaves novas nos fornecedores |
 | `credits-ledger.jsonl`, `llm-usage.json`, `tavily-usage.json` | gasto e tetos | recomeçam do zero; informar o saldo no painel |
 | `hits/` | visitas e cliques na Amazon (contador próprio) | histórico perdido; único item não recriável. O Search Console guarda o do Google |
 | demais (`deferred-topics`, `*-attempts`, `previas`, `gsc/`, `announce.json`) | controle de tentativas e prévias | o motor recria sozinho |
