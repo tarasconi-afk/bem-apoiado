@@ -1,0 +1,76 @@
+{
+  "run_id": "20261028T131608_colchao-d28-ou-d33-enrich_33b8",
+  "topic": "colchao-d28-ou-d33",
+  "accepted": [
+    {
+      "claim_id": "clm_dfbde6c5e128",
+      "question_id": "q_o_que_e_d",
+      "source_id": "src_4db838741b83",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0468e47e6472",
+      "question_id": "q_o_que_e_d",
+      "source_id": "src_4db838741b83",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dfbde6c5e128",
+      "question_id": "q_firmeza",
+      "source_id": "src_4db838741b83",
+      "new": false
+    },
+    {
+      "claim_id": "clm_481ef1e6101c",
+      "question_id": "q_o_que_e_d",
+      "source_id": "src_640e7ce4a01c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_87dd96420cae",
+      "question_id": "q_peso_biotipo",
+      "source_id": "src_640e7ce4a01c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_87dd96420cae",
+      "question_id": "q_firmeza",
+      "source_id": "src_640e7ce4a01c",
+      "new": false
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_o_que_e_d": 3,
+    "q_peso_biotipo": 1,
+    "q_firmeza": 2,
+    "q_etiqueta": 0,
+    "q_durabilidade": 0
+  },
+  "unanswered": [
+    "q_etiqueta",
+    "q_durabilidade"
+  ],
+  "usage": {
+    "input_tokens": 3533,
+    "output_tokens": 809,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_4db838741b83",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.84
+    },
+    {
+      "source_id": "src_640e7ce4a01c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 14.599385520000004
+}

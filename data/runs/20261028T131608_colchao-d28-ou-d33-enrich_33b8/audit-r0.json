@@ -1,0 +1,148 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que D28 oferece suporte intermediário, nem que o peso é o principal fator de escolha. Além disso, citam apenas a Castor, não fabricantes em geral.",
+      "fix": "Segundo a Castor, a densidade 33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado, enquanto a densidade 28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio."
+    },
+    {
+      "ref": "o-que-significa-densidade#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a densidade é expressa em quilogramas por metro cúbico e exemplificam D33 como 33 kg/m³, mas não mencionam D28 como 28 kg/m³ nem afirmam que maior densidade geralmente significa maior firmeza.",
+      "fix": "Densidade de espuma é a quantidade de quilos de espuma por metro cúbico, medida em kg/m³. Essa classificação é representada pela letra D; por exemplo, a Ortobom informa que D33 corresponde a 33 kg de espuma por m³."
+    },
+    {
+      "ref": "o-que-significa-densidade#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos indicam que a densidade nominal das lâminas de espuma, em kg/m³, está entre as informações obrigatórias, mas não dizem que a etiqueta especificamente deve apresentar essa informação nem que o Inmetro verifica a correspondência entre a densidade declarada e a medida real durante a certificação.",
+      "fix": "Entre as informações obrigatórias do produto e da embalagem está a densidade nominal das lâminas de espuma, em kg/m³."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não definem densidade como quantidade de espuma por volume nem firmeza como a sensação ao deitar. Eles apenas listam densidades, resistências e níveis de conforto como características distintas; além disso, a afirmação é atribuída à Ortobom, mas as definições não aparecem na citação.",
+      "fix": "Não. A Ortobom distingue entre estruturas, densidades, resistências e níveis de conforto dos colchões de espuma, indicando que esses aspectos não são necessariamente a mesma característica."
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que, nesse comparativo da Castor, a densidade 33 oferece mais firmeza que a D28 e que a D28 oferece suporte mais macio, além de relacionarem a D28 a conforto e firmeza. Não sustentam que a densidade seja o fator principal, que estrutura interna, espessura e composição também influenciem a sensação, nem que o conforto varie conforme o projeto de cada colchão.",
+      "fix": "Segundo a Castor, a densidade 33 oferece mais firmeza, enquanto a D28 oferece suporte mais macio; a própria Castor também descreve a D28 como equilibrando conforto e firmeza."
+    },
+    {
+      "ref": "o-que-confira-na-etiqueta#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a obrigatoriedade de informar o tipo do produto, mas listam categorias específicas (como colchão de espuma tradicional, box conjugado, auxiliar, misto e colchonete). A formulação “espuma simples ou composto” reduz e altera essa classificação, não abrangendo todas as categorias citadas.",
+      "fix": "A etiqueta deve informar obrigatoriamente o tipo regulamentar do produto, como colchão de espuma tradicional, box conjugado, auxiliar, misto ou colchonete, conforme aplicável; deve também informar a densidade nominal e, nos colchões compostos ou mistos, as espessuras das lâminas."
+    },
+    {
+      "ref": "o-que-confira-na-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-e-deformacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas que a espuma D33 oferece conforto e durabilidade. Ele não afirma que densidades maiores resistem melhor à deformação sob peso constante nem faz comparação com densidades menores.",
+      "fix": "Segundo a Castor, a espuma D33 oferece propriedades de conforto e durabilidade."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa somente a recomendação de girar e virar o colchão a cada 15 dias ou uma vez por mês. Não diz que isso distribui o desgaste, prolonga a vida útil ou vale independentemente da densidade.",
+      "fix": "Segundo a Probel, a manutenção inclui girar e virar o colchão a cada 15 dias ou uma vez por mês."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citam apenas a Castor, não a Probel. Além disso, eles não estabelecem o corte exato de até 60 kg nem dizem literalmente que D33 seria firme demais para essa faixa; apenas dizem que D28 é melhor para peso leve a médio e que D33 oferece mais firmeza.",
+      "fix": "Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, enquanto D33 oferece mais firmeza."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citam apenas a Castor, não a Probel. Também não definem a faixa exata de 61 a 80 kg, não classificam D28 como “intermediário” nem dizem que a escolha depende da preferência; afirmam apenas que D33 é mais firme e adequada a peso médio a elevado, enquanto D28 é melhor para peso leve a médio.",
+      "fix": "Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e D33 é mais firme e adequada para pessoas de peso médio a elevado."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citam apenas a Castor, não a Probel. Além disso, não estabelecem o corte exato de acima de 80 kg nem afirmam que D28 é formalmente “não recomendada”; dizem apenas que D28 é melhor para peso leve a médio e que D33 é adequada para peso médio a elevado.",
+      "fix": "Segundo a Castor, D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado, enquanto D28 é melhor para pessoas de peso leve a médio."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "A conclusão introduz faixas exatas de peso — até 60, 61 a 80 e acima de 80 kg — que não aparecem nos trechos. Também transforma “suporte mais macio” em “conforto adequado” e apresenta D33 como opção indicada especificamente acima de 80 kg, embora a fonte diga apenas que ela é adequada para peso médio a elevado.",
+      "fix": "Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio; D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado. A escolha pode considerar a preferência por uma superfície mais macia ou mais firme."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram um produto D28 com suporte de 90 kg e dois produtos D33 com suporte de 100 kg por pessoa. Eles não sustentam que todos os modelos D28 suportam até 90 kg, que os D33 chegam a 120 kg ou que esses limites valem para os modelos da marca em geral.",
+      "fix": "Nos produtos citados da Probel, o modelo D28 suporta 90 kg por pessoa e os modelos D33 citados suportam 100 kg por pessoa. Confira o limite na ficha do produto escolhido."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não dizem que D28 oferece suporte intermediário, nem que o peso é o principal fator de escolha. Além disso, citam apenas a Castor, não fabricantes em geral. Versão sustentável: A densidade 33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado, enquanto a densidade 28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, segundo a Castor."
+    },
+    {
+      "ref": "o-que-significa-densidade#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a densidade é expressa em quilogramas por metro cúbico e exemplificam D33 como 33 kg/m³, mas não mencionam D28 como 28 kg/m³ nem afirmam que maior densidade geralmente significa maior firmeza. Versão sustentável: Densidade de espuma é a quantidade de quilos de espuma por metro cúbico, medida em kg/m³. Essa classificação é representada pela letra D; por exemplo, a Ortobom informa que D33 corresponde a 33 kg de espuma por m³."
+    },
+    {
+      "ref": "o-que-significa-densidade#1",
+      "msg": "UNSUPPORTED. Os trechos indicam que a densidade nominal das lâminas de espuma, em kg/m³, está entre as informações obrigatórias, mas não dizem que a etiqueta especificamente deve apresentar essa informação nem que o Inmetro verifica a correspondência entre a densidade declarada e a medida real durante a certificação. Versão sustentável: Entre as informações obrigatórias do produto e da embalagem está a densidade nominal das lâminas de espuma, em kg/m³."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "msg": "UNSUPPORTED. Os trechos não definem densidade como quantidade de espuma por volume nem firmeza como a sensação ao deitar. Eles apenas listam densidades, resistências e níveis de conforto como características distintas; além disso, a afirmação é atribuída à Ortobom, mas as definições não aparecem na citação. Versão sustentável: Não. A Ortobom distingue entre estruturas, densidades, resistências e níveis de conforto dos colchões de espuma, indicando que esses aspectos não são necessariamente a mesma característica."
+    },
+    {
+      "ref": "densidade-e-firmeza#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que, nesse comparativo da Castor, a densidade 33 oferece mais firmeza que a D28 e que a D28 oferece suporte mais macio, além de relacionarem a D28 a conforto e firmeza. Não sustentam que a densidade seja o fator principal, que estrutura interna, espessura e composição também influenciem a sensação, nem que o conforto varie conforme o projeto de cada colchão. Versão sustentável: Segundo a Castor, a densidade 33 oferece mais firmeza, enquanto a D28 oferece suporte mais macio; a própria Castor também descreve a D28 como equilibrando conforto e firmeza."
+    },
+    {
+      "ref": "o-que-confira-na-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam a obrigatoriedade de informar o tipo do produto, mas listam categorias específicas (como colchão de espuma tradicional, box conjugado, auxiliar, misto e colchonete). A formulação “espuma simples ou composto” reduz e altera essa classificação, não abrangendo todas as categorias citadas. Versão sustentável: A etiqueta deve informar obrigatoriamente o tipo regulamentar do produto, como colchão de espuma tradicional, box conjugado, auxiliar, misto ou colchonete, conforme aplicável; deve também informar a densidade nominal e, nos colchões compostos ou mistos, as espessuras das lâminas."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que a espuma D33 oferece conforto e durabilidade. Ele não afirma que densidades maiores resistem melhor à deformação sob peso constante nem faz comparação com densidades menores. Versão sustentável: Segundo a Castor, a espuma D33 oferece propriedades de conforto e durabilidade."
+    },
+    {
+      "ref": "durabilidade-e-deformacao#2",
+      "msg": "UNSUPPORTED. O trecho citado informa somente a recomendação de girar e virar o colchão a cada 15 dias ou uma vez por mês. Não diz que isso distribui o desgaste, prolonga a vida útil ou vale independentemente da densidade. Versão sustentável: Segundo a Probel, a manutenção inclui girar e virar o colchão a cada 15 dias ou uma vez por mês."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. Os trechos citam apenas a Castor, não a Probel. Além disso, eles não estabelecem o corte exato de até 60 kg nem dizem literalmente que D33 seria firme demais para essa faixa; apenas dizem que D28 é melhor para peso leve a médio e que D33 oferece mais firmeza. Versão sustentável: Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, enquanto D33 oferece mais firmeza."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. Os trechos citam apenas a Castor, não a Probel. Também não definem a faixa exata de 61 a 80 kg, não classificam D28 como “intermediário” nem dizem que a escolha depende da preferência; afirmam apenas que D33 é mais firme e adequada a peso médio a elevado, enquanto D28 é melhor para peso leve a médio. Versão sustentável: Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e D33 é mais firme e adequada para pessoas de peso médio a elevado."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. Os trechos citam apenas a Castor, não a Probel. Além disso, não estabelecem o corte exato de acima de 80 kg nem afirmam que D28 é formalmente “não recomendada”; dizem apenas que D28 é melhor para peso leve a médio e que D33 é adequada para peso médio a elevado. Versão sustentável: Segundo a Castor, D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado, enquanto D28 é melhor para pessoas de peso leve a médio."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. A conclusão introduz faixas exatas de peso — até 60, 61 a 80 e acima de 80 kg — que não aparecem nos trechos. Também transforma “suporte mais macio” em “conforto adequado” e apresenta D33 como opção indicada especificamente acima de 80 kg, embora a fonte diga apenas que ela é adequada para peso médio a elevado. Versão sustentável: Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio; D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado. A escolha pode considerar a preferência por uma superfície mais macia ou mais firme."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos mostram um produto D28 com suporte de 90 kg e dois produtos D33 com suporte de 100 kg por pessoa. Eles não sustentam que todos os modelos D28 suportam até 90 kg, que os D33 chegam a 120 kg ou que esses limites valem para os modelos da marca em geral. Versão sustentável: Nos produtos citados da Probel, o modelo D28 suporta 90 kg por pessoa e os modelos D33 citados suportam 100 kg por pessoa. Confira o limite na ficha do produto escolhido."
+    }
+  ]
+}

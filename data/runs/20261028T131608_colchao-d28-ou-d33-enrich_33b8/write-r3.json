@@ -1,0 +1,201 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Peso leve a médio",
+          "claim_ids": [
+            "clm_87dd96420cae"
+          ]
+        },
+        {
+          "text": "Melhor para esta faixa; suporte mais macio",
+          "claim_ids": [
+            "clm_87dd96420cae"
+          ]
+        },
+        {
+          "text": "Não informado nas fontes",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Peso médio a elevado",
+          "claim_ids": [
+            "clm_87dd96420cae"
+          ]
+        },
+        {
+          "text": "Não informado nas fontes",
+          "claim_ids": []
+        },
+        {
+          "text": "Melhor para esta faixa; oferece mais firmeza",
+          "claim_ids": [
+            "clm_87dd96420cae"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "D28 ou D33: qual densidade de espuma escolher",
+    "description": "Densidade de espuma é medida em kg/m³. D28 oferece suporte intermediário; D33 oferece mais firmeza. Escolha pelo seu peso e preferência.",
+    "verdict": {
+      "text": "A densidade 33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado, enquanto a densidade 28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio, segundo a Castor.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_87dd96420cae"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-significa-densidade",
+        "heading": "O que significa densidade (D28, D33)",
+        "blocks": [
+          {
+            "text": "Densidade de espuma é a quantidade de quilos de espuma por metro cúbico, medida em kg/m³. Essa classificação é representada pela letra D; por exemplo, a Ortobom informa que D33 corresponde a 33 kg de espuma por m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_834ae54f95d5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Entre as informações obrigatórias do produto e da embalagem está a densidade nominal das lâminas de espuma, em kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_23c3ec49c618"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-e-firmeza",
+        "heading": "Densidade é a mesma coisa que firmeza?",
+        "blocks": [
+          {
+            "text": "Não. A Ortobom distingue entre estruturas, densidades, resistências e níveis de conforto dos colchões de espuma, indicando que esses aspectos não são necessariamente a mesma característica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f5815bb2b5fc"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, a densidade 33 oferece mais firmeza, enquanto a D28 oferece suporte mais macio; a própria Castor também descreve a D28 como equilibrando conforto e firmeza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_87dd96420cae",
+              "clm_dfbde6c5e128"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-confira-na-etiqueta",
+        "heading": "O que conferir na etiqueta sobre densidade",
+        "blocks": [
+          {
+            "text": "A etiqueta deve informar obrigatoriamente o tipo regulamentar do produto, como colchão de espuma tradicional, box conjugado, auxiliar, misto ou colchonete, conforme aplicável; deve também informar a densidade nominal e, nos colchões compostos ou mistos, as espessuras das lâminas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03f4e6488b5d",
+              "clm_23c3ec49c618",
+              "clm_a1f44696e40e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta deve ter no mínimo 150 cm² de área, ser fixada permanentemente no revestimento em local visível (não na face inferior) e permanecer legível mesmo quando o colchão está embalado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8505069935d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "durabilidade-e-deformacao",
+        "heading": "Durabilidade e deformação conforme a densidade",
+        "blocks": [
+          {
+            "text": "Segundo Probel, colchões com espuma D33 são conhecidos por sua durabilidade e capacidade de manter forma e conforto ao longo do tempo. A densidade D33 oferece resistência adequada sem ser excessivamente dura, distribuindo o peso bem pelo corpo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29cdd640b362",
+              "clm_958d6ab22f55"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Castor, a espuma D33 oferece propriedades de conforto e durabilidade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0468e47e6472"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a manutenção inclui girar e virar o colchão a cada 15 dias ou uma vez por mês.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_bc453e1a9646"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre D28 e D33",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, D28 é melhor para pessoas de peso leve a médio e oferece suporte mais macio; D33 oferece mais firmeza e é adequada para pessoas de peso médio a elevado. A escolha pode considerar a preferência por uma superfície mais macia ou mais firme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_87dd96420cae"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nos produtos citados da Probel, o modelo D28 suporta 90 kg por pessoa e os modelos D33 citados suportam 100 kg por pessoa. Confira o limite na ficha do produto escolhido.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6bca363f18b4",
+              "clm_6500e35fa0b1",
+              "clm_a917fb3cfba7"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. O trecho citado é da Castor e não menciona a Probel, portanto a tabela não pode ser apresentada como recomendação conjunta das duas marcas. Além disso, o trecho não afirma que D33 também serve para peso leve a médio; apenas diz que D33 é adequada para peso médio a elevado. Versão sustentável: [tabela: Densidade indicada no trecho da Castor conforme peso] Peso leve a médio | D28: melhor para essa faixa, com suporte mais macio. Peso médio a elevado | D33: adequada para essa faixa, com mais firmeza."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. O trecho citado é da Castor e não menciona a Probel, portanto a tabela não pode ser atribuída às duas marcas. O trecho também diz que D28 é melhor para peso leve a médio, mas não afirma literalmente que ela é menos adequada para peso médio a elevado. Versão sustentável: [tabela: Densidade indicada no trecho da Castor conforme peso] Peso médio a elevado | D28: o trecho não informa sua adequação para essa faixa. D33: adequada para essa faixa e oferece mais firmeza."
+    }
+  ],
+  "usage": {
+    "input_tokens": 28949,
+    "output_tokens": 595
+  }
+}

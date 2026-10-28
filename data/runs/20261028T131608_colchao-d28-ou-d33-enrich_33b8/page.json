@@ -1,0 +1,39 @@
+{
+  "slug": "colchao-d28-ou-d33",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 176126,
+    "output_tokens": 32626,
+    "calls": 41
+  },
+  "credits": 29.036202119999995,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha D28 se você está na faixa de peso leve a médio e prefere suporte mais macio.",
+      "Escolha D33 se você está na faixa de peso médio a elevado ou prefere uma superfície mais firme.",
+      "Nos exemplos da Probel, o modelo D28 suporta até 90 kg por pessoa e os modelos D33 citados suportam até 100 kg por pessoa; confira o limite do modelo escolhido.",
+      "Confira na etiqueta a densidade nominal de cada lâmina de espuma e, em colchões compostos ou mistos, a espessura de cada lâmina.",
+      "Não trate densidade e firmeza como sinônimos: a sensação de firmeza pode variar conforme a estrutura e o nível de conforto declarados pelo fabricante.",
+      "Considere girar e virar o colchão conforme a orientação do fabricante para ajudar na manutenção."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma tabela de fonte primária relacionando D28 e D33 a faixas exatas de peso e altura, como a tabela da Castor usada em outras páginas.",
+      "Uma regra mais clara para casos de sobreposição entre D28 e D33, especialmente para pessoas próximas dos limites de peso.",
+      "Informações do fabricante sobre outros fatores que alteram a firmeza percebida, como espessura e composição das lâminas, além da densidade.",
+      "Limites de peso comparáveis para mais modelos D28 e D33, em vez de apenas exemplos específicos da Probel."
+    ],
+    "publishable": false,
+    "summary": "A página é útil e publicável porque explica o significado de D28 e D33, oferece uma regra prática por peso e preferência de firmeza e orienta o leitor a conferir a capacidade e a densidade na ficha ou etiqueta. A resposta principal é apenas parcial porque “peso leve, médio e elevado” não define limites concretos, e os únicos limites numéricos apresentados são de modelos específicos; uma tabela de peso tornaria a escolha mais segura.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

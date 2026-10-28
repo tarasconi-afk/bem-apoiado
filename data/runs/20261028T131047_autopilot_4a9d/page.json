@@ -1,0 +1,48 @@
+{
+  "slug": "travesseiro-de-pena-de-ganso-ou-de-fibra",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 144603,
+    "output_tokens": 21896,
+    "calls": 33
+  },
+  "credits": 44.98086156000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete instruções de cuidado para pluma de ganso e fibra, mas o bloco traz apenas as instruções do modelo Hug, de fibra; não informa os cuidados da pluma nessa seção (cuidados-de-lavagem-por-tipo#0); Mudar o título para algo como \"Instruções de cuidad"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se precisa lavar o travesseiro em casa, escolha um modelo de fibra cuja etiqueta permita lavagem, como o Hug da Ortobom.",
+      "Se aceita limpeza a seco e secagem natural, pode escolher um modelo de pluma de ganso cuja etiqueta permita esses cuidados.",
+      "Confira na etiqueta o nome do enchimento e os percentuais de composição para confirmar se o produto é de fibra ou de pluma de ganso.",
+      "Compare as dimensões informadas na ficha do modelo, pois os travesseiros citados têm medidas diferentes."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção promete instruções de cuidado para pluma de ganso e fibra, mas o bloco traz apenas as instruções do modelo Hug, de fibra; não informa os cuidados da pluma nessa seção (cuidados-de-lavagem-por-tipo#0); Mudar o título para algo como \"Instruções de cuidad",
+      "Gramatura do enchimento de fibra e de plumas de ganso informada pelos fabricantes.",
+      "Percentual detalhado de penas e plumas de ganso quando houver mistura entre esses materiais.",
+      "Especificação mais completa da composição do enchimento de fibra do Conect Comfort da Probel.",
+      "Recomendação de troca específica para cada tipo de travesseiro, além da orientação geral da Duoflex.",
+      "Critérios de conforto, como altura, maciez ou sustentação, para quem não escolhe principalmente pela facilidade de lavagem."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente à escolha com um critério prático — fibra para quem precisa lavar em casa e pluma de ganso para quem aceita limpeza a seco e secagem natural — e orienta o leitor a conferir composição e cuidados na etiqueta. Faltam gramaturas e percentuais mais detalhados, mas a ausência não impede a decisão principal.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "cuidados-de-lavagem-por-tipo#0",
+        "problem": "A seção promete instruções de cuidado para pluma de ganso e fibra, mas o bloco traz apenas as instruções do modelo Hug, de fibra; não informa os cuidados da pluma nessa seção.",
+        "fix": "Mudar o título para algo como \"Instruções de cuidado na etiqueta: modelo Hug de fibra\" ou tirar da promessa da seção a referência à pluma de ganso."
+      }
+    ]
+  }
+}

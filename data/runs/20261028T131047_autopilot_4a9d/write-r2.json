@@ -1,0 +1,356 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se você lava travesseiros em casa, o Hug da Ortobom permite lavagem suave até 40 °C. Para o travesseiro de pluma de ganso, a Ortobom e Simmons proíbem lavar e secar em tambor; permitem limpeza a seco e secagem natural.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3fb7b71e5656",
+        "clm_439eebde3cf1",
+        "clm_444f49032317"
+      ]
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "action": "replace",
+      "text": "A etiqueta têxtil do Inmetro exige que apareçam o nome das fibras e seu percentual de participação, em ordem decrescente e com igual destaque.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_f320e9d0a6af",
+        "clm_d7f8e50c91f7"
+      ]
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "action": "replace",
+      "text": "A etiqueta deve informar cuidados de conservação relativos a lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d0e930280b39"
+      ]
+    },
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#0",
+      "action": "replace",
+      "text": "No travesseiro de pluma de ganso da Ortobom, a etiqueta proíbe lavagem, secagem em tambor e passadoria, e permite secagem na horizontal à sombra e limpeza a seco. No modelo da Simmons, a etiqueta proíbe lavagem à água e secagem em tambor, exigindo secagem natural no varal.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_439eebde3cf1",
+        "clm_444f49032317"
+      ]
+    },
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#1",
+      "action": "replace",
+      "text": "No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3fb7b71e5656"
+      ]
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "action": "replace",
+      "text": "Na ficha da Ortobom, o travesseiro de pluma de ganso declara enchimento de 100% de plumas de ganso. A Simmons também informa 100% pluma de ganso no modelo consultado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9ba2684f8015",
+        "clm_6228f8bb172f"
+      ]
+    },
+    {
+      "ref": "dimensoes-informadas#0",
+      "action": "replace",
+      "text": "O travesseiro Pluma de Ganso da Simmons mede 50 × 70 cm. A Ortobom oferece o modelo Pluma de Ganso Plus em 90 × 50 cm e o Hug em 140 × 50 cm. O Conect Comfort da Probel mede 40 × 60 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_042b85d24b34",
+        "clm_a430d3eb214c",
+        "clm_b3a4f0e241fb",
+        "clm_1cea45ecc3aa"
+      ]
+    },
+    {
+      "ref": "recomendacao-troca#0",
+      "action": "replace",
+      "text": "Segundo a Duoflex, a vida útil média de um travesseiro é de cerca de cinco anos, mas recomenda-se trocá-lo a cada dois anos, pois o uso prolongado pode ser uma fonte de contaminação por microrganismos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_baf2ba0de4d8"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você aceita levar o travesseiro para limpeza a seco ou deixá-lo secar naturalmente, pode escolher pluma de ganso. No modelo da Ortobom, a etiqueta permite secagem na horizontal à sombra e limpeza a seco; no modelo da Simmons, permite limpeza a seco e secagem natural no varal, com ambos proibindo lavagem à água.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_439eebde3cf1",
+        "clm_444f49032317"
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Pluma de ganso (Ortobom)",
+          "claim_ids": []
+        },
+        {
+          "text": "100% plumas de ganso",
+          "claim_ids": [
+            "clm_9ba2684f8015"
+          ]
+        },
+        {
+          "text": "Proibido lavar à água, proibido secar em tambor, permitido secagem na horizontal à sombra, permitido limpeza a seco",
+          "claim_ids": [
+            "clm_439eebde3cf1"
+          ]
+        },
+        {
+          "text": "Não informado no trecho citado",
+          "claim_ids": []
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro de pena de ganso ou de fibra: qual escolher",
+    "description": "Compare cuidados de lavagem, composição e dimensões de travesseiros de pena de ganso e fibra sintética para decidir qual se encaixa no seu caso.",
+    "verdict": {
+      "text": "Se você lava travesseiros em casa, o Hug da Ortobom permite lavagem suave até 40 °C. Para o travesseiro de pluma de ganso, a Ortobom e Simmons proíbem lavar e secar em tambor; permitem limpeza a seco e secagem natural.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3fb7b71e5656",
+        "clm_439eebde3cf1",
+        "clm_444f49032317"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-conferir-na-etiqueta",
+        "heading": "O que a etiqueta têxtil deve informar sobre composição",
+        "blocks": [
+          {
+            "text": "A etiqueta têxtil do Inmetro exige que apareçam o nome das fibras e seu percentual de participação, em ordem decrescente e com igual destaque.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f320e9d0a6af",
+              "clm_d7f8e50c91f7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta deve informar cuidados de conservação relativos a lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d0e930280b39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-de-lavagem-por-tipo",
+        "heading": "Instruções de cuidado na etiqueta: pluma de ganso e fibra",
+        "blocks": [
+          {
+            "text": "No travesseiro de pluma de ganso da Ortobom, a etiqueta proíbe lavagem, secagem em tambor e passadoria, e permite secagem na horizontal à sombra e limpeza a seco. No modelo da Simmons, a etiqueta proíbe lavagem à água e secagem em tambor, exigindo secagem natural no varal.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_439eebde3cf1",
+              "clm_444f49032317"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3fb7b71e5656"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-declarada",
+        "heading": "Composição de penas e plumas de ganso declarada pelos fabricantes",
+        "blocks": [
+          {
+            "text": "Na ficha da Ortobom, o travesseiro de pluma de ganso declara enchimento de 100% de plumas de ganso. A Simmons também informa 100% pluma de ganso no modelo consultado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9ba2684f8015",
+              "clm_6228f8bb172f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para fibra sintética, no Hug da Ortobom a ficha declara fibra siliconada 100% poliéster. No Conect Comfort da Probel, a ficha informa que o enchimento é fibra siliconada, mas não especifica a composição percentual.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3bd128d38af6",
+              "clm_1054bc9ab913"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dimensoes-informadas",
+        "heading": "Dimensões (comprimento e largura) informadas para cada tipo",
+        "blocks": [
+          {
+            "text": "O travesseiro Pluma de Ganso da Simmons mede 50 × 70 cm. A Ortobom oferece o modelo Pluma de Ganso Plus em 90 × 50 cm e o Hug em 140 × 50 cm. O Conect Comfort da Probel mede 40 × 60 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_042b85d24b34",
+              "clm_a430d3eb214c",
+              "clm_b3a4f0e241fb",
+              "clm_1cea45ecc3aa"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "recomendacao-troca",
+        "heading": "Tempo de vida útil e recomendação de troca",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, a vida útil média de um travesseiro é de cerca de cinco anos, mas recomenda-se trocá-lo a cada dois anos, pois o uso prolongado pode ser uma fonte de contaminação por microrganismos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_baf2ba0de4d8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre pluma de ganso e fibra",
+        "blocks": [
+          {
+            "text": "Se você precisa lavar o travesseiro em casa, escolha um modelo de fibra cuja etiqueta permita lavagem. No Hug da Ortobom, a etiqueta informa lavagem suave até 40 °C em máquina. Nos modelos de pluma de ganso da Ortobom e Simmons consultados, a etiqueta proíbe lavar à água e secar em tambor.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3fb7b71e5656",
+              "clm_439eebde3cf1",
+              "clm_444f49032317"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você aceita levar o travesseiro para limpeza a seco ou deixá-lo secar naturalmente, pode escolher pluma de ganso. No modelo da Ortobom, a etiqueta permite secagem na horizontal à sombra e limpeza a seco; no modelo da Simmons, permite limpeza a seco e secagem natural no varal, com ambos proibindo lavagem à água.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_439eebde3cf1",
+              "clm_444f49032317"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer confirmar se está comprando fibra ou pluma de ganso, confira na etiqueta o nome do enchimento e os percentuais de composição. O Inmetro exige que o nome das fibras e sua participação percentual apareçam na etiqueta. Há modelos com fibra siliconada 100% poliéster e plumas de ganso declaradas dessa forma.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_f320e9d0a6af",
+              "clm_3bd128d38af6",
+              "clm_9ba2684f8015"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Composição, cuidados de lavagem e dimensões de travesseiros de pena de ganso e fibra (segundo a Ortobom)",
+            "columns": [
+              "Tipo",
+              "Composição do enchimento",
+              "Cuidados na etiqueta",
+              "Dimensões"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Fibra siliconada (Ortobom Hug)",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Fibra siliconada 100% poliéster",
+                    "claim_ids": [
+                      "clm_3bd128d38af6"
+                    ]
+                  },
+                  {
+                    "text": "Permitido lavar suave até 40 °C, permitido secar em tambor até 60 °C, permitido passar até 110 °C sem vapor, proibido limpeza a seco",
+                    "claim_ids": [
+                      "clm_3fb7b71e5656"
+                    ]
+                  },
+                  {
+                    "text": "140 × 50 cm",
+                    "claim_ids": [
+                      "clm_b3a4f0e241fb"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram que o Hug permite lavagem suave a até 40 °C, mas não dizem que ele é de fibra. Portanto, a recomendação de escolher “fibra” ao lavar em casa não é sustentada. As demais afirmações sobre proibição de lavagem/secagem em tambor e alternativas de limpeza ou secagem constam dos trechos. Versão sustentável: Se você lava travesseiros em casa, o Hug da Ortobom permite lavagem suave até 40 °C. Para o travesseiro de pluma de ganso, os trechos indicam limpeza a seco e secagem natural; Ortobom e Simmons proíbem lavar e secar em tambor."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a exigência do nome das fibras, dos percentuais, da ordem decrescente e do igual destaque, mas não mencionam as declarações específicas “100% plumas de ganso” ou “fibra siliconada 100% poliéster”. Versão sustentável: A etiqueta têxtil do Inmetro exige que apareçam o nome das fibras e seu percentual de participação, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "msg": "UNSUPPORTED. O trecho sustenta a obrigatoriedade dos cinco processos e a apresentação por símbolos ou textos, mas não afirma que as instruções ajudam a saber se o travesseiro pode ser lavado em casa. Versão sustentável: A etiqueta deve informar cuidados de conservação relativos a lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, em forma de símbolos e/ou textos."
+    },
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#0",
+      "msg": "OVERSTATED. O trecho citado documenta as instruções de um produto específico da Ortobom, mas o bloco generaliza para “modelos de pluma de ganso da Ortobom”. Além disso, a evidência da Simmons diz que a peça “deve secar naturalmente no varal”, não apenas que isso é recomendado. Versão sustentável: No travesseiro de pluma de ganso da Ortobom citado, a etiqueta proíbe lavagem, secagem em tambor e passadoria, e permite secagem horizontal à sombra e limpeza a seco. Na Simmons citada, a etiqueta proíbe lavagem à água e secagem em tambor e determina secagem natural no varal."
+    },
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#1",
+      "msg": "OVERSTATED. A evidência também proíbe alvejamento no Hug; portanto, é incorreto dizer que a etiqueta proíbe “apenas” limpeza a seco. Versão sustentável: No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco."
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que fichas da Ortobom declaram enchimento de 100% de plumas de ganso. Não há trecho da Simmons, nem evidência de que os fabricantes não forneçam o detalhamento entre penas e plumas. Versão sustentável: Na ficha da Ortobom citada, o enchimento é declarado como 100% de plumas de ganso. Os trechos citados não permitem afirmar o que a Simmons declara nem generalizar sobre o detalhamento fornecido pelos fabricantes."
+    },
+    {
+      "ref": "dimensoes-informadas#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as dimensões dos produtos, mas não dizem que 50 × 70 cm é um tamanho comum para plumas nem que o Hug é de fibra siliconada. O trecho do Hug citado informa apenas o tamanho. Versão sustentável: O travesseiro Pluma de Ganso da Simmons mede 50 × 70 cm. A Ortobom informa o modelo Pluma de Ganso Plus em 90 × 50 cm e o Hug em 140 × 50 cm. O Conect Comfort da Probel mede 40 × 60 cm."
+    },
+    {
+      "ref": "recomendacao-troca#0",
+      "msg": "OVERSTATED. O trecho sustenta vida útil média de cinco anos, troca a cada dois anos e que o uso prolongado pode ser fonte de contaminação por microrganismos. Ele não menciona especificamente acúmulo de ácaros nem perda de sustentação. Versão sustentável: Segundo a Duoflex, a vida útil média de um travesseiro é de cerca de cinco anos, mas recomenda-se trocá-lo a cada dois anos, pois o uso prolongado pode ser uma fonte de contaminação por microrganismos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. O trecho da Simmons permite limpeza a seco e secagem natural no varal, mas não diz que a secagem deve ser na horizontal à sombra. Essa condição só é explicitamente sustentada para o modelo da Ortobom. Versão sustentável: Se você aceita levar o travesseiro para limpeza a seco ou deixá-lo secar naturalmente, pode escolher pluma de ganso. No modelo da Ortobom, a etiqueta permite secagem na horizontal à sombra e limpeza a seco; no modelo da Simmons, permite limpeza a seco e secagem natural no varal, e ambos proíbem lavar à água."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam a composição e os cuidados, mas não dizem que não havia dimensões disponíveis na etiqueta consultada. A ausência de uma informação não pode ser concluída apenas porque ela não aparece nos trechos fornecidos. Versão sustentável: Remova a informação sobre dimensões ou escreva apenas os dados sustentados: “Dimensões: não informadas nos trechos citados”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 15759,
+    "output_tokens": 1547
+  }
+}

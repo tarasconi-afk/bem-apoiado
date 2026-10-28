@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "cuidados-de-lavagem-por-tipo#0",
+      "problem": "A seção promete instruções de cuidado para pluma de ganso e fibra, mas o bloco traz apenas as instruções do modelo Hug, de fibra; não informa os cuidados da pluma nessa seção.",
+      "fix": "Mudar o título para algo como \"Instruções de cuidado na etiqueta: modelo Hug de fibra\" ou tirar da promessa da seção a referência à pluma de ganso."
+    }
+  ],
+  "usage": {
+    "input_tokens": 17723,
+    "output_tokens": 2913,
+    "calls": 3
+  }
+}
