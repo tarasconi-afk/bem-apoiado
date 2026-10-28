@@ -24,6 +24,18 @@ const MAX_FIX_ROUNDS = 3;
 // páginas reprovadas na revisão desde 20/10, 4 eram só coerência, todas com o juiz dando 4 de 4, e a correção
 // automática depois do fato, sem as evidências à mão, não fechava).
 const COHERENCE_FIX_ROUNDS = 1;
+// Rodadas a mais, liberadas uma a uma só enquanto a anterior tiver DIMINUÍDO o número de achados (28/10).
+const COHERENCE_EXTRA_ROUNDS = 2;
+
+// 28/10: "travesseiro NASA" tinha 2 achados de coerência, a única rodada consertou 1 e a página virou rascunho
+// pelo outro, com o juiz dando 4 de 4. A rodada extra só é liberada com progresso comprovado: enquanto o número
+// de achados cair, vale pagar outra (~1 a 2 créditos). Página que não melhora para onde parava antes, que é a
+// trava contra rodar de graça.
+export function keepFixingCoherence(rodadasFeitas: number, antes: number, depois: number): boolean {
+  if (depois === 0) return false;
+  if (rodadasFeitas >= COHERENCE_FIX_ROUNDS + COHERENCE_EXTRA_ROUNDS) return false;
+  return rodadasFeitas < COHERENCE_FIX_ROUNDS || depois < antes;
+}
 // Até quantos blocos sem prova a página pode perder no fim (por remoção) e ainda seguir para a revisão.
 const SALVAGE_MAX = 3;
 const MIN_CLAIMS = 8;
@@ -330,13 +342,19 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
       let c = await auditCoherence(toPageSpec(draft, topic, runId, 'pass'), topic.primary_query, idx.claims, idx.sources, fetchImpl);
       add(c.usage, c.usage.calls);
       writeStage(runId, 'coherence', { findings: c.findings, usage: c.usage });
-      for (let i = 0; c.findings.length && i < COHERENCE_FIX_ROUNDS; i++) {
+      // Rodada extra SÓ com progresso comprovado: 28/10, "travesseiro NASA" tinha 2 achados, a rodada consertou 1
+      // e parou com o outro aberto; o juiz dava 4 de 4 e a página virou rascunho por um título de seção. Enquanto
+      // cada rodada diminuir o número de achados, vale pagar outra (~1 a 2 créditos). Página que não melhora na
+      // primeira continua parando na primeira, que é a trava contra ficar rodando de graça.
+      for (let i = 0; c.findings.length; i++) {
+        const antes = c.findings.length;
         const fixed = await fixCoherence(draft, c.findings, `coherence-fix-${i + 1}`);
         if (!fixed) break;
         draft = fixed;
         c = await auditCoherence(toPageSpec(draft, topic, runId, 'pass'), topic.primary_query, idx.claims, idx.sources, fetchImpl);
         add(c.usage, c.usage.calls);
         writeStage(runId, `coherence-${i + 1}`, { findings: c.findings, usage: c.usage });
+        if (!keepFixingCoherence(i + 1, antes, c.findings.length)) break;
       }
       coherence = c.findings;
     }
