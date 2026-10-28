@@ -301,7 +301,7 @@ async function buildPageOnce(slug: string, runId: string, fetchImpl?: FetchLike)
     // Falha de LLM (crédito, rede, saída inválida) vira parada segura com relatório, nunca página parcial.
     if (!(e instanceof LlmError)) throw e;
     const reason = `LLM_${e.code}: ${e.message.slice(0, 300)}`;
-    writeStage(runId, 'page', { status: 'SAFE_STOP', reason, credits: creditsSpent() });
+    writeStage(runId, 'page', { slug, status: 'SAFE_STOP', reason, credits: creditsSpent() });
     return { status: 'SAFE_STOP', reason, rounds: 0, open_issues: [], usage: { input_tokens: 0, output_tokens: 0, calls: 0 } };
   }
 }
@@ -414,7 +414,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     // A pauta guarda o que faltou: é a entrada da próxima tentativa (improve).
     writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...loadTopic(slug), evidence_gaps: rv.review.publishable ? [] : rv.review.missing }));
     const status = rv.review.publishable ? 'PASS' : 'NOT_PUBLISHABLE';
-    writeStage(runId, 'page', { status, rounds: rounds, usage, credits: creditsSpent(), review: rv.review });
+    writeStage(runId, 'page', { slug, status, rounds: rounds, usage, credits: creditsSpent(), review: rv.review });
     return { status, rounds: rounds, page, usage, review: rv.review };
   };
 
@@ -566,7 +566,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   }
   // Não salvou: nada vai para data/pages. O rascunho e os problemas ficam no run para análise.
   const open = issues.map(show);
-  writeStage(runId, 'page', { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', open_issues: open, usage, credits: creditsSpent() });
+  writeStage(runId, 'page', { slug, status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', open_issues: open, usage, credits: creditsSpent() });
   return { status: 'SAFE_STOP', reason: 'AUDIT_NOT_CONVERGED', rounds: MAX_FIX_ROUNDS + 1, open_issues: open, usage };
 }
 

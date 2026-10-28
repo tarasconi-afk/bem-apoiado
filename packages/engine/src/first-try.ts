@@ -12,7 +12,7 @@ import type { ReviewResult } from './stages/review.ts';
 export const CAUSES = ['aprovada', 'coerência', 'revisão', 'regra', 'auditoria não convergiu', 'saída inválida do modelo', 'rede', 'orçamento', 'outro'] as const;
 export type Cause = (typeof CAUSES)[number];
 
-export interface Attempt { run: string; at: number; cause: Cause; detail: string }
+export interface Attempt { run: string; at: number; cause: Cause; detail: string; slug: string }
 
 // SAFE_STOP traz o motivo em texto; cada prefixo é um defeito diferente e se conserta em lugar diferente.
 export function causeOfSafeStop(reason: string): Cause {
@@ -38,17 +38,21 @@ export function attempts(runsDir = RUNS_DIR, sinceMs = 30 * 86_400_000, now = Da
     if (!m) continue;
     const at = Date.UTC(+m[1]!, +m[2]! - 1, +m[3]!, +m[4]!, +m[5]!);
     if (now - at > sinceMs) continue;
-    let d: { status?: string; reason?: string; review?: ReviewResult } | null = null;
+    let d: { slug?: string; status?: string; reason?: string; review?: ReviewResult } | null = null;
     try {
       d = JSON.parse(readFileSync(join(runsDir, run, 'page.json'), 'utf8'));
     } catch {
       continue;
     }
     if (!d?.status || d.status === 'EDITOR_ADJUST') continue;
-    if (d.status === 'PASS') out.push({ run, at, cause: 'aprovada', detail: '' });
-    else if (d.status === 'SAFE_STOP') out.push({ run, at, cause: causeOfSafeStop(d.reason ?? ''), detail: (d.reason ?? '').slice(0, 120) });
-    else if (d.status === 'NOT_PUBLISHABLE' && d.review) out.push({ run, at, cause: causeOfReview(d.review).cause, detail: causeOfReview(d.review).detail });
-    else out.push({ run, at, cause: 'outro', detail: d.status });
+    // A pauta não sai do nome do run (o do ciclo se chama "…_autopilot_1db0"), e sem ela não dá para medir a
+    // aprovação POR TIPO DE PRODUTO — que é o que prevê quem trava (26/10: cadeira 1 em 10, colchão 2 em 2).
+    // Runs anteriores a 28/10 não têm o campo e ficam sem pauta.
+    const slug = d.slug ?? '';
+    if (d.status === 'PASS') out.push({ run, at, cause: 'aprovada', detail: '', slug });
+    else if (d.status === 'SAFE_STOP') out.push({ run, at, cause: causeOfSafeStop(d.reason ?? ''), detail: (d.reason ?? '').slice(0, 120), slug });
+    else if (d.status === 'NOT_PUBLISHABLE' && d.review) out.push({ run, at, cause: causeOfReview(d.review).cause, detail: causeOfReview(d.review).detail, slug });
+    else out.push({ run, at, cause: 'outro', detail: d.status, slug });
   }
   return out.sort((a, b) => a.at - b.at);
 }

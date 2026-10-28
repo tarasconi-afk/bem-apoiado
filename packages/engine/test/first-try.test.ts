@@ -51,7 +51,7 @@ describe('causa de uma reprovação do juiz', () => {
   });
 });
 
-const at = (run: string, cause: Attempt['cause'], ms: number): Attempt => ({ run, at: ms, cause, detail: '' });
+const at = (run: string, cause: Attempt['cause'], ms: number): Attempt => ({ run, at: ms, cause, detail: '', slug: run });
 
 describe('resumo e tendência', () => {
   const dia = 86_400_000;
