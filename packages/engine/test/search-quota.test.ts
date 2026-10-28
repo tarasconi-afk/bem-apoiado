@@ -10,8 +10,9 @@ process.env.TAVILY_MONTHLY_CAP = '100';
 
 // 432 e 433 queimam a chave no mês (ver PLANO_ESGOTADO), então cada caso de classificação começa limpo.
 const zera = () => {
-  rmSync(join(process.env.BEM_STATE_DIR!, 'tavily-usage-by-key.json'), { force: true });
-  rmSync(join(process.env.BEM_STATE_DIR!, 'tavily-keys.json'), { force: true });
+  for (const f of ['tavily-usage-by-key.json', 'tavily-usage.json', 'brave-usage-by-key.json', 'brave-usage.json', 'keys.json', 'tavily-keys.json']) {
+    rmSync(join(process.env.BEM_STATE_DIR!, f), { force: true });
+  }
 };
 
 describe('cota do plano Tavily', () => {
@@ -36,18 +37,21 @@ describe('cota do plano Tavily', () => {
 describe('várias chaves Tavily', () => {
   it('a chave do env vem primeiro e as cadastradas entram depois', async () => {
     zera();
-    const { tavilyKeys, addTavilyKey } = await import('../src/search.ts');
-    expect(tavilyKeys().map((k) => k.id)).toEqual(['env']);
+    const { keysOf, addKey } = await import('../src/secrets.ts');
+    const tavilyKeys = () => keysOf('tavily');
+    const addTavilyKey = (k: string, l: string) => addKey('tavily', k, l);
+    expect(tavilyKeys().map((k: { id: string }) => k.id)).toEqual(['env']);
     const nova = addTavilyKey('tvly-dev-abcdefghij1234567890', 'segunda conta');
     expect(typeof nova).not.toBe('string');
-    expect(tavilyKeys().map((k) => k.id)[0]).toBe('env');
+    expect(tavilyKeys().map((k: { id: string }) => k.id)[0]).toBe('env');
     expect(tavilyKeys()).toHaveLength(2);
     zera();
   });
 
   it('recusa chave com cara errada e chave repetida, em vez de guardar lixo', async () => {
     zera();
-    const { addTavilyKey } = await import('../src/search.ts');
+    const { addKey } = await import('../src/secrets.ts');
+    const addTavilyKey = (k: string, l: string) => addKey('tavily', k, l);
     expect(addTavilyKey('abc123', 'x')).toContain('tvly-');
     addTavilyKey('tvly-dev-abcdefghij1234567890', 'primeira');
     expect(addTavilyKey('tvly-dev-abcdefghij1234567890', 'de novo')).toContain('já está cadastrada');
@@ -56,7 +60,9 @@ describe('várias chaves Tavily', () => {
 
   it('cota estourada numa conta: a próxima assume na mesma busca', async () => {
     zera();
-    const { webSearch, addTavilyKey, usageByKey } = await import('../src/search.ts');
+    const { webSearch, usageByKey } = await import('../src/search.ts');
+    const { addKey } = await import('../src/secrets.ts');
+    const addTavilyKey = (k: string, l: string) => addKey('tavily', k, l);
     addTavilyKey('tvly-dev-segundachave0987654321', 'segunda conta');
     const usadas: string[] = [];
     const f = (async (_url: string, init?: RequestInit) => {
@@ -72,8 +78,19 @@ describe('várias chaves Tavily', () => {
     zera();
   });
 
+
+  // 28/10, editor: cadastrou a 2ª conta e o painel mostrou "0 usadas" nas duas, com 1.155 buscas feitas no mês.
+  // O contador por chave só nasceu naquele dia; antes havia uma conta só e a conta era global.
+  it('o que foi gasto antes do contador por chave conta para a chave do servidor', async () => {
+    zera();
+    const { usageByKey } = await import('../src/search.ts');
+    const { writeFileSync } = await import('node:fs');
+    writeFileSync(join(process.env.BEM_STATE_DIR!, 'tavily-usage.json'), JSON.stringify({ [new Date().toISOString().slice(0, 7)]: 1155 }));
+    expect(usageByKey().env).toBe(1155);
+    zera();
+  });
   it('a chave nunca aparece inteira no painel', async () => {
-    const { maskKey } = await import('../src/search.ts');
+    const { maskKey } = await import('../src/secrets.ts');
     expect(maskKey('tvly-dev-abcdefghij1234567890')).toBe('…7890');
     expect(maskKey('tvly-dev-abcdefghij1234567890')).not.toContain('abcdefghij');
   });

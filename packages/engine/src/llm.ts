@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { secret } from './secrets.ts';
 import { ENV_FILE_PATH as ENV_FILE } from './env.ts';
 import { recordCharge } from './credits.ts';
 import { creditsFor, fallbackFor, MODELS, type Role } from './models.ts';
@@ -50,7 +51,7 @@ export function addSpend(credits: number, what = 'outro', model = '-'): void {
 // Chamada única, JSON-in/JSON-out. Saída inválida ganha uma nova tentativa com o erro de validação;
 // se falhar de novo, o estágio para (SAFE_STOP) em vez de seguir com dado ruim.
 export async function callJson<T>(call: LlmCall<T>, fetchImpl: FetchLike = fetch): Promise<LlmResult<T>> {
-  const key = process.env.NEXOS_API_KEY;
+  const key = secret('llm');
   // Hostinger AI Router (sucessor do nexos.ai para contas Hostinger; chaves sk-hstgr-).
   const base = (process.env.NEXOS_BASE_URL ?? 'https://router.hostinger.com/v1').replace(/\/$/, '');
   if (!key) throw new LlmError(`NEXOS_API_KEY ausente (ambiente ou ${ENV_FILE})`, 'NO_CREDENTIALS');

@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from '
 import { dirname, join } from 'node:path';
 import './env.ts';
 import { ROOT } from './store.ts';
+import { keysOf, type VaultKey } from './secrets.ts';
 
 // Busca na web pela Tavily, com TETO MENSAL DURO (o dono não quer pagar além do plano grátis).
 // O contador mensal fica fora do git: /var/lib/bem-apoiado na VPS, .state/ no desenvolvimento.
@@ -55,63 +56,40 @@ function charge(credits: number, keyId = 'env'): void {
   l[month()] = (l[month()] ?? 0) + credits;
   writeFileSync(`${LEDGER}.tmp`, JSON.stringify(l, null, 2));
   renameSync(`${LEDGER}.tmp`, LEDGER);
-  const b = readByKey();
+  chargeKey(BY_KEY, keyId, credits);
+}
+
+// Várias contas de busca, uma por vez (28/10, decisão do editor: o plano grátis de uma conta não cobre o ritmo do
+// motor, e criar outra conta com outro email funcionou no Ferramenta Clara). Cada conta tem o seu teto mensal; o
+// motor usa a primeira com folga e só cai no Brave quando TODAS as Tavily acabarem. As chaves vivem no cofre do
+// projeto (secrets.ts), cadastradas pelo painel.
+const BY_KEY = join(STATE_DIR, 'tavily-usage-by-key.json');
+const BRAVE_BY_KEY = join(STATE_DIR, 'brave-usage-by-key.json');
+
+const readMap = (f: string): Record<string, Record<string, number>> => (existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : {});
+
+// O contador por chave só existe desde 28/10; antes havia uma conta só e a conta era global. O que não está
+// atribuído a outra chave é da chave do servidor — senão o painel mostrava "0 usadas" com 1.155 gastas no mês.
+function usageOf(file: string, total: number): Record<string, number> {
+  const m = { ...(readMap(file)[month()] ?? {}) };
+  const outras = Object.entries(m).filter(([id]) => id !== 'env').reduce((t, [, v]) => t + v, 0);
+  return { ...m, env: Math.max(m.env ?? 0, total - outras) };
+}
+export const usageByKey = (): Record<string, number> => usageOf(BY_KEY, creditsThisMonth());
+export const braveUsageByKey = (): Record<string, number> => usageOf(BRAVE_BY_KEY, braveThisMonth());
+
+function chargeKey(file: string, keyId: string, credits: number): void {
+  const b = readMap(file);
   const m = b[month()] ?? (b[month()] = {});
   m[keyId] = (m[keyId] ?? 0) + credits;
-  writeFileSync(`${BY_KEY}.tmp`, JSON.stringify(b, null, 2));
-  renameSync(`${BY_KEY}.tmp`, BY_KEY);
-}
-
-// Várias contas Tavily, uma por vez (28/10, decisão do editor: o plano grátis de uma conta não cobre o ritmo do
-// motor, e criar outra conta com outro email funcionou no Ferramenta Clara). Cada conta tem o seu teto mensal;
-// o motor usa a primeira que ainda tem folga e só cai no Brave quando TODAS acabarem. As chaves ficam fora do
-// git, num arquivo de estado que só o usuário do motor lê, e o editor as cadastra pelo painel.
-const BY_KEY = join(STATE_DIR, 'tavily-usage-by-key.json');
-const KEYS_FILE = join(STATE_DIR, 'tavily-keys.json');
-
-export interface TavilyKey { id: string; key: string; label: string; added_at: string }
-
-const readByKey = (): Record<string, Record<string, number>> => (existsSync(BY_KEY) ? JSON.parse(readFileSync(BY_KEY, 'utf8')) : {});
-export const usageByKey = (): Record<string, number> => readByKey()[month()] ?? {};
-
-// A chave do env continua valendo e vem primeiro: nada quebra em quem já tem só ela.
-export function tavilyKeys(): TavilyKey[] {
-  const env = process.env.TAVILY_API_KEY;
-  const extra: TavilyKey[] = existsSync(KEYS_FILE) ? (JSON.parse(readFileSync(KEYS_FILE, 'utf8')).keys ?? []) : [];
-  return [...(env ? [{ id: 'env', key: env, label: 'chave principal (env)', added_at: '' }] : []), ...extra.filter((k) => k.key !== env)];
-}
-
-// Nunca devolve a chave inteira: o painel mostra só o fim, para o editor reconhecer qual é.
-export const maskKey = (k: string) => `…${k.slice(-4)}`;
-
-function writeKeys(keys: TavilyKey[]): void {
-  mkdirSync(dirname(KEYS_FILE), { recursive: true });
-  writeFileSync(`${KEYS_FILE}.tmp`, JSON.stringify({ keys }, null, 2), { mode: 0o600 });
-  renameSync(`${KEYS_FILE}.tmp`, KEYS_FILE);
-}
-
-export function addTavilyKey(key: string, label: string, now = new Date()): TavilyKey | string {
-  const k = key.trim();
-  if (!/^tvly-[A-Za-z0-9_-]{10,}$/.test(k)) return 'a chave da Tavily começa com "tvly-"; confira se copiou inteira';
-  if (tavilyKeys().some((x) => x.key === k)) return 'essa chave já está cadastrada';
-  const cur: TavilyKey[] = existsSync(KEYS_FILE) ? (JSON.parse(readFileSync(KEYS_FILE, 'utf8')).keys ?? []) : [];
-  const fresh: TavilyKey = { id: `k_${createHash('sha1').update(k).digest('hex').slice(0, 8)}`, key: k, label: label.trim().slice(0, 40) || 'conta extra', added_at: now.toISOString() };
-  writeKeys([...cur, fresh]);
-  return fresh;
-}
-
-export function removeTavilyKey(id: string): string | null {
-  if (id === 'env') return null; // a do env sai de /etc/bem-apoiado/env, não daqui
-  const cur: TavilyKey[] = existsSync(KEYS_FILE) ? (JSON.parse(readFileSync(KEYS_FILE, 'utf8')).keys ?? []) : [];
-  const hit = cur.find((k) => k.id === id);
-  if (!hit) return null;
-  writeKeys(cur.filter((k) => k !== hit));
-  return hit.label;
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(`${file}.tmp`, JSON.stringify(b, null, 2));
+  renameSync(`${file}.tmp`, file);
 }
 
 // Primeira chave com folga no mês. Sem nenhuma, é teto mensal (não "sem chave"): quem chama cai no Brave.
-function pickKey(): TavilyKey {
-  const keys = tavilyKeys();
+function pickKey(): VaultKey {
+  const keys = keysOf('tavily');
   if (!keys.length) throw new SearchError('nenhuma chave Tavily cadastrada', 'NO_KEY');
   const used = usageByKey();
   const free = keys.find((k) => (used[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP);
@@ -121,13 +99,13 @@ function pickKey(): TavilyKey {
 
 // A conta pode acabar antes do nosso contador (crédito gasto fora do motor). Quando a própria Tavily diz que a
 // cota acabou, a chave é dada por esgotada no mês e a próxima assume, em vez de o motor ficar insistindo nela.
-function exhaust(keyId: string): void {
-  const b = readByKey();
+function exhaust(keyId: string, file = BY_KEY, cap = MONTHLY_CREDIT_CAP): void {
+  const b = readMap(file);
   const m = b[month()] ?? (b[month()] = {});
-  m[keyId] = MONTHLY_CREDIT_CAP;
-  mkdirSync(dirname(BY_KEY), { recursive: true });
-  writeFileSync(`${BY_KEY}.tmp`, JSON.stringify(b, null, 2));
-  renameSync(`${BY_KEY}.tmp`, BY_KEY);
+  m[keyId] = cap;
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(`${file}.tmp`, JSON.stringify(b, null, 2));
+  renameSync(`${file}.tmp`, file);
 }
 
 export interface SearchOptions {
@@ -158,7 +136,7 @@ export async function webSearch(query: string, opts: SearchOptions = {}, fetchIm
     return await tavilySearch(query, opts, fetchImpl);
   } catch (e) {
     const fallback = e instanceof SearchError && (e.code !== 'HTTP' || /^HTTP 5\d\d/.test(e.message));
-    if (!fallback || !process.env.BRAVE_API_KEY) throw e;
+    if (!fallback || !keysOf('brave').length) throw e;
     return braveSearch(query, opts, fetchImpl);
   }
 }
@@ -175,9 +153,13 @@ export function braveThisMonth(): number {
 }
 let braveLast = 0;
 export async function braveSearch(query: string, opts: SearchOptions = {}, fetchImpl: typeof fetch = fetch, sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))): Promise<SearchResult[]> {
-  const key = process.env.BRAVE_API_KEY;
-  if (!key) throw new SearchError('BRAVE_API_KEY ausente', 'NO_KEY');
-  if (braveThisMonth() + 1 > BRAVE_MONTHLY_CAP) throw new SearchError(`teto mensal de ${BRAVE_MONTHLY_CAP} buscas Brave atingido (reserva da Tavily)`, 'MONTHLY_CAP');
+  // Mesmo rodízio da Tavily: várias contas Brave, uma por vez, cada uma com o seu teto grátis.
+  const keys = keysOf('brave');
+  if (!keys.length) throw new SearchError('nenhuma chave Brave cadastrada', 'NO_KEY');
+  const usadas = braveUsageByKey();
+  const conta = keys.find((k) => (usadas[k.id] ?? 0) + 1 <= BRAVE_MONTHLY_CAP);
+  if (!conta) throw new SearchError(`teto mensal de ${BRAVE_MONTHLY_CAP} buscas atingido nas ${keys.length} chave(s) Brave (reserva da Tavily)`, 'MONTHLY_CAP');
+  const key = conta.key;
   const include = cleanDomains(opts.includeDomains).filter((d) => !d.startsWith('*.')).slice(0, 5);
   const exclude = cleanDomains(opts.excludeDomains).filter((d) => !d.startsWith('*.')).slice(0, 5);
   const q = [query, include.length ? `(${include.map((d) => `site:${d}`).join(' OR ')})` : '', ...exclude.map((d) => `-site:${d}`)].filter(Boolean).join(' ');
@@ -194,6 +176,7 @@ export async function braveSearch(query: string, opts: SearchOptions = {}, fetch
   const l: Record<string, number> = existsSync(BRAVE_LEDGER) ? JSON.parse(readFileSync(BRAVE_LEDGER, 'utf8')) : {};
   l[month()] = (l[month()] ?? 0) + 1;
   writeFileSync(BRAVE_LEDGER, JSON.stringify(l, null, 2));
+  chargeKey(BRAVE_BY_KEY, conta.id, 1);
   const body = (await res.json()) as { web?: { results?: { title: string; url: string; description?: string }[] } };
   const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
   const strip = (t: string) => t.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
@@ -227,7 +210,7 @@ async function tavilySearch(query: string, opts: SearchOptions = {}, fetchImpl: 
     // Cota desta conta acabou: marca a chave e tenta a próxima na mesma busca, sem gastar uma rodada do motor.
     if (err.code === 'MONTHLY_CAP' && PLANO_ESGOTADO.has(err.status ?? 0)) {
       exhaust(id);
-      if (tavilyKeys().some((k) => (usageByKey()[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP)) return tavilySearch(query, opts, fetchImpl);
+      if (keysOf('tavily').some((k) => (usageByKey()[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP)) return tavilySearch(query, opts, fetchImpl);
     }
     throw err;
   }
@@ -252,7 +235,7 @@ export async function webExtract(url: string, fetchImpl: typeof fetch = fetch, d
     const err = await httpError(res);
     if (err.code === 'MONTHLY_CAP' && PLANO_ESGOTADO.has(err.status ?? 0)) {
       exhaust(id);
-      if (tavilyKeys().some((k) => (usageByKey()[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP)) return webExtract(url, fetchImpl, depth);
+      if (keysOf('tavily').some((k) => (usageByKey()[k.id] ?? 0) + 1 <= MONTHLY_CREDIT_CAP)) return webExtract(url, fetchImpl, depth);
     }
     throw err;
   }

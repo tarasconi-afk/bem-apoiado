@@ -18,7 +18,8 @@ import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
 import { balanceNow, setReportedBalance, spentToday } from './credits.ts';
-import { addTavilyKey, braveThisMonth, BRAVE_MONTHLY_CAP, creditsThisMonth, maskKey, MONTHLY_CREDIT_CAP, removeTavilyKey, tavilyKeys, usageByKey } from './search.ts';
+import { braveThisMonth, braveUsageByKey, BRAVE_MONTHLY_CAP, creditsThisMonth, MONTHLY_CREDIT_CAP, usageByKey } from './search.ts';
+import { addKey, keysOf, maskKey, removeKey, SERVICE, SERVICES, type Service } from './secrets.ts';
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
@@ -1079,8 +1080,12 @@ function configHtml(): string {
   const n = (v: number) => Math.round(v).toLocaleString('pt-BR');
   const tavily = creditsThisMonth();
   const today = creditsToday();
-  const keys = tavilyKeys();
-  const keyUse = usageByKey();
+  // Cofre: uma linha por conta, com o quanto ela já gastou no mês quando o serviço tem cota por conta.
+  const uso: Partial<Record<Service, { used: Record<string, number>; cap: number }>> = {
+    tavily: { used: usageByKey(), cap: MONTHLY_CREDIT_CAP },
+    brave: { used: braveUsageByKey(), cap: BRAVE_MONTHLY_CAP },
+  };
+  const keys = keysOf('tavily');
   const meter = (used: number, cap: number) => `<div class="bar" title="${n(used)} de ${n(cap)}"><i style="width:${Math.min(100, (used / cap) * 100).toFixed(0)}%"></i></div>`;
   const card = (id: string, icon: string, title: string, sub: string) =>
     `<button type="button" class="cfg-card" data-cfg="${id}" aria-controls="cfg-${id}"><span class="cfg-ic" aria-hidden="true">${icon}</span><b>${title}</b><span class="muted">${sub}</span></button>`;
@@ -1124,20 +1129,28 @@ ${field('Saldo mostrado no hPanel agora', '<input name="saldo" required inputmod
 <dt>Busca na web no mês</dt><dd>${n(tavily)} de ${n(MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))} créditos Tavily${meter(tavily, MONTHLY_CREDIT_CAP * Math.max(keys.length, 1))}</dd></dl>
 <p class="muted">Ajustes, pedidos e auditorias feitos pelo painel não entram no limite diário. Mudar estes limites ainda é feito na VPS.</p></section>
 
-<section class="cfg-panel" id="cfg-chaves"><h3>Chaves de busca (Tavily)</h3>
-<p class="muted">O plano grátis da Tavily dá ${n(MONTHLY_CREDIT_CAP)} buscas por mês em cada conta. Com mais de uma chave, o motor usa uma por vez: quando a primeira acaba, ele passa para a próxima sozinho e só cai no Brave quando todas acabarem. Crie a conta nova com outro email, copie a chave e cole aqui. Ela nunca aparece inteira de novo.</p>
-<div class="tw"><table><thead><tr><th>Conta</th><th>Chave</th><th class="num">Usadas no mês</th><th>Situação</th><th></th></tr></thead><tbody>
-${keys.length ? keys.map((k) => {
-  const u = keyUse[k.id] ?? 0;
-  const cheia = u >= MONTHLY_CREDIT_CAP;
-  return `<tr><td>${esc(k.label)}${k.id === 'env' ? '' : `<span class="sub">cadastrada em ${esc(fmt(k.added_at))}</span>`}</td><td><code>${esc(maskKey(k.key))}</code></td><td class="num">${n(u)} de ${n(MONTHLY_CREDIT_CAP)}${meter(u, MONTHLY_CREDIT_CAP)}</td><td><span class="b ${cheia ? 'bad' : 'ok'}">${cheia ? 'esgotada neste mês' : 'com folga'}</span></td><td class="actions">${k.id === 'env' ? '<span class="muted">fica no servidor</span>' : form('chave-remover', { id: k.id }, 'Remover', '', `Remover a chave "${k.label}"? O motor deixa de usá-la.`)}</td></tr>`;
-}).join('') : '<tr><td colspan="5" class="muted">Nenhuma chave cadastrada.</td></tr>'}
+<section class="cfg-panel" id="cfg-chaves"><h3>Chaves do projeto</h3>
+<p class="muted">Todas as chaves que o motor usa, num lugar só. Cadastre aqui e vale na próxima chamada, sem entrar no servidor. A chave só aparece inteira na hora de colar; depois disso, só os quatro últimos dígitos. A <b>chave principal</b> de cada serviço mora no servidor e não sai por aqui.</p>
+${SERVICES.map((sv) => {
+  const info = SERVICE[sv];
+  const list = keysOf(sv);
+  const u = uso[sv];
+  return `<h4>${esc(info.label)}</h4>
+<p class="muted">${info.multiple ? `Aceita várias contas: o motor usa uma por vez e passa para a próxima quando a cota mensal (${n(u?.cap ?? 0)}) acaba. Abra a conta nova com outro email.` : 'Uma chave por vez; a primeira da lista é a que o motor usa.'} Pegue em ${esc(info.where)}.</p>
+<div class="tw"><table><thead><tr><th>Conta</th><th>Chave</th>${u ? '<th class="num">Usadas no mês</th><th>Situação</th>' : '<th>Situação</th>'}<th></th></tr></thead><tbody>
+${list.length ? list.map((k, i) => {
+    const used = u ? (u.used[k.id] ?? 0) : 0;
+    const cheia = !!u && used >= u.cap;
+    const situacao = u ? `<td><span class="b ${cheia ? 'bad' : 'ok'}">${cheia ? 'esgotada neste mês' : 'com folga'}</span></td>` : `<td><span class="b ${i === 0 ? 'ok' : 'neutral'}">${i === 0 ? 'em uso' : 'reserva'}</span></td>`;
+    return `<tr><td>${esc(k.label)}${k.added_at ? `<span class="sub">cadastrada em ${esc(fmt(k.added_at))}</span>` : ''}</td><td><code>${esc(maskKey(k.key))}</code></td>${u ? `<td class="num">${n(used)} de ${n(u.cap)}${meter(used, u.cap)}</td>` : ''}${situacao}<td class="actions">${k.id === 'env' ? '<span class="muted">fica no servidor</span>' : form('chave-remover', { servico: sv, id: k.id }, 'Remover', '', `Remover a chave "${k.label}" de ${info.label}? O motor deixa de usá-la.`)}</td></tr>`;
+  }).join('') : `<tr><td colspan="${u ? 5 : 4}" class="muted">Nenhuma chave cadastrada.</td></tr>`}
 </tbody></table></div>
-<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="chave-adicionar">
-${field('Chave da Tavily', '<input name="chave" required minlength="20" maxlength="120" placeholder="tvly-..." autocomplete="off">', 'Pegue em app.tavily.com, em API Keys. Guardada fora do site e fora do git.')}
-${field('Como você chama essa conta', '<input name="rotulo" maxlength="40" placeholder="ex.: conta 2 (email do Ferramenta Clara)">')}
-<div class="cfg-actions"><button class="ok big">Adicionar chave</button></div></form>
-<p class="muted">A reserva Brave está ${process.env.BRAVE_API_KEY ? `ligada (${n(braveThisMonth())} de ${n(BRAVE_MONTHLY_CAP)} buscas no mês)` : 'desligada (sem chave)'}.</p></section>
+<form method="post" action="acao" class="cfg-form"><input type="hidden" name="acao" value="chave-adicionar"><input type="hidden" name="servico" value="${sv}">
+${field('Chave', `<input name="chave" required minlength="16" maxlength="200" placeholder="${esc(info.hint)}" autocomplete="off">`)}
+${field('Como você chama essa conta', '<input name="rotulo" maxlength="40" placeholder="ex.: conta 2 (outro email)">')}
+<div class="cfg-actions"><button class="ok">Adicionar chave</button></div></form>`;
+}).join('')}
+<p class="muted">A chave do Search Console é de outro tipo (arquivo de conta de serviço) e fica logo abaixo, no seu próprio campo.</p></section>
 <script>(function () {
   var cards = document.querySelectorAll('.cfg-card'); if (!cards.length) return;
   function pick(id) {
@@ -1404,10 +1417,15 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     } else if (f.get('acao') === 'chave-adicionar') {
       // A chave vai direto para o diretório de estado (fora do git, 600) e já vale na busca seguinte: não é job,
       // não mexe no site e não precisa de commit. Depois de gravada, o painel só mostra os quatro últimos dígitos.
-      const r = addTavilyKey(f.get('chave') ?? '', f.get('rotulo') ?? '');
-      msg = typeof r === 'string' ? r : `chave "${r.label}" cadastrada (${maskKey(r.key)}); o motor passa a usá-la quando a conta anterior esgotar`;
+      const sv = (f.get('servico') ?? '') as Service;
+      if (!SERVICES.includes(sv)) msg = 'serviço desconhecido';
+      else {
+        const r = addKey(sv, f.get('chave') ?? '', f.get('rotulo') ?? '');
+        msg = typeof r === 'string' ? r : `chave "${r.label}" cadastrada em ${SERVICE[sv].label} (${maskKey(r.key)}); vale já na próxima chamada`;
+      }
     } else if (f.get('acao') === 'chave-remover') {
-      const r = removeTavilyKey(f.get('id') ?? '');
+      const sv = (f.get('servico') ?? '') as Service;
+      const r = SERVICES.includes(sv) ? removeKey(sv, f.get('id') ?? '') : null;
       msg = r ? `chave "${r}" removida` : 'chave não encontrada (a principal fica no servidor e não sai por aqui)';
     } else if (f.get('acao') === 'saldo') {
       const v = Number((f.get('saldo') ?? '').replace(/\./g, '').replace(',', '.'));

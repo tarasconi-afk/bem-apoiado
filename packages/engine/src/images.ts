@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { secret } from './secrets.ts';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
@@ -61,7 +62,7 @@ export interface GenerateOptions {
 }
 
 export async function generateImage(b: Brief, root: string, o: GenerateOptions = {}): Promise<ImageRecord> {
-  const key = process.env.NEXOS_API_KEY;
+  const key = secret('llm');
   if (!key) throw new Error('NEXOS_API_KEY ausente');
   const base = (process.env.NEXOS_BASE_URL ?? 'https://router.hostinger.com/v1').replace(/\/$/, '');
   const model = o.model ?? 'gpt-image-2';

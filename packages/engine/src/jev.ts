@@ -1,4 +1,5 @@
 import './env.ts';
+import { secret } from './secrets.ts';
 import { addSpend } from './llm.ts';
 
 // Jev (TypeSafe, via Hostinger AI Router): modelo de DECISÃO tipada, não de texto. Muito barato
@@ -20,7 +21,7 @@ export interface ChoiceAnswer {
 export type Decider = (state: string, questions: Record<string, ChoiceQuestion>) => Promise<Record<string, ChoiceAnswer>>;
 
 export const jevDecide: Decider = async (state, questions) => {
-  const key = process.env.NEXOS_API_KEY;
+  const key = secret('llm');
   const base = (process.env.NEXOS_BASE_URL ?? 'https://router.hostinger.com/v1').replace(/\/$/, '');
   if (!key) throw new Error('NEXOS_API_KEY ausente');
   const res = await fetch(`${base}/systemone`, {
