@@ -1,0 +1,251 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "Os cuidados de conservação variam conforme o fabricante e a composição do lençol.",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "draft": {
+    "title": "Lençol 200 ou 400 fios: qual escolher",
+    "description": "Compare composição, tipo de tecido e cuidados entre lençóis de 200 e 400 fios para decidir qual se adequa melhor ao seu conforto e preferência.",
+    "verdict": {
+      "text": "A contagem de fios (200 ou 400) representa quantos fios estão entrelaçados por polegada quadrada de tecido, segundo fabricantes como Karsten, Appel e Altenburg. A diferença principal está na composição da fibra e no tipo de trama declarados: lençóis de 200 fios podem ser percal com 100% algodão ou 60% algodão e 40% poliéster; modelos de 400 fios encontrados declaram cetim de algodão com 100% algodão. Confira a etiqueta do produto para saber exatamente qual composição e tipo de tecido você está comprando.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e21a98c50eb9",
+        "clm_45e7bd3b1c58",
+        "clm_465807185089",
+        "clm_2cfa2e0f4661",
+        "clm_34ea99b443a3",
+        "clm_99f996a73047"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-representa-contagem-fios",
+        "heading": "O que a contagem de fios representa",
+        "blocks": [
+          {
+            "text": "A contagem de fios refere-se ao número total de fios entrelaçados em uma polegada quadrada de tecido, considerando tanto os fios na direção do comprimento quanto na direção da largura, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e21a98c50eb9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Lençóis de 200 fios têm trama mais densa e estruturada do que os de contagens menores, oferecendo toque mais suave e maciez maior graças ao entrelaçamento mais fechado das fibras, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b8ba85a00615"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-e-tipo-de-tecido",
+        "heading": "Composição e tipo de tecido declarados pelos fabricantes",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Lençol 200 fios vs. 400 fios: composição e tipo de tecido",
+            "columns": [
+              "Contagem de fios",
+              "Tipo de tecido",
+              "Composição de fibra",
+              "Modelo citado"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "200 fios",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Percal",
+                    "claim_ids": [
+                      "clm_45e7bd3b1c58"
+                    ]
+                  },
+                  {
+                    "text": "100% algodão",
+                    "claim_ids": [
+                      "clm_45e7bd3b1c58"
+                    ]
+                  },
+                  {
+                    "text": "Cotton Dreams da Appel",
+                    "claim_ids": [
+                      "clm_45e7bd3b1c58"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "200 fios",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Percal",
+                    "claim_ids": [
+                      "clm_465807185089"
+                    ]
+                  },
+                  {
+                    "text": "60% algodão e 40% poliéster",
+                    "claim_ids": [
+                      "clm_465807185089"
+                    ]
+                  },
+                  {
+                    "text": "Hotel Deluxe da Appel",
+                    "claim_ids": [
+                      "clm_465807185089"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "200 fios",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Percal",
+                    "claim_ids": [
+                      "clm_2cfa2e0f4661"
+                    ]
+                  },
+                  {
+                    "text": "100% algodão",
+                    "claim_ids": [
+                      "clm_2cfa2e0f4661"
+                    ]
+                  },
+                  {
+                    "text": "Altenburg Hotel",
+                    "claim_ids": [
+                      "clm_2cfa2e0f4661"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "400 fios",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Cetim de algodão",
+                    "claim_ids": [
+                      "clm_34ea99b443a3"
+                    ]
+                  },
+                  {
+                    "text": "100% algodão",
+                    "claim_ids": [
+                      "clm_99f996a73047"
+                    ]
+                  },
+                  {
+                    "text": "Creta da Altenburg",
+                    "claim_ids": [
+                      "clm_34ea99b443a3"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Segundo a Appel, o percal de algodão é naturalmente equilibrado, mantendo-se fresco em dias quentes e aconchegante em noites frias.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_313436808276"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Cuidados de conservação: lavagem e secagem",
+        "blocks": [
+          {
+            "text": "Os cuidados de conservação variam conforme o fabricante e a composição do lençol.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As fichas dos modelos de 200 e 400 fios consultados não trazem informações detalhadas de conservação, segundo a Appel e a Altenburg. Procure pelo rótulo ou manual do produto que você vai comprar para conferir temperaturas de lavagem, secagem, alvejante e outros cuidados específicos.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_45e7bd3b1c58",
+              "clm_465807185089",
+              "clm_34ea99b443a3"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre 200 e 400 fios",
+        "blocks": [
+          {
+            "text": "Se você prefere tecido percal, associado pela Appel à sensação fresca em dias quentes, confira se o lençol de 200 fios declara 'percal' na ficha: a contagem de fios, sozinha, não garante esse tipo de trama. Modelos de percal 200 fios encontrados declaram ou 100% algodão ou misto (60% algodão e 40% poliéster); a composição também influencia no toque e na durabilidade.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_313436808276",
+              "clm_45e7bd3b1c58",
+              "clm_2cfa2e0f4661",
+              "clm_465807185089"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere o acabamento de cetim de algodão, confira um modelo de 400 fios que declare explicitamente 'cetim de algodão' na ficha, como o modelo Creta da Altenburg; não trate todo lençol de 400 fios como cetim sem essa declaração.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_34ea99b443a3",
+              "clm_9962d6b294b4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer 100% algodão, confira a composição na ficha antes de escolher: há lençóis de 200 fios declarados tanto como 100% algodão quanto como 60% algodão e 40% poliéster, enquanto modelos de 400 fios citados declaram 100% algodão, segundo a Appel e a Altenburg.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_45e7bd3b1c58",
+              "clm_465807185089",
+              "clm_99f996a73047"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "FRAMING_HAS_NUMBER Os cuidados de conservação variam conforme o fabricante e a composição do lençol"
+    }
+  ],
+  "usage": {
+    "input_tokens": 11109,
+    "output_tokens": 95
+  }
+}
