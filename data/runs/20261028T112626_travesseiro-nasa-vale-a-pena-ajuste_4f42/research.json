@@ -1,0 +1,154 @@
+{
+  "run_id": "20261028T112626_travesseiro-nasa-vale-a-pena-ajuste_4f42",
+  "topic": "travesseiro-nasa-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_681cb64d7bd6",
+      "question_id": "q_dado_decide",
+      "source_id": "src_aab7d48ddb20",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f6046f1225ae",
+      "question_id": "q_material_espuma",
+      "source_id": "src_aab7d48ddb20",
+      "new": true
+    },
+    {
+      "claim_id": "clm_44323647bd7e",
+      "question_id": "q_material_espuma",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f44ae420ea84",
+      "question_id": "q_material_espuma",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fe23dc81bf5a",
+      "question_id": "q_dimensoes",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cb03a5ba4ce6",
+      "question_id": "q_etiqueta_composicao",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b0c87693a233",
+      "question_id": "q_etiqueta_composicao",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4aee29a17964",
+      "question_id": "q_garantia_fabricante",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_23ca6470aa92",
+      "question_id": "q_dado_decide",
+      "source_id": "src_1ceda92435c6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_259ef2cdd5b4",
+      "question_id": "q_dado_decide",
+      "source_id": "src_ec46e88f12ae",
+      "new": true
+    },
+    {
+      "claim_id": "clm_69680ed65f2d",
+      "question_id": "q_dado_decide",
+      "source_id": "src_ec46e88f12ae",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d32a6f30b8b",
+      "question_id": "q_dimensoes",
+      "source_id": "src_ec46e88f12ae",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_aab7d48ddb20",
+      "question_id": "q_dimensoes",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "60x50cm"
+    },
+    {
+      "source_id": "src_ec46e88f12ae",
+      "question_id": "q_material_espuma",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Densidade Espuma: D15"
+    },
+    {
+      "source_id": "src_ec46e88f12ae",
+      "question_id": "q_material_espuma",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tipo de enchimento: Espuma"
+    },
+    {
+      "source_id": "src_ec46e88f12ae",
+      "question_id": "q_dimensoes",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 60 cm\n\nComprimento: 40 cm\n\nAltura: 12 cm"
+    },
+    {
+      "source_id": "src_ec46e88f12ae",
+      "question_id": "q_garantia_fabricante",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 3 Meses"
+    }
+  ],
+  "coverage": {
+    "q_dado_decide": 4,
+    "q_material_espuma": 3,
+    "q_dimensoes": 2,
+    "q_etiqueta_composicao": 2,
+    "q_o_que_regulador_nao_avalia": 0,
+    "q_garantia_fabricante": 1,
+    "q_ajuste_58f046ef": 0
+  },
+  "unanswered": [
+    "q_o_que_regulador_nao_avalia",
+    "q_ajuste_58f046ef"
+  ],
+  "usage": {
+    "input_tokens": 6064,
+    "output_tokens": 1887,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_84af612ed48d",
+    "src_40fae2d4f49d"
+  ],
+  "triage": [
+    {
+      "source_id": "src_aab7d48ddb20",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_1ceda92435c6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_ec46e88f12ae",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    }
+  ],
+  "credits": 1.49992344
+}
