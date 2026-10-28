@@ -26,6 +26,18 @@ describe('conferência antes de gastar', () => {
     expect((await checarIa(responde(403, 'forbidden'))).veredito).toBe('credencial');
   });
 
+  // Visto na VPS em 28/10, com crédito e tudo funcionando: o modelo gasta tokens de raciocínio e o roteador
+  // devolve 400 por estourar a saída. Tratar isso como falha mandaria um email por ciclo com o motor sadio —
+  // e alarme falso ensina a ignorar o email de verdade.
+  it('saída truncada é sucesso: a conta deixou trabalhar', async () => {
+    const c = await checarIa(responde(400, '{"error":{"message":"Could not finish the message because max_tokens or model output limit was reached."}}'));
+    expect(c.veredito).toBe('ok');
+  });
+
+  it('outro 400 continua sendo problema', async () => {
+    expect((await checarIa(responde(400, '{"error":{"message":"model not found"}}'))).veredito).toBe('fora_do_ar');
+  });
+
   it('5xx e rede caída não viram "sem crédito": são passageiros', async () => {
     expect((await checarIa(responde(500, 'oops'))).veredito).toBe('fora_do_ar');
     const cai = (async () => { throw new Error('getaddrinfo ENOTFOUND'); }) as unknown as typeof fetch;

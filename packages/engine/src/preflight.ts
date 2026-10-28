@@ -28,9 +28,14 @@ export interface Checagem {
 
 const OK_IA: Checagem = { servico: 'ia', veredito: 'ok', detalhe: 'o roteador respondeu e cobrou', resolver: '' };
 
-// Modelo mais barato do catálogo, uma palavra de entrada e um token de saída: ~0,0003 crédito por checagem.
+// Modelo mais barato do catálogo, uma palavra de entrada e pouquíssima saída: ~0,0003 crédito por checagem.
 // Quatro ciclos e três vigias por dia dão menos de um crédito por mês — mais barato que uma frase gerada.
 const MODELO = process.env.BEM_PREFLIGHT_MODEL ?? 'gpt-5-nano';
+// Com max_tokens: 1 o roteador devolve HTTP 400 "output limit reached" mesmo com crédito: este modelo gasta
+// tokens de raciocínio antes de escrever. Visto na VPS em 28/10, e um preflight assim acusaria "fora do ar" em
+// todo ciclo com tudo funcionando — falso alarme é pior que alarme nenhum, porque ensina a ignorar o email.
+const TETO_SAIDA = 16;
+const SO_ESTOUROU_A_SAIDA = /max_tokens|output limit/i;
 
 export async function checarIa(fetchImpl: typeof fetch = fetch): Promise<Checagem> {
   const key = secret('llm');
@@ -43,7 +48,7 @@ export async function checarIa(fetchImpl: typeof fetch = fetch): Promise<Checage
     res = await fetchImpl(`${base}/chat/completions`, {
       method: 'POST',
       headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-      body: JSON.stringify({ model: MODELO, messages: [{ role: 'user', content: 'ok' }], max_tokens: 1 }),
+      body: JSON.stringify({ model: MODELO, messages: [{ role: 'user', content: 'ok' }], max_tokens: TETO_SAIDA }),
       signal: AbortSignal.timeout(30_000),
     });
   } catch (e) {
@@ -55,6 +60,9 @@ export async function checarIa(fetchImpl: typeof fetch = fetch): Promise<Checage
     return OK_IA;
   }
   const texto = (await res.text().catch(() => '')).slice(0, 200);
+  // A resposta chegou ao modelo e só não coube na saída: para o que se quer saber aqui — "a conta deixa
+  // trabalhar?" — isso é um sim.
+  if (res.status === 400 && SO_ESTOUROU_A_SAIDA.test(texto)) return { ...OK_IA, detalhe: 'o roteador respondeu (saída truncada, que aqui basta)' };
   // 402 com a chave válida é o caso de 28/10: conta sem crédito GASTÁVEL, que não é o saldo que o painel mostra.
   if (res.status === 402 || /insufficient[_ ]?(credits|quota)/i.test(texto)) {
     return {
