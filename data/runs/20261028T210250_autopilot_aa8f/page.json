@@ -1,0 +1,53 @@
+{
+  "slug": "edredom-ou-cobertor-diferenca",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 145174,
+    "output_tokens": 27243,
+    "calls": 45
+  },
+  "credits": 46.31118168000006,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção intitulada \"Edredom e capa (duvet)\" não explica a relação entre edredom, capa e duvet; apenas orienta conferir esses termos na ficha (duvet-capa#0); Mudar o título para \"Como verificar se a ficha menciona duvet ou capa\""
+    ],
+    "filler_refs": [
+      "composicao-cobertor#1",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Escolha o edredom se quiser uma peça mais volumosa, com enchimento separado do tecido externo.",
+      "Escolha o cobertor se preferir uma peça de tecido mais grosso, como lã, poliéster ou manta acrílica.",
+      "No edredom, confira na ficha o tipo de enchimento e o tecido externo.",
+      "No cobertor, confira o material declarado e a gramatura, como 280 g/m² ou 400 g/m² nos modelos citados.",
+      "Confira tamanho e medidas antes da compra, pois os cobertores citados têm medidas diferentes conforme solteiro, casal, queen ou king.",
+      "Se optar por um edredom de plumas, confira também as orientações específicas de lavagem, secagem e conservação."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção intitulada \"Edredom e capa (duvet)\" não explica a relação entre edredom, capa e duvet; apenas orienta conferir esses termos na ficha (duvet-capa#0); Mudar o título para \"Como verificar se a ficha menciona duvet ou capa\"",
+      "Indicação dos fabricantes sobre temperatura ambiente ou estação de uso relacionada à gramatura de edredons e cobertores.",
+      "Medidas completas dos edredons e dos cobertores citados, incluindo todos os tamanhos.",
+      "Informação de fabricante confirmando se cada edredom é vendido para uso com capa duvet separada.",
+      "Explicação baseada em fonte primária sobre as informações de composição e os símbolos de conservação exigidos nas etiquetas pelo Inmetro.",
+      "Mais exemplos de gramatura e composição de edredons, além dos modelos citados."
+    ],
+    "publishable": false,
+    "summary": "A página responde diretamente à diferença entre edredom e cobertor e oferece uma regra simples de escolha: edredom para quem quer volume e enchimento; cobertor para quem prefere tecido mais grosso. Também orienta o que conferir na ficha do produto, embora faltem medidas completas, indicação de temperatura e uma resposta efetiva sobre uso com capa duvet.",
+    "filler_ratio": 0.18181818181818182,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "duvet-capa#0",
+        "problem": "A seção intitulada \"Edredom e capa (duvet)\" não explica a relação entre edredom, capa e duvet; apenas orienta conferir esses termos na ficha.",
+        "fix": "Mudar o título para \"Como verificar se a ficha menciona duvet ou capa\"."
+      }
+    ]
+  }
+}

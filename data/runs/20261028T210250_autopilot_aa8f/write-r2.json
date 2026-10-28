@@ -1,0 +1,371 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se você busca uma peça mais volumosa, composta por enchimento e tecido externo, escolha um edredom; se prefere uma peça de tecido mais grosso, confira os cobertores. O enchimento do edredom citado da Karsten é de poliéster, e o cobertor Desert da Altenburg tem composição 100% poliéster e gramatura de 400 g/m².",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c343cf271464",
+        "clm_48dd2f674dac",
+        "clm_0e195d1a8adf",
+        "clm_e20b2bf24682"
+      ]
+    },
+    {
+      "ref": "composicao-edredom#0",
+      "action": "replace",
+      "text": "Segundo a Karsten, há edredons confeccionados com percal 100% algodão de 180 fios e enchimento de poliéster, que não entra em contato com a pele; esse enchimento oferece volume equilibrado e aquecimento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3b9562b062c2",
+        "clm_35ef4685e8de",
+        "clm_23a57e1ba06c"
+      ]
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "action": "replace",
+      "text": "As páginas dos fabricantes informam que o Blanket 300 é de microfibra 100% poliéster, com gramatura de 280 g/m², e que o Desert é de plush flanel fleece double layer, com gramatura de 400 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6566a6168fcc",
+        "clm_232a27049f3d",
+        "clm_e20b2bf24682"
+      ]
+    },
+    {
+      "ref": "composicao-cobertor#1",
+      "action": "replace",
+      "text": "As páginas citadas informam gramaturas de 280 g/m² para o Blanket 300 e 400 g/m² para o Desert.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_232a27049f3d",
+        "clm_e20b2bf24682"
+      ]
+    },
+    {
+      "ref": "tamanhos#0",
+      "action": "replace",
+      "text": "Segundo a Karsten, seus edredons estão disponíveis nos tamanhos solteiro, casal, queen e king. Segundo a Kacyumara, o cobertor Blanket 300 é oferecido nos tamanhos solteiro (160 × 220 cm), casal (180 × 220 cm), queen (220 × 240 cm) e king (260 × 240 cm).",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_288e2e7a1464",
+        "clm_fb3d56707598"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "Para o Edredom 100% Plumas de Ganso Summer, a Plumasul orienta: não lavar à água, lavar a seco, não alvejar, não secar em tambor, secar no varal e não passar a ferro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_bbe24e0c3893"
+      ]
+    },
+    {
+      "ref": "duvet-capa#0",
+      "action": "replace",
+      "text": "O jogo de duvet casal da Altenburg é composto por 1 duvet com fechamento por zíper e 2 fronhas. A composição informada é 100% algodão, com tecido percal 200 fios.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_c03dd0744c58",
+        "clm_e5dae12f3747",
+        "clm_afaf12042e9f"
+      ]
+    },
+    {
+      "ref": "duvet-capa#1",
+      "action": "replace",
+      "text": "Confira na ficha do modelo se há menção a \"duvet\" ou \"capa\".",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você prefere uma peça de tecido mais grosso, confira os cobertores. Segundo a Karsten, o cobertor é geralmente feito de lã, poliéster ou manta acrílica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_48dd2f674dac"
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Cobertor",
+          "claim_ids": []
+        },
+        {
+          "text": "Não informado nos trechos citados",
+          "claim_ids": []
+        },
+        {
+          "text": "Microfibra 100% poliéster (Kacyumara Blanket 300)",
+          "claim_ids": [
+            "clm_6566a6168fcc"
+          ]
+        },
+        {
+          "text": "Solteiro 160×220 cm, casal 180×220 cm, queen 220×240 cm, king 260×240 cm (Kacyumara Blanket 300)",
+          "claim_ids": [
+            "clm_fb3d56707598"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se escolher um edredom, confira na ficha o tipo de enchimento e o tecido externo; nos trechos da Karsten, aparecem poliéster ou fibras sintéticas e algodão ou microfibra. Se escolher um cobertor, confira o material declarado e a gramatura, como 400 g/m² no produto da Altenburg citado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c343cf271464",
+        "clm_0e195d1a8adf",
+        "clm_23a57e1ba06c",
+        "clm_e20b2bf24682"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Edredom ou cobertor: qual escolher",
+    "description": "Edredom tem enchimento separado do tecido; cobertor é uma peça de tecido mais grosso. Confira a composição e gramatura na ficha.",
+    "verdict": {
+      "text": "Se você busca uma peça mais volumosa, composta por enchimento e tecido externo, escolha um edredom; se prefere uma peça de tecido mais grosso, confira os cobertores. O enchimento do edredom citado da Karsten é de poliéster, e o cobertor Desert da Altenburg tem composição 100% poliéster e gramatura de 400 g/m².",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c343cf271464",
+        "clm_48dd2f674dac",
+        "clm_0e195d1a8adf",
+        "clm_e20b2bf24682"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-edredom",
+        "heading": "Enchimento e tecido do edredom",
+        "blocks": [
+          {
+            "text": "Segundo a Karsten, há edredons confeccionados com percal 100% algodão de 180 fios e enchimento de poliéster, que não entra em contato com a pele; esse enchimento oferece volume equilibrado e aquecimento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3b9562b062c2",
+              "clm_35ef4685e8de",
+              "clm_23a57e1ba06c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Alternativas com enchimento de pluma também existem. No edredom Summer da Plumasul, o revestimento é tecido 100% algodão percal 233 fios com tratamento Downproof (que impede que penas e plumas escapem entre o tecido) e enchimento de 100% plumas de ganso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e86ea4ea87b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-cobertor",
+        "heading": "Material e gramatura do cobertor",
+        "blocks": [
+          {
+            "text": "As páginas dos fabricantes informam que o Blanket 300 é de microfibra 100% poliéster, com gramatura de 280 g/m², e que o Desert é de plush flanel fleece double layer, com gramatura de 400 g/m², segundo a Kacyumara e a Altenburg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6566a6168fcc",
+              "clm_232a27049f3d",
+              "clm_e20b2bf24682"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As páginas citadas informam gramaturas de 280 g/m² para o Blanket 300 e 400 g/m² para o Desert, segundo a Kacyumara e a Altenburg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_232a27049f3d",
+              "clm_e20b2bf24682"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "tamanhos",
+        "heading": "Tamanhos disponíveis",
+        "blocks": [
+          {
+            "text": "Segundo a Karsten, seus edredons estão disponíveis nos tamanhos solteiro, casal, queen e king. Segundo a Kacyumara, o cobertor Blanket 300 é oferecido nos tamanhos solteiro (160 × 220 cm), casal (180 × 220 cm), queen (220 × 240 cm) e king (260 × 240 cm).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_288e2e7a1464",
+              "clm_fb3d56707598"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Cuidados de conservação declarados",
+        "blocks": [
+          {
+            "text": "Para o Edredom 100% Plumas de Ganso Summer, a Plumasul orienta: não lavar à água, lavar a seco, não alvejar, não secar em tambor, secar no varal e não passar a ferro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_bbe24e0c3893"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "duvet-capa",
+        "heading": "Edredom e capa (duvet)",
+        "blocks": [
+          {
+            "text": "O jogo de duvet casal da Altenburg é composto por 1 duvet com fechamento por zíper e 2 fronhas. A composição informada é 100% algodão, com tecido percal 200 fios.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c03dd0744c58",
+              "clm_e5dae12f3747",
+              "clm_afaf12042e9f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na ficha do modelo se há menção a \"duvet\" ou \"capa\".",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre edredom e cobertor",
+        "blocks": [
+          {
+            "text": "Se você busca uma peça mais volumosa, com enchimento separado do tecido externo, escolha um edredom. Segundo Karsten, o edredom é composto por enchimento (geralmente de fibras sintéticas) e tecido externo de algodão ou microfibra, oferecendo volume equilibrado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c343cf271464",
+              "clm_23a57e1ba06c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere uma peça de tecido mais grosso, confira os cobertores. Segundo a Karsten, o cobertor é geralmente feito de lã, poliéster ou manta acrílica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_48dd2f674dac"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Composição e características: edredom vs. cobertor (confira na ficha do produto) (segundo a Karsten)",
+            "columns": [
+              "Peça",
+              "Enchimento",
+              "Tecido externo ou material",
+              "Tamanhos disponíveis"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Edredom",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Poliéster (Karsten)",
+                    "claim_ids": [
+                      "clm_0e195d1a8adf"
+                    ]
+                  },
+                  {
+                    "text": "Percal 100% algodão, 180 fios (Karsten)",
+                    "claim_ids": [
+                      "clm_3b9562b062c2"
+                    ]
+                  },
+                  {
+                    "text": "Solteiro, casal, queen, king (Karsten)",
+                    "claim_ids": [
+                      "clm_288e2e7a1464"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se escolher um edredom, confira na ficha o tipo de enchimento e o tecido externo; nos trechos da Karsten, aparecem poliéster ou fibras sintéticas e algodão ou microfibra. Se escolher um cobertor, confira o material declarado e a gramatura, como 400 g/m² no produto da Altenburg citado.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_c343cf271464",
+              "clm_0e195d1a8adf",
+              "clm_23a57e1ba06c",
+              "clm_e20b2bf24682"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que o edredom é mais volumoso, tem enchimento e tecido externo, e que o cobertor é de tecido mais grosso; não sustentam a característica adicional de tecido “denso”. Também sustentam o enchimento de poliéster do edredom Karsten, mas não que seu tecido externo seja de algodão percal. A orientação para sempre conferir composição e gramatura não é dita nos trechos; apenas há uma gramatura específica do cobertor Desert. Versão sustentável: Se você busca uma peça mais volumosa, composta por enchimento e tecido externo, escolha um edredom; se prefere uma peça de tecido mais grosso, confira os cobertores. O enchimento do edredom citado da Karsten é de poliéster, e o cobertor Desert da Altenburg tem composição 100% poliéster e gramatura de 400 g/m²."
+    },
+    {
+      "ref": "composicao-edredom#0",
+      "msg": "OVERSTATED. O trecho diz que a Karsten usa tecidos como percal 100% algodão de 180 fios, indicando um exemplo, mas o bloco generaliza isso para todos os edredons Karsten. As demais características estão sustentadas. Versão sustentável: Segundo a Karsten, há edredons confeccionados com percal 100% algodão de 180 fios e enchimento de poliéster, que não entra em contato com a pele; esse enchimento oferece volume equilibrado e aquecimento."
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a composição e as gramaturas dos dois produtos, mas não dizem que os cobertores são feitos de tecido único, nem que sejam mais grossos ou densos. Versão sustentável: As páginas dos fabricantes informam que o Blanket 300 é de microfibra 100% poliéster, com gramatura de 280 g/m², e que o Desert é de plush flanel fleece double layer, com gramatura de 400 g/m²."
+    },
+    {
+      "ref": "composicao-cobertor#1",
+      "msg": "UNSUPPORTED. Os trechos apenas informam as gramaturas e, no caso do Desert, a composição do produto. Não afirmam que gramatura indica densidade, que valores maiores tornam o cobertor mais pesado e denso, nem que isso oferece estrutura mais encorpada. Versão sustentável: As páginas citadas informam gramaturas de 280 g/m² para o Blanket 300 e 400 g/m² para o Desert."
+    },
+    {
+      "ref": "tamanhos#0",
+      "msg": "MISATTRIBUTED. Os trechos são declarações de fabricantes, mas o bloco as apresenta como fatos gerais, sem indicar que são informações da Karsten e da Kacyumara. Além disso, a frase inicial generaliza para edredons e cobertores em geral, enquanto os trechos citam apenas edredons Karsten e um cobertor Kacyumara específico. Versão sustentável: Segundo a Karsten, seus edredons estão disponíveis nos tamanhos solteiro, casal, queen e king. Segundo a Kacyumara, o cobertor Blanket 300 é oferecido nos tamanhos solteiro (160 × 220 cm), casal (180 × 220 cm), queen (220 × 240 cm) e king (260 × 240 cm)."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "MISATTRIBUTED. O trecho da fabricante traz instruções específicas para o Edredom 100% Plumas de Ganso Summer, mas o bloco as apresenta como regra geral para todos os edredons com enchimento de pluma. Além disso, os trechos não sustentam a afirmação geral de que os cuidados variam conforme o material nem a orientação sobre edredons de poliéster e sobre conferir a etiqueta. Versão sustentável: Para o Edredom 100% Plumas de Ganso Summer, a Plumasul orienta: não lavar à água, lavar a seco, não alvejar, não secar em tambor, secar no varal e não passar a ferro."
+    },
+    {
+      "ref": "duvet-capa#0",
+      "msg": "UNSUPPORTED. Os trechos confirmam a composição do jogo, o fechamento por zíper, as duas fronhas e o tecido percal 200 fios, mas não dizem que “duvet” é uma capa para uso com enchimento separado nem que a funcionalidade mencionada se refere a esse uso. Versão sustentável: O jogo de duvet casal da Altenburg é composto por 1 duvet com fechamento por zíper e 2 fronhas. A composição informada é 100% algodão, com tecido percal 200 fios."
+    },
+    {
+      "ref": "duvet-capa#1",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja em framing, ele afirma fatos sobre as fichas consultadas — que nem todas informam determinada característica — sem trechos citados que os sustentem. Versão sustentável: Confira na ficha do modelo se há menção a “duvet” ou “capa”."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos dizem que o cobertor é uma peça de tecido mais grosso e indicam materiais comuns, mas não afirmam que ele não possui enchimento separado. Versão sustentável: Se você prefere uma peça de tecido mais grosso, confira os cobertores. Segundo Karsten, o cobertor é geralmente feito de lã, poliéster ou manta acrílica."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a composição de microfibra 100% poliéster e os tamanhos, mas não dizem que o cobertor não tem enchimento ou que é composto por tecido único. Versão sustentável: Peça: Cobertor | Enchimento: não informado nos trechos citados | Material: microfibra 100% poliéster | Tamanhos: solteiro 160×220 cm, casal 180×220 cm, queen 220×240 cm e king 260×240 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. Os trechos da Karsten sustentam enchimento de poliéster ou fibras sintéticas e tecido externo de algodão ou microfibra, mas não mencionam plumas nem algodão percal. O trecho da Altenburg trata de um cobertor, não de edredom, portanto não sustenta a atribuição dessas informações à Altenburg. Versão sustentável: Se escolher um edredom, confira na ficha o tipo de enchimento e o tecido externo; nos trechos da Karsten, aparecem poliéster ou fibras sintéticas e algodão ou microfibra. Se escolher um cobertor, confira o material declarado e a gramatura, como 400 g/m² no produto da Altenburg citado."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14172,
+    "output_tokens": 1683
+  }
+}
