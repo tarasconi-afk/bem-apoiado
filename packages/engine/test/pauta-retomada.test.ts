@@ -44,3 +44,23 @@ describe('pauta pesquisada que parou antes da redação', () => {
     rmSync(PAGINA);
   });
 });
+
+// 29/10, antes de 4 dias sem ninguém olhando: o caminho de retomada não tinha contador. O improve para em
+// MAX_IMPROVE_ATTEMPTS; a retomada repetiria a mesma tentativa a cada ciclo, para sempre. Um estouro de teto
+// que se repete custaria ~30 créditos por ciclo, 4 vezes por dia, sem produzir nada.
+describe('pauta que parou sem página e sem lacuna', () => {
+  it('fica adiada por alguns dias em vez de voltar em todo ciclo', async () => {
+    const { isDeferred, DEFERRED_FILE, DEFER_DAYS } = await import('../src/stages/autopilot.ts');
+    const { writeState } = await import('../src/store.ts');
+    const slug = 'como-escolher-toalha-de-banho';
+    expect(isDeferred(slug)).toBe(false);
+    writeState(DEFERRED_FILE, { [slug]: new Date().toISOString() });
+    expect(isDeferred(slug)).toBe(true);
+    expect(nextQuery()).toBe(null); // sai da vez: o ciclo seguinte vai para outra pauta
+    // E volta sozinha depois do prazo, sem ninguém mexer.
+    writeState(DEFERRED_FILE, { [slug]: new Date(Date.now() - (DEFER_DAYS + 1) * 86_400_000).toISOString() });
+    expect(isDeferred(slug)).toBe(false);
+    expect(nextQuery()).toBe('como escolher toalha de banho');
+    writeState(DEFERRED_FILE, {});
+  });
+});

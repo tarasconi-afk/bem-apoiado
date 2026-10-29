@@ -659,6 +659,16 @@ export async function runCycle(runId: string): Promise<CycleResult> {
         // que o auditor não aceitou vira lacuna, e a próxima tentativa vai atrás só disso, sem refazer a pauta.
         writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: p.open_issues.slice(0, 5).map((x) => `Sustentar com fonte ou tirar: ${x.slice(0, 220)}`) }));
       }
+      // Parou, não escreveu página e não registrou lacuna: do jeito que está, a pauta volta como "retomada" no
+      // ciclo seguinte e repete a mesma tentativa, para sempre. É o caminho novo de 29/10 (retomada), e ele não
+      // tem contador: o improve tem MAX_IMPROVE_ATTEMPTS, este não tinha nada. Sem ninguém olhando, um estouro
+      // de teto que se repete custaria ~30 créditos por ciclo indefinidamente. Adia 3 dias, como a checagem
+      // antes da redação já faz: a pauta volta sozinha, mas uma vez a cada 3 dias, não 4 vezes por dia.
+      const depois = loadTopic(topic.slug);
+      if (p.status === 'SAFE_STOP' && depois.evidence_gaps.length === 0 && !loadPages().some((x) => x.slug === topic.slug)) {
+        writeState(DEFERRED_FILE, { ...readState<Record<string, string>>(DEFERRED_FILE, {}), [topic.slug]: new Date().toISOString() });
+        steps.push(`pauta "${query}" adiada por ${DEFER_DAYS} dias: parou sem página e sem lacuna para perseguir (${p.reason.slice(0, 60)})`);
+      }
       if (p.status === 'PASS') {
         const e = await editPage(p.page, runId);
         steps.push(`edit: ${e.status}`);
