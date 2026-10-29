@@ -5,14 +5,16 @@
   "title": "Travesseiro NASA vale a pena: guia de decisão",
   "description": "Descubra para quem compensa um travesseiro NASA, qual altura escolher pela posição de dormir e o que conferir na ficha técnica.",
   "primary_query": "travesseiro nasa vale a pena",
-  "updated_at": "2026-10-28",
+  "updated_at": "2026-10-29",
   "verdict": {
-    "text": "Alguns travesseiros NASA usam espuma viscoelástica. No Travesseiro Nasa Paz da Probel, a altura é 12 cm e o modelo é indicado para dormir de bruços ou de costas; a Duoflex oferece modelos NASA com 10 cm e 17 cm. Consulte a altura e as indicações informadas na ficha do modelo escolhido.",
-    "basis": "evidence",
+    "text": "Seu travesseiro Nasa é feito de espuma viscoelástica que se adapta ao contorno do corpo, segundo a Duoflex. No Travesseiro Nasa Paz da Probel, a altura é 12 cm e o fabricante o indica para dormir de bruços ou de costas; a Duoflex oferece modelos Nasa com 10 cm, 14 cm e 17 cm. Confira na ficha do modelo escolhido a altura, a posição recomendada e o material do enchimento.",
+    "basis": "reasoning",
     "claim_ids": [
+      "clm_ffedb8740416",
       "clm_0373b10bfbe5",
       "clm_5072479965ac",
       "clm_27d558f46e41",
+      "clm_6343388c3775",
       "clm_74cb6cace2dd",
       "clm_48e4025d1e2c"
     ]
@@ -175,7 +177,7 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir qual travesseiro NASA escolher",
+      "heading": "Travesseiro NASA: alturas, indicações e o que conferir",
       "blocks": [
         {
           "kind": "paragraph",
@@ -214,7 +216,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261028T071422_autopilot_1db0+editor:20261028T112626_travesseiro-nasa-vale-a-pena-ajuste_4f42+reaudit:20261028T131047_autopilot_4a9d",
+    "run_id": "20261028T071422_autopilot_1db0+editor:20261028T112626_travesseiro-nasa-vale-a-pena-ajuste_4f42+reaudit:20261028T131047_autopilot_4a9d+editor:20261029T081311_travesseiro-nasa-vale-a-pena-ajuste_5ad5",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
