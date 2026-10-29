@@ -23,7 +23,7 @@ import { addKey, addService, BUILTIN, FILE_SECRETS, keysOf, maskKey, removeKey, 
 import { domainCandidates, loadRegistry as loadDomainRegistry } from './stages/discover.ts';
 import { loadDecisions } from './stages/domains.ts';
 import { RUNS_DIR } from './store.ts';
-import { GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
+import { lastTwoSnapshots, snapshotTotals, GSC_SITE, hasKey, keyEmail, latestSnapshot, opportunities, pageStats, saveKey } from './gsc.ts';
 import { loadTopics } from './store.ts';
 import { DATA, loadPages, loadProducts, readState, ROOT } from './store.ts';
 import { clicksByAsin, trafficSummary } from './hits.ts';
@@ -707,7 +707,24 @@ function gscHtml(): string {
   const topics = loadTopics();
   const ops = opportunities(snap, new Set(topics.map((t) => t.slug)), new Set(queueItems().map((q) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))), (q) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60));
   const pct = (x: number) => `${(100 * x).toFixed(1)}%`;
+  // Resumo no topo (editor, 29/10: "quero os números atualizados sem precisar entrar no GSC diariamente").
+  // O ciclo guarda um retrato por dia; comparar com o anterior responde "melhorou?" sem ler a tabela inteira.
+  const par = lastTwoSnapshots();
+  const tot = par ? snapshotTotals(par.atual) : null;
+  const ant = par?.anterior ? snapshotTotals(par.anterior) : null;
+  // A posição é melhor quando MENOR: a seta tem de refletir isso, não o sinal da subtração.
+  const delta = (agora: number, antes: number | undefined, menorEMelhor = false) => {
+    if (antes === undefined) return '';
+    const d = agora - antes;
+    if (Math.abs(d) < 0.05) return ' <span class="muted">(igual)</span>';
+    const bom = menorEMelhor ? d < 0 : d > 0;
+    const txt = `${d > 0 ? '+' : ''}${Number.isInteger(d) ? d : d.toFixed(1)}`;
+    return ` <span class="${bom ? 'ok-d' : 'bad-d'}">${bom ? '▲' : '▼'} ${esc(txt)}</span>`;
+  };
+  const resumo = tot ? `<div class="tw"><table><thead><tr><th>Retrato de ${esc(par!.atual.fetched_at.slice(0, 10))}</th><th class="num">Cliques</th><th class="num">Impressões</th><th class="num">Posição média</th><th class="num">Páginas com busca</th></tr></thead><tbody><tr><td class="muted">${ant ? 'comparado ao retrato anterior' : 'primeiro retrato'}</td><td class="num">${tot.clicks}${delta(tot.clicks, ant?.clicks)}</td><td class="num">${tot.impressions}${delta(tot.impressions, ant?.impressions)}</td><td class="num">${tot.position.toFixed(1)}${delta(tot.position, ant?.position, true)}</td><td class="num">${tot.pages}${delta(tot.pages, ant?.pages)}</td></tr></tbody></table></div>
+<p class="muted">Só as buscas que o Google nomeia entram aqui (ele omite as raras), então estes números são o piso, não o total do Search Console. O ciclo grava um retrato por dia: a variação acima é entre os dois últimos.</p>` : '';
   return `<p class="muted">Conectado como <code>${esc(keyEmail())}</code> · período ${esc(snap.start)} a ${esc(snap.end)} · ${snap.rows.length} combinações página×busca.</p>
+${resumo}
 <div class="tw"><table><thead><tr><th>Página</th><th class="num">Cliques</th><th class="num">Impressões</th><th class="num">CTR</th><th class="num">Posição</th><th>Buscas principais</th></tr></thead><tbody>${stats.map((p) => `<tr><td><code>/${esc(p.slug)}/</code></td><td class="num">${p.clicks}</td><td class="num">${p.impressions}</td><td class="num">${pct(p.ctr)}</td><td class="num">${p.position.toFixed(1)}</td><td class="muted">${p.queries.slice(0, 3).map((q) => esc(q.query)).join(' · ')}</td></tr>`).join('') || '<tr><td colspan="6" class="muted">sem impressões ainda</td></tr>'}</tbody></table></div>
 ${ops.strikingDistance.length ? `<p><strong>Quase na 1ª página</strong> (posição 8–20): ${ops.strikingDistance.map((p) => `<code>/${esc(p.slug)}/</code> (${p.position.toFixed(1)})`).join(', ')}. Melhorar estas rende mais que criar páginas novas.</p>` : ''}
 ${ops.lowCtr.length ? `<p><strong>Aparecem, mas pouco clicadas</strong> (CTR &lt; 1%): ${ops.lowCtr.map((p) => `<code>/${esc(p.slug)}/</code> (${pct(p.ctr)})`).join(', ')}. Título e descrição são o primeiro alvo.</p>` : ''}
@@ -978,6 +995,7 @@ button.warn{background:var(--warnbg);color:var(--warn)}
 .chip[aria-pressed="true"]{background:var(--accentbg);border-color:var(--accent);color:var(--accent);font-weight:600}
 td .sub{display:block;font-size:.8rem;color:var(--muted)}td.num{white-space:nowrap}td .b{white-space:nowrap}#pg-live td:last-child summary{white-space:nowrap;cursor:pointer}
 .meter{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}.meter i{width:7px;height:12px;border-radius:2px;background:var(--nbg)}
+.ok-d{color:var(--ok);font-weight:600}.bad-d{color:var(--bad);font-weight:600}
 .meter.mok i.f{background:var(--ok)}.meter.mwarn i.f{background:var(--warn)}.meter.mbad i.f{background:var(--bad)}
 .meter.mok i.h{background:linear-gradient(90deg,var(--ok) 50%,var(--nbg) 50%)}.meter.mwarn i.h{background:linear-gradient(90deg,var(--warn) 50%,var(--nbg) 50%)}.meter.mbad i.h{background:linear-gradient(90deg,var(--bad) 50%,var(--nbg) 50%)}
 details.fold{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}details.fold summary{cursor:pointer}

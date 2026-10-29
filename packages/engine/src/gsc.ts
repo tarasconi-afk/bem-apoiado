@@ -88,6 +88,24 @@ export function latestSnapshot(): GscSnapshot | null {
   return all.at(-1) ?? null;
 }
 
+// Os dois retratos mais novos, para o painel mostrar a variação sem o editor abrir o Search Console (pedido
+// dele em 29/10: "quero os números atualizados sem precisar entrar no GSC diariamente"). O ciclo guarda um
+// retrato por dia; o anterior é o do dia anterior que existir, não necessariamente o de ontem.
+export function lastTwoSnapshots(): { atual: GscSnapshot; anterior: GscSnapshot | null } | null {
+  if (!existsSync(GSC_DIR())) return null;
+  const all = readJsonDir(GSC_DIR(), (v) => GscSnapshot.parse(v));
+  const atual = all.at(-1);
+  return atual ? { atual, anterior: all.at(-2) ?? null } : null;
+}
+
+// Totais do retrato. A posição é média ponderada por impressão, como em pageStats: média simples daria o
+// mesmo peso a uma busca com 1 impressão e a outra com 200.
+export function snapshotTotals(s: GscSnapshot): { clicks: number; impressions: number; position: number; pages: number } {
+  let clicks = 0, impressions = 0, pos = 0;
+  for (const r of s.rows) { clicks += r.clicks; impressions += r.impressions; pos += r.position * r.impressions; }
+  return { clicks, impressions, position: impressions ? pos / impressions : 0, pages: new Set(s.rows.map((r) => r.page)).size };
+}
+
 export interface PageStats { slug: string; clicks: number; impressions: number; ctr: number; position: number; queries: { query: string; impressions: number; position: number }[] }
 
 const slugOfUrl = (u: string) => new URL(u).pathname.replace(/^\/|\/$/g, '') || '';
