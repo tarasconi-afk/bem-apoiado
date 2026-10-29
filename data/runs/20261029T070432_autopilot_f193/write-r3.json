@@ -1,0 +1,323 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se o colchão é queen, meça suas dimensões e escolha um lençol de aproximadamente 1,60 m × 2,00 m ou mais. Segundo a Appel, camas queen têm cerca de 1,58 m × 1,98 m; confira a profundidade máxima declarada na ficha, que pode ser de até 40 cm ou 45 cm conforme o modelo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_7f0d15076a58",
+        "clm_30b21ea532d5",
+        "clm_8286c8043c81",
+        "clm_e1f493953c53",
+        "clm_4f4d6ec06dfd"
+      ]
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "Se o colchão é king, meça suas dimensões e procure um lençol anunciado para 1,93 m × 2,03 m ou maior. Segundo a Appel, essas são as medidas padrão; procure lençol com pelo menos 2,00 m × 2,10 m de largura e comprimento, e confira se a profundidade máxima declarada de 40 cm cobre a altura do colchão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_f414dc77acd2",
+        "clm_2d0771a14d8d",
+        "clm_9363a7d9adfe",
+        "clm_cdadfc8225d9",
+        "clm_4f4d6ec06dfd"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Lençol com elástico: como escolher o tamanho",
+    "description": "Meça seu colchão e escolha o lençol com elástico pelas dimensões declaradas na ficha: largura, comprimento e profundidade máxima suportada.",
+    "verdict": {
+      "text": "Escolha o lençol com elástico pelas três medidas que o fabricante declara: largura e comprimento do colchão, e profundidade (altura) máxima suportada. Meça seu colchão e procure um lençol com medidas iguais ou maiores na largura e comprimento, e profundidade máxima que cubra a altura do seu colchão. Confira também a composição na etiqueta e as instruções de lavagem e conservação antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_117a9fbc38fc",
+        "clm_862c5d9d3233",
+        "clm_d2857c6262ec",
+        "clm_1a9fa3a6c7bf",
+        "clm_7826221856ab",
+        "clm_d4deb5834cee"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-fibras",
+        "heading": "O que a etiqueta deve informar sobre composição",
+        "blocks": [
+          {
+            "text": "A etiqueta do lençol com elástico deve indicar o nome das fibras ou filamentos têxteis e seus percentuais em massa, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf",
+              "clm_c2551e4d77eb"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Procure na etiqueta se o lençol é 100% algodão ou de outra composição, segundo fabricantes como Karsten, Döhler e Trussardi. Confira se o fabricante informa o percentual de cada fibra de forma clara na etiqueta.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_36f38be27317",
+              "clm_5f9f713b7781",
+              "clm_72122c20e886"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "instrucoes-lavagem",
+        "heading": "Instruções de lavagem e conservação na etiqueta",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que a etiqueta do lençol com elástico indique o tratamento de cuidado para conservação, informando como lavar, secar, passar e cuidar do produto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7826221856ab",
+              "clm_967a8a4db583",
+              "clm_d4deb5834cee"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A sequência obrigatória das instruções na etiqueta é: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional, conforme a Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c1c1ac1311bb"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na etiqueta as temperaturas máximas de lavagem e secagem, se é permitido alvejar, secar em tambor ou passar a ferro, e se há restrições de uso de amaciante, segundo a Karsten e a Trussardi. Exemplos: alguns lençóis indicam lavagem a 40 °C sem secadora, enquanto outros permitem 60 °C com secadora.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8f9e6a975c07",
+              "clm_bdd52e383f1c",
+              "clm_5066a0185c92"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "tamanho-etiqueta",
+        "heading": "Tamanho e dimensões na etiqueta",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que a etiqueta do lençol com elástico indique o tamanho ou dimensão, quando aplicável. Qualquer formato de indicação é aceito até que normas padronizadas sejam criadas, desde que as medidas estejam em unidades do Sistema Internacional (metros ou centímetros).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_531debf45868",
+              "clm_4f4d6ec06dfd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Procure na etiqueta as três dimensões do lençol: largura, comprimento e profundidade máxima (altura da faixa elástica), segundo a Karsten e a Trussardi. O fabricante pode indicá-las como \"1,40 m × 1,90 m × 40 cm\" ou em outro formato claro, desde que use centímetros ou metros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_862c5d9d3233",
+              "clm_6ebdeebd202e",
+              "clm_8286c8043c81"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Não há tamanho padrão oficial no Brasil definido pelo Inmetro. Cada fabricante declara as medidas que o lençol suporta. Compare a medida do seu colchão com as dimensões anunciadas na ficha antes de comprar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3bd4b105ec16"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pelo tamanho",
+        "blocks": [
+          {
+            "text": "Procure na ficha técnica do lençol três informações: largura × comprimento × profundidade máxima. Meça o seu colchão (largura, comprimento e altura) e compare. O lençol deve ter largura e comprimento iguais ou maiores que o colchão; a profundidade máxima declarada deve cobrir a altura do seu colchão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_4f4d6ec06dfd",
+              "clm_531debf45868",
+              "clm_862c5d9d3233",
+              "clm_8286c8043c81"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Dimensões de colchão e lençol com elástico por tamanho, segundo fabricantes",
+            "columns": [
+              "Tamanho",
+              "Dimensões típicas do colchão",
+              "Profundidade máxima do lençol (exemplos)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_0704b22751c0"
+                    ]
+                  },
+                  {
+                    "text": "0,88 m × 1,88 m",
+                    "claim_ids": [
+                      "clm_0704b22751c0"
+                    ]
+                  },
+                  {
+                    "text": "30 cm",
+                    "claim_ids": [
+                      "clm_0bde499734b8",
+                      "clm_861a0d302cf6"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": [
+                      "clm_117a9fbc38fc"
+                    ]
+                  },
+                  {
+                    "text": "1,38 m × 1,88 m",
+                    "claim_ids": [
+                      "clm_117a9fbc38fc"
+                    ]
+                  },
+                  {
+                    "text": "35 cm ou 40 cm",
+                    "claim_ids": [
+                      "clm_d389f2ae38bd",
+                      "clm_862c5d9d3233",
+                      "clm_ed02b3184a24"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": [
+                      "clm_7f0d15076a58"
+                    ]
+                  },
+                  {
+                    "text": "1,58 m × 1,98 m",
+                    "claim_ids": [
+                      "clm_7f0d15076a58"
+                    ]
+                  },
+                  {
+                    "text": "40 cm ou 45 cm",
+                    "claim_ids": [
+                      "clm_8286c8043c81",
+                      "clm_e1f493953c53"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": [
+                      "clm_f414dc77acd2",
+                      "clm_2d0771a14d8d"
+                    ]
+                  },
+                  {
+                    "text": "1,93 m × 2,03 m",
+                    "claim_ids": [
+                      "clm_f414dc77acd2",
+                      "clm_2d0771a14d8d"
+                    ]
+                  },
+                  {
+                    "text": "40 cm",
+                    "claim_ids": [
+                      "clm_cdadfc8225d9"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se o colchão é de solteiro, meça suas dimensões e escolha um lençol anunciado com largura e comprimento iguais ou maiores. Segundo a Appel, camas de solteiro têm cerca de 0,88 m × 1,88 m; procure lençol com pelo menos 0,90 m × 2,00 m. Confira na ficha se a profundidade máxima declarada cobre a altura do seu colchão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0704b22751c0",
+              "clm_a6291990ca2e",
+              "clm_4f4d6ec06dfd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o colchão é casal, meça suas dimensões e compare com o anúncio. Segundo a Appel, camas de casal padrão têm cerca de 1,38 m × 1,88 m; procure lençol com essas medidas ou maiores. Confira a profundidade máxima declarada: fabricantes como Döhler e Karsten oferecem modelos para colchões de até 35 cm ou até 40 cm de altura.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_117a9fbc38fc",
+              "clm_d389f2ae38bd",
+              "clm_d2857c6262ec",
+              "clm_4f4d6ec06dfd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o colchão é queen, meça suas dimensões e escolha um lençol de aproximadamente 1,60 m × 2,00 m ou mais. Segundo a Appel, camas queen têm cerca de 1,58 m × 1,98 m; confira a profundidade máxima declarada na ficha, que pode ser de até 40 cm ou 45 cm conforme o modelo.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_7f0d15076a58",
+              "clm_30b21ea532d5",
+              "clm_8286c8043c81",
+              "clm_e1f493953c53",
+              "clm_4f4d6ec06dfd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o colchão é king, meça suas dimensões e procure um lençol anunciado para 1,93 m × 2,03 m ou maior. Segundo a Appel, essas são as medidas padrão; procure lençol com pelo menos 2,00 m × 2,10 m de largura e comprimento, e confira se a profundidade máxima declarada de 40 cm cobre a altura do colchão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_f414dc77acd2",
+              "clm_2d0771a14d8d",
+              "clm_9363a7d9adfe",
+              "clm_cdadfc8225d9",
+              "clm_4f4d6ec06dfd"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#4",
+      "msg": "repete a condição de como-decidir#3 (\"se o colchao e queen…\"): junte os dois blocos ou diga a outra situação."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "repete a condição de como-decidir#3 (\"se o colchao e king…\"): junte os dois blocos ou diga a outra situação."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14794,
+    "output_tokens": 457
+  }
+}
