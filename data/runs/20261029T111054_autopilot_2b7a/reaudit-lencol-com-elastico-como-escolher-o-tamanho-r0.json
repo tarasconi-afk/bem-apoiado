@@ -1,0 +1,101 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram medidas de um modelo específico de lençol e a altura informada, mas não sustentam a afirmação geral de que todo fabricante declara largura, comprimento e profundidade máxima suportada, nem a regra de escolher medidas iguais ou maiores e de que a profundidade deve cobrir a altura do colchão. A composição e os cuidados de conservação estão apoiados pelos trechos do Inmetro.",
+      "fix": "Compare as medidas informadas para o lençol — por exemplo, 1,40 m x 1,90 m x 40 cm — com as medidas do colchão. Confira também, na etiqueta, os nomes e percentuais das fibras e as instruções de cuidado para conservação."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam a informação sobre nomes das fibras e percentuais em massa para tecidos destinados ao comércio, mas não dizem especificamente que a etiqueta de um lençol com elástico deve apresentar esses dados.",
+      "fix": "Segundo o Inmetro, tecidos destinados ao comércio devem apresentar o nome das fibras ou filamentos têxteis e seus percentuais em massa."
+    },
+    {
+      "ref": "composicao-fibras#1",
+      "verdict": "OVERSTATED",
+      "problem": "As evidências mostram que páginas de produtos específicos de Karsten, Döhler e Trussardi informam composição de 100% algodão, mas não dizem que essa informação consta na etiqueta, nem sustentam a orientação geral para procurar essa informação ou a possibilidade de outra composição.",
+      "fix": "As páginas citadas de Karsten, Döhler e Trussardi informam composição de 100% algodão para os produtos apresentados."
+    },
+    {
+      "ref": "instrucoes-lavagem#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a informação sobre cuidados de conservação é obrigatória para produtos têxteis, mas não mostram que ela deve estar especificamente na etiqueta de um lençol com elástico nem enumeram expressamente lavagem, secagem, passadoria e demais cuidados.",
+      "fix": "O Inmetro estabelece que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve seguir a norma NM ISO 3758:2013."
+    },
+    {
+      "ref": "instrucoes-lavagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "instrucoes-lavagem#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados mostram instruções sobre lavagem, alvejamento, secagem, passadoria e lavagem a seco, mas não mencionam restrições ao uso de amaciante.",
+      "fix": "Confira na etiqueta as temperaturas máximas de lavagem e secagem, se é permitido alvejar, secar em tambor ou passar a ferro, e se é permitido lavar a seco, conforme as instruções dos produtos citados da Karsten e da Trussardi. Alguns lençóis indicam lavagem a 40 °C sem secadora, enquanto outros permitem lavagem a 60 °C com secagem em tambor."
+    },
+    {
+      "ref": "tamanho-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanho-etiqueta#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram exemplos de medidas numéricas apresentados por Karsten e Trussardi, mas não dizem que os três valores correspondem especificamente a largura, comprimento e profundidade máxima, nem sustentam a exigência de que o formato use metros ou centímetros ou seja claro.",
+      "fix": "Karsten e Trussardi apresentam lençóis com medidas como “1,40 m x 1,90 m x 40 cm”, “1,00 m x 2,00 m x 38 cm” e “1,60 m x 2,00 m x 40 cm”."
+    },
+    {
+      "ref": "tamanho-etiqueta#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas que não há regulamentação do Conmetro ou do Inmetro sobre a padronização dos tamanhos de produtos têxteis e sua forma de indicação. Ele não diz que cada fabricante declara as medidas que o lençol suporta nem recomenda comparar essas medidas com as do colchão antes da compra.",
+      "fix": "O Inmetro informa que, no momento, não há regulamentação do Conmetro ou do Inmetro sobre a padronização dos tamanhos de produtos têxteis e sua forma de indicação."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o produto deve indicar tamanho ou dimensão e mostram exemplos de medidas, mas não dizem que a largura e o comprimento devem ser iguais ou maiores que os do colchão, nem que a profundidade declarada deve cobrir sua altura.",
+      "fix": "Procure na etiqueta ou ficha técnica a indicação de tamanho ou dimensão do lençol, expressa em unidades do SI, e compare essas medidas com as do colchão."
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram um colchão de solteiro com 0,88 m × 1,88 m e um exemplo de lençol de 90 × 30 × 190 cm, mas não qualificam os 30 cm como profundidade máxima. Além disso, um dos trechos é de Comprasnet, não de fabricante, embora a tabela diga 'segundo fabricantes'.",
+      "fix": "Tamanho: Solteiro | Dimensões de colchão citadas: 0,88 m × 1,88 m | Exemplo de dimensão de lençol: 0,90 m × 30 cm × 1,90 m (l × a × p)."
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "verdict": "OVERSTATED",
+      "problem": "Os fabricantes citados informam medidas de produtos de 35 cm e 40 cm, mas os trechos não dizem que essas medidas são uma 'profundidade máxima' nem que correspondem necessariamente à altura máxima de colchões compatíveis.",
+      "fix": "Tamanho: Casal | Dimensões de colchão citadas: 1,38 m × 1,88 m | Exemplos de medidas anunciadas para lençóis: 35 cm e 40 cm."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam lençóis Queen com medidas de 40 cm e 45 cm, mas não afirmam que esses valores sejam profundidades máximas.",
+      "fix": "Tamanho: Queen | Dimensões de colchão citadas: 1,58 m × 1,98 m | Exemplos de medidas anunciadas para lençóis: 40 cm e 45 cm."
+    },
+    {
+      "ref": "como-decidir#1.r3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Döhler informa um produto King com medida de 40 cm, mas não diz que essa é a profundidade máxima do lençol ou a altura máxima do colchão compatível.",
+      "fix": "Tamanho: King | Dimensões de colchão citadas: 1,93 m × 2,03 m | Exemplo de medida anunciada para lençol: 40 cm."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "A Appel sustenta as medidas de solteiro e recomenda pelo menos 0,90 m × 2,00 m. Porém, os trechos não dizem que a profundidade máxima declarada deve cobrir a altura do colchão; o trecho do Inmetro apenas trata da indicação obrigatória de tamanho ou dimensão.",
+      "fix": "Se o colchão é de solteiro, confira suas dimensões e, segundo a Appel, considere um jogo de cama com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o anúncio informa as dimensões do produto."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram produtos anunciados com dimensões de 35 cm e 40 cm, mas não afirmam que sejam modelos para colchões de até essas alturas. Também não qualificam esses valores como profundidade máxima.",
+      "fix": "Se o colchão é casal, compare suas dimensões com o anúncio. A Appel cita 1,38 m × 1,88 m, e há anúncios de fabricantes com medidas de 35 cm e 40 cm para lençóis."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "findings": [
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidado-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidado-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as faixas de tamanho, o uso diário da toalha de banho e que composição, dimensão e cuidados devem ser informados no produto têxtil. Porém, não dizem que composição e cuidados necessariamente estão na etiqueta; apenas a dimensão é explicitamente indicada como informação obrigatória no meio do produto, que pode ser etiqueta, selo, rótulo ou outros meios. Além disso, “banhão acima de 85 cm × 150 cm” não reproduz exatamente o trecho que indica 85 × 150 cm ou normalmente acima de 86 × 150 cm.",
+      "fix": "Escolha o tamanho conforme a finalidade: toalha de banho em torno de 60 a 70 cm × 120 a 140 cm para uso diário, ou banhão de cerca de 85 × 150 cm ou normalmente acima de 86 × 150 cm para maior cobertura. Verifique no produto têxtil as informações sobre composição das fibras, dimensão e cuidados de conservação, observando a etiqueta ou outro meio de identificação quando aplicável."
+    },
+    {
+      "ref": "tamanhos-oferecidos#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sustentam as medidas de rosto pela Appel e pela Döhler, mas nenhum trecho da Karsten citado informa medidas de toalha de rosto. Assim, atribuir essa afirmação conjuntamente a Appel, Döhler e Karsten atribui à Karsten algo que o trecho não diz.",
+      "fix": "A toalha de rosto mede aproximadamente 45 a 50 cm × 65 a 80 cm, conforme Appel e Döhler. A toalha de banho varia de 60 × 120 cm a 70 × 140 cm, segundo a Appel. A toalha banhão aparece com medidas de 80 × 150 cm a 90 × 160 cm, segundo a Appel, e acima de 86 × 150 cm, segundo a Karsten."
+    },
+    {
+      "ref": "gramatura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidado-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-medidas-dobrada#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho do Inmetro diz que tamanho ou dimensão é obrigatório e deve constar no produto têxtil por um dos meios indicados, incluindo etiqueta, selo, rótulo e outros. Não sustenta que a informação seja obrigatoriamente especificamente na etiqueta. As medidas, o peso e a gramatura da toalha estão fielmente atribuídos à Teka.",
+      "fix": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil, por exemplo em etiqueta, selo, rótulo ou outro meio previsto. A Teka informa que uma toalha da Coleção Imperial tem medidas de 86 × 150 cm, peso de 647 g e gramatura de 500 g/m²."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas e o uso diário são informações apresentadas nos trechos como afirmações de fabricantes, mas a tabela as apresenta como fatos gerais, sem atribuição à Appel ou à Döhler.",
+      "fix": "Segundo a Appel, toalhas de rosto medem de 45 × 65 a 50 × 80 cm; segundo a Döhler, o tamanho de 50 × 80 cm é indicado para uso diário em banheiros e lavabos."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas, a ocupação de espaço e o uso diário vêm de afirmações da Appel e da Karsten, mas a tabela as apresenta como características gerais sem atribuir cada afirmação às respectivas marcas.",
+      "fix": "Segundo a Appel, toalhas de banho medem em média de 60 × 120 a 70 × 140 cm e são usadas diariamente; segundo a Karsten, o tamanho geralmente é de 70 × 130 cm e ocupa menos espaço."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam as faixas de tamanho, o uso diário da toalha de banho e que composição, dimensão e cuidados devem ser informados no produto têxtil. Porém, não dizem que composição e cuidados necessariamente estão na etiqueta; apenas a dimensão é explicitamente indicada como informação obrigatória no meio do produto, que pode ser etiqueta, selo, rótulo ou outros meios. Além disso, “banhão acima de 85 cm × 150 cm” não reproduz exatamente o trecho que indica 85 × 150 cm ou normalmente acima de 86 × 150 cm. Versão sustentável: Escolha o tamanho conforme a finalidade: toalha de banho em torno de 60 a 70 cm × 120 a 140 cm para uso diário, ou banhão de cerca de 85 × 150 cm ou normalmente acima de 86 × 150 cm para maior cobertura. Verifique no produto têxtil as informações sobre composição das fibras, dimensão e cuidados de conservação, observando a etiqueta ou outro meio de identificação quando aplicável."
+    },
+    {
+      "ref": "tamanhos-oferecidos#0",
+      "msg": "MISATTRIBUTED. Os trechos sustentam as medidas de rosto pela Appel e pela Döhler, mas nenhum trecho da Karsten citado informa medidas de toalha de rosto. Assim, atribuir essa afirmação conjuntamente a Appel, Döhler e Karsten atribui à Karsten algo que o trecho não diz. Versão sustentável: A toalha de rosto mede aproximadamente 45 a 50 cm × 65 a 80 cm, conforme Appel e Döhler. A toalha de banho varia de 60 × 120 cm a 70 × 140 cm, segundo a Appel. A toalha banhão aparece com medidas de 80 × 150 cm a 90 × 160 cm, segundo a Appel, e acima de 86 × 150 cm, segundo a Karsten."
+    },
+    {
+      "ref": "peso-medidas-dobrada#0",
+      "msg": "OVERSTATED. O trecho do Inmetro diz que tamanho ou dimensão é obrigatório e deve constar no produto têxtil por um dos meios indicados, incluindo etiqueta, selo, rótulo e outros. Não sustenta que a informação seja obrigatoriamente especificamente na etiqueta. As medidas, o peso e a gramatura da toalha estão fielmente atribuídos à Teka. Versão sustentável: Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil, por exemplo em etiqueta, selo, rótulo ou outro meio previsto. A Teka informa que uma toalha da Coleção Imperial tem medidas de 86 × 150 cm, peso de 647 g e gramatura de 500 g/m²."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. As medidas e o uso diário são informações apresentadas nos trechos como afirmações de fabricantes, mas a tabela as apresenta como fatos gerais, sem atribuição à Appel ou à Döhler. Versão sustentável: Segundo a Appel, toalhas de rosto medem de 45 × 65 a 50 × 80 cm; segundo a Döhler, o tamanho de 50 × 80 cm é indicado para uso diário em banheiros e lavabos."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. As medidas, a ocupação de espaço e o uso diário vêm de afirmações da Appel e da Karsten, mas a tabela as apresenta como características gerais sem atribuir cada afirmação às respectivas marcas. Versão sustentável: Segundo a Appel, toalhas de banho medem em média de 60 × 120 a 70 × 140 cm e são usadas diariamente; segundo a Karsten, o tamanho geralmente é de 70 × 130 cm e ocupa menos espaço."
+    }
+  ]
+}

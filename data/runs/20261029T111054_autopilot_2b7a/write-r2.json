@@ -1,0 +1,720 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha o tamanho conforme a finalidade. As fontes citadas mencionam toalhas de banho em torno de 60 a 70 cm × 120 a 140 cm e banhões em torno de 85 a 86 cm × 150 cm. Segundo a Karsten, gramaturas de 300 a 450 g/m² tendem a ser mais leves e secar mais rapidamente, enquanto 450 a 600 g/m² são mais encorpadas. Confira na etiqueta a composição das fibras, as dimensões e os cuidados de conservação.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1485aae8c05d",
+        "clm_196ce464a643",
+        "clm_227cf4999acd",
+        "clm_9782c389b065",
+        "clm_382e492279aa",
+        "clm_2ebc5dbbf935",
+        "clm_29960a788266"
+      ]
+    },
+    {
+      "ref": "tamanhos-oferecidos#0",
+      "action": "replace",
+      "text": "Os fabricantes oferecem três tamanhos principais. A toalha de rosto mede aproximadamente 45 a 50 cm × 65 a 80 cm, segundo a Appel e a Döhler. A toalha de banho varia de 60 × 120 cm a 70 × 140 cm, segundo a Appel, com a Karsten oferecendo cerca de 70 × 130 cm. A toalha banhão aparece com medidas de 80 × 150 cm a 90 × 160 cm segundo a Appel; a Karsten cita 85 × 150 cm ou normalmente acima de 86 × 150 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d61e9010f991",
+        "clm_4fd639db0c99",
+        "clm_1485aae8c05d",
+        "clm_196ce464a643",
+        "clm_227cf4999acd",
+        "clm_f78a3af9dd0f"
+      ]
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "action": "replace",
+      "text": "Segundo a Karsten, a maior parte de suas toalhas de banho é confeccionada em 100% algodão. A Teka recomenda dar preferência ao 100% algodão, descrevendo-o como uma fibra natural reconhecida pela maciez, respirabilidade e absorção. A Döhler oferece produtos como a Valesca com 100% algodão, enquanto outras linhas como a Felpuda Eva combinam 94% algodão, 5% poliéster e 1% viscose.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a2e23fa27c5e",
+        "clm_d5dd9a084f74",
+        "clm_9b09ba40b0c6",
+        "clm_018d8ef273b5",
+        "clm_6903e27fc957"
+      ]
+    },
+    {
+      "ref": "gramatura#0",
+      "action": "replace",
+      "text": "Gramatura é o peso do tecido da toalha medido em gramas por metro quadrado (g/m²), conforme Karsten e Teka. Segundo Teka e Appel, quanto maior a gramatura, mais encorpada e densa a toalha tende a ser.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3d9b8aa6cdab",
+        "clm_2cd6231a4731",
+        "clm_e89e2e43bd67",
+        "clm_e9694a0aa7ea"
+      ]
+    },
+    {
+      "ref": "gramatura#1",
+      "action": "replace",
+      "text": "A Karsten oferece toalhas de 350 a 600 g/m². Modelos citados: toalha Valesca da Döhler com 400 g/m², Felpuda Eva com 440 g/m², Nativa da Appel com 420 g/m² e banhão Magna da Karsten com 600 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_aa35e29d4e46",
+        "clm_da8831d6457a",
+        "clm_071f016d0015",
+        "clm_1858122ad7b7",
+        "clm_445c292921d1"
+      ]
+    },
+    {
+      "ref": "cuidado-conservacao#2",
+      "action": "replace",
+      "text": "Exemplos de cuidados informados pelos fabricantes: lavar em processo suave, com temperatura máxima de 60°C; evitar amaciantes em excesso; não usar alvejante com cloro; secar à sombra ou em ciclo suave de secadora, com temperatura máxima de 60°C; passar a ferro em temperatura máxima de 150°C se necessário; não fazer lavagem a seco, segundo a Döhler e a Karsten.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2e0067eeb99c",
+        "clm_3892effbbd18",
+        "clm_094f05e59a60",
+        "clm_8b4080882ae7",
+        "clm_c5650b242f07",
+        "clm_e045da31fcbe"
+      ]
+    },
+    {
+      "ref": "peso-medidas-dobrada#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória na etiqueta do produto têxtil. A Teka informa que uma toalha da Coleção Imperial tem medidas de 86 × 150 cm, peso de 647 g e gramatura de 500 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_38a5d13c27e9"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "text": "Rosto",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d61e9010f991"
+      ],
+      "cells": [
+        {
+          "text": "Rosto",
+          "claim_ids": [
+            "clm_d61e9010f991"
+          ]
+        },
+        {
+          "text": "45 × 65 a 50 × 80",
+          "claim_ids": [
+            "clm_d61e9010f991",
+            "clm_4fd639db0c99"
+          ]
+        },
+        {
+          "text": "Uso diário em banheiros e lavabos",
+          "claim_ids": [
+            "clm_4fd639db0c99"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "text": "Banho",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1485aae8c05d",
+        "clm_196ce464a643"
+      ],
+      "cells": [
+        {
+          "text": "Banho",
+          "claim_ids": [
+            "clm_1485aae8c05d"
+          ]
+        },
+        {
+          "text": "Geralmente 70 × 130 cm; a Appel também informa 60 × 120 a 70 × 140 cm",
+          "claim_ids": [
+            "clm_196ce464a643",
+            "clm_1485aae8c05d",
+            "clm_8c2096c6ce1d"
+          ]
+        },
+        {
+          "text": "Uso diário, praticidade e menor ocupação de espaço",
+          "claim_ids": [
+            "clm_196ce464a643"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "text": "Banhão",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_227cf4999acd",
+        "clm_f78a3af9dd0f"
+      ],
+      "cells": [
+        {
+          "text": "Banhão",
+          "claim_ids": [
+            "clm_227cf4999acd"
+          ]
+        },
+        {
+          "text": "80 × 150 a 90 × 160 cm, segundo a Appel; a Karsten menciona 85 × 150 cm ou acima de 86 × 150 cm",
+          "claim_ids": [
+            "clm_227cf4999acd",
+            "clm_f78a3af9dd0f"
+          ]
+        },
+        {
+          "text": "Maior cobertura e conforto para se enrolar após o banho",
+          "claim_ids": [
+            "clm_196ce464a643",
+            "clm_c56295d24ecf"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você quer praticidade e menor ocupação de espaço, uma toalha de banho geralmente em torno de 70 × 130 cm pode ser adequada, segundo a Karsten. Se prefere maior cobertura para se enrolar após o banho, uma banhão de cerca de 85 × 150 cm pode ser mais adequada, conforme a Karsten.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_196ce464a643",
+        "clm_227cf4999acd"
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "action": "replace",
+      "text": "Até 360 g/m²",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7132969da8af"
+      ],
+      "cells": [
+        {
+          "text": "Até 360 g/m²",
+          "claim_ids": [
+            "clm_7132969da8af"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, mais leves e de secagem rápida",
+          "claim_ids": [
+            "clm_7132969da8af"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "action": "replace",
+      "text": "300 a 450 g/m²",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9782c389b065"
+      ],
+      "cells": [
+        {
+          "text": "300 a 450 g/m²",
+          "claim_ids": [
+            "clm_9782c389b065"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, costumam funcionar melhor em locais úmidos, por serem mais leves e secarem mais rapidamente",
+          "claim_ids": [
+            "clm_9782c389b065"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "action": "replace",
+      "text": "400 a 450 g/m²",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7132969da8af"
+      ],
+      "cells": [
+        {
+          "text": "400 a 450 g/m²",
+          "claim_ids": [
+            "clm_7132969da8af"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, equilíbrio entre conforto e praticidade",
+          "claim_ids": [
+            "clm_7132969da8af"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "action": "replace",
+      "text": "Acima de 500 g/m²",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7132969da8af"
+      ],
+      "cells": [
+        {
+          "text": "Acima de 500 g/m²",
+          "claim_ids": [
+            "clm_7132969da8af"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, mais encorpadas, absorventes e com sensação premium",
+          "claim_ids": [
+            "clm_7132969da8af"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você mora em local úmido, não gosta de toalha pesada ou busca praticidade, a Karsten diz que toalhas de 300 a 450 g/m² costumam funcionar melhor. Se prefere uma toalha mais encorpada, a Karsten menciona 450 a 600 g/m² e a Teka destaca acima de 500 g/m².",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_9782c389b065",
+        "clm_7132969da8af"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se você prioriza maciez, respirabilidade e absorção, a Teka recomenda dar preferência ao 100% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d5dd9a084f74"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher toalha de banho: tamanho, gramatura e composição",
+    "description": "Escolha pelo tamanho (rosto, banho ou banhão), gramatura (g/m²) e composição. Confira na etiqueta medidas, peso e cuidados.",
+    "verdict": {
+      "text": "Escolha o tamanho conforme a finalidade. As fontes citadas mencionam toalhas de banho em torno de 60 a 70 cm × 120 a 140 cm e banhões em torno de 85 a 86 cm × 150 cm. Segundo a Karsten, gramaturas de 300 a 450 g/m² tendem a ser mais leves e secar mais rapidamente, enquanto 450 a 600 g/m² são mais encorpadas. Confira na etiqueta a composição das fibras, as dimensões e os cuidados de conservação.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1485aae8c05d",
+        "clm_196ce464a643",
+        "clm_227cf4999acd",
+        "clm_9782c389b065",
+        "clm_382e492279aa",
+        "clm_2ebc5dbbf935",
+        "clm_29960a788266"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tamanhos-oferecidos",
+        "heading": "Quais tamanhos os fabricantes oferecem",
+        "blocks": [
+          {
+            "text": "Os fabricantes oferecem três tamanhos principais, segundo fabricantes como Appel, Döhler e Karsten. A toalha de rosto mede aproximadamente 45 a 50 cm × 65 a 80 cm, segundo a Appel e a Döhler. A toalha de banho varia de 60 × 120 cm a 70 × 140 cm, segundo a Appel, com a Karsten oferecendo cerca de 70 × 130 cm. A toalha banhão aparece com medidas de 80 × 150 cm a 90 × 160 cm segundo a Appel; a Karsten cita 85 × 150 cm ou normalmente acima de 86 × 150 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d61e9010f991",
+              "clm_4fd639db0c99",
+              "clm_1485aae8c05d",
+              "clm_196ce464a643",
+              "clm_227cf4999acd",
+              "clm_f78a3af9dd0f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-fibra",
+        "heading": "O que a etiqueta deve informar sobre composição de fibra",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a etiqueta deve informar o nome genérico de cada fibra têxtil e seu percentual de participação em ordem decrescente. Quando a toalha tem mais de uma fibra, a composição deve estar em destaque igual, descrevendo as fibras em ordem do maior para o menor percentual.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_382e492279aa",
+              "clm_055cf59ece8e",
+              "clm_a36c7a0bcd0a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Um produto é considerado 100% puro quando possui apenas uma fibra ou até 2% de outras fibras com fins funcionais, como reforço.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5aa241b997fa"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "gramatura",
+        "heading": "O que a gramatura informa",
+        "blocks": [
+          {
+            "text": "Gramatura é o peso do tecido da toalha medido em gramas por metro quadrado (g/m²), conforme Karsten e Teka. Segundo Teka e Appel, quanto maior a gramatura, mais encorpada e densa a toalha tende a ser.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3d9b8aa6cdab",
+              "clm_2cd6231a4731",
+              "clm_e89e2e43bd67",
+              "clm_e9694a0aa7ea"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Karsten oferece toalhas de 350 a 600 g/m². Modelos citados: toalha Valesca da Döhler com 400 g/m², Felpuda Eva com 440 g/m², Nativa da Appel com 420 g/m² e banhão Magna da Karsten com 600 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_aa35e29d4e46",
+              "clm_da8831d6457a",
+              "clm_071f016d0015",
+              "clm_1858122ad7b7",
+              "clm_445c292921d1"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidado-conservacao",
+        "heading": "O que a etiqueta deve informar sobre cuidado de conservação",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a etiqueta deve informar obrigatoriamente pelo menos cinco tratamentos de conservação: lavagem, alvejamento, secagem, passadoria e limpeza profissional, nessa ordem específica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_239219755069",
+              "clm_29960a788266",
+              "clm_b72856d8e3ac"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As informações de cuidado podem ser indicadas por símbolos, textos ou ambos, conforme escolha do fabricante ou importador. Os símbolos devem estar em um quadrado de no mínimo 16 mm² de área, ser de igual destaque, facilmente legíveis e claramente visíveis. Quando informadas por símbolos e textos, cada texto deve corresponder ao símbolo indicado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c0fe779a519f",
+              "clm_a730fea8b014",
+              "clm_87e2dfb2b3a4",
+              "clm_c2488c905a37"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Exemplos de cuidados informados pelos fabricantes: lavar em processo suave, com temperatura máxima de 60°C; evitar amaciantes em excesso; não usar alvejante com cloro; secar à sombra ou em ciclo suave de secadora, com temperatura máxima de 60°C; passar a ferro em temperatura máxima de 150°C se necessário; não fazer lavagem a seco, segundo a Döhler e a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2e0067eeb99c",
+              "clm_3892effbbd18",
+              "clm_094f05e59a60",
+              "clm_8b4080882ae7",
+              "clm_c5650b242f07",
+              "clm_e045da31fcbe"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "peso-medidas-dobrada",
+        "heading": "Peso e medidas da toalha dobrada",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória na etiqueta do produto têxtil. A Teka informa que uma toalha da Coleção Imperial tem medidas de 86 × 150 cm, peso de 647 g e gramatura de 500 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ebc5dbbf935",
+              "clm_38a5d13c27e9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Tamanhos de toalha e suas medidas típicas",
+            "columns": [
+              "Tipo",
+              "Medidas em cm",
+              "Quando usar"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Rosto",
+                    "claim_ids": [
+                      "clm_d61e9010f991"
+                    ]
+                  },
+                  {
+                    "text": "45 × 65 a 50 × 80",
+                    "claim_ids": [
+                      "clm_d61e9010f991",
+                      "clm_4fd639db0c99"
+                    ]
+                  },
+                  {
+                    "text": "Uso diário em banheiros e lavabos",
+                    "claim_ids": [
+                      "clm_4fd639db0c99"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Banho",
+                    "claim_ids": [
+                      "clm_1485aae8c05d"
+                    ]
+                  },
+                  {
+                    "text": "Geralmente 70 × 130 cm; a Appel também informa 60 × 120 a 70 × 140 cm",
+                    "claim_ids": [
+                      "clm_196ce464a643",
+                      "clm_1485aae8c05d",
+                      "clm_8c2096c6ce1d"
+                    ]
+                  },
+                  {
+                    "text": "Uso diário, praticidade e menor ocupação de espaço",
+                    "claim_ids": [
+                      "clm_196ce464a643"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Banhão",
+                    "claim_ids": [
+                      "clm_227cf4999acd"
+                    ]
+                  },
+                  {
+                    "text": "80 × 150 a 90 × 160 cm, segundo a Appel; a Karsten menciona 85 × 150 cm ou acima de 86 × 150 cm",
+                    "claim_ids": [
+                      "clm_227cf4999acd",
+                      "clm_f78a3af9dd0f"
+                    ]
+                  },
+                  {
+                    "text": "Maior cobertura e conforto para se enrolar após o banho",
+                    "claim_ids": [
+                      "clm_196ce464a643",
+                      "clm_c56295d24ecf"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer praticidade e menor ocupação de espaço, uma toalha de banho geralmente em torno de 70 × 130 cm pode ser adequada, segundo a Karsten. Se prefere maior cobertura para se enrolar após o banho, uma banhão de cerca de 85 × 150 cm pode ser mais adequada, conforme a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_196ce464a643",
+              "clm_227cf4999acd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Gramatura (peso do tecido) e características",
+            "columns": [
+              "Faixa de gramatura",
+              "Características"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 360 g/m²",
+                    "claim_ids": [
+                      "clm_7132969da8af"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, mais leves e de secagem rápida",
+                    "claim_ids": [
+                      "clm_7132969da8af"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "300 a 450 g/m²",
+                    "claim_ids": [
+                      "clm_9782c389b065"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, costumam funcionar melhor em locais úmidos, por serem mais leves e secarem mais rapidamente",
+                    "claim_ids": [
+                      "clm_9782c389b065"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "400 a 450 g/m²",
+                    "claim_ids": [
+                      "clm_7132969da8af"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, equilíbrio entre conforto e praticidade",
+                    "claim_ids": [
+                      "clm_7132969da8af"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 500 g/m²",
+                    "claim_ids": [
+                      "clm_7132969da8af"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, mais encorpadas, absorventes e com sensação premium",
+                    "claim_ids": [
+                      "clm_7132969da8af"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você mora em local úmido, não gosta de toalha pesada ou busca praticidade, a Karsten diz que toalhas de 300 a 450 g/m² costumam funcionar melhor. Se prefere uma toalha mais encorpada, a Karsten menciona 450 a 600 g/m² e a Teka destaca acima de 500 g/m².",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_9782c389b065",
+              "clm_7132969da8af"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prioriza maciez, respirabilidade e absorção, a Teka recomenda dar preferência ao 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d5dd9a084f74"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos não sustentam o tamanho de toalha de rosto (45–50 × 65–80 cm) nem todas as faixas do banhão (especialmente 90 × 160 cm). Também não dizem que gramaturas acima de 500 g/m² proporcionam maior volume; apenas associam 450–600 g/m² a toalhas mais encorpadas e 300–450 g/m² a toalhas mais leves e de secagem mais rápida. Além disso, as recomendações de tamanho e gramatura vêm de fabricantes, mas o bloco as apresenta como regra geral. Versão sustentável: Escolha o tamanho conforme a finalidade. As fontes citadas mencionam toalhas de banho em torno de 60–70 × 120–140 cm e banhões em torno de 85–86 cm × 150 cm. Segundo a Karsten, gramaturas de 300–450 g/m² tendem a ser mais leves e secar mais rapidamente, enquanto 450–600 g/m² são mais encorpadas. Confira na etiqueta a composição das fibras, as dimensões e os cuidados de conservação."
+    },
+    {
+      "ref": "tamanhos-oferecidos#0",
+      "msg": "MISATTRIBUTED. O trecho da Döhler citado só informa medidas de toalha de rosto e não sustenta a afirmação sobre toalha banhão. Além disso, a faixa apresentada para o banhão não corresponde exatamente a todas as evidências: a Appel cita 80 × 150 cm a 90 × 160 cm, enquanto a Karsten cita 85 × 150 cm ou acima de 86 × 150 cm. Versão sustentável: A toalha banhão aparece com medidas de 80 × 150 cm a 90 × 160 cm segundo a Appel; a Karsten cita 85 × 150 cm ou normalmente acima de 86 × 150 cm. Não atribua essa informação à Döhler."
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "msg": "UNSUPPORTED. Os trechos citados não sustentam a afirmação de que a Appel vende modelos com 100% algodão. Além disso, os exemplos da Döhler mostram produtos específicos, não necessariamente uma oferta geral de toalhas. Versão sustentável: Remova a referência à Appel ou cite uma evidência correspondente. Uma versão mais estreita seria: \"Segundo a Karsten, a maior parte de suas toalhas de banho é confeccionada em 100% algodão. A Teka recomenda dar preferência ao 100% algodão e descreve o algodão como uma fibra natural reconhecida pela maciez, respirabilidade e absorção. A Döhler oferece produtos com 94% algodão, 5% poliéster e 1% viscose, e a Karsten informa que a maior parte de suas toalhas de banho é 100% algodão.\""
+    },
+    {
+      "ref": "gramatura#0",
+      "msg": "MISATTRIBUTED. A definição é atribuída corretamente a Karsten e Teka, mas a afirmação de que maior gramatura tende a deixar a toalha mais encorpada e densa aparece como fato geral, embora os trechos citados sejam afirmações de fabricantes. Versão sustentável: Gramatura é o peso do tecido da toalha medido em gramas por metro quadrado (g/m²), conforme Karsten e Teka. Segundo Teka e Appel, quanto maior a gramatura, mais encorpada e densa a toalha tende a ser."
+    },
+    {
+      "ref": "gramatura#1",
+      "msg": "MISATTRIBUTED. O trecho do Inmetro apenas menciona “dimensões e gramatura dos tecidos”; não afirma que a gramatura é obrigatória na etiqueta. Portanto, essa exigência foi atribuída ao Inmetro sem apoio no trecho citado. As faixas e os modelos listados são sustentados pelos demais trechos. Versão sustentável: Remova a afirmação sobre a obrigatoriedade na etiqueta ou escreva apenas: “O trecho citado do Inmetro menciona dimensões e gramatura dos tecidos.”"
+    },
+    {
+      "ref": "cuidado-conservacao#2",
+      "msg": "OVERSTATED. Os trechos da Döhler sustentam lavar em processo suave, com temperatura máxima de 60°C, mas não mencionam água fria. Essa alternativa foi acrescentada pelo bloco. Versão sustentável: Exemplos de cuidados informados pelos fabricantes: lavar em processo suave, com temperatura máxima de 60°C; evitar amaciantes em excesso; não usar alvejante com cloro; secar à sombra ou em ciclo suave de secadora, com temperatura máxima de 60°C; passar a ferro em temperatura máxima de 150°C se necessário; não fazer lavagem a seco, segundo a Döhler e a Karsten."
+    },
+    {
+      "ref": "peso-medidas-dobrada#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a indicação de tamanho ou dimensão é obrigatória e que a Teka apresenta, para uma toalha específica, medidas de 86 × 150 cm, peso de 647 g e gramatura de 500 g/m². Eles não dizem que fabricantes costumam informar medidas em centímetros, que essas medidas são apresentadas na forma aberta, nem que o peso de 647 g corresponde à toalha dobrada. Versão sustentável: Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória na etiqueta do produto têxtil. A Teka informa que uma toalha da Coleção Imperial tem medidas de 86 × 150 cm, peso de 647 g e gramatura de 500 g/m²."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas da toalha de rosto e seu uso diário em banheiros e lavabos, mas não dizem que ela é usada para limpeza das mãos. Além disso, as fontes são fabricantes e o bloco apresenta a informação como regra geral. Versão sustentável: Tipo: Rosto | Medidas em cm: 45 × 65 a 50 × 80 | Quando usar: uso diário em banheiros e lavabos, segundo Appel e Döhler."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. A faixa de 70 × 130 a 70 × 140 cm não é dita nos trechos: a Appel informa 60 × 120 a 70 × 140 cm, enquanto a Karsten menciona geralmente 70 × 130 cm. Os trechos sustentam uso diário e menor ocupação de espaço, mas não estabelecem exatamente essa faixa geral. Versão sustentável: Tipo: Banho | Medidas citadas: geralmente 70 × 130 cm; a Appel também informa uma faixa de 60 × 120 a 70 × 140 cm | Características: uso diário e menor ocupação de espaço, segundo as fontes citadas."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. A faixa de 85 a 90 × 150 a 160 cm não é sustentada integralmente: a Appel cita 80 × 150 a 90 × 160 cm, e a Karsten cita normalmente acima de 86 × 150 cm ou 85 × 150 cm. A maior cobertura e a possibilidade de se enrolar são sustentadas. Versão sustentável: Tipo: Banhão | Medidas citadas: 80 × 150 a 90 × 160 cm, segundo a Appel; a Karsten menciona 85 × 150 cm ou medidas normalmente acima de 86 × 150 cm | Quando usar: maior cobertura e conforto para se enrolar após o banho."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a relação entre toalha tradicional, menor ocupação de espaço, tamanho geralmente 70 × 130 cm e banhão com maior cobertura, mas não dizem para conferir as medidas exatas do modelo. Essa orientação foi acrescentada sem apoio citado. Versão sustentável: Se você quer praticidade e menor ocupação de espaço, uma toalha de banho geralmente em torno de 70 × 130 cm pode ser adequada, segundo a Karsten. Se prefere maior cobertura para se enrolar após o banho, uma banhão de cerca de 85 × 150 cm pode ser mais adequada, conforme a Karsten."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "MISATTRIBUTED. As características estão literalmente no trecho da Teka, mas o bloco as apresenta como fatos gerais sem indicar que são informações da Teka, uma fabricante. Versão sustentável: Segundo a Teka, gramaturas de até 360 g/m² são mais leves e têm secagem rápida."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "msg": "OVERSTATED. A Karsten diz que toalhas de 300 a 450 g/m² costumam funcionar melhor em locais úmidos porque são mais leves e secam mais rapidamente. O bloco transforma essa preferência contextual em uma característica geral da faixa e usa “ideal”, que é mais forte que o trecho citado. Versão sustentável: De 300 a 450 g/m²: segundo a Karsten, costumam funcionar melhor em locais úmidos, por serem mais leves e secarem mais rapidamente."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "msg": "MISATTRIBUTED. A descrição de equilíbrio entre conforto e praticidade está no trecho da Teka, mas o bloco a apresenta como característica geral sem atribuí-la à fabricante. Versão sustentável: Segundo a Teka, a faixa de 400 a 450 g/m² oferece equilíbrio entre conforto e praticidade."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "msg": "MISATTRIBUTED. O trecho da Teka sustenta que acima de 500 g/m² as toalhas são mais encorpadas, absorventes e têm sensação premium, mas o bloco apresenta isso como fato geral sem atribuição. Versão sustentável: Segundo a Teka, acima de 500 g/m² as toalhas são mais encorpadas, absorventes e têm sensação premium."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. A Karsten apoia a faixa de 300 a 450 g/m² para quem mora em local úmido, não gosta de sensação pesada ou busca praticidade. Porém, “acima de 450 g/m²” inclui a faixa de 451 a 499 g/m², que os trechos não caracterizam; a Karsten cita 450 a 600 g/m² e a Teka destaca acima de 500 g/m². Versão sustentável: Se você mora em local úmido, não gosta de toalha pesada ou busca praticidade, a Karsten diz que toalhas de 300 a 450 g/m² costumam funcionar melhor. Se prefere uma toalha mais encorpada, os trechos citam 450 a 600 g/m² na Karsten e acima de 500 g/m² na Teka."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. A Teka sustenta a preferência por 100% algodão e relaciona o algodão a maciez, respirabilidade e absorção. A Karsten menciona que a maior parte das toalhas da própria marca é de 100% algodão. Nenhum trecho sustenta a orientação de confirmar na etiqueta a composição e os percentuais das fibras. Versão sustentável: Se você prioriza maciez, respirabilidade e absorção, a Teka recomenda dar preferência ao 100% algodão. A composição pode ser apresentada como informação da etiqueta apenas se houver uma fonte citada que sustente essa orientação."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19556,
+    "output_tokens": 3480
+  }
+}
