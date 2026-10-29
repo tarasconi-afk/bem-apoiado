@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { normalizeForMatch } from '@bem-apoiado/core';
 import { DATA, writeJson } from '../store.ts';
+import { loadNiche } from '../niche.ts';
 
 // Modelos que cada página no ar cita pelo nome (gravados pela busca de modelos citados da manutenção). O site usa
 // para o link "Ver <marca> <modelo> na Amazon" quando o catálogo não tem anúncio aceito do modelo (editor, 26/10:
@@ -44,11 +45,26 @@ export function modelName(model: string): string | null {
 }
 
 // Links de busca pelo nome para os modelos citados sem anúncio aceito no catálogo (no máximo 3, na ordem do texto).
+// 29/10, guia da toalha: "Ver Sultan Max na Amazon" caía numa lista de PERFUMES. O tipo do produto estava
+// gravado no modelo citado (kind: "toalha") e simplesmente não entrava na busca, então marca + modelo iam
+// soltos para a Amazon e o acaso decidia a categoria. Com o tipo, a busca cai onde o guia fala.
 export function citedSearchLinks(slug: string, products: { brand: string; label: string }[], cited = loadCitedModels()): { label: string; query: string }[] {
   const seen = new Set<string>();
+  // Sem nicho legível (instalação nova, teste), o próprio id do tipo já serve de palavra de busca.
+  let rotulo = new Map<string, string>();
+  try { rotulo = new Map(loadNiche().product_kinds.map((k) => [k.id, k.label])); } catch { /* usa o id */ }
   return (cited.pages[slug]?.models ?? [])
     .filter((m) => !inCatalog(m, products))
-    .flatMap((m) => { const name = modelName(m.model); return name ? [{ label: `Ver ${m.brand} ${name} na Amazon`, query: `${m.brand} ${name}` }] : []; })
+    .flatMap((m) => {
+      const name = modelName(m.model);
+      if (!name) return [];
+      // Nome que já diz o tipo ("Teka Toalha Monaco") não repete a palavra na busca.
+      // Só o substantivo do rótulo ("Colchão de molas ensacadas" -> "Colchão"): a palavra inteira estreitaria
+      // a busca a ponto de não sobrar anúncio, e uma só já resolve a categoria.
+      const tipo = (rotulo.get(m.kind) ?? m.kind).split(/\s+/)[0]!;
+      const jaTem = loose(tipo).split(/\s+/).every((w) => loose(`${m.brand} ${name}`).includes(w));
+      return [{ label: `Ver ${m.brand} ${name} na Amazon`, query: jaTem ? `${m.brand} ${name}` : `${m.brand} ${name} ${tipo}` }];
+    })
     .filter((l) => !seen.has(loose(l.query)) && seen.add(loose(l.query)))
     .slice(0, MAX_CITED_LINKS);
 }
