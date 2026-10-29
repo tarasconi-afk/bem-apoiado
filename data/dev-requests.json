@@ -3,18 +3,21 @@
     "at": "2026-10-27T20:48:53.619Z",
     "request": "Isto vale para todas as páginas: quando a pauta compara duas opções, só use exemplos de produtos dessas opções; produto de fora da comparação não entra, nem como exemplo de cuidado ou de uso.\n",
     "summary": "O editor solicita uma regra geral para todas as páginas de comparação: exemplos de produtos devem ser exclusivamente das opções comparadas. Isso afeta a lógica de find_products e validação de exemplos em páginas como colchao-de-molas-ou-espuma, colchao-firme-ou-macio, cadeira-ergonomica-ou-gamer, etc. Precisa de regra no motor para restringir buscas e validar produtos contra as opções da pauta.",
-    "status": "aberto"
+    "status": "resolvido",
+    "resolucao": "Já valia quando o pedido foi feito, e foi conferido em 29/10: os exemplos de uma página saem de topic.product_kinds (só os tipos que a pauta compara) e, quando a distinção é dentro do mesmo tipo, de listing_terms, que exige a palavra no título do anúncio. Conferido na prática: o travesseiro 40x60 entra em \"pena de ganso ou fibra\" (rótulo tem \"Fibra\") e fica fora do guia de tamanhos (exige padrão/queen/king) e da página NASA (exige \"nasa\"). Pendência de DADO, não de motor: colchao-de-molas-ou-espuma lista o tipo \"misto\" entre os seus product_kinds, que é uma terceira opção numa comparação de duas -- decisão do editor por página."
   },
   {
     "at": "2026-10-27T20:51:39.319Z",
     "request": "Isto vale para todas as páginas: quando a pauta compara duas opções, só use exemplos de produtos dessas opções; produto de fora da comparação não entra, nem como exemplo de cuidado ou de uso.\n",
     "summary": "O editor solicita uma regra geral para todas as páginas de comparação: exemplos de produtos devem ser exclusivamente das opções comparadas. Isso afeta a lógica de find_products e validação de exemplos em páginas como colchao-de-molas-ou-espuma, colchao-firme-ou-macio, cadeira-ergonomica-ou-gamer, etc. Precisa de regra no motor para restringir buscas e validar produtos contra as opções da pauta.",
-    "status": "aberto"
+    "status": "resolvido",
+    "resolucao": "Já valia quando o pedido foi feito, e foi conferido em 29/10: os exemplos de uma página saem de topic.product_kinds (só os tipos que a pauta compara) e, quando a distinção é dentro do mesmo tipo, de listing_terms, que exige a palavra no título do anúncio. Conferido na prática: o travesseiro 40x60 entra em \"pena de ganso ou fibra\" (rótulo tem \"Fibra\") e fica fora do guia de tamanhos (exige padrão/queen/king) e da página NASA (exige \"nasa\"). Pendência de DADO, não de motor: colchao-de-molas-ou-espuma lista o tipo \"misto\" entre os seus product_kinds, que é uma terceira opção numa comparação de duas -- decisão do editor por página."
   },
   {
     "at": "2026-10-29T12:54:18.759Z",
     "request": "Deixe esses resultados visiveis pra mim e sempre atualizados dentro da minha aba desempenho para eu ter os numeros atualizados sem precisar entrar no gsc diariamente",
     "summary": "Criar um painel integrado na aba de desempenho que exiba métricas do Google Search Console em tempo real (cliques, impressões, posição média) com atualização automática, sem necessidade de acessar o GSC manualmente todos os dias.",
-    "status": "aberto"
+    "status": "resolvido",
+    "resolucao": "Entregue em fce844c1: resumo com cliques, impressões, posição média e páginas, com a variação para o retrato anterior, no topo da seção Google Search Console da aba Desempenho."
   }
 ]
