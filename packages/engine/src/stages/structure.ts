@@ -89,15 +89,47 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   // 3 ou mais fabricantes dizendo o mesmo: "fabricantes como X, Y e Z" (22/10, casal com pesos diferentes: 4 marcas
   // na resposta curta e nenhuma nomeada).
   const who = (pubs: string[]) => (pubs.length <= 2 ? pubs.map((p) => `a ${p}`).join(' e ') : `fabricantes como ${pubs.slice(0, 2).join(', ')} e ${pubs[2]}`);
+  // Uma frase já diz de quem é o dado? Nome do fabricante nela, ou "segundo/conforme/de acordo com" + nome próprio.
+  const atribuida = (frase: string, pubs: string[]) => pubs.some((p) => norm(frase).includes(norm(p))) || /\b(segundo|conforme|de acordo com)\s+(a|o|os|as)\s+\p{Lu}/u.test(frase);
+  // A segunda atribuição do mesmo bloco usa "conforme": com "segundo" nas duas o parágrafo vira ladainha.
+  const comFonte = (frase: string, pubs: string[], conector = 'segundo') => {
+    const m = /^([\s\S]*?)([.!?])(\s*)$/.exec(frase);
+    return m ? `${m[1]}, ${conector} ${who(pubs)}${m[2]}${m[3]}` : `${frase.replace(/[.\s]*$/, '')}, ${conector} ${who(pubs)}.`;
+  };
+  // Duas atribuições por bloco bastam: os blocos têm no máximo 70 palavras, e repetir "segundo a X" em toda
+  // frase deixa o texto pesado — o editor já reclamou de naturalidade em 28/10.
+  const MAX_ATRIBUICOES = 2;
+  // Frase que NÃO precisa de fonte, mesmo trazendo número. Sem este filtro a segunda atribuição caía em
+  // orientação ao leitor e em exemplo, e o texto virava "…, segundo a Karsten e a Trussardi. … , segundo a
+  // Karsten e a Trussardi." — medido em 65% dos blocos tocados, inclusive de páginas que já passavam.
+  const INSTRUCAO = /^\s*(confira|procure|verifique|me[çc]a|compare|escolha|prefira|consulte|observe|use|leve|some|anote)\b/i;
+  const EXEMPLO = /^\s*(exemplos?\b|por exemplo\b|ex\.:)/i;
+  // Já diz que quem informa é o fabricante/a ficha: a frase não se apresenta como fato do mercado.
+  const JA_E_DECLARACAO = /\b(o|os|a|as)\s+fabricantes?\b|\b(a ficha|a etiqueta|o an[úu]ncio|o r[óo]tulo)\b/i;
+  const precisaDeFonte = (f: string) => !INSTRUCAO.test(f) && !EXEMPLO.test(f) && !JA_E_DECLARACAO.test(f);
   const attribute = (text: string, pubs: string[]) => {
-    if (pubs.some((p) => norm(text).includes(norm(p)))) return text;
     // Atribuição genérica já escrita ("segundo os fabricantes citados") vira a com nomes, sem duplicar (23/10:
     // "segundo os fabricantes citados, segundo fabricantes como Castor, Ortobom e Probel").
     const generic = /(segundo|conforme|de acordo com) (os |as )?(fabricantes|marcas|fontes)( citad[oa]s)?/i;
-    if (generic.test(text)) return text.replace(generic, (m0) => `${m0.split(' ')[0]!.toLowerCase() === 'segundo' ? 'segundo' : m0.split(' ')[0]!} ${who(pubs)}`.replace(/^(\w)/, (c) => (m0[0] === m0[0]!.toUpperCase() ? c.toUpperCase() : c)));
-    if (/\bsegundo (a|o|os|as) \p{Lu}/u.test(text)) return text; // já atribui a alguém pelo nome
-    const m = /^([\s\S]*?)([.!?])(\s|$)/.exec(text);
-    return m ? `${m[1]}, segundo ${who(pubs)}${m[2]}${text.slice(m[0].length - m[3]!.length)}` : `${text.replace(/[.\s]*$/, '')}, segundo ${who(pubs)}.`;
+    const base = generic.test(text)
+      ? text.replace(generic, (m0) => `${m0.split(' ')[0]!.toLowerCase() === 'segundo' ? 'segundo' : m0.split(' ')[0]!} ${who(pubs)}`.replace(/^(\w)/, (c) => (m0[0] === m0[0]!.toUpperCase() ? c.toUpperCase() : c)))
+      : text;
+    // Frase a frase, e não só a primeira. Até 29/10 bastava o nome do fabricante aparecer uma vez no bloco para
+    // o resto passar sem atribuição — e o auditor recusava com essa frase exata (27/10, colchão firme ou macio:
+    // "os trechos citados são todos da Castor, mas o bloco apresenta como fatos gerais as faixas de densidade
+    // por peso; apenas a definição inicial é explicitamente atribuída"). MISATTRIBUTED na decisão e na resposta
+    // curta foi a maior causa isolada de não convergência da semana.
+    const frases = base.match(/[^.!?]+[.!?]+\s*|[^.!?]+$/g) ?? [base];
+    let postas = 0;
+    const saida = frases.map((f, i) => {
+      if (postas >= MAX_ATRIBUICOES || atribuida(f, pubs)) return f;
+      // A primeira frase sempre; as seguintes só quando trazem número declarado (faixa, medida, densidade), que
+      // é o que o auditor lê como regra geral de fabricante apresentada como fato do mercado.
+      if (i !== 0 && (!/\d/.test(f) || !precisaDeFonte(f))) return f;
+      postas++;
+      return comFonte(f, pubs, postas === 1 ? 'segundo' : 'conforme');
+    });
+    return postas ? saida.join('') : base;
   };
   const out: Draft = structuredClone(d);
   const pv = single(out.verdict.claim_ids);

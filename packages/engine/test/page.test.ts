@@ -287,3 +287,30 @@ describe('resposta curta não abre com atribuição', () => {
     expect(hit('Se você divide a cama, escolha molas ensacadas, segundo a Probel.')).toBe(false);
   });
 });
+
+// 29/10: "repete o bloco como-decidir#0 (90% das palavras)" era devolvido ao redator e consumia uma rodada de
+// redação inteira, com a remoção só acontecendo no salvamento, depois de o laço ter acabado. A detecção e o
+// conserto são determinísticos, e o próprio auditor pede "corte este bloco": remover não afirma nada.
+describe('bloco repetido sai sem gastar rodada', () => {
+  it('fixFormWithoutAI remove a cópia e devolve a seção tocada para conferência', async () => {
+    const { fixFormWithoutAI, styleIssues } = await import('../src/stages/page.ts');
+    const p = (text: string) => ({ kind: 'paragraph', text, basis: 'evidence', claim_ids: ['clm_a'] });
+    const repetido = 'A densidade declarada pelo fabricante indica a firmeza da espuma usada no colchão e aparece na etiqueta do produto.';
+    const d = {
+      title: 't', description: 'd', verdict: { text: 'Escolha pelo peso.', basis: 'evidence', claim_ids: ['clm_a'] },
+      sections: [
+        { id: 'a', heading: 'A', blocks: [p(repetido), p('A espuma tem certificado do Inmetro e selo na etiqueta lateral do produto.')] },
+        { id: 'b', heading: 'B', blocks: [p('Outro assunto totalmente diferente, com dados de altura e largura da base.')] },
+        { id: 'como-decidir', heading: 'Como decidir', blocks: [p('Se você pesa mais de 100 kg, confira a densidade.'), p(repetido)] },
+      ],
+    } as never;
+    expect(styleIssues(d).some((i) => /repete o bloco/.test(i.msg))).toBe(true);
+    const r = fixFormWithoutAI(d);
+    expect(styleIssues(r.draft).some((i) => /repete o bloco/.test(i.msg))).toBe(false);
+    // Fica a cópia do "Como decidir" (que abre a página) e sai a do detalhe; a seção tocada volta inteira,
+    // porque a remoção desloca a numeração dos blocos seguintes.
+    expect((r.draft as any).sections.find((s: any) => s.id === 'como-decidir').blocks.length).toBe(2);
+    expect((r.draft as any).sections.find((s: any) => s.id === 'a').blocks.length).toBe(1);
+    expect(r.refs).toContain('a#0');
+  });
+});

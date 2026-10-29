@@ -233,10 +233,18 @@ export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] }
   // linha que ainda ficou sem dado também. Remover nunca acrescenta fato. 27/10, solteirão: o redator devolveu 3 vezes a
   // coluna "Para quem serve" vazia, o gate barrou as 3 rodadas e a página parou sem o auditor nem ter lido a tabela.
   const empty = (t: string) => (/n[ãa]o (informad|consta|declarad|encontrad)|sem informa[çc][ãa]o|^\s*(confira|verifique|consulte|veja)\b/i.test(t) && !/\d/.test(t));
+  // Coluna de enchimento: a MESMA frase sem número em 2+ linhas ("Quem busca essa medida"). O gate já apontava
+  // isso (styleIssues), mas devolvia ao redator, que repetia o erro — 12 dos 56 problemas de forma que sobravam
+  // em 29/10. Tirar a coluna é a mesma operação de remoção que a linha acima já faz, e não afirma nada.
+  const repetida = (b: { rows: { cells: { text: string }[] }[] }, c: number) => {
+    const vistas = new Map<string, number>();
+    for (const r of b.rows) { const t = (r.cells[c]?.text ?? '').trim(); if (t.split(/\s+/).length >= 3 && !/\d/.test(t)) vistas.set(t, (vistas.get(t) ?? 0) + 1); }
+    return [...vistas.values()].some((n) => n >= 2);
+  };
   for (const sec of out.sections) {
     sec.blocks = sec.blocks.filter((b, i) => {
       if (b.kind !== 'table') return true;
-      const drop = b.columns.map((_, c) => c > 0 && b.rows.length > 0 && b.rows.filter((r) => empty(r.cells[c]?.text ?? '')).length >= Math.min(b.rows.length, 2));
+      const drop = b.columns.map((_, c) => c > 0 && b.rows.length > 0 && (b.rows.filter((r) => empty(r.cells[c]?.text ?? '')).length >= Math.min(b.rows.length, 2) || repetida(b, c)));
       const rowsBefore = b.rows.length;
       if (drop.some(Boolean)) {
         b.columns = b.columns.filter((_, c) => !drop[c]);
@@ -248,6 +256,17 @@ export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] }
     });
   }
   out.sections = out.sections.filter((s) => s.blocks.length > 0);
+  // Bloco repetido: a detecção já é determinística (duplicateBlocks) e o conserto também — o próprio auditor
+  // pede "corte este bloco". Até 29/10 a repetição era devolvida ao redator e comia uma rodada inteira; a
+  // remoção só acontecia no salvamento, depois de o laço ter acabado. Eram 7 dos 30 problemas dos últimos 4
+  // dias. Remover não cria afirmação nova, então não há o que auditar depois.
+  const dd = withoutDuplicates(out);
+  if (dd.removed.length) {
+    const secs = new Set(dd.removed.map((r) => r.split('#')[0]!));
+    // A remoção desloca a numeração dos blocos seguintes: devolve as seções tocadas inteiras para conferência.
+    for (const s of dd.draft.sections) if (secs.has(s.id)) refs.push(...s.blocks.map((_, i) => `${s.id}#${i}`));
+    return { draft: dd.draft, refs: [...new Set(refs)] };
+  }
   return { draft: out, refs };
 }
 

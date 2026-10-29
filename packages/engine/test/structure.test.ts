@@ -166,3 +166,36 @@ describe('tirar coluna de tabela', () => {
     expect(r2.refused.join(' ')).toMatch(/rótulos/);
   });
 });
+
+// 29/10: a maior causa isolada de não convergência da semana foi MISATTRIBUTED na decisão e na resposta curta,
+// e o auditor dizia a causa com todas as letras (27/10, colchão firme ou macio): "os trechos citados são todos
+// da Castor, mas o bloco apresenta como fatos gerais as faixas de densidade por peso; apenas a definição
+// inicial é explicitamente atribuída". Bastava o nome aparecer uma vez para o resto do bloco passar sem fonte.
+describe('atribuição frase a frase, não só na primeira', () => {
+  const src: Record<string, { publisher: string; source_class: string }> = { a: { publisher: 'Castor', source_class: 'manufacturer' } };
+  const bloco = async (text: string) => {
+    const { attributeSingleSource } = await import('../src/stages/structure.ts');
+    const d = { title: 't', description: 'd', verdict: { text: 'x.', basis: 'framing', claim_ids: [] }, sections: [{ id: 's', heading: 'S', blocks: [{ kind: 'paragraph', text, basis: 'evidence', claim_ids: ['a'] }] }] } as never;
+    return (attributeSingleSource(d, (id) => src[id]).draft as any).sections[0].blocks[0].text as string;
+  };
+
+  it('a frase seguinte que traz número declarado também ganha fonte, com outro conector', async () => {
+    const t = await bloco('Segundo a Castor, a densidade indica firmeza. A faixa recomendada para quem pesa até 60 kg é D20.');
+    expect(t).toBe('Segundo a Castor, a densidade indica firmeza. A faixa recomendada para quem pesa até 60 kg é D20, segundo a Castor.');
+  });
+
+  it('para no teto de duas e não vira ladainha', async () => {
+    const t = await bloco('A densidade é D20. A altura é 20 cm. A largura é 138 cm. A garantia é de 5 anos.');
+    expect((t.match(/(segundo|conforme) a Castor/g) ?? []).length).toBe(2);
+    expect(t).toContain('conforme a Castor'); // a segunda muda de conector
+  });
+
+  // Sem estes filtros a segunda atribuição caía em orientação ao leitor e em exemplo: medido em 65% dos blocos
+  // tocados, inclusive de páginas que já estavam aprovadas.
+  it('orientação ao leitor, exemplo e frase que já cita o fabricante não ganham fonte', async () => {
+    for (const depois of ['Confira na etiqueta se o modelo tem 40 cm.', 'Exemplos: alguns modelos têm 40 cm.', 'O fabricante pode indicar 40 cm na ficha.']) {
+      const t = await bloco(`Segundo a Castor, a densidade indica firmeza. ${depois}`);
+      expect(t, depois).toBe(`Segundo a Castor, a densidade indica firmeza. ${depois}`);
+    }
+  });
+});
