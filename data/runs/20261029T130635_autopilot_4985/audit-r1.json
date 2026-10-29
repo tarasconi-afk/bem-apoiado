@@ -1,0 +1,168 @@
+{
+  "findings": [
+    {
+      "ref": "tamanhos-disponveis#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-e-peso#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composio-de-fibras#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composio-de-fibras#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composio-de-fibras#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-conservao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-conservao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-conservao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponveis#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponveis#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponveis#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-e-peso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-e-peso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composio-de-fibras#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-conservao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Karsten sustenta que a toalha de 70 × 130 cm é versátil e ocupa menos espaço, mas não diz que ela é usada diariamente. O uso diário aparece no trecho da Appel, portanto essa afirmação foi atribuída à fonte errada.",
+      "fix": "Para quem é: Segundo a Appel, uso diário; segundo a Karsten, é versátil e ocupa menos espaço."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Teka descreve toalhas acima de 500 g/m² como mais encorpadas e absorventes, mas não diz que recomenda essa faixa. O bloco transforma uma descrição em recomendação atribuída à Teka.",
+      "fix": "Para maior absorção, segundo a Teka, toalhas acima de 500 g/m² são mais encorpadas e absorventes."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta “equilíbrio entre conforto e praticidade”, mas não afirma que a faixa é ideal para uso versátil.",
+      "fix": "Características: Equilíbrio entre conforto e praticidade. Para quem é: não especificado no trecho citado."
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#1.r1",
+      "msg": "MISATTRIBUTED. O trecho da Karsten sustenta que a toalha de 70 × 130 cm é versátil e ocupa menos espaço, mas não diz que ela é usada diariamente. O uso diário aparece no trecho da Appel, portanto essa afirmação foi atribuída à fonte errada. Versão sustentável: Para quem é: Segundo a Appel, uso diário; segundo a Karsten, é versátil e ocupa menos espaço."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O trecho da Teka descreve toalhas acima de 500 g/m² como mais encorpadas e absorventes, mas não diz que recomenda essa faixa. O bloco transforma uma descrição em recomendação atribuída à Teka. Versão sustentável: Para maior absorção, segundo a Teka, toalhas acima de 500 g/m² são mais encorpadas e absorventes."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "UNSUPPORTED. O trecho sustenta “equilíbrio entre conforto e praticidade”, mas não afirma que a faixa é ideal para uso versátil. Versão sustentável: Características: Equilíbrio entre conforto e praticidade. Para quem é: não especificado no trecho citado."
+    }
+  ]
+}

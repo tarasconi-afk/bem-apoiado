@@ -1,0 +1,177 @@
+{
+  "run_id": "20261029T130635_autopilot_4985",
+  "topic": "como-escolher-toalha-de-banho",
+  "accepted": [
+    {
+      "claim_id": "clm_52a635e97b39",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_834f9d7da904",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8f96ff30059a",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_63716d8fc9f0",
+      "question_id": "q_gramatura",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b27b9888a2ab",
+      "question_id": "q_tamanhos_padrao",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bb62377cb70a",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8d01e5609120",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1f98b4795e29",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0acf5d84abf1",
+      "question_id": "q_tamanhos_padrao",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2db6bc36f2fa",
+      "question_id": "q_tamanhos_padrao",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_702c3a281aa6",
+      "question_id": "q_tamanhos_padrao",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fc293b756da6",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_68c89c5cff05",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_03c361259ce4",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f69a83fb8978",
+      "question_id": "q_gramatura",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_49ebdf1a9298",
+      "question_id": "q_gramatura",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_947070d83833",
+      "question_id": "q_gramatura",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1d61085103f0",
+      "question_id": "q_gramatura",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_medida_decisiva_tamanho": 0,
+    "q_tamanhos_padrao": 4,
+    "q_composicao_fibra": 6,
+    "q_gramatura": 5,
+    "q_cuidado_conservacao": 3,
+    "q_peso_medida_dobrada": 0
+  },
+  "unanswered": [
+    "q_medida_decisiva_tamanho",
+    "q_peso_medida_dobrada"
+  ],
+  "usage": {
+    "input_tokens": 19754,
+    "output_tokens": 2394,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_4e0c32055d81",
+    "src_4620c75300b3",
+    "src_a8a3050edf12"
+  ],
+  "triage": [
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.9
+    },
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.05
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.01
+    }
+  ],
+  "credits": 12.92354352
+}

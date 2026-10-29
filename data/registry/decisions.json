@@ -54,5 +54,47 @@
     "at": "2026-10-29T11:13:11.893Z",
     "by": "motor",
     "action": "block"
+  },
+  {
+    "host": "lidershopping.com.br",
+    "confidence": 0.95,
+    "reason": "Marketplace que revende produtos de múltiplas marcas (Döhler), não é fabricante. Comportamento típico de loja de varejo online.",
+    "at": "2026-10-29T13:08:04.150Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "feiraodetoalhas.com.br",
+    "confidence": 0.95,
+    "reason": "Site é loja/e-commerce que revende toalhas, não fabricante; conteúdo é blog informativo típico de varejo, não fonte primária de fabricação.",
+    "at": "2026-10-29T13:08:04.150Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "optipaper.com.br",
+    "confidence": 0.95,
+    "reason": "Site de fabricante/revenda de papel toalha e higiênico, categorias fora do escopo do site de guias (colchão, travesseiro, base de cama, roupa de cama, toalha de banho, cadeira, mesa de trabalho). Apenas uma página de blog sobre normas ABNT ",
+    "at": "2026-10-29T13:08:04.150Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "5asec.com.br",
+    "confidence": 0.95,
+    "reason": "5àsec é uma lavanderia/serviço de limpeza de roupas, não um fabricante de produtos têxteis. O blog de dicas é conteúdo informativo de uma empresa de serviço, não fonte primária de fabricante ou organismo técnico.",
+    "at": "2026-10-29T13:08:04.150Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "casanovatoalhas.com.br",
+    "confidence": 0.72,
+    "reason": "Domínio dedicado a toalhas com blog editorial sobre o produto, sugerindo fabricante ou marca própria, mas página inicial inacessível (403) reduz certeza; conteúdo educativo é coerente com presença de marca.",
+    "at": "2026-10-29T13:08:04.150Z",
+    "by": "motor",
+    "action": "unsure",
+    "source_class": "manufacturer",
+    "publisher": "Casanova Toalhas"
   }
 ]
