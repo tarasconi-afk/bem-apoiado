@@ -628,7 +628,13 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     } else {
       // Pesquisa já paga num ciclo que parou antes da redação (teto de créditos): retoma na redação. Refazer
       // discover e research gastaria de novo pelo mesmo acervo — 29/10, toalha de banho: 64 evidências prontas.
-      const resume = topic.researched_source_ids.length > 0 && !loadPages().some((p) => p.slug === topic.slug);
+      // `!planned.created` é o que separa "pesquisa paga num ciclo anterior" de "pauta nova que acabou de
+      // receber evidência emprestada". 29/10, 16:05, colchão de látex: o reuso trouxe 29 evidências de 24
+      // fontes vizinhas e encheu researched_source_ids; a retomada entendeu que a pesquisa já estava feita e
+      // pulou discover e research numa pauta criada no mesmo ciclo. A checagem antes da redação reprovou por
+      // falta de informação de fabricante, e o ciclo gastou 35,7 créditos sem página. Reuso é vantagem inicial,
+      // nunca substituto da pesquisa própria.
+      const resume = !planned.created && topic.researched_source_ids.length > 0 && !loadPages().some((p) => p.slug === topic.slug);
       let r: { accepted: unknown[]; unanswered: string[] } = { accepted: [], unanswered: [] };
       if (resume) {
         // Retomar com pouco crédito repetiria o estouro no meio da redação a cada ciclo, gastando sem nunca

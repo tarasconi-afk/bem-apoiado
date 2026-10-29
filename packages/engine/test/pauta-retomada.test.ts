@@ -64,3 +64,20 @@ describe('pauta que parou sem página e sem lacuna', () => {
     writeState(DEFERRED_FILE, {});
   });
 });
+
+// 29/10, 16:05 — regressão achada no ciclo ao vivo, não em teste: o reuso de evidência de pautas vizinhas
+// preenche researched_source_ids ANTES de qualquer pesquisa própria. Numa pauta criada no mesmo ciclo
+// ("colchão de látex vale a pena": reuso de 29 evidências de 24 fontes), a retomada concluiu que a pesquisa
+// já estava feita e pulou discover e research. A checagem antes da redação reprovou por falta de informação
+// de fabricante e o ciclo gastou 35,7 créditos sem produzir página.
+describe('reuso de evidência não conta como pesquisa feita', () => {
+  it('a condição de retomada exige que a pauta já existisse em outro ciclo', () => {
+    // A regra do motor, isolada: planned.created separa pauta nova de pauta que volta.
+    const podeRetomar = (criadaAgora: boolean, fontesLidas: number, temPagina: boolean) =>
+      !criadaAgora && fontesLidas > 0 && !temPagina;
+    expect(podeRetomar(true, 24, false), 'pauta nova com reuso NÃO retoma').toBe(false);
+    expect(podeRetomar(false, 24, false), 'pauta de ciclo anterior retoma').toBe(true);
+    expect(podeRetomar(false, 0, false), 'sem fonte lida não há o que retomar').toBe(false);
+    expect(podeRetomar(false, 24, true), 'com página escrita o caminho é outro').toBe(false);
+  });
+});
