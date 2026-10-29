@@ -395,7 +395,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     if (info.kind === 'pauta-tentada' && !query) continue;
     const ready = existsSync(join(PREVIAS, dir, 'index.html'));
     const prevLink = (path: string, label: string) => (ready ? `<a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : '<span class="muted">sendo montada (até 5 min)</span>');
-    const visual = (it: ChangeItem) => it.id === 'images' || it.id.startsWith('product:') || it.id === 'theme' || it.id === 'home';
+    const visual = (it: ChangeItem) => CARD_OWN_BOX(it.id);
     // Legenda de cada imagem (24/10, editor: "imagem nova" duas vezes, sem saber qual era a capa desta página e qual
     // era a de outra que veio junto no mesmo ciclo).
     const imgLabel = (x: string) => {
@@ -423,8 +423,14 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const prodItems = items.filter((i) => i.id.startsWith('product:'));
     const extraProds = pageCard ? prodItems.filter((it) => it.kind && !pageKinds.has(it.kind)) : [];
     const prods = prodItems.filter((it) => !extraProds.includes(it)).map(prodHtml).join('');
-    const extraN = extraImgPaths.length + extraProds.length;
-    const extras = extraN ? `<details class="extras"><summary class="muted">${extraN} mudança(s) de outras páginas ou tipos vieram no mesmo ciclo: ver</summary>${extraImgs}${extraProds.map(prodHtml).join('')}<p class="muted">Não mudam esta página. Desmarque o que não quiser.</p></details>` : '';
+    // 29/10: "Ordem dos guias na home" e "Mudança de visual" contavam como `visual` (logo, fora do `others`
+    // escondido) e não tinham onde ser desenhadas no cartão — nem caixa visível, nem campo escondido. Sumiam do
+    // formulário, e o motor as registrava como RECUSADAS pelo editor em todo ciclo desde 28/10, sem ninguém ter
+    // recusado nada: ele acreditava estar aceitando tudo e a home nunca seguiu o Search Console. Agora aparecem
+    // aqui, marcadas, e quem decide é ele.
+    const siteWide = items.filter((i) => i.id === 'home' || i.id === 'theme');
+    const extraN = extraImgPaths.length + extraProds.length + siteWide.length;
+    const extras = extraN ? `<details class="extras"><summary class="muted">${extraN} mudança(s) de outras páginas ou do site todo vieram no mesmo ciclo: ver</summary>${extraImgs}${extraProds.map(prodHtml).join('')}${siteWide.map((it) => `<div>${esc(it.title)} ${check(it, 'aceitar')}</div>`).join('')}<p class="muted">Não mudam esta página. Desmarque o que não quiser.</p></details>` : '';
     const others = items.filter((i) => !visual(i)).map((it) => `<input type="hidden" name="manter" value="${esc(it.id)}">`).join('');
     const pageItem = items.find((i) => i.id === `page:${slug}`);
     const diffsHtml = pageItem?.diffs?.length ? `<details><summary class="muted">antes → depois (${pageItem.diffs.length})</summary>${pageItem.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
@@ -1339,6 +1345,12 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   }
   return 'ação desconhecida';
 }
+
+// Itens que o cartão desenha com caixa PRÓPRIA; os demais viajam escondidos em `others`, marcados. Os dois
+// conjuntos TÊM de ser o mesmo: item que não cai em nenhum dos dois some do formulário e o motor o registra
+// como recusado pelo editor. Foi o que aconteceu com "home" e "theme" de 28 a 29/10. Ao acrescentar um tipo
+// de item em changes.ts, ou ele ganha caixa aqui, ou fica de fora desta lista (e vai escondido).
+export const CARD_OWN_BOX = (id: string) => id === 'images' || id.startsWith('product:') || id === 'theme' || id === 'home';
 
 const PREVIAS = join(STATE, 'previas');
 const TYPES: Record<string, string> = {
