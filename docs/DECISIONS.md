@@ -756,3 +756,28 @@ Decisões dentro disso:
   falha, o preflight mandaria um email por ciclo com o motor sadio. Alarme falso é pior que alarme nenhum, porque
   ensina a ignorar o email de verdade.
 - **Só a falta de IA impede o ciclo.** Sem busca, o motor ainda melhora página no ar com o que já tem em casa.
+
+## 2026-10-29 — Toda URL que o motor gera para o leitor é ponto cego dos gates
+O editor clicou em "Ver Sultan Max na Amazon", no guia da toalha, e caiu numa lista de perfumes. Nenhum
+gate tinha como pegar: o auditor julga se o texto é sustentado pela fonte, a coerência julga blocos, a
+revisão julga se o leigo entende. **Todos leem texto; nenhum olha para onde um link leva.** O defeito era
+banal (o `kind` do modelo citado existia no dado e não entrava na consulta), e sobreviveu porque estava
+no único lugar que ninguém confere.
+
+Regra que fica: quando o motor passa a **gerar um endereço** — busca na Amazon, link interno, âncora,
+canonical —, esse endereço precisa de verificação própria, determinística, no mesmo commit. Não existe
+gate semântico para destino de link, e o leitor que clica já leu a página inteira: é o clique mais caro
+de errar.
+
+## 2026-10-29 — O dado certo já existia e o caminho novo não o usava
+Três defeitos do mesmo dia têm a mesma forma, e isso não é coincidência:
+
+- a pesquisa já paga existia, e a fila aposentava a pauta como "esgotada" (retomada sem página);
+- o `kind` existia no modelo citado, e a busca na Amazon ia sem ele;
+- a nota de leitor antes/depois existia no ajuste do painel, e a re-auditoria gravava sobre página no ar
+  sem medir nada.
+
+O motor cresceu por caminhos paralelos (ciclo, painel, manutenção, re-auditoria) que resolvem problemas
+parecidos sem compartilhar o que já sabem. Ao abrir um caminho novo, a pergunta antes de escrever é:
+**que caminho já existente calcula isto, e por que não estou usando?** A trava de "não pode piorar" virou
+`keepsReaderValue()` em `review.ts` por isso — era lógica solta duplicada em dois lugares.
