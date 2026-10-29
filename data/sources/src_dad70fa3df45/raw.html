@@ -1,0 +1,163 @@
+
+
+<html>
+<head>
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="/imagens/style1.css" type="text/css" />
+<script type="text/javascript" src="/includes/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="/includes/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=1002017&modprp=5&coduasg=936001&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=936001&numprp=1002017&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" frameborder="0" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tr><td class="cabecbox">Aguarde!</td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2"><img src="/imagens/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="/imagens/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="/imagens/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="1" cellpadding="2">
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p>GOVERNO DO ESTADO DE RORAIMA</p></td></tr><tr><td class='tex3'><p>Código da UASG: 936001</p></td></tr></table><br></td>
+        </tr>
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p><span class='tex3b'>Pregão Eletrônico Nº  100/2017</span><span class='mensagem'> - (Decreto Nº 5.450/2005)</span><br><b>Objeto:</b>&nbsp;Objeto: Pregão Eletrônico -  Contratação de empresa especializada para fornecimento de materiais de cama e banho, para atender o CONVÊNIO Nº 038/2015   SPM/RR, de acordo com as quantidades e especificações técnicas constantes do TERMO DE REFERÊNCIA, Anexo IV e MODELO DA PROPOSTA DE PREÇOS, Anexo VI do Edital;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <br><b>Edital a partir de:</b>&nbsp;24/08/2017 das 08:00 às 12:00 Hs e das 13:00 às 17:00 Hs<br><b>Endereço:</b>&nbsp;Av. Nossa Senhora da Consolata, 472                                                  - Centro                                   - Boa Vista                                (RR)<br><b>Telefone:</b>&nbsp;         <br><b>Fax:</b>&nbsp;               <br><b>Entrega da Proposta:</b>&nbsp;24/08/2017 às 08:00Hs<br></p></td></tr></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td>
+		    <td class='tex3'>
+		    <span class='tex3b'>Itens de Material</span><table width='100%'><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>1 - ´LENÇOL CAMA´</span><br><span class='tex3'>Lençóis descartáveis Tecido não tecido  TNT 100%, polipropileno, atóxico, hipoalergênico e não estéril. Tamanho único (0,90m x 2,00m) com elástico; modelo padrão (30G); cor branca. Pacote com 10 unid. Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 400<br>Unidade de fornecimento: PACOTE              </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>2 - ´LENÇOL CAMA´</span><br><span class='tex3'>Jogo de lençol (3 peças) para cama de solteiro, em tecido tipo algodão, com composição de 100% algodão, em fio tinto e antialérgico, com, no mínimo, 100 fios; As peças devem conter travete, dimensões aproximadas: lençol elástico 90 x 30 x 190 cm (l x a x p), fronha: 50 x 70 cm (l x p) e lençol 160 x 250 cm (l x p), cor branca. Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 60<br>Unidade de fornecimento: JOGO                </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>3 - ´LENÇOL CAMA´</span><br><span class='tex3'>Jogo de lençol (3 peças) para berço, em tecido tipo algodão, com composição de 100% algodão, em fio tinto e antialérgico, com no mínimo, 100 fios; As peças devem conter travete, dimensões aproximadas: lençol elástico1,30 x 0,60 x 0,15cm fronha: 50 x 70 cm (l x p), lençol 1,30 x 0,60cm cor branca. Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 20<br>Unidade de fornecimento: JOGO                </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>4 - ´COBERTOR´</span><br><span class='tex3'>Cobertor de microfibra Dimensões: aproximadamente 150 x 220 cm; Em microfibra 100% poliéster, antialérgico, produzido unicamente com fibras neutras de poliéster; Gramatura mínima de 260 g/m²; Cores: Tons pastéis (oito na cor azul, oito na cor verde, oito na cor amarelo, oito na cor laranja e oito na cor lilás).  Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 40<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>5 - ´COBERTOR´</span><br><span class='tex3'>Cobertor de microfibra infantil Dimensões: aproximadamente 90 x 110 cm; Em microfibra 100% poliéster, antialérgico, produzido unicamente com fibras neutras de poliéster; Gramatura mínima de 260 g/m²; Cores: Tons pastéis (dois na cor azul, dois na cor verde, dois na cor amarelo, dois na cor laranja e dois na cor lilás). Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 10<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>6 - ´COLCHÃO´</span><br><span class='tex3'>Colchão solteiro   Espuma flexível de poliuretano 100% D33 selada com certificação INMETRO, com tratamento antiácaro, antimofo e antialérgico; Revestido em courvin, com acabamento em costura simples, fechamento em zíper com acabamento oculto, estar em conformidade com a norma ABNT NBR 13579-2:2011; resistente a derramamento de líquidos(impermeável); Medidas mínimas 78 x 188 x 12m. Obs. O produto a ser ofertado deverá atender as normas da Portaria n¨349 de 09 de julho de 2015 do Ministério do Desenvolvimento, Industria e Comércio Exterior/ Instituto Nacional, Qualidade e Tecnologia   INMETRO. Prazo de validade/garantia mínimo de 12 meses a partir da data de entrega.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 20<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>7 - ´COLCHÃO´</span><br><span class='tex3'>Colchão berço   Espuma flexível de poliuretano 100% D28 selada com certificação de alta qualidade-INMETRO, com tratamento antiácaro, antimofo e antialérgico; Revestido em courvin, com acabamento em costura simples; fechamento em zíper com acabamento oculto, estar em conformidade com a norma ABNT NBR 13579-2:2011; resistente a derramamento de líquidos(impermeável); Medidas mínimas 1,30 x 0,60 x 10m.  Obs. O produto a ser ofertado deverá atender as normas da Portaria n¨349 de 09 de julho de 2015 do Ministério do Desenvolvimento, Industria e Comércio Exterior/ Instituto Nacional, Qualidade e Tecnologia   INMETRO. Prazo de validade/garantia mínimo de 12 meses a partir da data de entrega.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>8 - TRAVESSEIRO</span><br><span class='tex3'>Travesseiro Hospitalar   Confeccionado com espumas em bloco único de poliuretano antiácaro, antifúngica e antialérgica, com densidade D26; Costurado eletronicamente, e revestido em courvin de fácil higienização; Acabamento com zíper e ilhós para respiro; Medidas aproximadas de 60x40x10cm. Prazo de validade/garantia mínimo de 12 meses a partir da data de entrega.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 20<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>9 - TRAVESSEIRO</span><br><span class='tex3'>Travesseiro infantil - Confeccionadocom espumas em bloco único de poliuretano antiácaro, antifúngica e antialérgica, comdensidade D26; Costurado eletronicamente, erevestido em courvin de fácil higienização; Acabamento com zíper e ilhós pararespiro; Medidas aproximadas de60x40x10cm. Prazo de validade/garantia mínimo de 12 meses a partir da data de entrega.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>10 - ´TOALHA BANHO´</span><br><span class='tex3'>Toalha para banho 100% algodão; Gramatura mínima 450 g/m2   Banho 0,70cm x 1,40m, cor branco. Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 80<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>11 - ´TOALHA BANHO´</span><br><span class='tex3'>Toalha para piso 100% algodão; Gramatura mínima 450 g/m2 - piso 0,41cm x 0,75cm, cor branco. Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>12 - ´TOALHA BANHO´</span><br><span class='tex3'>Toalha para rosto 100% algodão; Gramatura mínima 450 g/m2 - rosto 0,50cm x 0,80cm, cor branco. Garantia de acordo com o código de defesa do consumidor.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 80<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr></table>
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td valign="top" align="right" width="23">
+			     <img src="/imagens/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td valign="top" align="right" width="23">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onClick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onClick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+{
+  "edits": [
+    {
+      "ref": "instrucoes-lavagem#0",
+      "action": "rewrite",
+      "text": "A etiqueta do lençol deve indicar o tratamento de cuidado para conservação do produto, seguindo a sequência obrigatória do Inmetro: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional.",
+      "claim_ids": [
+        "clm_7826221856ab",
+        "clm_967a8a4db583",
+        "clm_d4deb5834cee",
+        "clm_c1c1ac1311bb"
+      ],
+      "absorbs": [
+        "instrucoes-lavagem#1"
+      ],
+      "reason": "Os dois blocos descreviam a mesma exigência do Inmetro sobre instruções de cuidado; foram unidos em uma frase mais curta sem perder a informação."
+    },
+    {
+      "ref": "tamanho-etiqueta#0",
+      "action": "rewrite",
+      "text": "O Inmetro exige que a etiqueta indique o tamanho ou dimensão do lençol, em metros ou centímetros (Sistema Internacional), já que ainda não há norma específica de formato.",
+      "claim_ids": [
+        "clm_531debf45868",
+        "clm_4f4d6ec06dfd"
+      ],
+      "reason": "Frase original era longa e repetitiva; mantém a mesma informação de forma mais direta."
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "rewrite",
+      "text": "Meça seu colchão e compare com a ficha do lençol. Para solteiro (cerca de 0,88 m × 1,88 m, segundo a Appel), procure um lençol de pelo menos 0,90 m × 2,00 m. Para casal (cerca de 1,38 m × 1,88 m), busque medidas iguais ou maiores; a profundidade máxima varia entre 35 cm e 40 cm, conforme Döhler e Karsten. Em ambos os casos, confira se a profundidade do lençol cobre a altura do seu colchão.",
+      "claim_ids": [
+        "clm_0704b22751c0",
+        "clm_a6291990ca2e",
+        "clm_117a9fbc38fc",
+        "clm_d389f2ae38bd",
+        "clm_ed02b3184a24",
+        "clm_862c5d9d3233"
+      ],
+      "absorbs": [
+        "como-decidir#3"
+      ],
+      "reason": "Os blocos de solteiro e casal repetiam a mesma lógica de comparação de medidas; foram combinados em um único parágrafo mais enxuto."
+    }
+  ],
+  "refused": [
+    "como-decidir#2: reescrita sem texto ou citando evidência que o bloco não tinha"
+  ],
+  "usage": {
+    "input_tokens": 10752,
+    "output_tokens": 4633
+  }
+}
