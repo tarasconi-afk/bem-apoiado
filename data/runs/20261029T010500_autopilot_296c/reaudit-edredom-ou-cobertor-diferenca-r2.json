@@ -1,0 +1,27 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O edredom é mais volumoso, com enchimento e tecido externo; o cobertor é uma peça de tecido mais grosso. Ao escolher, confira na ficha o enchimento e o tecido externo do edredom, ou o material e a gramatura do cobertor; cobertores consultados informam composições como 100% poliéster com gramaturas de 280 a 400 g/m².",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c343cf271464",
+        "clm_48dd2f674dac",
+        "clm_232a27049f3d",
+        "clm_e20b2bf24682",
+        "clm_dfa1e2bd51df"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "remove"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As definições sobre edredom e cobertor são apresentadas como fatos gerais, mas os trechos citados vêm de fabricantes. A formulação também transforma essas descrições de uma fonte específica em regra geral. As informações de composição e gramatura estão apoiadas pelos exemplos citados."
+    }
+  ]
+}
