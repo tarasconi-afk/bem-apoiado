@@ -21,6 +21,14 @@ REPO=/opt/bem-apoiado/repo
 PREVIEW=/var/www/bem-apoiado
 export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes"
 GIT_ID=(-c user.name="Bem Apoiado (painel)" -c user.email="painel@bemapoiado.invalid")
+# A VPS não tem user.name/user.email configurados (nem global, nem no repo), e isso é proposital: a identidade
+# vem de quem escreve. Mas `-c` só vale para o comando em que está, e os caminhos de recuperação de push
+# disputado (`git rebase origin/main`, linhas abaixo) não o levavam. 29/10, 09:24: o editor mesclou um cartão
+# enquanto eu empurrava outro commit; o push foi recusado, o rebase de recuperação morreu em "Committer
+# identity unknown" e a mesclagem falhou. Só deu certo porque ele clicou de novo. Pelo ambiente, QUALQUER git
+# desta sessão tem identidade — inclusive rebase, merge e cherry-pick que venham a ser escritos aqui depois.
+export GIT_AUTHOR_NAME="Bem Apoiado (painel)" GIT_AUTHOR_EMAIL="painel@bemapoiado.invalid"
+export GIT_COMMITTER_NAME="Bem Apoiado (painel)" GIT_COMMITTER_EMAIL="painel@bemapoiado.invalid"
 
 # Cópia só de leitura do main que o painel lê (BEM_ROOT do bem-apoiado-admin): atualizada ao fim de toda ação
 # e de todo sync, inclusive quando o sync sai porque o ciclo está rodando.

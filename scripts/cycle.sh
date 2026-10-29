@@ -6,6 +6,12 @@ set -euo pipefail
 unset BEM_ROOT
 REPO=/opt/bem-apoiado/repo
 export GIT_SSH_COMMAND="ssh -i /opt/bem-apoiado/.ssh/github_deploy -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes"
+# Identidade pelo ambiente, não só no `-c` do commit: a VPS não tem user.name/user.email configurados, e
+# qualquer git que venha a ser acrescentado aqui (rebase de recuperação, merge) falharia em "Committer
+# identity unknown" — foi o que derrubou uma mesclagem do painel em 29/10. O `-c` da linha do commit fica,
+# por clareza de quem assina.
+export GIT_AUTHOR_NAME="Bem Apoiado (motor)" GIT_AUTHOR_EMAIL="motor@bemapoiado.invalid"
+export GIT_COMMITTER_NAME="Bem Apoiado (motor)" GIT_COMMITTER_EMAIL="motor@bemapoiado.invalid"
 exec 9>/var/lib/bem-apoiado/cycle.lock
 # A trava é a mesma das ações do painel (mesclar, veredito...), que duram segundos: espera em vez de sair.
 # 21/10: o pedido "rodar agora" chegou durante uma mesclagem, o ciclo saiu sem apagar run-now e o systemd
