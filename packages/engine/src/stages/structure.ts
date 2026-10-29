@@ -80,12 +80,21 @@ export function dropClaimless(d: Draft, touched: Set<string>): { draft: Draft; d
 export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => { publisher: string; source_class: string } | undefined): { draft: Draft; refs: string[] } {
   const refs: string[] = [];
   const norm = (t: string) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  // Um ou dois fabricantes, todos "manufacturer" (com norma ou regulador junto, a regra geral pode estar certa).
+  // Fabricantes do bloco. Até 29/10, bastava UMA fonte não-fabricante para a atribuição desistir do bloco
+  // inteiro ("com norma ou regulador junto, a regra geral pode estar certa"). Na toalha de banho isso derrubou
+  // a página: o bloco citava Inmetro e fabricantes, e o auditor foi exato — "os trechos do Inmetro sustentam
+  // composição, dimensão e conservação, NÃO a recomendação de tamanho", que é dos fabricantes. Agora o bloco
+  // misto é atribuível, mas só nas frases que não falam do regulador (ver `doRegulador`).
   const single = (ids: string[]) => {
     const srcs = ids.map(sourceOf).filter((s): s is NonNullable<typeof s> => !!s);
-    const pubs = [...new Set(srcs.map((s) => s.publisher))];
-    return srcs.length && srcs.every((s) => s.source_class === 'manufacturer') ? pubs : null;
+    const fab = [...new Set(srcs.filter((s) => s.source_class === 'manufacturer').map((s) => s.publisher))];
+    return fab.length ? fab : null;
   };
+  // Todos os publishers do bloco, inclusive regulador: frase que já nomeia qualquer um deles não é órfã.
+  const todos = (ids: string[]) => [...new Set(ids.map(sourceOf).filter((s): s is NonNullable<typeof s> => !!s).map((s) => s.publisher))];
+  // Frase de norma: mesmo sem nomear o órgão, ela não é afirmação de fabricante e não pode receber "segundo a
+  // Appel". É o guarda-corpo que permite atribuir em bloco misto sem trocar a fonte de lugar.
+  const doRegulador = (frase: string) => /\b(exige|obrigat|norma|portaria|regulament|resolu[çc][ãa]o|NBR|ISO|NM ISO)\b/i.test(frase);
   // 3 ou mais fabricantes dizendo o mesmo: "fabricantes como X, Y e Z" (22/10, casal com pesos diferentes: 4 marcas
   // na resposta curta e nenhuma nomeada).
   const who = (pubs: string[]) => (pubs.length <= 2 ? pubs.map((p) => `a ${p}`).join(' e ') : `fabricantes como ${pubs.slice(0, 2).join(', ')} e ${pubs[2]}`);
@@ -106,8 +115,9 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   const EXEMPLO = /^\s*(exemplos?\b|por exemplo\b|ex\.:)/i;
   // Já diz que quem informa é o fabricante/a ficha: a frase não se apresenta como fato do mercado.
   const JA_E_DECLARACAO = /\b(o|os|a|as)\s+fabricantes?\b|\b(a ficha|a etiqueta|o an[úu]ncio|o r[óo]tulo)\b/i;
-  const precisaDeFonte = (f: string) => !INSTRUCAO.test(f) && !EXEMPLO.test(f) && !JA_E_DECLARACAO.test(f);
-  const attribute = (text: string, pubs: string[]) => {
+  const precisaDeFonte = (f: string) => !INSTRUCAO.test(f) && !EXEMPLO.test(f) && !JA_E_DECLARACAO.test(f) && !doRegulador(f);
+  // `nomes` = todos os publishers do bloco (inclui regulador): frase que já nomeia qualquer um deles fica quieta.
+  const attribute = (text: string, pubs: string[], nomes: string[] = pubs) => {
     // Atribuição genérica já escrita ("segundo os fabricantes citados") vira a com nomes, sem duplicar (23/10:
     // "segundo os fabricantes citados, segundo fabricantes como Castor, Ortobom e Probel").
     const generic = /(segundo|conforme|de acordo com) (os |as )?(fabricantes|marcas|fontes)( citad[oa]s)?/i;
@@ -122,9 +132,10 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
     const frases = base.match(/[^.!?]+[.!?]+\s*|[^.!?]+$/g) ?? [base];
     let postas = 0;
     const saida = frases.map((f, i) => {
-      if (postas >= MAX_ATRIBUICOES || atribuida(f, pubs)) return f;
+      if (postas >= MAX_ATRIBUICOES || atribuida(f, nomes)) return f;
       // A primeira frase sempre; as seguintes só quando trazem número declarado (faixa, medida, densidade), que
       // é o que o auditor lê como regra geral de fabricante apresentada como fato do mercado.
+      if (doRegulador(f)) return f;
       if (i !== 0 && (!/\d/.test(f) || !precisaDeFonte(f))) return f;
       postas++;
       return comFonte(f, pubs, postas === 1 ? 'segundo' : 'conforme');
@@ -134,7 +145,7 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   const out: Draft = structuredClone(d);
   const pv = single(out.verdict.claim_ids);
   if (pv && out.verdict.basis !== 'framing') {
-    const t = attribute(out.verdict.text, pv);
+    const t = attribute(out.verdict.text, pv, todos(out.verdict.claim_ids));
     if (t !== out.verdict.text) { out.verdict = { ...out.verdict, text: t }; refs.push('verdict'); }
   }
   for (const s of out.sections) s.blocks.forEach((b, i) => {
@@ -149,7 +160,7 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
     if (b.basis === 'framing') return;
     const p = single(b.claim_ids);
     if (!p) return;
-    const t = attribute(b.text, p);
+    const t = attribute(b.text, p, todos(b.claim_ids));
     if (t !== b.text) { b.text = t; refs.push(`${s.id}#${i}`); }
   });
   return { draft: out, refs };

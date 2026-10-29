@@ -137,3 +137,22 @@ export function readerScore(r: { answers_primary_query: string; reader_fit?: boo
   const dec = r.answers_primary_query === 'yes' ? 1 : r.answers_primary_query === 'partial' ? 0.5 : 0;
   return dec + Number(r.reader_fit !== false) + Number(r.quick_answer !== false) + Number(r.purchase_path !== false);
 }
+
+// Uma correção pode ficar mais honesta e menos vendedora; não pode ficar pior para quem lê. Régua usada quando
+// o motor reescreve página JÁ PUBLICADA (re-auditoria) ou já salva (ajuste do painel): a nota de leitor não cai,
+// salvo meio ponto quando o texto ficou mais estreito E a resposta curta continua mandando escolher.
+// 29/10, lençol com elástico: sem esta régua a re-auditoria trocou "procure um lençol com medidas iguais ou
+// maiores, e profundidade que cubra a altura do colchão" por "compare as medidas informadas com as do colchão".
+export function keepsReaderValue(
+  before: Pick<ReviewResult, 'answers_primary_query' | 'reader_fit' | 'quick_answer' | 'purchase_path'>,
+  after: Pick<ReviewResult, 'answers_primary_query' | 'reader_fit' | 'quick_answer' | 'purchase_path'>,
+  decisionBefore: number,
+  decisionAfter: number,
+): { ok: boolean; before: number; after: number } {
+  const sb = readerScore(before);
+  const sa = readerScore(after);
+  const narrower = sb - sa <= 0.5
+    && (['reader_fit', 'quick_answer', 'purchase_path'] as const).every((k) => after[k] !== false || before[k] === false)
+    && decisionAfter >= decisionBefore;
+  return { ok: sa >= sb || narrower, before: sb, after: sa };
+}

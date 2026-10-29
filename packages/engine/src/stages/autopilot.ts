@@ -250,6 +250,7 @@ async function maintainAudit(runId: string, steps: string[]): Promise<boolean> {
     r.status === 'CLEAN' ? `re-auditoria de ${page.slug}: sem problemas`
       : r.status === 'FIXED' ? `re-auditoria de ${page.slug}: ${r.fixed.length} bloco(s) corrigido(s) (${r.fixed.join(', ')}); confira na prévia antes de aceitar`
       : r.status === 'OPEN' ? `re-auditoria de ${page.slug}: ${r.open.length} problema(s) sem correção segura; página publicada mantida`
+      : r.status === 'WORSE' ? `re-auditoria de ${page.slug}: a versão corrigida ficou pior para o leitor (antes ${r.before} de 4, depois ${r.after}); página publicada mantida`
       : `re-auditoria de ${page.slug}: parou (${r.reason})`,
   );
   return r.status === 'FIXED';

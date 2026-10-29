@@ -127,7 +127,7 @@ export function styleIssues(draft: Draft): Issue[] {
   // Resposta curta (a frase mais lida da página e a que a busca com IA cita): no máximo 3 frases, começa pela
   // resposta prática e nunca por norma ou regulador. "Trechos citados" é jargão do motor, não do leitor.
   const v = draft.verdict.text.trim();
-  const sentences = v.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9])/).filter((x) => x.trim().length > 3).length;
+  const sentences = verdictSentences(v).length;
   if (sentences > 3) out.push({ ref: 'verdict', msg: `resposta curta com ${sentences} frases; deixe em até 3, começando pela resposta prática para quem vai comprar.` });
   // Qualquer abertura por atribuição, com marca ou genérica (22/10: "Segundo fabricantes citados, molas
   // ensacadas podem…" passou porque a regra só via nome próprio).
@@ -201,8 +201,17 @@ export function decisionIssues(draft: Draft, claimType?: (id: string) => string 
 // vírgula. Mesmo conteúdo e mesmas fontes; a resposta volta para o auditor.
 // Também para a "versão sustentável" do auditor (27/10, D45: ele propôs "Segundo a Castor, …", o redator copiou,
 // a regra de forma barrou a rodada e a página parou sem convergir).
+// Divide a resposta curta em frases, com a mesma régua da checagem de forma (styleIssues).
+export const verdictSentences = (t: string) => t.trim().split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9])/).filter((x) => x.trim().length > 3);
+
 export function verdictFormOf(text: string): string {
   let v = text.trim().replace(/\s*—\s*/g, ', ');
+  // Mais de 3 frases: corta as que sobram. O gate já pedia isso ao redator e a rodada ia embora nisso (29/10,
+  // toalha de banho: 2 das 4 rodadas morreram em forma, uma delas aqui). Cortar é remoção: a frase que sai é a
+  // última, as fontes do bloco continuam as mesmas e nada novo é afirmado. A ordem já põe a resposta prática
+  // na frente (decisionLast + a regra de não abrir citando a fonte), então o que sobra no fim é o acessório.
+  const frases = verdictSentences(v);
+  if (frases.length > 3) v = frases.slice(0, 3).join(' ').trim();
   const m = /^((?:[Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s+(?:(?:a|o|os|as)\s+)?[^,]{2,60}),\s+(.+?)([.!?])(\s|$)([\s\S]*)$/.exec(v);
   if (m) {
     const attrib = m[1]!.charAt(0).toLowerCase() + m[1]!.slice(1);
