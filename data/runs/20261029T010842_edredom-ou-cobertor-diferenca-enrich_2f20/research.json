@@ -1,0 +1,170 @@
+{
+  "run_id": "20261029T010842_edredom-ou-cobertor-diferenca-enrich_2f20",
+  "topic": "edredom-ou-cobertor-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_167cd5ebf7fe",
+      "question_id": "q_edredom_composicao",
+      "source_id": "src_75813429729f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_73ef0c51d935",
+      "question_id": "q_uso_com_capa",
+      "source_id": "src_75813429729f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5d3c4d16469b",
+      "question_id": "q_tamanhos_medidas",
+      "source_id": "src_75813429729f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5ee45b2b15e8",
+      "question_id": "q_cobertor_composicao",
+      "source_id": "src_75813429729f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c11147da64a5",
+      "question_id": "q_edredom_composicao",
+      "source_id": "src_c43896676151",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ab8a025b9892",
+      "question_id": "q_edredom_composicao",
+      "source_id": "src_c43896676151",
+      "new": true
+    },
+    {
+      "claim_id": "clm_638777f111c1",
+      "question_id": "q_tamanhos_medidas",
+      "source_id": "src_c43896676151",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e403f0041d29",
+      "question_id": "q_uso_com_capa",
+      "source_id": "src_c43896676151",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2ec25953b1d9",
+      "question_id": "q_tamanhos_medidas",
+      "source_id": "src_440e82c99f60",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8cc5a0db620c",
+      "question_id": "q_cobertor_composicao",
+      "source_id": "src_440e82c99f60",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9d2c2b00058b",
+      "question_id": "q_cobertor_composicao",
+      "source_id": "src_440e82c99f60",
+      "new": true
+    },
+    {
+      "claim_id": "clm_25edb77f0904",
+      "question_id": "q_cobertor_composicao",
+      "source_id": "src_440e82c99f60",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1ae977ab120a",
+      "question_id": "q_edredom_composicao",
+      "source_id": "src_440e82c99f60",
+      "new": true
+    },
+    {
+      "claim_id": "clm_53be638fd9c4",
+      "question_id": "q_tamanhos_medidas",
+      "source_id": "src_cc539905131e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e773e566a4ae",
+      "question_id": "q_cobertor_composicao",
+      "source_id": "src_9b1c4ff0c859",
+      "new": true
+    },
+    {
+      "claim_id": "clm_15243893a6bc",
+      "question_id": "q_cobertor_composicao",
+      "source_id": "src_9b1c4ff0c859",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1e5350599682",
+      "question_id": "q_temperatura_gramatura",
+      "source_id": "src_9b1c4ff0c859",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b233187bf29b",
+      "question_id": "q_tamanhos_medidas",
+      "source_id": "src_9b1c4ff0c859",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_temperatura_gramatura": 1,
+    "q_edredom_composicao": 4,
+    "q_cobertor_composicao": 6,
+    "q_etiqueta_inmetro": 0,
+    "q_simbolos_conservacao": 0,
+    "q_tamanhos_medidas": 5,
+    "q_uso_com_capa": 2,
+    "q_ajuste_7c299248": 0
+  },
+  "unanswered": [
+    "q_etiqueta_inmetro",
+    "q_simbolos_conservacao",
+    "q_ajuste_7c299248"
+  ],
+  "usage": {
+    "input_tokens": 8093,
+    "output_tokens": 2202,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_75813429729f",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_c43896676151",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_440e82c99f60",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_cc539905131e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.75
+    },
+    {
+      "source_id": "src_9b1c4ff0c859",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 16.535088719999997
+}

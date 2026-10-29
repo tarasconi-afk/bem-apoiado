@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "como-decidir#3",
+      "problem": "Quem tem pouco espaço de armazenamento pode entender que as medidas de comprimento e largura da peça permitem saber se ela caberá no espaço, mas os trechos não relacionam essas medidas à facilidade de armazenar.",
+      "fix": "Reescrever para dizer apenas que, se quiser conferir o tamanho da peça, deve consultar as medidas declaradas na ficha; ou tirar o bloco."
+    }
+  ],
+  "usage": {
+    "input_tokens": 22929,
+    "output_tokens": 3661,
+    "calls": 3
+  }
+}

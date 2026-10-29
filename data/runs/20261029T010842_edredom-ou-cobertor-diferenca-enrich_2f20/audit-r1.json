@@ -1,0 +1,192 @@
+{
+  "findings": [
+    {
+      "ref": "composicao-edredom#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-edredom#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-edredom#2.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as descrições do edredom e do cobertor, mas não dizem que a escolha pode considerar a composição e o tipo de peça.",
+      "fix": "Edredom e cobertor diferem na estrutura: segundo a Karsten, o edredom é mais volumoso e composto por enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso."
+    },
+    {
+      "ref": "composicao-edredom#2.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela apresenta a composição como fato geral, mas os trechos citados são declarações da fabricante Karsten. Além disso, os trechos não informam a gramatura; informam apenas a quantidade de fios do tecido externo.",
+      "fix": "Segundo a Karsten, o enchimento é de poliéster e o tecido externo é percal 100% algodão de 180 fios. Não classificar esses dados como gramatura."
+    },
+    {
+      "ref": "composicao-edredom#2.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela apresenta a composição como fato geral, embora o único trecho citado seja uma declaração da fabricante Plumasul.",
+      "fix": "Segundo a Plumasul, o enchimento é de 100% plumas de ganso e o revestimento é tecido 100% algodão, percal de 233 fios com tratamento Downproof."
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-textil-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-textil-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "As instruções de lavagem, secagem e a informação de passar a até 110°C estão nos trechos, mas eles não dizem para confirmar sempre a etiqueta do modelo específico.",
+      "fix": "Nas duas fichas da Teka citadas, a lavagem pode chegar a 60°C e a secagem em tambor é permitida, com temperatura máxima de exaustão de 60°C. Uma delas informa passar a até 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "A medida de 2,90 m × 2,70 m está no trecho, mas a recomendação de consultar a ficha do modelo escolhido para confirmar as dimensões não é afirmada na evidência citada.",
+      "fix": "O edredom King 300 Fios Grasso Azul Siciliano, da Trussardi, mede 2,90 m × 2,70 m."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam os exemplos de enchimento e tecido externo para edredons, mas não dizem que, para cobertores, a ficha declara composição e gramatura.",
+      "fix": "Se escolher um edredom, confira na ficha o tipo de enchimento, como poliéster, e o tecido externo, como algodão ou microfibra, segundo a Karsten."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as descrições do edredom e do cobertor, mas não dizem que a escolha pode considerar a composição e o tipo de peça. Versão sustentável: Edredom e cobertor diferem na estrutura: segundo a Karsten, o edredom é mais volumoso e composto por enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso."
+    },
+    {
+      "ref": "composicao-edredom#2.r0",
+      "msg": "MISATTRIBUTED. A tabela apresenta a composição como fato geral, mas os trechos citados são declarações da fabricante Karsten. Além disso, os trechos não informam a gramatura; informam apenas a quantidade de fios do tecido externo. Versão sustentável: Segundo a Karsten, o enchimento é de poliéster e o tecido externo é percal 100% algodão de 180 fios. Não classificar esses dados como gramatura."
+    },
+    {
+      "ref": "composicao-edredom#2.r1",
+      "msg": "MISATTRIBUTED. A tabela apresenta a composição como fato geral, embora o único trecho citado seja uma declaração da fabricante Plumasul. Versão sustentável: Segundo a Plumasul, o enchimento é de 100% plumas de ganso e o revestimento é tecido 100% algodão, percal de 233 fios com tratamento Downproof."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "msg": "UNSUPPORTED. As instruções de lavagem, secagem e a informação de passar a até 110°C estão nos trechos, mas eles não dizem para confirmar sempre a etiqueta do modelo específico. Versão sustentável: Nas duas fichas da Teka citadas, a lavagem pode chegar a 60°C e a secagem em tambor é permitida, com temperatura máxima de exaustão de 60°C. Uma delas informa passar a até 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#4",
+      "msg": "UNSUPPORTED. A medida de 2,90 m × 2,70 m está no trecho, mas a recomendação de consultar a ficha do modelo escolhido para confirmar as dimensões não é afirmada na evidência citada. Versão sustentável: O edredom King 300 Fios Grasso Azul Siciliano, da Trussardi, mede 2,90 m × 2,70 m."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam os exemplos de enchimento e tecido externo para edredons, mas não dizem que, para cobertores, a ficha declara composição e gramatura. Versão sustentável: Se escolher um edredom, confira na ficha o tipo de enchimento, como poliéster, e o tecido externo, como algodão ou microfibra, segundo a Karsten."
+    }
+  ]
+}

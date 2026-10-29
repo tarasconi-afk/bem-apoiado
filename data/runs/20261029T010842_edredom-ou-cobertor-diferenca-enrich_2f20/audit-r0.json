@@ -1,0 +1,224 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as diferenças de volume, composição e tipo de peça, mas não dizem que a escolha depende da gramatura nem dos tamanhos disponíveis.",
+      "fix": "Edredom e cobertor diferem na estrutura: segundo a Karsten, o edredom é mais volumoso e composto por enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso. A escolha pode considerar a composição e o tipo de peça."
+    },
+    {
+      "ref": "composicao-edredom#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-edredom#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-edredom#2.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sustentam poliéster e percal 100% algodão de 180 fios, mas não mostram que a fonte seja um “guia geral”. Além disso, o trecho não declara uma gramatura.",
+      "fix": "Marca e modelo: Karsten | Enchimento: Poliéster | Tecido externo: Percal 100% algodão, 180 fios"
+    },
+    {
+      "ref": "composicao-edredom#2.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta o enchimento, o tecido e o tratamento Downproof, mas não declara nenhuma gramatura; portanto, o título da tabela afirma mais do que a evidência citada.",
+      "fix": "[tabela: Composição declarada em edredons de diferentes marcas] Marca e modelo: Plumasul Summer | Enchimento: 100% plumas de ganso | Tecido externo: Percal 100% algodão, 233 fios com tratamento Downproof"
+    },
+    {
+      "ref": "composicao-edredom#2.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a definição de cobertor e a composição 100% poliéster do produto Altenburg, mas não sustentam que todos os cobertores consultados sejam 100% poliéster nem que apresentem diferentes técnicas de confecção e gramaturas conforme o modelo.",
+      "fix": "Segundo Karsten, o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica. O cobertor Altenburg citado tem composição 100% poliéster."
+    },
+    {
+      "ref": "composicao-cobertor#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-textil-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o nome das fibras ou filamentos e seus percentuais em massa são informações obrigatórias para produtos têxteis ou tecidos destinados ao comércio, mas não mostram que essa regra se aplica especificamente a edredons e cobertores nem mencionam a etiqueta.",
+      "fix": "Para tecidos ou produtos têxteis destinados ao comércio, devem ser informados o nome das fibras ou filamentos têxteis e seus percentuais em massa."
+    },
+    {
+      "ref": "composicao-textil-inmetro#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam a indicação de tamanho ou dimensão, quando aplicável, e o tratamento de cuidado para conservação como informações obrigatórias, mas não mostram que elas devem constar especificamente na etiqueta.",
+      "fix": "Entre as informações obrigatórias para produtos têxteis estão a indicação de tamanho ou dimensão, quando aplicável, e o tratamento de cuidado para conservação."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são instruções da fabricante Plumasul para modelos específicos, mas o bloco as apresenta como exigência geral para edredons com pluma e como regra da etiqueta, sem atribuição explícita à Plumasul.",
+      "fix": "Segundo a Plumasul, o modelo Summer — e também o Kassette — não deve ser lavado à água, deve ser lavado a seco, não deve ser alvejado, nem secado em tambor ou passado, e deve secar no varal."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta as instruções para um modelo específico da Trussardi, mas não informa que o edredom tem enchimento de poliéster nem permite generalizar essas instruções para edredons com esse tipo de enchimento.",
+      "fix": "Segundo a Trussardi, o modelo Edredom King 300 Fios Grasso Azul Siciliano pode ser lavado a 40°C, não deve ser alvejado, lavado a seco ou secado em tambor, deve secar no varal e pode ser passado a até 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "verdict": "OVERSTATED",
+      "problem": "As fichas citadas sustentam lavagem até 60°C e secagem em tambor para dois produtos da Teka, mas não sustentam ferro até 150°C nem a generalização para roupas de cama de algodão em geral. Apenas uma ficha informa passar até 110°C; a outra não informa essa temperatura.",
+      "fix": "Nas duas fichas da Teka citadas, a lavagem pode chegar a 60°C e a secagem em tambor é permitida, com temperatura máxima de exaustão de 60°C. Uma delas informa passar a até 110°C; confirme sempre a etiqueta do modelo específico."
+    },
+    {
+      "ref": "cuidados-conservacao#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho informa apenas as medidas de um modelo específico. Não menciona o peso, o armazenamento ou que essas informações ajudam a dimensionar o espaço.",
+      "fix": "O edredom King 300 Fios Grasso Azul Siciliano, da Trussardi, mede 2,90 m × 2,70 m; consulte a ficha do modelo escolhido para confirmar as dimensões."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados sustentam enchimento de poliéster e tecido externo de algodão ou microfibra para edredons, além de material e gramatura declarados para um cobertor específico. Não sustentam enchimento de pluma, tecido externo de poliéster nem uma recomendação geral para conferir a gramatura do enchimento.",
+      "fix": "Se escolher um edredom, confira na ficha o tipo de enchimento, como poliéster, e o tecido externo, como algodão ou microfibra. Para um cobertor, confira a composição e a gramatura declaradas na ficha do modelo."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as instruções específicas do edredom Summer da Plumasul e do edredom Trussardi citado. Eles não sustentam que edredons com pluma em geral exigem essas instruções, que edredons de poliéster geralmente permitem lavagem a 40 °C ou que cobertores costumam seguir procedimentos similares.",
+      "fix": "Confira a etiqueta do modelo: o Summer da Plumasul citado não deve ser lavado à água, deve ser lavado a seco e deve secar no varal; o modelo Trussardi citado deve ser lavado a 40 °C e secar no varal."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram medidas de modelos específicos, incluindo um edredom dupla face da Andreza e um edredom King da Trussardi. Não sustentam que todos os edredons variem apenas de 1,50 m × 2,10 m a 2,40 m × 2,60 m, nem sustentam a recomendação de confirmar o peso.",
+      "fix": "Se tem pouco espaço de armazenamento, confira as medidas declaradas na ficha do modelo. Nos exemplos citados, há um tamanho solteiro de 1,50 m × 2,10 m e um queen plus de 2,40 m × 2,60 m; a ficha da Trussardi também declara 2,90 m × 2,70 m para um modelo king."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado é da Buddemeyer e descreve uma linha como edredom para capa duvet; não há trecho da Karsten citado. Além disso, os trechos não dizem que edredons em geral são vendidos para uso com capa separada nem que cobertores são usados diretamente sem capa adicional.",
+      "fix": "Segundo a Buddemeyer, uma de suas linhas descreve o edredom como destinado a ser revestido com capa duvet. Os trechos citados não permitem concluir como os cobertores são usados."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as diferenças de volume, composição e tipo de peça, mas não dizem que a escolha depende da gramatura nem dos tamanhos disponíveis. Versão sustentável: Edredom e cobertor diferem na estrutura: segundo a Karsten, o edredom é mais volumoso e composto por enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso. A escolha pode considerar a composição e o tipo de peça."
+    },
+    {
+      "ref": "composicao-edredom#2.r0",
+      "msg": "MISATTRIBUTED. Os trechos sustentam poliéster e percal 100% algodão de 180 fios, mas não mostram que a fonte seja um “guia geral”. Além disso, o trecho não declara uma gramatura. Versão sustentável: Marca e modelo: Karsten | Enchimento: Poliéster | Tecido externo: Percal 100% algodão, 180 fios"
+    },
+    {
+      "ref": "composicao-edredom#2.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta o enchimento, o tecido e o tratamento Downproof, mas não declara nenhuma gramatura; portanto, o título da tabela afirma mais do que a evidência citada. Versão sustentável: [tabela: Composição declarada em edredons de diferentes marcas] Marca e modelo: Plumasul Summer | Enchimento: 100% plumas de ganso | Tecido externo: Percal 100% algodão, 233 fios com tratamento Downproof"
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "msg": "OVERSTATED. Os trechos sustentam a definição de cobertor e a composição 100% poliéster do produto Altenburg, mas não sustentam que todos os cobertores consultados sejam 100% poliéster nem que apresentem diferentes técnicas de confecção e gramaturas conforme o modelo. Versão sustentável: Segundo Karsten, o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica. O cobertor Altenburg citado tem composição 100% poliéster."
+    },
+    {
+      "ref": "composicao-textil-inmetro#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o nome das fibras ou filamentos e seus percentuais em massa são informações obrigatórias para produtos têxteis ou tecidos destinados ao comércio, mas não mostram que essa regra se aplica especificamente a edredons e cobertores nem mencionam a etiqueta. Versão sustentável: Para tecidos ou produtos têxteis destinados ao comércio, devem ser informados o nome das fibras ou filamentos têxteis e seus percentuais em massa."
+    },
+    {
+      "ref": "composicao-textil-inmetro#1",
+      "msg": "OVERSTATED. Os trechos citam a indicação de tamanho ou dimensão, quando aplicável, e o tratamento de cuidado para conservação como informações obrigatórias, mas não mostram que elas devem constar especificamente na etiqueta. Versão sustentável: Entre as informações obrigatórias para produtos têxteis estão a indicação de tamanho ou dimensão, quando aplicável, e o tratamento de cuidado para conservação."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "MISATTRIBUTED. Os trechos são instruções da fabricante Plumasul para modelos específicos, mas o bloco as apresenta como exigência geral para edredons com pluma e como regra da etiqueta, sem atribuição explícita à Plumasul. Versão sustentável: Segundo a Plumasul, o modelo Summer — e também o Kassette — não deve ser lavado à água, deve ser lavado a seco, não deve ser alvejado, nem secado em tambor ou passado, e deve secar no varal."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "UNSUPPORTED. O trecho sustenta as instruções para um modelo específico da Trussardi, mas não informa que o edredom tem enchimento de poliéster nem permite generalizar essas instruções para edredons com esse tipo de enchimento. Versão sustentável: Segundo a Trussardi, o modelo Edredom King 300 Fios Grasso Azul Siciliano pode ser lavado a 40°C, não deve ser alvejado, lavado a seco ou secado em tambor, deve secar no varal e pode ser passado a até 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "msg": "OVERSTATED. As fichas citadas sustentam lavagem até 60°C e secagem em tambor para dois produtos da Teka, mas não sustentam ferro até 150°C nem a generalização para roupas de cama de algodão em geral. Apenas uma ficha informa passar até 110°C; a outra não informa essa temperatura. Versão sustentável: Nas duas fichas da Teka citadas, a lavagem pode chegar a 60°C e a secagem em tambor é permitida, com temperatura máxima de exaustão de 60°C. Uma delas informa passar a até 110°C; confirme sempre a etiqueta do modelo específico."
+    },
+    {
+      "ref": "cuidados-conservacao#4",
+      "msg": "UNSUPPORTED. O trecho informa apenas as medidas de um modelo específico. Não menciona o peso, o armazenamento ou que essas informações ajudam a dimensionar o espaço. Versão sustentável: O edredom King 300 Fios Grasso Azul Siciliano, da Trussardi, mede 2,90 m × 2,70 m; consulte a ficha do modelo escolhido para confirmar as dimensões."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos citados sustentam enchimento de poliéster e tecido externo de algodão ou microfibra para edredons, além de material e gramatura declarados para um cobertor específico. Não sustentam enchimento de pluma, tecido externo de poliéster nem uma recomendação geral para conferir a gramatura do enchimento. Versão sustentável: Se escolher um edredom, confira na ficha o tipo de enchimento, como poliéster, e o tecido externo, como algodão ou microfibra. Para um cobertor, confira a composição e a gramatura declaradas na ficha do modelo."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam as instruções específicas do edredom Summer da Plumasul e do edredom Trussardi citado. Eles não sustentam que edredons com pluma em geral exigem essas instruções, que edredons de poliéster geralmente permitem lavagem a 40 °C ou que cobertores costumam seguir procedimentos similares. Versão sustentável: Confira a etiqueta do modelo: o Summer da Plumasul citado não deve ser lavado à água, deve ser lavado a seco e deve secar no varal; o modelo Trussardi citado deve ser lavado a 40 °C e secar no varal."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos mostram medidas de modelos específicos, incluindo um edredom dupla face da Andreza e um edredom King da Trussardi. Não sustentam que todos os edredons variem apenas de 1,50 m × 2,10 m a 2,40 m × 2,60 m, nem sustentam a recomendação de confirmar o peso. Versão sustentável: Se tem pouco espaço de armazenamento, confira as medidas declaradas na ficha do modelo. Nos exemplos citados, há um tamanho solteiro de 1,50 m × 2,10 m e um queen plus de 2,40 m × 2,60 m; a ficha da Trussardi também declara 2,90 m × 2,70 m para um modelo king."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "MISATTRIBUTED. O trecho citado é da Buddemeyer e descreve uma linha como edredom para capa duvet; não há trecho da Karsten citado. Além disso, os trechos não dizem que edredons em geral são vendidos para uso com capa separada nem que cobertores são usados diretamente sem capa adicional. Versão sustentável: Segundo a Buddemeyer, uma de suas linhas descreve o edredom como destinado a ser revestido com capa duvet. Os trechos citados não permitem concluir como os cobertores são usados."
+    }
+  ]
+}

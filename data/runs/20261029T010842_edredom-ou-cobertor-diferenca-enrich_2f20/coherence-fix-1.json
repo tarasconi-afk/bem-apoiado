@@ -1,0 +1,25 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se quiser conferir o tamanho da peça antes de comprar, procure as medidas declaradas na ficha do modelo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_531debf45868",
+        "clm_6b18a74c7007"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "como-decidir#0",
+    "como-decidir#1",
+    "como-decidir#2",
+    "como-decidir#3",
+    "como-decidir#4"
+  ],
+  "still": [
+    "como-decidir#3: OVERSTATED"
+  ]
+}

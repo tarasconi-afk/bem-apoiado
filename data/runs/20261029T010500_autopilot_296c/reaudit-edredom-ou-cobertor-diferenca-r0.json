@@ -1,0 +1,71 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A distinção entre edredom e cobertor é dita pela Karsten, mas os trechos da Altenburg citados mostram apenas a composição e a gramatura de um cobertor específico. Portanto, atribuir essa orientação comparativa conjuntamente à Karsten e à Altenburg excede o que a evidência da Altenburg sustenta.",
+      "fix": "Segundo a Karsten, o edredom é mais volumoso e tem enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso. Ao escolher, confira na ficha o enchimento e o tecido externo do edredom, ou o material e a gramatura declarados do cobertor; no produto citado da Altenburg, constam 100% poliéster e 400 g/m²."
+    },
+    {
+      "ref": "composicao-edredom#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-edredom#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-cobertor#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "duvet-capa#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as instruções de lavagem dos três produtos, mas não dizem para conferir a etiqueta antes de comprar nem limitam essa orientação a quem lava a peça em casa.",
+      "fix": "Remova a orientação inicial e escreva: \"No jogo de cama da Teka citado, a lavagem é até 60°C em processo normal, a secagem em tambor é permitida até 60°C e a passagem é até 110°C. No edredom 100% plumas de ganso Summer da Plumasul, não se deve lavar com água; a instrução é lavar a seco, secar no varal e não passar. No edredom casal Trussardi King citado, a lavagem é a 40°C, a secagem é em varal e é proibido secar em tambor.\""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
