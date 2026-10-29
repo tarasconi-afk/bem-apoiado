@@ -11,7 +11,16 @@ describe('manutenção e espaço entram como critério de decisão', () => {
     const l = lessons.find((x) => /conserva/i.test(x.text));
     expect(l, 'nenhuma lição sobre conservação').toBeDefined();
     expect(l!.text).toMatch(/lavar/i);
-    expect(l!.text).toMatch(/espaço/i);
+    expect(l!.text).toMatch(/medidas/i);
+  });
+
+  // 29/10: a primeira versão mandava "oriente quem tem pouco espaço". O redator obedeceu, e o juiz de coerência
+  // recusou o bloco ("os trechos não relacionam essas medidas à facilidade de armazenar"), com a correção
+  // automática voltando OVERSTATED. A lição pede o dado declarado; a conclusão sobre o armário é do leitor.
+  it('a lição pede o dado declarado, não a conclusão sobre o espaço do leitor', () => {
+    const l = lessons.find((x) => /conserva/i.test(x.text))!;
+    expect(l.text).toMatch(/não conclua/i);
+    expect(l.text).not.toMatch(/oriente quem/i);
   });
 
   // O prompt carrega todas as lições, então regra que vira parágrafo encarece toda página e dilui as outras.

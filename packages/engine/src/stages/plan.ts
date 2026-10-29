@@ -63,7 +63,13 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `Nem todo critério de decisão é medida de desempenho: quem compra também escolhe pelo trabalho que a peça dá e pelo ` +
         `espaço que ocupa. Quando o produto tiver cuidado de conservação na etiqueta ou na ficha (têxteis, capas, ` +
         `revestimentos), UMA das perguntas é sobre lavar, secar e guardar — o que o fabricante ou a norma de etiquetagem ` +
-        `mandam informar. Quando a peça for volumosa guardada, peça peso e medidas da peça. Continua valendo: só o que ` +
+        `mandam informar. Quando a peça for volumosa guardada, peça o peso e as medidas que o fabricante declara, e só ` +
+        // 29/10: a pergunta saía com a finalidade colada ("para quem tem pouco espaço de armário"), e o redator a
+        // repetia como conclusão: o juiz de coerência recusou ("os trechos não relacionam essas medidas à
+        // facilidade de armazenar") e a correção automática voltou OVERSTATED. A pergunta pede o dado; quem
+        // conclui se cabe no armário é o leitor.
+        `isso: nada de colar na pergunta para que serve o dado ("para quem tem pouco espaço", "para saber se cabe"), ` +
+        `porque a ficha declara a medida e não o que ela resolve. Continua valendo: só o que ` +
         `fabricante, norma ou regulador respondem por escrito; nada de teste prático, preço ou opinião.\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
         `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Também quando a dúvida é entre tamanhos: os tamanhos comparados (ex.: ["solteiro", "solteirão", "viúva"]), senão a página mostra colchão casal numa dúvida de solteiro. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +

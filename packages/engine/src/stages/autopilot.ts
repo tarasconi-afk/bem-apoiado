@@ -3,7 +3,7 @@ import { reuseEvidence } from './reuse.ts';
 import { ensureAnchors } from './links.ts';
 import { ensureSearchLinks } from './search-links.ts';
 import { discoverIdeas, promoteIdeas } from './ideas.ts';
-import { live, newRunId } from '../runs.ts';
+import { live, newRunId, writeStage } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
 import { firstForbidden } from '@bem-apoiado/core';
 import { nextReaudit, reauditPage } from './reaudit.ts';
@@ -25,7 +25,7 @@ import { decisionReadiness, logReadiness, saveRules } from './readiness.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS, retryOff } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
-import { failureCause } from './review.ts';
+import { failureCause, reviewMetrics, reviewPage } from './review.ts';
 import { adjustWithResearch } from './requests.ts';
 import { withoutDuplicates } from './duplicates.ts';
 import { planTopic } from './plan.ts';
@@ -135,6 +135,12 @@ function lacksMakersOrThrow(query: string, topic?: TopicBrief): boolean {
   return kinds.every((k) => new Set(makersFor([k], reg).map((m) => m.publisher)).size < MIN_MAKERS);
 }
 
+// Pauta esgotada: pesquisada, sem lacuna registrada e com página escrita (aprovada ou rascunho). Sem página,
+// "sem lacuna" não é fim de caminho — é trabalho interrompido antes da redação. 29/10, toalha de banho: o teto
+// de créditos parou o ciclo depois de 64 evidências e 0 perguntas sem resposta, e a fila a aposentou com a
+// pesquisa paga e nenhuma página. A regra antiga dizia "esgotada" para os dois casos.
+const exhausted = (t: TopicBrief, written: Set<string>) => t.evidence_gaps.length === 0 && written.has(t.slug);
+
 // Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas.
 export function nextQuery(): string | null {
   const path = join(DATA, 'queue.json');
@@ -146,12 +152,13 @@ export function nextQuery(): string | null {
   // Esperar o merge em vez de refazer (e pagar de novo) o mesmo trabalho.
   const pending = new Set((process.env.BEM_PENDING_SLUGS ?? '').split(',').filter(Boolean));
   const planFails = readState<Record<string, number>>('plan-failures.json', {});
+  const written = new Set(loadPages().map((p) => p.slug));
   for (const item of q.items) {
     if ((planFails[item.query] ?? 0) >= 2) continue;
     const slug = slugOf(item.query);
     if (approved.has(slug) || pending.has(slug)) continue;
     const t = topics.get(slug);
-    if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0 || retryOff(t.product_kinds))) continue;
+    if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || exhausted(t, written) || retryOff(t.product_kinds))) continue;
     if (lacksMakers(item.query, t)) continue;
     if (isDeferred(slug)) continue;
     return item.query;
@@ -177,7 +184,7 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     if (page && page.status !== 'draft') state = 'no ar';
     else if (pendingSlugs.has(slug)) state = 'esperando você';
     else if ((planFails[item.query] ?? 0) >= 2) state = 'falhou no planejamento';
-    else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || t.evidence_gaps.length === 0 || retryOff(t.product_kinds))) state = page ? 'rascunho' : 'esgotada';
+    else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || exhausted(t, new Set(pages.keys())) || retryOff(t.product_kinds))) state = page ? 'rascunho' : 'esgotada';
     else if (lacksMakers(item.query, t)) state = 'faltam fabricantes';
     else if (isDeferred(slug)) state = 'adiada (falta fonte)';
     else if (!next) { state = 'próxima'; next = true; }
@@ -273,7 +280,26 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
       steps.push(`enriquecimento de ${page.slug}: ${only.length} fonte(s) relida(s), nenhuma evidência nova`);
       return true; // a pauta registra as fontes como pesquisadas
     }
-    const p = await buildPage(page.slug, rid);
+    let p = await buildPage(page.slug, rid);
+    // Reprovada por pouco: a mesma correção automática que o rascunho de página nova recebe (29/10, edredom: a
+    // versão enriquecida chegou com a auditoria limpa e foi descartada por um termo não explicado, "capa duvet",
+    // levando 36 créditos junto). Se a correção resolver, a versão nova fica; senão, a publicada volta intacta.
+    if (p.status === 'NOT_PUBLISHABLE' && creditsLeft() >= AUTO_CORRECT_MIN_CREDITS + ENRICH_REVIEW_CREDITS) {
+      await autoCorrect(page.slug, rid, steps);
+      const fixed = loadPages().find((x) => x.slug === page.slug);
+      // A correção automática não decide: quem decide é a mesma revisão que reprovou. Sem conferir de novo,
+      // a versão corrigida entraria no ar sem ninguém ter dito que ela passou.
+      if (fixed) {
+        const rv = await reviewPage(fixed, loadTopic(page.slug));
+        writeStage(rid, 'review-after-autocorrecao', { review: rv.review, usage: rv.usage });
+        steps.push(`revisão da versão enriquecida depois da correção: ${rv.review.publishable ? 'passou' : `ainda não (${failureCause(rv.review)})`}`);
+        if (rv.review.publishable) {
+          const ok: PageSpec = { ...fixed, status: page.status, provenance: { ...fixed.provenance, review: reviewMetrics(rv.review) } };
+          writeJson(join(DATA, 'pages', `${page.slug}.json`), ok);
+          p = { ...p, status: 'PASS', page: ok };
+        }
+      }
+    }
     if (p.status !== 'PASS') {
       writeFileSync(join(DATA, 'pages', `${page.slug}.json`), original);
       steps.push(`enriquecimento de ${page.slug}: +${r.accepted.length} evidências, mas a nova versão não passou (${p.status}); página publicada mantida`);
@@ -288,6 +314,8 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   }
 }
 const ENRICH_MIN_CREDITS = 40;
+// Margem para a revisão de 3 avaliações que confere a versão corrigida antes de ela entrar no ar.
+const ENRICH_REVIEW_CREDITS = 4;
 
 // Página no ar marcada em data/source-gaps.json (ajuste do editor que não melhorou porque falta fonte, não texto) e
 // sem fonte nova para ler: busca fonte para a lacuna, uma vez por semana por página, por até 3 semanas. O que achar entra na pauta como fonte
@@ -326,6 +354,9 @@ async function maintainGapSources(steps: string[]): Promise<boolean> {
   }
 }
 const PAGE_MIN_CREDITS = 15;
+// Retomada da redação de uma pauta já pesquisada: só com crédito para a página inteira (uma página nova
+// custou 33 créditos em 29/10). Abaixo disso a redação estouraria o teto de novo, no mesmo lugar.
+const PAGE_RESUME_MIN_CREDITS = 35;
 
 // Descoberta de pautas (autocompletar do Google + triagem barata), uma vez por semana; as 5 melhores
 // ideias novas entram na fila. Custa ~1 crédito. A lista completa fica em data/ideas.json (painel).
@@ -594,12 +625,23 @@ export async function runCycle(runId: string): Promise<CycleResult> {
       steps.push(`improve: ${r.status === 'DONE' ? `página ${r.page} (+${r.new_sources} fontes, +${r.new_claims} evidências)` : r.reason}`);
       if (r.status === 'DONE' && r.page === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
     } else {
-      const d = await discoverSources(topic.slug, runId);
-      steps.push(`discover: ${d.added.length} fontes (${d.queries.length} buscas)`);
-      // Sem fonte nova, ainda pode haver evidência reaproveitada suficiente: só para se não houver nenhuma fonte.
-      if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
-      const r = await research(topic.slug, runId);
-      steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
+      // Pesquisa já paga num ciclo que parou antes da redação (teto de créditos): retoma na redação. Refazer
+      // discover e research gastaria de novo pelo mesmo acervo — 29/10, toalha de banho: 64 evidências prontas.
+      const resume = topic.researched_source_ids.length > 0 && !loadPages().some((p) => p.slug === topic.slug);
+      let r: { accepted: unknown[]; unanswered: string[] } = { accepted: [], unanswered: [] };
+      if (resume) {
+        // Retomar com pouco crédito repetiria o estouro no meio da redação a cada ciclo, gastando sem nunca
+        // entregar. Melhor esperar um ciclo com manutenção mais leve: a pesquisa não se perde.
+        if (creditsLeft() < PAGE_RESUME_MIN_CREDITS) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, `redação de "${query}" adiada: a pesquisa está pronta, mas restam ${creditsLeft().toFixed(0)} créditos no teto do ciclo (precisa de ${PAGE_RESUME_MIN_CREDITS})`] });
+        steps.push(`retomada de "${query}": pesquisa já feita (${topic.researched_source_ids.length} fonte(s) lidas); vai direto para a redação`);
+      } else {
+        const d = await discoverSources(topic.slug, runId);
+        steps.push(`discover: ${d.added.length} fontes (${d.queries.length} buscas)`);
+        // Sem fonte nova, ainda pode haver evidência reaproveitada suficiente: só para se não houver nenhuma fonte.
+        if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
+        r = await research(topic.slug, runId);
+        steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
+      }
       // Só escreve com regra de escolha sustentada; senão, uma busca dirigida ao que falta e nova checagem; ainda
       // sem regra, a pauta é adiada com o que falta como lacuna (sem gastar redação nem o tempo do editor).
       const gate = await readyOrResearch(topic.slug, runId, steps);
