@@ -7,14 +7,13 @@
   "primary_query": "lençol com elástico: como escolher o tamanho",
   "updated_at": "2026-10-29",
   "verdict": {
-    "text": "Escolha o lençol com elástico pelas três medidas que o fabricante declara: largura e comprimento do colchão, e profundidade (altura) máxima suportada. Meça seu colchão e procure um lençol com medidas iguais ou maiores na largura e comprimento, e profundidade máxima que cubra a altura do seu colchão. Confira também a composição na etiqueta e as instruções de lavagem e conservação antes de comprar.",
+    "text": "Compare as medidas informadas para o lençol com as medidas do colchão. Confira também, na etiqueta, o nome e o percentual das fibras e as instruções de cuidado para conservação.",
     "basis": "reasoning",
     "claim_ids": [
-      "clm_117a9fbc38fc",
-      "clm_862c5d9d3233",
-      "clm_d2857c6262ec",
+      "clm_4f4d6ec06dfd",
+      "clm_531debf45868",
       "clm_1a9fa3a6c7bf",
-      "clm_7826221856ab",
+      "clm_c2551e4d77eb",
       "clm_d4deb5834cee"
     ]
   },
@@ -25,16 +24,15 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A etiqueta do lençol com elástico deve indicar o nome das fibras ou filamentos têxteis e seus percentuais em massa, segundo o Inmetro.",
+          "text": "Segundo o Inmetro, tecidos destinados ao comércio devem apresentar o nome das fibras ou filamentos têxteis e seus percentuais em massa.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1a9fa3a6c7bf",
-            "clm_c2551e4d77eb"
+            "clm_1a9fa3a6c7bf"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Procure na etiqueta se o lençol é 100% algodão ou de outra composição, segundo fabricantes como Karsten, Döhler e Trussardi. Confira se o fabricante informa o percentual de cada fibra de forma clara na etiqueta.",
+          "text": "As páginas citadas de Karsten, Döhler e Trussardi informam composição de 100% algodão para os produtos apresentados.",
           "basis": "evidence",
           "claim_ids": [
             "clm_36f38be27317",
@@ -50,11 +48,9 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O Inmetro exige que a etiqueta do lençol com elástico indique o tratamento de cuidado para conservação, informando como lavar, secar, passar e cuidar do produto.",
+          "text": "O Inmetro estabelece que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve seguir a norma NM ISO 3758:2013.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_7826221856ab",
-            "clm_967a8a4db583",
             "clm_d4deb5834cee"
           ]
         },
@@ -68,7 +64,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Confira na etiqueta as temperaturas máximas de lavagem e secagem, se é permitido alvejar, secar em tambor ou passar a ferro, e se há restrições de uso de amaciante, segundo a Karsten e a Trussardi. Exemplos: alguns lençóis indicam lavagem a 40 °C sem secadora, enquanto outros permitem 60 °C com secadora.",
+          "text": "Confira na etiqueta as temperaturas máximas de lavagem e secagem, se é permitido alvejar, secar em tambor ou passar a ferro, e se é permitido lavar a seco, conforme as instruções dos produtos citados da Karsten e da Trussardi. Alguns lençóis indicam lavagem a 40 °C sem secadora, enquanto outros permitem lavagem a 60 °C com secagem em tambor.",
           "basis": "evidence",
           "claim_ids": [
             "clm_8f9e6a975c07",
@@ -93,7 +89,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Procure na etiqueta as três dimensões do lençol: largura, comprimento e profundidade máxima (altura da faixa elástica), segundo a Karsten e a Trussardi. O fabricante pode indicá-las como \"1,40 m × 1,90 m × 40 cm\" ou em outro formato claro, desde que use centímetros ou metros.",
+          "text": "Karsten e Trussardi apresentam lençóis com medidas como \"1,40 m × 1,90 m × 40 cm\", \"1,00 m × 2,00 m × 38 cm\" e \"1,60 m × 2,00 m × 40 cm\".",
           "basis": "evidence",
           "claim_ids": [
             "clm_862c5d9d3233",
@@ -104,7 +100,7 @@
         {
           "kind": "callout",
           "tone": "info",
-          "text": "Não há tamanho padrão oficial no Brasil definido pelo Inmetro. Cada fabricante declara as medidas que o lençol suporta. Compare a medida do seu colchão com as dimensões anunciadas na ficha antes de comprar.",
+          "text": "O Inmetro informa que, no momento, não há regulamentação do Conmetro ou do Inmetro sobre a padronização dos tamanhos de produtos têxteis e sua forma de indicação.",
           "basis": "evidence",
           "claim_ids": [
             "clm_3bd4b105ec16"
@@ -118,13 +114,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Procure na ficha técnica do lençol três informações: largura × comprimento × profundidade máxima. Meça o seu colchão (largura, comprimento e altura) e compare. O lençol deve ter largura e comprimento iguais ou maiores que o colchão; a profundidade máxima declarada deve cobrir a altura do seu colchão.",
+          "text": "Procure na etiqueta ou ficha técnica a indicação de tamanho ou dimensão do lençol, expressa em unidades do SI, e compare essas medidas com as do colchão.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_4f4d6ec06dfd",
-            "clm_531debf45868",
-            "clm_862c5d9d3233",
-            "clm_8286c8043c81"
+            "clm_531debf45868"
           ]
         },
         {
@@ -151,10 +145,9 @@
                   ]
                 },
                 {
-                  "text": "30 cm",
+                  "text": "Exemplo: 0,90 m × 30 cm × 1,90 m",
                   "claim_ids": [
-                    "clm_0bde499734b8",
-                    "clm_861a0d302cf6"
+                    "clm_0bde499734b8"
                   ]
                 }
               ]
@@ -174,11 +167,10 @@
                   ]
                 },
                 {
-                  "text": "35 cm ou 40 cm",
+                  "text": "Exemplos: 35 cm e 40 cm",
                   "claim_ids": [
                     "clm_d389f2ae38bd",
-                    "clm_862c5d9d3233",
-                    "clm_ed02b3184a24"
+                    "clm_862c5d9d3233"
                   ]
                 }
               ]
@@ -198,7 +190,7 @@
                   ]
                 },
                 {
-                  "text": "40 cm ou 45 cm",
+                  "text": "Exemplos: 40 cm e 45 cm",
                   "claim_ids": [
                     "clm_8286c8043c81",
                     "clm_e1f493953c53"
@@ -211,19 +203,17 @@
                 {
                   "text": "King",
                   "claim_ids": [
-                    "clm_f414dc77acd2",
-                    "clm_2d0771a14d8d"
+                    "clm_f414dc77acd2"
                   ]
                 },
                 {
                   "text": "1,93 m × 2,03 m",
                   "claim_ids": [
-                    "clm_f414dc77acd2",
-                    "clm_2d0771a14d8d"
+                    "clm_f414dc77acd2"
                   ]
                 },
                 {
-                  "text": "40 cm",
+                  "text": "Exemplo: 40 cm",
                   "claim_ids": [
                     "clm_cdadfc8225d9"
                   ]
@@ -234,23 +224,21 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se o colchão é de solteiro, meça suas dimensões e escolha um lençol anunciado com largura e comprimento iguais ou maiores. Segundo a Appel, camas de solteiro têm cerca de 0,88 m × 1,88 m; procure lençol com pelo menos 0,90 m × 2,00 m. Confira na ficha se a profundidade máxima declarada cobre a altura do seu colchão.",
+          "text": "Se o colchão é de solteiro, confira suas dimensões e, segundo a Appel, considere um jogo de cama com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o anúncio informa as dimensões do produto.",
           "basis": "reasoning",
           "claim_ids": [
-            "clm_0704b22751c0",
             "clm_a6291990ca2e",
             "clm_4f4d6ec06dfd"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se o colchão é casal, meça suas dimensões e compare com o anúncio. Segundo a Appel, camas de casal padrão têm cerca de 1,38 m × 1,88 m; procure lençol com essas medidas ou maiores. Confira a profundidade máxima declarada: fabricantes como Döhler e Karsten oferecem modelos para colchões de até 35 cm ou até 40 cm de altura.",
+          "text": "Se o colchão é casal, compare suas dimensões com o anúncio. A Appel cita 1,38 m × 1,88 m, e há anúncios de fabricantes com medidas de 35 cm e 40 cm para lençóis.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_117a9fbc38fc",
             "clm_d389f2ae38bd",
-            "clm_d2857c6262ec",
-            "clm_4f4d6ec06dfd"
+            "clm_862c5d9d3233"
           ]
         }
       ]
@@ -258,17 +246,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261029T070432_autopilot_f193+edit:20261029T070432_autopilot_f193",
+    "run_id": "20261029T070432_autopilot_f193+edit:20261029T070432_autopilot_f193+reaudit:20261029T111054_autopilot_2b7a",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0,
       "criteria": 9,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }

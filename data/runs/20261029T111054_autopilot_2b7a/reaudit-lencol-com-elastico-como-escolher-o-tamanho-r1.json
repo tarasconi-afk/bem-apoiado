@@ -1,0 +1,212 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Compare as medidas informadas para o lençol — por exemplo, 1,40 m × 1,90 m × 40 cm — com as medidas do colchão. Confira também, na etiqueta, os nomes e percentuais das fibras e as instruções de cuidado para conservação.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_4f4d6ec06dfd",
+        "clm_531debf45868",
+        "clm_1a9fa3a6c7bf",
+        "clm_c2551e4d77eb",
+        "clm_d4deb5834cee"
+      ]
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, tecidos destinados ao comércio devem apresentar o nome das fibras ou filamentos têxteis e seus percentuais em massa.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf"
+      ]
+    },
+    {
+      "ref": "composicao-fibras#1",
+      "action": "replace",
+      "text": "As páginas citadas de Karsten, Döhler e Trussardi informam composição de 100% algodão para os produtos apresentados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_36f38be27317",
+        "clm_5f9f713b7781",
+        "clm_72122c20e886"
+      ]
+    },
+    {
+      "ref": "instrucoes-lavagem#0",
+      "action": "replace",
+      "text": "O Inmetro estabelece que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve seguir a norma NM ISO 3758:2013.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d4deb5834cee"
+      ]
+    },
+    {
+      "ref": "instrucoes-lavagem#2",
+      "action": "replace",
+      "text": "Confira na etiqueta as temperaturas máximas de lavagem e secagem, se é permitido alvejar, secar em tambor ou passar a ferro, e se é permitido lavar a seco, conforme as instruções dos produtos citados da Karsten e da Trussardi. Alguns lençóis indicam lavagem a 40 °C sem secadora, enquanto outros permitem lavagem a 60 °C com secagem em tambor.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_8f9e6a975c07",
+        "clm_bdd52e383f1c",
+        "clm_5066a0185c92"
+      ]
+    },
+    {
+      "ref": "tamanho-etiqueta#1",
+      "action": "replace",
+      "text": "Karsten e Trussardi apresentam lençóis com medidas como \"1,40 m × 1,90 m × 40 cm\", \"1,00 m × 2,00 m × 38 cm\" e \"1,60 m × 2,00 m × 40 cm\".",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_862c5d9d3233",
+        "clm_6ebdeebd202e",
+        "clm_8286c8043c81"
+      ]
+    },
+    {
+      "ref": "tamanho-etiqueta#2",
+      "action": "replace",
+      "text": "O Inmetro informa que, no momento, não há regulamentação do Conmetro ou do Inmetro sobre a padronização dos tamanhos de produtos têxteis e sua forma de indicação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3bd4b105ec16"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Procure na etiqueta ou ficha técnica a indicação de tamanho ou dimensão do lençol, expressa em unidades do SI, e compare essas medidas com as do colchão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_4f4d6ec06dfd",
+        "clm_531debf45868"
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_0704b22751c0"
+          ]
+        },
+        {
+          "text": "0,88 m × 1,88 m",
+          "claim_ids": [
+            "clm_0704b22751c0"
+          ]
+        },
+        {
+          "text": "Exemplo: 0,90 m × 30 cm × 1,90 m",
+          "claim_ids": [
+            "clm_0bde499734b8"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal",
+          "claim_ids": [
+            "clm_117a9fbc38fc"
+          ]
+        },
+        {
+          "text": "1,38 m × 1,88 m",
+          "claim_ids": [
+            "clm_117a9fbc38fc"
+          ]
+        },
+        {
+          "text": "Exemplos: 35 cm e 40 cm",
+          "claim_ids": [
+            "clm_d389f2ae38bd",
+            "clm_862c5d9d3233"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen",
+          "claim_ids": [
+            "clm_7f0d15076a58"
+          ]
+        },
+        {
+          "text": "1,58 m × 1,98 m",
+          "claim_ids": [
+            "clm_7f0d15076a58"
+          ]
+        },
+        {
+          "text": "Exemplos: 40 cm e 45 cm",
+          "claim_ids": [
+            "clm_8286c8043c81",
+            "clm_e1f493953c53"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King",
+          "claim_ids": [
+            "clm_f414dc77acd2"
+          ]
+        },
+        {
+          "text": "1,93 m × 2,03 m",
+          "claim_ids": [
+            "clm_f414dc77acd2"
+          ]
+        },
+        {
+          "text": "Exemplo: 40 cm",
+          "claim_ids": [
+            "clm_cdadfc8225d9"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se o colchão é de solteiro, confira suas dimensões e, segundo a Appel, considere um jogo de cama com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o anúncio informa as dimensões do produto.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_a6291990ca2e",
+        "clm_4f4d6ec06dfd"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se o colchão é casal, compare suas dimensões com o anúncio. A Appel cita 1,38 m × 1,88 m, e há anúncios de fabricantes com medidas de 35 cm e 40 cm para lençóis.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_117a9fbc38fc",
+        "clm_d389f2ae38bd",
+        "clm_862c5d9d3233"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "remova o travessão (—)."
+    }
+  ]
+}

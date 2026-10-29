@@ -14,5 +14,45 @@
     "reason": "Loja oficial da linha Prodormir da Probel: o próprio mapa de páginas de probel.com.br lista as páginas de produto em prodormir.com.br (166 de colchão solteirão, com medidas). Fora do cadastro, a pesquisa não podia usar essas fichas.",
     "at": "2026-10-23T18:03:36.445801Z",
     "by": "dev"
+  },
+  {
+    "host": "colog.eb.mil.br",
+    "confidence": 0.95,
+    "reason": "Site de órgão público (Exército Brasileiro) que publica especificações técnicas para compras públicas/licitações, não é fabricante, regulador, órgão normalizador ou laboratório independente de testes.",
+    "at": "2026-10-29T11:13:11.893Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "pinheiropanos.com.br",
+    "confidence": 0.92,
+    "reason": "Site de uma empresa que fornece/revende toalhas de banho, não fabricante próprio. Descrição indica iniciativa empreendedora posterior a 2014 sem menção a fabricação própria. Página vista sobre 'fornecedor de toalha' confirma papel de distri",
+    "at": "2026-10-29T11:13:11.893Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "pr.senac.br",
+    "confidence": 0.95,
+    "reason": "SENAC é instituição de educação profissional (setor educacional), não fabricante, regulador, órgão normalizador ou laboratório de testes. O documento visto é edital de licitação/compras públicas, que se enquadra na categoria de block confor",
+    "at": "2026-10-29T11:13:11.893Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "blog.casadatoalha.com.br",
+    "confidence": 0.95,
+    "reason": "Blog de marca varejista que vende toalhas, não fabricante primário. Conteúdo de blog/marketing não é fonte primária de informação técnica sobre produtos.",
+    "at": "2026-10-29T11:13:11.893Z",
+    "by": "motor",
+    "action": "block"
+  },
+  {
+    "host": "cbsmed.com.br",
+    "confidence": 0.9,
+    "reason": "Site de consultoria/serviços médico-científicos, não fabricante de produtos de sono/cama/banho. O PDF vinculado é um documento técnico, mas a empresa não fabrica os produtos listados.",
+    "at": "2026-10-29T11:13:11.893Z",
+    "by": "motor",
+    "action": "block"
   }
 ]
