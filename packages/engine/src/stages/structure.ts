@@ -155,6 +155,25 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
       const ps = single([...new Set(b.rows.flatMap((r) => r.cells.flatMap((c) => c.claim_ids)))]);
       const p = ps && ps.length === 1 ? ps : null;
       if (p && !p.some((x) => norm(b.caption).includes(norm(x)))) { b.caption = `${b.caption} (segundo ${who(p)})`; refs.push(`${s.id}#${i}`); }
+      // Tabela com MAIS DE UM fabricante: a legenda não resolve (o auditor julga linha por linha) e a célula
+      // sem fonte vira "fato geral". 29/10, toalha de banho: as linhas "Rosto" e "Banho" foram recusadas por
+      // isso, e a linha "Banhão", que atribuía, passou — na mesma rodada, no mesmo auditor. Na mesma página, a
+      // tabela de gramatura escreve "Segundo a Teka, …" dentro da célula e passou limpa. É esse formato aqui.
+      // Coluna 0 fica de fora: é o rótulo da linha ("Rosto", "Banho"), não afirmação sobre produto.
+      if (!p) {
+        b.rows.forEach((r, ri) => {
+          let mudou = false;
+          r.cells.forEach((c, ci) => {
+            if (ci === 0 || !c.text.trim()) return;
+            const fab = single(c.claim_ids);
+            if (!fab || atribuida(c.text, todos(c.claim_ids)) || doRegulador(c.text)) return;
+            // Prefixo, não sufixo: a célula é curta e a fonte lida antes do dado evita a leitura de "fato geral".
+            c.text = `Segundo ${who(fab)}, ${c.text.charAt(0).toLowerCase()}${c.text.slice(1)}`;
+            mudou = true;
+          });
+          if (mudou) refs.push(`${s.id}#${i}.r${ri}`);
+        });
+      }
       return;
     }
     if (b.basis === 'framing') return;

@@ -199,3 +199,47 @@ describe('atribuição frase a frase, não só na primeira', () => {
     }
   });
 });
+
+// 29/10, toalha de banho: a tabela de tamanhos foi recusada em duas linhas ("apresenta como fatos gerais, sem
+// atribuição à Appel ou à Döhler") e a linha que atribuía passou. Na MESMA página e na mesma rodada, a tabela
+// de gramatura — que escreve "Segundo a Teka, …" dentro da célula — passou limpa. A legenda não resolve: com
+// mais de um fabricante o auditor julga linha por linha.
+describe('atribuição dentro da célula da tabela', () => {
+  const src: Record<string, { publisher: string; source_class: string }> = {
+    a: { publisher: 'Appel', source_class: 'manufacturer' },
+    k: { publisher: 'Karsten', source_class: 'manufacturer' },
+    r: { publisher: 'Inmetro', source_class: 'regulator' },
+  };
+  const tabela = async (rows: { cells: { text: string; claim_ids: string[] }[] }[]) => {
+    const { attributeSingleSource } = await import('../src/stages/structure.ts');
+    const d = { title: 't', description: 'd', verdict: { text: 'x.', basis: 'framing', claim_ids: [] },
+      sections: [{ id: 's', heading: 'S', blocks: [{ kind: 'table', caption: 'Tamanhos', columns: ['Tipo', 'Medidas'], rows }] }] } as never;
+    const r = attributeSingleSource(d, (id) => src[id]);
+    return { linhas: (r.draft as never as { sections: { blocks: { rows: typeof rows }[] }[] }).sections[0]!.blocks[0]!.rows, refs: r.refs };
+  };
+  const celula = (text: string, ids: string[]) => ({ text, claim_ids: ids });
+
+  it('célula de fabricante sem fonte recebe o nome; a coluna do rótulo não', async () => {
+    const r = await tabela([{ cells: [celula('Rosto', ['a']), celula('45 × 65 a 50 × 80', ['a'])] }, { cells: [celula('Banho', ['k']), celula('70 × 130', ['k'])] }]);
+    expect(r.linhas[0]!.cells[0]!.text).toBe('Rosto'); // rótulo da linha fica como está
+    expect(r.linhas[0]!.cells[1]!.text).toBe('Segundo a Appel, 45 × 65 a 50 × 80');
+    expect(r.linhas[1]!.cells[1]!.text).toBe('Segundo a Karsten, 70 × 130');
+    expect(r.refs).toContain('s#0.r0');
+  });
+
+  it('célula que já nomeia a fonte, e célula de norma, ficam intactas', async () => {
+    const ja = 'segundo a Appel, 80 × 150';
+    const norma = 'A etiqueta deve informar o tamanho, conforme a norma.';
+    const r = await tabela([{ cells: [celula('Banhão', ['a']), celula(ja, ['a'])] }, { cells: [celula('Etiqueta', ['r']), celula(norma, ['a', 'r'])] }]);
+    expect(r.linhas[0]!.cells[1]!.text).toBe(ja);
+    expect(r.linhas[1]!.cells[1]!.text).toBe(norma);
+  });
+
+  // Fabricante único continua resolvido pela legenda: repetir o nome em toda célula de uma tabela de uma marca
+  // só é ruído (22/10, solteirão ou viúva).
+  it('tabela de um fabricante só continua com a fonte na legenda, não nas células', async () => {
+    const r = await tabela([{ cells: [celula('Rosto', ['a']), celula('45 × 65', ['a'])] }, { cells: [celula('Banho', ['a']), celula('70 × 130', ['a'])] }]);
+    expect(r.linhas[0]!.cells[1]!.text).toBe('45 × 65');
+    expect(r.refs).toContain('s#0');
+  });
+});
