@@ -1,0 +1,36 @@
+{
+  "slug": "tamanhos-de-toalha-banho-banhao-rosto-e-lavabo",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 66965,
+    "output_tokens": 19854,
+    "calls": 33
+  },
+  "credits": 27.52794083999999,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para uma toalha de rosto, conferir medidas entre 45 × 65 cm e 50 × 80 cm.",
+      "Para lavabo, conferir medidas próximas de 30 × 50 cm.",
+      "Para secar o corpo ocupando menos espaço, escolher uma toalha de banho, geralmente entre 60 × 120 cm e 70 × 140 cm.",
+      "Para ter mais cobertura ao se enrolar, escolher uma toalha banhão, geralmente entre 80 × 150 cm e 90 × 160 cm.",
+      "Comparar as medidas exatas na ficha do produto, porque elas variam conforme o modelo e o fabricante.",
+      "Conferir na etiqueta os símbolos ou textos de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Uma comparação explícita, em centímetros, de quanto a toalha banhão é maior que a toalha de banho, idealmente usando medidas de modelos do mesmo fabricante.",
+      "Uma tabela primária com as medidas exatas de um modelo de cada tamanho para evitar a comparação entre faixas de fabricantes diferentes."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: informa faixas concretas para rosto, lavabo, banho e banhão e orienta o leitor a escolher pela cobertura e a conferir a ficha do produto. A resposta rápida resolve a dúvida principal, embora falte calcular explicitamente quanto o banhão é maior que o banho; as informações de etiqueta são complementares e tecnicamente úteis.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
