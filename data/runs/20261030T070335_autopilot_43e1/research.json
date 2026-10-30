@@ -1,0 +1,63 @@
+{
+  "run_id": "20261030T070335_autopilot_43e1",
+  "topic": "cama-box-conjugada-ou-bipartida-diferenca",
+  "accepted": [],
+  "rejected": [],
+  "coverage": {
+    "q_medida_acesso_decide": 0,
+    "q_medidas_conjugada": 0,
+    "q_medidas_bipartida": 0,
+    "q_peso_cada_peca": 0,
+    "q_estrutura_interna": 0,
+    "q_cuidado_conservacao": 0
+  },
+  "unanswered": [
+    "q_medida_acesso_decide",
+    "q_medidas_conjugada",
+    "q_medidas_bipartida",
+    "q_peso_cada_peca",
+    "q_estrutura_interna",
+    "q_cuidado_conservacao"
+  ],
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "calls": 0
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_b183146c64cc",
+    "src_e65ac9ceac8c",
+    "src_b7dcfcadd797",
+    "src_5eda1e87a204",
+    "src_9232f02e346e",
+    "src_2bd0ded1d459"
+  ],
+  "triage": [
+    {
+      "source_id": "src_b7dcfcadd797",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.17
+    },
+    {
+      "source_id": "src_5eda1e87a204",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.2
+    },
+    {
+      "source_id": "src_9232f02e346e",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.23
+    },
+    {
+      "source_id": "src_2bd0ded1d459",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.06
+    }
+  ],
+  "credits": 9.215016839999995
+}
