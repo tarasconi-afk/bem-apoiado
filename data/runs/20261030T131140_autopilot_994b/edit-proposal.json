@@ -1,0 +1,41 @@
+{
+  "edits": [
+    {
+      "ref": "etiqueta-conservacao#0",
+      "action": "rewrite",
+      "text": "A etiqueta têxtil deve trazer, em símbolos e/ou texto, os cinco principais cuidados de conservação nesta ordem: lavagem, alvejamento, secagem, passadoria e limpeza profissional, conforme a norma NM-ISO 3758:2013.",
+      "claim_ids": [
+        "clm_28e1007029ee",
+        "clm_bb62377cb70a",
+        "clm_b72856d8e3ac",
+        "clm_29960a788266"
+      ],
+      "absorbs": [
+        "etiqueta-conservacao#1"
+      ],
+      "reason": "As duas frases diziam a mesma coisa sobre a ordem e o formato dos cuidados; juntar evita repetição."
+    },
+    {
+      "ref": "verdict",
+      "action": "rewrite",
+      "text": "Medidas típicas segundo fabricantes: rosto 45×65 a 50×80 cm, banho 60×120 a 70×140 cm, banhão 80×150 a 90×160 cm e lavabo cerca de 30×50 cm.",
+      "claim_ids": [
+        "clm_d61e9010f991",
+        "clm_1485aae8c05d",
+        "clm_f78a3af9dd0f",
+        "clm_489d68a9e6d2"
+      ],
+      "reason": "Resumo mais direto, já que os detalhes completos aparecem na tabela de 'Como decidir'."
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "remove",
+      "reason": "Repete em outro formato as mesmas faixas de medida já dadas nas linhas da tabela (r2 e r3), sem ajudar a decidir."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 4,
+    "output_tokens": 9204
+  }
+}
