@@ -1,0 +1,167 @@
+{
+  "run_id": "20261031T070117_autopilot_5d49",
+  "topic": "roupao-atoalhado-ou-microfibra",
+  "accepted": [
+    {
+      "claim_id": "clm_9111a2f53ab1",
+      "question_id": "q_microfibra",
+      "source_id": "src_d26f31f71fee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3c618e7a45df",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_d26f31f71fee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_402a5a597008",
+      "question_id": "q_tamanhos",
+      "source_id": "src_d26f31f71fee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7a5e32e86850",
+      "question_id": "q_microfibra",
+      "source_id": "src_d26f31f71fee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2f8c96f26420",
+      "question_id": "q_microfibra",
+      "source_id": "src_d26f31f71fee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2bbecf2bcd7d",
+      "question_id": "q_microfibra",
+      "source_id": "src_7de732323925",
+      "new": true
+    },
+    {
+      "claim_id": "clm_843ad0a90b4d",
+      "question_id": "q_microfibra",
+      "source_id": "src_7de732323925",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2ec2774b27b8",
+      "question_id": "q_dado_decisivo",
+      "source_id": "src_7de732323925",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6c89cd5e1745",
+      "question_id": "q_dado_decisivo",
+      "source_id": "src_7de732323925",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f6e293100bd2",
+      "question_id": "q_atoalhado",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9c21f144cd70",
+      "question_id": "q_atoalhado",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3c71f574d98f",
+      "question_id": "q_tamanhos",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_83cef42acbbb",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bf8247f7d535",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a8cc9842378f",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_40cf92d2d8ca",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_ef3f74304242",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bda18ac6baa9",
+      "question_id": "q_dado_decisivo",
+      "source_id": "src_c674b7d860ac",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bda18ac6baa9",
+      "question_id": "q_atoalhado",
+      "source_id": "src_c674b7d860ac",
+      "new": false
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_c674b7d860ac",
+      "question_id": "q_cuidados_conservacao",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Temperatura máxima de lavagem 60°C, Processo normal, não usar alvejante, Secagem em tambor com temperatura máxima de exaustão de 60ºC, passar à temperatura máxima de 110ºC, não lavar a seco, evitar am"
+    }
+  ],
+  "coverage": {
+    "q_dado_decisivo": 3,
+    "q_atoalhado": 3,
+    "q_microfibra": 5,
+    "q_cuidados_conservacao": 5,
+    "q_tamanhos": 2,
+    "q_peso_medidas_guardado": 0
+  },
+  "unanswered": [
+    "q_peso_medidas_guardado"
+  ],
+  "usage": {
+    "input_tokens": 9230,
+    "output_tokens": 2257,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_d26f31f71fee",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_7de732323925",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_ef3f74304242",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    },
+    {
+      "source_id": "src_c674b7d860ac",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    }
+  ],
+  "credits": 12.828546359999999
+}

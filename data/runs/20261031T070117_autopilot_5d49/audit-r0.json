@@ -1,0 +1,158 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam exemplos de roupões com 50% a 100% de algodão e gramaturas de 195 a 450 g/m², além de modelos de microfibra da Appel com 100% poliéster ou 88% poliéster e 12% poliamida e gramaturas de 220, 240 e 250 g/m². Porém, o bloco generaliza esses intervalos para os tipos de produto, atribui a informação sobre microfibra também a Teka e Karsten, embora os trechos citados para microfibra sejam da Appel, e associa toque aveludado à escolha de microfibra sem que esse atributo apareça no trecho do modelo com 88% de poliéster e 12% de poliamida. A afirmação de que composição e gramatura são os dados que diferenciam os dois tipos também não é explicitamente dita nos trechos.",
+      "fix": "Os exemplos citados mostram roupões com 50% a 100% de algodão e gramaturas de 195 a 450 g/m², segundo produtos da Teka e da Karsten. Nos modelos de microfibra da Appel citados, aparecem 100% poliéster ou 88% poliéster e 12% poliamida, com gramaturas de 220 a 250 g/m²; alguns são descritos com toque aveludado. Consulte a ficha do modelo para verificar sua composição e gramatura."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que a gramatura deve ser declarada na ficha técnica ou na etiqueta, nem que a microfibra é mais leve ou que a gramatura diferencia esses dois tipos. Eles apenas definem gramatura como quantidade ou peso do tecido por metro quadrado e mencionam gramatura entre as informações do documento regulatório.",
+      "fix": "A gramatura representa a quantidade de matéria-prima, ou o peso do tecido, em um metro quadrado, expressa em g/m²."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que os tratamentos de conservação, incluindo lavagem, secagem e passadoria, são obrigatórios e devem ser informados por símbolos e/ou texto conforme a norma. Porém, não afirmam que as instruções devem estar claramente legíveis.",
+      "fix": "Os cuidados de conservação, como lavagem, secagem e passadoria, devem ser informados na etiqueta por símbolos e/ou texto conforme a norma aplicável."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Karsten citada apenas informa dimensões de um roupão tamanho M; ela não estabelece que comprimento e largura devam ser declarados na etiqueta. Essa exigência é sustentada pelos trechos do Inmetro, que falam em indicação de tamanho ou dimensão. Além disso, os trechos não mostram modelos no plural, roupões atoalhados nem dimensões para cada tamanho P, M e G.",
+      "fix": "O Inmetro exige a indicação de tamanho ou dimensão no produto têxtil. No produto da Karsten citado, tamanho M, são informados comprimento total, largura do tórax e comprimento da manga."
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Karsten sustentam a composição e a gramatura do modelo Fio Cardado Lino, mas não dizem que o roupão Pérola tem 100% algodão e 450 g/m². Além disso, a composição do modelo Karsten é apresentada como fato sem atribuição explícita à fabricante.",
+      "fix": "Segundo a Teka, o roupão Vênus tem 100% algodão e 300 g/m², e o roupão Pérola tem 100% algodão e 450 g/m². Segundo a Karsten, o roupão Fio Cardado Lino tem 90% algodão, 10% poliéster e 390 g/m²."
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas as características do roupão Golden da Teka. Ele não sustenta a afirmação geral de que os modelos variam em proporção de algodão conforme a linha de cada fabricante.",
+      "fix": "Na Teka, o roupão Golden em tecido favo tem composição de 50% algodão e 50% poliéster, com gramatura de 195 g/m²."
+    },
+    {
+      "ref": "roupao-microfibra-composicao-e-gramatura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "roupao-microfibra-composicao-e-gramatura#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam a gramatura de 250 g/m² apenas para o Deluxe Kids; não há trecho citado que informe a gramatura do Kimono Microfibra Deluxe adulto. Portanto, “em ambos” excede a evidência. Além disso, os trechos citados são descrições dos produtos, não mostram especificamente uma ficha do modelo.",
+      "fix": "No Kimono Microfibra Deluxe da Appel e no infantil Deluxe Kids, a composição informada é 88% poliéster e 12% poliamida. A gramatura de 250 g/m² está informada para o Deluxe Kids; confira a ficha do modelo adulto para verificar sua gramatura."
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-e-peso-declarados#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas as medidas declaradas para o tamanho M. Não sustentam que as medidas devam ser conferidas para P e G nem que variem conforme a marca e a linha.",
+      "fix": "No roupão atoalhado Fio Cardado Lino da Karsten, tamanho M, as medidas declaradas são: comprimento total de 109 cm, largura do tórax de 68 cm e comprimento da manga de 44 cm."
+    },
+    {
+      "ref": "medidas-e-peso-declarados#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que a indicação deve constar em um dos meios aceitos, incluindo etiqueta, selo, rótulo e outros, não necessariamente apenas na etiqueta. Além disso, a aceitação de qualquer tipo de indicação é apresentada no trecho com a ressalva de que isso vale até que sejam regulamentadas ou criadas normas específicas.",
+      "fix": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil, podendo ser feita por meios como etiqueta, selo ou rótulo. Qualquer tipo de indicação é aceito enquanto não houver regulamentação específica, desde que as medidas usem o Sistema Internacional de Unidades."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as composições e as gramaturas dos roupões citados, mas não dizem que esses modelos são “roupões atoalhados”.",
+      "fix": "Tipo: Roupão; composição declarada (exemplos): segundo a Teka e a Karsten, 100% algodão ou 50% a 90% algodão com poliéster; gramatura: 195–450 g/m²."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as faixas numéricas de 220–250 g/m² para os modelos de microfibra e de 300–450 g/m² para os modelos citados da Teka e da Karsten, mas não dizem que estes últimos são “atoalhados”.",
+      "fix": "Se a gramatura for decisiva, compare esse número na ficha do modelo: nos exemplos documentados, os roupões de microfibra têm 220–250 g/m², enquanto os modelos citados da Teka e da Karsten têm 300–450 g/m², segundo os fabricantes."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam exemplos de roupões com 50% a 100% de algodão e gramaturas de 195 a 450 g/m², além de modelos de microfibra da Appel com 100% poliéster ou 88% poliéster e 12% poliamida e gramaturas de 220, 240 e 250 g/m². Porém, o bloco generaliza esses intervalos para os tipos de produto, atribui a informação sobre microfibra também a Teka e Karsten, embora os trechos citados para microfibra sejam da Appel, e associa toque aveludado à escolha de microfibra sem que esse atributo apareça no trecho do modelo com 88% de poliéster e 12% de poliamida. A afirmação de que composição e gramatura são os dados que diferenciam os dois tipos também não é explicitamente dita nos trechos. Versão sustentável: Os exemplos citados mostram roupões com 50% a 100% de algodão e gramaturas de 195 a 450 g/m², segundo produtos da Teka e da Karsten. Nos modelos de microfibra da Appel citados, aparecem 100% poliéster ou 88% poliéster e 12% poliamida, com gramaturas de 220 a 250 g/m²; alguns são descritos com toque aveludado. Consulte a ficha do modelo para verificar sua composição e gramatura."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "msg": "UNSUPPORTED. Os trechos não dizem que a gramatura deve ser declarada na ficha técnica ou na etiqueta, nem que a microfibra é mais leve ou que a gramatura diferencia esses dois tipos. Eles apenas definem gramatura como quantidade ou peso do tecido por metro quadrado e mencionam gramatura entre as informações do documento regulatório. Versão sustentável: A gramatura representa a quantidade de matéria-prima, ou o peso do tecido, em um metro quadrado, expressa em g/m²."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#2",
+      "msg": "OVERSTATED. Os trechos sustentam que os tratamentos de conservação, incluindo lavagem, secagem e passadoria, são obrigatórios e devem ser informados por símbolos e/ou texto conforme a norma. Porém, não afirmam que as instruções devem estar claramente legíveis. Versão sustentável: Os cuidados de conservação, como lavagem, secagem e passadoria, devem ser informados na etiqueta por símbolos e/ou texto conforme a norma aplicável."
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#3",
+      "msg": "MISATTRIBUTED. A Karsten citada apenas informa dimensões de um roupão tamanho M; ela não estabelece que comprimento e largura devam ser declarados na etiqueta. Essa exigência é sustentada pelos trechos do Inmetro, que falam em indicação de tamanho ou dimensão. Além disso, os trechos não mostram modelos no plural, roupões atoalhados nem dimensões para cada tamanho P, M e G. Versão sustentável: O Inmetro exige a indicação de tamanho ou dimensão no produto têxtil. No produto da Karsten citado, tamanho M, são informados comprimento total, largura do tórax e comprimento da manga."
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#0",
+      "msg": "MISATTRIBUTED. Os trechos da Karsten sustentam a composição e a gramatura do modelo Fio Cardado Lino, mas não dizem que o roupão Pérola tem 100% algodão e 450 g/m². Além disso, a composição do modelo Karsten é apresentada como fato sem atribuição explícita à fabricante. Versão sustentável: Segundo a Teka, o roupão Vênus tem 100% algodão e 300 g/m², e o roupão Pérola tem 100% algodão e 450 g/m². Segundo a Karsten, o roupão Fio Cardado Lino tem 90% algodão, 10% poliéster e 390 g/m²."
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas as características do roupão Golden da Teka. Ele não sustenta a afirmação geral de que os modelos variam em proporção de algodão conforme a linha de cada fabricante. Versão sustentável: Na Teka, o roupão Golden em tecido favo tem composição de 50% algodão e 50% poliéster, com gramatura de 195 g/m²."
+    },
+    {
+      "ref": "roupao-microfibra-composicao-e-gramatura#1",
+      "msg": "OVERSTATED. Os trechos informam a gramatura de 250 g/m² apenas para o Deluxe Kids; não há trecho citado que informe a gramatura do Kimono Microfibra Deluxe adulto. Portanto, “em ambos” excede a evidência. Além disso, os trechos citados são descrições dos produtos, não mostram especificamente uma ficha do modelo. Versão sustentável: No Kimono Microfibra Deluxe da Appel e no infantil Deluxe Kids, a composição informada é 88% poliéster e 12% poliamida. A gramatura de 250 g/m² está informada para o Deluxe Kids; confira a ficha do modelo adulto para verificar sua gramatura."
+    },
+    {
+      "ref": "medidas-e-peso-declarados#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas as medidas declaradas para o tamanho M. Não sustentam que as medidas devam ser conferidas para P e G nem que variem conforme a marca e a linha. Versão sustentável: No roupão atoalhado Fio Cardado Lino da Karsten, tamanho M, as medidas declaradas são: comprimento total de 109 cm, largura do tórax de 68 cm e comprimento da manga de 44 cm."
+    },
+    {
+      "ref": "medidas-e-peso-declarados#1",
+      "msg": "OVERSTATED. O trecho diz que a indicação deve constar em um dos meios aceitos, incluindo etiqueta, selo, rótulo e outros, não necessariamente apenas na etiqueta. Além disso, a aceitação de qualquer tipo de indicação é apresentada no trecho com a ressalva de que isso vale até que sejam regulamentadas ou criadas normas específicas. Versão sustentável: Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil, podendo ser feita por meios como etiqueta, selo ou rótulo. Qualquer tipo de indicação é aceito enquanto não houver regulamentação específica, desde que as medidas usem o Sistema Internacional de Unidades."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as composições e as gramaturas dos roupões citados, mas não dizem que esses modelos são “roupões atoalhados”. Versão sustentável: Tipo: Roupão; composição declarada (exemplos): segundo a Teka e a Karsten, 100% algodão ou 50% a 90% algodão com poliéster; gramatura: 195–450 g/m²."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam as faixas numéricas de 220–250 g/m² para os modelos de microfibra e de 300–450 g/m² para os modelos citados da Teka e da Karsten, mas não dizem que estes últimos são “atoalhados”. Versão sustentável: Se a gramatura for decisiva, compare esse número na ficha do modelo: nos exemplos documentados, os roupões de microfibra têm 220–250 g/m², enquanto os modelos citados da Teka e da Karsten têm 300–450 g/m², segundo os fabricantes."
+    }
+  ]
+}
