@@ -1,0 +1,39 @@
+{
+  "slug": "roupao-atoalhado-ou-microfibra",
+  "status": "PASS",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 83748,
+    "output_tokens": 31386,
+    "calls": 31
+  },
+  "credits": 33.393972959999985,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se prefere algodão, escolha um roupão atoalhado cuja ficha declare essa fibra; há modelos 100% algodão e mistos com poliéster.",
+      "Se prefere composição sintética e toque aveludado, escolha um roupão de microfibra cuja ficha informe 100% poliéster ou 88% poliéster e 12% poliamida.",
+      "Se a gramatura for importante, compare o valor em g/m² na ficha: os exemplos de microfibra têm 220–250 g/m², enquanto os modelos atoalhados citados têm 195–450 g/m².",
+      "Confira na etiqueta o percentual de cada fibra, apresentado em ordem decrescente.",
+      "Confira os símbolos ou textos de lavagem, alvejamento, secagem, passadoria e limpeza profissional.",
+      "Confira o tamanho e as medidas declaradas na etiqueta ou ficha do modelo."
+    ],
+    "missing": [
+      "Uma comparação funcional, baseada em fonte primária, sobre absorção, secagem, aquecimento, toque e indicação de uso de cada material.",
+      "Tabelas de medidas para os tamanhos P, M e G dos modelos atoalhados e de microfibra.",
+      "Peso e medidas dos roupões dobrados ou embalados.",
+      "A gramatura do modelo adulto Kimono Microfibra Deluxe da Appel.",
+      "Exemplos completos das instruções de conservação de um modelo atoalhado e de um modelo de microfibra."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à escolha com critérios concretos de composição, preferência de toque e gramatura, além de orientar o que conferir na ficha do produto. Ela não traz medidas, peso nem uma comparação funcional completa entre os materiais, mas essas informações fazem parte das perguntas de pesquisa e não impedem a resposta à dúvida principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
