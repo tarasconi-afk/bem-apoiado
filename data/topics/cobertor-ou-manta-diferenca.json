@@ -1,0 +1,102 @@
+{
+  "slug": "cobertor-ou-manta-diferenca",
+  "primary_query": "cobertor ou manta: diferença",
+  "page_type": "decision_compare",
+  "questions": [
+    {
+      "id": "q_criterio_classificacao",
+      "text": "Que diferença de composição de fibra, tecido ou peso por metro quadrado (gramatura) a etiqueta do produto usa para classificar um item como 'cobertor' ou como 'manta', segundo a norma de etiquetagem têxtil do Inmetro?"
+    },
+    {
+      "id": "q_ficha_cobertor",
+      "text": "Quais medidas (comprimento x largura) e qual composição de fibra o fabricante declara na etiqueta ou ficha do cobertor, conforme a norma de etiquetagem têxtil do Inmetro?"
+    },
+    {
+      "id": "q_ficha_manta",
+      "text": "Quais medidas (comprimento x largura) e qual composição de fibra o fabricante declara na etiqueta ou ficha da manta, conforme a mesma norma de etiquetagem têxtil?"
+    },
+    {
+      "id": "q_cuidado_conservacao",
+      "text": "O que a etiqueta de conservação do cobertor e da manta informam sobre lavar, secar e guardar cada peça, segundo a norma de etiquetagem do Inmetro?"
+    },
+    {
+      "id": "q_peso_medidas_guardado",
+      "text": "Qual peso e quais medidas dobrado ou embalado o fabricante declara para o cobertor e para a manta, conforme a ficha de cada produto?"
+    }
+  ],
+  "source_ids": [
+    "src_9b1c4ff0c859",
+    "src_e104b1525449",
+    "src_440e82c99f60",
+    "src_797415040e84",
+    "src_3e16168894f6",
+    "src_fba70dfd5c6d",
+    "src_fbba90445ae1",
+    "src_5e2a5d8066c4",
+    "src_e661ef9044b5",
+    "src_839d20a6f6bb",
+    "src_3ff6852960ce",
+    "src_ef55727f053f",
+    "src_a99ba98fce2a",
+    "src_76c2151cb870",
+    "src_bf67fb87214f",
+    "src_ef68486c5055",
+    "src_1106abc9d364",
+    "src_763ce626643e",
+    "src_95dc2208d7ad",
+    "src_5cdc97546ef1",
+    "src_2693ec5ce6f9"
+  ],
+  "editorial_notes": [
+    "Manta não é um tipo do vocabulário padrão; tratar como 'outro' nas buscas de exemplo, mas manter o termo 'manta' em listing_terms para não trazer só cobertores.",
+    "Não há medida corporal do comprador que diferencie cobertor de manta; o dado que decide é a característica do produto (composição, gramatura, dimensão) declarada em etiqueta, não uma medida de quem compra.",
+    "Evitar qualquer afirmação sobre a peça 'esquentar mais' ou 'ser melhor para frio intenso' como benefício de saúde/conforto não avaliado por norma; restringir-se ao que a etiqueta declara (composição, gramatura, dimensão, cuidado).",
+    "Se a norma de etiquetagem não definir um limiar numérico de gramatura que separe 'cobertor' de 'manta', relatar isso como lacuna em vez de inferir um valor."
+  ],
+  "focus_terms": [
+    "cobertor",
+    "manta",
+    "gramatura",
+    "composição",
+    "etiqueta",
+    "conservação",
+    "lavagem",
+    "medidas"
+  ],
+  "evidence_gaps": [
+    "Uma fonte primária voltada ao comprador que explique a diferença de uso entre manta e cobertor e indique quando escolher cada um.",
+    "Critérios comparáveis de compra, como aquecimento, espessura, peso, tamanho ou forma de uso, aplicáveis às duas categorias."
+  ],
+  "researched_source_ids": [
+    "src_9b1c4ff0c859",
+    "src_e104b1525449",
+    "src_440e82c99f60",
+    "src_797415040e84",
+    "src_3e16168894f6",
+    "src_fba70dfd5c6d",
+    "src_fbba90445ae1",
+    "src_5e2a5d8066c4",
+    "src_e661ef9044b5",
+    "src_839d20a6f6bb",
+    "src_3ff6852960ce",
+    "src_ef55727f053f",
+    "src_a99ba98fce2a",
+    "src_76c2151cb870",
+    "src_bf67fb87214f",
+    "src_ef68486c5055",
+    "src_1106abc9d364",
+    "src_763ce626643e",
+    "src_95dc2208d7ad",
+    "src_5cdc97546ef1",
+    "src_2693ec5ce6f9"
+  ],
+  "improve_attempts": 0,
+  "product_kinds": [
+    "cobertor",
+    "outro"
+  ],
+  "listing_terms": [
+    "cobertor",
+    "manta"
+  ]
+}
