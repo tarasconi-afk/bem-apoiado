@@ -1,0 +1,37 @@
+{
+  "slug": "lencol-de-malha-ou-de-algodao",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 100710,
+    "output_tokens": 34981,
+    "calls": 37
+  },
+  "credits": 50.35391567999999,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se quiser malha com composição claramente declarada, confira se o produto é malha fio penteado 100% algodão.",
+      "Se quiser comparar lençóis de algodão pela construção do tecido, confira na ficha o tipo de tecido, a composição e a contagem de fios; há opções de percal de 200 ou 300 fios e cetim de 400 fios.",
+      "Meça a altura do colchão e compare com a altura das abas declarada na ficha; o modelo Queen de malha citado tem abas de 40 cm, enquanto lençóis de algodão podem ter 30 cm ou 40 cm conforme o modelo.",
+      "Confira se o tecido foi pré-encolhido; mesmo assim, o modelo de algodão consultado pode reduzir cerca de 3% na primeira lavagem.",
+      "Compare as instruções de lavagem, secagem e passagem do modelo escolhido, pois elas variam entre fabricantes e produtos."
+    ],
+    "missing": [
+      "Uma regra comparando quando escolher malha ou algodão com base em características de uso, como elasticidade, toque, tendência a amassar e sensação térmica.",
+      "Altura compatível e medidas completas para mais tamanhos de cama, não apenas o exemplo Queen de malha.",
+      "Dados equivalentes de composição, gramatura e cuidados de conservação para um modelo de malha e um modelo de algodão no mesmo tamanho.",
+      "Informação sobre encolhimento do lençol de malha e indicação mais clara de como a redução afeta a escolha da medida."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece critérios concretos para conferir composição, contagem de fios, altura das abas e encolhimento antes da compra. Porém, responde apenas parcialmente à comparação entre malha e algodão: a resposta não explica claramente em quais situações de uso cada tecido é mais indicado e apresenta medidas detalhadas apenas para um modelo de malha.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
