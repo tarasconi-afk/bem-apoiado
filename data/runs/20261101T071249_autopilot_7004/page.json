@@ -1,0 +1,48 @@
+{
+  "slug": "lencol-de-percal-ou-algodao-diferenca",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 77528,
+    "output_tokens": 25051,
+    "calls": 38
+  },
+  "credits": 31.59695232000002,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção anuncia o que é percal e o que é algodão comum, mas os blocos explicam apenas o percal e não definem ou caracterizam o algodão comum (o-que-e-percal#0); Mudar o título da seção para algo que corresponda ao conteúdo, como “O que os fabricantes dizem sob"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se você quer percal, procure essa indicação na ficha e associe-a à trama de alta densidade, geralmente a partir de 180 fios por polegada segundo os fabricantes citados.",
+      "Se você quer 100% algodão, confira a composição e verifique se ela informa 100% algodão; um produto percal também pode conter poliéster.",
+      "Não escolha apenas pela contagem de fios: 200 fios pode aparecer tanto em um produto 100% algodão quanto em um produto percal.",
+      "Confira separadamente na ficha a composição das fibras, a indicação de percal e a contagem de fios.",
+      "Leia a etiqueta de cuidados para verificar temperatura de lavagem, uso de alvejante, secagem, lavagem a seco e temperatura do ferro."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção anuncia o que é percal e o que é algodão comum, mas os blocos explicam apenas o percal e não definem ou caracterizam o algodão comum (o-que-e-percal#0); Mudar o título da seção para algo que corresponda ao conteúdo, como “O que os fabricantes dizem sob",
+      "Comparação de gramatura declarada em ficha técnica para produtos de percal e de algodão comum.",
+      "Exemplo de ficha ou etiqueta de um lençol de algodão comum com suas especificações de trama, contagem de fios, gramatura e cuidados.",
+      "Instruções de conservação de um produto de algodão comum para comparação direta com o exemplo de percal.",
+      "Explicação mais direta de que percal descreve a trama, enquanto algodão descreve a fibra."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: diferencia corretamente percal como característica da trama e algodão como composição da fibra, além de dar uma regra prática para conferir a ficha do produto. A resposta curta e o bloco “Como decidir” ajudam o leitor a escolher, embora faltem exemplos comparáveis de gramatura e cuidados para algodão comum.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "o-que-e-percal#0",
+        "problem": "A seção anuncia o que é percal e o que é algodão comum, mas os blocos explicam apenas o percal e não definem ou caracterizam o algodão comum.",
+        "fix": "Mudar o título da seção para algo que corresponda ao conteúdo, como “O que os fabricantes dizem sobre o percal”."
+      }
+    ]
+  }
+}
