@@ -1,0 +1,39 @@
+{
+  "slug": "fio-penteado-ou-cardado-diferenca-na-toalha",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 76764,
+    "output_tokens": 21633,
+    "calls": 46
+  },
+  "credits": 36.52157351999999,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "gramatura-declarada#1"
+    ],
+    "decision_criteria": [
+      "Escolha o fio penteado se prioriza toque mais suave e uniforme.",
+      "Escolha o fio cardado se prefere toque mais encorpado, natural e visual mais rústico.",
+      "Para buscar mais maciez, conforto e absorção, confira toalhas 100% algodão com fio penteado acima de 500 g/m².",
+      "Para uma toalha mais leve e prática, procure gramaturas entre 350 e 450 g/m².",
+      "Compare na ficha do produto o tipo de fio, a composição em fibras, a gramatura e as instruções de conservação.",
+      "Confira os símbolos ou textos de lavagem, alvejamento, secagem, passadoria e limpeza profissional na etiqueta."
+    ],
+    "missing": [
+      "Uma explicação baseada em fonte primária sobre se o tipo de fio penteado ou cardado precisa aparecer na etiqueta ou apenas na ficha do fabricante.",
+      "Mais exemplos de produtos de fio cardado com composição e gramatura declaradas, para permitir uma comparação mais equilibrada com os exemplos de fio penteado.",
+      "Uma tabela do fabricante relacionando diretamente gramatura, tipo de fio, absorção, volume ou tempo de secagem."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente à diferença entre fios penteado e cardado e oferece critérios concretos de escolha por toque, gramatura, composição e cuidados. A resposta curta resolve a dúvida rapidamente e a ficha do produto orienta a compra; há apenas uma repetição dispensável no bloco de gramaturas e seria útil esclarecer melhor o que aparece na etiqueta versus na ficha técnica.",
+    "filler_ratio": 0.07692307692307693,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "edits": [
+    {
+      "ref": "como-funciona-cada-tipo#0",
+      "action": "rewrite",
+      "text": "O fio penteado passa por um processo de seleção e penteamento que remove impurezas e fibras curtas, resultando em fio mais uniforme, resistente e de toque mais suave, segundo Döhler e Karsten. Já o fio cardado passa apenas pela cardagem (fibras desembaraçadas e alinhadas, sem penteação), mantendo as fibras mais curtas e dando ao tecido um toque mais encorpado e visual mais rústico, segundo a Karsten.",
+      "claim_ids": [
+        "clm_338c699450a2",
+        "clm_38ced81cd6ad",
+        "clm_634c96d244f5"
+      ],
+      "absorbs": [
+        "como-funciona-cada-tipo#1",
+        "diferenca-toque-visual#0"
+      ],
+      "reason": "As três seções descreviam o mesmo processo e a mesma diferença de toque entre fio penteado e cardado com frases quase idênticas; foram unificadas em um único bloco mais direto."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "action": "rewrite",
+      "text": "Nas páginas de produtos citadas, a Appel declara 420 g/m² na Combinatto e 450 g/m² na Mêmphis; a Döhler informa 520 g/m² na Marie e 620 g/m² na Florença; a Karsten declara 600 g/m² na Magna. Para fio cardado, a Karsten lista gramaturas entre 350 g/m² e 500 g/m².",
+      "claim_ids": [
+        "clm_00313cced45a",
+        "clm_4e5b048de57d",
+        "clm_85b116843c96",
+        "clm_090ca8ad096c",
+        "clm_445c292921d1",
+        "clm_0d00b84d09e3"
+      ],
+      "absorbs": [
+        "gramatura-declarada#1"
+      ],
+      "reason": "O segundo bloco repetia a mesma informação sobre gramatura do fio cardado já citada no primeiro bloco."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "rewrite",
+      "text": "Segundo o Inmetro, a etiqueta deve informar, por símbolos, texto ou ambos, os cinco principais tratamentos de conservação, sempre nesta ordem: lavagem, alvejamento, secagem, passadoria e limpeza/cuidado têxtil profissional (norma NM-ISO 3758:2013).",
+      "claim_ids": [
+        "clm_239219755069",
+        "clm_29960a788266",
+        "clm_a730fea8b014",
+        "clm_b72856d8e3ac"
+      ],
+      "absorbs": [
+        "cuidados-conservacao#1"
+      ],
+      "reason": "Os dois blocos repetiam a mesma lista de tratamentos e a mesma regra de ordem/formato; foram unidos em uma única frase."
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Se você prioriza toque mais suave e uniforme, a toalha de fio penteado pode ser uma boa escolha. Segundo a Karsten, esse fio é mais suave e uniforme; segundo a Döhler, tem toque macio, remove impurezas e resulta em fio mais uniforme; segundo a Appel, proporciona toque mais macio e elimina impurezas.",
+      "claim_ids": [
+        "clm_634c96d244f5",
+        "clm_338c699450a2",
+        "clm_00313cced45a"
+      ],
+      "reason": "Corrige repetição acidental de texto ('como Karsten, Döhler e Appel' duplicado) e deixa a frase mais clara, sem alterar o conteúdo."
+    }
+  ],
+  "refused": [
+    "diferenca-toque-visual#0: a seção ficaria vazia"
+  ],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 4757
+  }
+}
