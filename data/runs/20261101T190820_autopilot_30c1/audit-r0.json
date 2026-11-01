@@ -1,0 +1,168 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o Probel Life é indicado pelo fabricante para quem dorme de lado e que o Ortobom Viscopur tem altura média e é indicado para quem dorme de costas ou de bruços. Porém, não sustentam que o Viscopur seja de espuma, que a fibra siliconada tenha enchimento em poliéster, nem que as fichas consultadas não indiquem posição de dormir específica. Além disso, as indicações de posição vêm de fabricantes e deveriam ser atribuídas a eles.",
+      "fix": "Segundo as fichas dos fabricantes, o Probel Life é indicado para quem dorme de lado, e o Ortobom Viscopur é descrito como de altura média e indicado para quem dorme de costas ou de bruços. A ficha citada do produto de fibra siliconada informa apenas “Fibra Siliconada” como tipo de enchimento."
+    },
+    {
+      "ref": "espuma-densidade-altura#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que fabricantes em geral declaram densidade em kg/m³, não mencionam D24 e não estabelecem que números maiores correspondem a espumas mais firmes. Eles sustentam apenas os códigos de densidade presentes nos nomes dos produtos e as alturas de 12 cm, 12 cm e 14 cm.",
+      "fix": "A Probel lista o Probel Life Espuma D15 com 12 cm de altura, o Probel Paz Viscoelástico D30 com 12 cm e o Probel Plenitude Visco Gel D40 com 14 cm."
+    },
+    {
+      "ref": "espuma-densidade-altura#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta retorno lento ou memória, absorção do peso e distribuição equalizada da pressão, mas não afirma explicitamente que o material é um tipo de espuma viscoelástica nem relaciona expressamente essas propriedades à palavra “viscoelástica”.",
+      "fix": "Segundo a Duoflex, o material descrito tem retorno lento ou memória, maior capacidade de absorção do peso e distribuição equalizada da pressão sobre o corpo."
+    },
+    {
+      "ref": "fibra-siliconada-composicao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o travesseiro Hug da Ortobom tem enchimento de fibra siliconada 100% poliéster, mas não que travesseiros de fibra siliconada em geral tenham essa composição. O trecho da Probel apenas identifica o tipo de enchimento como fibra siliconada, sem dizer que é 100% poliéster.",
+      "fix": "A Ortobom informa que o travesseiro Hug tem enchimento de fibra siliconada 100% poliéster, além de capa de algodão e revestimento de poliéster. A Probel identifica o enchimento de seu produto como fibra siliconada."
+    },
+    {
+      "ref": "fibra-siliconada-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a exigência para produtos têxteis, mas não dizem que esses cuidados valem especificamente para a capa de um travesseiro.",
+      "fix": "A etiqueta do produto têxtil deve informar pelo menos cinco tratamentos de conservação: lavagem, alvejamento, secagem, passadoria e limpeza a seco, conforme a regra citada do Inmetro."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Ortobom não menciona capa removível nem lavável; o trecho da Duoflex fala apenas que alguns modelos possuem capas removíveis e laváveis. Portanto, não sustentam que isso ocorra geralmente em travesseiros de espuma nem que seja uma informação fornecida pelas duas marcas. Além disso, o trecho da Ortobom não informa que a lavagem deve ser em processo suave.",
+      "fix": "A Duoflex informa que alguns modelos possuem capas removíveis e laváveis. Para o Ortobom Anatomic Visco, o trecho citado indica lavagem até 40 °C, proibição de alvejamento e passadoria, secagem em tambor até 60 °C e proibição de limpeza a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado trata especificamente do Ortobom Viscopur, não de todos os travesseiros de espuma maciça. A observação de que uma capa removível pode ter cuidados diferentes também não aparece no trecho citado.",
+      "fix": "No Ortobom Viscopur, a Ortobom indica proibição de lavagem, proibição de alvejamento, secagem na horizontal à sombra, proibição de passadoria e limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Ortobom fornece instruções para o modelo Hug, mas não informa que ele ou outros travesseiros têm fibra siliconada. Assim, a permissão de lavagem não pode ser atribuída, com base nesse trecho, à categoria de travesseiros com fibra siliconada.",
+      "fix": "Para o Ortobom Hug, a Ortobom informa lavagem até 40 °C em processo suave, proibição de alvejamento, secagem em tambor até 60 °C, passadoria até 110 °C sem vapor e proibição de limpeza a seco."
+    },
+    {
+      "ref": "dimensoes-peso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "dimensoes-peso#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado apresenta uma especificação mínima de um edital específico de compras públicas para um travesseiro com enchimento de fibra de poliéster; não sustenta que exista uma norma geral aplicável a todos os travesseiros de fibra.",
+      "fix": "Em um edital de compras públicas citado, foi exigido para um travesseiro com enchimento de 100% fibra de poliéster o mínimo de 30 cm de largura, 40 cm de comprimento e 10 cm de altura. Confira a ficha do modelo escolhido se atende às suas necessidades."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados dizem que produtos têxteis devem informar composição, dimensão ou tamanho e tratamentos de conservação, mas não afirmam que o Inmetro avalia esses aspectos nem que propriedades terapêuticas não são avaliadas pelo regulador.",
+      "fix": "Os materiais do Inmetro indicam que produtos têxteis devem informar a composição das fibras, o tamanho ou a dimensão e os tratamentos de conservação. Os trechos citados não permitem afirmar o que o regulador faz ou não avalia sobre propriedades terapêuticas."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Ortobom descrevem características e alegações do próprio produto, mas não dizem que o Inmetro não valida termos como “ortopédico”, “alívio de pressão” ou “tecnologia Nasa”, nem sustentam quais dados o regulador avalia. Portanto, essa conclusão é atribuída à Ortobom sem que ela a tenha declarado. Além disso, a formulação repete uma alegação de alívio associada ao produto.",
+      "fix": "Segundo a Ortobom, o produto usa espuma viscoelástica descrita como desenvolvida a partir de tecnologia da Nasa e capaz de se adaptar aos contornos do corpo. Os trechos citados não sustentam afirmações sobre validação pelo Inmetro ou sobre composição, dimensões e cuidados de conservação."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação geral de que travesseiros de fibra siliconada são preenchidos com poliéster é sustentada apenas pela informação da Ortobom sobre um modelo específico. Além disso, os trechos citados não permitem concluir que as fichas consultadas não indicam posição de dormir; eles apenas mostram os tipos de enchimento.",
+      "fix": "A Ortobom informa que o modelo Hug tem enchimento de fibra siliconada 100% poliéster, enquanto a Probel identifica o enchimento do modelo Conect Comfort como fibra siliconada. Nos trechos citados, não aparece uma indicação de posição de dormir; confira a ficha do modelo escolhido antes de comprar."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o Probel Life é indicado pelo fabricante para quem dorme de lado e que o Ortobom Viscopur tem altura média e é indicado para quem dorme de costas ou de bruços. Porém, não sustentam que o Viscopur seja de espuma, que a fibra siliconada tenha enchimento em poliéster, nem que as fichas consultadas não indiquem posição de dormir específica. Além disso, as indicações de posição vêm de fabricantes e deveriam ser atribuídas a eles. Versão sustentável: O Probel Life é indicado para quem dorme de lado, e o Ortobom Viscopur é descrito como de altura média e indicado para quem dorme de costas ou de bruços, segundo as fichas dos fabricantes. A ficha citada do produto de fibra siliconada informa apenas “Fibra Siliconada” como tipo de enchimento."
+    },
+    {
+      "ref": "espuma-densidade-altura#0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que fabricantes em geral declaram densidade em kg/m³, não mencionam D24 e não estabelecem que números maiores correspondem a espumas mais firmes. Eles sustentam apenas os códigos de densidade presentes nos nomes dos produtos e as alturas de 12 cm, 12 cm e 14 cm. Versão sustentável: A Probel lista o Probel Life Espuma D15 com 12 cm de altura, o Probel Paz Viscoelástico D30 com 12 cm e o Probel Plenitude Visco Gel D40 com 14 cm."
+    },
+    {
+      "ref": "espuma-densidade-altura#1",
+      "msg": "UNSUPPORTED. O trecho sustenta retorno lento ou memória, absorção do peso e distribuição equalizada da pressão, mas não afirma explicitamente que o material é um tipo de espuma viscoelástica nem relaciona expressamente essas propriedades à palavra “viscoelástica”. Versão sustentável: Segundo a Duoflex, o material descrito tem retorno lento ou memória, maior capacidade de absorção do peso e distribuição equalizada da pressão sobre o corpo."
+    },
+    {
+      "ref": "fibra-siliconada-composicao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o travesseiro Hug da Ortobom tem enchimento de fibra siliconada 100% poliéster, mas não que travesseiros de fibra siliconada em geral tenham essa composição. O trecho da Probel apenas identifica o tipo de enchimento como fibra siliconada, sem dizer que é 100% poliéster. Versão sustentável: A Ortobom informa que o travesseiro Hug tem enchimento de fibra siliconada 100% poliéster, além de capa de algodão e revestimento de poliéster. A Probel identifica o enchimento de seu produto como fibra siliconada."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a exigência para produtos têxteis, mas não dizem que esses cuidados valem especificamente para a capa de um travesseiro. Versão sustentável: A etiqueta do produto têxtil deve informar pelo menos cinco tratamentos de conservação: lavagem, alvejamento, secagem, passadoria e limpeza a seco, conforme a regra citada do Inmetro."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom não menciona capa removível nem lavável; o trecho da Duoflex fala apenas que alguns modelos possuem capas removíveis e laváveis. Portanto, não sustentam que isso ocorra geralmente em travesseiros de espuma nem que seja uma informação fornecida pelas duas marcas. Além disso, o trecho da Ortobom não informa que a lavagem deve ser em processo suave. Versão sustentável: A Duoflex informa que alguns modelos possuem capas removíveis e laváveis. Para o Ortobom Anatomic Visco, o trecho citado indica lavagem até 40 °C, proibição de alvejamento e passadoria, secagem em tambor até 60 °C e proibição de limpeza a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "OVERSTATED. O trecho citado trata especificamente do Ortobom Viscopur, não de todos os travesseiros de espuma maciça. A observação de que uma capa removível pode ter cuidados diferentes também não aparece no trecho citado. Versão sustentável: No Ortobom Viscopur, a Ortobom indica proibição de lavagem, proibição de alvejamento, secagem na horizontal à sombra, proibição de passadoria e limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom fornece instruções para o modelo Hug, mas não informa que ele ou outros travesseiros têm fibra siliconada. Assim, a permissão de lavagem não pode ser atribuída, com base nesse trecho, à categoria de travesseiros com fibra siliconada. Versão sustentável: Para o Ortobom Hug, a Ortobom informa lavagem até 40 °C em processo suave, proibição de alvejamento, secagem em tambor até 60 °C, passadoria até 110 °C sem vapor e proibição de limpeza a seco."
+    },
+    {
+      "ref": "dimensoes-peso#1",
+      "msg": "OVERSTATED. O trecho citado apresenta uma especificação mínima de um edital específico de compras públicas para um travesseiro com enchimento de fibra de poliéster; não sustenta que exista uma norma geral aplicável a todos os travesseiros de fibra. Versão sustentável: Em um edital de compras públicas citado, foi exigido para um travesseiro com enchimento de 100% fibra de poliéster o mínimo de 30 cm de largura, 40 cm de comprimento e 10 cm de altura. Confira a ficha do modelo escolhido se atende às suas necessidades."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "UNSUPPORTED. Os trechos citados dizem que produtos têxteis devem informar composição, dimensão ou tamanho e tratamentos de conservação, mas não afirmam que o Inmetro avalia esses aspectos nem que propriedades terapêuticas não são avaliadas pelo regulador. Versão sustentável: Os materiais do Inmetro indicam que produtos têxteis devem informar a composição das fibras, o tamanho ou a dimensão e os tratamentos de conservação. Os trechos citados não permitem afirmar o que o regulador faz ou não avalia sobre propriedades terapêuticas."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "MISATTRIBUTED. Os trechos da Ortobom descrevem características e alegações do próprio produto, mas não dizem que o Inmetro não valida termos como “ortopédico”, “alívio de pressão” ou “tecnologia Nasa”, nem sustentam quais dados o regulador avalia. Portanto, essa conclusão é atribuída à Ortobom sem que ela a tenha declarado. Além disso, a formulação repete uma alegação de alívio associada ao produto. Versão sustentável: Segundo a Ortobom, o produto usa espuma viscoelástica descrita como desenvolvida a partir de tecnologia da Nasa e capaz de se adaptar aos contornos do corpo. Os trechos citados não sustentam afirmações sobre validação pelo Inmetro ou sobre composição, dimensões e cuidados de conservação."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "MISATTRIBUTED. A afirmação geral de que travesseiros de fibra siliconada são preenchidos com poliéster é sustentada apenas pela informação da Ortobom sobre um modelo específico. Além disso, os trechos citados não permitem concluir que as fichas consultadas não indicam posição de dormir; eles apenas mostram os tipos de enchimento. Versão sustentável: A Ortobom informa que o modelo Hug tem enchimento de fibra siliconada 100% poliéster, enquanto a Probel identifica o enchimento do modelo Conect Comfort como fibra siliconada. Nos trechos citados, não aparece uma indicação de posição de dormir; confira a ficha do modelo escolhido antes de comprar."
+    }
+  ]
+}

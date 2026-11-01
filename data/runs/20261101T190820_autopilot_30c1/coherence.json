@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "como-decidir#0.r0",
+      "problem": "A tabela promete orientar sobre travesseiros de espuma e fibra, mas a linha apresentada só traz opções de espuma.",
+      "fix": "Mude o título da tabela para “Travesseiros de espuma: posição de dormir e altura indicadas” ou retire “e fibra” da promessa."
+    },
+    {
+      "check": "caso_sem_orientacao",
+      "ref": "como-decidir#4",
+      "problem": "Quem considera um travesseiro de fibra não recebe uma orientação de escolha: o bloco apenas informa a composição e manda conferir a ficha, sem dizer o que verificar nela.",
+      "fix": "Reescreva para orientar: “Se optar por fibra, confira na ficha do modelo escolhido a posição de dormir indicada, pois os trechos consultados não trazem essa informação para o Hug e o Conect Comfort.”"
+    },
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "“Travesseiro de espuma ou de fibra: qual escolher” promete uma escolha entre os dois tipos, mas a página recomenda modelos de espuma por posição e altura e apenas identifica a composição dos modelos de fibra.",
+      "fix": "Ajuste o título e a descrição para prometer apenas o que a página entrega, por exemplo: “Travesseiro de espuma ou de fibra: o que as fichas dos modelos informam”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19455,
+    "output_tokens": 3306,
+    "calls": 3
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "travesseiro-de-espuma-ou-de-fibra",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 99617,
+    "output_tokens": 41238,
+    "calls": 52
+  },
+  "credits": 48.38276471999998,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela promete orientar sobre travesseiros de espuma e fibra, mas a linha apresentada só traz opções de espuma (como-decidir#0.r0); Mude o título da tabela para “Travesseiros de espuma: posição de dormir e altura indicadas” ou retire “e fibra” da promessa",
+      "Quem considera um travesseiro de fibra não recebe uma orientação de escolha: o bloco apenas informa a composição e manda conferir a ficha, sem dizer o que verificar nela (como-decidir#4); Reescreva para orientar: “Se optar por fibra, confira na ficha do modelo",
+      "“Travesseiro de espuma ou de fibra: qual escolher” promete uma escolha entre os dois tipos, mas a página recomenda modelos de espuma por posição e altura e apenas identifica a composição dos modelos de fibra (verdict); Ajuste o título e a descrição para promet"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para dormir de lado, procurar um travesseiro de espuma cuja ficha indique essa posição; os exemplos citados têm 12 cm ou 14 cm de altura.",
+      "Para dormir de costas ou de bruços, escolher um travesseiro de espuma de altura média indicado pelo fabricante para essas posições.",
+      "Se precisar ajustar a altura, conferir se o travesseiro de espuma tem placa removível e regulagem em duas alturas.",
+      "Ao escolher fibra, conferir na ficha se o enchimento é de fibra siliconada 100% poliéster, como no Ortobom Hug, ou fibra siliconada, como no Probel Conect Comfort.",
+      "Conferir na ficha do modelo as dimensões, a altura e os cuidados de lavagem e secagem, pois variam entre produtos.",
+      "Verificar na etiqueta a composição das fibras, as dimensões e os cinco tipos de tratamento de conservação exigidos pelo Inmetro."
+    ],
+    "missing": [
+      "Para o leitor leigo: A tabela promete orientar sobre travesseiros de espuma e fibra, mas a linha apresentada só traz opções de espuma (como-decidir#0.r0); Mude o título da tabela para “Travesseiros de espuma: posição de dormir e altura indicadas” ou retire “e fibra” da promessa",
+      "Para o leitor leigo: Quem considera um travesseiro de fibra não recebe uma orientação de escolha: o bloco apenas informa a composição e manda conferir a ficha, sem dizer o que verificar nela (como-decidir#4); Reescreva para orientar: “Se optar por fibra, confira na ficha do modelo",
+      "Para o leitor leigo: “Travesseiro de espuma ou de fibra: qual escolher” promete uma escolha entre os dois tipos, mas a página recomenda modelos de espuma por posição e altura e apenas identifica a composição dos modelos de fibra (verdict); Ajuste o título e a descrição para promet",
+      "Uma regra de escolha para travesseiros de fibra, relacionando posição de dormir, altura ou firmeza aos modelos disponíveis.",
+      "Altura, densidade ou firmeza declarada pelo fabricante para os modelos de fibra, além da gramatura do enchimento.",
+      "Uma comparação direta entre espuma e fibra que indique qual opção serve melhor para cada perfil de uso.",
+      "Peso e dimensões completas de modelos de espuma e de fibra fornecidos pelos respectivos fabricantes.",
+      "Esclarecimento sobre quais instruções de conservação se aplicam ao enchimento, e não apenas à capa, em cada tipo de travesseiro.",
+      "Informação primária mais específica sobre o que uma certificação ou avaliação do Inmetro efetivamente verifica em travesseiros."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece critérios concretos para escolher espuma conforme a posição de dormir, a altura e a possibilidade de regulagem, além de orientar o que conferir na composição e na ficha do produto. Porém, responde apenas parcialmente à comparação entre espuma e fibra: faltam regras de escolha e especificações do fabricante para travesseiros de fibra, como altura, firmeza, gramatura e indicação por posição.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "como-decidir#0.r0",
+        "problem": "A tabela promete orientar sobre travesseiros de espuma e fibra, mas a linha apresentada só traz opções de espuma.",
+        "fix": "Mude o título da tabela para “Travesseiros de espuma: posição de dormir e altura indicadas” ou retire “e fibra” da promessa."
+      },
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "como-decidir#4",
+        "problem": "Quem considera um travesseiro de fibra não recebe uma orientação de escolha: o bloco apenas informa a composição e manda conferir a ficha, sem dizer o que verificar nela.",
+        "fix": "Reescreva para orientar: “Se optar por fibra, confira na ficha do modelo escolhido a posição de dormir indicada, pois os trechos consultados não trazem essa informação para o Hug e o Conect Comfort.”"
+      },
+      {
+        "check": "promessa_do_titulo",
+        "ref": "verdict",
+        "problem": "“Travesseiro de espuma ou de fibra: qual escolher” promete uma escolha entre os dois tipos, mas a página recomenda modelos de espuma por posição e altura e apenas identifica a composição dos modelos de fibra.",
+        "fix": "Ajuste o título e a descrição para prometer apenas o que a página entrega, por exemplo: “Travesseiro de espuma ou de fibra: o que as fichas dos modelos informam”."
+      }
+    ]
+  }
+}
