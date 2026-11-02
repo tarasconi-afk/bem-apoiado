@@ -1,0 +1,29 @@
+{
+  "patches": [
+    {
+      "ref": "produto-completo-ou-acessorio#0",
+      "action": "replace",
+      "text": "O que a Plumatex declara sobre a espuma casca de ovo?",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A Plumatex informa que a espuma casca de ovo tem densidade D23 kg/m³ e oferece o produto nas medidas 78 × 188 × 4 cm, 88 × 188 × 4 cm e 138 × 188 × 4 cm, com mais conforto e ventilação segundo a fabricante. O Inmetro esclarece que seu selo se refere às avaliações da espuma, do revestimento e da chapa dura; outras propriedades e materiais declarados pelo fabricante não foram avaliados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5bd5c8398833",
+        "clm_c3c915486aee",
+        "clm_e6b15e5eb833",
+        "clm_571c2ce93e7d"
+      ]
+    }
+  ],
+  "kept": true,
+  "audited": [
+    "verdict",
+    "produto-completo-ou-acessorio#0"
+  ],
+  "still": []
+}

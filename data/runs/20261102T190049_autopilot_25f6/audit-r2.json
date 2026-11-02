@@ -1,0 +1,76 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "produto-completo-ou-acessorio#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-disponiveis#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-disponiveis#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-disponiveis#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-cuidados#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora marcado como framing, faz uma recomendação baseada na ideia de que fabricante ou vendedor pode confirmar informações sobre garantia, compatibilidade e cuidados. Não há trechos citados que sustentem essa orientação.",
+      "fix": "Remova a recomendação ou apresente apenas uma transição sem afirmação factual, como: \"A seguir, veja informações gerais sobre garantia, compatibilidade e cuidados com a capa.\""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "garantia-e-cuidados#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, faz uma recomendação baseada na ideia de que fabricante ou vendedor pode confirmar informações sobre garantia, compatibilidade e cuidados. Não há trechos citados que sustentem essa orientação. Versão sustentável: Remova a recomendação ou apresente apenas uma transição sem afirmação factual, como: \"A seguir, veja informações gerais sobre garantia, compatibilidade e cuidados com a capa.\""
+    }
+  ]
+}
