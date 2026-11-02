@@ -1,0 +1,217 @@
+{
+  "run_id": "20261102T070703_autopilot_efaa",
+  "topic": "cobertor-mais-quente-como-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_8cc937059d1c",
+      "question_id": "q_fibra_gramatura_calor",
+      "source_id": "src_defb84df063b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fe4ec31c0692",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_defb84df063b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bd38950696cf",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_defb84df063b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c341ff6a30bf",
+      "question_id": "q_cuidados_conservacao_etiqueta",
+      "source_id": "src_defb84df063b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cadea3714a11",
+      "question_id": "q_fibra_gramatura_calor",
+      "source_id": "src_c787b7808de1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b3eb31b72afa",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_c787b7808de1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a570ecb50d04",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_c787b7808de1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_81c65ca060e6",
+      "question_id": "q_medidas_peso_guardado",
+      "source_id": "src_c787b7808de1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_23f8010fb15b",
+      "question_id": "q_fibra_gramatura_calor",
+      "source_id": "src_c0508dcd4761",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5bae51fde01a",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_c0508dcd4761",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9d2a8ad05ec2",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_c0508dcd4761",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4280c42458ca",
+      "question_id": "q_medidas_peso_guardado",
+      "source_id": "src_c0508dcd4761",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6440f47401e0",
+      "question_id": "q_fibra_gramatura_calor",
+      "source_id": "src_f35634261a6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ed579e83b6fc",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_f35634261a6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7b87dfa24a3f",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_f35634261a6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a5fcbb01972d",
+      "question_id": "q_medidas_peso_guardado",
+      "source_id": "src_f35634261a6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b418d664a512",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_e4e20412985b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_44aad5011393",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_e4e20412985b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_056f6d216e8e",
+      "question_id": "q_fibra_gramatura_calor",
+      "source_id": "src_53d0a6cfb5b7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_78f2f6935e2d",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_53d0a6cfb5b7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_87225c4bc0e1",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_53d0a6cfb5b7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_02b6826043f5",
+      "question_id": "q_fibra_gramatura_calor",
+      "source_id": "src_8f78d0ee7118",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3bebdfa74640",
+      "question_id": "q_tipos_fibra_fabricante",
+      "source_id": "src_8f78d0ee7118",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f97537dfe702",
+      "question_id": "q_tamanho_por_cama",
+      "source_id": "src_8f78d0ee7118",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_fibra_gramatura_calor": 6,
+    "q_etiqueta_composicao_inmetro": 0,
+    "q_cuidados_conservacao_etiqueta": 1,
+    "q_tipos_fibra_fabricante": 7,
+    "q_medidas_peso_guardado": 3,
+    "q_tamanho_por_cama": 7
+  },
+  "unanswered": [
+    "q_etiqueta_composicao_inmetro"
+  ],
+  "usage": {
+    "input_tokens": 13733,
+    "output_tokens": 2991,
+    "calls": 7
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_f19c0da2e21c",
+    "src_49ce6134f337"
+  ],
+  "triage": [
+    {
+      "source_id": "src_defb84df063b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_c787b7808de1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_c0508dcd4761",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_f35634261a6d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e4e20412985b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_53d0a6cfb5b7",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_8f78d0ee7118",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 10.575405240000006
+}

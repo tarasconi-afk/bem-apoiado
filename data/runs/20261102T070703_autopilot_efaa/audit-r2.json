@@ -1,0 +1,178 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram apenas exemplos de gramatura — 280 g/m² na Kacyumara e 350 g/m² na Döhler — e a Döhler associa especificamente seu produto de 350 g/m² ao aquecimento. Eles não sustentam a regra geral de que cobertores mais quentes têm gramatura acima de 280 g/m². Além disso, os trechos do Inmetro sustentam a informação sobre fibras e cuidados de conservação na etiqueta, mas não dizem que a escolha deve ser feita pela gramatura.",
+      "fix": "Os exemplos citados informam gramaturas de 280 g/m² (Kacyumara) e 350 g/m² (Döhler); a etiqueta deve informar os nomes e percentuais das fibras e os cuidados de conservação."
+    },
+    {
+      "ref": "fibra-e-gramatura#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Döhler sustenta que, nesse cobertor, a gramatura de 350 g/m² é apresentada como peso ideal para garantir o aquecimento necessário. Não sustenta que fabricantes, em geral, declaram a gramatura como o indicativo principal do aquecimento.",
+      "fix": "A Döhler declara que, no cobertor Eva, a gramatura de 350 g/m² é o peso ideal para garantir o aquecimento necessário sem perder a leveza."
+    },
+    {
+      "ref": "fibra-e-gramatura#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o produto da Kacyumara é de microfibra 100% poliéster e tem 280 g/m², e que o produto da Buddemeyer tem 350 g/m². Não sustentam que a maioria dos cobertores usa 100% poliéster, que há flanela comum, nem que o cobertor Intense da Buddemeyer é 100% poliéster.",
+      "fix": "A Kacyumara informa que o cobertor Blanket 300 é de microfibra 100% poliéster e tem gramatura de 280 g/m². A Buddemeyer informa que o cobertor Intense tem 350 g/m² e ótima relação entre peso e volume."
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a indicação de tamanho ou dimensão é obrigatória quando aplicável, mas não dizem que isso permite verificar se as medidas correspondem ao que o fabricante declara.",
+      "fix": "A etiqueta também deve indicar o tamanho ou a dimensão do cobertor, quando aplicável."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam o tratamento de cuidado para conservação e dizem que essa informação pode ser indicada por símbolos, textos ou ambos, mas não mostram que a etiqueta do cobertor deve obrigatoriamente trazer essa informação.",
+      "fix": "Conforme o Inmetro, a informação sobre tratamento de cuidado para conservação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante ou de outros responsáveis previstos no trecho."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta os cuidados indicados para o cobertor Eva da Döhler, mas não permite generalizá-los para todos os cobertores de microfibra 100% poliéster. Além disso, o trecho citado não informa que o produto é 100% poliéster.",
+      "fix": "Segundo a Döhler, o cobertor Eva de microfibra deve ser lavado em processo suave a no máximo 30°C, sem alvejante, sem lavagem a seco e sem secagem em tambor; se necessário, deve ser passado a no máximo 110°C, sem vapor."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado trata de um produto Teka 100% algodão e não sustenta a afirmação sobre algodão misturado com poliéster nem a generalização de que esses cobertores admitem cuidados menos restritos. Também afirma 'não usar alvejante', contrariando a frase de que alvejantes são permitidos; o trecho só sustenta lavagem a até 60°C e secagem em tambor a até 60°C para esse produto.",
+      "fix": "Na ficha do produto Teka 100% algodão citada, constam lavagem a até 60°C, em processo normal, e secagem em tambor a até 60°C; o trecho também orienta não usar alvejante."
+    },
+    {
+      "ref": "tamanhos-medidas#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados informam as gramaturas de 280 g/m² e 300 g/m² e as composições, mas não dizem que o uso é geral em noites frias segundo a Kacyumara.",
+      "fix": "Indicação de uso: não informada nos trechos citados; ou: Gramatura: 280 a 300 g/m². Composição citada: 100% poliéster, em microfibra ou flanela."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Döhler não diz aquecimento máximo, apenas aquecimento necessário sem perder a leveza. Além disso, o trecho da Buddemeyer não informa composição nem 100% poliéster; essa composição é sustentada apenas pelo trecho da Döhler.",
+      "fix": "Gramatura: 350 g/m². Indicação: segundo a Döhler, peso ideal para garantir o aquecimento necessário sem perder a leveza. Composição: segundo a Döhler, microfibra flanelada 100% poliéster."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam produtos de 400 g e 100% poliéster, mas não afirmam que eles proporcionam aquecimento máximo.",
+      "fix": "Gramatura: 400 g/m². Composição: segundo a Andreza Enxovais, 100% poliéster, em produtos identificados como Flannel."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Döhler sustentam que 350 g/m² é o peso ideal para garantir o aquecimento necessário sem perder a leveza, mas não estabelecem o critério geral de noites muito frias nem recomendam que se escolha 350 g/m² ou mais.",
+      "fix": "A Döhler declara que, no cobertor Eva, 350 g/m² é o peso ideal para garantir o aquecimento necessário sem perder a leveza, em microfibra flanelada 100% poliéster."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta o uso de 250 g/m² em meia-estação ou como camada complementar em dias mais frios, mas não informa que o cobertor Elise é de microfibra poliéster.",
+      "fix": "Se você procura um cobertor para meia-estação ou para usar como camada complementar em dias mais frios, o trecho da Döhler descreve o modelo Elise, de 250 g/m², como ideal para esse uso."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado apresenta cuidados específicos para o cobertor Eva da Döhler, mas o bloco generaliza esses cuidados para cobertores em microfibra em geral. A orientação de não usar alvejante, não lavar a seco e não secar em tambor é específica ao produto citado.",
+      "fix": "Se pretende lavar o cobertor na máquina ou usar secadora, confira os cuidados antes de comprar. Para o Eva da Döhler, a orientação citada é lavar em processo suave a até 30 °C, não usar alvejante, não lavar a seco e não secar em tambor."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos mostram apenas exemplos de gramatura — 280 g/m² na Kacyumara e 350 g/m² na Döhler — e a Döhler associa especificamente seu produto de 350 g/m² ao aquecimento. Eles não sustentam a regra geral de que cobertores mais quentes têm gramatura acima de 280 g/m². Além disso, os trechos do Inmetro sustentam a informação sobre fibras e cuidados de conservação na etiqueta, mas não dizem que a escolha deve ser feita pela gramatura. Versão sustentável: Os exemplos citados informam gramaturas de 280 g/m² (Kacyumara) e 350 g/m² (Döhler); a etiqueta deve informar os nomes e percentuais das fibras e os cuidados de conservação."
+    },
+    {
+      "ref": "fibra-e-gramatura#0",
+      "msg": "OVERSTATED. O trecho da Döhler sustenta que, nesse cobertor, a gramatura de 350 g/m² é apresentada como peso ideal para garantir o aquecimento necessário. Não sustenta que fabricantes, em geral, declaram a gramatura como o indicativo principal do aquecimento. Versão sustentável: A Döhler declara que, no cobertor Eva, a gramatura de 350 g/m² é o peso ideal para garantir o aquecimento necessário sem perder a leveza."
+    },
+    {
+      "ref": "fibra-e-gramatura#1",
+      "msg": "OVERSTATED. Os trechos sustentam que o produto da Kacyumara é de microfibra 100% poliéster e tem 280 g/m², e que o produto da Buddemeyer tem 350 g/m². Não sustentam que a maioria dos cobertores usa 100% poliéster, que há flanela comum, nem que o cobertor Intense da Buddemeyer é 100% poliéster. Versão sustentável: A Kacyumara informa que o cobertor Blanket 300 é de microfibra 100% poliéster e tem gramatura de 280 g/m². A Buddemeyer informa que o cobertor Intense tem 350 g/m² e ótima relação entre peso e volume."
+    },
+    {
+      "ref": "etiqueta-composicao#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a indicação de tamanho ou dimensão é obrigatória quando aplicável, mas não dizem que isso permite verificar se as medidas correspondem ao que o fabricante declara. Versão sustentável: A etiqueta também deve indicar o tamanho ou a dimensão do cobertor, quando aplicável."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos citam o tratamento de cuidado para conservação e dizem que essa informação pode ser indicada por símbolos, textos ou ambos, mas não mostram que a etiqueta do cobertor deve obrigatoriamente trazer essa informação. Versão sustentável: Conforme o Inmetro, a informação sobre tratamento de cuidado para conservação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante ou de outros responsáveis previstos no trecho."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "OVERSTATED. O trecho sustenta os cuidados indicados para o cobertor Eva da Döhler, mas não permite generalizá-los para todos os cobertores de microfibra 100% poliéster. Além disso, o trecho citado não informa que o produto é 100% poliéster. Versão sustentável: Segundo a Döhler, o cobertor Eva de microfibra deve ser lavado em processo suave a no máximo 30°C, sem alvejante, sem lavagem a seco e sem secagem em tambor; se necessário, deve ser passado a no máximo 110°C, sem vapor."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "OVERSTATED. O trecho citado trata de um produto Teka 100% algodão e não sustenta a afirmação sobre algodão misturado com poliéster nem a generalização de que esses cobertores admitem cuidados menos restritos. Também afirma 'não usar alvejante', contrariando a frase de que alvejantes são permitidos; o trecho só sustenta lavagem a até 60°C e secagem em tambor a até 60°C para esse produto. Versão sustentável: Na ficha do produto Teka 100% algodão citada, constam lavagem a até 60°C, em processo normal, e secagem em tambor a até 60°C; o trecho também orienta não usar alvejante."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os trechos citados informam as gramaturas de 280 g/m² e 300 g/m² e as composições, mas não dizem que o uso é geral em noites frias segundo a Kacyumara. Versão sustentável: Indicação de uso: não informada nos trechos citados; ou: Gramatura: 280 a 300 g/m². Composição citada: 100% poliéster, em microfibra ou flanela."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. O trecho da Döhler não diz aquecimento máximo, apenas aquecimento necessário sem perder a leveza. Além disso, o trecho da Buddemeyer não informa composição nem 100% poliéster; essa composição é sustentada apenas pelo trecho da Döhler. Versão sustentável: Gramatura: 350 g/m². Indicação: segundo a Döhler, peso ideal para garantir o aquecimento necessário sem perder a leveza. Composição: segundo a Döhler, microfibra flanelada 100% poliéster."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "UNSUPPORTED. Os trechos informam produtos de 400 g e 100% poliéster, mas não afirmam que eles proporcionam aquecimento máximo. Versão sustentável: Gramatura: 400 g/m². Composição: segundo a Andreza Enxovais, 100% poliéster, em produtos identificados como Flannel."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos da Döhler sustentam que 350 g/m² é o peso ideal para garantir o aquecimento necessário sem perder a leveza, mas não estabelecem o critério geral de noites muito frias nem recomendam que se escolha 350 g/m² ou mais. Versão sustentável: A Döhler declara que, no cobertor Eva, 350 g/m² é o peso ideal para garantir o aquecimento necessário sem perder a leveza, em microfibra flanelada 100% poliéster."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho sustenta o uso de 250 g/m² em meia-estação ou como camada complementar em dias mais frios, mas não informa que o cobertor Elise é de microfibra poliéster. Versão sustentável: Se você procura um cobertor para meia-estação ou para usar como camada complementar em dias mais frios, o trecho da Döhler descreve o modelo Elise, de 250 g/m², como ideal para esse uso."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho citado apresenta cuidados específicos para o cobertor Eva da Döhler, mas o bloco generaliza esses cuidados para cobertores em microfibra em geral. A orientação de não usar alvejante, não lavar a seco e não secar em tambor é específica ao produto citado. Versão sustentável: Se pretende lavar o cobertor na máquina ou usar secadora, confira os cuidados antes de comprar. Para o Eva da Döhler, a orientação citada é lavar em processo suave a até 30 °C, não usar alvejante, não lavar a seco e não secar em tambor."
+    }
+  ]
+}

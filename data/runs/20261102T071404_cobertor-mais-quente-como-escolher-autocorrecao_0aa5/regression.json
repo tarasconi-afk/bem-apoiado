@@ -1,0 +1,69 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para meia-estação ou como camada complementar, conferir modelos de 250 g/m², como o Elise da Döhler.",
+      "Para mais aquecimento, conferir modelos de 350 g/m², como o Eva da Döhler, que o fabricante relaciona a aquecimento sem perder leveza.",
+      "Comparar a gramatura declarada na ficha: os exemplos variam de 250 a 400 g/m², e os modelos citados são de poliéster.",
+      "Conferir na etiqueta o nome e o percentual de cada fibra, para saber se o cobertor é 100% poliéster ou uma mistura.",
+      "Verificar as instruções de lavagem, secagem e passagem do modelo escolhido, pois elas variam conforme o produto.",
+      "Escolher as medidas conforme o tamanho da cama e conferir a dimensão declarada no anúncio ou na embalagem."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma orientação mais ampla e comparável dos fabricantes relacionando faixas de gramatura e nível de aquecimento, inclusive para fibras como lã, acrílico e algodão.",
+      "Uma explicação direta de que gramatura é o peso do tecido por metro quadrado e de que ela serve como critério de comparação entre modelos semelhantes.",
+      "Mais exemplos de produtos em que o fabricante declare simultaneamente gramatura, composição e indicação de uso para dias frios."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece critérios concretos: comparar a gramatura, usar 250 g/m² para meia-estação e buscar cerca de 350 g/m² para mais aquecimento, além de conferir composição, cuidados e medidas. Porém, a resposta curta apenas apresenta exemplos de 280 e 350 g/m² e não diz explicitamente qual escolher; deve ser reescrita para resolver a dúvida sozinha em até três frases.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página usa “gramatura” e g/m² sem explicar claramente que se trata do peso do tecido por metro quadrado.",
+      "A seção “Como decidir” concentra a recomendação em modelos da Döhler, embora a página também cite Kacyumara, Buddemeyer, Teka e outros fabricantes; falta uma regra mais neutra para comparar produtos de marcas diferentes."
+    ],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Para noites frias, considerar cobertores de 350 g/m², faixa que a Döhler associa ao aquecimento sem perder leveza.",
+      "Para meia-estação ou como camada complementar, considerar 250 g/m², conforme a descrição do Cobertor Elise da Döhler.",
+      "Comparar cobertores de 280 a 300 g/m² como opções intermediárias entre os exemplos de 250 e 350 g/m².",
+      "Verificar no anúncio ou na ficha a gramatura declarada, em g/m², e não apenas o nome comercial do produto.",
+      "Conferir a composição e os percentuais de fibras na etiqueta, como 100% poliéster ou algodão.",
+      "Antes da compra, verificar as instruções de lavagem, secagem e uso de alvejante, especialmente se o cobertor será lavado em máquina ou usado em secadora.",
+      "Escolher a medida conforme o tamanho da cama e conferir as dimensões exatas declaradas pelo fabricante."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A página usa “gramatura” e g/m² sem explicar claramente que se trata do peso do tecido por metro quadrado.",
+      "Para o leitor leigo: A seção “Como decidir” concentra a recomendação em modelos da Döhler, embora a página também cite Kacyumara, Buddemeyer, Teka e outros fabricantes; falta uma regra mais neutra para comparar produtos de marcas diferentes.",
+      "Uma explicação simples de que gramatura é o peso do tecido por metro quadrado.",
+      "Uma tabela de fonte primária relacionando faixas de gramatura a níveis de aquecimento para diferentes fibras e fabricantes, em vez de depender principalmente dos exemplos da Döhler.",
+      "Informação de fabricante sobre se cobertores de 400 g/m² são efetivamente mais quentes ou destinados a noites frias, já que essa faixa aparece na tabela sem indicação de uso.",
+      "Uma regra que ajude a comparar produtos de marcas diferentes sem tratar um modelo específico da Döhler como escolha universal."
+    ],
+    "publishable": false,
+    "summary": "A página dá uma regra concreta e útil: comparar a gramatura, com 250 g/m² para meia-estação e 350 g/m² associado a noites frias nos exemplos citados. Também orienta a conferir composição, cuidados e medidas. Porém, não explica o termo central para leigos e a recomendação prática fica dependente de modelos da Döhler; precisa de uma revisão para apresentar a regra de forma mais neutra e compreensível.",
+    "filler_ratio": 0.15789473684210525,
+    "model_opinion": false
+  },
+  "score_before": 3,
+  "score_after": 2
+}

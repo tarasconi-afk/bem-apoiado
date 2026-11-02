@@ -1,0 +1,35 @@
+{
+  "patches": [
+    {
+      "ref": "fibra-e-gramatura#0",
+      "action": "replace",
+      "text": "Segundo a Kacyumara, o cobertor Blanket 300 é de microfibra 100% poliéster com gramatura de 280 g/m². Segundo a Buddemeyer, o cobertor Intense tem 350 g/m² com ótima relação entre peso e volume.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6566a6168fcc",
+        "clm_02b6826043f5",
+        "clm_232a27049f3d"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "Conforme o Inmetro, a etiqueta do produto têxtil deve trazer informações sobre tratamento de cuidado para conservação. Essa informação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7826221856ab",
+        "clm_a730fea8b014"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "fibra-e-gramatura#0",
+    "cuidados-conservacao#0",
+    "cuidados-conservacao#1",
+    "cuidados-conservacao#2"
+  ],
+  "still": [
+    "cuidados-conservacao#0: OVERSTATED"
+  ]
+}
