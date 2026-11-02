@@ -1,0 +1,108 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações sobre dormir de lado, gestação e apoio da coluna aparecem nos trechos como afirmações da Ortobom, mas o bloco as apresenta como orientação geral. Além disso, o trecho da Probel informa apenas medidas, não permite atribuir a ela a recomendação de verificar lavagem em casa. A faixa de medidas também é apresentada como se descrevesse a categoria, embora os trechos mostrem apenas dois modelos específicos.",
+      "fix": "Segundo a Ortobom, seu travesseiro Hug é recomendado para auxiliar no conforto ao dormir de lado e para auxiliar gestantes a dormir na posição lateral. Nos modelos citados, as medidas são 130 × 40 cm (Probel) e 140 × 50 cm (Ortobom). A ficha da Ortobom informa instruções de lavagem e cuidados; confira a ficha do modelo escolhido antes de comprar."
+    },
+    {
+      "ref": "o-que-eh-travesseiro-corpo#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco repete uma alegação de saúde/postura ao dizer que colocar o travesseiro entre os joelhos serve para manter a coluna ereta; essa alegação não pode ser apresentada nem mesmo atribuída à fabricante. Além disso, o trecho não diz que o produto é alongado nem define genericamente o que é um travesseiro de corpo.",
+      "fix": "Segundo a Ortobom, o travesseiro Hug pode ser abraçado e colocado entre os joelhos durante o sono na posição de lado, cumprindo essa dupla função."
+    },
+    {
+      "ref": "medidas-e-materiais#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-e-materiais#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta que devem ser informados pelo menos cinco principais tratamentos de conservação de um produto têxtil, por símbolos e/ou texto, mas não enumera quais são esses tratamentos nem diz explicitamente que a exigência se aplica à etiqueta de um travesseiro.",
+      "fix": "O Inmetro determina que sejam descritos, por símbolos e/ou texto, pelo menos cinco principais tratamentos de conservação do produto têxtil, conforme a Norma NM-ISO 3758:2013."
+    },
+    {
+      "ref": "cuidados-de-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capa-removivel#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capa-removivel#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta exigências para produtos têxteis, mas não diz que todo travesseiro — nem especificamente o travesseiro de corpo — deve ter etiqueta com essas informações. Também não menciona expressamente uma etiqueta nesse trecho.",
+      "fix": "O Inmetro informa que produtos têxteis devem conter o nome ou a razão social ou marca registrada do fabricante, CNPJ do fabricante nacional ou importador, país de origem, composição e percentuais das fibras, tamanho e pelo menos os cinco principais tratamentos de conservação descritos conforme a NM-ISO 3758:2013."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "“Auxiliar o alinhamento” sugere uma alegação relacionada à postura ou à coluna, e o trecho do fabricante também fala em manter a coluna ereta. Esse tipo de alegação de saúde não deve ser repetido, mesmo com base em fabricante.",
+      "fix": "Se você dorme de lado e quer apoiar o corpo, confira se a descrição indica uso abraçado e entre os joelhos; o Hug da Ortobom é descrito dessa forma."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o Hug tem lavagem suave a até 40 °C e que os tratamentos de conservação devem ser informados no produto, mas não sustentam a formulação “sempre” nem especificamente a obrigação de conferir a etiqueta antes de comprar.",
+      "fix": "Se você quer lavar o travesseiro em casa, escolha um modelo cuja ficha permita lavagem, segundo a Ortobom. O Hug da Ortobom informa lavagem suave a até 40 °C; confira as instruções de conservação informadas para o produto."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As recomendações sobre dormir de lado, gestação e apoio da coluna aparecem nos trechos como afirmações da Ortobom, mas o bloco as apresenta como orientação geral. Além disso, o trecho da Probel informa apenas medidas, não permite atribuir a ela a recomendação de verificar lavagem em casa. A faixa de medidas também é apresentada como se descrevesse a categoria, embora os trechos mostrem apenas dois modelos específicos. Versão sustentável: Seu travesseiro Hug é recomendado para auxiliar no conforto ao dormir de lado e para auxiliar gestantes a dormir na posição lateral, segundo a Ortobom. Nos modelos citados, as medidas são 130 × 40 cm (Probel) e 140 × 50 cm (Ortobom). A ficha da Ortobom informa instruções de lavagem e cuidados; confira a ficha do modelo escolhido antes de comprar."
+    },
+    {
+      "ref": "o-que-eh-travesseiro-corpo#0",
+      "msg": "SAFETY_CLAIM. O bloco repete uma alegação de saúde/postura ao dizer que colocar o travesseiro entre os joelhos serve para manter a coluna ereta; essa alegação não pode ser apresentada nem mesmo atribuída à fabricante. Além disso, o trecho não diz que o produto é alongado nem define genericamente o que é um travesseiro de corpo. Versão sustentável: Segundo a Ortobom, o travesseiro Hug pode ser abraçado e colocado entre os joelhos durante o sono na posição de lado, cumprindo essa dupla função."
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "msg": "UNSUPPORTED. O trecho sustenta que devem ser informados pelo menos cinco principais tratamentos de conservação de um produto têxtil, por símbolos e/ou texto, mas não enumera quais são esses tratamentos nem diz explicitamente que a exigência se aplica à etiqueta de um travesseiro. Versão sustentável: O Inmetro determina que sejam descritos, por símbolos e/ou texto, pelo menos cinco principais tratamentos de conservação do produto têxtil, conforme a Norma NM-ISO 3758:2013."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. O trecho sustenta exigências para produtos têxteis, mas não diz que todo travesseiro — nem especificamente o travesseiro de corpo — deve ter etiqueta com essas informações. Também não menciona expressamente uma etiqueta nesse trecho. Versão sustentável: O Inmetro informa que produtos têxteis devem conter o nome ou a razão social ou marca registrada do fabricante, CNPJ do fabricante nacional ou importador, país de origem, composição e percentuais das fibras, tamanho e pelo menos os cinco principais tratamentos de conservação descritos conforme a NM-ISO 3758:2013."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "SAFETY_CLAIM. “Auxiliar o alinhamento” sugere uma alegação relacionada à postura ou à coluna, e o trecho do fabricante também fala em manter a coluna ereta. Esse tipo de alegação de saúde não deve ser repetido, mesmo com base em fabricante. Versão sustentável: Se você dorme de lado e quer apoiar o corpo, confira se a descrição indica uso abraçado e entre os joelhos; o Hug da Ortobom é descrito dessa forma."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam que o Hug tem lavagem suave a até 40 °C e que os tratamentos de conservação devem ser informados no produto, mas não sustentam a formulação “sempre” nem especificamente a obrigação de conferir a etiqueta antes de comprar. Versão sustentável: Se você quer lavar o travesseiro em casa, escolha um modelo cuja ficha permita lavagem, segundo a Ortobom. O Hug da Ortobom informa lavagem suave a até 40 °C; confira as instruções de conservação informadas para o produto."
+    }
+  ]
+}

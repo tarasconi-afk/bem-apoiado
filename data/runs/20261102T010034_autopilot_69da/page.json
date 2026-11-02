@@ -1,0 +1,61 @@
+{
+  "slug": "travesseiro-de-corpo-vale-a-pena",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 64417,
+    "output_tokens": 23499,
+    "calls": 40
+  },
+  "credits": 35.773554480000016,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete explicar o que a etiqueta informa sobre lavar e guardar, mas os blocos não trazem orientação sobre guardar o travesseiro (cuidados-de-conservacao#0); Mudar o título para “O que a etiqueta informa sobre os cuidados de conservação”, que correspon",
+      "A seção anuncia certificação e regulação, mas o bloco informa apenas os dados obrigatórios na etiqueta de produtos têxteis; não há informação sobre certificação (certificacao-inmetro#0); Mudar o título para “Informações obrigatórias na etiqueta do travesseiro "
+    ],
+    "filler_refs": [
+      "o-que-eh-travesseiro-corpo#0",
+      "como-decidir#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Se você dorme de lado e quer apoiar o corpo, confira se o fabricante indica usar o travesseiro abraçado e entre os joelhos.",
+      "Se você está grávida e precisa dormir de lado, confira se a ficha do modelo indica auxílio nessa posição.",
+      "Se o espaço da cama é limitado, compare as medidas do travesseiro com o espaço disponível; os modelos citados medem 140 × 50 cm e 130 × 40 × 20 cm.",
+      "Se pretende lavar o travesseiro em casa, confira a etiqueta de conservação; o Hug informa lavagem suave a até 40 °C.",
+      "Se quiser lavar a capa separadamente, confirme na ficha se ela é removível, pois essa informação não aparece para o Hug.",
+      "Confira no anúncio ou na ficha o material do enchimento, as medidas e os tratamentos de conservação informados."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção promete explicar o que a etiqueta informa sobre lavar e guardar, mas os blocos não trazem orientação sobre guardar o travesseiro (cuidados-de-conservacao#0); Mudar o título para “O que a etiqueta informa sobre os cuidados de conservação”, que correspon",
+      "Para o leitor leigo: A seção anuncia certificação e regulação, mas o bloco informa apenas os dados obrigatórios na etiqueta de produtos têxteis; não há informação sobre certificação (certificacao-inmetro#0); Mudar o título para “Informações obrigatórias na etiqueta do travesseiro ",
+      "Uma orientação do fabricante relacionando altura do comprador, posição de dormir e comprimento adequado do travesseiro, além da lista de comprimentos disponíveis.",
+      "O peso declarado dos modelos.",
+      "A densidade ou gramatura do enchimento, caso o fabricante informe esse dado.",
+      "Uma resposta do Inmetro esclarecendo se travesseiros de corpo são certificados da mesma forma que colchões de espuma e de molas."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde que o travesseiro de corpo tende a valer a pena para quem dorme de lado, especialmente quando busca apoio abraçando-o ou colocando-o entre os joelhos, e dá critérios práticos de compra sobre indicação de uso, medidas, lavagem e capa removível. Faltam alguns dados técnicos pedidos na pauta, mas eles não impedem a decisão principal.",
+    "filler_ratio": 0.23076923076923078,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "cuidados-de-conservacao#0",
+        "problem": "A seção promete explicar o que a etiqueta informa sobre lavar e guardar, mas os blocos não trazem orientação sobre guardar o travesseiro.",
+        "fix": "Mudar o título para “O que a etiqueta informa sobre os cuidados de conservação”, que corresponde aos tratamentos citados nos blocos."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "certificacao-inmetro#0",
+        "problem": "A seção anuncia certificação e regulação, mas o bloco informa apenas os dados obrigatórios na etiqueta de produtos têxteis; não há informação sobre certificação.",
+        "fix": "Mudar o título para “Informações obrigatórias na etiqueta do travesseiro de corpo”."
+      }
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "run_id": "20261102T010034_autopilot_69da",
+  "topic": "travesseiro-de-corpo-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_82bac2072d3f",
+      "question_id": "q_dimensoes_peso",
+      "source_id": "src_a94bbbcff23e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e2f8b0e4a9e7",
+      "question_id": "q_dimensoes_peso",
+      "source_id": "src_a94bbbcff23e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3299f2a7b219",
+      "question_id": "q_material_enchimento",
+      "source_id": "src_a94bbbcff23e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_31eed9f553e0",
+      "question_id": "q_material_enchimento",
+      "source_id": "src_a94bbbcff23e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9bf8693e14d4",
+      "question_id": "q_medida_indicacao",
+      "source_id": "src_a94bbbcff23e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4d0af86b1ec7",
+      "question_id": "q_medida_indicacao",
+      "source_id": "src_5ea4f744fd48",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b3693b6137d5",
+      "question_id": "q_medida_indicacao",
+      "source_id": "src_5ea4f744fd48",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7ce0093ce859",
+      "question_id": "q_dimensoes_peso",
+      "source_id": "src_5ea4f744fd48",
+      "new": true
+    },
+    {
+      "claim_id": "clm_039a686c1191",
+      "question_id": "q_material_enchimento",
+      "source_id": "src_5ea4f744fd48",
+      "new": true
+    },
+    {
+      "claim_id": "clm_485e041a0819",
+      "question_id": "q_capa_removivel",
+      "source_id": "src_5ea4f744fd48",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_08183c08a76a",
+      "question_id": "q_dimensoes_peso",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO DE CORPO DECORATIVO 0.50X1.35M TECIDO 100% ALGODÃO PERCAL 180 FIOS."
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "question_id": "q_material_enchimento",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO DE CORPO DECORATIVO 0.50X1.35M TECIDO 100% ALGODÃO PERCAL 180 FIOS."
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "question_id": "q_dimensoes_peso",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO DE CORPO DECORATIVO 0.50X1.35M TECIDO 100% ALGODÃO PERCAL 180 FIOS."
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "question_id": "q_dimensoes_peso",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO DE CORPO DECORATIVO 0.50X1.35M TECIDO 100% ALGODÃO PERCAL 180 FIOS."
+    },
+    {
+      "source_id": "src_5ea4f744fd48",
+      "question_id": "q_etiqueta_cuidados",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Permitido temperatura máxima de lavagem 40° c processo suave, proibido alvejamento, permitido secagem em tambor temperatura máxima de 60º c, permitido passadoria temperatura máxima da base do ferro de"
+    }
+  ],
+  "coverage": {
+    "q_medida_indicacao": 3,
+    "q_dimensoes_peso": 3,
+    "q_material_enchimento": 3,
+    "q_etiqueta_cuidados": 0,
+    "q_capa_removivel": 1,
+    "q_certificacao_inmetro": 0
+  },
+  "unanswered": [
+    "q_etiqueta_cuidados",
+    "q_certificacao_inmetro"
+  ],
+  "usage": {
+    "input_tokens": 3910,
+    "output_tokens": 1853,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_08183c08a76a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.82
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "chunk": 2,
+      "keep": true,
+      "p_useful": 0.8
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "chunk": 3,
+      "keep": true,
+      "p_useful": 0.78
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "chunk": 4,
+      "keep": true,
+      "p_useful": 0.82
+    },
+    {
+      "source_id": "src_08183c08a76a",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0.27
+    },
+    {
+      "source_id": "src_a94bbbcff23e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_5ea4f744fd48",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 15.856969079999999
+}
