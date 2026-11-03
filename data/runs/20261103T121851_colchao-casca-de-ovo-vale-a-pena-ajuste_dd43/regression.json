@@ -1,0 +1,77 @@
+{
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "produto-completo-ou-acessorio#0",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Se a cama mede 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm, há um modelo Plumatex compatível.",
+      "A espuma acrescenta 4 cm à altura da cama.",
+      "O produto declara densidade D23 kg/m³; o comprador deve conferir se essa informação aparece na ficha ou na etiqueta.",
+      "Se a cama tiver outra medida, é necessário procurar outro modelo.",
+      "É possível comparar o tamanho da cama com as medidas declaradas no anúncio antes da compra."
+    ],
+    "missing": [
+      "Uma regra clara sobre quando o colchão casca de ovo vale a pena, considerando seu uso como colchão completo ou acessório sobre outro colchão.",
+      "A finalidade declarada pelo fabricante: se é colchão completo, sobrecolchão ou topper.",
+      "Orientação de densidade e espessura conforme o peso do usuário, ou uma explicação de que o fabricante não fornece essa recomendação.",
+      "Informações sobre compatibilidade com colchões de espuma, molas e diferentes bases.",
+      "Cuidados de lavagem, secagem e armazenamento da capa.",
+      "Prazo e condições da garantia.",
+      "Peso declarado de cada tamanho.",
+      "Limitações práticas, como aumento de altura e necessidade de conferir as medidas exatas."
+    ],
+    "publishable": true,
+    "summary": "A página dá uma regra concreta de medida, densidade e aumento de altura, e permite conferir o anúncio antes da compra. Porém, responde apenas parcialmente a “vale a pena”: não explica a finalidade do produto nem para qual situação ele é indicado, e vários blocos não informam uso, compatibilidade, garantia ou cuidados. A resposta curta é objetiva, mas a página ainda precisa de critérios de benefício e adequação para justificar a decisão de compra.",
+    "filler_ratio": 0.2,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página informa medidas e densidade, mas não explica se a espuma casca de ovo é adequada como produto completo ou acessório para colocar sobre outro colchão.",
+      "Não há regra para relacionar o produto ao peso do usuário, ao tipo de colchão ou ao objetivo de uso, como aumentar conforto ou aliviar pressão.",
+      "A resposta curta não diz claramente em quais situações vale a pena comprar nem quando não vale."
+    ],
+    "filler_refs": [
+      "produto-completo-ou-acessorio#0",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Se a cama mede 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm, conferir a opção correspondente.",
+      "Conferir se a espessura declarada é de 4 cm.",
+      "Verificar na ficha ou na etiqueta se a densidade informada é D23 kg/m³.",
+      "Se a densidade não aparecer claramente no anúncio, preferir um modelo que informe esse dado.",
+      "Conferir no anúncio se o fabricante declara características como conforto, ventilação ou toque massageador, embora a página não explique como isso deve influenciar a escolha."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A página informa medidas e densidade, mas não explica se a espuma casca de ovo é adequada como produto completo ou acessório para colocar sobre outro colchão.",
+      "Para o leitor leigo: Não há regra para relacionar o produto ao peso do usuário, ao tipo de colchão ou ao objetivo de uso, como aumentar conforto ou aliviar pressão.",
+      "Para o leitor leigo: A resposta curta não diz claramente em quais situações vale a pena comprar nem quando não vale.",
+      "Uma declaração do fabricante esclarecendo se o produto é um colchão completo ou um topper/acessório para usar sobre outro colchão.",
+      "Indicação de peso suportado ou relação entre densidade, espessura e faixa de peso do usuário.",
+      "Orientação do fabricante sobre compatibilidade com colchões de espuma, molas e diferentes bases.",
+      "Instruções de lavagem, secagem e armazenamento da capa.",
+      "Prazo e condições de garantia.",
+      "Critérios concretos para saber quando a espuma casca de ovo melhora o conforto e quando não é adequada.",
+      "Uma resposta direta sobre se vale a pena comprar, condicionada ao objetivo e ao tipo de uso."
+    ],
+    "publishable": false,
+    "summary": "A página oferece dados úteis para conferir no anúncio, como medidas de 4 cm e densidade D23, mas não responde de forma suficiente à pergunta “vale a pena”. Falta esclarecer se é acessório ou colchão completo, para quem serve, quais limitações possui e em que situação a compra faz sentido; por isso, a resposta rápida é insuficiente e a página não está pronta para publicação.",
+    "filler_ratio": 0.2,
+    "model_opinion": false
+  },
+  "score_before": 3.5,
+  "score_after": 2.5
+}

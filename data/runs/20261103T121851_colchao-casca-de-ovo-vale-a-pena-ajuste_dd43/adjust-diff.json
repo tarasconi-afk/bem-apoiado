@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-03T12:19:49.224Z",
+  "instruction": "Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: 1) Se sua cama mede 78 x 188 cm, 88 x 188 cm ou 138 x 188 cm e você aceita acrescentar 4 cm de altura, escolha uma versão da espuma casca de ovo Plumatex compatível com essa medida; se a cama tiver outra medida, procure outro modelo 2) Se você quer conferir a densidade da espuma antes de comprar, confirme na ficha ou na etiqueta se consta D23 kg/m³, que é a densidade declarada pela Plumatex para a espuma casca de ovo; se essa informação não aparecer, prefira um anúncio ou modelo que a informe 3) Se a prio",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Espuma casca de ovo: densidade D23 kg/m³, medidas de 78 a 138 cm, camada de conforto com ventilação e toque massageador.",
+      "after": "Espuma casca de ovo Plumatex: medidas, densidade e características declaradas pelo fabricante."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "Se sua cama mede 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm, escolha a espuma casca de ovo Plumatex da medida correspondente; a espuma tem densidade D23 kg/m³ e adiciona 4 cm de altura. Se a cama tiver outra medida, procure outro modelo.",
+      "after": "A espuma casca de ovo da Plumatex é apresentada nas medidas 78 × 188 × 4 cm, 88 × 188 × 4 cm e 138 × 188 × 4 cm, com densidade D23 kg/m³."
+    },
+    {
+      "where": "Como decidir · bloco 1",
+      "before": "Se sua cama mede 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm e você aceita um aumento de 4 cm na altura total, a espuma casca de ovo Plumatex se adapta a essas medidas. Veja qual modelo corresponde ao tamanho da sua cama e confirme na ficha ou no anúncio. Se a cama tiver outra medida, procure um modelo diferente.",
+      "after": "Se sua cama mede 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm, confira no anúncio a opção com essas medidas e considere que a espuma listada tem 4 cm de espessura, segundo a Plumatex."
+    },
+    {
+      "where": "Como decidir · bloco 2",
+      "before": "Se você quer conferir a densidade informada, procure na ficha técnica ou na etiqueta a indicação D23 kg/m³, declarada pela Plumatex. Se a densidade não aparecer, prefira um anúncio que a informe claramente.",
+      "after": "Se você quer conferir a densidade da espuma antes de comprar, procure na ficha técnica ou na etiqueta do produto a indicação D23 kg/m³, que é o que a Plumatex declara para a casca de ovo. Se essa informação não aparecer no anúncio, escolha um modelo que a informe claramente."
+    },
+    {
+      "where": "Como decidir · bloco 3",
+      "before": "Se você prioriza uma espuma descrita pelo fabricante como oferecendo mais conforto, ventilação e toque massageador, ela corresponde a esse perfil descritivo. Confirme separadamente, na ficha ou no anúncio, as medidas e a densidade antes de comprar.",
+      "after": "Se você quer mais conforto e ventilação, confira se o anúncio menciona essas características; a Plumatex descreve a casca de ovo como oferecendo mais conforto e ventilação, com toque massageador."
+    }
+  ]
+}
