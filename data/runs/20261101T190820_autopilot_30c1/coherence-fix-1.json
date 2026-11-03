@@ -1,0 +1,61 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Travesseiros de espuma indicam posição de dormir e altura na ficha: escolha conforme onde você dorme. Modelos de fibra não trazem essa orientação nas fichas consultadas; confira a ficha do produto antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_259ef2cdd5b4",
+        "clm_264deb60bb31",
+        "clm_3bd128d38af6",
+        "clm_1054bc9ab913"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "De lado",
+          "claim_ids": [
+            "clm_259ef2cdd5b4",
+            "clm_755d8f55b783"
+          ]
+        },
+        {
+          "text": "Probel Life Espuma D15 (12 cm); Probel Plenitude Visco Gel D40 (14 cm)",
+          "claim_ids": [
+            "clm_3634177232ce",
+            "clm_353f162a886f"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se optar por fibra, confira na ficha do modelo escolhido a posição de dormir indicada. A Ortobom informa que o modelo Hug tem enchimento de fibra siliconada 100% poliéster, e a Probel identifica fibra siliconada no modelo Conect Comfort, mas as fichas consultadas não indicam para qual posição de dormir servem.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3bd128d38af6",
+        "clm_1054bc9ab913"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "como-decidir#0.r0",
+    "como-decidir#0.r1",
+    "como-decidir#1",
+    "como-decidir#2",
+    "como-decidir#3",
+    "como-decidir#4"
+  ],
+  "still": [
+    "verdict: OVERSTATED",
+    "como-decidir#0.r0: MISATTRIBUTED",
+    "como-decidir#4: UNSUPPORTED"
+  ]
+}
