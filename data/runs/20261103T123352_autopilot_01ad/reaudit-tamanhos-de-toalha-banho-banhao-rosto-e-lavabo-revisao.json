@@ -1,0 +1,55 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para lavabo ou banheiro social, escolher lavabo, geralmente 30 × 50 cm.",
+      "Para cuidados diários do rosto e uma peça maior que a de lavabo, escolher rosto, geralmente entre 45 × 65 cm e 50 × 80 cm.",
+      "Para secar o corpo ocupando menos espaço, escolher banho, geralmente entre 60 × 120 cm e 70 × 140 cm.",
+      "Para ter mais cobertura ao se enrolar, escolher banhão, geralmente entre 80 × 150 cm e 90 × 160 cm.",
+      "Conferir as medidas exatas na ficha do produto, pois elas variam conforme o modelo e o fabricante.",
+      "Verificar na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Uma comparação explícita, em centímetros, mostrando quanto o banhão é maior que cada medida de toalha de banho.",
+      "Uma tabela com as medidas exatas de um modelo específico de cada fabricante, caso o leitor queira comparar produtos diretamente."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente aos tamanhos de rosto, lavabo, banho e banhão com faixas concretas, explica qual opção serve para cada uso e orienta o leitor a conferir a medida exata na ficha do produto. A resposta curta resolve a dúvida rapidamente, e os detalhes de etiqueta acrescentam utilidade sem impedir a decisão de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para uso no rosto, conferir toalhas entre 45 × 65 cm e 50 × 80 cm.",
+      "Para lavabo ou banheiro social, escolher uma toalha de cerca de 30 × 50 cm.",
+      "Para secar o corpo após o banho, escolher uma toalha de banho entre 60 × 120 cm e 70 × 140 cm.",
+      "Para obter mais cobertura, escolher uma toalha banhão de cerca de 86 × 150 cm ou maior.",
+      "Conferir as medidas exatas na ficha do produto, pois elas variam conforme o modelo e o fabricante.",
+      "Na etiqueta, conferir os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Uma comparação explícita, em centímetros, entre a medida média do banhão e a medida média da toalha de banho.",
+      "Mais exemplos de medidas declaradas por fabricantes para toalhas banhão, além da referência de cerca de 86 × 150 cm."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente quais são os tamanhos de rosto, lavabo, banho e banhão, oferece faixas concretas em centímetros e orienta o leitor a escolher conforme o uso e a conferir a ficha do produto. A resposta curta é rápida e suficiente para uma dúvida simples, enquanto os detalhes de etiqueta acrescentam orientação prática sem desviar do tema.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
