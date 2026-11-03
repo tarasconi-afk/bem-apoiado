@@ -5,7 +5,7 @@
   "title": "Colchão casca de ovo: vale a pena comprar?",
   "description": "Espuma casca de ovo: densidade D23 kg/m³, medidas de 78 a 138 cm, camada de conforto com ventilação e toque massageador.",
   "primary_query": "colchão casca de ovo vale a pena",
-  "updated_at": "2026-11-02",
+  "updated_at": "2026-11-03",
   "verdict": {
     "text": "Se sua cama mede 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm, escolha a espuma casca de ovo Plumatex da medida correspondente; a espuma tem densidade D23 kg/m³ e adiciona 4 cm de altura. Se a cama tiver outra medida, procure outro modelo.",
     "basis": "reasoning",
@@ -17,13 +17,17 @@
   "sections": [
     {
       "id": "produto-completo-ou-acessorio",
-      "heading": "A casca de ovo é um colchão completo ou um acessório?",
+      "heading": "A casca de ovo é um acessório ou um colchão completo?",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O que a Plumatex declara sobre a espuma casca de ovo?",
-          "basis": "framing",
-          "claim_ids": []
+          "text": "A lâmina tipo casca de ovo pode estar presente em colchões compostos. Quando presente, o Inmetro a avalia quanto à densidade e ao teor de cinzas, mas não a considera como parte da espessura mínima exigida para o colchão.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_0d83fb1cced5",
+            "clm_0663b05377f0",
+            "clm_9e0177d9bdd6"
+          ]
         }
       ]
     },
@@ -175,7 +179,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261102T190049_autopilot_25f6+editor:20261102T190538_colchao-casca-de-ovo-vale-a-pena-autocorrecao_79ce",
+    "run_id": "20261102T190049_autopilot_25f6+editor:20261102T190538_colchao-casca-de-ovo-vale-a-pena-autocorrecao_79ce+editor:20261103T123121_colchao-casca-de-ovo-vale-a-pena-ajuste_b355",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
