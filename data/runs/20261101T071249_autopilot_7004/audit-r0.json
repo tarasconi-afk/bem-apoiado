@@ -1,0 +1,130 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos dizem que o percal é uma trama associada a 180 fios ou mais e mostram a composição de um produto, mas não afirmam que o percal e o algodão comum diferem entre si no tipo de trama e na contagem de fios. Também não estabelecem como regra geral que a composição da fibra deve ser conferida separadamente da trama.",
+      "fix": "Os fabricantes citados descrevem o percal como uma trama associada a tecidos a partir de 180 fios por polegada. Em um produto da Appel, a informação sobre percal aparece junto da composição de 60% algodão e 40% poliéster; confira essas informações na ficha do produto."
+    },
+    {
+      "ref": "o-que-e-percal#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta que, segundo a Döhler, percal é uma trama de alta densidade com 180 fios por polegada, associada a frescor, maciez, durabilidade e respirabilidade. Não sustenta explicitamente que percal não seja uma fibra, nem as afirmações sobre algodão comum, contagem de fios ou diferentes tipos de trama.",
+      "fix": "Segundo a Döhler, percal é uma trama de alta densidade, com 180 fios por polegada, associada a um tecido fresco, macio, durável e com excelente respirabilidade."
+    },
+    {
+      "ref": "o-que-e-percal#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-vs-trama#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que produtos da Appel podem ser descritos como percal e ter determinada composição, mas não dizem que composição e trama são campos separados nem definem que 'percal' descreve como o fio foi tecido e 'algodão' a fibra.",
+      "fix": "Segundo os trechos da Appel, há lençóis descritos como percal com 100% algodão e outros como percal com 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-vs-trama#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas que um produto percal citado pela Appel tem 60% algodão e 40% poliéster. Ele não sustenta a orientação geral para não presumir percal a partir de 'algodão' nem a recomendação de conferir separadamente o tipo de trama ou tecido.",
+      "fix": "Segundo a Appel, o lençol citado é percal e tem composição de 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "contagem-fios#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Karsten informa “100% algodão 160 fios”, mas não afirma que o tecido seja percal. Portanto, atribuir à Karsten a informação “160 fios em percal” excede o trecho citado.",
+      "fix": "Nos exemplos citados, as contagens declaradas são 160 fios na Karsten, 200 fios em percal na Altenburg e 300 fios em percal na Trussardi."
+    },
+    {
+      "ref": "contagem-fios#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Döhler informa apenas “100% Algodão” e não menciona 180 fios. Além disso, os trechos não demonstram que os produtos não tenham declaração de trama percal.",
+      "fix": "A Karsten informa 200 fios no produto Alanis, enquanto o trecho da Döhler informa 100% algodão, sem apresentar a contagem de fios no excerto citado."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a informação sobre cuidados de conservação é obrigatória e deve seguir a norma, mas não dizem explicitamente que ela deve constar em uma etiqueta. Além disso, não trazem os cuidados específicos dos modelos consultados nem sustentam a lista de temperaturas e proibições apresentada.",
+      "fix": "O Inmetro informa que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve estar de acordo com a norma NM ISO 3758:2013."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O primeiro conjunto de instruções é sustentado pelo trecho da Karsten sobre o produto Matiza. Porém, os trechos citados não mencionam o lençol Döhler Atlântis 180 fios nem afirmam que sua ficha não especifica restrições diferentes das do percal; o segundo trecho também é de outro produto da Karsten.",
+      "fix": "Para lençol de percal Matiza, a Karsten informa lavação a 60°C, proibição de alvejante e de lavagem a seco, secagem em tambor a no máximo 60°C e ferro a no máximo 150°C. Remova a comparação com o lençol Döhler ou acrescente a evidência correspondente."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Döhler apenas dizem que percal é uma trama de alta densidade associada a 180 fios por polegada. Eles não dizem para procurar campos específicos da ficha nem sustentam que o nome do produto ou a contagem de fios, isoladamente, não indiquem percal.",
+      "fix": "Segundo a Döhler, percal é uma trama de alta densidade, associada no trecho a 180 fios por polegada."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que 200 fios pode aparecer tanto em um produto de algodão sem a indicação de percal quanto em um produto identificado como percal, mas não sustentam a generalização de que lençóis de algodão comum tenham contagem entre 180 e 200 fios. Também não há trecho explícito sobre um campo separado de tipo de trama ou tecido.",
+      "fix": "Se a ficha listar apenas 200 fios, não presuma que o produto seja percal: a Karsten apresenta um produto 100% algodão com 200 fios, enquanto a Appel apresenta um produto percal com 200 fios. Verifique separadamente a composição e a indicação de percal, quando disponíveis."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos dizem que o percal é uma trama associada a 180 fios ou mais e mostram a composição de um produto, mas não afirmam que o percal e o algodão comum diferem entre si no tipo de trama e na contagem de fios. Também não estabelecem como regra geral que a composição da fibra deve ser conferida separadamente da trama. Versão sustentável: Os fabricantes citados descrevem o percal como uma trama associada a tecidos a partir de 180 fios por polegada. Em um produto da Appel, a informação sobre percal aparece junto da composição de 60% algodão e 40% poliéster; confira essas informações na ficha do produto."
+    },
+    {
+      "ref": "o-que-e-percal#0",
+      "msg": "UNSUPPORTED. O trecho sustenta que, segundo a Döhler, percal é uma trama de alta densidade com 180 fios por polegada, associada a frescor, maciez, durabilidade e respirabilidade. Não sustenta explicitamente que percal não seja uma fibra, nem as afirmações sobre algodão comum, contagem de fios ou diferentes tipos de trama. Versão sustentável: Segundo a Döhler, percal é uma trama de alta densidade, com 180 fios por polegada, associada a um tecido fresco, macio, durável e com excelente respirabilidade."
+    },
+    {
+      "ref": "composicao-vs-trama#0",
+      "msg": "UNSUPPORTED. Os trechos mostram que produtos da Appel podem ser descritos como percal e ter determinada composição, mas não dizem que composição e trama são campos separados nem definem que 'percal' descreve como o fio foi tecido e 'algodão' a fibra. Versão sustentável: Segundo os trechos da Appel, há lençóis descritos como percal com 100% algodão e outros como percal com 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-vs-trama#1",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas que um produto percal citado pela Appel tem 60% algodão e 40% poliéster. Ele não sustenta a orientação geral para não presumir percal a partir de 'algodão' nem a recomendação de conferir separadamente o tipo de trama ou tecido. Versão sustentável: Segundo a Appel, o lençol citado é percal e tem composição de 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "contagem-fios#0",
+      "msg": "MISATTRIBUTED. O trecho da Karsten informa “100% algodão 160 fios”, mas não afirma que o tecido seja percal. Portanto, atribuir à Karsten a informação “160 fios em percal” excede o trecho citado. Versão sustentável: Nos exemplos citados, as contagens declaradas são 160 fios na Karsten, 200 fios em percal na Altenburg e 300 fios em percal na Trussardi."
+    },
+    {
+      "ref": "contagem-fios#1",
+      "msg": "MISATTRIBUTED. O trecho da Döhler informa apenas “100% Algodão” e não menciona 180 fios. Além disso, os trechos não demonstram que os produtos não tenham declaração de trama percal. Versão sustentável: A Karsten informa 200 fios no produto Alanis, enquanto o trecho da Döhler informa 100% algodão, sem apresentar a contagem de fios no excerto citado."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a informação sobre cuidados de conservação é obrigatória e deve seguir a norma, mas não dizem explicitamente que ela deve constar em uma etiqueta. Além disso, não trazem os cuidados específicos dos modelos consultados nem sustentam a lista de temperaturas e proibições apresentada. Versão sustentável: O Inmetro informa que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve estar de acordo com a norma NM ISO 3758:2013."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "UNSUPPORTED. O primeiro conjunto de instruções é sustentado pelo trecho da Karsten sobre o produto Matiza. Porém, os trechos citados não mencionam o lençol Döhler Atlântis 180 fios nem afirmam que sua ficha não especifica restrições diferentes das do percal; o segundo trecho também é de outro produto da Karsten. Versão sustentável: Para lençol de percal Matiza, a Karsten informa lavação a 60°C, proibição de alvejante e de lavagem a seco, secagem em tambor a no máximo 60°C e ferro a no máximo 150°C. Remova a comparação com o lençol Döhler ou acrescente a evidência correspondente."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. Os trechos da Döhler apenas dizem que percal é uma trama de alta densidade associada a 180 fios por polegada. Eles não dizem para procurar campos específicos da ficha nem sustentam que o nome do produto ou a contagem de fios, isoladamente, não indiquem percal. Versão sustentável: Segundo a Döhler, percal é uma trama de alta densidade, associada no trecho a 180 fios por polegada."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam que 200 fios pode aparecer tanto em um produto de algodão sem a indicação de percal quanto em um produto identificado como percal, mas não sustentam a generalização de que lençóis de algodão comum tenham contagem entre 180 e 200 fios. Também não há trecho explícito sobre um campo separado de tipo de trama ou tecido. Versão sustentável: Se a ficha listar apenas 200 fios, não presuma que o produto seja percal: a Karsten apresenta um produto 100% algodão com 200 fios, enquanto a Appel apresenta um produto percal com 200 fios. Verifique separadamente a composição e a indicação de percal, quando disponíveis."
+    }
+  ]
+}

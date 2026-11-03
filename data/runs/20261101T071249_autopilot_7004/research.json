@@ -1,0 +1,245 @@
+{
+  "run_id": "20261101T071249_autopilot_7004",
+  "topic": "lencol-de-percal-ou-algodao-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_d4deb5834cee",
+      "question_id": "q_etiqueta_cuidados",
+      "source_id": "src_ae34a24db0e0",
+      "new": false
+    },
+    {
+      "claim_id": "clm_4f9dded6e68d",
+      "question_id": "q_algodao_especificacao",
+      "source_id": "src_0d87f83cd65a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3117a54550da",
+      "question_id": "q_algodao_especificacao",
+      "source_id": "src_0d87f83cd65a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cd407231cdd9",
+      "question_id": "q_algodao_especificacao",
+      "source_id": "src_0d87f83cd65a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4ca22a879a97",
+      "question_id": "q_algodao_especificacao",
+      "source_id": "src_0d87f83cd65a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_35d0a08fbed7",
+      "question_id": "q_etiqueta_cuidados",
+      "source_id": "src_0d87f83cd65a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b5f48a73b6f4",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_4963758e89a2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c5a1cc7c73e2",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_4963758e89a2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1c69fb9cd2da",
+      "question_id": "q_etiqueta_cuidados",
+      "source_id": "src_4963758e89a2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_13de30524b1b",
+      "question_id": "q_algodao_especificacao",
+      "source_id": "src_4963758e89a2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0eb47d1c20ae",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_2d8a5ea4bb3d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c103811d2700",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_2d8a5ea4bb3d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f6c6234f321d",
+      "question_id": "q_etiqueta_cuidados",
+      "source_id": "src_2d8a5ea4bb3d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f2c058989ab3",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_2d8a5ea4bb3d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fd9e5886322c",
+      "question_id": "q_dado_que_decide",
+      "source_id": "src_c0ba23bef132",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9e4b5164273d",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_c0ba23bef132",
+      "new": true
+    },
+    {
+      "claim_id": "clm_208252be8e73",
+      "question_id": "q_etiqueta_cuidados",
+      "source_id": "src_c0ba23bef132",
+      "new": true
+    },
+    {
+      "claim_id": "clm_987a969fbc6c",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_5f96f83f41e4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6cc3626709e3",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_dcf7cb3d3094",
+      "new": true
+    },
+    {
+      "claim_id": "clm_55aec1dbd6b4",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_dcf7cb3d3094",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2ea0a44ab042",
+      "question_id": "q_percal_especificacao",
+      "source_id": "src_dcf7cb3d3094",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_ae34a24db0e0",
+      "question_id": "q_norma_inmetro_composicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Nome das fibras têxteis ou filamentos têxteis e seu conteúdo expresso em valor percentual (50% de algodão, 35% de poliéster, etc.)."
+    },
+    {
+      "source_id": "src_ae34a24db0e0",
+      "question_id": "q_etiqueta_cuidados",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "São alcançados por essa obrigatoriedade os seguintes processos: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional, que deverão ser informados na sequência descrita."
+    }
+  ],
+  "coverage": {
+    "q_dado_que_decide": 1,
+    "q_percal_especificacao": 10,
+    "q_algodao_especificacao": 5,
+    "q_etiqueta_cuidados": 5,
+    "q_norma_inmetro_composicao": 0,
+    "q_gramatura_declarada": 0
+  },
+  "unanswered": [
+    "q_norma_inmetro_composicao",
+    "q_gramatura_declarada"
+  ],
+  "usage": {
+    "input_tokens": 16945,
+    "output_tokens": 3078,
+    "calls": 8
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_a8a839fecd1e",
+    "src_569f61cae6e9",
+    "src_b8462f792024",
+    "src_9a650acd7d61"
+  ],
+  "triage": [
+    {
+      "source_id": "src_ae34a24db0e0",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.83
+    },
+    {
+      "source_id": "src_0d87f83cd65a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_a8a839fecd1e",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.24
+    },
+    {
+      "source_id": "src_4963758e89a2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_2d8a5ea4bb3d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_c0ba23bef132",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_569f61cae6e9",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.17
+    },
+    {
+      "source_id": "src_5f96f83f41e4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.92
+    },
+    {
+      "source_id": "src_dcf7cb3d3094",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_b8462f792024",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.06
+    },
+    {
+      "source_id": "src_f602756eb7d8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.58
+    },
+    {
+      "source_id": "src_9a650acd7d61",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.15
+    }
+  ],
+  "credits": 13.629636720000002
+}

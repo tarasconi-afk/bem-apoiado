@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "o-que-e-percal#0",
+      "problem": "A seção promete explicar o que é percal e o que é algodão comum, mas este bloco só explica o percal e não define ou caracteriza o algodão comum.",
+      "fix": "Mudar o título da seção para algo como \"O que os fabricantes dizem sobre o percal\", sem prometer uma explicação sobre algodão comum."
+    }
+  ],
+  "usage": {
+    "input_tokens": 12903,
+    "output_tokens": 1421,
+    "calls": 3
+  }
+}
