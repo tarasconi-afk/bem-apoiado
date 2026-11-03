@@ -1,0 +1,80 @@
+{
+  "score_before": 2.5,
+  "score_after": 0.5,
+  "kept": false,
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página não explica em que situação escolher malha ou algodão; como os dois podem ser 100% algodão, o leitor não aprende uma diferença prática de conforto, ajuste ou uso.",
+      "A resposta curta manda conferir a altura do lençol de algodão, mas não informa uma regra ou tabela para relacioná-la à altura do colchão.",
+      "Os cuidados de conservação apresentados tratam de exemplos de lençóis de algodão e não orientam especificamente sobre lençóis de malha."
+    ],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Se quiser uma composição explicitamente informada, confira se o lençol de malha é de malha fio penteado 100% algodão.",
+      "Se quiser comparar a construção do tecido, confira na ficha a contagem de fios e a composição: há percal 200 fios 100% algodão, percal 200 fios com 60% algodão e 40% poliéster, percal 300 fios 100% algodão e cetim 400 fios 100% algodão.",
+      "Meça a altura do colchão e compare com a altura compatível declarada na ficha; o modelo Queen de malha citado tem 40 cm de altura de aba.",
+      "Confira se o tecido foi pré-encolhido e considere uma possível redução de cerca de 3% na primeira lavagem no modelo citado da Appel.",
+      "Verifique na etiqueta as instruções específicas de lavagem, secagem, passagem e uso de alvejante do modelo escolhido."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A página não explica em que situação escolher malha ou algodão; como os dois podem ser 100% algodão, o leitor não aprende uma diferença prática de conforto, ajuste ou uso.",
+      "Para o leitor leigo: A resposta curta manda conferir a altura do lençol de algodão, mas não informa uma regra ou tabela para relacioná-la à altura do colchão.",
+      "Para o leitor leigo: Os cuidados de conservação apresentados tratam de exemplos de lençóis de algodão e não orientam especificamente sobre lençóis de malha.",
+      "Uma regra prática que diga quando escolher malha e quando escolher algodão, baseada em características concretas como elasticidade, toque, ventilação, facilidade de ajuste ou preferência de uso.",
+      "Tabela do fabricante relacionando altura do colchão às alturas de aba ou elástico para lençóis de malha e de algodão, em mais de um tamanho de cama.",
+      "Gramatura declarada para o lençol de malha e contagem de fios e composição comparáveis para os modelos de algodão.",
+      "Instruções de conservação específicas para o lençol de malha, em vez de apenas exemplos de produtos de algodão.",
+      "Informação de encolhimento ou medidas antes e depois da lavagem para os dois tipos, especialmente para a malha.",
+      "Medidas completas de largura, comprimento e altura das abas dos dois tipos no mesmo tamanho de cama."
+    ],
+    "publishable": false,
+    "summary": "A página traz dados verificáveis de composição, contagem de fios, encolhimento e uma medida de altura, além de orientar o que conferir na ficha. Porém, não responde à decisão central entre malha e algodão: não informa qual opção serve para cada necessidade e deixa incompleta a comparação de medidas e cuidados; por isso, deve ser revisada antes da publicação.",
+    "filler_ratio": 0.21428571428571427,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A resposta usa termos como percal, cetim, fio penteado e contagem de fios sem explicar o que significam para a escolha.",
+      "Não mostra qual opção é mais indicada conforme preferência de toque, uso, facilidade de ajuste ou cuidados."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para escolher malha, conferir se a ficha informa malha fio penteado 100% algodão.",
+      "Para escolher algodão, conferir o tipo de tecido, a composição e a contagem de fios declarados na ficha.",
+      "Comparar a altura do colchão com a altura das abas/elástico informada para o produto; no exemplo Queen de malha, a medida declarada é 1,58 m × 1,98 m × 40 cm.",
+      "Conferir se o tecido foi pré-encolhido e considerar possível redução de cerca de 3% na primeira lavagem no modelo citado da Appel.",
+      "Verificar na etiqueta as instruções de lavagem, secagem, passagem e uso de alvejante, pois elas variam conforme o produto."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A resposta usa termos como percal, cetim, fio penteado e contagem de fios sem explicar o que significam para a escolha.",
+      "Para o leitor leigo: Não mostra qual opção é mais indicada conforme preferência de toque, uso, facilidade de ajuste ou cuidados.",
+      "Uma regra direta de escolha entre malha e algodão baseada em características relevantes para o comprador, como toque, ajuste, aparência, calor e facilidade de manutenção.",
+      "Explicação leiga dos termos percal, cetim, malha fio penteado e contagem de fios.",
+      "Medidas e alturas compatíveis de lençóis de malha e de algodão para os principais tamanhos de cama.",
+      "Informações de composição, gramatura e cuidados de conservação para o lençol de malha, não apenas para o algodão.",
+      "Informação de encolhimento para os dois tipos de lençol e para produtos comparáveis.",
+      "Altura declarada dos modelos de algodão usados na comparação, em vez de apenas orientar o leitor a consultar a ficha."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios úteis para conferir composição, contagem de fios, altura e encolhimento, mas só responde parcialmente à escolha entre malha e algodão. A resposta curta não diz claramente qual opção serve para cada perfil, usa termos técnicos sem explicação e a comparação de medidas e cuidados está incompleta, especialmente para a malha.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a composição da malha, as opções de percal/cetim com contagem de fios e as medidas Queen de 40 cm, mas não dizem que o consumidor deve medir o colchão para escolher a altura do lençol.",
+      "fix": "Há produtos identificados como malha fio penteado 100% algodão, segundo a Altenburg. Se prefere algodão com contagem de fios declarada, confira percal ou cetim na ficha do produto. Para comparar a altura do lençol com elástico, considere a medida declarada: a Altenburg lista modelos Queen de 1,58 m × 1,98 m × 40 cm; confira a altura informada para o produto de algodão escolhido."
+    },
+    {
+      "ref": "composicao-malha#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-algodao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "encolhimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam as dimensões e alturas dos modelos, mas não afirmam que essas medidas são necessariamente compatíveis com um colchão. A tabela apresenta essa compatibilidade como conclusão geral.",
+      "fix": "Tamanho: Queen | Lençol de malha (Altenburg): segundo a Altenburg, 1,58 m × 1,98 m × 40 cm | Lençol de algodão: segundo a Karsten, há modelos com 30 cm ou 40 cm de altura."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

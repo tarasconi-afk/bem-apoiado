@@ -1,0 +1,46 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Há produtos identificados como malha fio penteado 100% algodão, segundo a Altenburg. Se prefere algodão com contagem de fios declarada, confira percal na ficha do produto. Para comparar a altura do lençol com elástico, considere a medida declarada: a Altenburg lista modelos Queen de 1,58 m × 1,98 m × 40 cm; confira a altura informada para o produto de algodão escolhido.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_fa0ff9d2cd81",
+        "clm_0e47e3881cb5",
+        "clm_16cf629ece08",
+        "clm_31809dc35d6e",
+        "clm_4c05e2ee082d",
+        "clm_5bb535e91d3d"
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen",
+          "claim_ids": [
+            "clm_31809dc35d6e"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, 1,58 m × 1,98 m × 40 cm",
+          "claim_ids": [
+            "clm_31809dc35d6e",
+            "clm_4c05e2ee082d"
+          ]
+        },
+        {
+          "text": "Confira na ficha do produto escolhido; modelos Karsten informam 30 cm ou 40 cm de altura",
+          "claim_ids": [
+            "clm_0105c7d61b30",
+            "clm_5bb535e91d3d",
+            "clm_b5191248892e"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": []
+}
