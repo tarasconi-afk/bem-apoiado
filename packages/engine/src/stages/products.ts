@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { Claim, checkClaim, checkProduct, firstForbidden, hasListingItem, normalizeForMatch, Product, referencedClaimIds, type Source } from '@bem-apoiado/core';
@@ -8,6 +8,7 @@ import { loadNiche } from '../niche.ts';
 import { writeStage } from '../runs.ts';
 import { webExtract, webSearch } from '../search.ts';
 import { SEARCH_INDEX_NOTE, snapshot, snapshotFromSearch } from '../snapshot.ts';
+import { avisoSemOferta, ESTOQUE_PREFIX, semEstoque } from '../listing-stock.ts';
 const sourceNote = (s: Source) => s.note;
 import { buildIndex, CLAIMS_DIR, DATA, loadPages, loadProducts, PRODUCTS_DIR, sourceText, writeJson } from '../store.ts';
 import { claimIdFor, loadTopic } from './research.ts';
@@ -139,10 +140,18 @@ export async function findProducts(slug: string, runId: string, opts: { max?: nu
   return report;
 }
 
-// Já no catálogo, retirado ou recusado pelo editor: a busca não traz de volta.
-function knownAsins(): Set<string> {
+// Já no catálogo, retirado ou recusado pelo editor: a busca não traz de volta. Exceção: o que saiu só por
+// falta de estoque volta a ser candidato depois de uma semana (estoque volta; recusa do editor, não).
+export const ESTOQUE_VOLTA_DIAS = 7;
+export function knownAsins(now = new Date()): Set<string> {
   const dir = join(DATA, 'products-retired');
-  const retired = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)) : [];
+  const retired = existsSync(dir)
+    ? readdirSync(dir).filter((f) => f.endsWith('.json')).flatMap((f) => {
+        const r = JSON.parse(readFileSync(join(dir, f), 'utf8')) as { reason?: string; retired_at?: string };
+        const dias = (now.getTime() - Date.parse(r.retired_at ?? '')) / 86_400_000;
+        return r.reason?.startsWith(ESTOQUE_PREFIX) && dias >= ESTOQUE_VOLTA_DIAS ? [] : [f.slice(0, -5)];
+      })
+    : [];
   return new Set([...loadProducts().map((p) => p.asin), ...retired]);
 }
 const loose = (t: string) => normalizeForMatch(t).replace(/-/g, ' ');
@@ -165,6 +174,13 @@ function kindConflict(name: string, kind: string): string | null {
   return null;
 }
 
+// Subtipo de outro propósito (not_terms do nicho) no nome do anúncio: devolve o termo, ou null.
+export function kindExcluded(name: string, kind: string): string | null {
+  const terms = loadNiche().product_kinds.find((k) => k.id === kind)?.not_terms ?? [];
+  const n = loose(name);
+  return terms.find((t) => n.includes(loose(t))) ?? null;
+}
+
 // Captura do anúncio via Tavily; falha de UM anúncio vira motivo de pulo, nunca derruba a execução.
 export async function captureListing(asin: string): Promise<Source | string> {
   try {
@@ -182,6 +198,8 @@ async function confirmAndRegister(
   decide: Decider,
 ): Promise<{ ok: true; product: Product } | { ok: false; reason: string }> {
   const ltext = sourceText(a.listing.id) ?? '';
+  const stock = semEstoque(ltext, a.listing);
+  if (stock) return { ok: false, reason: stock };
   const norm = loose(ltext);
   const tokens = [a.brand, ...a.model.split(/[\s-]+/)].map(loose).filter((t) => t.length >= 3);
   const missing = tokens.filter((t) => !norm.includes(t));
@@ -192,6 +210,8 @@ async function confirmAndRegister(
   }
   const conflict = kindConflict(`${a.brand} ${a.model}`, a.kind);
   if (conflict) return { ok: false, reason: `nome indica outro tipo ("${conflict}")` };
+  const excluded = kindExcluded(`${a.brand} ${a.model}`, a.kind);
+  if (excluded) return { ok: false, reason: `subtipo de outro propósito ("${excluded}")` };
   const same = await decide(`FICHA: ${a.brand} ${a.model}\n${a.specClaims.map((c) => c.quote).join(' | ')}\n\nANÚNCIO:\n${ltext.slice(0, 4000)}`, {
     mesmo: {
       type: 'choice',
@@ -493,6 +513,8 @@ async function registerListingOnly(
   kindLabel: string,
 ): Promise<{ ok: true; product: Product } | { ok: false; reason: string }> {
   const ltext = sourceText(a.listing.id) ?? '';
+  const stock = semEstoque(ltext, a.listing);
+  if (stock) return { ok: false, reason: stock };
   const words = normalizeForMatch(kindLabel).split(/\s+/).filter((w) => w.length >= 5).map((w) => w.slice(0, -1));
   const forbidden = loadNiche().forbidden_terms;
   const nameWords = [a.brand, ...a.model.split(/[\s-]+/)].map(loose).filter((w) => w.length >= 3);
@@ -520,6 +542,8 @@ async function registerListingOnly(
   if (!line) return { ok: false, reason: `nenhum trecho do anúncio traz marca + modelo + "${kindLabel}" sem termo proibido` };
   const conflict = kindConflict(`${a.brand} ${a.model}`, a.kind);
   if (conflict) return { ok: false, reason: `nome indica outro tipo ("${conflict}")` };
+  const excluded = kindExcluded(`${a.brand} ${a.model} ${line}`, a.kind);
+  if (excluded) return { ok: false, reason: `subtipo de outro propósito ("${excluded}")` };
 
   const avail = Claim.parse({
     id: claimIdFor(a.listing.id, line), source_id: a.listing.id, quote: line.trim(), claim_type: 'availability',
@@ -600,6 +624,10 @@ export async function readListingInfo(url: string, fetchImpl?: FetchLike, extrac
   const bad = brandProblem(brand, kindLabel);
   if (bad) warnings.push(`${bad}: confira a marca no anúncio`);
   if (r.data.kind === 'outro') warnings.push('o tipo não bateu com nenhum do site: escolha à mão');
+  // O texto lido aqui é cortado em 6 mil caracteres: só o aviso explícito da Amazon conta, não a falta de preço.
+  if (avisoSemOferta(text)) warnings.push('a Amazon diz que este anúncio está sem estoque: escolha outro link');
+  const excluded = kindExcluded(`${label} ${r.data.title}`, r.data.kind);
+  if (excluded) warnings.push(`"${excluded}" é outro tipo de produto, não serve de exemplo de ${kindLabel.toLowerCase()}`);
   return { asin, link, brand, label, kind: r.data.kind, title: r.data.title.slice(0, 160), via, warnings };
 }
 

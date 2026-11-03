@@ -13,19 +13,21 @@ copyFileSync(join(import.meta.dirname, '../../../data/niche.json'), join(root, '
 
 const { refreshProducts } = await import('../src/stages/refresh.ts');
 const { pagesNeedingProducts } = await import('../src/stages/autopilot.ts');
+const { SEARCH_INDEX_NOTE } = await import('../src/snapshot.ts');
 
 const NOW = new Date('2026-11-10T12:00:00.000Z');
 const QUOTE = 'Colchão Casal Emma Original 25 cm - 138x188 cm, Espuma Viscoelástica 3 Camadas';
-const LISTING = (extra = '') => `#### Imagem não disponível\n${QUOTE}\nAções disponíveis\n${extra}\n` + 'texto do anúncio '.repeat(20);
+// Com preço: anúncio sem nenhum preço é anúncio sem caixa de compra (listing-stock.ts).
+const LISTING = (extra = '') => `#### Imagem não disponível\n${QUOTE}\nR$ 1.299,00\nAções disponíveis\nR$ 99,90 · R$ 49,90\n${extra}\n` + 'texto do anúncio '.repeat(20);
 
 let seq = 0;
-function source(asin: string, text: string): Source {
+function source(asin: string, text: string, note?: string): Source {
   const id = `src_${(++seq).toString(16).padStart(12, '0')}`;
   const url = `https://www.amazon.com.br/dp/${asin}`;
   const s = {
     id, url, final_url: url, fetched_at: NOW.toISOString(), http_status: 200, content_type: 'text/plain', sha256: 'a'.repeat(64),
     raw_file: 'raw.txt', text_file: 'text.txt', text_chars: text.length, extractor_version: 2, title: null, publisher: 'Amazon.com.br',
-    source_class: 'retailer_listing',
+    source_class: 'retailer_listing', ...(note ? { note } : {}),
   } as Source;
   mkdirSync(join(root, 'data/sources', id), { recursive: true });
   writeFileSync(join(root, 'data/sources', id, 'meta.json'), JSON.stringify(s));
@@ -95,7 +97,7 @@ describe('renovação com a página do anúncio bloqueada', () => {
     product('B000000007', 31); // prova vencida, leitura bloqueada
     product('B000000008', 31); // prova vencida, nem leitura nem índice
     const capture = async () => 'anúncio não capturado: extração vazia';
-    const fromIndex = async (p: { asin: string }) => (p.asin === 'B000000007' ? source(p.asin, `${QUOTE}\nresumo do anúncio no índice de busca`) : null);
+    const fromIndex = async (p: { asin: string }) => (p.asin === 'B000000007' ? source(p.asin, `${QUOTE}\nresumo do anúncio no índice de busca`, SEARCH_INDEX_NOTE) : null);
     const r = await refreshProducts('run_bloqueio', { now: NOW }, capture, fromIndex as never);
     expect(r.refreshed.map((x) => x.asin)).toContain('B000000007');
     expect(r.retired.map((x) => x.asin)).toContain('B000000008');

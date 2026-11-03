@@ -79,7 +79,10 @@ export const NicheProfile = z.object({
   decision_outline: z.array(z.string()).min(2),
   // accessory: o produto é um acessório vendido avulso (pillow top, protetor). As travas de exemplos à venda
   // passam a aceitar o acessório e a recusar o colchão completo, em vez do contrário.
-  product_kinds: z.array(z.object({ id: ProductKind, label: z.string(), accessory: z.boolean().default(false) })).min(1),
+  // not_terms: subtipo vendido com o nome do tipo mas com outro propósito. 03/11: um "cobertor pesado para
+  // dormir, 2,3 kg, 91×122 cm" (cobertor ponderado) entrou como único exemplo de "cobertor mais quente"; a
+  // trava de tipo só via "cobertor". Anúncio cujo nome traz um desses termos não é exemplo do tipo.
+  product_kinds: z.array(z.object({ id: ProductKind, label: z.string(), accessory: z.boolean().default(false), not_terms: z.array(z.string()).default([]) })).min(1),
   // Termos que o site nunca exibe, nem citando vendedor (aplicado a trechos de anúncio).
   forbidden_terms: z.array(z.string()).default([]),
   // Seções do site (páginas de categoria e agrupamento da home): cada uma reúne tipos de produto.

@@ -4,28 +4,24 @@
   "page_type": "decision_compare",
   "questions": [
     {
-      "id": "q_medida_acesso_decide",
-      "text": "Qual medida de acesso (vão de porta, corredor, escada ou elevador) o fabricante indica como critério para escolher entre cama box conjugada (peça única) e bipartida (duas peças), e com quais valores?"
+      "id": "q_base_inteira_ou_bipartida",
+      "text": "O que o fabricante declara sobre a base box ser inteira (conjugada, peça única) ou bipartida (em dois volumes), em cada tamanho, e o que isso muda para levar a base até o quarto?"
     },
     {
-      "id": "q_medidas_conjugada",
-      "text": "Quais são as medidas externas (comprimento, largura, altura) da cama box conjugada declaradas pelo fabricante para cada tamanho (solteiro, casal, queen, king)?"
+      "id": "q_medidas_totais",
+      "text": "Quais medidas (largura, comprimento e altura) o fabricante declara para a base box bipartida e para a base inteira, em cada tamanho (casal, queen, king)?"
     },
     {
-      "id": "q_medidas_bipartida",
-      "text": "Quais são as medidas de cada um dos dois módulos da cama box bipartida declaradas pelo fabricante para cada tamanho, e como elas se somam à medida final montada?"
+      "id": "q_aviso_passagem",
+      "text": "O que o fabricante avisa sobre conferir se a base passa por portas, escadas, corredores e elevadores antes de comprar?"
     },
     {
-      "id": "q_peso_cada_peca",
-      "text": "Qual o peso declarado pelo fabricante de cada peça da cama box conjugada e de cada módulo da bipartida, para fins de manuseio e transporte?"
+      "id": "q_estrutura",
+      "text": "De que é feita a estrutura da base box segundo o fabricante (madeira, travamento, pés) e, quando a ficha diz, como as duas partes da bipartida ficam juntas?"
     },
     {
-      "id": "q_estrutura_interna",
-      "text": "O que o fabricante declara sobre a estrutura interna (materiais, travamento, união dos módulos) que diferencia a montagem da base conjugada da bipartida?"
-    },
-    {
-      "id": "q_cuidado_conservacao",
-      "text": "O que a etiqueta ou ficha técnica do fabricante informa sobre limpeza e conservação do revestimento da base box, tanto na versão conjugada quanto na bipartida?"
+      "id": "q_suporte_peso",
+      "text": "Qual suporte de peso o fabricante declara para a base box, por pessoa ou no total?"
     }
   ],
   "source_ids": [
@@ -48,30 +44,18 @@
     "Evitar jargão técnico de estrutura; se inevitável, explicar entre parênteses."
   ],
   "focus_terms": [
-    "conjugada",
-    "bipartida",
-    "módulo",
+    "bipartid",
+    "conjugad",
+    "dois volumes",
+    "inteiri",
     "base box",
-    "medidas",
-    "peso"
+    "dimens",
+    "largura",
+    "passam por"
   ],
-  "evidence_gaps": [
-    "nenhuma evidência para a pauta"
-  ],
-  "researched_source_ids": [
-    "src_4da175c5f195",
-    "src_44168f488369",
-    "src_cd73c35426f9",
-    "src_9479a8a79c86",
-    "src_b183146c64cc",
-    "src_e65ac9ceac8c",
-    "src_b7dcfcadd797",
-    "src_5eda1e87a204",
-    "src_9232f02e346e",
-    "src_2bd0ded1d459",
-    "src_69c9404191bb"
-  ],
-  "improve_attempts": 2,
+  "evidence_gaps": [],
+  "researched_source_ids": [],
+  "improve_attempts": 0,
   "product_kinds": [
     "base_box"
   ],

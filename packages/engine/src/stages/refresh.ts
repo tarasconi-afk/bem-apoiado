@@ -8,7 +8,8 @@ import { snapshotFromSearch } from '../snapshot.ts';
 import { loadRegistry } from './discover.ts';
 import { buildIndex, CLAIMS_DIR, DATA, loadProducts, PRODUCTS_DIR, readState, sourceText, writeJson, writeState } from '../store.ts';
 import { claimIdFor } from './research.ts';
-import { brandProblem, captureListing } from './products.ts';
+import { brandProblem, captureListing, kindExcluded } from './products.ts';
+import { semEstoque } from '../listing-stock.ts';
 
 // Renovação da disponibilidade: cada produto tem o anúncio recapturado antes de a prova envelhecer
 // (o gate recusa disponibilidade com mais de 30 dias). Só renova se o MESMO trecho literal continua
@@ -18,9 +19,6 @@ import { brandProblem, captureListing } from './products.ts';
 export const RETIRED_DIR = join(DATA, 'products-retired');
 export const REFRESH_AFTER_DAYS = 7;
 
-// Sinais de anúncio sem compra possível. "Imagem não disponível" e "Ações disponíveis" aparecem em
-// qualquer anúncio e não contam.
-const UNAVAILABLE = [/nenhuma oferta em destaque dispon[ií]vel/i, /atualmente indispon[ií]vel/i, /^\W*n[ãa]o dispon[ií]vel\.?\s*$/im];
 
 export interface RefreshReport {
   run_id: string;
@@ -78,6 +76,13 @@ export async function refreshProducts(
   for (const p of loadProducts()) {
     // Escolha do editor não é relida: ele mesmo reconfere pelo painel.
     if (p.evidence === 'editor') continue;
+    const excluded = kindExcluded(p.label, p.kind);
+    if (excluded) {
+      const why = `subtipo de outro propósito ("${excluded}")`;
+      retire(p, why, now);
+      report.retired.push({ asin: p.asin, reason: why });
+      continue;
+    }
     const badBrand = brandProblem(p.brand, labels.get(p.kind) ?? p.kind);
     if (badBrand) {
       retire(p, badBrand, now);
@@ -115,11 +120,10 @@ export async function refreshProducts(
       continue;
     }
     const text = sourceText(fresh.id) ?? '';
-    const reason = UNAVAILABLE.some((re) => re.test(text))
-      ? 'anúncio sem oferta disponível'
-      : !quoteAppearsIn(old.quote, text)
+    const reason = semEstoque(text, fresh)
+      ?? (!quoteAppearsIn(old.quote, text)
         ? 'trecho do anúncio mudou'
-        : null;
+        : null);
     if (reason) {
       retire(p, reason, now);
       report.retired.push({ asin: p.asin, reason });

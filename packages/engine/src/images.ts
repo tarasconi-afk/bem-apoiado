@@ -166,13 +166,13 @@ export function productSubject(kindLabel: string, label: string, brand: string, 
 export function wantedImages(
   root: string,
   kinds: { id: string; label: string }[],
-  pages: { slug: string; title: string; status: string }[],
+  pages: CoverPage[],
   products: { asin: string; kind: string; brand: string; label: string }[] = [],
 ): Wanted[] {
   const have = new Set(loadRegistry(root).map((r) => r.id));
   const out: Wanted[] = [];
   for (const k of kinds) if (!have.has(k.id)) out.push({ id: k.id, kind: k.id, subject: `tipo de produto: ${k.label}. Mostrar como esse tipo é construído ou o que o distingue visualmente dos outros tipos.` });
-  for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: `capa de um guia intitulado "${p.title}". Cena que ilustre o tema do guia, sem mostrar produto de marca. ${COVER_FRAMING}` });
+  for (const p of pages) if (p.status !== 'draft' && !have.has(`pagina-${p.slug}`)) out.push({ id: `pagina-${p.slug}`, subject: coverSubject(p) });
   const kindLabel = new Map(kinds.map((k) => [k.id, k.label]));
   for (const p of products) {
     if (have.has(`produto-${p.asin.toLowerCase()}`)) continue;
@@ -189,7 +189,7 @@ const BriefOut = z.object({ alt: z.string().min(10).max(160), prompt: z.string()
 export async function ensureImages(
   root: string,
   kinds: { id: string; label: string }[],
-  pages: { slug: string; title: string; status: string }[],
+  pages: CoverPage[],
   writeBrief: (subject: string) => Promise<{ alt: string; prompt: string }>,
   opts: GenerateOptions & { max?: number; products?: { asin: string; kind: string; brand: string; label: string }[]; skip?: Set<string> } = {},
 ): Promise<ImageRecord[]> {
@@ -210,13 +210,25 @@ export async function ensureImages(
 
 // Capa da página aparece em faixa 32:9 (23/10, editor): a imagem 3:2 é cortada em cima e embaixo, então o assunto
 // tem de caber na faixa do meio.
+// 03/11: a capa de "Cadeira de tela ou estofada" saiu com duas poltronas de sala (pés e braços de madeira, sem
+// rodízio). O pedido só levava o título, e "cadeira" sozinha não diz que o guia é de cadeira de trabalho; a
+// descrição e a resposta curta dizem (regulagens, capacidade de carga, horas de uso).
+export type CoverPage = { slug: string; title: string; status: string; description?: string; verdict?: { text: string } };
+export function coverSubject(p: CoverPage): string {
+  const ctx = [p.description, p.verdict?.text.split(/(?<=[.!?])\s/)[0]].filter(Boolean).join(' ');
+  return `capa de um guia intitulado "${p.title}".${ctx ? ` Do que o guia trata: ${ctx}` : ''} Cena que ilustre o tema do guia, ` +
+    `com o produto do tipo que o leitor vai comprar (o mesmo uso do guia, não um parente de outro uso), sem mostrar produto de marca. ${COVER_FRAMING}`;
+}
+
 export const COVER_FRAMING = 'Enquadramento para faixa larga: o assunto inteiro na faixa horizontal do meio da imagem, plano aberto e horizontal, com piso ou parede livres acima e abaixo (a capa é cortada em 32:9).';
 
 export const BRIEF_SYSTEM =
   'Você escreve pedidos para um gerador de imagens de um site editorial brasileiro. Devolva "prompt" em inglês ' +
   '(uma cena fotográfica realista, concreta, com materiais e enquadramento) e "alt" em português (descrição curta ' +
   'do que a imagem mostra). Proibido: pessoas, texto, números, logotipos, marcas, embalagens, produto identificável. ' +
-  'O estilo de luz e paleta é acrescentado depois; não repita. Exemplo aprovado de ilustração de anúncio: ' +
+  'O estilo de luz e paleta é acrescentado depois; não repita. O objeto é do tipo e do uso que o pedido descreve, com o que ' +
+  'o identifica: cadeira de trabalho tem base giratória com rodízios e regulagem de altura; não troque por poltrona, banco ' +
+  'ou cadeira de jantar (03/11: "office chairs" com pés de madeira viraram poltronas de sala). Exemplo aprovado de ilustração de anúncio: ' +
   '"A single generic high-back racing-style gaming chair in warm brown upholstery with contrasting stitching, head and lumbar ' +
   'cushions, padded armrests, in a cozy study with wooden shelves and a desk lamp. Front three-quarter view. Generic design, no recognizable model."';
 export { BriefOut };

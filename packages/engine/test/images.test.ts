@@ -40,3 +40,18 @@ describe('padrão da ilustração de anúncio', () => {
     expect(bed).toMatch(/Cena: [^.]*bedroom/);
   });
 });
+
+describe('capa leva o contexto da página', () => {
+  it('o pedido diz do que o guia trata, não só o título (03/11: cadeira de trabalho virou poltrona)', async () => {
+    const { coverSubject } = await import('../src/images.ts');
+    const s = coverSubject({
+      slug: 'cadeira-de-tela-ou-estofada', title: 'Cadeira de tela ou estofada: como escolher', status: 'approved',
+      description: 'Compare cadeira de tela e estofada pelas regulagens, material, capacidade de carga.',
+      verdict: { text: 'Escolha cadeira de tela se você trabalha muitas horas. Escolha estofada se quer acolchoamento.' },
+    });
+    expect(s).toContain('regulagens');
+    expect(s).toContain('trabalha muitas horas');
+    expect(s).not.toContain('Escolha estofada');
+    expect(s).toContain('mesmo uso do guia');
+  });
+});

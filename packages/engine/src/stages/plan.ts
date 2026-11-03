@@ -75,7 +75,17 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `isso: nada de colar na pergunta para que serve o dado ("para quem tem pouco espaço", "para saber se cabe"), ` +
         `porque a ficha declara a medida e não o que ela resolve. Continua valendo: só o que ` +
         `fabricante, norma ou regulador respondem por escrito; nada de teste prático, preço ou opinião.\n` +
-        `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas).\n` +
+        // 03/11, pauta "cama box conjugada ou bipartida": as fichas da Probel diziam "Base: Bipartida (Dois
+        // Volumes)", traziam as medidas e "Verifique se as dimensões dos produtos passam por elevadores, portas,
+        // escadas e corredores" — a resposta que o leitor precisa. As perguntas pediam a medida de CADA módulo,
+        // o peso de CADA peça e "a medida de acesso que o fabricante indica como critério, com valores"; nenhuma
+        // ficha publica isso, a triagem descartou as fichas e a pauta esgotou sem página, com a fonte em mãos.
+        `Pergunte o dado na forma em que a ficha do produto costuma publicá-lo (tipo, medidas totais, aviso do ` +
+        `fabricante, capacidade), não numa forma mais fina que nenhuma ficha traz (medida de cada módulo, peso de cada ` +
+        `peça, "o critério X com valores" quando o fabricante só avisa para conferir). Pergunta que exige o que não é ` +
+        `publicado faz a pesquisa descartar a fonte que responde.\n` +
+        `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas), com as ` +
+        `variações de gênero e número que a ficha pode usar ("bipartido" e "bipartida": a base é "o box").\n` +
         `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Também quando a dúvida é entre tamanhos: os tamanhos comparados (ex.: ["solteiro", "solteirão", "viúva"]), senão a página mostra colchão casal numa dúvida de solteiro. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +
         `"product_kinds": só os tipos do vocabulário que a página vai explicar.` +
         editorLessonsPrompt(),

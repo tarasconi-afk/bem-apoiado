@@ -781,3 +781,22 @@ O motor cresceu por caminhos paralelos (ciclo, painel, manutenção, re-auditori
 parecidos sem compartilhar o que já sabem. Ao abrir um caminho novo, a pergunta antes de escrever é:
 **que caminho já existente calcula isto, e por que não estou usando?** A trava de "não pode piorar" virou
 `keepsReaderValue()` em `review.ts` por isso — era lógica solta duplicada em dois lugares.
+
+## 2026-11-03 — Trava que só existe na saída deixa o erro entrar
+Quatro produtos sem estoque estavam no catálogo (Teka Madri, cobertor de lã Zanzio, Karsten Flora, Probel
+Guarda-Costas); o editor recusou dois pelo painel. A trava de estoque existia, mas só na **renovação**
+semanal, e com uma lista de avisos que não reconhecia nenhum dos quatro. É de novo o padrão de 29/10: a
+verificação estava num caminho e não no outro. Agora `listing-stock.ts` vale na entrada (os dois caminhos de
+cadastro), na renovação e no link colado no painel; medido nos 15 anúncios lidos direto: os 4 sem compra têm
+de 0 a 2 preços, os 11 com compra têm 45 ou mais. Sem estoque não é recusa: volta à descoberta em 7 dias.
+
+No mesmo ciclo, três erros com uma causa só, **o pedido não dizia o que a página diz**:
+- o produto só era conferido contra o *tipo* ("cobertor"), e um cobertor ponderado de 2,3 kg virou o único
+  exemplo de "cobertor mais quente" → `not_terms` por tipo no nicho;
+- a capa só levava o *título* ("Cadeira de tela ou estofada"), e saíram poltronas de sala → o pedido leva a
+  descrição e a resposta curta, e o briefing mantém o uso do produto;
+- a pauta da cama box pedia o dado numa forma que nenhuma ficha publica (medida de cada módulo), e a triagem
+  descartou as fichas da Probel que diziam "Bipartida (Dois Volumes)" com o aviso de passagem por portas →
+  o planejador pergunta na forma da ficha, com variações de gênero nos termos de foco.
+
+Antes de concluir "falta fonte", procurar o termo no que já foi guardado: a resposta estava lá.
