@@ -1,0 +1,73 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23; de 51 a 60 kg: D26; de 61 a 70 kg: D28; de 71 a 80 kg: D33; de 81 a 100 kg: D33 a D45 conforme a preferência; acima de 100 kg: D45 ou maior.",
+      "Pessoas mais pesadas tendem a precisar de densidades maiores para reduzir o afundamento e manter o suporte.",
+      "Quem dorme de lado deve procurar uma superfície que alivie a pressão em ombros e quadris.",
+      "Quem prefere mais resistência pode considerar níveis firmes ou extra firmes, observando que a classificação varia conforme o fabricante.",
+      "A densidade da espuma e a composição do colchão influenciam a sensação de firmeza; é preciso conferir esses dados na ficha técnica.",
+      "Molas ensacadas trabalham individualmente e podem se adaptar melhor aos pontos de pressão; colchões mistos combinam molas e espuma com características diferentes."
+    ],
+    "missing": [
+      "Uma explicação de como cada fabricante define os rótulos macio, médio, firme e extra firme, incluindo eventual escala ou método próprio.",
+      "Uma resposta sobre a existência de norma NBR da ABNT que padronize classificação, teste ou terminologia de firmeza para colchões.",
+      "Mais declarações oficiais dos fabricantes relacionando firmeza à posição de dormir, especialmente para quem dorme de costas ou de bruços.",
+      "Informação oficial sobre eventual período de adaptação ou amaciamento do colchão novo.",
+      "Critérios mais claros para comparar colchões de espuma, molas ensacadas, molas Bonnel e modelos mistos, mantendo coerência com as imagens usadas na página."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à dúvida com uma regra concreta baseada em peso, densidade e posição de dormir, e orienta o leitor a conferir a ficha técnica. A resposta curta é direta e a tabela facilita a decisão, embora ainda faltem a padronização dos rótulos de firmeza, a posição da ABNT e uma comparação mais completa entre os tipos de colchão mostrados nas imagens.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta e o bloco de decisão usam códigos como D23, D33 e D45 sem explicar que eles indicam a densidade da espuma em kg/m³.",
+      "A página mostra critérios para espuma, mas não orienta claramente como escolher entre colchões de molas, molas ensacadas e modelos mistos, embora esses tipos apareçam nas imagens.",
+      "A relação entre preferência por superfície firme, intermediária ou macia e peso, posição de dormir e conforto aparece de forma fragmentada, em vez de ser resumida para o leitor leigo."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23; de 51 a 60 kg: D26; de 61 a 70 kg: D28; de 71 a 80 kg: D33.",
+      "De 81 a 100 kg: conferir D33 a D45 conforme a preferência por uma superfície mais macia ou firme.",
+      "Acima de 100 kg: conferir D45 ou maior.",
+      "Quanto maior a densidade da espuma, maior a firmeza e a resistência declaradas pela Castor.",
+      "Quem dorme de lado deve procurar uma superfície que minimize a pressão em ombros e quadris.",
+      "Quem dorme de costas ou de bruços pode considerar uma superfície mais rígida, segundo a King Koil.",
+      "Molas ensacadas trabalham individualmente e podem se adaptar aos pontos de pressão; em uma configuração da Castor, a espuma nas extremidades aumenta a firmeza para cabeça e pernas.",
+      "A certificação compulsória do Inmetro citada não define uma escala de conforto ou firmeza para orientar a compra.",
+      "Na ficha do produto, conferir a densidade nominal de cada espuma e, em modelos compostos, as espessuras das camadas."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta e o bloco de decisão usam códigos como D23, D33 e D45 sem explicar que eles indicam a densidade da espuma em kg/m³.",
+      "Para o leitor leigo: A página mostra critérios para espuma, mas não orienta claramente como escolher entre colchões de molas, molas ensacadas e modelos mistos, embora esses tipos apareçam nas imagens.",
+      "Para o leitor leigo: A relação entre preferência por superfície firme, intermediária ou macia e peso, posição de dormir e conforto aparece de forma fragmentada, em vez de ser resumida para o leitor leigo.",
+      "Explicação direta de que D23, D26, D28, D33 e D45 são densidades da espuma em kg/m³.",
+      "Uma resposta curta, em até três frases, relacionando de forma explícita superfície macia, intermediária ou firme à preferência, ao peso e à posição de dormir.",
+      "Informação oficial dos fabricantes sobre como os rótulos macio, médio, firme e extra firme são definidos e se existe escala própria.",
+      "Confirmação, em fonte primária, sobre a existência ou inexistência de norma NBR da ABNT que padronize classificação, teste ou terminologia de firmeza.",
+      "Declarações oficiais dos fabricantes relacionando firmeza à posição de dormir.",
+      "Critérios de escolha para colchões de molas, molas ensacadas e modelos mistos, coerentes com os tipos apresentados nas imagens.",
+      "Informação oficial sobre eventual período de adaptação ou amaciamento do colchão novo."
+    ],
+    "publishable": false,
+    "summary": "A página responde à dúvida principal com critérios concretos de peso, densidade e posição de dormir e leva o leitor a conferir a ficha do produto. Porém, a resposta curta usa códigos de densidade sem explicá-los, não traduz claramente quando escolher uma superfície macia, intermediária ou firme e deixa sem orientação os tipos de colchão destacados nas imagens. Com esses ajustes, a página pode se tornar publicável.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 2
+}
