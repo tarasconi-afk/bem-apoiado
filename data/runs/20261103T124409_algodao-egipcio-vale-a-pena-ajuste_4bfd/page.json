@@ -1,0 +1,65 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O título promete informações sobre densidade, mas o conteúdo não traz dados nem orientação sobre densidade ou gramatura; seria melhor retirar essa promessa do título."
+    ],
+    "filler_refs": [
+      "composicao-declarada#0",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Escolha o algodão egípcio se você prioriza maciez, menor formação de bolinhas e maior durabilidade, características atribuídas pela Karsten e pela Appel às fibras ou filamentos longos.",
+      "Confira na etiqueta ou ficha se a composição é declarada como 100% algodão egípcio ou se é uma mistura.",
+      "Em um blend, confira o percentual de cada fibra; a página usa como exemplo uma composição de 60% algodão e 40% poliéster declarada pela Teka.",
+      "Se você usa secadora, confira antes da compra as instruções específicas do produto, pois a peça da Appel citada não pode ser seca em secadora.",
+      "Confira também as instruções de lavagem, temperatura, alvejante, secagem e passagem declaradas para o modelo escolhido."
+    ],
+    "missing": [
+      "Para o leitor leigo: O título promete informações sobre densidade, mas o conteúdo não traz dados nem orientação sobre densidade ou gramatura; seria melhor retirar essa promessa do título.",
+      "Uma orientação de fonte primária sobre como verificar a origem egípcia do algodão e se há selo ou comprovação exigida para usar essa denominação.",
+      "Instruções de cuidado específicas de um jogo de cama de algodão egípcio, em vez das instruções de uma toalha.",
+      "Se a densidade ou a gramatura forem mantidas no título, uma ficha técnica de fabricante que declare esses dados para o modelo."
+    ],
+    "publishable": true,
+    "summary": "A página responde à dúvida principal com uma regra de escolha concreta: o algodão egípcio pode compensar para quem busca maciez, menos bolinhas e maior durabilidade, mas é essencial conferir na etiqueta se há 100% da fibra ou o percentual de cada material no blend. O conteúdo é útil para a compra e tem resposta curta adequada; recomenda-se apenas remover “densidade” do título e cortar os trechos repetitivos.",
+    "filler_ratio": 0.2,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-peso#0",
+      "medidas-peso#1",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Se o comprador quer um produto declarado como 100% algodão egípcio, deve conferir essa proporção na composição da etiqueta ou ficha técnica.",
+      "Se aceitar mistura, deve conferir o nome e o percentual de cada fibra, em vez de comprar um produto identificado apenas como blend.",
+      "Quem usa secadora deve verificar os símbolos ou instruções de cuidado, pois o produto citado da Appel proíbe secagem em secadora.",
+      "A composição declarada deve informar o nome das fibras e seus percentuais em massa."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma resposta direta sobre para quem o algodão egípcio compensa e em quais prioridades ele pode fazer diferença.",
+      "Declarações de fabricantes sobre características atribuídas à fibra, como comprimento, toque, durabilidade ou formação de bolinhas, com a fonte atribuída a cada afirmação.",
+      "Uma orientação clara para não pagar mais por um produto chamado algodão egípcio sem percentual declarado ou que seja apenas um blend.",
+      "Percentuais específicos das fibras nos produtos mistos citados, caso estejam disponíveis em fonte primária.",
+      "Informação primária sobre eventual comprovação de origem ou selo exigido para o uso do termo algodão egípcio, se houver."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios úteis para conferir a composição, identificar blends e verificar cuidados, mas não responde adequadamente à dúvida principal sobre se o algodão egípcio vale a pena. A resposta curta fica em “depende” e não explica para quem a escolha compensa nem o que, segundo os fabricantes, a fibra pode mudar; além disso, há um bloco de medida de toalha irrelevante e repetições da composição.",
+    "filler_ratio": 0.2727272727272727,
+    "model_opinion": false
+  }
+}
