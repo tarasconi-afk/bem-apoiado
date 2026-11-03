@@ -5,7 +5,7 @@
   "title": "Tamanhos de toalha: rosto, lavabo, banho e banhão",
   "description": "Medidas declaradas pelos fabricantes para cada tamanho de toalha e o que a etiqueta deve informar sobre conservação.",
   "primary_query": "tamanhos de toalha: banho, banhão, rosto e lavabo",
-  "updated_at": "2026-10-30",
+  "updated_at": "2026-11-03",
   "verdict": {
     "text": "Medidas típicas segundo fabricantes: rosto 45×65 a 50×80 cm, banho 60×120 a 70×140 cm, banhão 80×150 a 90×160 cm e lavabo cerca de 30×50 cm.",
     "basis": "evidence",
@@ -148,11 +148,10 @@
                   "claim_ids": []
                 },
                 {
-                  "text": "Segundo a Appel e a Karsten, 80 × 150 a 90 × 160",
+                  "text": "Segundo a Karsten, cerca de 86 × 150 cm ou medidas normalmente acima de 86 × 150 cm",
                   "claim_ids": [
-                    "clm_f78a3af9dd0f",
-                    "clm_196ce464a643",
-                    "clm_227cf4999acd"
+                    "clm_883de4a00b0c",
+                    "clm_92965c0828fe"
                   ]
                 }
               ]
@@ -172,10 +171,10 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer uma toalha para secar o corpo e prefere ocupar menos espaço, escolha o tamanho banho, geralmente perto de 70 × 130–140 cm; se quer mais cobertura para se enrolar, escolha o banhão, geralmente perto de 86 × 150 cm ou maior, segundo a Karsten.",
+          "text": "Se você quer uma toalha para secar o corpo após o banho, escolha o tamanho banho, geralmente perto de 70 × 135 cm; se quer mais cobertura, escolha o banhão, geralmente perto de 86 × 150 cm ou maior, segundo a Karsten.",
           "basis": "reasoning",
           "claim_ids": [
-            "clm_196ce464a643",
+            "clm_07905cd470aa",
             "clm_6e50ecf3bb87",
             "clm_883de4a00b0c",
             "clm_92965c0828fe"
@@ -194,17 +193,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261030T131140_autopilot_994b+edit:20261030T131140_autopilot_994b",
+    "run_id": "20261030T131140_autopilot_994b+edit:20261030T131140_autopilot_994b+reaudit:20261103T123352_autopilot_01ad",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0,
       "criteria": 6,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }

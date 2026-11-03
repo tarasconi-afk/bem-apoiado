@@ -1,0 +1,38 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Banhão",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Karsten, cerca de 86 × 150 cm ou medidas normalmente acima de 86 × 150 cm",
+          "claim_ids": [
+            "clm_883de4a00b0c",
+            "clm_92965c0828fe"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você quer uma toalha para secar o corpo e prefere ocupar menos espaço, escolha o tamanho banho, geralmente perto de 70 × 130–135 cm; se quer mais cobertura para se enrolar, escolha o banhão, geralmente perto de 86 × 150 cm ou maior, segundo a Karsten.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6e50ecf3bb87",
+        "clm_883de4a00b0c",
+        "clm_92965c0828fe"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas do tamanho banho e do banhão, além de dizerem que o banhão oferece mais cobertura. Porém, não dizem que a toalha banho serve para secar o corpo, ocupa menos espaço ou deve ser escolhida por essa preferência. Também não sustentam a faixa “70 × 130–135 cm”: o trecho cita cerca de 70 × 135 cm, sem mencionar 130 cm."
+    }
+  ]
+}
