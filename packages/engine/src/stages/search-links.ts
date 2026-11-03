@@ -24,6 +24,24 @@ Devolva de 1 a 3 buscas, cada uma para uma ESCOLHA diferente que o guia ensina a
 - "label": o que o leitor vai encontrar, em palavras do dia a dia, sem termo técnico (ex.: "Cadeiras com braço e altura reguláveis").
 Nunca use: jargão (nome de mecanismo, norma, "antropométrico"), instrução de lavagem, medida exata em cm a não ser tamanho padrão de cama, "melhor", "top", "barato", "oferta", promessa de saúde ou de resultado.`;
 
+// Público ou uso de saúde que a página não menciona não entra na busca. 03/11, travesseiro de corpo: o gerador
+// criou "Travesseiro de corpo para grávidas" numa página com ZERO menções a gravidez. A busca é o último clique
+// antes da compra; prometer uso que a página não sustenta é afirmação sem fonte, só que dentro de um link -- o
+// ponto cego registrado em DECISIONS (29/10): os portões leem texto, não destino de link.
+const PUBLICO = /\b(gr[aá]vid\w*|gestante\w*|gravidez|idos[oa]s?|crian[cç]as?|beb[eê]s?|infantil|dor(es)?|coluna|postura|lombar|cervical|al[eé]rgic\w*|alergia|ortop[eé]dic\w*|terap[eê]utic\w*|hernia|h[eé]rnia)\b/giu;
+const semAcento = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+export function textoDaPagina(p: PageSpec): string {
+  return semAcento([p.title, p.verdict.text, ...p.sections.flatMap((x) => [x.heading, ...x.blocks.map((b) => (b.kind === 'table' ? [b.caption, ...b.columns, ...b.rows.flatMap((r) => r.cells.map((c) => c.text))].join(' ') : b.text))])].join(' '));
+}
+export function publicoQueAPaginaNaoTem(l: { label: string; query: string }, texto: string): boolean {
+  // Palavra curta exige a palavra inteira ("dor" é pedaço de "dormir", que está em toda página de travesseiro);
+  // palavra longa aceita a raiz (gravidez/grávida, coluna/colunas).
+  return [...`${l.label} ${l.query}`.matchAll(PUBLICO)].some((m) => {
+    const w = semAcento(m[0]);
+    return w.length <= 5 ? !new RegExp(`\\b${w}\\b`).test(texto) : !texto.includes(w.slice(0, 5));
+  });
+}
+
 export async function ensureSearchLinks(pages: PageSpec[], fetchImpl?: FetchLike, max = 5, now = new Date()): Promise<string[]> {
   const data = loadSearchLinks();
   const forbidden = loadNiche().forbidden_terms;
@@ -44,6 +62,7 @@ export async function ensureSearchLinks(pages: PageSpec[], fetchImpl?: FetchLike
     const links = r.data.links
       .map((l) => ({ label: l.label.trim().replace(/\s+/g, ' '), query: l.query.trim().toLowerCase().replace(/\s+/g, ' ').replace(/\b(\p{L}+)( \1\b)+/gu, '$1') }))
       .filter((l) => !searchLinkProblem(l, forbidden))
+      .filter((l) => !publicoQueAPaginaNaoTem(l, textoDaPagina(p)))
       .slice(0, 3);
     // Nenhuma busca válida: o tipo de produto da própria página (sempre existe e nunca é promessa).
     if (!links.length) {
