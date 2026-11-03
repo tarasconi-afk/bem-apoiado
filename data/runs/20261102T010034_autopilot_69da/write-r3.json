@@ -1,0 +1,214 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O travesseiro de corpo é recomendado para quem dorme de lado e para gestantes que precisam dormir nessa posição, segundo a Ortobom. Nos modelos citados, as medidas variam de 130 × 40 cm a 140 × 50 cm; verifique na ficha se há instruções de lavagem em casa.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_b3693b6137d5",
+        "clm_7ce0093ce859",
+        "clm_e2f8b0e4a9e7"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro de corpo vale a pena: para quem é e o que conferir",
+    "description": "Saiba quando um travesseiro de corpo ajuda a dormir melhor, quais medidas e materiais procurar na ficha, e como cuidar em casa.",
+    "verdict": {
+      "text": "O travesseiro de corpo é recomendado para quem dorme de lado e para gestantes que precisam dormir nessa posição, segundo a Ortobom. Nos modelos citados, as medidas variam de 130 × 40 cm a 140 × 50 cm; verifique na ficha se há instruções de lavagem em casa, segundo a Ortobom e a Probel.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_b3693b6137d5",
+        "clm_7ce0093ce859",
+        "clm_e2f8b0e4a9e7"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-eh-travesseiro-corpo",
+        "heading": "Para que serve um travesseiro de corpo",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, o travesseiro Hug pode ser abraçado e colocado entre os joelhos durante o sono na posição de lado, cumprindo essa dupla função.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4d0af86b1ec7"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-e-materiais",
+        "heading": "Medidas e materiais que você vai encontrar",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Travesseiros de corpo: medidas e enchimento declarados",
+            "columns": [
+              "Modelo e fabricante",
+              "Comprimento × Largura × Altura",
+              "Material de enchimento"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Hug (Ortobom)",
+                    "claim_ids": [
+                      "clm_7ce0093ce859"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, 140 × 50 cm",
+                    "claim_ids": [
+                      "clm_7ce0093ce859"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, fibra siliconada 100% poliéster",
+                    "claim_ids": [
+                      "clm_039a686c1191"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Revo (Probel)",
+                    "claim_ids": [
+                      "clm_82bac2072d3f"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, 130 × 40 × 20 cm",
+                    "claim_ids": [
+                      "clm_e2f8b0e4a9e7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, fibra siliconada",
+                    "claim_ids": [
+                      "clm_3299f2a7b219"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cuidados-de-conservacao",
+        "heading": "O que a etiqueta informa sobre lavar e guardar",
+        "blocks": [
+          {
+            "text": "O Inmetro determina que sejam descritos, por símbolos e/ou texto, pelo menos cinco principais tratamentos de conservação do produto têxtil, conforme a Norma NM-ISO 3758:2013.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_239219755069"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Hug da Ortobom, a etiqueta informa que é permitido lavar em temperatura máxima de 40 °C em processo suave, é proibido alvejamento, permitida secagem em tambor até 60 °C, permitida passadoria até 110 °C sem vapor e proibida limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3fb7b71e5656"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "capa-removivel",
+        "heading": "Capa removível e lavável",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, alguns modelos de travesseiro possuem capas removíveis e laváveis, o que facilita a limpeza. Confira na ficha do produto que vai comprar se a capa é removível.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_60757a8f9b03"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Hug da Ortobom, a ficha informa que a capa é de algodão e o revestimento é de poliéster, mas não menciona se a capa é removível.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_485e041a0819"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "certificacao-inmetro",
+        "heading": "Certificação e regulação do travesseiro de corpo",
+        "blocks": [
+          {
+            "text": "O Inmetro informa que produtos têxteis devem conter o nome ou a razão social ou marca registrada do fabricante, CNPJ do fabricante nacional ou importador, país de origem, composição e percentuais das fibras, tamanho e pelo menos os cinco principais tratamentos de conservação descritos conforme a NM-ISO 3758:2013.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_28e1007029ee"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir se vale a pena",
+        "blocks": [
+          {
+            "text": "Se você dorme de lado e quer apoiar o corpo, confira se a descrição indica uso abraçado e entre os joelhos; o Hug da Ortobom é descrito dessa forma.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4d0af86b1ec7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se está grávida e precisa dormir de lado, confira modelos cuja ficha indique auxílio nessa posição; o Hug da Ortobom é recomendado pela marca para esse uso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b3693b6137d5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o espaço da cama é limitado, confira as medidas antes de comprar: o Hug da Ortobom mede 140 × 50 cm, enquanto o Revo da Probel mede 130 × 40 × 20 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7ce0093ce859",
+              "clm_e2f8b0e4a9e7"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer lavar o travesseiro em casa, escolha um modelo cuja ficha permita lavagem, segundo a Ortobom. O Hug da Ortobom informa lavagem suave a até 40 °C; confira as instruções de conservação informadas para o produto.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3fb7b71e5656",
+              "clm_239219755069"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos da Ortobom recomendam o produto para auxiliar gestantes a dormir na posição lateral, mas não dizem que a gestante precisa dormir nessa posição nem que o travesseiro necessariamente “vale a pena”. Versão sustentável: O travesseiro é recomendado para auxiliar quem dorme de lado e gestantes a dormir na posição lateral, segundo a Ortobom. Nos modelos citados, as medidas variam de 130 × 40 cm a 140 × 50 cm; verifique na ficha se há instruções de lavagem em casa."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 190
+  }
+}

@@ -1,0 +1,163 @@
+
+
+<html>
+<head>
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="/imagens/style1.css" type="text/css" />
+<script type="text/javascript" src="/includes/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="/includes/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=242019&modprp=5&coduasg=160106&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=160106&numprp=242019&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" frameborder="0" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tr><td class="cabecbox">Aguarde!</td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2"><img src="/imagens/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="/imagens/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="/imagens/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="1" cellpadding="2">
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p>MINISTÉRIO DA DEFESA</p></td></tr><tr><td class='tex3'><p>Comando do Exército</p></td></tr><tr><td class='tex3'><p>Comando Militar do Planalto</p></td></tr><tr><td class='tex3'><p>2 Batalhão Ferroviário</p></td></tr><tr><td class='tex3'><p>Código da UASG: 160106</p></td></tr></table><br></td>
+        </tr>
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p><span class='tex3b'>Pregão Eletrônico Nº  24/2019</span><span class='mensagem'> - (Decreto Nº 5.450/2005)</span><br><b>Objeto:</b>&nbsp;Objeto: Pregão Eletrônico -  Registro de preços para possível aquisição de eletroeletrônicos, eletrodomésticos, móveis, móveis planejados, acessórios e material de cama, mesa e banho a serem aplicados nos apartamentos do Hotel de Trânsito Visconde de Mauá, pertencente ao 2º Batalhão Ferroviário conforme quantidades, condições e exigências presentes no Edital e seus anexos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <br><b>Edital a partir de:</b>&nbsp;26/06/2019 das 08:30 às 11:30 Hs e das 13:30 às 17:00 Hs<br><b>Endereço:</b>&nbsp;Rua Professora Lourdes Naves, 750 - Santo Antonio                                    -                                          - Araguari                                 (MG)<br><b>Telefone:</b>&nbsp;         <br><b>Fax:</b>&nbsp;               <br><b>Entrega da Proposta:</b>&nbsp;26/06/2019 às 08:30Hs<br></p></td></tr></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td>
+		    <td class='tex3'>
+		    <span class='tex3b'>Itens de Material</span><table width='100%'><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>1 - APARELHO AR CONDICIONADO</span><br><span class='tex3'>CONDICIONADOR DE AR TIPO SPLIT, CAPACIDADE DE REFRIGERAÇÃO: 9.000 BTU S, - TIPO DE CICLO: FRIO; POSSUIR SELO RUÍDO, CONFORME PORTARIA CONAMA 020/94, COM CERTIFICAÇÃO PELO INMETRO; - SELO PROCEL: NÍVEL  A  EM EFICIÊNCIA ENERGÉTICA; - COR: BRANCO; - VOLTAGEM: 220 V.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>2 - TELEVISOR</span><br><span class='tex3'>TELEVISOR 39  LED. VOLTAGEM 110/220V, CARACTERÍSTICAS ADICIONAIS FULL HD, LED, CONVERSOR DIGITAL INTEGRADO EFICIÊNCIA ENERGÉTICA (SELO PROCEL  A ) E GARANTIA MÍNIMA DE 1 ANO, E COM O CERTIFICADO DO IMETRO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>3 - FRIGOBAR</span><br><span class='tex3'>FRIGOBAR, CAPACIDADE 79 L, TENSÃO ALIMENTAÇÃO 220 V, COR BRANCA,              CARACTERÍSTICAS ADICIONAIS PRATELEIRAS REMOVÍVEIS, PORTA REVERSÍVEL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>4 - REFRIGERADOR DUPLEX</span><br><span class='tex3'>GELADEIRA 220 V, NA COR BRANCA, COM CAPACIDADE PARA 443 LITROS, MEDINDO 72, 5 CM DE LARGURA, 184 CM DE ALTURA, 70, 1 CM DE PROFUNDIDADE E 85 KG DE PESO SEM DISPENSER DE ÁGUA, COM PRATELEIRAS REMOVÍVEIS, CAPACIDADE FREEZER DE 135 LITROS, TIPO DE DEGELO, FROST FREE, COM RECIPIENTE PARA GUARDAR GELO, SEM COMPARTIMENTO EXTRA FRIO, CAPACIDADE DA GELADEIRA DE 308 LITROS, 2 GAVETAS, PORTA OVOS, PORTA LATAS, ALARME DE PORTA ABERTA, PÉS NIVELADORES, SEM PORTA REVERSÍVEL, DISPLAY TOUCH SCREEN, COM CONTROLE DE TEMPERATURA, COM TRAVA DE SEGURANÇA, COM MOSTRADOR FRONTAL DE TEMPERATURA, 02 PORTAS, COM  PAINEL DE CONTROLE EXTERNO, FORMATO INVERSE.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>5 - FORNO MICROONDAS</span><br><span class='tex3'>FORNO MICROONDAS, NA COR BRANCA, CAPACIDADE DE 45 LITROS, VOLTAGEM DE 220 V.  CONSUMO DE 1.500 KW/H, POTENCIA 1.000 W, POSSUIDOR DE TIMER, DISPLAY DIGITAL, RELÓGIO, LUZ INTERNA, TECLAS PROGRAMADAS, TRAVA DE SEGURANÇA, GRILL, SEM TERMOSTATO, NÃO POSSUI TERMOSTATO, NEM PARATELEIRAS, NÃO É AUTOLIMPANTE, COM GARANTIA DO FABRICANTE.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>6 - CAMA COMUM</span><br><span class='tex3'>CAMA QUEEN CASAL, BORDADO - TOP VISCO INSIDE FORMADO POR MATERIAL VISCOELÁSTICO DE ALTA DENSIDADE D50 + LÂMINA DE ESPUMA D-20 + LÂMINA DE ESPUMA PERFILADA + FIBRA SILICONADA SOFT + TEXTURIZADO. 2 - CAMADA DE CONFORTO FORMADA POR ESPUMAS DE ALTA PERFOMANCE D-28 + FELTRO RESINADO TERMOBOUND 900G ANTIÁCARO. 3 - MOLEJO MOLAS ENSACADAS INDIVIDUALMENTE DE 16CM DE ALTURA DE AÇO CARBONO. (POCKET) 4 - SISTEMA ENCAPSULADO SISTEMA ESPECIAL DE ENQUADRAMENTO DO MOLEJO AG80, BORDAGUARD. 5 - TECIDO TAMPO: PARATY BAMBU (47%ALGODÃO/38%POLIÉSTER/15%VISCOSE DE BAMBU). (60%POLIPROPILENO/30%POLIÉSTER/10% ALGODÃO). ALTURA DO COLCHÃO: 28 cm ALTURA DO CONJUNTO: 66 cm. GARANTIA DO FABRICANTE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>7 - CAMA COMUM</span><br><span class='tex3'>CAMA BOX SOLTEIRO. PILLOW TOP INTERNO EM ESPUMA HIPERMACIA E ESPUMA HR   HIGH RESILIENCE; ESTRUTURA DE MOLAS SUPERPOCKET; TECIDO EM MALHA BELGA SUPER SOFT; ESPUMA COM MATÉRIA-PRIMA SUSTENTÁVEL; TAMANHO: 88X188CM. GARANTIA DO FAVRICANTE.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 10<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>8 - CADEIRA</span><br><span class='tex3'>CADEIRAS ESTOFADAS PARA MESA NA COR BEGE SEM BRAÇO, COM ENCOSTO CURVADO ANATÔMICO, EM COMPENSADO MULTI LAMINADO COM LÂMINAS DE MADEIRA MACIÇA. ACABAMENTO A BASE DE STAIN IMPREGNANTE FOSCO COM A MADEIRA APARENTE PÉ EM MADEIRA MACIÇA DURA DE TAUARI. ASSENTO REFORÇADO COM ESPUMA D 23 E TECIDO EM ALGODÃO ESTILO RÚSTICO, COM GARANTIA DO FABRICANTE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>9 - POLTRONA</span><br><span class='tex3'>POLTRONA ESTOFADA DE TECIDO COURO LISO E NA COR BEGE CLARO PARA QUARTO, COM PÉS DE MADEIRA MACIÇA, COM ASSENTO DENSIDADE D26.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 2<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>10 - MESA CABECEIRA</span><br><span class='tex3'>CABECEIRA PARA CAMA EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, MEDINDO 4,85 M DE COMPRIMENTO X 0,70 M DE ALTURA, QUE SERÁ INSTALADO EM LOCAL A SER INFORMADO PELA GESTÃO DO HOTEL DE TRÂNSITO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>11 - PAINEL PRÉ-FABRICADO</span><br><span class='tex3'>PAINEL EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, PARA FIXAÇÃO DE TELEVISOR DE 39 , MEDIDAS CONFORME CROQUI ANEXO, QUE SERÁ INSTALADO EM LOCAL A SER INFORMADO PELA GESTÃO DO HOTEL DE TRÂNSITO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>12 - ARMÁRIO</span><br><span class='tex3'>ARMÁRIO CONFECCIONADO EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, MEDINDO 2,30 M DE ALTURA, 1,65 M DE COMPRIMENTO, 0,60 M DE PROFUNDIDADE, COM PUXADORES DE ALUMÍNIO, COM 02 PORTAS, DESLIZANTES EM TRILHO DE ALUMÍNIO, COM 02 GAVETAS INTERNAS E CORREDIÇAS EM METAL. PRATELEIRA, CABIDEIROS E CALCEIROS EM ALUMÍNIO REFORÇADO, COM ENCAIXE PROLONGADO PARA FRIGOBAR, BASE DE MADEIRA MACIÇA, QUE SERÁ INSTALADO EM LOCAL A SER INFORMADO PELA GESTÃO DO HOTEL DE TRÂNSITO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>13 - CÔMODA</span><br><span class='tex3'>CRIADO MUDO COM 02 GAVETAS E UM NICHO CONFECCIONADO EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, MEDINDO 0,90 M DE ALTURA X 0,50 M DE COMPRIMENTO X 0,45 M DE PROFUNDIDADE, COM PUXADORES DE ALUMÍNIO, APOIADO EM RODÍZIOS DE SILICONE (02 COM FREIO NA FRENTE E 02 SEM FREIO ATRÁS) MEDINDO 6,5 CM, COM PUXADORES COM PERFIL DE ALUMÍNIO. UNIDADE DE FORNECIMENTO E MONTAGEM: METRO QUADRADO (M²).<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>14 - ARMÁRIO BANHEIRO</span><br><span class='tex3'>ARMÁRIO PARA BANHEIRO EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, MEDINDO 0,62 M DE ALTURA X 0,95 M DE COMPRIMENTO X 0,55 M DE PROFUNDIDADE, COM PUXADORES DE ALUMÍNIO, QUE SERÁ INSTALADO EM LOCAL A SER INFORMADO PELA GESTÃO DO HOTEL DE TRÂNSITO. UNIDADE DE MEDIDA OU DE MONTAGEM: METRO QUADRADO (M²).<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>15 - BANCADA</span><br><span class='tex3'>BANCADA RETRÁTIL PARA ESTUDO CONFECCIONADA EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, MEDINDO 1,20 M DE COMPRIMENTO X 0,55 M DE PROFUNDIDADE X 0,75 M DE ALTURA QUE SERÁ INSTALADO EM LOCAL A SER INFORMADO PELA GESTÃO DO HOTEL DE TRÂNSITO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: METRO QUADRADO      </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>16 - ARMÁRIO COPA/COZINHA</span><br><span class='tex3'>ARMÁRIO PARA PIA DE COZINHA EM MÓVEL PLANEJADO NA COR GIANDUIA PREMIO, EM MATERIAL MDF, COM ESPESSURA DE 3 CM, MEDINDO 2,00 M DE COMPRIMENTO X 0,35 M DE PROFUNDIDADE X 0,40 M DE ALTURA A COM PÉS DE MADEIRA MACIÇA, COM PUXADORES COM PERFIL DE ALUMÍNIO, QUE SERÁ INSTALADO EM LOCAL A SER INFORMADO PELA GESTÃO DO HOTEL DE TRÂNSITO. UNIDADE DE MEDIDA/FORNECIMENTO E MONTAGEM: METRO QUADRADO (M²).<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>17 - SUPORTE MONITOR VÍDEO</span><br><span class='tex3'>SUPORTE PARA TV DE 39 , NA COR PRETO, SUPORTE ARTICULADO COM INCLINAÇÃO DE ATÉ 60 GRAUS,  FABRICADO EM AÇO CARBONO,  PINTADO ELETROSTATICAMENTE COM TINTA EPÓXI ANTIFERRUGEM,  SUPORTE FECHADO (DISTÂNCIA DA PAREDE) IGUAL A 20CM, TOTALMENTE ABERTO (DISTÂNCIA DA PAREDE) IGUAL A 45CM, ROTAÇÃO COMPLETA DA TELA DA TV, DIMENSÕES DA BASE FIXA À PAREDE (LXA): 10X12CM, DISTÂNCIA ENTRE OS FUROS DA BASE FIXA À PAREDE (LXA): 7X7,5CM, PODE SE ASSISTIR EM POSIÇÃO DE RETRATO OU PAISAGEM SEM PRECISAR DE FERRAMENTAS, ACOMPANHA KIT COMPLETO DE INSTALAÇÃO COM PARAFUSOS, BUCHAS E ARRUELAS PRATO, COM GARANTIA DO FABRICANTE<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>18 - ESPELHO</span><br><span class='tex3'>ESPELHO PARA PAREDE, SEM MOLDURA, COM FIXADORES, MEDINDO 1,70 M DE ALTURA X 1,00 M DE LARGURA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>19 - LIXEIRA</span><br><span class='tex3'>LIXEIRA PRODUZIDA EM AÇO INOX É PARA SER UTILIZADA EM BANHEIROS TOTALMENTE FLEXÍVEL, POSSUI BALDE REMOVÍVEL, PEDAL E CAPACIDADE DE 5 LITROS. TOTALMENTE HIGIÊNICA E ISOLANTE DE QUALQUER CONTATO DE RESÍDUOS DEPOSITADOS COM AS SUAS MÃOS.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 20<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>20 - PERSIANA</span><br><span class='tex3'>PERSIANA BLACKOUT PARA JANELA NA COR BEGE, MEDINDO 2,30 M LARGURA POR 1,30 M DE ALTURA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>21 - ABAJUR</span><br><span class='tex3'>ABAJUR DE MESA PARA DECORAR QUARTOS COM CÚPULA BEGE, LÂMPADAS COMPATÍVEIS: LÂMPADAS INCANDESCENTES, HALÓGENAS E LED, LIGA/DESLIGA POR INTERRUPTOR, FICHA TÉCNICA: MATERIAL: ZINCO E VIDRO, VOLTAGEM: BIVOLT (110V-220V), MEDIDAS: ALTURA: 35 CM (COM CÚPULA) E LARGURA: 22 CM (COM CÚPULA). GARANTIA DO FABRICANTE.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>22 - MANTA</span><br><span class='tex3'>MANTAS QUEEN NA COR BEGE MEDIDAS: 2.20X2.40M, GRAMATURA: 300G/M².<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>23 - TAPETE</span><br><span class='tex3'>TAPETE PASSADEIRA FELPUDO NA COR BEGE LISO MEDINDO 1,50 X0,60CM.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 10<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>24 - TRAVESSEIRO</span><br><span class='tex3'>TRAVESSEIRO DE CORPO DECORATIVO 0.50X1.35M TECIDO 100% ALGODÃO PERCAL 180 FIOS.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 10<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>25 - UTENSÍLIO DOMÉSTICO</span><br><span class='tex3'>UTENSÍLIO DOMÉSTICO, MATERIAL POLIÉSTER E ALGODÃO, TIPO SAIA CAMA BOX,        DIMENSÕES 30 X 190 X 90 CM, COR BRANCA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 15<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>26 - UTENSÍLIO DOMÉSTICO</span><br><span class='tex3'>UTENSÍLIO DOMÉSTICO, MATERIAL POLIÉSTER E ALGODÃO, TIPO SAIA CAMA BOX,        DIMENSÕES 30 X 190 X 140 CM, COR BRANCA<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 5<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>27 - ´COLCHA CAMA´</span><br><span class='tex3'>COLCHA CAMA, MATERIAL 100% ALGODÃO, COMPRIMENTO 2,20 M, LARGURA 2 M<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 10<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>28 - ´COLCHA CAMA´</span><br><span class='tex3'>COLCHA CAMA, MATERIAL 100% ALGODÃO, COMPRIMENTO 2,40 M, LARGURA 1,60 M<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 10<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>29 - ´LENÇOL CAMA´</span><br><span class='tex3'>KIT LENÇÓL E FRONHA PARA CAMA SOLTEIRO BOX 180 FIOS NA COR BRANCO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 40<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>30 - ´LENÇOL CAMA´</span><br><span class='tex3'>KIT LENÇÓL E FRONHA PARA CAMA CASAL QUEEN 180 FIOS NA COR BRANCO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 30<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>31 - TAPETE</span><br><span class='tex3'>TAPETE DE BANHEIRO (TAPETE BEGE FELPUDO COM ANTIDERRAPANTE - 100% ALGODÃO - GRAMATURA: 1100G/M², MEDIDAS: 0.50X0.75M)<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 20<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>32 - TRAVESSEIRO</span><br><span class='tex3'>TRAVESSEIRO ANTIÁCARO CAPA EM MATELASSÊ MACIA E SUAVE- CAMADA DE ESPUMA VISCOELÁSTIC 0.42X0.62M<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 15<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr></table>
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td valign="top" align="right" width="23">
+			     <img src="/imagens/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td valign="top" align="right" width="23">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onClick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onClick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

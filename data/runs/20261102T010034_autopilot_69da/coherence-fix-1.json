@@ -1,0 +1,19 @@
+{
+  "patches": [
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "action": "replace",
+      "text": "O que a etiqueta informa sobre os cuidados de conservação"
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "action": "replace",
+      "text": "Informações obrigatórias na etiqueta do travesseiro de corpo"
+    }
+  ],
+  "kept": false,
+  "blocked": [
+    "cuidados-de-conservacao#0: BASIS_REQUIRES_CLAIMS evidence",
+    "certificacao-inmetro#0: BASIS_REQUIRES_CLAIMS evidence"
+  ]
+}

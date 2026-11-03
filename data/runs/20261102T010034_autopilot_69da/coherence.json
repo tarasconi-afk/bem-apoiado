@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "cuidados-de-conservacao#0",
+      "problem": "A seção promete explicar o que a etiqueta informa sobre lavar e guardar, mas os blocos não trazem orientação sobre guardar o travesseiro.",
+      "fix": "Mudar o título para “O que a etiqueta informa sobre os cuidados de conservação”, que corresponde aos tratamentos citados nos blocos."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "certificacao-inmetro#0",
+      "problem": "A seção anuncia certificação e regulação, mas o bloco informa apenas os dados obrigatórios na etiqueta de produtos têxteis; não há informação sobre certificação.",
+      "fix": "Mudar o título para “Informações obrigatórias na etiqueta do travesseiro de corpo”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 12234,
+    "output_tokens": 2874,
+    "calls": 3
+  }
+}
