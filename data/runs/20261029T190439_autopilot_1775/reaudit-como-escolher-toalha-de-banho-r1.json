@@ -1,0 +1,43 @@
+{
+  "patches": [
+    {
+      "ref": "etiqueta-conservao#1",
+      "action": "replace",
+      "text": "Essas informações podem ser apresentadas por símbolos, textos ou ambos, ficando a opção a cargo do fabricante, do importador ou de outro responsável previsto. Os símbolos devem estar em um quadrado imaginário de no mínimo 16 mm², ser facilmente legíveis e claramente visíveis.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a730fea8b014",
+        "clm_87e2dfb2b3a4"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você quer uma toalha versátil que ocupe menos espaço no armário, considere o tamanho de cerca de 70 × 130 cm, segundo a Karsten. Se prefere maior cobertura para se enrolar após o banho, considere uma toalha banhão de cerca de 85 × 150 cm e confira as medidas exatas na etiqueta.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_196ce464a643",
+        "clm_227cf4999acd",
+        "clm_2ebc5dbbf935"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Segundo a Teka, dê preferência ao 100% algodão quando priorizar maciez, respirabilidade e absorção; a Karsten relaciona o 100% algodão a toque macio e alta absorção. Confira o percentual de cada fibra na etiqueta, pois a composição deve ser declarada em massa e em ordem decrescente.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_d5dd9a084f74",
+        "clm_a2e23fa27c5e",
+        "clm_834f9d7da904",
+        "clm_055cf59ece8e"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. Os trechos do Inmetro sustentam que a composição deve informar o percentual em massa e em ordem decrescente, mas não mostram que essa informação deve ser conferida especificamente na etiqueta."
+    }
+  ]
+}
