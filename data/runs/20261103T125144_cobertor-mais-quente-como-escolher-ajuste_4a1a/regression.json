@@ -1,0 +1,70 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta não diz explicitamente que, entre os exemplos, a maior gramatura tende a ser a escolha para mais aquecimento.",
+      "O termo \"gramatura\" é usado sem uma explicação simples, como peso do tecido por metro quadrado."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para meia-estação ou como camada complementar, considerar cobertor de 250 g/m², conforme o uso descrito pela Döhler.",
+      "Para buscar mais aquecimento sem perder leveza, considerar o modelo de 350 g/m² descrito pela Döhler.",
+      "Comparar na ficha do produto a gramatura declarada: os exemplos vão de 250 a 400 g/m², e os modelos de maior gramatura são apresentados para uso mais quente.",
+      "Conferir a composição: os exemplos citados são de microfibra, flanela ou microfibra flanelada 100% poliéster.",
+      "Verificar na etiqueta os nomes e percentuais das fibras e os cuidados de conservação.",
+      "Escolher as medidas conforme o tamanho da cama, conferindo na ficha as dimensões declaradas para solteiro, casal, queen ou king.",
+      "Conferir as instruções específicas de lavagem, alvejamento, secagem, lavagem a seco e passagem para o material escolhido."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta não diz explicitamente que, entre os exemplos, a maior gramatura tende a ser a escolha para mais aquecimento.",
+      "Para o leitor leigo: O termo \"gramatura\" é usado sem uma explicação simples, como peso do tecido por metro quadrado.",
+      "Uma explicação simples de que gramatura é o peso do tecido por metro quadrado.",
+      "Uma declaração de fabricante comparando diretamente a relação entre gramatura, composição e nível de aquecimento em diferentes modelos.",
+      "Uma tabela de fabricante relacionando faixas de gramatura a temperaturas ou usos de inverno, meia-estação e camada complementar.",
+      "Informação sobre o peso total do cobertor e suas medidas dobrado ou embalado, caso o leitor precise transportar ou guardar a peça."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece uma regra prática baseada em gramatura e uso: 250 g/m² para meia-estação ou camada complementar e 350 g/m² para buscar mais aquecimento, além de orientar a conferência da composição, conservação e medidas. A resposta curta, porém, não resolve sozinha a escolha com clareza e usa \"gramatura\" sem explicá-la; vale ajustar esse trecho antes da publicação.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página usa “gramatura” como critério central sem explicar claramente que se trata do peso do tecido por metro quadrado.",
+      "A resposta inicial apresenta exemplos de 280 g/m² e 350 g/m², mas não diz diretamente qual faixa o leitor deve escolher para ter mais aquecimento."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para buscar mais aquecimento, conferir na ficha ou no anúncio gramatura de 350 g/m² em microfibra flanelada, conforme o exemplo da Döhler.",
+      "Para meia-estação ou como camada extra, conferir gramatura de 250 g/m².",
+      "Comparar a gramatura declarada entre os modelos: os exemplos citados vão de 250 a 400 g/m².",
+      "Confirmar na etiqueta os nomes e percentuais das fibras, como 100% poliéster, algodão ou mistura.",
+      "Verificar as instruções de lavagem, alvejamento, secagem e passagem indicadas para o modelo.",
+      "Conferir as medidas do cobertor de acordo com o tamanho da cama."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A página usa “gramatura” como critério central sem explicar claramente que se trata do peso do tecido por metro quadrado.",
+      "Para o leitor leigo: A resposta inicial apresenta exemplos de 280 g/m² e 350 g/m², mas não diz diretamente qual faixa o leitor deve escolher para ter mais aquecimento.",
+      "Uma explicação simples de que gramatura é o peso do tecido por metro quadrado (g/m²).",
+      "Uma regra comparativa mais clara sobre quando uma gramatura maior tende a aquecer mais e quais são os limites dessa comparação entre fibras e construções diferentes.",
+      "Uma fonte primária que relacione explicitamente faixas de gramatura a níveis de aquecimento para mais de um tipo de cobertor."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios concretos de compra, especialmente a comparação entre 250, 280–300, 350 e 400 g/m², e orienta a conferir composição, cuidados e medidas. Porém, a resposta inicial não resolve rapidamente qual cobertor escolher, e o termo técnico “gramatura” não é explicado para leigos. Com uma frase direta recomendando a faixa para maior aquecimento e uma definição simples de g/m², poderia ser publicada.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "score_before": 3,
+  "score_after": 2
+}
