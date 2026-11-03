@@ -3,17 +3,15 @@
   "page_type": "buying_guide",
   "status": "draft",
   "title": "Cobertor mais quente: como escolher pela gramatura",
-  "description": "Escolha pela gramatura: 350 g/m² para aquecimento pleno, 250 g/m² para meia-estação. Confira fibra e cuidados de lavagem na etiqueta.",
+  "description": "Como escolher cobertor pela gramatura: Döhler indica 350 g/m² para aquecimento ou 250 g/m² para meia-estação.",
   "primary_query": "cobertor mais quente: como escolher",
-  "updated_at": "2026-11-02",
+  "updated_at": "2026-11-03",
   "verdict": {
-    "text": "Nos exemplos citados, a Kacyumara informa gramatura de 280 g/m² e a Döhler informa 350 g/m². A etiqueta deve informar os nomes e percentuais das fibras e os cuidados de conservação.",
+    "text": "A Döhler descreve um cobertor de 350 g/m² como oferecendo aquecimento sem perder leveza, e um de 250 g/m² como adequado para meia-estação ou como camada complementar em dias mais frios.",
     "basis": "evidence",
     "claim_ids": [
-      "clm_232a27049f3d",
       "clm_23f8010fb15b",
-      "clm_1a9fa3a6c7bf",
-      "clm_7826221856ab"
+      "clm_6440f47401e0"
     ]
   },
   "sections": [
@@ -282,7 +280,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "A Döhler declara que, no cobertor Eva, a gramatura de 350 g/m² em microfibra flanelada 100% poliéster é o peso ideal para garantir o aquecimento necessário sem perder a leveza.",
+          "text": "Se você quer um cobertor com mais aquecimento, a Döhler descreve um cobertor de 350 g/m² como oferecendo o aquecimento necessário sem perder a leveza.",
           "basis": "evidence",
           "claim_ids": [
             "clm_23f8010fb15b"
@@ -290,10 +288,20 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você procura um cobertor para meia-estação ou para usar como camada complementar em dias mais frios, a Döhler descreve que o modelo Elise, com 250 g/m², é ideal para esse uso.",
+          "text": "Se você quer um cobertor para meia-estação ou para usar junto com outra coberta nos dias mais frios, confira gramatura de 250 g/m²: a Döhler descreve essa medida como ideal para esse uso.",
           "basis": "evidence",
           "claim_ids": [
             "clm_6440f47401e0"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Quando informados na descrição do produto, confira a gramatura em g/m² e a composição percentual. Nos exemplos citados, há produtos de 250 g/m² e 350 g/m², sendo um deles descrito como 100% poliéster.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_23f8010fb15b",
+            "clm_6440f47401e0",
+            "clm_5bae51fde01a"
           ]
         }
       ]
@@ -301,7 +309,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261102T070703_autopilot_efaa",
+    "run_id": "20261102T070703_autopilot_efaa+editor:20261103T130132_cobertor-mais-quente-como-escolher-ajuste_8aee",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
