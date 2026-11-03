@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "encolhimento#0",
+      "problem": "O leitor pode entender que todo lençol de algodão 100% sofre redução de cerca de 3% na primeira lavagem, embora o trecho seja de um produto específico da Appel.",
+      "fix": "Reescrever como dado do modelo consultado: “No modelo consultado da Appel, o tecido passa por pré-encolhimento, mas pode sofrer redução de cerca de 3% na primeira lavagem.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 25568,
+    "output_tokens": 4794,
+    "calls": 3
+  }
+}

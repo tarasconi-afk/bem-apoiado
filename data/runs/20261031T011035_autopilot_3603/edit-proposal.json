@@ -1,0 +1,38 @@
+{
+  "edits": [
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Se busca composição simples, lençol de malha fio penteado 100% algodão (Altenburg) já resolve (veja detalhes na seção Composição acima).",
+      "claim_ids": [
+        "clm_fa0ff9d2cd81"
+      ],
+      "reason": "Repete quase literalmente o texto de composicao-malha#0 e do verdict; basta remeter à seção já detalhada."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Para algodão, confira na ficha a contagem de fios e a composição (percal, cetim etc.), já detalhadas na seção Composição acima.",
+      "claim_ids": [
+        "clm_0e47e3881cb5",
+        "clm_34ea99b443a3",
+        "clm_16cf629ece08"
+      ],
+      "reason": "Repete integralmente os dados já apresentados em composicao-algodao#0; basta remeter em vez de repetir todos os números."
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "rewrite",
+      "text": "Verifique na ficha se o lençol é pré-encolhido; mesmo assim pode encolher cerca de 3% na primeira lavagem, como já explicado na seção Encolhimento acima.",
+      "claim_ids": [
+        "clm_9fde95a8415f"
+      ],
+      "reason": "Repete quase palavra por palavra o conteúdo de encolhimento#0; basta uma referência curta."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 3275
+  }
+}

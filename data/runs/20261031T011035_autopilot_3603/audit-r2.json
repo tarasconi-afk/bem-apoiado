@@ -1,0 +1,114 @@
+{
+  "findings": [
+    {
+      "ref": "composicao-malha#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-algodao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "encolhimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Altenburg citado informa 0,88 m × 1,88 m × 30 cm para o tamanho solteiro, não 1,38 m × 1,88 m × 30 cm para o tamanho casal. Portanto, a medida e o tamanho apresentados no bloco não são sustentados pelo trecho citado.",
+      "fix": "Substitua por: “Lençol de malha (Altenburg): segundo a Altenburg, 0,88 m × 1,88 m × 30 cm para solteiro”, ou cite um trecho que mostre a medida de casal."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Embora o trecho da Altenburg mostre a medida King de 1,93 m × 2,03 m × 40 cm, ele pertence ao catálogo de algodão e não identifica o produto como lençol de malha. A classificação como “lençol de malha” não é sustentada pelo trecho citado.",
+      "fix": "Use: “Lençol Altenburg: segundo a Altenburg, 1,93 m × 2,03 m × 40 cm”, sem classificá-lo como malha, ou cite um trecho que identifique esse modelo como malha."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que o tecido passa por pré-encolhimento, mas também que ainda pode ocorrer redução de cerca de 3% na primeira lavagem. Assim, recomendar verificar se foi pré-encolhido para “evitar redução” sugere uma garantia que o trecho não oferece.",
+      "fix": "Use: “Confira na ficha se o lençol foi pré-encolhido, segundo a Appel. No modelo consultado, o tecido passa por pré-encolhimento, mas pode ocorrer redução de cerca de 3% na primeira lavagem, considerada normal para produtos 100% algodão.”"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "MISATTRIBUTED. O trecho da Altenburg citado informa 0,88 m × 1,88 m × 30 cm para o tamanho solteiro, não 1,38 m × 1,88 m × 30 cm para o tamanho casal. Portanto, a medida e o tamanho apresentados no bloco não são sustentados pelo trecho citado. Versão sustentável: Substitua por: “Lençol de malha (Altenburg): segundo a Altenburg, 0,88 m × 1,88 m × 30 cm para solteiro”, ou cite um trecho que mostre a medida de casal."
+    },
+    {
+      "ref": "como-decidir#2.r2",
+      "msg": "MISATTRIBUTED. Embora o trecho da Altenburg mostre a medida King de 1,93 m × 2,03 m × 40 cm, ele pertence ao catálogo de algodão e não identifica o produto como lençol de malha. A classificação como “lençol de malha” não é sustentada pelo trecho citado. Versão sustentável: Use: “Lençol Altenburg: segundo a Altenburg, 1,93 m × 2,03 m × 40 cm”, sem classificá-lo como malha, ou cite um trecho que identifique esse modelo como malha."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho diz que o tecido passa por pré-encolhimento, mas também que ainda pode ocorrer redução de cerca de 3% na primeira lavagem. Assim, recomendar verificar se foi pré-encolhido para “evitar redução” sugere uma garantia que o trecho não oferece. Versão sustentável: Use: “Confira na ficha se o lençol foi pré-encolhido, segundo a Appel. No modelo consultado, o tecido passa por pré-encolhimento, mas pode ocorrer redução de cerca de 3% na primeira lavagem, considerada normal para produtos 100% algodão.”"
+    }
+  ]
+}

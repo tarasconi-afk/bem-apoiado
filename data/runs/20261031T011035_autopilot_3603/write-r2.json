@@ -1,0 +1,474 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Há produtos identificados como malha fio penteado 100% algodão, segundo a Altenburg. Se prefere algodão com contagem de fios declarada, confira percal ou cetim na ficha do produto. Para escolher a altura do lençol com elástico, meça seu colchão: a Altenburg lista malha Queen de 1,58 m × 1,98 m × 40 cm; para algodão, confira qual altura declarada corresponde ao seu.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_fa0ff9d2cd81",
+        "clm_31809dc35d6e",
+        "clm_4c05e2ee082d",
+        "clm_0e47e3881cb5",
+        "clm_34ea99b443a3",
+        "clm_16cf629ece08"
+      ]
+    },
+    {
+      "ref": "composicao-malha#1",
+      "action": "remove"
+    },
+    {
+      "ref": "cuidados-lavagem#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Secagem",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Trussardi, secagem em varal; segundo Teka e Karsten, secagem em tambor até 60°C",
+          "claim_ids": [
+            "clm_5066a0185c92",
+            "clm_0102678ce439",
+            "clm_8f9e6a975c07"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "encolhimento#1",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você quer uma composição clara de malha, escolha lençol de malha fio penteado 100% algodão, segundo a Altenburg.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_fa0ff9d2cd81"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Confira na ficha a contagem de fios e a composição. A Altenburg apresenta percal 200 fios 100% algodão e cetim de algodão 400 fios; a Appel apresenta percal 300 fios 100% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e47e3881cb5",
+        "clm_34ea99b443a3",
+        "clm_16cf629ece08"
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Altenburg, 0,88 m × 1,88 m × 30 cm",
+          "claim_ids": [
+            "clm_2183e668d0db"
+          ]
+        },
+        {
+          "text": "Confira altura na ficha do produto",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Altenburg, 1,38 m × 1,88 m × 30 cm",
+          "claim_ids": [
+            "clm_2b4195d983e7"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, alturas de 30 cm, 35 cm ou 40 cm conforme modelo",
+          "claim_ids": [
+            "clm_338868b7ddbd",
+            "clm_6a54822aa5fe",
+            "clm_862c5d9d3233"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Altenburg, 1,93 m × 2,03 m × 40 cm",
+          "claim_ids": [
+            "clm_5b23f4903985"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, altura de 40 cm para colchão de até 40 cm",
+          "claim_ids": [
+            "clm_140d796664b3",
+            "clm_d7aee6f11901"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você quer evitar redução após a primeira lavagem, confira na ficha se o lençol foi pré-encolhido. No modelo de algodão da Appel consultado, o tecido passa por pré-encolhimento, mas pode ocorrer redução de cerca de 3% na primeira lavagem, considerada normal para produtos 100% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9fde95a8415f"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Lençol de malha ou de algodão: qual escolher",
+    "description": "Compare composição, gramatura, contagem de fios, altura compatível com colchão, cuidados de lavagem e encolhimento entre lençol de malha e lençol de algodão.",
+    "verdict": {
+      "text": "Há produtos identificados como malha fio penteado 100% algodão, segundo a Altenburg. Se prefere algodão com contagem de fios declarada, confira percal ou cetim na ficha do produto. Para escolher a altura do lençol com elástico, meça seu colchão: a Altenburg lista malha Queen de 1,58 m × 1,98 m × 40 cm; para algodão, confira qual altura declarada corresponde ao seu.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_fa0ff9d2cd81",
+        "clm_31809dc35d6e",
+        "clm_4c05e2ee082d",
+        "clm_0e47e3881cb5",
+        "clm_34ea99b443a3",
+        "clm_16cf629ece08"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-malha",
+        "heading": "Composição e especificação da malha",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, o lençol de malha é feito de malha fio penteado 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fa0ff9d2cd81"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-algodao",
+        "heading": "Composição e contagem de fios do algodão",
+        "blocks": [
+          {
+            "text": "Para lençol de algodão, os fabricantes informam o tipo de tecido e a contagem de fios, segundo a Altenburg e a Appel. A Altenburg oferece percal 200 fios 100% algodão. A Appel oferece percal 200 fios (60% algodão e 40% poliéster) e percal 300 fios 100% algodão. A Altenburg também oferece cetim 400 fios 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e47e3881cb5",
+              "clm_22ea1fca089c",
+              "clm_16cf629ece08",
+              "clm_34ea99b443a3"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-lavagem",
+        "heading": "Cuidados de lavagem, secagem e passadoria",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Instruções de conservação por tipo de tecido",
+            "columns": [
+              "Cuidado",
+              "Lençol de algodão (exemplos)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Temperatura de lavagem",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo fabricantes como Trussardi, Teka e Karsten, 40°C a 60°C máximo",
+                    "claim_ids": [
+                      "clm_5066a0185c92",
+                      "clm_12c191e1c6a8",
+                      "clm_8f9e6a975c07",
+                      "clm_acfac29b6570"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Alvejante",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Teka, varia: alguns permitem, outros proíbem",
+                    "claim_ids": [
+                      "clm_0102678ce439",
+                      "clm_12c191e1c6a8"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Secagem",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Trussardi, secagem em varal; segundo Teka e Karsten, secagem em tambor até 60°C",
+                    "claim_ids": [
+                      "clm_5066a0185c92",
+                      "clm_0102678ce439",
+                      "clm_8f9e6a975c07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Passar a ferro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo fabricantes como Teka, Karsten e Trussardi, até 110°C ou 150°C conforme produto",
+                    "claim_ids": [
+                      "clm_0102678ce439",
+                      "clm_12c191e1c6a8",
+                      "clm_8f9e6a975c07",
+                      "clm_5066a0185c92"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Lavagem a seco",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Teka e a Karsten, proibida",
+                    "claim_ids": [
+                      "clm_0102678ce439",
+                      "clm_12c191e1c6a8",
+                      "clm_8f9e6a975c07"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Outras recomendações",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Teka e a Appel, lavar com cores similares; evitar amaciante em excesso; usar sabão neutro",
+                    "claim_ids": [
+                      "clm_0102678ce439",
+                      "clm_4b9aeb80f022",
+                      "clm_2c618a1ff1dc"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "encolhimento",
+        "heading": "Encolhimento após lavagem",
+        "blocks": [
+          {
+            "text": "Segundo a Appel, o lençol de algodão 100% passa por pré-encolhimento durante a fabricação, mas pode sofrer redução de cerca de 3% na primeira lavagem, o que é normal para algodão 100%.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9fde95a8415f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre malha e algodão",
+        "blocks": [
+          {
+            "text": "Se você quer uma composição clara de malha, escolha lençol de malha fio penteado 100% algodão, segundo a Altenburg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fa0ff9d2cd81"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na ficha a contagem de fios e a composição, segundo a Altenburg e a Appel. A Altenburg apresenta percal 200 fios 100% algodão e cetim de algodão 400 fios; a Appel apresenta percal 300 fios 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e47e3881cb5",
+              "clm_34ea99b443a3",
+              "clm_16cf629ece08"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Altura compatível com colchão: malha vs. algodão (confira na ficha do produto)",
+            "columns": [
+              "Tamanho",
+              "Lençol de malha (Altenburg)",
+              "Lençol de algodão (confira altura)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 1,38 m × 1,88 m × 30 cm",
+                    "claim_ids": [
+                      "clm_2b4195d983e7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, alturas de 30 cm, 35 cm ou 40 cm conforme modelo",
+                    "claim_ids": [
+                      "clm_338868b7ddbd",
+                      "clm_6a54822aa5fe",
+                      "clm_862c5d9d3233"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": [
+                      "clm_31809dc35d6e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 1,58 m × 1,98 m × 40 cm",
+                    "claim_ids": [
+                      "clm_31809dc35d6e",
+                      "clm_4c05e2ee082d"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, alturas de 30 cm ou 40 cm conforme modelo",
+                    "claim_ids": [
+                      "clm_0105c7d61b30",
+                      "clm_5bb535e91d3d",
+                      "clm_b5191248892e"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 1,93 m × 2,03 m × 40 cm",
+                    "claim_ids": [
+                      "clm_5b23f4903985"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, altura de 40 cm para colchão de até 40 cm",
+                    "claim_ids": [
+                      "clm_140d796664b3",
+                      "clm_d7aee6f11901"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer evitar redução após a primeira lavagem, confira na ficha se o lençol foi pré-encolhido, segundo a Appel. No modelo de algodão da Appel consultado, o tecido passa por pré-encolhimento, mas pode ocorrer redução de cerca de 3% na primeira lavagem, considerada normal para produtos 100% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9fde95a8415f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que a Altenburg identifica um produto como “malha fio penteado 100% algodão” e lista itens Queen de 1,58 m × 1,98 m × 40 cm. Eles não mencionam percal, cetim, contagem de fios, consulta à ficha do produto, nem sustentam que o modelo seja adequado para colchões com qualquer altura de até 40 cm. A recomendação geral de escolher a altura correspondente ao colchão também não aparece nos trechos. Versão sustentável: Há produtos identificados como “malha fio penteado 100% algodão”, segundo a Altenburg. O catálogo lista itens Queen com medidas de 1,58 m × 1,98 m × 40 cm."
+    },
+    {
+      "ref": "composicao-malha#1",
+      "msg": "FACT_IN_FRAMING. O bloco afirma um fato sobre as fichas consultadas, mas não cita nenhum trecho que sustente essa afirmação. Versão sustentável: As fichas de lençol de malha consultadas não informam gramatura (peso do tecido por metro quadrado), segundo as fichas verificadas."
+    },
+    {
+      "ref": "cuidados-lavagem#0.r2",
+      "msg": "OVERSTATED. Os trechos citados não dizem que a secagem deve ou pode ser feita à sombra. Além disso, o trecho da Trussardi proíbe secagem em tambor e o da Döhler também a proíbe, enquanto o bloco resume a orientação como se fosse sombra ou tambor até 60°C. Versão sustentável: Segundo as instruções dos produtos, a Trussardi indica secagem em varal; Teka e Karsten permitem secagem em tambor a até 60°C. As instruções podem variar conforme o produto."
+    },
+    {
+      "ref": "encolhimento#1",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, afirma um fato sobre as fichas consultadas, mas não há nenhum trecho citado que sustente que elas não informam dados sobre encolhimento após lavagem. Versão sustentável: Substitua por uma transição sem afirmação factual, como: “A seguir, veja informações sobre encolhimento de lençóis de malha.”"
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas a composição “malha fio penteado 100% algodão”; não dizem que o tecido é macio. Versão sustentável: Se você quer uma composição clara de malha, escolha lençol de malha fio penteado 100% algodão, segundo a Altenburg."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos mostram percal 200 fios 100% algodão da Altenburg, cetim de algodão 400 fios da Altenburg e percal 300 fios 100% algodão da Appel. Não sustentam que o cetim 400 fios seja 100% algodão nem que a Appel designe percal 200 fios. Versão sustentável: Confira na ficha a contagem de fios e a composição. A Altenburg apresenta percal 200 fios 100% algodão e cetim de algodão 400 fios; a Appel apresenta percal 300 fios 100% algodão."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "UNSUPPORTED. O trecho da Altenburg traz uma medida atribuída a um produto de solteiro, mas o trecho literal registra “0,88cm”, não “0,88 m”. Os trechos do Comprasnet informam apenas um lençol elástico de 90 x 30 x 190 cm; não dizem que ele é de algodão nem o classificam como produto de solteiro. Versão sustentável: Para malha, registre literalmente a medida apresentada pela Altenburg. Para o outro exemplo, diga apenas que há um lençol elástico de aproximadamente 90 x 30 x 190 cm, sem chamá-lo de algodão."
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "msg": "MISATTRIBUTED. O trecho da Altenburg é de um produto tamanho solteiro, não de um lençol casal de 1,38 m x 1,88 m x 30 cm. Além disso, os trechos da Karsten mostram medidas de 1,40 m x 1,90 m x 40 cm e alturas de 30 cm e 35 cm, mas não sustentam a medida de 1,38 m x 1,88 m x 30 cm nem que esses produtos sejam de malha. Versão sustentável: Não atribua à Altenburg uma medida casal com base nesses trechos. Para os modelos de algodão da Karsten citados, informe alturas de 30 cm, 35 cm ou 40 cm, conforme o modelo."
+    },
+    {
+      "ref": "como-decidir#2.r3",
+      "msg": "MISATTRIBUTED. O trecho da Altenburg informa a medida King de 1,93 m x 2,03 m x 40 cm, mas o trecho citado não diz que o produto é de malha; ele aparece no catálogo “algodão lux 200 fios”. Portanto, a classificação como lençol de malha não é sustentada pelo trecho. Versão sustentável: Diga apenas que a Altenburg apresenta um lençol King de 1,93 m x 2,03 m x 40 cm, sem classificá-lo como de malha. O trecho da Döhler sustenta um lençol de algodão com altura de 40 cm e uso em colchões de até 40 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Foi citado um único modelo da Appel, mas o bloco generaliza para “modelos de algodão da Appel consultados”. O trecho sustenta pré-encolhimento, possível redução de cerca de 3% na primeira lavagem e que isso é normal para produtos 100% algodão. Versão sustentável: No modelo de algodão da Appel consultado, o tecido passa por pré-encolhimento, mas pode ocorrer redução de cerca de 3% na primeira lavagem, considerada normal para produtos 100% algodão."
+    }
+  ],
+  "usage": {
+    "input_tokens": 6,
+    "output_tokens": 2794
+  }
+}
