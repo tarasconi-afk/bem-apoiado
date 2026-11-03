@@ -1,0 +1,50 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Roupão",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Teka e a Karsten, 100% algodão ou 50% a 90% algodão com poliéster",
+          "claim_ids": [
+            "clm_77781db3c056",
+            "clm_bda18ac6baa9",
+            "clm_0ba1546055bc",
+            "clm_42ecc8846e8d"
+          ]
+        },
+        {
+          "text": "Segundo a Teka e a Karsten, 195–450",
+          "claim_ids": [
+            "clm_42ecc8846e8d",
+            "clm_0ba1546055bc",
+            "clm_bda18ac6baa9",
+            "clm_e578bc8cc3e1"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você prefere usar algodão, escolha um roupão cuja ficha declare essa fibra: há modelos com 100% algodão e também com mistura de algodão e poliéster, segundo a Teka e a Karsten.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_77781db3c056",
+        "clm_bda18ac6baa9",
+        "clm_0ba1546055bc",
+        "clm_42ecc8846e8d"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. As composições e gramaturas estão sustentadas como exemplos, mas os trechos não dizem que os modelos da Teka e da Karsten são “roupões atoalhados”; eles mencionam tecidos aveludado, felpudo e favo."
+    }
+  ]
+}
