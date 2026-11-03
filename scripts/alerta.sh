@@ -16,6 +16,18 @@
 #   BEM_ALERT_PASS=<senha da caixa>
 set -uo pipefail
 
+# A configuração do email vem do arquivo, e não de quem chama. De 29/10 a 03/11 o ciclo caiu 3 vezes e nenhum
+# email saiu: a unidade do ciclo (e a da auditoria e a do sync) não carrega /etc/bem-apoiado/env, só a do vigia
+# carrega, e este script dependia de o chamador já trazer as variáveis. O teste de 29/10 passou porque foi feito
+# com EnvironmentFile passado à mão -- um caminho que o ciclo não usa. Lendo aqui, vale para todo chamador.
+# Leitura literal, linha a linha, só das chaves BEM_ALERT_*: nada do arquivo é executado como shell.
+ENV_ALERTA=${BEM_ALERT_ENV:-/etc/bem-apoiado/env}
+if [ -z "${BEM_ALERT_TO:-}" ] && [ -r "$ENV_ALERTA" ]; then
+  while IFS='=' read -r k v; do
+    case "$k" in BEM_ALERT_*) export "$k=$v" ;; esac
+  done < <(grep -E '^BEM_ALERT_[A-Z_]+=' "$ENV_ALERTA")
+fi
+
 CHAVE=${1:-aviso}
 ASSUNTO=${2:-Bem Apoiado}
 shift 2 2>/dev/null || true
