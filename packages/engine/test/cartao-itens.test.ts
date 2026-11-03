@@ -9,7 +9,7 @@ import { CARD_OWN_BOX } from '../src/admin.ts';
 describe('nenhum item pode sumir do formulário do cartão', () => {
   // Todos os ids que changes.ts sabe produzir. Ao criar um tipo novo lá, ele entra aqui — e aí este teste
   // obriga a decidir: ganha caixa no cartão (CARD_OWN_BOX) ou viaja escondido.
-  const IDS = ['images', 'product:B01ABCDEFG', 'theme', 'home', 'anchors', 'search-links', 'niche', 'page:colchao-d28-ou-d33', 'other:data/x.json'];
+  const IDS = ['images', 'product:B01ABCDEFG', 'theme', 'home', 'anchors', 'search-links', 'cited', 'niche', 'page:colchao-d28-ou-d33', 'other:data/x.json'];
 
   // As três partes do cartão que desenham caixa: imagens, produtos e o bloco "Também entra" (home e tema).
   const DESENHADOS = (id: string) => id === 'images' || id.startsWith('product:') || id === 'home' || id === 'theme';
@@ -24,6 +24,6 @@ describe('nenhum item pode sumir do formulário do cartão', () => {
   });
 
   it('o que não tem caixa viaja escondido e marcado', () => {
-    for (const id of ['anchors', 'search-links', 'niche', 'page:x', 'other:data/x.json']) expect(CARD_OWN_BOX(id), id).toBe(false);
+    for (const id of ['anchors', 'search-links', 'cited', 'niche', 'page:x', 'other:data/x.json']) expect(CARD_OWN_BOX(id), id).toBe(false);
   });
 });

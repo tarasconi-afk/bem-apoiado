@@ -168,7 +168,9 @@ merge_branch() {
 # Resultado que só traz aprendizado (nada que o leitor veja) entra sozinho, pelo mesmo gate. Falhou o
 # gate: fica esperando decisão e não tenta de novo para o mesmo commit.
 auto_learning() {
-  for ref in $(git for-each-ref --no-merged=origin/main --format='%(refname:short)' refs/remotes/origin/pagina/); do
+  # Do mais antigo para o mais novo: quando dois resultados trazem a mesma coisa recalculada (a ordem da home), o
+  # mais novo tem de ser o último a entrar. A ordem padrão era alfabética, e um resultado de 01/11 venceria o de 03/11.
+  for ref in $(git for-each-ref --no-merged=origin/main --sort=committerdate --format='%(refname:short)' refs/remotes/origin/pagina/); do
     local b=${ref#origin/} sha; sha=$(git rev-parse "$ref")
     grep -qx "$sha" .state/auto-failed 2>/dev/null && continue
     [ "$(npm run -s engine -- changes "$ref" --publicas 2>/dev/null)" = 0 ] || continue

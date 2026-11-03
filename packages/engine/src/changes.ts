@@ -107,6 +107,18 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
       const b = parse(readBranch(f.path), (v) => v as { pages: Record<string, { links: { label: string; query: string }[] }> })?.pages ?? {};
       const changed = Object.keys(b).filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]));
       items.push({ id: 'search-links', title: 'Buscas na Amazon (links com a nossa tag)', detail: changed.map((k) => `${k}: ${b[k]!.links.map((l) => `"${l.label}" (${l.query})`).join(', ')}`).join(' · '), paths: [f.path] });
+    } else if (f.path === 'data/cited-models.json') {
+      // Só pede o editor quando muda o que o leitor vê: os modelos citados viram links "Ver <marca> <modelo> na
+      // Amazon". Entrada sem modelo ("models": []) e carimbo de hora novo são anotação da manutenção ("já conferi,
+      // não há modelo"), sem efeito no site. Até 03/11 o arquivo caía na regra "arquivo desconhecido = pergunte",
+      // aparecia em TODO ciclo e, junto com a ordem da home, impedia o aceite automático do aprendizado.
+      type Cited = Record<string, { models: { brand: string; model: string }[] }>;
+      const a = parse(readMain(f.path), (v) => (v as { pages: Cited }).pages) ?? {};
+      const b = parse(readBranch(f.path), (v) => (v as { pages: Cited }).pages) ?? {};
+      const nomes = (x?: { models: { brand: string; model: string }[] }) => JSON.stringify((x?.models ?? []).map((m) => `${m.brand} ${m.model}`).sort());
+      const mudou = Object.keys(b).filter((k) => nomes(a[k]) !== nomes(b[k]) && (b[k]?.models.length ?? 0) > 0);
+      if (mudou.length) items.push({ id: 'cited', title: 'Modelos citados (links de busca na Amazon)', detail: mudou.map((k) => `${k}: ${b[k]!.models.map((m) => `${m.brand} ${m.model}`).join(', ')}`).join(' · '), paths: [f.path] });
+      else count.other++;
     } else if (f.path === 'data/niche.json') {
       // Tipo de produto novo (Pedir ao motor): diz qual, em vez de "Outra mudança: data/niche.json".
       const kinds = (r: string | null) => parse(r, (v) => (v as { product_kinds: { id: string; label: string; accessory?: boolean }[] }).product_kinds) ?? [];
@@ -114,7 +126,12 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
       const added = kinds(readBranch(f.path)).filter((k) => !was.has(k.id));
       items.push({ id: 'niche', title: added.length ? `Tipo de produto novo: ${added.map((k) => `${k.label}${k.accessory ? ' (acessório, vendido avulso)' : ''}`).join(', ')}` : 'Perfil do site (nicho)', paths: [f.path] });
     } else if (f.path === 'data/home-order.json') {
-      items.push({ id: 'home', title: 'Ordem dos guias na home (dados do Google)', paths: [f.path] });
+      // A ordem da home entra como aprendizado, sem pedir decisão. Ela só reordena páginas que o editor JÁ aprovou,
+      // pelos dados do Search Console, e é recalculada a cada ciclo. Contada como mudança do site, ela aparecia em
+      // quase todo ciclo e impedia o aceite automático de resultados que só traziam aprendizado: de 29/10 a 03/11,
+      // 11 ciclos viraram cartões manuais "Site todo" idênticos, e os 6 rascunhos que estavam dentro deles nunca
+      // chegaram a "Páginas: seu veredito". O editor não tinha como reconhecer qual cartão era qual.
+      count.other++;
     } else if (f.path.startsWith('site/src/assets/generated/') || f.path.startsWith('data/images/')) {
       images.push(f.path);
     } else if (/^data\/sources\/[^/]+\/meta\.json$/.test(f.path) && f.status === 'A') count.sources++;
