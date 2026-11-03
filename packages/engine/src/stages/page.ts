@@ -8,7 +8,7 @@ import { buildIndex, PAGES_DIR, TOPICS_DIR, writeJson } from '../store.ts';
 import { auditDraft, type AuditCache, type AuditFinding } from './audit.ts';
 import { blockRefs, claimsForTopic, selectClaims, type Draft } from './draft-schema.ts';
 import { duplicateBlocks, withoutDuplicates } from './duplicates.ts';
-import { attributeSingleSource, decisionLast } from './structure.ts';
+import { attributeSingleSource, decisionLast, renameFromCoherence } from './structure.ts';
 import { applyPatches, refFromWhere, writePatches, type Issue } from './patch.ts';
 import { loadTopic } from './research.ts';
 import { reviewMetrics, reviewPage, type ReviewResult } from './review.ts';
@@ -354,10 +354,23 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
 
   // Coerência apontou blocos: o redator remenda só eles (com todas as evidências), forma e gate conferem, o auditor
   // julga só os blocos tocados. Qualquer recusa devolve null e o rascunho fica como estava.
-  const fixCoherence = async (d: Draft, findings: CoherenceFinding[], stage: string): Promise<Draft | null> => {
+  const fixCoherence = async (d0: Draft, findings: CoherenceFinding[], stage: string): Promise<Draft | null> => {
+    // Título que promete demais: troca pelo que o próprio juiz sugeriu, sem IA (ver renameFromCoherence). Os
+    // remendos do redator não alcançam título, então este era o conserto que nunca acontecia.
+    const ren = renameFromCoherence(d0, findings);
+    const d = ren.draft;
+    const pendentes = findings.filter((_, n) => !ren.resolved.includes(n));
     const have = new Set(blockRefs(d).map((u) => u.ref));
-    const issues: Issue[] = findings.filter((f) => have.has(f.ref)).map((f) => ({ ref: f.ref, msg: `${CHECK_LABEL[f.check]}: ${f.problem.replace(/[.\s]+$/, '')}. Conserto: ${f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix}` }));
-    if (!issues.length) return null;
+    const issues: Issue[] = pendentes.filter((f) => have.has(f.ref)).map((f) => ({ ref: f.ref, msg: `${CHECK_LABEL[f.check]}: ${f.problem.replace(/[.\s]+$/, '')}. Conserto: ${f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix}` }));
+    if (!issues.length) {
+      if (!ren.resolved.length) return null;
+      // Só troca de título: nada a auditar contra fonte (título não carrega afirmação), mas a forma da página
+      // continua valendo -- termo vetado, estrutura. A coerência roda de novo logo depois e confirma ou não.
+      const gate = [...checkPage(toPageSpec(d, topic, runId, 'pending'), idx).map((v) => ({ ref: refFromWhere(v.where), msg: `${v.code} ${v.detail}` })), ...styleIssues(d)];
+      const blocked = gate.filter((i) => i.ref === null || ren.refs.includes(i.ref));
+      writeStage(runId, stage, { renamed: ren.refs, kept: !blocked.length, blocked: blocked.map(show) });
+      return blocked.length ? null : d;
+    }
     const p = await writePatches(topic, claims, idx.sources, d, issues, fetchImpl);
     add(p.usage);
     const cand = attributeSingleSource(fixFormWithoutAI(decisionLast(applyPatches(d, p.data.patches))).draft, sourceOf).draft;

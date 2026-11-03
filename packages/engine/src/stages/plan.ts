@@ -62,7 +62,11 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         // planejador cego para critério que não é medida de produto.
         `Nem todo critério de decisão é medida de desempenho: quem compra também escolhe pelo trabalho que a peça dá e pelo ` +
         `espaço que ocupa. Quando o produto tiver cuidado de conservação na etiqueta ou na ficha (têxteis, capas, ` +
-        `revestimentos), UMA das perguntas é sobre lavar, secar e guardar — o que o fabricante ou a norma de etiquetagem ` +
+        `revestimentos), UMA das perguntas é sobre lavar e secar — o que o fabricante ou a norma de etiquetagem ` +
+        // 03/11: "e guardar" saiu. Nenhuma etiqueta nem norma de etiquetagem fala de como guardar a peça, então a
+        // pergunta nunca tinha resposta e a seção nascia prometendo o que não entregava ("O que a etiqueta informa
+        // sobre lavar e guardar", travesseiro de corpo). Regra minha de 28/10, que produzia a falha nº 1 da semana.
+
         `mandam informar. Quando a peça for volumosa guardada, peça o peso e as medidas que o fabricante declara, e só ` +
         // 29/10: a pergunta saía com a finalidade colada ("para quem tem pouco espaço de armário"), e o redator a
         // repetia como conclusão: o juiz de coerência recusou ("os trechos não relacionam essas medidas à

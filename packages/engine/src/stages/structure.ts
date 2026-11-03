@@ -230,3 +230,39 @@ export function dropTableColumns(d: Draft, drops: { ref: string; column: string 
   }
   return { draft: { ...d, sections }, done, refused };
 }
+
+// Troca de título pedida pelo juiz de coerência ("secao_nao_entrega"), sem IA. O juiz aponta que o título da seção
+// promete o que os blocos não trazem, e o conserto que ele sugere é SEMPRE trocar o título por um que descreva o
+// que os blocos dizem ("O que os fabricantes dizem sobre o percal"). Até 03/11 o motor não conseguia fazer isso:
+// os remendos só substituem ou removem blocos, nunca título. O redator reescrevia o bloco, o título continuava
+// prometendo demais, e a página virava rascunho. De 29/10 a 03/11 foi a causa nº 1 de reprovação (4 de 6
+// rascunhos); dois deles o editor aprovou sem mudar nada. Estreitar um título não afirma fato novo, então não
+// precisa de fonte. Guardas: só título entre aspas na sugestão; sem número (título não carrega fonte); nunca o
+// "Como decidir", que o motor reconhece pelo título.
+export function renameFromCoherence(
+  d: Draft,
+  findings: { check: string; ref: string; fix: string }[],
+): { draft: Draft; resolved: number[]; refs: string[] } {
+  const out: Draft = structuredClone(d);
+  const resolved: number[] = [];
+  const refs: string[] = [];
+  findings.forEach((f, n) => {
+    if (f.check !== 'secao_nao_entrega') return;
+    const nome = /[“"]([^”"]{3,90})[”"]/.exec(f.fix)?.[1]?.trim();
+    if (!nome || /\d/.test(nome) || nome.includes('—')) return;
+    const [secId, rest] = f.ref.split('#');
+    const sec = out.sections.find((s) => s.id === secId);
+    if (!sec) return;
+    const i = rest === undefined ? -1 : Number(rest.split('.')[0]);
+    const bloco = i >= 0 ? sec.blocks[i] : undefined;
+    if (/tabela/i.test(f.fix) && bloco?.kind === 'table') {
+      bloco.caption = nome;
+    } else {
+      if (sec.id === 'como-decidir' || DECISION.test(sec.heading) || DECISION.test(nome)) return;
+      sec.heading = nome;
+    }
+    resolved.push(n);
+    refs.push(...sec.blocks.map((_, k) => `${sec.id}#${k}`));
+  });
+  return { draft: out, resolved, refs: [...new Set(refs)] };
+}
