@@ -1,0 +1,87 @@
+{
+  "edits": [
+    {
+      "ref": "o-que-conferir-na-etiqueta#2",
+      "action": "remove",
+      "reason": "Repete o que já é detalhado na seção 'Cuidados de conservação' (ordem, símbolos, norma)."
+    },
+    {
+      "ref": "medidas-e-peso-declarados#0",
+      "action": "rewrite",
+      "text": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória no produto têxtil e deve seguir o Sistema Internacional de Unidades (SI), podendo constar em etiqueta, selo ou rótulo.",
+      "claim_ids": [
+        "clm_b27b9888a2ab",
+        "clm_2ebc5dbbf935",
+        "clm_4f4d6ec06dfd"
+      ],
+      "reason": "Encurtado; removida repetição da obrigatoriedade já citada em 'O que conferir na etiqueta'."
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#0",
+      "action": "rewrite",
+      "text": "Segundo a Teka, o roupão Vênus tem 100% algodão e 300 g/m², o Pérola tem 100% algodão e 450 g/m², e o Golden (tecido favo) tem 50% algodão e 50% poliéster com 195 g/m². Segundo a Karsten, o Fio Cardado Lino tem 90% algodão, 10% poliéster e 390 g/m².",
+      "claim_ids": [
+        "clm_77781db3c056",
+        "clm_bda18ac6baa9",
+        "clm_42ecc8846e8d",
+        "clm_0ba1546055bc",
+        "clm_e578bc8cc3e1"
+      ],
+      "absorbs": [
+        "roupao-atoalhado-composicao-e-gramatura#1"
+      ],
+      "reason": "Unifica os exemplos de roupão atoalhado em um único bloco mais direto."
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#1",
+      "action": "remove",
+      "reason": "Conteúdo absorvido no bloco anterior."
+    },
+    {
+      "ref": "roupao-microfibra-composicao-e-gramatura#0",
+      "action": "rewrite",
+      "text": "Segundo a Appel, o Flannel Pollo tem 100% poliéster e 240 g/m², o Flannel Charme tem 100% poliéster e 220 g/m², e o Kimono Deluxe e o infantil Deluxe Kids têm 88% poliéster e 12% poliamida; a gramatura de 250 g/m² é informada para o Deluxe Kids (confira a ficha do modelo adulto).",
+      "claim_ids": [
+        "clm_6f7886b8d49b",
+        "clm_c1bd79cd4d30",
+        "clm_2bbecf2bcd7d",
+        "clm_2f8c96f26420",
+        "clm_9111a2f53ab1"
+      ],
+      "absorbs": [
+        "roupao-microfibra-composicao-e-gramatura#1"
+      ],
+      "reason": "Unifica os exemplos de roupão de microfibra em um único bloco mais direto."
+    },
+    {
+      "ref": "roupao-microfibra-composicao-e-gramatura#1",
+      "action": "remove",
+      "reason": "Conteúdo absorvido no bloco anterior."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Se preferir algodão, escolha um roupão atoalhado cuja ficha declare essa fibra: há modelos 100% algodão e outros com mistura de algodão e poliéster, segundo a Teka e a Karsten.",
+      "reason": "Frase encurtada, mesmo sentido."
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "rewrite",
+      "text": "Se preferir composição sintética e toque aveludado, escolha um roupão de microfibra: os modelos documentados são 100% poliéster ou 88% poliéster e 12% poliamida, segundo a Appel.",
+      "reason": "Frase encurtada, mesmo sentido."
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "rewrite",
+      "text": "Se a gramatura for decisiva, compare esse número na ficha do modelo: os roupões de microfibra citados têm 220–250 g/m², enquanto os atoalhados da Teka e da Karsten têm 300–450 g/m².",
+      "reason": "Frase encurtada, mesmo sentido."
+    }
+  ],
+  "refused": [
+    "medidas-e-peso-declarados#0: reescrita sem texto ou citando evidência que o bloco não tinha"
+  ],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 5314
+  }
+}
