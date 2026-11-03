@@ -1,0 +1,64 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "produto-completo-ou-acessorio#0",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Escolha a medida correspondente se a cama tiver 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm.",
+      "Confira se a altura adicional de 4 cm cabe no conjunto da cama.",
+      "Verifique na ficha técnica ou na etiqueta se a espuma é D23 kg/m³.",
+      "Se a densidade não estiver informada, prefira um anúncio que declare esse dado claramente.",
+      "Considere o perfil descrito pelo fabricante de oferecer mais conforto, ventilação e toque massageador, mas confirme separadamente medidas e densidade."
+    ],
+    "missing": [
+      "Explicação direta de em que situação a espuma casca de ovo vale a pena, como melhorar conforto ou adaptar uma cama.",
+      "Informação do fabricante esclarecendo se o produto é um colchão completo ou um acessório/topper para usar sobre outro colchão.",
+      "Orientação sobre compatibilidade com colchões de espuma, de molas e diferentes bases.",
+      "Instruções de lavagem, secagem e armazenamento da capa.",
+      "Peso declarado para cada tamanho, prazo de garantia e condições para sua validade.",
+      "Critérios para avaliar se os 4 cm de altura adicional são adequados ao usuário e à roupa de cama."
+    ],
+    "publishable": true,
+    "summary": "A página oferece critérios concretos de compra, principalmente medida, altura e densidade, e a resposta curta é rápida e compreensível. Porém, responde apenas parcialmente a “vale a pena”: não explica para que situação o produto serve, se é um acessório ou colchão completo, nem sua compatibilidade e cuidados de uso. O leitor consegue conferir alguns dados no anúncio, mas não consegue decidir com segurança se a casca de ovo é adequada ao seu caso.",
+    "filler_ratio": 0.2,
+    "model_opinion": false
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha a versão compatível com a medida da cama: 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm.",
+      "Considere que a espuma acrescenta 4 cm à altura da cama.",
+      "Confira na ficha ou na etiqueta se a densidade declarada é D23 kg/m³.",
+      "A casca de ovo faz sentido para quem busca uma camada avulsa com mais conforto, ventilação e toque massageador, conforme a descrição da fabricante.",
+      "Se a cama tiver outra medida, procure outro modelo."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma afirmação direta sobre quando o produto vale a pena e quando não vale, especialmente por ser uma camada de 4 cm e não necessariamente um colchão completo.",
+      "Confirmação clara, na ficha do fabricante, de que o produto é um acessório ou topper para usar sobre outro colchão, e não um colchão completo.",
+      "Orientação do fabricante sobre compatibilidade com colchões de espuma, molas e diferentes bases.",
+      "Faixas de peso relacionadas à densidade e à espessura indicadas pelo fabricante, se existirem.",
+      "Peso de cada tamanho disponível.",
+      "Instruções de lavagem, secagem e armazenamento da capa.",
+      "Prazo de garantia e condições exigidas para mantê-la válida."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios concretos de compra, como medida, espessura e densidade, e permite concluir que o produto pode servir como camada avulsa para acrescentar conforto. Porém, a resposta curta apenas descreve o produto e não diz diretamente quando vale a pena comprá-lo; além disso, faltam informações importantes sobre uso como acessório, compatibilidade, cuidados, garantia e peso. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

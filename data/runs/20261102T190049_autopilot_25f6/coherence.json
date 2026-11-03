@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "produto-completo-ou-acessorio#0",
+      "problem": "A seção promete dizer se a casca de ovo é um colchão completo ou um acessório, mas o bloco apenas informa a densidade e descreve benefícios declarados pela Plumatex.",
+      "fix": "Mudar o título para algo como \"O que a Plumatex declara sobre a espuma casca de ovo?\"."
+    },
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete avaliar se vale a pena comprar, mas a página apenas apresenta medidas, densidade, benefícios declarados e o alcance do selo do Inmetro, sem concluir para quem a compra vale a pena.",
+      "fix": "Ajustar o título para prometer apenas o que a página entrega, como \"Espuma casca de ovo Plumatex: medidas, densidade e o que o Inmetro avalia\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 10503,
+    "output_tokens": 2159,
+    "calls": 3
+  }
+}

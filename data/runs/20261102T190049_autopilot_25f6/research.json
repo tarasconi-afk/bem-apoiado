@@ -1,0 +1,64 @@
+{
+  "run_id": "20261102T190049_autopilot_25f6",
+  "topic": "colchao-casca-de-ovo-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_c3c915486aee",
+      "question_id": "q_medidas_peso_produto",
+      "source_id": "src_c2627a3d6e4c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5bd5c8398833",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_c2627a3d6e4c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e6b15e5eb833",
+      "question_id": "q_finalidade_uso",
+      "source_id": "src_c2627a3d6e4c",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade": 1,
+    "q_finalidade_uso": 1,
+    "q_certificacao_inmetro": 0,
+    "q_cuidado_conservacao": 0,
+    "q_medidas_peso_produto": 1,
+    "q_garantia_condicoes": 0,
+    "q_compatibilidade_colchao": 0
+  },
+  "unanswered": [
+    "q_certificacao_inmetro",
+    "q_cuidado_conservacao",
+    "q_garantia_condicoes",
+    "q_compatibilidade_colchao"
+  ],
+  "usage": {
+    "input_tokens": 1467,
+    "output_tokens": 402,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_7e3f0ba51f0a"
+  ],
+  "triage": [
+    {
+      "source_id": "src_c2627a3d6e4c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_7e3f0ba51f0a",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.28
+    }
+  ],
+  "credits": 11.592488039999997
+}

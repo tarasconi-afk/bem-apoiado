@@ -1,0 +1,41 @@
+{
+  "slug": "colchao-casca-de-ovo-vale-a-pena",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 67388,
+    "output_tokens": 20605,
+    "calls": 41
+  },
+  "credits": 28.349784839999977,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha a versão cuja largura e comprimento coincidam com a cama: 78 × 188 cm, 88 × 188 cm ou 138 × 188 cm.",
+      "Confirme na ficha ou na etiqueta a densidade D23 kg/m³ declarada para a espuma.",
+      "Considere que a espuma acrescenta 4 cm de altura à cama.",
+      "Se busca uma camada avulsa para acrescentar conforto, ventilação e toque massageador, o produto atende ao perfil declarado pela fabricante.",
+      "Não trate as descrições de conforto, ventilação e materiais como substitutas da conferência de medidas e densidade.",
+      "Se a cama tiver medidas diferentes das três opções, procure outro modelo."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Declaração explícita do fabricante sobre o produto ser acessório ou camada avulsa, e não um colchão completo.",
+      "Informações de lavagem, secagem e armazenamento da capa.",
+      "Prazo de garantia e condições para mantê-la válida.",
+      "Peso declarado para cada tamanho.",
+      "Compatibilidade declarada com colchões de espuma, molas e diferentes tipos de base.",
+      "Uma regra mais explícita para decidir quando o acréscimo de conforto e ventilação compensa a compra, além da compatibilidade de medidas."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque transforma a dúvida em critérios práticos: conferir as medidas, aceitar o acréscimo de 4 cm e verificar a densidade D23. Ela também deixa claro que se trata de uma camada avulsa conforme o perfil descrito, mas a resposta curta não recomenda diretamente o que fazer e faltam dados úteis de cuidados, garantia, peso e compatibilidade.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
