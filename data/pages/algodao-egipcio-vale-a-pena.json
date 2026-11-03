@@ -5,7 +5,7 @@
   "title": "Algodão egípcio vale a pena: composição, densidade e cuidados",
   "description": "Confira o que a etiqueta declara sobre composição, fios por polegada e instruções de lavagem para decidir entre 100% algodão egípcio e misturas.",
   "primary_query": "algodão egípcio vale a pena",
-  "updated_at": "2026-10-31",
+  "updated_at": "2026-11-03",
   "verdict": {
     "text": "Vale a pena escolher conforme sua prioridade: se quiser um produto declarado como 100% algodão egípcio, confira se essa composição está informada na etiqueta; se aceitar misturas, verifique os percentuais das fibras em vez de apenas \"blend\", segundo a Appel e a Trussardi. Se usar secadora, confira a etiqueta ou as instruções do produto, pois alguns exigem secar no varal.",
     "basis": "reasoning",
@@ -81,12 +81,10 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O Inmetro exige, quando aplicável, a indicação de tamanho ou dimensão do produto têxtil, e as medidas devem seguir o Sistema Internacional de Unidades (SI).",
+          "text": "Confira na etiqueta se a composição informa a natureza, a porcentagem e o nome genérico das fibras. Se aceitar uma mistura, escolha produtos que informem o percentual de cada componente.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_2ebc5dbbf935",
-            "clm_4f4d6ec06dfd",
-            "clm_531debf45868"
+            "clm_80f702232d92"
           ]
         },
         {
@@ -138,7 +136,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261031T191330_autopilot_48c0",
+    "run_id": "20261031T191330_autopilot_48c0+editor:20261103T122214_algodao-egipcio-vale-a-pena-ajuste_26ac",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
