@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "fibra-e-gramatura#0",
+      "problem": "O título promete indicar qual fibra e gramatura apontam para um cobertor mais quente, mas o bloco apenas informa a composição e a gramatura de modelos específicos, sem relacioná-las ao aquecimento.",
+      "fix": "Mude o título para algo como \"Exemplos de fibra e gramatura informados pelos fabricantes\"."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "cuidados-conservacao#0",
+      "problem": "O título promete cuidados de lavagem conforme a fibra, mas este bloco só informa que a etiqueta deve trazer instruções de conservação por símbolos ou textos, sem relacioná-las à fibra.",
+      "fix": "Mudar o título da seção para “O que a etiqueta deve informar sobre conservação”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 33643,
+    "output_tokens": 5606,
+    "calls": 3
+  }
+}
