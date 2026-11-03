@@ -1,0 +1,141 @@
+{
+  "run_id": "20261103T130324_travesseiro-de-espuma-ou-de-fibra-ajuste_7736-releitura",
+  "topic": "travesseiro-de-espuma-ou-de-fibra",
+  "accepted": [
+    {
+      "claim_id": "clm_d01c536ebfc0",
+      "question_id": "q_dado_decisivo",
+      "source_id": "src_cc81f4ae6ff9",
+      "new": false
+    },
+    {
+      "claim_id": "clm_804f1b6f9826",
+      "question_id": "q_espuma_especificacao",
+      "source_id": "src_cc81f4ae6ff9",
+      "new": false
+    },
+    {
+      "claim_id": "clm_0373b10bfbe5",
+      "question_id": "q_espuma_especificacao",
+      "source_id": "src_cc81f4ae6ff9",
+      "new": false
+    },
+    {
+      "claim_id": "clm_1b258203e71e",
+      "question_id": "q_medidas_peso",
+      "source_id": "src_cc81f4ae6ff9",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c14dbbed4e8d",
+      "question_id": "q_espuma_especificacao",
+      "source_id": "src_b4a2bfe8e66e",
+      "new": false
+    },
+    {
+      "claim_id": "clm_e873a77a6c1b",
+      "question_id": "q_fibra_especificacao",
+      "source_id": "src_b4a2bfe8e66e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4fca710e9932",
+      "question_id": "q_medidas_peso",
+      "source_id": "src_b4a2bfe8e66e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c14dbbed4e8d",
+      "question_id": "q_ajuste_35f6be7a",
+      "source_id": "src_b4a2bfe8e66e",
+      "new": false
+    },
+    {
+      "claim_id": "clm_172b12199fa7",
+      "question_id": "q_espuma_especificacao",
+      "source_id": "src_a321f0f72777",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7a87081db5e7",
+      "question_id": "q_fibra_especificacao",
+      "source_id": "src_a321f0f72777",
+      "new": true
+    },
+    {
+      "claim_id": "clm_054c8ab66058",
+      "question_id": "q_medidas_peso",
+      "source_id": "src_a321f0f72777",
+      "new": false
+    },
+    {
+      "claim_id": "clm_172b12199fa7",
+      "question_id": "q_ajuste_35f6be7a",
+      "source_id": "src_a321f0f72777",
+      "new": false
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_b4a2bfe8e66e",
+      "question_id": "q_conservacao_etiqueta",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Permitido temperatura máxima de lavagem 40° c processo suave, proibido alvejamento, permitido secagem em tambor temperatura máxima de 60º c, permitido passadoria temperatura máxima da base do ferro de"
+    },
+    {
+      "source_id": "src_a321f0f72777",
+      "question_id": "q_conservacao_etiqueta",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Permitido temperatura máxima de lavagem 40° c processo suave, proibido alvejamento, permitido secagem em tambor temperatura máxima de 60º c, permitido passadoria temperatura máxima da base do ferro de"
+    }
+  ],
+  "coverage": {
+    "q_dado_decisivo": 1,
+    "q_espuma_especificacao": 4,
+    "q_fibra_especificacao": 2,
+    "q_conservacao_etiqueta": 0,
+    "q_medidas_peso": 3,
+    "q_escopo_regulacao": 0,
+    "q_ajuste_35f6be7a": 2
+  },
+  "unanswered": [
+    "q_conservacao_etiqueta",
+    "q_escopo_regulacao"
+  ],
+  "usage": {
+    "input_tokens": 8069,
+    "output_tokens": 1636,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_c4646ba147cb"
+  ],
+  "triage": [
+    {
+      "source_id": "src_cc81f4ae6ff9",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_c4646ba147cb",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.11
+    },
+    {
+      "source_id": "src_b4a2bfe8e66e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.93
+    },
+    {
+      "source_id": "src_a321f0f72777",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.92
+    }
+  ],
+  "credits": 2.18037192
+}
