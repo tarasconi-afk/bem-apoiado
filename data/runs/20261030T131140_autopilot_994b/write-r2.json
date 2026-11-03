@@ -1,0 +1,304 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A Appel indica 45 × 65 cm a 50 × 80 cm para toalhas de rosto, 60 × 120 cm a 70 × 140 cm para toalhas de banho e 80 × 150 cm a 90 × 160 cm para toalhas banhão; a Karsten indica cerca de 30 × 50 cm para toalhas de lavabo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d61e9010f991",
+        "clm_1485aae8c05d",
+        "clm_f78a3af9dd0f",
+        "clm_489d68a9e6d2"
+      ]
+    },
+    {
+      "ref": "etiqueta-conservacao#3",
+      "action": "replace",
+      "text": "Se o processo de lavagem for indicado como não permitido, deve-se indicar limpeza profissional; se a secagem em tambor for indicada como não permitida, devem ser indicados um ou mais símbolos de secagem natural correspondentes.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_8d01e5609120"
+      ]
+    },
+    {
+      "ref": "medidas-rosto#0",
+      "action": "replace",
+      "text": "Fabricantes citados informam estas medidas: a Appel indica 45 × 65 cm a 50 × 80 cm, a Karsten menciona 48 × 80 cm e a Sultan declara 50 × 75 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d61e9010f991",
+        "clm_8edb113235cf",
+        "clm_2db6bc36f2fa"
+      ]
+    },
+    {
+      "ref": "medidas-lavabo#0",
+      "action": "replace",
+      "text": "Segundo a Karsten e a Appel, a toalha de lavabo geralmente mede, ou tem em média, 30 × 50 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_489d68a9e6d2",
+        "clm_88b99823b79f"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você busca mais cobertura, confira na ficha se o banhão tem medidas próximas de 80 × 90 cm de largura e 150 × 160 cm de comprimento; para o tamanho banho, confira medidas próximas de 60 × 70 cm de largura e 120 × 140 cm de comprimento, segundo a Appel e a Karsten.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_f78a3af9dd0f",
+        "clm_1485aae8c05d",
+        "clm_196ce464a643"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "As toalhas de banho podem variar conforme o modelo; por isso, confira as medidas exatas na ficha, segundo a Karsten.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6e50ecf3bb87"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Tamanhos de toalha: rosto, lavabo, banho e banhão",
+    "description": "Medidas declaradas pelos fabricantes para cada tamanho de toalha e o que a etiqueta deve informar sobre conservação.",
+    "verdict": {
+      "text": "A Appel indica 45 × 65 cm a 50 × 80 cm para toalhas de rosto, 60 × 120 cm a 70 × 140 cm para toalhas de banho e 80 × 150 cm a 90 × 160 cm para toalhas banhão; a Karsten indica cerca de 30 × 50 cm para toalhas de lavabo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d61e9010f991",
+        "clm_1485aae8c05d",
+        "clm_f78a3af9dd0f",
+        "clm_489d68a9e6d2"
+      ]
+    },
+    "sections": [
+      {
+        "id": "etiqueta-conservacao",
+        "heading": "O que a etiqueta deve informar sobre conservação",
+        "blocks": [
+          {
+            "text": "A etiqueta têxtil deve informar pelo menos cinco principais tratamentos de conservação: lavagem, alvejamento, secagem, passadoria e limpeza profissional, conforme a norma NM-ISO 3758:2013. Essas informações podem estar em símbolos, textos ou ambos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_28e1007029ee",
+              "clm_bb62377cb70a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A sequência de apresentação dos cuidados deve ser: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29960a788266",
+              "clm_b72856d8e3ac"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Karsten, instruções típicas incluem: lavar em até 60 °C, não alvejar, secar em até 40 °C, passar em até 150 °C, não limpar a seco e não cortar a correntinha das toalhas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_22439f119370"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o processo de lavagem for indicado como não permitido, deve-se indicar limpeza profissional; se a secagem em tambor for indicada como não permitida, devem ser indicados um ou mais símbolos de secagem natural correspondentes.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8d01e5609120"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-rosto",
+        "heading": "Medidas da toalha de rosto",
+        "blocks": [
+          {
+            "text": "Fabricantes citados informam estas medidas: a Appel indica 45 × 65 cm a 50 × 80 cm, a Karsten menciona 48 × 80 cm e a Sultan declara 50 × 75 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d61e9010f991",
+              "clm_8edb113235cf",
+              "clm_2db6bc36f2fa"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-lavabo",
+        "heading": "Medidas da toalha de lavabo",
+        "blocks": [
+          {
+            "text": "Segundo a Karsten e a Appel, a toalha de lavabo geralmente mede, ou tem em média, 30 × 50 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_489d68a9e6d2",
+              "clm_88b99823b79f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pelo tamanho",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas declaradas pelos fabricantes para cada tamanho de toalha",
+            "columns": [
+              "Tamanho",
+              "Medidas comuns (cm)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Rosto",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo fabricantes como Appel, Karsten e Sultan, 45 × 65 a 50 × 80",
+                    "claim_ids": [
+                      "clm_d61e9010f991",
+                      "clm_8edb113235cf",
+                      "clm_2db6bc36f2fa"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Lavabo",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Karsten e a Appel, 30 × 50",
+                    "claim_ids": [
+                      "clm_489d68a9e6d2",
+                      "clm_88b99823b79f"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Banho",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo fabricantes como Appel, Karsten e Sultan, 60 × 120 a 70 × 140",
+                    "claim_ids": [
+                      "clm_1485aae8c05d",
+                      "clm_07905cd470aa",
+                      "clm_0acf5d84abf1",
+                      "clm_196ce464a643"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Banhão",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel e a Karsten, 80 × 150 a 90 × 160",
+                    "claim_ids": [
+                      "clm_f78a3af9dd0f",
+                      "clm_196ce464a643",
+                      "clm_227cf4999acd"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você precisa de uma peça para os cuidados diários e quer uma toalha maior que a de lavabo, escolha o tamanho rosto, geralmente entre 45 × 65 cm e 50 × 80 cm; se a peça ficará em lavabo ou banheiro social compartilhado, escolha o tamanho lavabo, geralmente 30 × 50 cm, segundo a Appel e a Karsten.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_d61e9010f991",
+              "clm_8edb113235cf",
+              "clm_489d68a9e6d2",
+              "clm_88b99823b79f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer uma toalha para secar o corpo e prefere ocupar menos espaço, escolha o tamanho banho, geralmente perto de 70 × 130–140 cm; se quer mais cobertura para se enrolar, escolha o banhão, geralmente perto de 86 × 150 cm ou maior, segundo a Karsten.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_196ce464a643",
+              "clm_6e50ecf3bb87",
+              "clm_883de4a00b0c",
+              "clm_92965c0828fe"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você busca mais cobertura, confira na ficha se o banhão tem medidas próximas de 80 × 90 cm de largura e 150 × 160 cm de comprimento; para o tamanho banho, confira medidas próximas de 60 × 70 cm de largura e 120 × 140 cm de comprimento, segundo a Appel e a Karsten.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_f78a3af9dd0f",
+              "clm_1485aae8c05d",
+              "clm_196ce464a643"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As toalhas de banho podem variar conforme o modelo; por isso, confira as medidas exatas na ficha, segundo a Karsten.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6e50ecf3bb87"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas indicadas para cada tipo de toalha e identificam as fontes, mas não dizem que os tamanhos variam conforme o fabricante nem que cada modelo pode variar, tampouco recomendam conferir a ficha do produto. Versão sustentável: A Appel indica 45 × 65 cm a 50 × 80 cm para toalhas de rosto, 60 × 120 cm a 70 × 140 cm para toalhas de banho e 80 × 150 cm a 90 × 160 cm para toalhas banhão; a Karsten indica cerca de 30 × 50 cm para toalhas de lavabo."
+    },
+    {
+      "ref": "etiqueta-conservacao#3",
+      "msg": "OVERSTATED. O trecho citado estabelece alternativas específicas para lavagem não permitida e para secagem em tambor não permitida, além de uma regra distinta quando todos os processos principais forem proibidos. A abertura “se algum processo principal não for permitido” generaliza a exigência para qualquer processo. Versão sustentável: Se o processo de lavagem for indicado como não permitido, deve-se indicar limpeza profissional; se a secagem em tambor for indicada como não permitida, devem ser indicados um ou mais símbolos de secagem natural correspondentes."
+    },
+    {
+      "ref": "medidas-rosto#0",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas informadas por cada fabricante, mas não sustentam a generalização de que a toalha de rosto geralmente mede dentro desse intervalo. Além disso, o trecho da Karsten não identifica explicitamente, no excerto citado, 48 × 80 cm como medida de toalha de rosto. Versão sustentável: Fabricantes citados informam estas medidas: a Appel indica 45 × 65 cm a 50 × 80 cm, a Karsten menciona 48 × 80 cm e a Sultan declara 50 × 75 cm."
+    },
+    {
+      "ref": "medidas-lavabo#0",
+      "msg": "OVERSTATED. Os trechos dizem que 30 × 50 cm é um tamanho geralmente usado ou uma medida média, não que toda toalha de lavabo necessariamente meça exatamente isso. Versão sustentável: Segundo a Karsten e a Appel, a toalha de lavabo geralmente mede, ou tem em média, 30 × 50 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam medidas e maior cobertura para o banhão, mas não dizem que essa é a prioridade de “cobertura corporal máxima”. Além disso, não qualificam o tamanho banho como uma peça corporal “mais compacta”; apenas dizem que a toalha de banho ocupa menos espaço em outro trecho não citado neste bloco. Versão sustentável: Se você busca mais cobertura, confira na ficha se o banhão tem medidas próximas de 80–90 cm de largura e 150–160 cm de comprimento; para o tamanho banho, confira medidas próximas de 60–70 cm de largura e 120–140 cm de comprimento, segundo a Appel."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. A Karsten afirma que as toalhas de banho podem variar conforme o modelo, mas a Appel apenas apresenta uma faixa de medidas e não diz que a variação ocorre conforme o modelo. Os trechos também não sustentam a generalização para quaisquer peças do mesmo nome. Versão sustentável: As toalhas de banho podem variar conforme o modelo; por isso, confira as medidas exatas na ficha, segundo a Karsten."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 882
+  }
+}

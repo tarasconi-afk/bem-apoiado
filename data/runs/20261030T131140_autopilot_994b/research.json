@@ -1,0 +1,159 @@
+{
+  "run_id": "20261030T131140_autopilot_994b",
+  "topic": "tamanhos-de-toalha-banho-banhao-rosto-e-lavabo",
+  "accepted": [
+    {
+      "claim_id": "clm_489d68a9e6d2",
+      "question_id": "q_toalha_lavabo",
+      "source_id": "src_0c1297a46372",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8edb113235cf",
+      "question_id": "q_toalha_rosto",
+      "source_id": "src_0c1297a46372",
+      "new": true
+    },
+    {
+      "claim_id": "clm_07905cd470aa",
+      "question_id": "q_toalha_banho",
+      "source_id": "src_0c1297a46372",
+      "new": true
+    },
+    {
+      "claim_id": "clm_eebedaed9b68",
+      "question_id": "q_toalha_banhao",
+      "source_id": "src_0c1297a46372",
+      "new": true
+    },
+    {
+      "claim_id": "clm_22439f119370",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_0c1297a46372",
+      "new": true
+    },
+    {
+      "claim_id": "clm_37618a822a46",
+      "question_id": "q_toalha_banho",
+      "source_id": "src_4470917e1e2c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_016a167571fe",
+      "question_id": "q_tamanho_x_medida",
+      "source_id": "src_4470917e1e2c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_883de4a00b0c",
+      "question_id": "q_tamanho_x_medida",
+      "source_id": "src_80e6274fab1a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_883de4a00b0c",
+      "question_id": "q_toalha_banhao",
+      "source_id": "src_80e6274fab1a",
+      "new": false
+    },
+    {
+      "claim_id": "clm_9bb2779048a2",
+      "question_id": "q_tamanho_x_medida",
+      "source_id": "src_3ba0ea5b54a6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9bb2779048a2",
+      "question_id": "q_toalha_banhao",
+      "source_id": "src_3ba0ea5b54a6",
+      "new": false
+    },
+    {
+      "claim_id": "clm_ad1df7f06551",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_3ba0ea5b54a6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2aaace7ff7ff",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_3ba0ea5b54a6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d7d5dc906746",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_3ba0ea5b54a6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6e50ecf3bb87",
+      "question_id": "q_toalha_banho",
+      "source_id": "src_caefa26347f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_92965c0828fe",
+      "question_id": "q_toalha_banhao",
+      "source_id": "src_caefa26347f6",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_4470917e1e2c",
+      "question_id": "q_cuidados_etiqueta",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Higienizar o produto em temperaturas máximas de 60º C e na função delicada da sua máquina; Permitido em secagem em máquinas desde que a temperatura máxima seja de 60°C; Em casos de utilização de ferro"
+    }
+  ],
+  "coverage": {
+    "q_tamanho_x_medida": 3,
+    "q_toalha_rosto": 1,
+    "q_toalha_lavabo": 1,
+    "q_toalha_banho": 3,
+    "q_toalha_banhao": 4,
+    "q_cuidados_etiqueta": 4
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 12686,
+    "output_tokens": 2426,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_0c1297a46372",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_4470917e1e2c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_80e6274fab1a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.85
+    },
+    {
+      "source_id": "src_3ba0ea5b54a6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_caefa26347f6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    }
+  ],
+  "credits": 8.898620039999999
+}
