@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import type { Claim, PageSpec, Source } from '@bem-apoiado/core';
-import { callJson, type FetchLike } from '../llm.ts';
+import { callJson, type FetchLike, LlmError } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
 import { blockRefs } from './draft-schema.ts';
 import { docLabel } from './write.ts';
@@ -95,8 +95,16 @@ export async function auditCoherence(
       fetchImpl,
     );
   // 3 leituras, vale o que a maioria apontou (mesmo problema no mesmo bloco): uma leitura sozinha oscila.
-  const runs = (await Promise.allSettled([ask(), ask(), ask()])).flatMap((x) => (x.status === 'fulfilled' ? [x.value] : []));
-  if (!runs.length) throw new Error('coerência: nenhuma das 3 leituras voltou');
+  const settled = await Promise.allSettled([ask(), ask(), ask()]);
+  const runs = settled.flatMap((x) => (x.status === 'fulfilled' ? [x.value] : []));
+  // As 3 falharam: é falha do provedor ou estouro do teto, não defeito de código. Até 03/11 isto era um Error
+  // comum, que escapava do catch de LlmError do buildPage e derrubava o ciclo inteiro -- e o ciclo derrubado
+  // perde tudo, porque o seguinte faz reset --hard. Devolve o LlmError original quando há (preserva o código,
+  // ex.: BUDGET_EXCEEDED); senão, um de rede.
+  if (!runs.length) {
+    const motivo = settled.find((x): x is PromiseRejectedResult => x.status === 'rejected')?.reason;
+    throw motivo instanceof LlmError ? motivo : new LlmError(`coerência: nenhuma das 3 leituras voltou (${String((motivo as Error)?.message ?? motivo).slice(0, 120)})`, 'NETWORK');
+  }
   const usage = runs.reduce((a, r) => ({ input_tokens: a.input_tokens + r.usage.input_tokens, output_tokens: a.output_tokens + r.usage.output_tokens, calls: a.calls + 1 }), { input_tokens: 0, output_tokens: 0, calls: 0 });
   const findings = coherenceMajority(runs.map((r) => r.data.findings));
   return { findings, problems: findings.map(problemText), usage };

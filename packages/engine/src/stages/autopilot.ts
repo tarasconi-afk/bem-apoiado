@@ -13,7 +13,7 @@ import { applyCalibration, calibrate, loadVerdicts } from '../feedback.ts';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { callJson, creditsLeft, creditsSpent } from '../llm.ts';
+import { callJson, creditsLeft, creditsSpent, LlmError } from '../llm.ts';
 import { loadNiche } from '../niche.ts';
 import { creditsThisMonth, SearchError } from '../search.ts';
 import { DATA, loadPages, loadProducts, loadTopics, readState, ROOT, STATE_DIR, writeJson, writeState } from '../store.ts';
@@ -682,6 +682,16 @@ export async function runCycle(runId: string): Promise<CycleResult> {
       if (p.status === 'NOT_PUBLISHABLE') await autoCorrect(topic.slug, runId, steps);
     }
   } catch (e) {
+    // Teto de créditos ou falha do provedor FORA do buildPage (que já converte isso em parada segura). De 29/10 a
+    // 03/11, três ciclos caíram assim: teto na revisão do editPage depois de uma página APROVADA, teto na checagem
+    // antes da redação, e as 3 leituras da coerência falhando juntas. Ciclo que cai sai antes do commit, e o
+    // seguinte faz reset --hard: 163 créditos (22% do período) foram jogados fora, junto com uma página aprovada.
+    // Parar aqui é seguro: cada etapa só grava o que terminou, então o que está em disco é aprendizado válido.
+    if (e instanceof LlmError) {
+      steps.push(`ciclo parou por ${e.code === 'BUDGET_EXCEEDED' ? 'teto de créditos' : 'falha do provedor'} (${e.message.slice(0, 100)}); o que já tinha sido feito fica guardado`);
+      const pg = loadPages().find((p) => p.slug === topic.slug);
+      return done({ status: pg ? (pg.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT') : 'STOPPED', slug: topic.slug, query, steps });
+    }
     if (!(e instanceof SearchError) || e.code !== 'MONTHLY_CAP') throw e;
     steps.push(`cota de busca do Tavily esgotada: a pauta "${query}" espera a cota voltar (nada foi adiado). ${(e as Error).message.slice(0, 120)}`);
     return done(maintained ? { status: 'MAINTENANCE', slug: 'manutencao', steps } : { status: 'STOPPED', slug: topic.slug, query, steps });

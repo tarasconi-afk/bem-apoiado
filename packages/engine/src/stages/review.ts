@@ -2,7 +2,7 @@ import { z } from 'zod';
 import type { PageSpec, ReviewMetrics, TopicBrief } from '@bem-apoiado/core';
 import { editorialChecklist } from '@bem-apoiado/core';
 import { loadNiche } from '../niche.ts';
-import { callJson, type FetchLike } from '../llm.ts';
+import { callJson, type FetchLike, LlmError } from '../llm.ts';
 import { blockRefs } from './draft-schema.ts';
 import { loadThresholds, ruleDecides } from '../feedback.ts';
 import { examplesPrompt, judgeCalibration } from '../exemplars.ts';
@@ -82,8 +82,16 @@ export async function reviewPage(page: PageSpec, topic: TopicBrief, fetchImpl?: 
   // 3 avaliações, vale a maioria em cada pergunta (22/10: o mesmo juiz, na mesma página sem mudança, deu
   // "publicar" numa rodada e "não" na seguinte; o modelo não aceita fixar a aleatoriedade). Falha de uma
   // chamada não derruba: decide com as que voltaram.
-  const runs = (await Promise.allSettled([ask(), ask(), ask()])).flatMap((x) => (x.status === 'fulfilled' ? [x.value] : []));
-  if (!runs.length) throw new Error('revisão: nenhuma das 3 avaliações voltou');
+  const settled = await Promise.allSettled([ask(), ask(), ask()]);
+  const runs = settled.flatMap((x) => (x.status === 'fulfilled' ? [x.value] : []));
+  // As 3 falharam: é falha do provedor ou estouro do teto, não defeito de código. Até 03/11 isto era um Error
+  // comum, que escapava do catch de LlmError do buildPage e derrubava o ciclo inteiro -- e o ciclo derrubado
+  // perde tudo, porque o seguinte faz reset --hard. Devolve o LlmError original quando há (preserva o código,
+  // ex.: BUDGET_EXCEEDED); senão, um de rede.
+  if (!runs.length) {
+    const motivo = settled.find((x): x is PromiseRejectedResult => x.status === 'rejected')?.reason;
+    throw motivo instanceof LlmError ? motivo : new LlmError(`revisão: nenhuma das 3 avaliações voltou (${String((motivo as Error)?.message ?? motivo).slice(0, 120)})`, 'NETWORK');
+  }
   const r = { data: majority(runs.map((x) => x.data)), usage: runs.map((x) => x.usage).reduce((a, b) => ({ ...a, input_tokens: a.input_tokens + b.input_tokens, output_tokens: a.output_tokens + b.output_tokens })) };
   // Decisão determinística: o modelo descreve, a regra decide. Os limites vêm da calibração contra os
   // vereditos do editor (data/calibration.json; sem ela, 25% de enchimento e 2 critérios).
