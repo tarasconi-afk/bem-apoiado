@@ -1,0 +1,55 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Há produtos identificados como malha fio penteado 100% algodão, segundo a Altenburg. Se prefere algodão com contagem de fios declarada, confira percal ou cetim na ficha do produto. Para comparar a altura do lençol com elástico, considere a medida declarada: a Altenburg lista modelos Queen de 1,58 m × 1,98 m × 40 cm; confira a altura informada para o produto de algodão escolhido.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_fa0ff9d2cd81",
+        "clm_0e47e3881cb5",
+        "clm_16cf629ece08",
+        "clm_31809dc35d6e",
+        "clm_4c05e2ee082d",
+        "clm_5bb535e91d3d"
+      ]
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen",
+          "claim_ids": [
+            "clm_31809dc35d6e"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, 1,58 m × 1,98 m × 40 cm",
+          "claim_ids": [
+            "clm_31809dc35d6e",
+            "clm_4c05e2ee082d"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, há modelos com 30 cm ou 40 cm de altura",
+          "claim_ids": [
+            "clm_0105c7d61b30",
+            "clm_5bb535e91d3d",
+            "clm_b5191248892e"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam algodão com contagem de fios em produtos de percal, mas nenhum trecho citado menciona cetim. A orientação também pode ser entendida como se houvesse essa opção comprovada nos trechos."
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "msg": "OVERSTATED. Os trechos informam as dimensões dos lençóis e mostram modelos Karsten de 30 cm e 40 cm, mas não afirmam que essas alturas são compatíveis com um colchão. A tabela apresenta essa compatibilidade como fato."
+    }
+  ]
+}
