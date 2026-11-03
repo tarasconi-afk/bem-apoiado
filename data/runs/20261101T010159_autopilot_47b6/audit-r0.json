@@ -1,0 +1,108 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a etapa adicional do fio penteado, a remoção de fibras curtas, o toque mais suave e uniforme, e o toque mais encorpado do fio cardado. Porém, não mencionam que o fio cardado produz visual rústico. Além disso, o trecho da Appel fala em toalhas 100% algodão com fio penteado acima de 500 g/m² para quem busca extremo conforto, maciez e alta absorção, não que o fio penteado costume estar acima desse valor em geral. A lista da Karsten sustenta valores de 350 a 500 g/m², mas não explicita no trecho que essa faixa seja uma regra geral para todo fio cardado.",
+      "fix": "O fio penteado passa por uma etapa adicional de penteação que remove fibras curtas, resultando em um fio mais suave e uniforme; o fio cardado mantém essas fibras e confere ao tecido um toque mais encorpado, segundo a Karsten. A Karsten apresenta gramaturas de 350 a 500 g/m² no trecho citado, enquanto a Appel menciona toalhas 100% algodão com fio penteado acima de 500 g/m² como opção para quem busca extremo conforto, maciez e alta absorção."
+    },
+    {
+      "ref": "como-funciona-cada-tipo#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-funciona-cada-tipo#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-toque-visual#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que o fio cardado confere ao tecido um toque mais encorpado, mas não menciona um visual mais rústico. Portanto, essa característica visual excede a evidência citada, embora a atribuição à Karsten esteja presente.",
+      "fix": "O fio penteado, ao remover as fibras mais curtas, resulta em um fio mais suave e uniforme, segundo a Karsten. O fio cardado, mantendo essas fibras mais curtas, confere ao tecido um toque mais encorpado, também segundo a Karsten."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as gramaturas declaradas para produtos específicos, mas não dizem que toalhas de fio penteado costumam ter gramaturas mais altas. Essa comparação ou generalização não aparece nas evidências.",
+      "fix": "Nas páginas citadas, fabricantes informam 420 g/m² para a Combinatto e 450 g/m² para a Mêmphis, da Appel; 520 g/m² para a Marie e 620 g/m² para a Florença, da Döhler; e 600 g/m² para a Magna, da Karsten."
+    },
+    {
+      "ref": "gramatura-declarada#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados mostram apenas produtos de fio penteado; nenhum menciona toalhas de fio cardado. Além disso, não há trecho sobre a toalha Marie de 520 g/m². Portanto, essas partes não são sustentadas pelas evidências fornecidas.",
+      "fix": "As evidências citadas mostram que a Döhler declara 100% algodão para toalhas Florença de fio penteado, com 620 g/m², e que a Karsten declara 100% algodão para a toalha Magna de fio penteado, com 600 g/m²."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a informação pode ser indicada por símbolos, textos ou ambos, mas a exigência de seguir a sequência é explicitamente atribuída aos símbolos. O bloco estende essa sequência a textos ou à informação em geral.",
+      "fix": "Esses cuidados podem ser indicados por símbolos, textos ou ambos. Quando forem usados símbolos, eles devem seguir a ordem da NM-ISO 3758:2013: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Appel sustentam maciez, alta absorção, fio penteado, algodão e gramatura acima de 500 g/m², mas não dizem que essas toalhas são mais encorpadas nem que a informação deve estar na etiqueta. A segunda recomendação está sustentada.",
+      "fix": "Para extremo conforto, maciez e alta absorção, considere toalhas 100% algodão com fio penteado acima de 500 g/m², segundo a Appel. Para uma toalha mais leve e prática, busque gramaturas entre 350 e 450 g/m²."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam a etapa adicional do fio penteado, a remoção de fibras curtas, o toque mais suave e uniforme, e o toque mais encorpado do fio cardado. Porém, não mencionam que o fio cardado produz visual rústico. Além disso, o trecho da Appel fala em toalhas 100% algodão com fio penteado acima de 500 g/m² para quem busca extremo conforto, maciez e alta absorção, não que o fio penteado costume estar acima desse valor em geral. A lista da Karsten sustenta valores de 350 a 500 g/m², mas não explicita no trecho que essa faixa seja uma regra geral para todo fio cardado. Versão sustentável: O fio penteado passa por uma etapa adicional de penteação que remove fibras curtas, resultando em um fio mais suave e uniforme; o fio cardado mantém essas fibras e confere ao tecido um toque mais encorpado, segundo a Karsten. A Karsten apresenta gramaturas de 350 a 500 g/m² no trecho citado, enquanto a Appel menciona toalhas 100% algodão com fio penteado acima de 500 g/m² como opção para quem busca extremo conforto, maciez e alta absorção."
+    },
+    {
+      "ref": "diferenca-toque-visual#0",
+      "msg": "OVERSTATED. O trecho sustenta que o fio cardado confere ao tecido um toque mais encorpado, mas não menciona um visual mais rústico. Portanto, essa característica visual excede a evidência citada, embora a atribuição à Karsten esteja presente. Versão sustentável: O fio penteado, ao remover as fibras mais curtas, resulta em um fio mais suave e uniforme, segundo a Karsten. O fio cardado, mantendo essas fibras mais curtas, confere ao tecido um toque mais encorpado, também segundo a Karsten."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "msg": "OVERSTATED. Os trechos sustentam as gramaturas declaradas para produtos específicos, mas não dizem que toalhas de fio penteado costumam ter gramaturas mais altas. Essa comparação ou generalização não aparece nas evidências. Versão sustentável: Nas páginas citadas, fabricantes informam 420 g/m² para a Combinatto e 450 g/m² para a Mêmphis, da Appel; 520 g/m² para a Marie e 620 g/m² para a Florença, da Döhler; e 600 g/m² para a Magna, da Karsten."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "msg": "UNSUPPORTED. Os trechos citados mostram apenas produtos de fio penteado; nenhum menciona toalhas de fio cardado. Além disso, não há trecho sobre a toalha Marie de 520 g/m². Portanto, essas partes não são sustentadas pelas evidências fornecidas. Versão sustentável: As evidências citadas mostram que a Döhler declara 100% algodão para toalhas Florença de fio penteado, com 620 g/m², e que a Karsten declara 100% algodão para a toalha Magna de fio penteado, com 600 g/m²."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a informação pode ser indicada por símbolos, textos ou ambos, mas a exigência de seguir a sequência é explicitamente atribuída aos símbolos. O bloco estende essa sequência a textos ou à informação em geral. Versão sustentável: Esses cuidados podem ser indicados por símbolos, textos ou ambos. Quando forem usados símbolos, eles devem seguir a ordem da NM-ISO 3758:2013: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos da Appel sustentam maciez, alta absorção, fio penteado, algodão e gramatura acima de 500 g/m², mas não dizem que essas toalhas são mais encorpadas nem que a informação deve estar na etiqueta. A segunda recomendação está sustentada. Versão sustentável: Para extremo conforto, maciez e alta absorção, considere toalhas 100% algodão com fio penteado acima de 500 g/m², segundo a Appel. Para uma toalha mais leve e prática, busque gramaturas entre 350 e 450 g/m²."
+    }
+  ]
+}
