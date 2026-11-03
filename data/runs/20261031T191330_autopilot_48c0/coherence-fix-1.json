@@ -1,0 +1,29 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Vale a pena escolher conforme sua prioridade: se quiser um produto declarado como 100% algodão egípcio, confira se essa composição está informada na etiqueta; se aceitar misturas, verifique os percentuais de cada fibra em vez de apenas \"blend\". Para cuidados, consulte as instruções do fabricante na etiqueta, pois diferem entre produtos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92",
+        "clm_0beac0ea658e",
+        "clm_72122c20e886",
+        "clm_884a9d07abf8",
+        "clm_7826221856ab"
+      ]
+    },
+    {
+      "ref": "medidas-peso#0",
+      "action": "replace",
+      "text": "Medida declarada na etiqueta",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "kept": false,
+  "blocked": [
+    "medidas-peso#0: frase de transição incompleta; escreva uma frase completa ou remova o bloco."
+  ]
+}

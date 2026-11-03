@@ -1,0 +1,61 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se você quer um produto declarado como 100% algodão egípcio, confira se a etiqueta informa explicitamente essa composição.",
+      "Se aceitar uma mistura, confira o nome e o percentual de cada fibra; não se baseie apenas na palavra “blend”.",
+      "Se usa secadora, verifique os símbolos ou as instruções de conservação, pois alguns produtos exigem secagem no varal.",
+      "Confira na etiqueta ou ficha técnica a composição em massa, conforme declarado pelo fabricante."
+    ],
+    "missing": [
+      "Informação de fios por polegada, gramatura ou outro critério comparável de densidade do tecido para avaliar se o preço compensa.",
+      "Percentuais específicos de algodão egípcio e das outras fibras nos produtos apresentados como mistura.",
+      "Medidas e peso dos jogos de cama, separados por tamanho, para orientar a compra do modelo correto.",
+      "Instruções de lavagem, secagem e passagem específicas para jogos de cama, em vez de apenas um exemplo de toalha.",
+      "Informação sobre eventual comprovação de origem ou selo relacionado ao uso do termo “algodão egípcio”."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque transforma “vale a pena” em uma decisão prática: conferir se a composição é 100% algodão egípcio ou se os percentuais da mistura estão declarados, além de verificar os cuidados de conservação. A resposta curta é concreta e orienta a compra, embora a página pudesse comparar densidade, gramatura ou desempenho e usar mais exemplos específicos de jogos de cama.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-peso#1",
+      "verdict"
+    ],
+    "decision_criteria": [
+      "Para buscar 100% algodão egípcio, conferir se a composição declara explicitamente 100% algodão egípcio.",
+      "Em misturas, conferir o nome e o percentual de cada fibra; não confiar apenas no termo “blend” sem percentuais.",
+      "Conferir as instruções de cuidado, especialmente se o uso de secadora for necessário, pois há produtos que exigem secagem no varal.",
+      "Verificar na etiqueta ou ficha técnica a composição e os cuidados antes da compra."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma comparação concreta que explique quando o algodão egípcio vale o preço em relação ao algodão comum ou a outros tecidos.",
+      "Informações primárias sobre benefícios do produto, como maciez, durabilidade ou acabamento, relacionadas ao modelo comprado.",
+      "Dados de fios por polegada ou gramatura de jogos de cama, com explicação de como usá-los na comparação.",
+      "Percentuais da mistura de algodão egípcio com linho ou outras fibras nos produtos citados.",
+      "Medidas, altura do elástico e peso de jogos de cama, em vez de medidas de uma toalha.",
+      "Informação primária sobre eventual comprovação de origem ou selo necessário para usar o termo “algodão egípcio”."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios úteis para conferir composição e cuidados, mas não responde diretamente se o algodão egípcio vale a pena: não compara benefícios, preço ou desempenho com alternativas. A resposta curta é genérica e os exemplos principais são de toalha, enquanto a pauta trata de jogos de cama; seria preciso incluir uma regra clara de quando escolher o produto e o que conferir na ficha.",
+    "filler_ratio": 0.18181818181818182,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 2.5
+}

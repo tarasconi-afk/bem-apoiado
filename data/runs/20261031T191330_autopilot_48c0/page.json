@@ -1,0 +1,56 @@
+{
+  "slug": "algodao-egipcio-vale-a-pena",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 68983,
+    "output_tokens": 22648,
+    "calls": 34
+  },
+  "credits": 31.794879119999983,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O título promete tratar de densidade, mas a página não apresenta dados nem orientação sobre densidade ou fios por polegada (verdict); Reescrever o título para algo como “Algodão egípcio vale a pena: composição e cuidados”, removendo a promessa de densidade",
+      "A seção anuncia medidas para cada tamanho, mas os blocos só informam a medida de uma toalha específica e a exigência geral de indicar dimensões (medidas-peso#0); Mudar o título da seção para algo como “Medida declarada da toalha Mêmphis” ou retirar a promessa "
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se quiser 100% algodão egípcio, confira se a etiqueta declara explicitamente essa composição.",
+      "Se aceitar uma mistura, confira o nome e o percentual de cada fibra; não dependa apenas da palavra “blend”.",
+      "Se usa secadora, confira as instruções de cuidado, pois alguns produtos exigem secagem no varal e proíbem a secadora.",
+      "Confira na ficha ou na etiqueta as medidas e a composição declaradas pelo fabricante."
+    ],
+    "missing": [
+      "Para o leitor leigo: O título promete tratar de densidade, mas a página não apresenta dados nem orientação sobre densidade ou fios por polegada (verdict); Reescrever o título para algo como “Algodão egípcio vale a pena: composição e cuidados”, removendo a promessa de densidade",
+      "Para o leitor leigo: A seção anuncia medidas para cada tamanho, mas os blocos só informam a medida de uma toalha específica e a exigência geral de indicar dimensões (medidas-peso#0); Mudar o título da seção para algo como “Medida declarada da toalha Mêmphis” ou retirar a promessa ",
+      "Informação do fabricante relacionando densidade de fios ou gramatura à sensação, durabilidade ou benefício do produto.",
+      "Percentuais de cada fibra na linha Blend da Buddemeyer ou em outro produto misto citado.",
+      "Medidas, altura do elástico e peso de jogos de cama de algodão egípcio nos diferentes tamanhos.",
+      "Informação específica sobre comprovação de origem ou selo para o uso da expressão “algodão egípcio”.",
+      "Instruções de conservação específicas de um jogo de cama, já que os cuidados detalhados apresentados são de uma toalha."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque responde que o algodão egípcio pode valer a pena conforme a prioridade do comprador e oferece critérios práticos: conferir se a composição é 100%, verificar os percentuais em misturas e checar as regras de secagem. A resposta rápida é concreta e leva à conferência da etiqueta, embora faltem dados de densidade, gramatura, medidas de jogos de cama e comprovação de origem; parte dos exemplos também é de toalha, não de roupa de cama.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "promessa_do_titulo",
+        "ref": "verdict",
+        "problem": "O título promete tratar de densidade, mas a página não apresenta dados nem orientação sobre densidade ou fios por polegada.",
+        "fix": "Reescrever o título para algo como “Algodão egípcio vale a pena: composição e cuidados”, removendo a promessa de densidade."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "medidas-peso#0",
+        "problem": "A seção anuncia medidas para cada tamanho, mas os blocos só informam a medida de uma toalha específica e a exigência geral de indicar dimensões.",
+        "fix": "Mudar o título da seção para algo como “Medida declarada da toalha Mêmphis” ou retirar a promessa de medidas para cada tamanho."
+      }
+    ]
+  }
+}

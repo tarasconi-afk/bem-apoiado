@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete tratar de densidade, mas a página não apresenta dados nem orientação sobre densidade ou fios por polegada.",
+      "fix": "Reescrever o título para algo como “Algodão egípcio vale a pena: composição e cuidados”, removendo a promessa de densidade."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "medidas-peso#0",
+      "problem": "A seção anuncia medidas para cada tamanho, mas os blocos só informam a medida de uma toalha específica e a exigência geral de indicar dimensões.",
+      "fix": "Mudar o título da seção para algo como “Medida declarada da toalha Mêmphis” ou retirar a promessa de medidas para cada tamanho."
+    }
+  ],
+  "usage": {
+    "input_tokens": 15180,
+    "output_tokens": 2990,
+    "calls": 3
+  }
+}

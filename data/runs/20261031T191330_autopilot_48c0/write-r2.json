@@ -1,0 +1,300 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Vale a pena escolher conforme sua prioridade: se quiser um produto declarado como 100% algodão egípcio, confira se essa composição está informada na etiqueta; se aceitar misturas, verifique os percentuais das fibras em vez de apenas \"blend\". Se usar secadora, confira a etiqueta ou as instruções do produto, pois alguns exigem secar no varal.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92",
+        "clm_0beac0ea658e",
+        "clm_72122c20e886",
+        "clm_884a9d07abf8"
+      ]
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "action": "replace",
+      "text": "A lei exige que a etiqueta informe o nome das fibras têxteis e seus percentuais em massa.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92"
+      ]
+    },
+    {
+      "ref": "densidade-fios-gramatura#0",
+      "action": "remove"
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "O tratamento de cuidado para conservação pode ser indicado por símbolos, textos ou ambos, conforme a opção do fabricante ou importador.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7826221856ab",
+        "clm_a730fea8b014"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "action": "replace",
+      "text": "Na Toalha de Banho Mêmphis da Appel, os cuidados declarados incluem lavar em máquina até 30°C em processo normal, sem alvejante e separada de peças escuras; secar no varal, sem usar secadora; passar com ferro até 110°C se necessário, sem vapor; não limpar a seco; e lavar antes do primeiro uso para acomodar a retração natural.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_884a9d07abf8",
+        "clm_89b12707c655",
+        "clm_d2d1eb455827"
+      ]
+    },
+    {
+      "ref": "medidas-peso#0",
+      "action": "replace",
+      "text": "O Inmetro exige, quando aplicável, a indicação de tamanho ou dimensão do produto têxtil, e as medidas devem seguir o Sistema Internacional de Unidades (SI).",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_4f4d6ec06dfd",
+        "clm_531debf45868"
+      ]
+    },
+    {
+      "ref": "medidas-peso#1",
+      "action": "replace",
+      "text": "A Toalha de Banho Mêmphis da Appel informa as medidas de 68 cm por 1,40 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_46773ed72951",
+        "clm_6114263ca091"
+      ]
+    },
+    {
+      "ref": "origem-selo#0",
+      "action": "replace",
+      "text": "O Inmetro exige que a etiqueta declare o nome das fibras ou filamentos têxteis e seus percentuais em massa. A legislação também exige a informação da natureza, porcentagem e nome genérico das fibras que compõem o produto. Nenhuma fonte consultada estabelece obrigação de comprovação de origem geográfica ou selo específico para o termo \"algodão egípcio\".",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você quer 100% algodão egípcio, confira se a composição do produto declara explicitamente essa proporção. O Inmetro exige a indicação do nome das fibras e de seus percentuais em massa.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92",
+        "clm_0beac0ea658e",
+        "clm_72122c20e886"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você aceita uma mistura com outros materiais, verifique se o produto informa o nome e o percentual de cada fibra na composição. Evite peças descritas apenas como blend ou mistura quando esses percentuais não forem informados.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você usa secadora, consulte as instruções de cuidado da etiqueta: algumas marcas, como a Appel, exigem secar no varal e proíbem secadora em toalhas de algodão egípcio.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_884a9d07abf8",
+        "clm_d2d1eb455827"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Algodão egípcio vale a pena: composição, densidade e cuidados",
+    "description": "Confira o que a etiqueta declara sobre composição, fios por polegada e instruções de lavagem para decidir entre 100% algodão egípcio e misturas.",
+    "verdict": {
+      "text": "Vale a pena escolher conforme sua prioridade: se quiser um produto declarado como 100% algodão egípcio, confira se essa composição está informada na etiqueta; se aceitar misturas, verifique os percentuais das fibras em vez de apenas \"blend\", segundo a Appel e a Trussardi. Se usar secadora, confira a etiqueta ou as instruções do produto, pois alguns exigem secar no varal.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92",
+        "clm_0beac0ea658e",
+        "clm_72122c20e886",
+        "clm_884a9d07abf8"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-declarada",
+        "heading": "Qual composição o fabricante declara",
+        "blocks": [
+          {
+            "text": "A lei exige que a etiqueta informe o nome das fibras têxteis e seus percentuais em massa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf",
+              "clm_80f702232d92"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No caso de 100% algodão egípcio, a Toalha de Banho Mêmphis da Appel declara \"100% algodão, em fio 30/2 de algodão egípcio penteado\", e o lençol com elástico Grasso da Trussardi informa \"100% Algodão Egípcio\".",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0beac0ea658e",
+              "clm_72122c20e886"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quando há mistura, a Buddemeyer oferece uma linha Blend que combina algodão egípcio com linho, mas não especifica o percentual de cada material no trecho consultado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e9b5635ae328"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Instruções de lavagem, secagem e passar declaradas",
+        "blocks": [
+          {
+            "text": "O tratamento de cuidado para conservação pode ser indicado por símbolos, textos ou ambos, conforme a opção do fabricante ou importador.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7826221856ab",
+              "clm_a730fea8b014"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Na Toalha de Banho Mêmphis da Appel, os cuidados declarados incluem lavar em máquina até 30°C em processo normal, sem alvejante e separada de peças escuras; secar no varal, sem usar secadora; passar com ferro até 110°C se necessário, sem vapor; não limpar a seco; e lavar antes do primeiro uso para acomodar a retração natural.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_884a9d07abf8",
+              "clm_89b12707c655",
+              "clm_d2d1eb455827"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-peso",
+        "heading": "Medidas declaradas para cada tamanho",
+        "blocks": [
+          {
+            "text": "O Inmetro exige, quando aplicável, a indicação de tamanho ou dimensão do produto têxtil, e as medidas devem seguir o Sistema Internacional de Unidades (SI).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ebc5dbbf935",
+              "clm_4f4d6ec06dfd",
+              "clm_531debf45868"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Toalha de Banho Mêmphis da Appel informa as medidas de 68 cm por 1,40 m.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_46773ed72951",
+              "clm_6114263ca091"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre 100% algodão egípcio e misturas",
+        "blocks": [
+          {
+            "text": "Se você quer 100% algodão egípcio, confira se a composição do produto declara explicitamente essa proporção, segundo a Appel e a Trussardi. O Inmetro exige a indicação do nome das fibras e de seus percentuais em massa.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf",
+              "clm_80f702232d92",
+              "clm_0beac0ea658e",
+              "clm_72122c20e886"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você aceita uma mistura com outros materiais, verifique se o produto informa o nome e o percentual de cada fibra na composição. Evite peças descritas apenas como blend ou mistura quando esses percentuais não forem informados.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf",
+              "clm_80f702232d92"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você usa secadora, consulte as instruções de cuidado da etiqueta: algumas marcas, como a Appel, exigem secar no varal e proíbem secadora em toalhas de algodão egípcio.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_884a9d07abf8",
+              "clm_d2d1eb455827"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos do Inmetro sustentam a informação dos nomes das fibras e de seus percentuais, mas não dizem que a etiqueta deve declarar especificamente “algodão egípcio”. Além disso, apenas a Appel é citada com a orientação de não usar secadora; Trussardi e Buddemeyer aparecem nos trechos apenas sobre composição, não sobre cuidados de secagem. A formulação “segundo fabricantes como Appel, Trussardi e Buddemeyer” amplia essa atribuição. Versão sustentável: Vale a pena escolher conforme sua prioridade: se quiser um produto declarado como 100% algodão egípcio, confira se essa composição está informada; se aceitar misturas, verifique os percentuais das fibras, em vez de apenas “blend”. Se usar secadora, confira a etiqueta ou as instruções do produto: por exemplo, a Appel orienta secar no varal em alguns produtos."
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "msg": "OVERSTATED. Os trechos sustentam a exigência de informar o nome das fibras e seus percentuais em massa, mas não afirmam que isso permite saber exatamente tudo o que está sendo comprado. Versão sustentável: A lei exige que a etiqueta informe o nome das fibras têxteis e seus percentuais em massa."
+    },
+    {
+      "ref": "densidade-fios-gramatura#0",
+      "msg": "FACT_IN_FRAMING. O bloco tem basis \"framing\", mas afirma fatos sobre densidade de fios, gramatura e informações obrigatórias na ficha técnica ou etiqueta, sem nenhum trecho citado que os sustente. Versão sustentável: A seguir, veja os critérios relacionados à densidade de fios e à gramatura."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o tratamento de cuidado para conservação pode ser indicado por símbolos, textos ou ambos, mas não afirmam de forma explícita que a etiqueta deve informar esse tratamento. Versão sustentável: O tratamento de cuidado para conservação pode ser indicado por símbolos, textos ou ambos, conforme a opção do fabricante ou importador."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam os cuidados de lavagem, secagem, passagem, limpeza a seco e a lavagem antes do primeiro uso com acomodação da retração natural, mas não informam que a toalha é 100% algodão egípcio. Versão sustentável: Na Toalha de Banho Mêmphis da Appel, os cuidados declarados incluem lavar em máquina até 30°C em processo normal, sem alvejante e separada de peças escuras; secar no varal, sem usar secadora; passar com ferro até 110°C se necessário, sem vapor; não limpar a seco; e lavar antes do primeiro uso para acomodar a retração natural."
+    },
+    {
+      "ref": "medidas-peso#0",
+      "msg": "OVERSTATED. Os trechos exigem a indicação de tamanho ou dimensão quando aplicável e permitem que ela apareça em diferentes meios, não necessariamente em uma etiqueta. O bloco apresenta a exigência como geral e específica para etiqueta. Versão sustentável: O Inmetro exige, quando aplicável, a indicação de tamanho ou dimensão do produto têxtil em um dos meios admitidos, e as medidas devem seguir o Sistema Internacional de Unidades (SI)."
+    },
+    {
+      "ref": "medidas-peso#1",
+      "msg": "OVERSTATED. Os trechos informam apenas “Medidas: 68cm x 1,40m” e não identificam qual medida corresponde à largura ou ao comprimento. Versão sustentável: A Toalha de Banho Mêmphis da Appel informa as medidas de 68 cm por 1,40 m."
+    },
+    {
+      "ref": "origem-selo#0",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam apenas que a composição deve informar o nome das fibras e seus percentuais. Eles não dizem que nenhuma fonte exige comprovação de origem ou selo específico, nem que o Inmetro não regulamenta a origem geográfica do algodão. Versão sustentável: Os trechos citados permitem afirmar apenas: \"O Inmetro informa que a etiqueta deve declarar o nome das fibras ou filamentos têxteis e seus percentuais em massa; a legislação também exige a informação da natureza, porcentagem e nome genérico das fibras que compõem o produto.\""
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. Os trechos da Appel e da Trussardi apenas informam a composição de produtos específicos; não dizem que se deve escolher somente produtos com essa declaração. Além disso, o trecho do Inmetro fala sobre informações obrigatórias dos produtos têxteis, mas não especifica uma 'ficha técnica'. Versão sustentável: Para obter uma versão sustentada: 'Se você quer 100% algodão egípcio, confira se a composição do produto declara explicitamente 100% algodão egípcio. O Inmetro exige a indicação do nome das fibras e de seus percentuais em massa.'"
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. O trecho da Buddemeyer apenas descreve que uma linha blend reúne algodão egípcio e linho; não recomenda informar o percentual de cada fibra nem não comprar produtos sem essa proporção. A exigência de indicar fibras e percentuais vem dos trechos do Inmetro. Versão sustentável: Remova a atribuição à Buddemeyer: 'Se você aceita uma mistura com outros materiais, verifique se o produto informa o nome e o percentual de cada fibra na composição. Evite peças descritas apenas como blend ou mistura quando esses percentuais não forem informados.'"
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho citado sustenta a instrução específica para a toalha Mêmphis da Appel — não usar secadora e secar no varal —, mas não apresenta uma recomendação geral da Appel para conferir, em qualquer produto, se a etiqueta permite secagem em máquina. Versão sustentável: 'Na toalha de banho Mêmphis da Appel, não use secadora; seque no varal. Para outros produtos, consulte as instruções de cuidado específicas da etiqueta.'"
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1485
+  }
+}
