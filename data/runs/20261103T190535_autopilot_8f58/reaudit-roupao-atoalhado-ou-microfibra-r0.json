@@ -1,0 +1,89 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "roupao-atoalhado-composicao-e-gramatura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "roupao-microfibra-composicao-e-gramatura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-e-peso-declarados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "As composições e gramaturas estão sustentadas como exemplos, mas os trechos não dizem que os modelos da Teka e da Karsten são “roupões atoalhados”; eles mencionam tecidos aveludado, felpudo e favo.",
+      "fix": "[tabela: Composição e gramatura de modelos de roupão citados vs. microfibra] Tipo: Roupão | Composição declarada (exemplos): Segundo a Teka e a Karsten, 100% algodão ou 50% a 90% algodão com poliéster | Gramatura (g/m²): Segundo a Teka e a Karsten, 195–450"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam modelos com algodão e misturas de algodão com poliéster, mas não qualificam esses modelos como “roupão atoalhado”.",
+      "fix": "Se você prefere usar algodão, escolha um roupão cuja ficha declare essa fibra: há modelos com 100% algodão e também com mistura de algodão e poliéster, segundo a Teka e a Karsten."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
