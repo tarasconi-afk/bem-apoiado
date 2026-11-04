@@ -1,0 +1,48 @@
+{
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A recomendação não cobre claramente quem dorme sozinho nem apresenta uma regra geral para escolher entre espuma e molas.",
+      "O texto repete várias vezes a mesma afirmação sobre transferência de movimento e contém um erro de redação no trecho “Probel como Ortobom”.",
+      "A densidade é apresentada como critério de firmeza, mas não é explicada em kg/m³ nem acompanhada de uma tabela de peso como nas páginas de referência.",
+      "A recomendação de durabilidade é genérica e baseada em declaração de fabricante, sem indicar o que conferir na ficha ou na garantia."
+    ],
+    "filler_refs": [
+      "transferencia-movimento#0",
+      "durabilidade-declarada#0"
+    ],
+    "decision_criteria": [
+      "Se divide a cama, considerar molas ensacadas, pois as molas independentes reduzem a transferência de movimento.",
+      "Se quer escolher a firmeza conforme o peso, conferir a densidade da espuma; o texto cita opções de D18 a D60 ou AG60.",
+      "Em colchões de molas, conferir na ficha o nível de firmeza, já que há diferentes níveis disponíveis.",
+      "A firmeza e o conforto dependem da composição completa do colchão, e não apenas de ser de espuma ou de molas.",
+      "Na compra de colchão de espuma com várias camadas, conferir na etiqueta a densidade e a espessura de cada lâmina.",
+      "Verificar o tipo de colchão, as dimensões, o fabricante ou importador e as informações de certificação na etiqueta.",
+      "Não tratar declarações terapêuticas ou ortopédicas como avaliadas pelo Inmetro quando o manual e a embalagem fizerem a ressalva correspondente."
+    ],
+    "missing": [
+      "Para o leitor leigo: A recomendação não cobre claramente quem dorme sozinho nem apresenta uma regra geral para escolher entre espuma e molas.",
+      "Para o leitor leigo: O texto repete várias vezes a mesma afirmação sobre transferência de movimento e contém um erro de redação no trecho “Probel como Ortobom”.",
+      "Para o leitor leigo: A densidade é apresentada como critério de firmeza, mas não é explicada em kg/m³ nem acompanhada de uma tabela de peso como nas páginas de referência.",
+      "Para o leitor leigo: A recomendação de durabilidade é genérica e baseada em declaração de fabricante, sem indicar o que conferir na ficha ou na garantia.",
+      "Uma regra mais completa para escolher entre espuma e molas quando a pessoa dorme sozinha ou não tem como prioridade reduzir a transferência de movimento.",
+      "Tabela de densidade relacionando faixas de peso e opções de espuma, de preferência em fonte primária do fabricante.",
+      "Explicação de que D indica densidade em kg/m³ e como conferir essa informação na ficha do produto.",
+      "Critérios objetivos para comparar a firmeza de colchões de molas, como capacidade de carga, composição das camadas e indicação do fabricante.",
+      "Informação primária sobre garantia, vida útil declarada e cuidados de cada tipo de colchão.",
+      "Informação explícita sobre a posição do Inmetro em relação a colchões vendidos como terapêuticos ou ortopédicos, além da ressalva aplicável aos colchões mistos."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece critérios concretos: molas ensacadas para quem divide a cama e espuma quando a escolha pela densidade e pelo peso é prioridade, além de indicar o que conferir na etiqueta. A resposta, porém, é apenas parcial para a dúvida geral, pois não orienta bem quem dorme sozinho, não traz uma tabela de peso e densidade e precisa de revisão das repetições e do trecho de durabilidade.",
+    "filler_ratio": 0.1111111111111111,
+    "model_opinion": true
+  },
+  "usage": {
+    "input_tokens": 13740,
+    "output_tokens": 4923
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "findings": [
+    {
+      "ref": "tipos-construcao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-embalagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-embalagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-construcao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "transferencia-movimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-espuma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-declarada#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-embalagem#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a exigência para colchões mistos com declaração voluntária de funcionalidades, incluindo os terapêuticos e ortopédicos. O bloco omite o alcance de “colchões mistos” e apresenta a regra como aplicável genericamente a todos os colchões com essas declarações.",
+      "fix": "Colchões mistos com declaração voluntária de funcionalidades, como as terapêuticas ou ortopédicas, devem trazer no manual o aviso de que essas funcionalidades não foram avaliadas pelo processo de certificação. A embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento, e não quanto às demais propriedades declaradas."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos dizem que molas ensacadas reduzem ou evitam a transferência de movimentos e são recomendadas ou ideais para casais, mas não afirmam especificamente que evitarão que a pessoa acorde. Além disso, apresentam uma recomendação dos fabricantes como uma escolha direta.",
+      "fix": "Se você divide a cama, considere colchões de molas ensacadas: segundo esses fabricantes, eles podem reduzir a transferência de movimentos e são recomendados para casais."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho do Inmetro trata de declarações voluntárias do fornecedor sobre funcionalidades de colchões mistos, como terapêuticas e ortopédicas. O bloco apresenta a orientação como geral para essas alegações, sem mencionar essa condição de alcance.",
+      "fix": "Para colchões mistos em que o fornecedor declare voluntariamente funcionalidades terapêuticas ou ortopédicas, confira no manual se consta que essas características não foram avaliadas pelo processo de certificação do produto."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "etiqueta-embalagem#2",
+      "msg": "OVERSTATED. Os trechos sustentam a exigência para colchões mistos com declaração voluntária de funcionalidades, incluindo os terapêuticos e ortopédicos. O bloco omite o alcance de “colchões mistos” e apresenta a regra como aplicável genericamente a todos os colchões com essas declarações. Versão sustentável: Colchões mistos com declaração voluntária de funcionalidades, como as terapêuticas ou ortopédicas, devem trazer no manual o aviso de que essas funcionalidades não foram avaliadas pelo processo de certificação. A embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento, e não quanto às demais propriedades declaradas."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos dizem que molas ensacadas reduzem ou evitam a transferência de movimentos e são recomendadas ou ideais para casais, mas não afirmam especificamente que evitarão que a pessoa acorde. Além disso, apresentam uma recomendação dos fabricantes como uma escolha direta. Versão sustentável: Se você divide a cama, considere colchões de molas ensacadas: segundo esses fabricantes, eles podem reduzir a transferência de movimentos e são recomendados para casais."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho do Inmetro trata de declarações voluntárias do fornecedor sobre funcionalidades de colchões mistos, como terapêuticas e ortopédicas. O bloco apresenta a orientação como geral para essas alegações, sem mencionar essa condição de alcance. Versão sustentável: Para colchões mistos em que o fornecedor declare voluntariamente funcionalidades terapêuticas ou ortopédicas, confira no manual se consta que essas características não foram avaliadas pelo processo de certificação do produto."
+    }
+  ]
+}

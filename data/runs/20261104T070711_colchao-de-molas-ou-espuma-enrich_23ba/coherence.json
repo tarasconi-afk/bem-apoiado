@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "tipos-construcao#1",
+      "problem": "O leitor pode entender que todo colchão de molas ensacadas tem 196 molas por m², bitola de 2 mm e 23 cm de altura, mas o trecho da Probel fala de um caso específico de molejo.",
+      "fix": "Reescrever para deixar o dado restrito ao caso citado, por exemplo: \"Segundo a Probel, um caso específico de molejo de molas ensacadas tem 196 molas por m², em aço carbono temperado, com bitola de 2 mm e 23 cm de altura.\""
+    }
+  ],
+  "usage": {
+    "input_tokens": 22434,
+    "output_tokens": 3421,
+    "calls": 3
+  }
+}

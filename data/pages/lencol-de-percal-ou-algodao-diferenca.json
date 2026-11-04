@@ -5,7 +5,7 @@
   "title": "Lençol de percal ou algodão: qual a diferença",
   "description": "Percal é um tipo de trama; algodão é a fibra. Confira na ficha a composição (% algodão) e o tipo de tecido para diferenciar.",
   "primary_query": "lençol de percal ou algodão: diferença",
-  "updated_at": "2026-11-01",
+  "updated_at": "2026-11-04",
   "verdict": {
     "text": "Os fabricantes citados descrevem o percal como uma trama associada a tecidos a partir de 180 fios por polegada, segundo fabricantes como Döhler, Buddemeyer e Appel como Döhler, Buddemeyer e Appel. Em produtos da Appel, a informação sobre percal aparece junto da composição: há lençóis percal com 100% algodão e outros com 60% algodão e 40% poliéster. Confira essas informações na ficha do produto.",
     "basis": "reasoning",
@@ -130,8 +130,8 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer 100% algodão: confira o campo 'composição' da ficha e verifique a porcentagem exata, segundo a Appel. Produtos com rótulo 'percal' podem conter poliéster; o rótulo 'algodão' descreve apenas a fibra, não a trama.",
-          "basis": "reasoning",
+          "text": "Se você quer 100% algodão: confira a porcentagem no campo 'composição' da ficha. Segundo a Appel, produtos com rótulo 'percal' podem ser 100% algodão ou conter poliéster (como 60% algodão e 40% poliéster).",
+          "basis": "evidence",
           "claim_ids": [
             "clm_45e7bd3b1c58",
             "clm_22ea1fca089c",
@@ -152,7 +152,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261101T071249_autopilot_7004+editor:20261101T071827_lencol-de-percal-ou-algodao-diferenca-autocorrecao_aede",
+    "run_id": "20261101T071249_autopilot_7004+editor:20261101T071827_lencol-de-percal-ou-algodao-diferenca-autocorrecao_aede+reaudit:20261104T070630_autopilot_415f",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
