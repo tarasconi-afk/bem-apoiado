@@ -128,6 +128,15 @@ describe('atribuição genérica vira com nomes', () => {
     const d = { title: 't', description: 'd', verdict: { text: 'A escolha considera o peso, segundo os fabricantes citados. Confira a ficha.', basis: 'evidence', claim_ids: ['a', 'b', 'c'] }, sections: [] } as never;
     expect((attributeSingleSource(d, (id) => src[id]).draft as any).verdict.text).toBe('A escolha considera o peso, segundo fabricantes como Castor, Ortobom e Probel. Confira a ficha.');
   });
+  it('"segundo fabricantes como X e Y" já nomeia: fica como está (04/11, colchão de molas ou espuma)', async () => {
+    const { attributeSingleSource } = await import('../src/stages/structure.ts');
+    const src: Record<string, { publisher: string; source_class: string }> = { a: { publisher: 'Ortobom', source_class: 'manufacturer' }, b: { publisher: 'Simmons', source_class: 'manufacturer' }, c: { publisher: 'Probel', source_class: 'manufacturer' } };
+    const texto = 'Se você divide a cama, escolha molas ensacadas: segundo fabricantes como Ortobom e Simmons, cada mola trabalha independentemente.';
+    const d = { title: 't', description: 'd', verdict: { text: texto, basis: 'evidence', claim_ids: ['a', 'b', 'c'] }, sections: [] } as never;
+    const out = (attributeSingleSource(d, (id) => src[id]).draft as any).verdict.text as string;
+    expect(out).toBe(texto);
+    expect(out.match(/como/g)).toHaveLength(1);
+  });
 });
 
 describe('tirar bloco por pedido do editor', () => {

@@ -800,3 +800,15 @@ No mesmo ciclo, três erros com uma causa só, **o pedido não dizia o que a pá
   o planejador pergunta na forma da ficha, com variações de gênero nos termos de foco.
 
 Antes de concluir "falta fonte", procurar o termo no que já foi guardado: a resposta estava lá.
+
+## 2026-11-04 — Manutenção na frente da fila consome o ciclo
+Os ciclos das 22h e das 4h gastaram 56,7 e 57,1 dos 60 créditos reescrevendo páginas no ar (redator 38 + auditor
+12 cada; a do algodão egípcio foi reprovada e descartada) e a pauta do topo da fila esperou as duas vezes. A
+manutenção roda antes da página nova e o enriquecimento pede 40; a página nova, 15. Com fonte nova entrando
+toda semana pela busca de lacunas, isso se repetiria em todo ciclo, e a meta é página nova. Regra: com pauta
+esperando, um enriquecimento a cada 24 h (`enrichWaits`).
+
+No mesmo cartão, a etapa que troca "segundo os fabricantes" por nomes tratou "segundo fabricantes como X e Y"
+como genérica e duplicou os nomes — o defeito estava no ar desde 01/11 no lençol de percal. Varredura feita
+nas 41 páginas: só essas duas. E a capa de "cobertor mais quente" veio com colchas matelassê: "cobertor" vira
+"blanket" vira "quilt"; o briefing ganhou o glossário de cama e banho.

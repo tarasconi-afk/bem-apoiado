@@ -120,7 +120,9 @@ export function attributeSingleSource(d: Draft, sourceOf: (claimId: string) => {
   const attribute = (text: string, pubs: string[], nomes: string[] = pubs) => {
     // Atribuição genérica já escrita ("segundo os fabricantes citados") vira a com nomes, sem duplicar (23/10:
     // "segundo os fabricantes citados, segundo fabricantes como Castor, Ortobom e Probel").
-    const generic = /(segundo|conforme|de acordo com) (os |as )?(fabricantes|marcas|fontes)( citad[oa]s)?/i;
+    // "segundo fabricantes como X e Y" já nomeia: não é genérica (04/11, colchão de molas ou espuma: virou
+    // "segundo fabricantes como Ortobom, Simmons e Probel como Ortobom e Simmons" na resposta curta).
+    const generic = /(segundo|conforme|de acordo com) (os |as )?(fabricantes|marcas|fontes)( citad[oa]s)?(?!\s+(como|tais como)\b)/i;
     const base = generic.test(text)
       ? text.replace(generic, (m0) => `${m0.split(' ')[0]!.toLowerCase() === 'segundo' ? 'segundo' : m0.split(' ')[0]!} ${who(pubs)}`.replace(/^(\w)/, (c) => (m0[0] === m0[0]!.toUpperCase() ? c.toUpperCase() : c)))
       : text;

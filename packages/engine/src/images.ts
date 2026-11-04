@@ -228,7 +228,11 @@ export const BRIEF_SYSTEM =
   'do que a imagem mostra). Proibido: pessoas, texto, números, logotipos, marcas, embalagens, produto identificável. ' +
   'O estilo de luz e paleta é acrescentado depois; não repita. O objeto é do tipo e do uso que o pedido descreve, com o que ' +
   'o identifica: cadeira de trabalho tem base giratória com rodízios e regulagem de altura; não troque por poltrona, banco ' +
-  'ou cadeira de jantar (03/11: "office chairs" com pés de madeira viraram poltronas de sala). Exemplo aprovado de ilustração de anúncio: ' +
+  'ou cadeira de jantar (03/11: "office chairs" com pés de madeira viraram poltronas de sala). Cama e banho no Brasil, ' +
+  'que em inglês viram outra coisa: cobertor = manta felpuda e macia de microfibra, poliéster ou lã (plush fleece/wool ' +
+  'blanket), nunca colcha matelassê; edredom = acolchoado fofo com enchimento (puffy comforter); colcha/cobre-leito = ' +
+  'peça fina pespontada (quilted bedspread); manta = peça leve de sofá (throw); protetor de colchão = capa ajustada ao ' +
+  'colchão (04/11: a capa de "cobertor mais quente" saiu com colchas matelassê). Exemplo aprovado de ilustração de anúncio: ' +
   '"A single generic high-back racing-style gaming chair in warm brown upholstery with contrasting stitching, head and lumbar ' +
   'cushions, padded armrests, in a cozy study with wooden shelves and a desk lamp. Front three-quarter view. Generic design, no recognizable model."';
 export { BriefOut };

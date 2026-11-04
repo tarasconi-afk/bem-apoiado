@@ -269,6 +269,13 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
     return p.status !== 'draft' && t && t.evidence_gaps.length > 0 && t.source_ids.some((s) => !t.researched_source_ids.includes(s)) && !(attempts[p.slug] && Date.now() - Date.parse(attempts[p.slug]!) < week);
   });
   if (!page || creditsLeft() < ENRICH_MIN_CREDITS) return false;
+  // 03–04/11: dois ciclos seguidos gastaram 57 de 60 créditos reescrevendo páginas no ar (uma reprovada) e a pauta
+  // da fila esperou as duas vezes, porque a manutenção roda antes e a página nova precisa de 15. Com pauta
+  // esperando, enriquecer só uma vez a cada 24 h: um ciclo por dia melhora o que está no ar, os outros escrevem.
+  if (enrichWaits(attempts, Date.now(), () => nextQuery() !== null)) {
+    steps.push(`enriquecimento de ${page.slug} fica para depois: já houve um nas últimas 24 h e há pauta na fila`);
+    return false;
+  }
   writeState('enrich-attempts.json', { ...attempts, [page.slug]: new Date().toISOString() });
   const t = topics.get(page.slug)!;
   const only = t.source_ids.filter((s) => !t.researched_source_ids.includes(s));
@@ -315,6 +322,11 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   }
 }
 const ENRICH_MIN_CREDITS = 40;
+export const ENRICH_GAP_WITH_QUEUE = 24 * 3_600_000;
+export function enrichWaits(attempts: Record<string, string>, now: number, queueHasTopic: () => boolean): boolean {
+  const last = Math.max(0, ...Object.values(attempts).map((a) => Date.parse(a)).filter((n) => !Number.isNaN(n)));
+  return now - last < ENRICH_GAP_WITH_QUEUE && queueHasTopic();
+}
 // Margem para a revisão de 3 avaliações que confere a versão corrigida antes de ela entrar no ar.
 const ENRICH_REVIEW_CREDITS = 4;
 
