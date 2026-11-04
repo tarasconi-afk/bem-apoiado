@@ -1,0 +1,178 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a densidade influencia o suporte da espuma, que molas ensacadas reduzem a interferência dos movimentos e que os requisitos citados excluem colchões de molas. Porém, não dizem que a escolha entre os tipos depende de dividir a cama, não estabelecem que a certificação seja obrigatória e não mencionam especificamente efeito terapêutico; apenas afirmam que outras propriedades e materiais declarados não foram avaliados.",
+      "fix": "A escolha pode considerar o peso e as preferências pessoais de conforto; segundo a Ortobom, molas ensacadas reduzem a interferência dos movimentos entre pessoas, e, segundo a Probel, a densidade da espuma influencia o suporte oferecido. Nos trechos citados, os requisitos do Inmetro excluem colchões de molas, e o selo se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura; outras propriedades e materiais declarados pelo fabricante não foram avaliados."
+    },
+    {
+      "ref": "tipos-construcao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-construcao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel citado informa apenas a quantidade, o material e a altura das molas ensacadas; não afirma que cada mola é envolvida individualmente em tecido nem que elas trabalham independentemente. Além disso, não há trecho citado sustentando a descrição dos colchões Bonnel. A definição de colchão misto, porém, é sustentada pelo trecho do Inmetro.",
+      "fix": "Limitar a parte sobre molas ensacadas ao que o trecho diz: “Segundo a Probel, o molejo de molas ensacadas tem 196 molas por m², confeccionadas em aço carbono temperado, com bitola de 2 mm e 23 cm de altura.” Remover a descrição dos colchões Bonnel ou citar uma evidência que a sustente; manter a definição de colchão misto conforme o trecho do Inmetro."
+    },
+    {
+      "ref": "transferencia-movimento#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que fabricantes afirmam que molas ensacadas individualmente reduzem a transferência de movimento, vibrações ou ondulações entre pessoas. Porém, nenhum trecho citado diz que molas Bonnel estão interligadas e amplificam o movimento de um lado para o outro. Além disso, “vibrações se propaguem pelo colchão” é uma formulação mais específica do que os trechos, que falam em evitar a transferência de movimento.",
+      "fix": "Fabricantes citados afirmam que molas ensacadas individualmente reduzem ou minimizam a transferência de movimentos e vibrações entre pessoas; a Probel acrescenta que, por não estarem interligadas, a pessoa ao lado praticamente não sente a ondulação."
+    },
+    {
+      "ref": "densidade-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-espuma#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados apenas dizem que colchões de molas ensacadas existem em diversos níveis de firmeza e atendem a diferentes preferências e tipos de corpo. Eles não dizem que a densidade não se aplica a colchões de molas nem que a firmeza é determinada pela altura, quantidade e bitola das molas.",
+      "fix": "Segundo a Probel, colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza, atendendo a diferentes preferências e tipos de corpo."
+    },
+    {
+      "ref": "firmeza-composicao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado afirma que a quantidade e a forma de montagem dos materiais determinam o nível de conforto, mas não diz que isso determina a firmeza nem que a firmeza não depende apenas do tipo de material. A enumeração específica de espumas, visco e gel também não aparece no trecho.",
+      "fix": "Segundo a Simmons, a quantidade e a forma como os materiais são montados na composição do colchão determinam seu nível de conforto final."
+    },
+    {
+      "ref": "firmeza-composicao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação da Probel é sustentada pelo trecho. Porém, o trecho da Ortobom apenas diz que certos itens oferecem estabilidade, conforto, resiliência e durabilidade; ele não identifica, no trecho citado, esses itens como colchões de molas superpocket. Assim, essa especificação foi atribuída à Ortobom sem aparecer na evidência literal.",
+      "fix": "Segundo a Probel, colchões de espuma são geralmente mais firmes que os de mola. Segundo a Ortobom, os produtos referidos no trecho citado oferecem estabilidade, conforto, resiliência e durabilidade."
+    },
+    {
+      "ref": "durabilidade-declarada#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que colchões de molas ensacadas são mais resistentes, especialmente em comparação aos de espuma, e que um colchão de molas bem cuidado pode durar anos sem se deformar. Porém, o segundo trecho fala genericamente em colchão de molas, não especificamente em molas ensacadas; portanto, não sustenta diretamente a associação entre molas ensacadas e boa durabilidade.",
+      "fix": "Segundo a Probel, colchões de molas ensacadas são mais resistentes, especialmente em comparação aos colchões de espuma. A marca também afirma que um colchão de molas bem cuidado pode durar anos sem se deformar com o peso do corpo."
+    },
+    {
+      "ref": "durabilidade-declarada#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado afirma que estruturas de madeira de reflorestamento tratadas com agentes bactericidas impedem a proliferação de fungos, cupins e brocas e geram maior qualidade e durabilidade. Ele não especifica que se trata de colchões ortopédicos, como afirma o bloco.",
+      "fix": "Segundo a Ortobom, estruturas de madeira de reflorestamento tratadas com agentes bactericidas impedem a proliferação de fungos, cupins e brocas e geram maior qualidade e durabilidade."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a Portaria nº 35/2021 regulamenta colchões e colchonetes de espuma flexível de poliuretano e que os cinco tipos listados estão excluídos dos requisitos aprovados. Eles não sustentam a generalização de que o Inmetro regulamenta apenas essa categoria nem afirmam expressamente que a exclusão corresponde à certificação obrigatória.",
+      "fix": "A Portaria nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma flexível de poliuretano. Colchões de molas, pneumáticos, elétricos, de água e de látex estão excluídos dos requisitos desse regulamento; os colchões de molas também aparecem em um programa de avaliação da conformidade distinto."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-embalagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-embalagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-embalagem#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a exigência para produtos com declaração voluntária de funcionalidades terapêuticas ou ortopédicas e dizem que a embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento. Eles não sustentam a condição adicional “se tiverem espuma” nem a formulação de que apenas esses componentes foram “certificados”, em vez de avaliados.",
+      "fix": "Colchões com declaração voluntária de funcionalidades terapêuticas ou ortopédicas devem trazer no manual o aviso de que essas funcionalidades não foram avaliadas pelo processo de certificação. A embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento, e não quanto às demais propriedades declaradas."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem para conferir a densidade na embalagem, nem sustentam especificamente que D45 ou mais seja para pessoas acima de 100 kg e que D18 a D30 seja para pessoas menores. Também não tratam de dormir sozinho.",
+      "fix": "Se você busca suporte conforme seu peso, considere o peso, a altura e suas preferências de conforto ao escolher a densidade. A Probel cita D18 para crianças e D60 ou AG60 para pessoas com maior peso ou que preferem uma superfície mais firme."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam maior resistência ou durabilidade de colchões de molas, inclusive em comparação com espuma, mas não dizem para conferir na etiqueta se o colchão é de molas ensacadas.",
+      "fix": "Se busca durabilidade, a Probel afirma que colchões de molas ensacadas são mais resistentes que colchões de espuma e que um colchão de molas bem cuidado pode durar anos sem se deformar."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que certas funcionalidades terapêuticas ou ortopédicas não são avaliadas no processo de certificação e que essa informação deve constar do manual em determinadas declarações voluntárias. Porém, não há trecho citado dizendo para procurar o Selo de Identificação da Conformidade do Inmetro na embalagem de colchões de espuma.",
+      "fix": "Desconfie de alegações terapêuticas ou ortopédicas e confira no manual se consta que essas funcionalidades não foram avaliadas pelo processo de certificação do produto."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que a densidade influencia o suporte da espuma, que molas ensacadas reduzem a interferência dos movimentos e que os requisitos citados excluem colchões de molas. Porém, não dizem que a escolha entre os tipos depende de dividir a cama, não estabelecem que a certificação seja obrigatória e não mencionam especificamente efeito terapêutico; apenas afirmam que outras propriedades e materiais declarados não foram avaliados. Versão sustentável: A escolha pode considerar o peso e as preferências pessoais de conforto; segundo a Ortobom, molas ensacadas reduzem a interferência dos movimentos entre pessoas, e, segundo a Probel, a densidade da espuma influencia o suporte oferecido. Nos trechos citados, os requisitos do Inmetro excluem colchões de molas, e o selo se refere às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura; outras propriedades e materiais declarados pelo fabricante não foram avaliados."
+    },
+    {
+      "ref": "tipos-construcao#1",
+      "msg": "MISATTRIBUTED. O trecho da Probel citado informa apenas a quantidade, o material e a altura das molas ensacadas; não afirma que cada mola é envolvida individualmente em tecido nem que elas trabalham independentemente. Além disso, não há trecho citado sustentando a descrição dos colchões Bonnel. A definição de colchão misto, porém, é sustentada pelo trecho do Inmetro. Versão sustentável: Limitar a parte sobre molas ensacadas ao que o trecho diz: “Segundo a Probel, o molejo de molas ensacadas tem 196 molas por m², confeccionadas em aço carbono temperado, com bitola de 2 mm e 23 cm de altura.” Remover a descrição dos colchões Bonnel ou citar uma evidência que a sustente; manter a definição de colchão misto conforme o trecho do Inmetro."
+    },
+    {
+      "ref": "transferencia-movimento#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que fabricantes afirmam que molas ensacadas individualmente reduzem a transferência de movimento, vibrações ou ondulações entre pessoas. Porém, nenhum trecho citado diz que molas Bonnel estão interligadas e amplificam o movimento de um lado para o outro. Além disso, “vibrações se propaguem pelo colchão” é uma formulação mais específica do que os trechos, que falam em evitar a transferência de movimento. Versão sustentável: Fabricantes citados afirmam que molas ensacadas individualmente reduzem ou minimizam a transferência de movimentos e vibrações entre pessoas; a Probel acrescenta que, por não estarem interligadas, a pessoa ao lado praticamente não sente a ondulação."
+    },
+    {
+      "ref": "densidade-espuma#1",
+      "msg": "UNSUPPORTED. Os trechos citados apenas dizem que colchões de molas ensacadas existem em diversos níveis de firmeza e atendem a diferentes preferências e tipos de corpo. Eles não dizem que a densidade não se aplica a colchões de molas nem que a firmeza é determinada pela altura, quantidade e bitola das molas. Versão sustentável: Segundo a Probel, colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza, atendendo a diferentes preferências e tipos de corpo."
+    },
+    {
+      "ref": "firmeza-composicao#0",
+      "msg": "UNSUPPORTED. O trecho citado afirma que a quantidade e a forma de montagem dos materiais determinam o nível de conforto, mas não diz que isso determina a firmeza nem que a firmeza não depende apenas do tipo de material. A enumeração específica de espumas, visco e gel também não aparece no trecho. Versão sustentável: Segundo a Simmons, a quantidade e a forma como os materiais são montados na composição do colchão determinam seu nível de conforto final."
+    },
+    {
+      "ref": "firmeza-composicao#1",
+      "msg": "MISATTRIBUTED. A afirmação da Probel é sustentada pelo trecho. Porém, o trecho da Ortobom apenas diz que certos itens oferecem estabilidade, conforto, resiliência e durabilidade; ele não identifica, no trecho citado, esses itens como colchões de molas superpocket. Assim, essa especificação foi atribuída à Ortobom sem aparecer na evidência literal. Versão sustentável: Segundo a Probel, colchões de espuma são geralmente mais firmes que os de mola. Segundo a Ortobom, os produtos referidos no trecho citado oferecem estabilidade, conforto, resiliência e durabilidade."
+    },
+    {
+      "ref": "durabilidade-declarada#0",
+      "msg": "OVERSTATED. Os trechos sustentam que colchões de molas ensacadas são mais resistentes, especialmente em comparação aos de espuma, e que um colchão de molas bem cuidado pode durar anos sem se deformar. Porém, o segundo trecho fala genericamente em colchão de molas, não especificamente em molas ensacadas; portanto, não sustenta diretamente a associação entre molas ensacadas e boa durabilidade. Versão sustentável: Segundo a Probel, colchões de molas ensacadas são mais resistentes, especialmente em comparação aos colchões de espuma. A marca também afirma que um colchão de molas bem cuidado pode durar anos sem se deformar com o peso do corpo."
+    },
+    {
+      "ref": "durabilidade-declarada#1",
+      "msg": "OVERSTATED. O trecho citado afirma que estruturas de madeira de reflorestamento tratadas com agentes bactericidas impedem a proliferação de fungos, cupins e brocas e geram maior qualidade e durabilidade. Ele não especifica que se trata de colchões ortopédicos, como afirma o bloco. Versão sustentável: Segundo a Ortobom, estruturas de madeira de reflorestamento tratadas com agentes bactericidas impedem a proliferação de fungos, cupins e brocas e geram maior qualidade e durabilidade."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a Portaria nº 35/2021 regulamenta colchões e colchonetes de espuma flexível de poliuretano e que os cinco tipos listados estão excluídos dos requisitos aprovados. Eles não sustentam a generalização de que o Inmetro regulamenta apenas essa categoria nem afirmam expressamente que a exclusão corresponde à certificação obrigatória. Versão sustentável: A Portaria nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma flexível de poliuretano. Colchões de molas, pneumáticos, elétricos, de água e de látex estão excluídos dos requisitos desse regulamento; os colchões de molas também aparecem em um programa de avaliação da conformidade distinto."
+    },
+    {
+      "ref": "etiqueta-embalagem#2",
+      "msg": "OVERSTATED. Os trechos sustentam a exigência para produtos com declaração voluntária de funcionalidades terapêuticas ou ortopédicas e dizem que a embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento. Eles não sustentam a condição adicional “se tiverem espuma” nem a formulação de que apenas esses componentes foram “certificados”, em vez de avaliados. Versão sustentável: Colchões com declaração voluntária de funcionalidades terapêuticas ou ortopédicas devem trazer no manual o aviso de que essas funcionalidades não foram avaliadas pelo processo de certificação. A embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento, e não quanto às demais propriedades declaradas."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos não dizem para conferir a densidade na embalagem, nem sustentam especificamente que D45 ou mais seja para pessoas acima de 100 kg e que D18 a D30 seja para pessoas menores. Também não tratam de dormir sozinho. Versão sustentável: Se você busca suporte conforme seu peso, considere o peso, a altura e suas preferências de conforto ao escolher a densidade. A Probel cita D18 para crianças e D60 ou AG60 para pessoas com maior peso ou que preferem uma superfície mais firme."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam maior resistência ou durabilidade de colchões de molas, inclusive em comparação com espuma, mas não dizem para conferir na etiqueta se o colchão é de molas ensacadas. Versão sustentável: Se busca durabilidade, a Probel afirma que colchões de molas ensacadas são mais resistentes que colchões de espuma e que um colchão de molas bem cuidado pode durar anos sem se deformar."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam que certas funcionalidades terapêuticas ou ortopédicas não são avaliadas no processo de certificação e que essa informação deve constar do manual em determinadas declarações voluntárias. Porém, não há trecho citado dizendo para procurar o Selo de Identificação da Conformidade do Inmetro na embalagem de colchões de espuma. Versão sustentável: Desconfie de alegações terapêuticas ou ortopédicas e confira no manual se consta que essas funcionalidades não foram avaliadas pelo processo de certificação do produto."
+    }
+  ]
+}
