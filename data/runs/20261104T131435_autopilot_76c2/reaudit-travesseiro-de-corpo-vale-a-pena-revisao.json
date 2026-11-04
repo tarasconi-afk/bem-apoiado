@@ -1,0 +1,74 @@
+{
+  "score_before": 4,
+  "score_after": 3,
+  "kept": false,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Se você dorme de lado e quer apoiar o corpo, confira se o fabricante indica usar o travesseiro abraçado e entre os joelhos.",
+      "Se está grávida e precisa dormir de lado, confira se a ficha do modelo indica auxílio nessa posição.",
+      "Se o espaço da cama é limitado, compare as medidas do modelo com o espaço disponível: o Hug mede 140 × 50 cm e o Revo mede 130 × 40 × 20 cm.",
+      "Se pretende lavar o produto em casa, confira se a ficha permite lavagem e siga os limites de temperatura e o processo indicados na etiqueta.",
+      "Confira se a capa é removível e lavável separadamente; essa informação não é mencionada para o Hug da Ortobom.",
+      "Compare o material de enchimento informado pelo fabricante, como fibra siliconada de poliéster nos modelos apresentados."
+    ],
+    "missing": [
+      "Uma orientação do fabricante relacionando altura, posição de dormir ou porte do comprador ao comprimento e às medidas mais adequadas.",
+      "Peso, densidade ou gramatura declarados para os travesseiros de corpo, para permitir comparação além das dimensões.",
+      "Informação primária sobre quando o travesseiro deixa de valer a pena, como falta de espaço, dificuldade de movimentação ou preferência por não usar apoio entre as pernas.",
+      "Preço, durabilidade ou garantia dos modelos, caso existam em fontes primárias, para sustentar melhor a avaliação de custo-benefício.",
+      "Esclarecimento do Inmetro sobre se travesseiros de corpo têm certificação obrigatória ou tratamento regulatório diferente do de colchões."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde que o travesseiro de corpo tende a valer a pena para quem dorme de lado ou precisa de apoio na gravidez e transforma isso em critérios concretos de compra, como indicação de uso, medidas e cuidados de lavagem. A resposta rápida é clara e a ficha permite comparar modelos, embora faltem dados de porte do usuário, densidade, custo-benefício e esclarecimento regulatório sobre certificação.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A regra de decisão é quase toda baseada no Hug da Ortobom, embora a página cite modelos de outras marcas; falta uma orientação geral que o leitor possa aplicar a qualquer travesseiro de corpo.",
+      "A página não explica claramente em que situações o produto não vale a pena, como para quem não dorme de lado ou não precisa de apoio entre os joelhos."
+    ],
+    "filler_refs": [
+      "o-que-eh-travesseiro-corpo#0",
+      "como-decidir#0",
+      "como-decidir#1",
+      "cuidados-de-conservacao#1"
+    ],
+    "decision_criteria": [
+      "Se você dorme de lado e quer abraçar o travesseiro ou colocá-lo entre os joelhos, confira se a descrição do modelo indica essas funções.",
+      "Se está grávida e precisa dormir de lado, confira se o fabricante recomenda o modelo para auxiliar essa posição.",
+      "Compare o espaço disponível na cama com as medidas do produto: o Hug mede 140 × 50 cm e o Revo mede 130 × 40 × 20 cm.",
+      "Se pretende lavar o travesseiro em casa, confira na ficha se a lavagem é permitida e em quais condições; o Hug informa lavagem suave a até 40 °C.",
+      "Se quiser lavar apenas a capa, confirme no anúncio se ela é removível e lavável separadamente."
+    ],
+    "missing": [
+      "Para o leitor leigo: A regra de decisão é quase toda baseada no Hug da Ortobom, embora a página cite modelos de outras marcas; falta uma orientação geral que o leitor possa aplicar a qualquer travesseiro de corpo.",
+      "Para o leitor leigo: A página não explica claramente em que situações o produto não vale a pena, como para quem não dorme de lado ou não precisa de apoio entre os joelhos.",
+      "Uma regra baseada em fonte primária sobre quando o travesseiro de corpo realmente vale a pena, incluindo limitações para quem não dorme de lado ou não precisa de apoio entre os joelhos.",
+      "Relação entre altura, posição de dormir e comprimento adequado do travesseiro, com os comprimentos oferecidos pelo fabricante.",
+      "Peso declarado do produto e, se disponível, densidade ou gramatura do enchimento.",
+      "Instruções de conservação específicas para os travesseiros de corpo comparados, em vez de instruções de outro modelo, como o Viscopur.",
+      "Resposta direta do Inmetro sobre se travesseiros de corpo têm certificação obrigatória ou tratamento igual ao de colchões de espuma e de molas.",
+      "Comparação mais ampla entre modelos e marcas para evitar que a recomendação dependa principalmente do Hug da Ortobom."
+    ],
+    "publishable": false,
+    "summary": "A página dá uma resposta rápida e critérios práticos para quem dorme de lado, mas não transforma bem a pergunta “vale a pena” em uma regra geral de compra. A orientação fica excessivamente centrada no Hug da Ortobom, repete informações e deixa sem resposta dados importantes da pauta, como comprimento adequado, peso, enchimento e certificação do Inmetro; precisa de revisão antes da publicação.",
+    "filler_ratio": 0.3076923076923077,
+    "model_opinion": false
+  }
+}
