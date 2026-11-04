@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "rule": "Se o seu colchão é Queen, King ou Superking, confira se a base bipartida é compatível com a largura do colchão — entre 158 cm e 193 cm, segundo a Ortobom.",
+      "claim_ids": [
+        "clm_93179d5f7deb",
+        "clm_b6a88f4cf490"
+      ]
+    },
+    {
+      "rule": "Se você precisa transportar ou montar a base em partes, escolha uma bipartida e confirme na ficha que ela é formada por dois volumes unidos por uma chapa; na base inteiriça, o fabricante declara um único volume.",
+      "claim_ids": [
+        "clm_585fdfd5899b",
+        "clm_d3393317b99e",
+        "clm_a6e68c0ae0ec",
+        "clm_4822bf8567fd",
+        "clm_bc0e81b89cbe"
+      ]
+    }
+  ],
+  "ready": false,
+  "missing": [
+    "Fonte primária que defina o que é cama box conjugada e compare sua montagem, transporte, compatibilidade e uso com a cama box bipartida, indicando quando escolher cada uma."
+  ],
+  "queries": [
+    "site:fabricante cama box conjugada ou bipartida diferenças transporte montagem",
+    "site:fabricante \"cama box conjugada\" \"bipartida\"",
+    "site:inmetro.gov.br cama box conjugada bipartida definição"
+  ]
+}

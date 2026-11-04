@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "rule": "Se você quer uma base formada por dois volumes separados, escolha uma cama box bipartida.",
+      "claim_ids": [
+        "clm_585fdfd5899b",
+        "clm_d3393317b99e",
+        "clm_f464f5e7507a"
+      ]
+    },
+    {
+      "rule": "Se você prefere uma base em um único volume, confira modelos de cama box inteiriça, em vez de bipartida.",
+      "claim_ids": [
+        "clm_4822bf8567fd",
+        "clm_bc0e81b89cbe"
+      ]
+    }
+  ],
+  "ready": false,
+  "missing": [
+    "Definição de fonte primária para cama box conjugada, incluindo se o colchão é fixado ou integrado à base.",
+    "Comparação do fabricante entre cama box conjugada e bipartida sobre montagem, transporte e possibilidade de separar colchão e base.",
+    "Indicação na ficha do produto de quais componentes acompanham a cama box conjugada e se podem ser substituídos separadamente."
+  ],
+  "queries": [
+    "site:*.com.br fabricante \"cama box conjugada\" colchão base diferença bipartida",
+    "fabricante \"box conjugado\" colchão acoplado base bipartida",
+    "site:*.com.br \"cama box conjugada\" \"colchão\" \"base\" fabricante"
+  ]
+}

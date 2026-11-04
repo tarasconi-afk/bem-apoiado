@@ -1,0 +1,256 @@
+{
+  "run_id": "20261104T131435_autopilot_76c2",
+  "topic": "cama-box-conjugada-ou-bipartida-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_b6a88f4cf490",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_ef6622a78294",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dd2b5ccac7a0",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_ef6622a78294",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c4a7d643ba76",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_ef6622a78294",
+      "new": true
+    },
+    {
+      "claim_id": "clm_deb1ccff1b61",
+      "question_id": "q_estrutura",
+      "source_id": "src_ef6622a78294",
+      "new": false
+    },
+    {
+      "claim_id": "clm_70be22488c43",
+      "question_id": "q_estrutura",
+      "source_id": "src_ef6622a78294",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c4a7d643ba76",
+      "question_id": "q_estrutura",
+      "source_id": "src_ef6622a78294",
+      "new": false
+    },
+    {
+      "claim_id": "clm_215efc23d4aa",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_93179d5f7deb",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ba9ee6ae1bb9",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a6e68c0ae0ec",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_415fbcf31541",
+      "question_id": "q_estrutura",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8d500a2cf557",
+      "question_id": "q_estrutura",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4bfbb5306c5b",
+      "question_id": "q_estrutura",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0c2f0bd58107",
+      "question_id": "q_estrutura",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d8d963b3237e",
+      "question_id": "q_aviso_passagem",
+      "source_id": "src_38ad2c2d3869",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d993c71d3275",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_a27bad80510e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b4bb1cd23fdf",
+      "question_id": "q_medidas_totais",
+      "source_id": "src_a27bad80510e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_18b32be39686",
+      "question_id": "q_estrutura",
+      "source_id": "src_a27bad80510e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1b0c8ea2cc1c",
+      "question_id": "q_estrutura",
+      "source_id": "src_a27bad80510e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_377254f46c4c",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_a27bad80510e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fdbe893e6212",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_820aeab4b9f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e8b0126b805b",
+      "question_id": "q_estrutura",
+      "source_id": "src_820aeab4b9f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0a492db65a74",
+      "question_id": "q_medidas_totais",
+      "source_id": "src_fcceb3879827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_205ab8f71da8",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_fcceb3879827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_688fcb0aa80e",
+      "question_id": "q_estrutura",
+      "source_id": "src_fcceb3879827",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_a27bad80510e",
+      "question_id": "q_aviso_passagem",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "*ATENÇÃO: Verifique se as dimensões dos produtos passam por elevadores, portas, escadas e corredores. Não nos responsabilizamos pelo transporte dos produtos por escadas, guinchos, içamentos ou quaisqu"
+    },
+    {
+      "source_id": "src_820aeab4b9f6",
+      "question_id": "q_medidas_totais",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 128 cm\nComprimento: 188 cm\nAltura do Conjunto: 66 cm"
+    },
+    {
+      "source_id": "src_820aeab4b9f6",
+      "question_id": "q_medidas_totais",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Altura do Colchão: 28 cm\nAltura da Base Box: 26 cm\nAltura dos pezinhos: 12 cm"
+    },
+    {
+      "source_id": "src_fcceb3879827",
+      "question_id": "q_medidas_totais",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Altura: 50 cm"
+    }
+  ],
+  "coverage": {
+    "q_base_inteira_ou_bipartida": 8,
+    "q_medidas_totais": 2,
+    "q_aviso_passagem": 1,
+    "q_estrutura": 11,
+    "q_suporte_peso": 3
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 7691,
+    "output_tokens": 3456,
+    "calls": 6
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_98b4b97e9fd9"
+  ],
+  "triage": [
+    {
+      "source_id": "src_ef6622a78294",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_ef6622a78294",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.51
+    },
+    {
+      "source_id": "src_38ad2c2d3869",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_38ad2c2d3869",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.35
+    },
+    {
+      "source_id": "src_38ad2c2d3869",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.02
+    },
+    {
+      "source_id": "src_a27bad80510e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_98b4b97e9fd9",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.42
+    },
+    {
+      "source_id": "src_820aeab4b9f6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.56
+    },
+    {
+      "source_id": "src_fcceb3879827",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.59
+    }
+  ],
+  "credits": 24.14382036000001
+}
