@@ -1,0 +1,51 @@
+{
+  "at": "2026-11-04T01:16:24.231Z",
+  "instruction": "Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: 1) Se você quer 100% algodão egípcio, escolha apenas produtos cuja composição declare explicitamente 100% algodão egípcio e confira essa informação na etiqueta, que deve informar a composição das fibras e seus percentuais 2) Se você aceita uma mistura com outros materiais, escolha somente produtos que informem o percentual de cada fibra; não escolha uma peça descrita apenas como “blend” sem a proporção dos materiais 3) Se você usa secadora, escolha um produto de algodão egípcio cuja etiqueta permita secag",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Saiba qual composição, densidade de fios e cuidados de conservação o fabricante deve declarar para diferenciar 100% algodão egípcio de misturas.",
+      "after": "Escolha algodão egípcio 100% ou em mistura conforme a composição declarada; se usa secadora, verifique se o produto permite secagem em máquina."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "Se você quer 100% algodão egípcio, confira se a composição informada indica isso, segundo a Appel e a Trussardi. Para misturas, verifique o percentual de cada fibra e não presuma a composição a partir de termos genéricos como \"blend\". Se usar secadora, siga as instruções de conservação do produto; por exemplo, a Appel informa, para seus produtos citados, que não se deve usar secadora.",
+      "after": "Confira se a etiqueta informa os nomes das fibras e seus percentuais, bem como as instruções de conservação. Se o produto for o modelo Mêmphis da Appel, não use secadora, conforme a instrução do fabricante."
+    },
+    {
+      "where": "Cuidados de conservação na etiqueta · bloco 2",
+      "before": "Na toalha Mêmphis da Appel, o fabricante instrui: lavar em máquina até 30°C, sem alvejante, secagem no varal (proibida secadora), passar com ferro até 110°C sem vapor, não lavar a seco. No jogo Nanda da Karsten, a lavação é a 40°C, secagem em tambor até 60°C e ferro até 150°C.",
+      "after": "Na toalha Mêmphis da Appel, o fabricante instrui: lavar em máquina até 30°C, sem alvejante, secagem no varal (proibida secadora), passar com ferro até 110°C sem vapor, não lavar a seco. No jogo Nanda da Karsten, a lavação é a 40°C, secagem em tambor até 60°C e ferro até 150°C. Na Döhler, a lavação deve ser em processo suave com temperatura máxima de 60°C, não é permitido secar em máquina, e o ferro pode ser usado até 150°C."
+    },
+    {
+      "where": "O que os fabricantes declaram sobre a fibra · bloco 1",
+      "before": "Segundo a Karsten, o algodão egípcio é produzido com fibras longas, resultando em tecido sedoso, macio e com cintilância natural. A Appel declara que seus filamentos mais longos geram fio mais uniforme, com menos pontas soltas, e felpa que resiste melhor às lavagens.",
+      "after": "Segundo a Karsten, o algodão egípcio é produzido com fibras longas, resultando em tecido sedoso, macio e com cintilância natural; essas fibras longas impedem a formação de bolinhas. A Appel declara que seus filamentos mais longos geram fio mais uniforme, com menos pontas soltas, e felpa que resiste melhor às lavagens."
+    },
+    {
+      "where": "O que os fabricantes declaram sobre a fibra · bloco 2",
+      "before": "Quanto à durabilidade, a Kacyumara afirma que o algodão egípcio mantém forma, textura e desempenho após lavagens frequentes. A Appel informa que o tecido é robusto e mantém qualidade mesmo após muitas lavagens. A Kacyumara também declara que o tratamento anti-pilling previne formação de bolinhas no tecido.",
+      "after": "Quanto à durabilidade, a Kacyumara afirma que o algodão egípcio mantém forma, textura e desempenho após lavagens frequentes. A Appel informa que o tecido é robusto e mantém qualidade mesmo após muitas lavagens. Para evitar bolinhas, a Kacyumara declara que o tratamento anti-pilling previne essa formação, enquanto a Karsten aponta que as fibras longas do algodão egípcio também impedem bolinhas."
+    },
+    {
+      "where": "Como decidir · bloco 1",
+      "before": "Se você aceita uma mistura com outras fibras, escolha produtos que informem o percentual de cada material, conforme as informações obrigatórias indicadas pelo Inmetro. Uma descrição como \"algodão egípcio com detalhes em linho\", sem proporções, não informa esses percentuais.",
+      "after": "Se você quer 100% algodão egípcio, procure produtos cuja etiqueta declare explicitamente essa composição e nenhuma outra fibra. A lei exige que a etiqueta informe o nome de cada fibra e seus percentuais em massa."
+    },
+    {
+      "where": "Como decidir · bloco 2",
+      "before": "Se você usa secadora, confira as instruções de conservação do produto para saber se a secagem em máquina é permitida, segundo a Appel. No exemplo da Appel, a toalha Mêmphis não deve ser colocada na secadora e deve secar no varal.",
+      "after": "Se você aceita uma mistura com outros materiais, escolha produtos cuja etiqueta informe o percentual de cada fibra. O Inmetro exige que a etiqueta apresente o nome das fibras e seus percentuais em massa; a Buddemeyer informa que sua Linha Blend combina algodão egípcio e linho."
+    },
+    {
+      "where": "Como decidir · bloco 3",
+      "before": "(novo)",
+      "after": "Se você usa secadora, confira as instruções de conservação antes de comprar. Na toalha Mêmphis da Appel, o fabricante proíbe secadora e exige secagem no varal; no lençol com elástico da Döhler citado, também não é permitido secar em máquina."
+    },
+    {
+      "where": "Como decidir · bloco 4",
+      "before": "(novo)",
+      "after": "Confira a etiqueta do produto antes de comprar: ela deve informar o nome de cada fibra com seus percentuais e o tratamento de conservação, indicado por símbolos, textos ou ambos."
+    }
+  ]
+}

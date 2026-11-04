@@ -1,0 +1,42 @@
+{
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta não diz para quem o algodão egípcio compensa nem relaciona os benefícios declarados pelos fabricantes à decisão de pagar mais.",
+      "A página mistura exemplos de jogos de cama com toalhas e apresenta densidade de fios, gramatura e fio 30/2 sem explicar se esses dados determinam a qualidade ou ajudam a decidir."
+    ],
+    "filler_refs": [
+      "densidade-fios#0",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Para comprar 100% algodão egípcio, conferir se a etiqueta declara explicitamente 100% e não lista outra fibra.",
+      "Se aceitar uma mistura, conferir o percentual em massa de cada fibra antes de comparar os produtos.",
+      "Segundo a Karsten, fibras longas podem resultar em tecido mais macio, sedoso, brilhante e com menos bolinhas; segundo a Appel, podem gerar fio mais uniforme e felpa mais resistente às lavagens.",
+      "Segundo Kacyumara e Appel, o material pode manter forma, textura e qualidade após lavagens frequentes, mas essas são declarações dos fabricantes e não uma regra para todo produto.",
+      "Conferir as instruções de conservação, principalmente se o comprador usa secadora: alguns produtos permitem secagem em tambor, enquanto outros exigem varal.",
+      "Não presumir que uma linha chamada blend seja 100% algodão egípcio; conferir a composição e os percentuais informados na etiqueta."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta não diz para quem o algodão egípcio compensa nem relaciona os benefícios declarados pelos fabricantes à decisão de pagar mais.",
+      "Para o leitor leigo: A página mistura exemplos de jogos de cama com toalhas e apresenta densidade de fios, gramatura e fio 30/2 sem explicar se esses dados determinam a qualidade ou ajudam a decidir.",
+      "Uma resposta curta que sintetize para quem o algodão egípcio compensa: por exemplo, quem prioriza toque macio e potencial de maior resistência e aceita pagar mais, desde que a composição e os percentuais estejam claros.",
+      "Uma regra explícita para não pagar o preço de 100% algodão egípcio por uma mistura sem percentual declarado de algodão egípcio.",
+      "Fonte primária do fabricante ou de órgão regulador sobre eventual comprovação de origem, certificação ou uso do termo “algodão egípcio”.",
+      "Explicação, se for mantida, do que significam dados como 30/2, 300 ou 400 fios e se eles devem ser usados para escolher; caso contrário, esses exemplos podem ser removidos para manter o foco."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios úteis de composição, conservação e benefícios alegados por fabricantes, e permite conferir o anúncio ou a etiqueta. Porém, não responde de forma rápida se algodão egípcio vale a pena nem para quem, pois a resposta curta só manda verificar a etiqueta; além disso, há repetição e dados técnicos de densidade que não ajudam a decidir. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0.13333333333333333,
+    "model_opinion": false
+  },
+  "usage": {
+    "input_tokens": 13413,
+    "output_tokens": 5961
+  }
+}

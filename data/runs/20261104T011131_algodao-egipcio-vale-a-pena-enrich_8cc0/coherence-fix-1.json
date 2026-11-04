@@ -1,0 +1,23 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Confira a composição declarada na etiqueta: se for 100% algodão egípcio, ela deve informar isso; se for mistura, deve listar cada fibra e seu percentual em massa. Para os cuidados de conservação, siga sempre as instruções específicas do produto, pois variam entre marcas e modelos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_80f702232d92",
+        "clm_967a8a4db583",
+        "clm_a730fea8b014"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: OVERSTATED"
+  ]
+}
