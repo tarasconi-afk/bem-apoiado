@@ -1,0 +1,69 @@
+{
+  "removed": [
+    "como-decidir#0"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Para buscar 100% algodão egípcio, conferir se a etiqueta ou ficha técnica declara explicitamente essa composição.",
+      "Em misturas, conferir o percentual de cada fibra; a palavra “blend” sozinha não informa a proporção.",
+      "Considerar que, segundo a Karsten, fibras longas podem resultar em tecido mais sedoso, macio e com cintilância natural.",
+      "Considerar que, segundo a Appel, filamentos mais longos podem gerar fio mais uniforme, com menos pontas soltas e maior resistência às lavagens.",
+      "Conferir se o produto declara tratamento anti-pilling quando a preocupação for a formação de bolinhas, pois essa é uma afirmação da Kacyumara sobre seus produtos.",
+      "Se usar secadora, conferir as instruções de conservação do modelo, pois a Appel informa que a toalha Mêmphis não deve ser seca em máquina."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma resposta curta que diga claramente para quem o algodão egípcio compensa, relacionando as características declaradas pelos fabricantes a objetivos como toque macio, aparência e resistência às lavagens.",
+      "Uma distinção explícita entre benefícios declarados para produtos específicos e características que poderiam ser atribuídas ao algodão egípcio em geral.",
+      "Orientação para comparar o preço do produto com a composição efetivamente declarada, evitando pagar mais por um produto descrito como blend sem percentuais."
+    ],
+    "publishable": false,
+    "summary": "A página dá critérios úteis para conferir composição, percentuais de mistura e cuidados, mas não responde diretamente se o algodão egípcio vale a pena nem para quem ele compensa. A resposta curta apenas orienta a procurar 100% algodão egípcio, sem conectar as características declaradas pelos fabricantes — toque, uniformidade, resistência às lavagens e anti-pilling — à decisão de compra. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0.07142857142857142,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta não diz para quem o algodão egípcio vale a pena nem relaciona os benefícios alegados pelos fabricantes a uma decisão de compra.",
+      "A página apresenta características como maciez, durabilidade e menor formação de bolinhas em blocos separados, mas não as transforma em uma regra clara de escolha."
+    ],
+    "filler_refs": [
+      "densidade-fios#0"
+    ],
+    "decision_criteria": [
+      "Para comprar 100% algodão egípcio, conferir se a composição da ficha ou etiqueta declara 100% algodão egípcio.",
+      "Para aceitar uma mistura, conferir o percentual de cada fibra; não presumir a composição a partir de termos como “blend” ou de uma descrição de detalhes em linho.",
+      "Se a prioridade for toque sedoso, maciez e cintilância, considerar produtos em que o fabricante atribui essas características às fibras longas do algodão egípcio.",
+      "Se a prioridade for resistência a lavagens e menor risco de pontas soltas ou bolinhas, conferir as declarações do fabricante sobre fio mais uniforme, durabilidade e tratamento anti-pilling.",
+      "Se usar secadora, conferir na ficha ou na etiqueta se a secagem em máquina é permitida, pois as instruções variam entre produtos.",
+      "Conferir a composição, a gramatura ou a quantidade de fios informada e as instruções de conservação do modelo específico, sem inferir características apenas pelo nome algodão egípcio."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta não diz para quem o algodão egípcio vale a pena nem relaciona os benefícios alegados pelos fabricantes a uma decisão de compra.",
+      "Para o leitor leigo: A página apresenta características como maciez, durabilidade e menor formação de bolinhas em blocos separados, mas não as transforma em uma regra clara de escolha.",
+      "Uma resposta curta que diga claramente para quem o algodão egípcio pode compensar, relacionando o possível benefício ao perfil de uso e à disposição de pagar mais.",
+      "Uma regra de decisão que compare 100% algodão egípcio e blends: quando priorizar toque e durabilidade alegados pelos fabricantes e quando aceitar uma mistura com percentual declarado.",
+      "Uma orientação mais explícita para conferir se o percentual declarado corresponde ao produto anunciado e evitar pagar pelo termo algodão egípcio sem composição detalhada.",
+      "Informação de fonte primária sobre eventual comprovação de origem, certificação ou selo exigido para usar o termo algodão egípcio, caso exista."
+    ],
+    "publishable": false,
+    "summary": "A página traz bons critérios práticos de composição, mistura e conservação e reúne declarações de fabricantes sobre maciez, durabilidade e fibras longas. Porém, responde apenas parcialmente à dúvida principal: a resposta curta não decide para quem o algodão egípcio vale a pena nem transforma essas características em uma regra de compra. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0.07692307692307693,
+    "model_opinion": false
+  }
+}

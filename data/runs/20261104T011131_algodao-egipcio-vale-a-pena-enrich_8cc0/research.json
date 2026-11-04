@@ -1,0 +1,154 @@
+{
+  "run_id": "20261104T011131_algodao-egipcio-vale-a-pena-enrich_8cc0",
+  "topic": "algodao-egipcio-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_bea3066c0e3b",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_76c0accc2d2d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6ad46f140b14",
+      "question_id": "q_densidade_fios",
+      "source_id": "src_76c0accc2d2d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_25270ebbc262",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_76c0accc2d2d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_143493ab4977",
+      "question_id": "q_medidas_peso_tamanhos",
+      "source_id": "src_76c0accc2d2d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c7e9e4617c94",
+      "question_id": "q_ajuste_75a3e367",
+      "source_id": "src_76c0accc2d2d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_db1a4bbd90be",
+      "question_id": "q_ajuste_75a3e367",
+      "source_id": "src_76c0accc2d2d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5e93fd604dee",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_9c76ff1a3b38",
+      "new": true
+    },
+    {
+      "claim_id": "clm_872bff375ae7",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_9c76ff1a3b38",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4a27c6aed31e",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_02c92f34819a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_04e2bb347daf",
+      "question_id": "q_medidas_peso_tamanhos",
+      "source_id": "src_02c92f34819a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_37fad2e45abb",
+      "question_id": "q_ajuste_75a3e367",
+      "source_id": "src_02c92f34819a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8e655816c5bd",
+      "question_id": "q_ajuste_75a3e367",
+      "source_id": "src_02c92f34819a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_21c376f58649",
+      "question_id": "q_cuidados_conservacao",
+      "source_id": "src_02c92f34819a",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_9c76ff1a3b38",
+      "question_id": "q_medidas_peso_tamanhos",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "50 x 70cm"
+    },
+    {
+      "source_id": "src_9c76ff1a3b38",
+      "question_id": "q_ajuste_75a3e367",
+      "reason": "SCHEMA: Too big: expected string to have <=400 characters",
+      "quote": "Confeccionado em percal 300 fios, 100% algodão egípcio, com toque de cetim, naturalmente hipoalergênico e possui um tratamento anti-pilling, ou seja, evita a formação de bolinhas. Perfeito para embala"
+    }
+  ],
+  "coverage": {
+    "q_composicao_etiqueta": 3,
+    "q_densidade_fios": 1,
+    "q_cuidados_conservacao": 3,
+    "q_medidas_peso_tamanhos": 2,
+    "q_diferenca_composicao_mistura": 0,
+    "q_certificacao_origem": 0,
+    "q_ajuste_75a3e367": 4
+  },
+  "unanswered": [
+    "q_diferenca_composicao_mistura",
+    "q_certificacao_origem"
+  ],
+  "usage": {
+    "input_tokens": 6542,
+    "output_tokens": 1836,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_ce3b87f9d6b9",
+    "src_dc893fe68b05"
+  ],
+  "triage": [
+    {
+      "source_id": "src_76c0accc2d2d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_ce3b87f9d6b9",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.4
+    },
+    {
+      "source_id": "src_9c76ff1a3b38",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_02c92f34819a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_dc893fe68b05",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.1
+    }
+  ],
+  "credits": 7.1643252
+}

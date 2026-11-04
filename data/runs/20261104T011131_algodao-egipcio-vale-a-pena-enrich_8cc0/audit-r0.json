@@ -1,0 +1,130 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam verificar a composição e os percentuais das fibras, mas não sustentam a recomendação geral de verificar a densidade de fios declarada nem mostram que Appel, Trussardi e Buddemeyer recomendam esse procedimento. Também há instrução de secagem para produtos específicos, não uma regra geral sobre todos os produtos.",
+      "fix": "Se você quer 100% algodão egípcio, confira se a composição informada indica isso. Para misturas, verifique o percentual de cada fibra e não presuma a composição a partir de termos genéricos como “blend”. Se usar secadora, siga as instruções de conservação do produto; por exemplo, a Appel informa, para os produtos citados, que não se deve usar secadora."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta que a Linha Blend reúne algodão egípcio com detalhes em linho, mas não mostra que se trata de um jogo de cama chamado “Algodão Egípcio Blend” nem que a ficha não especifica os percentuais de cada material.",
+      "fix": "A Buddemeyer descreve a Linha Blend como reunindo algodão egípcio com delicados detalhes em linho."
+    },
+    {
+      "ref": "densidade-fios#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Karsten apenas informam que um produto tem tecido de algodão egípcio com 300 fios; não dizem que fabricantes devem declarar a densidade, nem que essa informação deve constar em ficha técnica ou etiqueta, nem que isso ajuda a comparar produtos.",
+      "fix": "A Karsten informa que o tecido do produto Nanda tem 300 fios."
+    },
+    {
+      "ref": "densidade-fios#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho do produto Nanda sustenta 300 fios, e o trecho da Appel sustenta fio 30/2 penteado e gramatura de 450 g/m². Porém, o trecho citado do jogo Ventura só traz instruções de lavagem e não informa 300 fios. Além disso, o trecho da Buddemeyer informa 400 fios, não 200.",
+      "fix": "Exemplos: no jogo de cama Nanda da Karsten, a densidade informada é 300 fios; na toalha Mêmphis da Appel, o fio é 30/2 de algodão egípcio penteado e a gramatura é 450 g/m²; no trecho da Buddemeyer, o jogo de cama é descrito como tendo 400 fios."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados mencionam apenas a informação de tratamento de conservação e que ela pode ser indicada por símbolos, textos ou ambos. Eles não enumeram lavagem, secagem, passagem e limpeza a seco como instruções obrigatórias, nem dizem que isso influencia a praticidade de uso.",
+      "fix": "A etiqueta deve apresentar informações sobre o tratamento de conservação, que podem ser indicadas por símbolos, textos ou ambos."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam essas orientações em páginas da Appel, mas não demonstram que alguns fabricantes, no plural, adotem tais práticas. Além disso, a orientação de pendurar aberta é para a felpa secar por inteiro, não expressamente para “secar completamente”.",
+      "fix": "A Appel inclui orientações adicionais, como lavar antes do primeiro uso para acomodar a retração natural do algodão, evitar amaciante nas primeiras lavagens e pendurar a toalha aberta após o uso para que a felpa seque por inteiro."
+    },
+    {
+      "ref": "caracteristicas-fabricante#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Karsten sustenta fibras longas e tecido sedoso, macio e com cintilância natural, mas não afirma que isso resulte em fios mais finos.",
+      "fix": "Segundo a Karsten, o algodão egípcio é produzido com fibras longas, resultando em tecido sedoso, macio e com cintilância natural. A Appel declara que seus filamentos mais longos geram fio mais uniforme, com menos pontas soltas, e felpa que resiste melhor às lavagens."
+    },
+    {
+      "ref": "caracteristicas-fabricante#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a declaração da composição e percentuais de fibras, além de mostrarem produtos da Appel e da Trussardi declarados como 100% algodão egípcio. Porém, nenhum trecho menciona número de fios por polegada, densidade ou que essa medida varie entre produtos.",
+      "fix": "Se você quer 100% algodão egípcio, verifique se a etiqueta ou ficha técnica declara explicitamente essa composição. Os exemplos citados da Appel e da Trussardi fazem essa declaração."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A exigência de informar a natureza e o percentual das fibras é atribuída nos trechos ao Inmetro e à legislação citada por ele, não à Buddemeyer. O trecho da Buddemeyer apenas descreve uma linha que reúne algodão egípcio com detalhes em linho e não informa percentuais nem recomenda não comprar produtos sem essa proporção.",
+      "fix": "Se você aceita uma mistura com outras fibras, escolha produtos que informem o percentual de cada material, conforme as informações obrigatórias indicadas pelo Inmetro. Uma descrição como “algodão egípcio com detalhes em linho”, sem proporções, não informa esses percentuais."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Appel sustenta que a toalha Mêmphis não deve ser colocada na secadora e deve secar no varal. Porém, nenhum trecho afirma que isso seja inconveniente em clima úmido ou em espaço limitado.",
+      "fix": "Se você usa secadora, confira na etiqueta se o cuidado de conservação permite secagem em máquina ou tambor. No exemplo citado da Appel, a toalha Mêmphis não deve ser colocada na secadora e deve secar no varal."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam verificar a composição e os percentuais das fibras, mas não sustentam a recomendação geral de verificar a densidade de fios declarada nem mostram que Appel, Trussardi e Buddemeyer recomendam esse procedimento. Também há instrução de secagem para produtos específicos, não uma regra geral sobre todos os produtos. Versão sustentável: Se você quer 100% algodão egípcio, confira se a composição informada indica isso. Para misturas, verifique o percentual de cada fibra e não presuma a composição a partir de termos genéricos como “blend”. Se usar secadora, siga as instruções de conservação do produto; por exemplo, a Appel informa, para os produtos citados, que não se deve usar secadora."
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "msg": "UNSUPPORTED. O trecho sustenta que a Linha Blend reúne algodão egípcio com detalhes em linho, mas não mostra que se trata de um jogo de cama chamado “Algodão Egípcio Blend” nem que a ficha não especifica os percentuais de cada material. Versão sustentável: A Buddemeyer descreve a Linha Blend como reunindo algodão egípcio com delicados detalhes em linho."
+    },
+    {
+      "ref": "densidade-fios#0",
+      "msg": "MISATTRIBUTED. Os trechos da Karsten apenas informam que um produto tem tecido de algodão egípcio com 300 fios; não dizem que fabricantes devem declarar a densidade, nem que essa informação deve constar em ficha técnica ou etiqueta, nem que isso ajuda a comparar produtos. Versão sustentável: A Karsten informa que o tecido do produto Nanda tem 300 fios."
+    },
+    {
+      "ref": "densidade-fios#1",
+      "msg": "UNSUPPORTED. O trecho do produto Nanda sustenta 300 fios, e o trecho da Appel sustenta fio 30/2 penteado e gramatura de 450 g/m². Porém, o trecho citado do jogo Ventura só traz instruções de lavagem e não informa 300 fios. Além disso, o trecho da Buddemeyer informa 400 fios, não 200. Versão sustentável: Exemplos: no jogo de cama Nanda da Karsten, a densidade informada é 300 fios; na toalha Mêmphis da Appel, o fio é 30/2 de algodão egípcio penteado e a gramatura é 450 g/m²; no trecho da Buddemeyer, o jogo de cama é descrito como tendo 400 fios."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "UNSUPPORTED. Os trechos citados mencionam apenas a informação de tratamento de conservação e que ela pode ser indicada por símbolos, textos ou ambos. Eles não enumeram lavagem, secagem, passagem e limpeza a seco como instruções obrigatórias, nem dizem que isso influencia a praticidade de uso. Versão sustentável: A etiqueta deve apresentar informações sobre o tratamento de conservação, que podem ser indicadas por símbolos, textos ou ambos."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "OVERSTATED. Os trechos sustentam essas orientações em páginas da Appel, mas não demonstram que alguns fabricantes, no plural, adotem tais práticas. Além disso, a orientação de pendurar aberta é para a felpa secar por inteiro, não expressamente para “secar completamente”. Versão sustentável: A Appel inclui orientações adicionais, como lavar antes do primeiro uso para acomodar a retração natural do algodão, evitar amaciante nas primeiras lavagens e pendurar a toalha aberta após o uso para que a felpa seque por inteiro."
+    },
+    {
+      "ref": "caracteristicas-fabricante#0",
+      "msg": "OVERSTATED. O trecho da Karsten sustenta fibras longas e tecido sedoso, macio e com cintilância natural, mas não afirma que isso resulte em fios mais finos. Versão sustentável: Segundo a Karsten, o algodão egípcio é produzido com fibras longas, resultando em tecido sedoso, macio e com cintilância natural. A Appel declara que seus filamentos mais longos geram fio mais uniforme, com menos pontas soltas, e felpa que resiste melhor às lavagens."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a declaração da composição e percentuais de fibras, além de mostrarem produtos da Appel e da Trussardi declarados como 100% algodão egípcio. Porém, nenhum trecho menciona número de fios por polegada, densidade ou que essa medida varie entre produtos. Versão sustentável: Se você quer 100% algodão egípcio, verifique se a etiqueta ou ficha técnica declara explicitamente essa composição. Os exemplos citados da Appel e da Trussardi fazem essa declaração."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. A exigência de informar a natureza e o percentual das fibras é atribuída nos trechos ao Inmetro e à legislação citada por ele, não à Buddemeyer. O trecho da Buddemeyer apenas descreve uma linha que reúne algodão egípcio com detalhes em linho e não informa percentuais nem recomenda não comprar produtos sem essa proporção. Versão sustentável: Se você aceita uma mistura com outras fibras, escolha produtos que informem o percentual de cada material, conforme as informações obrigatórias indicadas pelo Inmetro. Uma descrição como “algodão egípcio com detalhes em linho”, sem proporções, não informa esses percentuais."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho da Appel sustenta que a toalha Mêmphis não deve ser colocada na secadora e deve secar no varal. Porém, nenhum trecho afirma que isso seja inconveniente em clima úmido ou em espaço limitado. Versão sustentável: Se você usa secadora, confira na etiqueta se o cuidado de conservação permite secagem em máquina ou tambor. No exemplo citado da Appel, a toalha Mêmphis não deve ser colocada na secadora e deve secar no varal."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "verdict",
+      "problem": "O leitor pode entender que nenhum produto da Appel aceita secadora, mas a própria página cita uma toalha Appel que permite secagem em secadora em temperatura baixa.",
+      "fix": "Restringir a orientação ao produto Mêmphis: “No exemplo da toalha Mêmphis da Appel, não use secadora; siga sempre a instrução específica do produto.”"
+    },
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "A página não responde se o algodão egípcio vale a pena; ela apenas mostra como conferir composição, fios e cuidados e reproduz alegações de fabricantes.",
+      "fix": "Mudar a promessa para algo que a página entrega, como “Como conferir se um produto é 100% algodão egípcio” ou “O que verificar na etiqueta do algodão egípcio”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19080,
+    "output_tokens": 3668,
+    "calls": 3
+  }
+}
