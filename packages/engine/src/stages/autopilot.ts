@@ -141,7 +141,14 @@ function lacksMakersOrThrow(query: string, topic?: TopicBrief): boolean {
 // pesquisa paga e nenhuma página. A regra antiga dizia "esgotada" para os dois casos.
 const exhausted = (t: TopicBrief, written: Set<string>) => t.evidence_gaps.length === 0 && written.has(t.slug);
 
-// Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas.
+// Nova tentativa de pauta que já parou por falta de evidência (lacuna registrada). Vai DEPOIS das pautas novas:
+// de 29/10 a 04/11, látex, cobertor ou manta e cama box voltaram a cada 3 dias na frente de "como escolher lençol",
+// "edredom" e "cobertor" e gastaram ~170 créditos em 8 ciclos sem nenhuma página (0 de 4 melhorias viraram página).
+// Pesquisa paga e interrompida sem lacuna (teto de créditos, saída inválida) não é isto: essa é retomada e mantém a vez.
+export const isGapRetry = (t?: TopicBrief) => !!t && t.researched_source_ids.length > 0 && t.evidence_gaps.length > 0;
+
+// Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas; pauta nova antes de
+// nova tentativa por lacuna (isGapRetry), que só roda quando não há pauta nova disponível.
 export function nextQuery(): string | null {
   const path = join(DATA, 'queue.json');
   if (!existsSync(path)) return null;
@@ -153,6 +160,7 @@ export function nextQuery(): string | null {
   const pending = new Set((process.env.BEM_PENDING_SLUGS ?? '').split(',').filter(Boolean));
   const planFails = readState<Record<string, number>>('plan-failures.json', {});
   const written = new Set(loadPages().map((p) => p.slug));
+  let retry: string | null = null;
   for (const item of q.items) {
     if ((planFails[item.query] ?? 0) >= 2) continue;
     const slug = slugOf(item.query);
@@ -161,9 +169,10 @@ export function nextQuery(): string | null {
     if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || exhausted(t, written) || retryOff(t.product_kinds))) continue;
     if (lacksMakers(item.query, t)) continue;
     if (isDeferred(slug)) continue;
-    return item.query;
+    if (!isGapRetry(t)) return item.query;
+    retry ??= item.query;
   }
-  return null;
+  return retry;
 }
 
 // Situação de cada pauta da fila, pela mesma regra do nextQuery (para o painel mostrar o que anda e o que não).
@@ -175,8 +184,7 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
   const topics = new Map(loadTopics().map((t) => [t.slug, t]));
   const pages = new Map(loadPages().map((p) => [p.slug, p]));
   const planFails = readState<Record<string, number>>('plan-failures.json', {});
-  let next = false;
-  return q.items.map((item) => {
+  const rows: { query: string; state: QueueState; retry: boolean }[] = q.items.map((item) => {
     const slug = slugOf(item.query);
     const page = pages.get(slug);
     const t = topics.get(slug);
@@ -187,10 +195,13 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     else if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || exhausted(t, new Set(pages.keys())) || retryOff(t.product_kinds))) state = page ? 'rascunho' : 'esgotada';
     else if (lacksMakers(item.query, t)) state = 'faltam fabricantes';
     else if (isDeferred(slug)) state = 'adiada (falta fonte)';
-    else if (!next) { state = 'próxima'; next = true; }
     else state = 'na fila';
-    return { query: item.query, state };
+    return { query: item.query, state, retry: isGapRetry(t) };
   });
+  // A mesma escolha do nextQuery: a primeira pauta nova; sem nenhuma, a primeira nova tentativa.
+  const next = rows.find((r) => r.state === 'na fila' && !r.retry) ?? rows.find((r) => r.state === 'na fila');
+  if (next) next.state = 'próxima';
+  return rows.map(({ query, state }) => ({ query, state }));
 }
 
 // Produtos para páginas no ar: página aprovada (pelo motor ou pelo editor no painel) cuja pauta tem

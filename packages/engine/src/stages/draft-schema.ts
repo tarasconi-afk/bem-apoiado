@@ -1,6 +1,12 @@
 import { z } from 'zod';
 import { Basis, Slug, type Claim, type TopicBrief } from '@bem-apoiado/core';
 
+// O id da seção é âncora interna (#id), não texto do leitor: um id fora do formato vira slug em vez de derrubar o
+// rascunho inteiro. 02/11, lençol solteirão: o redator devolveu sections[0].id fora do padrão duas vezes, a página
+// parou (SAFE_STOP) e a pauta foi adiada 3 dias com 19,6 créditos gastos.
+export const sectionId = (v: unknown) =>
+  typeof v === 'string' ? v.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : v;
+
 // Schema do rascunho com claim_ids como ENUM FECHADO das evidências desta pauta.
 // O redator não consegue citar um id que não recebeu (lição do projeto anterior: atribuição por enum).
 export function makeDraftSchema(claimIds: string[]) {
@@ -14,7 +20,7 @@ export function makeDraftSchema(claimIds: string[]) {
     sections: z
       .array(
         z.object({
-          id: Slug,
+          id: z.preprocess(sectionId, Slug),
           heading: z.string().min(2),
           blocks: z
             .array(

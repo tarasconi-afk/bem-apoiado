@@ -812,3 +812,20 @@ No mesmo cartão, a etapa que troca "segundo os fabricantes" por nomes tratou "s
 como genérica e duplicou os nomes — o defeito estava no ar desde 01/11 no lençol de percal. Varredura feita
 nas 41 páginas: só essas duas. E a capa de "cobertor mais quente" veio com colchas matelassê: "cobertor" vira
 "blanket" vira "quilt"; o briefing ganhou o glossário de cama e banho.
+
+## 2026-11-04 — Pauta sem fonte na frente da fila: 10 ciclos sem página
+De 02/11 às 16h a 04/11 às 16h, nenhum ciclo entregou página nova. Três causas, medidas no journal:
+- **Pautas que já pararam por falta de evidência voltavam na frente das novas.** Látex ("para quem é indicado"),
+  cobertor ou manta ("defina a diferença") e cama box ("defina conjugada") voltam a cada 3 dias e pedem algo que
+  fabricante nenhum publica. 8 ciclos, ~170 créditos, 0 de 4 melhorias viraram página, enquanto "como escolher
+  lençol", "edredom" e "cobertor" esperavam atrás. Regra: pauta nova antes de nova tentativa por lacuna
+  (`isGapRetry`); a nova tentativa só roda sem pauta nova disponível. Retomada de pesquisa paga sem lacuna
+  mantém a vez. O limite de 2 melhorias continua: ele dava 3 chances de ~25 créditos a cada pauta morta.
+- **Saída do redator recusada por um id de seção** (lençol solteirão, 02/11: 19,6 créditos e pauta adiada).
+  O id é âncora interna, não texto do leitor: fora do formato, vira slug (`sectionId` no schema do rascunho).
+- **Teto de 60 por ciclo cortava a página no fim.** Páginas completas custaram de 36 a 60; cetim ou percal parou
+  com 62 na redação, espuma ou fibra com 61,2 sem a correção automática. Teto por ciclo: 75. O diário continua
+  250 (média recente de 140 a 160/dia), autorizado pelo editor.
+
+Na escolha de pautas (`ideas.ts`): "X ou Y" só com nomes que as fichas usam para o mesmo atributo. Diferença
+"de dicionário" (manta × cobertor, conjugada × bipartida) não tem ficha que decida: vira outra pauta ou sai.
