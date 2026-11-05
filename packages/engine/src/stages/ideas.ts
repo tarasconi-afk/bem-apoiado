@@ -45,6 +45,20 @@ export async function collectSuggestions(seeds: string[], f: typeof fetch = fetc
 
 const slug = (q: string) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
 
+// Mesma intenção de busca, por código (05/11): a triagem pelo modelo deixou passar 4 de 5 pautas novas que repetiam
+// página no ar ou pauta da fila ("quando trocar colchão" × "quando trocar o colchão"; "colchão de molas ensacadas ou
+// espuma" × a página "colchão de molas ou espuma", o próprio exemplo do prompt). Com 80 pautas na lista, o modelo não
+// compara tudo. Sem palavras de decisão e de ligação, e sem plural: conjuntos iguais, ou o menor (3+ palavras) contido
+// no maior. "como escolher lençol" (1 palavra) não engole as outras pautas de lençol.
+const INTENT_STOP = new Set('de da do das dos o a os as e ou para com que qual quais como escolher escolha conferir diferenca vale pena melhor um uma no na em por quem se mais tipos tipo guia'.split(' '));
+export const intentWords = (q: string) =>
+  new Set(q.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter((w) => w && !INTENT_STOP.has(w)).map((w) => w.replace(/(?<=[a-z]{3})s$/, '')));
+export function sameIntent(a: string, b: string): boolean {
+  const [x, y] = [intentWords(a), intentWords(b)].sort((m, n) => m.size - n.size) as [Set<string>, Set<string>];
+  const inside = [...x].every((w) => y.has(w));
+  return inside && (x.size === y.size || x.size >= 3);
+}
+
 export const Idea = z.object({
   query: z.string(),
   from: z.array(z.string()),
@@ -112,18 +126,23 @@ export async function discoverIdeas(fetchImpl: typeof fetch = fetch, llmFetch?: 
   // Variação de pauta existente: guardada como busca daquela pauta (útil para título/seções), não vira página.
   const variants = new Map<string, string[]>();
   for (const it of r.data.items) if (!it.keep && it.same_as && fresh[it.n - 1]) variants.set(it.same_as, [...(variants.get(it.same_as) ?? []), fresh[it.n - 1]!.text]);
-  if (variants.size) {
-    const vf = join(DATA, 'topic-variants.json');
-    const cur: Record<string, string[]> = existsSync(vf) ? JSON.parse(readFileSync(vf, 'utf8')) : {};
-    for (const [k, v] of variants) cur[k] = [...new Set([...(cur[k] ?? []), ...v])];
-    writeFileSync(vf, JSON.stringify(cur, null, 2) + '\n');
-  }
+  const intentPool = [
+    ...loadTopics().map((t) => ({ slug: t.slug, query: t.primary_query })),
+    ...(existsSync(qf) ? (JSON.parse(readFileSync(qf, 'utf8')).items as { query: string }[]) : []).map((i) => ({ slug: slug(i.query), query: i.query })),
+    ...known.filter((i) => i.status !== 'descartada').map((i) => ({ slug: slug(i.query), query: i.query })),
+  ];
   const byQuery = new Map<string, Idea>();
   for (const it of r.data.items) {
     const s = fresh[it.n - 1];
     if (!s) continue;
     const q = it.query.trim().toLowerCase();
     if (!it.keep || firstForbidden(q, niche.forbidden_terms) || seen.has(slug(q))) continue;
+    // Repete pauta ou página com a mesma intenção (o "same_as" do modelo falhou): vira variante, não página nova.
+    const twin = intentPool.find((e) => sameIntent(q, e.query));
+    if (twin) {
+      variants.set(twin.slug, [...(variants.get(twin.slug) ?? []), s.text]);
+      continue;
+    }
     const prev = byQuery.get(slug(q));
     // Mais buscas com a mesma intenção e posição mais alta no autocompletar = mais procura.
     const add = 10 - s.rank;
@@ -131,6 +150,12 @@ export async function discoverIdeas(fetchImpl: typeof fetch = fetch, llmFetch?: 
       prev.from.push(s.text);
       prev.score += add;
     } else byQuery.set(slug(q), { query: q, from: [s.text], score: add, status: 'nova', reason: it.reason, found_at: now.toISOString() });
+  }
+  if (variants.size) {
+    const vf = join(DATA, 'topic-variants.json');
+    const cur: Record<string, string[]> = existsSync(vf) ? JSON.parse(readFileSync(vf, 'utf8')) : {};
+    for (const [k, v] of variants) cur[k] = [...new Set([...(cur[k] ?? []), ...v])];
+    writeFileSync(vf, JSON.stringify(cur, null, 2) + '\n');
   }
   const added = [...byQuery.values()].sort((a, b) => b.score - a.score);
   writeFileSync(IDEAS_FILE, JSON.stringify([...known, ...added], null, 2) + '\n');
@@ -142,9 +167,18 @@ export function promoteIdeas(addToQueue: (q: string) => boolean, max: number): s
   if (!existsSync(IDEAS_FILE)) return [];
   const ideas = z.array(Idea).parse(JSON.parse(readFileSync(IDEAS_FILE, 'utf8')));
   const done: string[] = [];
+  const qf = join(DATA, 'queue.json');
+  const pool = [...loadTopics().map((t) => t.primary_query), ...(existsSync(qf) ? (JSON.parse(readFileSync(qf, 'utf8')).items as { query: string }[]).map((x) => x.query) : [])];
   for (const i of [...ideas].filter((x) => x.status === 'nova').sort((a, b) => b.score - a.score)) {
     if (done.length >= max) break;
+    const twin = pool.find((q) => slug(q) !== slug(i.query) && sameIntent(i.query, q));
+    if (twin) {
+      i.status = 'descartada';
+      i.reason = `mesma intenção de "${twin}"`;
+      continue;
+    }
     if (addToQueue(i.query)) {
+      pool.push(i.query);
       i.status = 'na_fila';
       done.push(i.query);
     }
