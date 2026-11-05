@@ -1,0 +1,51 @@
+{
+  "at": "2026-11-05T13:14:36.717Z",
+  "instruction": "Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: 1) Se o seu colchão mede 1,00 m de largura por 2,00 m de comprimento, procure por cama ou lençol solteirão (também chamado solteiro king) 2) Se você procura um lençol solteirão sem elástico, confira na ficha se a medida da peça é 1,50 m x 2,40 m. Resolva também: a) A resposta mistura a medida da cama com a do lençol e não informa claramente a largura e o comprimento do lençol solteirão. b) A menção a um produto Altenburg identificado como “Solteiro” com 1,50 m x 2,40 m pode confundir, pois não esclarece s",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Descubra a medida de largura e comprimento do lençol solteirão, a altura do elástico, como diferencia do solteiro e o que conferir na etiqueta antes de comprar.",
+      "after": "Lençol solteirão para colchão 1,00 × 2,00 m: medidas sem elástico 1,50 × 2,40 m; com elástico, confira altura máxima na ficha."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "A cama de solteiro king, também chamada de solteirão ou cama de viúva, geralmente mede 1,00 m de largura por 2,00 m de comprimento, segundo a Appel. A Altenburg lista um item identificado como \"Solteiro\" com medida de 1,50 m x 2,40 m. Em produtos Karsten citados, a altura do lençol varia entre 35 cm e 40 cm; confira a ficha técnica do produto escolhido.",
+      "after": "O tamanho solteirão mede geralmente 1,00 m de largura por 2,00 m de comprimento, segundo a Appel. Fabricantes como Kacyumara (1,80 m × 2,40 m) e Altenburg (1,50 m × 2,40 m) listam variações para o tamanho solteiro, então confira as medidas exatas na ficha do produto que escolher."
+    },
+    {
+      "where": "Qual é a medida do lençol solteirão · bloco 1",
+      "before": "Segundo a Appel, a cama de solteiro king, também chamada de solteirão ou cama de viúva, geralmente mede 1,00 m de largura por 2,00 m de comprimento.",
+      "after": "Segundo a Appel, a cama de solteiro king, também chamada de solteirão, geralmente mede 1,00 m por 2,00 m. No catálogo da Altenburg, há um item identificado como \"Solteiro\" com medida de 1,50 m x 2,40 m."
+    },
+    {
+      "where": "O que a etiqueta deve informar sobre composição · bloco 1",
+      "before": "A etiqueta do lençol deve informar obrigatoriamente o nome de cada fibra têxtil e seus percentuais em massa, segundo o Inmetro. Por exemplo: 100% algodão ou algodão com poliéster em proporções específicas.",
+      "after": "Segundo o Inmetro, tecidos destinados ao comércio devem informar o nome das fibras ou filamentos têxteis e seus respectivos percentuais em massa."
+    },
+    {
+      "where": "Como decidir qual lençol solteirão comprar · bloco 1",
+      "before": "O Inmetro lista, entre as informações obrigatórias para tecidos destinados ao comércio, o nome e os percentuais das fibras ou filamentos têxteis e o tratamento de cuidado para conservação.",
+      "after": "Se você tem uma cama de 1,00 m por 2,00 m, a Appel informa que essa é uma medida geralmente associada à cama de solteiro king, também chamada de solteirão. Em um produto da Kacyumara identificado como \"Solteiro\", a medida citada é 1,80 m x 2,40 m; confira a ficha técnica do produto."
+    },
+    {
+      "where": "Como decidir qual lençol solteirão comprar · bloco 2",
+      "before": "(novo)",
+      "after": "A Altenburg declara a medida de 1,50 m x 2,40 m para um item identificado como \"Solteiro\". Verifique a ficha técnica do produto antes da compra para comparar essa medida com a da sua cama."
+    },
+    {
+      "where": "Como decidir qual lençol solteirão comprar · bloco 3",
+      "before": "(novo)",
+      "after": "Para os modelos citados pela Karsten, as informações indicam 35 cm de altura em um produto e dimensões de 1,10 m x 2,0 m x 40 cm em outro. Confira a ficha técnica e compare essas medidas com as do seu colchão."
+    },
+    {
+      "where": "Qual a diferença entre lençol solteirão e solteiro · bloco 2",
+      "before": "O catálogo da Altenburg lista um item identificado como \"Solteiro\" com medida de 1,50 m x 2,40 m.",
+      "after": "(removido)"
+    },
+    {
+      "where": "O que a etiqueta deve informar sobre composição · bloco 2",
+      "before": "A etiqueta deve indicar o tamanho ou a dimensão do produto, quando aplicável, e as medidas devem seguir o Sistema Internacional de Unidades (SI), segundo o Inmetro.",
+      "after": "(removido)"
+    }
+  ]
+}

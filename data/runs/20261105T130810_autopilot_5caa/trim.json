@@ -1,0 +1,75 @@
+{
+  "removed": [
+    "como-decidir#0",
+    "como-decidir#1",
+    "como-decidir#2"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Para o colchão solteirão ou solteiro king, confira se a cama mede aproximadamente 1,00 m por 2,00 m.",
+      "Não confunda com o colchão solteiro tradicional, de aproximadamente 0,88 m por 1,88 m.",
+      "Confira na ficha técnica a altura ou profundidade máxima do elástico, que varia entre modelos citados de 35 cm e 40 cm.",
+      "Verifique na ficha do produto as dimensões declaradas pelo fabricante, porque o nome 'solteiro' pode aparecer em itens com medidas diferentes.",
+      "Confira na etiqueta a composição das fibras, os percentuais, o tamanho ou dimensão e os símbolos de conservação.",
+      "Siga os cuidados de lavagem, secagem, passagem e alvejamento informados na etiqueta ou pelo fabricante."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "A medida exata do lençol solteirão, separando largura, comprimento e altura do colchão que o elástico comporta.",
+      "Uma fonte primária que relacione explicitamente a medida do lençol solteirão ao colchão de 1,00 m por 2,00 m.",
+      "Esclarecimento de que a medida de 1,50 m x 2,40 m da Altenburg é de um produto identificado como 'Solteiro' e não necessariamente a medida padrão de um lençol solteirão.",
+      "A altura máxima do colchão suportada pelo elástico de um modelo especificamente identificado como solteirão."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma referência útil para o colchão solteirão — cerca de 1,00 m por 2,00 m — e orienta conferir a altura do elástico e a ficha técnica. Porém, a dúvida é sobre a medida do lençol, e a resposta mistura medida do colchão com medidas de produtos identificados apenas como 'solteiro', sem informar a dimensão exata do lençol solteirão. Por isso, responde apenas parcialmente e não deve ser publicada sem esclarecer essa distinção.",
+    "filler_ratio": 0.21428571428571427,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A resposta mistura a medida da cama com a do lençol e não informa claramente a largura e o comprimento do lençol solteirão.",
+      "A menção a um produto Altenburg identificado como “Solteiro” com 1,50 m x 2,40 m pode confundir, pois não esclarece se essa é a medida do lençol solteirão nem como se relaciona ao colchão de 1,00 m x 2,00 m.",
+      "O leitor não consegue escolher com segurança entre modelos porque faltam as medidas exatas do lençol e uma indicação explícita de compatibilidade com o colchão."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para procurar o colchão correspondente, considere a medida geralmente indicada de 1,00 m por 2,00 m para a cama solteiro king, solteirão ou cama de viúva.",
+      "Não confunda com o solteiro tradicional, geralmente de 0,88 m por 1,88 m.",
+      "Confira na ficha do produto a largura, o comprimento e a altura ou profundidade do elástico; há modelos Karsten com 35 cm e 40 cm de altura.",
+      "Verifique na etiqueta a composição e o percentual de cada fibra, além do tamanho ou das dimensões do produto.",
+      "Consulte os símbolos de conservação para confirmar lavagem, secagem, passagem e possibilidade de alvejante."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A resposta mistura a medida da cama com a do lençol e não informa claramente a largura e o comprimento do lençol solteirão.",
+      "Para o leitor leigo: A menção a um produto Altenburg identificado como “Solteiro” com 1,50 m x 2,40 m pode confundir, pois não esclarece se essa é a medida do lençol solteirão nem como se relaciona ao colchão de 1,00 m x 2,00 m.",
+      "Para o leitor leigo: O leitor não consegue escolher com segurança entre modelos porque faltam as medidas exatas do lençol e uma indicação explícita de compatibilidade com o colchão.",
+      "Medida exata de largura e comprimento do lençol solteirão, declarada por um fabricante.",
+      "Indicação explícita do fabricante de que essa medida serve para colchão de 1,00 m x 2,00 m.",
+      "Comparação clara entre as medidas do lençol solteirão e do lençol solteiro tradicional.",
+      "Altura máxima do colchão suportada pelo elástico de um lençol solteirão específico.",
+      "Esclarecimento sobre se a medida de 1,50 m x 2,40 m da Altenburg é de um lençol, para qual colchão serve e por que o produto está identificado como “Solteiro”."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios úteis, como a medida provável do colchão, a diferença para o solteiro tradicional e a necessidade de conferir a altura do elástico. Porém, não responde diretamente qual é a medida do lençol solteirão: mistura medidas de cama e de produto, apresenta uma medida da Altenburg sem esclarecer sua aplicação e não permite ao leitor escolher um modelo com segurança.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

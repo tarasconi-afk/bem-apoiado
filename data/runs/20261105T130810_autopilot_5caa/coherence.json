@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "altura-elastico#0",
+      "problem": "O título promete a altura máxima de colchão que o elástico suporta, mas os blocos só informam a altura de dois lençóis e não dizem qual altura de colchão cada um suporta.",
+      "fix": "Mudar o título para “Quais alturas aparecem nas fichas dos lençóis citados”."
+    },
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "“Qual a medida exata” promete uma medida exata do lençol, mas a página traz uma medida geralmente atribuída à cama e medidas de produtos específicos, sem estabelecer uma medida exata para o lençol solteirão.",
+      "fix": "Trocar o título e a resposta curta por uma promessa compatível, como “Lençol solteirão: qual medida é associada à cama e o que conferir no produto”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18242,
+    "output_tokens": 4154,
+    "calls": 3
+  }
+}
