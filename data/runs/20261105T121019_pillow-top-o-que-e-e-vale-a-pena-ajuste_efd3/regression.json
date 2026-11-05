@@ -1,0 +1,71 @@
+{
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o pillow top se a prioridade for acrescentar conforto e maciez à cama.",
+      "Se a cama, o baú ou a roupa de cama tiverem pouca folga, confira se os 5 cm da lâmina de espuma cabem.",
+      "Se quiser acrescentar conforto a um colchão que já possui, procure um pillow top avulso e confira se suas medidas são iguais às do colchão.",
+      "Confira no anúncio as medidas e a forma de fixação do pillow top.",
+      "A densidade nominal informada para a espuma do modelo Ortobom é de 50 kg/m³, com 5 cm de espessura."
+    ],
+    "missing": [
+      "Uma definição clara, em fonte de fabricante, de que pillow top é uma camada extra de conforto sobre o tampo do colchão.",
+      "Explicação das duas formas de apresentação: pillow top costurado ou fixo ao colchão e pillow top avulso, colocado por cima.",
+      "Regra mais clara sobre para quem o pillow top vale a pena e para quem não vale, comparando conforto extra com o espaço disponível.",
+      "Comparação efetiva entre mais de um fabricante, incluindo as medidas e características dos modelos Simmons, Americanflex e Castor.",
+      "Informação de outros fabricantes sobre o acréscimo de altura, como os 7 cm informados para modelos Simmons.",
+      "Explicação em linguagem leiga de espuma de alta resiliência, HR Gel e densidade em kg/m³.",
+      "Indicação, por modelo, de o pillow top ser fixo ou removível e de suas medidas."
+    ],
+    "publishable": true,
+    "summary": "A página oferece critérios práticos úteis — conforto extra, acréscimo de 5 cm, opção avulsa e conferência das medidas — e a resposta curta é rápida e compreensível. Porém, responde apenas parcialmente à dúvida principal porque não começa definindo o que é pillow top, não explica claramente a diferença entre fixo e avulso, depende principalmente da Ortobom e deixa termos técnicos sem explicação; a seção sobre Inmetro também foge do foco e foi solicitada para remoção.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta não diz para quem o pillow top vale a pena e para quem não vale, nem apresenta o dado decisivo para essa escolha.",
+      "Termos como espuma High Resilience Gel, HR Gel, lâmina e densidade em kg/m³ não são explicados em linguagem simples.",
+      "A página manda conferir se o pillow top é fixo ou removível, mas não informa claramente essa característica para os modelos citados."
+    ],
+    "filler_refs": [
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Se você quer uma camada extra de conforto e mais maciez, o pillow top atende a esse objetivo.",
+      "Se a cama, o baú ou a roupa de cama têm pouca folga de altura, confira o acréscimo: cerca de 5 cm no modelo citado da Ortobom e 7 cm na capa da Simmons.",
+      "Se quiser colocar o acessório sobre um colchão já existente, há pillow tops avulsos, como os da Americanflex.",
+      "Confira no anúncio ou na ficha técnica se o pillow top é avulso ou integrado ao colchão e como ele é fixado.",
+      "Confira o tamanho do pillow top e sua compatibilidade com o colchão.",
+      "Compare a espessura e o material: a Ortobom informa espuma de alta resiliência de 50 kg/m³ e 5 cm, enquanto a Castor cita espuma de densidade 26 em uma camada do Pillow Top Vitagel."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta não diz para quem o pillow top vale a pena e para quem não vale, nem apresenta o dado decisivo para essa escolha.",
+      "Para o leitor leigo: Termos como espuma High Resilience Gel, HR Gel, lâmina e densidade em kg/m³ não são explicados em linguagem simples.",
+      "Para o leitor leigo: A página manda conferir se o pillow top é fixo ou removível, mas não informa claramente essa característica para os modelos citados.",
+      "Uma resposta curta, baseada em fabricante, dizendo explicitamente para quem o pillow top vale a pena e para quem não vale, especialmente considerando a folga de altura disponível.",
+      "Explicação simples de que espuma de alta resiliência é uma espuma que recupera melhor o formato, e de que densidade em kg/m³ indica quanto material há em determinado volume da espuma.",
+      "Informação de fabricante sobre quais modelos têm pillow top costurado ou removível, com comparação clara entre Ortobom, Simmons, Americanflex e Castor.",
+      "Tamanhos e dimensões completas dos pillow tops avulsos para orientar a compatibilidade com o colchão.",
+      "Indicação de fabricante relacionando espessura, densidade ou tipo de pillow top ao perfil de uso ou preferência de conforto."
+    ],
+    "publishable": false,
+    "summary": "A página define pillow top e oferece critérios úteis de compra, como tipo avulso ou integrado, tamanho e acréscimo de 5 a 7 cm na altura. Porém, responde apenas parcialmente a “vale a pena”: a resposta curta não apresenta uma regra clara para quem deve escolher ou evitar o produto, e usa termos técnicos sem explicação simples. Além disso, a seção de decisão precisa ser reescrita para comparar melhor os fabricantes e orientar a conferência no anúncio.",
+    "filler_ratio": 0.07142857142857142,
+    "model_opinion": false
+  },
+  "score_before": 3.5,
+  "score_after": 1.5
+}
