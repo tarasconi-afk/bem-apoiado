@@ -1,0 +1,79 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-e-pillow-top#2",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Se a prioridade é ter mais maciez e conforto, o pillow top pode valer a pena, segundo a recomendação da Ortobom.",
+      "Se a cama, o baú ou a roupa de cama têm pouco espaço, escolha um modelo sem pillow top ou confirme se os 5 cm adicionais cabem.",
+      "Se você já tem um colchão e quer acrescentar conforto, procure um pillow top avulso e confira se suas medidas correspondem às do colchão.",
+      "Confira no anúncio ou na ficha técnica a espessura do pillow top, como os 5 cm informados para modelos da Ortobom.",
+      "Confira se o modelo é avulso, com elásticos de fixação, ou integrado ao colchão, além do tamanho compatível.",
+      "Verifique a composição: há modelos com algodão e fibra siliconada, espuma HR ou espuma de densidade 26, conforme o fabricante."
+    ],
+    "missing": [
+      "Uma explicação simples de que espuma de alta resiliência é uma espuma que retorna melhor ao formato após ser pressionada e do que significa densidade em kg/m³.",
+      "A medida de 7 cm informada para um modelo da Simmons, para comparar com os 5 cm da Ortobom e orientar o leitor sobre a folga necessária.",
+      "Informação específica de cada fabricante dizendo se o pillow top é costurado ao colchão ou removível, em vez de apenas exemplos gerais de fixação e produtos avulsos.",
+      "Uma comparação mais direta entre Simmons, Americanflex e Castor sobre indicação, materiais, espessura e forma de uso.",
+      "Uma regra mais clara sobre para quem o pillow top não é indicado além da limitação de espaço, caso algum fabricante forneça essa orientação.",
+      "Tabela do fabricante relacionando peso corporal à densidade ou espessura do pillow top, se existir."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque define o pillow top, dá uma resposta curta com regra de escolha e orienta o leitor a conferir espessura, medidas e fixação antes da compra. Ela ainda precisa ser aprimorada para explicar HR e densidade em linguagem leiga, comparar melhor as medidas de diferentes fabricantes e deixar mais claro, modelo a modelo, se o pillow top é fixo ou removível; a seção sobre Inmetro é técnica e pouco necessária para a dúvida principal.",
+    "filler_ratio": 0.14285714285714285,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta recomenda densidade por peso sem deixar claro se a tabela vale para o pillow top ou para o colchão inteiro.",
+      "Termos como espuma de alta resiliência, HR Gel e densidade em kg/m³ não são explicados de forma simples para leigos.",
+      "A página não estabelece claramente para quem o pillow top vale a pena e para quem não vale.",
+      "A comparação de garantias mistura pillow top, conjunto e produtos de categorias diferentes."
+    ],
+    "filler_refs": [
+      "o-que-e-pillow-top#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Se você quer mais maciez sobre o colchão, o pillow top acrescenta uma camada de conforto.",
+      "Se há pouca folga na cama, no baú ou para o lençol, confira a espessura adicional de 5 cm informada pela Ortobom.",
+      "Se prefere comprar a camada separadamente, há pillow tops avulsos anunciados pela Americanflex.",
+      "Confira no anúncio ou na ficha técnica se o produto é avulso ou integrado ao colchão e como ele é fixado.",
+      "Confira os materiais e a densidade nominal da espuma em kg/m³ na ficha técnica.",
+      "Considere algodão, fibra siliconada ou espuma HR conforme o material efetivamente informado pelo fabricante."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta recomenda densidade por peso sem deixar claro se a tabela vale para o pillow top ou para o colchão inteiro.",
+      "Para o leitor leigo: Termos como espuma de alta resiliência, HR Gel e densidade em kg/m³ não são explicados de forma simples para leigos.",
+      "Para o leitor leigo: A página não estabelece claramente para quem o pillow top vale a pena e para quem não vale.",
+      "Para o leitor leigo: A comparação de garantias mistura pillow top, conjunto e produtos de categorias diferentes.",
+      "Uma tabela de fabricante relacionando peso corporal à densidade ou espessura específica do pillow top.",
+      "Uma explicação simples de que espuma de alta resiliência é uma espuma que retorna melhor à forma após ser pressionada.",
+      "Comparação entre vários fabricantes, incluindo a espessura de 5 a 7 cm quando informada pela Simmons, Ortobom e outras marcas.",
+      "Indicação explícita, feita por fabricantes, de para quem o pillow top é recomendado ou não recomendado.",
+      "Ficha técnica de cada modelo informando claramente se o pillow top é fixo, removível ou avulso, além do tamanho disponível.",
+      "Comparação de garantia apenas entre pillow tops equivalentes.",
+      "Uma resposta curta que diga, com base em maciez e espaço disponível, quando vale a pena comprar e quando não vale."
+    ],
+    "publishable": false,
+    "summary": "A página traz uma definição útil, informa a opção avulsa e dá o critério concreto de conferir a altura, mas responde apenas parcialmente se o pillow top vale a pena. A resposta curta desvia para uma tabela de densidade que não é claramente específica do pillow top, não explica os termos técnicos para leigos e usa uma comparação inadequada de garantias. Falta comparar fabricantes e transformar maciez e espaço disponível em uma regra clara de escolha.",
+    "filler_ratio": 0.13333333333333333,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 1.5
+}
