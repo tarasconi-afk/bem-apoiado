@@ -411,11 +411,14 @@ async function main(): Promise<number> {
         console.error('uso: adjust <slug> <arquivo-com-o-pedido.txt>');
         return 2;
       }
-      setRunBudget(15);
+      // 05/11: com 15 (30 com pesquisa), 8 de 19 ajustes da auditoria semanal e 2 pedidos do editor pararam no teto
+      // durante a auditoria das fontes (gasto 15,2 a 25,8) e não salvaram nada: o crédito gasto se perdia inteiro.
+      // Os que salvaram custaram 5 a 15. O teto da rodada da auditoria (painel-acao.sh) limita o total.
+      setRunBudget(25);
       const { readFileSync } = await import('node:fs');
       const { adjustWithResearch } = await import('./stages/requests.ts');
       const pesquisar = rest.includes('--pesquisar');
-      if (pesquisar) setRunBudget(30);
+      if (pesquisar) setRunBudget(45);
       const text = readFileSync(file, 'utf8').slice(0, 1000);
       // Com ou sem pesquisa, o mesmo caminho: escolhe blocos e títulos, remenda, audita a seção e corrige.
       // --blocos=a,b: blocos já escolhidos (auditoria do site), sem o seletor.

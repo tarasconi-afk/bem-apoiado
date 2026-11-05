@@ -291,7 +291,7 @@ case "$action" in
     while IFS=$'\t' read -r _ slug file blocos; do
       if [[ "$pendentes" == *" $slug "* ]]; then echo "— $slug fica para a próxima: já tem resultado pendente no quadro"; adiados=$((adiados+1)); continue; fi
       gasto=$(npm run -s engine -- credits-since "$inicio")
-      if [ $((ok+fail)) -ge "$max_adj" ] || awk -v g="$gasto" -v t="$teto" 'BEGIN{exit !(g+8>t)}'; then
+      if [ $((ok+fail)) -ge "$max_adj" ] || awk -v g="$gasto" -v t="$teto" 'BEGIN{exit !(g+12>t)}'; then
         echo "— $slug fica para a próxima: teto da auditoria (${gasto} de ${teto} créditos, ${max_adj} ajustes no máximo)"; adiados=$((adiados+1)); continue
       fi
       echo "— ajuste de $slug"
