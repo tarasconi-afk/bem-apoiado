@@ -38,6 +38,11 @@ export function keepFixingCoherence(rodadasFeitas: number, antes: number, depois
 }
 // Até quantos blocos sem prova a página pode perder no fim (por remoção) e ainda seguir para a revisão.
 const SALVAGE_MAX = 3;
+// Blocos que o salvamento removeria: as linhas de uma tabela contam como um bloco só. 05/11, lençol de cetim ou
+// percal: uma tabela de medidas com legenda errada deu 8 problemas (um por linha) e a página inteira foi descartada
+// depois de 4 rodadas (~53 créditos), com as outras 4 seções aprovadas pelo auditor. O remendo de linha não alcança
+// a legenda nem o nome da coluna, então essa tabela nunca convergiria.
+export const salvageBlocks = (issues: { ref: string | null }[]) => new Set(issues.map((i) => (i.ref ?? '').replace(/\.r\d+$/, ''))).size;
 const MIN_CLAIMS = 8;
 
 export type PageOutcome =
@@ -597,7 +602,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   // Não convergiu, mas sobraram poucos blocos sem prova: remove esses blocos (remover nunca acrescenta
   // fato) e, se o gate passar, segue para a revisão editorial como qualquer página. Antes, 1 bloco ruim
   // descartava a página inteira depois de 4 rodadas pagas do redator (21/10: 37,8 créditos perdidos).
-  if (draft && issues.length > 0 && issues.length <= SALVAGE_MAX && issues.every((i) => i.ref && i.ref !== 'verdict')) {
+  if (draft && issues.length > 0 && salvageBlocks(issues) <= SALVAGE_MAX && issues.every((i) => i.ref && i.ref !== 'verdict')) {
     const salvaged = applyPatches(draft, issues.map((i) => ({ ref: i.ref!, action: 'remove' as const })));
     const gate = [...checkPage(toPageSpec(salvaged, topic, runId, 'pending'), idx), ...styleIssues(salvaged)];
     if (gate.length === 0 && salvaged.sections.length >= 2) {
