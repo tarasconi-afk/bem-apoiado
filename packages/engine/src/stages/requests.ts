@@ -390,7 +390,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   // O que ficou de fora por falta de fonte vira lacuna da pauta e entra na busca semanal (23/10: o pedido sem pesquisa
   // no solteirão não achou a medida do solteirão nas fontes). Só quando o ajuste entendeu o pedido e salvou algo:
   // "não achei a tabela" não é falta de fonte (virou lacuna lixo no mesmo dia).
-  const gapFromUnsupported = () => (/fonte|evid[eê]ncia|sustent|trecho/i.test(pick.data.unsupported) && !/não (encontr|achei|consta a tabela)|dados fornecidos|conteúdo atual/i.test(pick.data.unsupported) ? recordGaps(slug, [pick.data.unsupported.trim().slice(0, 300)]) : '');
+  const gapFromUnsupported = () => (/fonte|evid[eê]ncia|sustent|trecho/i.test(pick.data.unsupported) && !/não (encontr|achei|consta a tabela)|dados fornecidos|conteúdo atual/i.test(pick.data.unsupported) && !aboutRequest(pick.data.unsupported) ? recordGaps(slug, [pick.data.unsupported.trim().slice(0, 300)]) : '');
   // Bloco que o pedido manda tirar não é reescrito (24/10, casal: o seletor pôs os blocos a tirar também em "refs";
   // a remoção saiu, a reescrita esperava blocos que não existiam mais e o ajuste falhava com motivo vazio).
   const refsToWrite = pick.data.refs.filter((r) => !pick.data.removes.includes(r));
@@ -522,9 +522,14 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     reviewNote;
 }
 
+// Explicação do seletor sobre o pedido ou sobre um bloco ("O pedido não especifica…", "O bloco X cita… pode-se
+// remover") não é falta de fonte. 05/11: duas assim marcavam a página para a busca semanal de fonte (molas ensacadas,
+// lençol 200 ou 400 fios) e apareciam no ciclo como "a lacuna" procurada.
+export const aboutRequest = (t: string) => /\bo pedido\b|^o bloco|\bbloco [a-z0-9-]+#\d|pode-se remov/i.test(t.trim());
+
 // Lacuna de conteúdo (não de forma: "Para o leitor leigo: …" é texto, que o redator resolve) entra na pauta.
 export function recordGaps(slug: string, missing: string[]): string {
-  const gaps = missing.filter((m) => !/^Para o leitor leigo:/i.test(m) && !/resposta curta|sem jargão|até 3 frases/i.test(m)).slice(0, 3);
+  const gaps = missing.filter((m) => !/^Para o leitor leigo:/i.test(m) && !/resposta curta|sem jargão|até 3 frases/i.test(m) && !aboutRequest(m)).slice(0, 3);
   if (!gaps.length) return '';
   const f = join(TOPICS_DIR, `${slug}.json`);
   if (!existsSync(f)) return '';
