@@ -1,0 +1,77 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela promete apresentar características construtivas de cada tipo de mola, mas esta linha traz a descrição apenas das molas ensacadas, sem apresentar a característica correspondente do Bonnel (como-decidir#3.r0); Mudar o título da tabela para indicar que e"
+    ],
+    "filler_refs": [
+      "durabilidade-resistencia#0",
+      "como-decidir#3.r2",
+      "como-decidir#3.r3"
+    ],
+    "decision_criteria": [
+      "Para casais que querem reduzir a transferência de movimento, escolher molas ensacadas.",
+      "Para casais com pesos muito diferentes, preferir molas ensacadas, pois cada mola se adapta individualmente ao corpo.",
+      "Para quem prefere resistência progressiva, em que a resistência aumenta com o peso, escolher molas Bonnel.",
+      "Conferir na ficha técnica a quantidade de molas por metro quadrado; há exemplos de 196 molas/m² na Probel, 220 molas/m² na Americanflex e 230 molas/m² na Castor.",
+      "Verificar se a ficha descreve molas ensacadas individualmente e costuradas.",
+      "Conferir a garantia declarada pelo fabricante, incluindo prazos separados para molas, espuma e tecido.",
+      "Considerar a informação da Probel de que colchões Bonnel normalmente duram 5 anos, enquanto ensacados podem durar até 10 anos."
+    ],
+    "missing": [
+      "Uma regra baseada em peso corporal ou capacidade de suporte que compare diretamente molas ensacadas e Bonnel.",
+      "Uma descrição equivalente da construção Bonnel, incluindo interligação das molas e quantidade por metro quadrado.",
+      "Informações comparáveis dos fabricantes sobre camadas de conforto, densidade e espessura para os dois tipos de mola.",
+      "Detalhamento do que o Inmetro e as normas da ABNT exigem especificamente para cada tipo de molejo e o que o comprador deve conferir na etiqueta ou no anúncio.",
+      "Uma comparação direta de garantia e durabilidade entre modelos ensacados e Bonnel de fabricantes diferentes."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que ensacadas são a opção para reduzir movimentos, especialmente em casais ou pessoas com pesos diferentes, enquanto Bonnel atende quem busca resistência progressiva. Também oferece critérios práticos para conferir no anúncio, embora faltem regras por peso e informações comparáveis sobre construção, normas, conforto e garantia.",
+    "filler_ratio": 0.2,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "como-decidir#3.r0",
+        "problem": "A tabela promete apresentar características construtivas de cada tipo de mola, mas esta linha traz a descrição apenas das molas ensacadas, sem apresentar a característica correspondente do Bonnel.",
+        "fix": "Mudar o título da tabela para indicar que ela traz características das molas ensacadas, ou tirar da promessa a comparação entre os dois tipos."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "durabilidade-resistencia#0",
+      "como-decidir#3.r2",
+      "como-decidir#3.r3"
+    ],
+    "decision_criteria": [
+      "Para casais que querem reduzir a transferência de movimento, escolher molas ensacadas.",
+      "Para casais com pesos muito diferentes, preferir molas ensacadas, pois cada mola se adapta individualmente e reduz a vibração entre os lados.",
+      "Para quem dorme sozinho e prefere uma superfície que ofereça mais resistência conforme o peso aumenta, considerar molas Bonnel.",
+      "Conferir no anúncio ou na ficha técnica o tipo de molejo e, quando informado, a quantidade de molas por metro quadrado.",
+      "Usar a informação de garantia e a expectativa de duração declaradas pelo fabricante como critérios adicionais de comparação."
+    ],
+    "missing": [
+      "Uma comparação de fonte primária sobre a construção das molas Bonnel, incluindo interligação, formato e quantidade por metro quadrado.",
+      "Faixas de peso ou perfis de usuários explicitamente associados por fabricantes a cada tipo de mola.",
+      "Informação comparável sobre camadas de conforto, densidade e espessura em modelos Bonnel e ensacados.",
+      "Detalhamento do que o comprador deve conferir na certificação compulsória do Inmetro e na etiqueta do produto.",
+      "Comparação de garantia e durabilidade entre modelos equivalentes de molas ensacadas e Bonnel."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que molas ensacadas são a escolha mais indicada para casais, especialmente quando há diferença de peso ou preocupação com movimentos, enquanto Bonnel pode atender quem dorme sozinho e prefere resistência progressiva. Há critérios práticos para conferir o tipo de mola, a quantidade declarada e a garantia, embora a comparação técnica e de especificações para Bonnel esteja incompleta.",
+    "filler_ratio": 0.2,
+    "model_opinion": true
+  }
+}

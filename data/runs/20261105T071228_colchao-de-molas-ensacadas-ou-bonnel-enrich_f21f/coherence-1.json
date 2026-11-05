@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "durabilidade-resistencia#1",
+      "problem": "A característica de maior quantidade de molas por metro quadrado é atribuída às molas ensacadas em geral, embora o trecho da Castor se refira especificamente à marca Pocket®.",
+      "fix": "Especificar que a afirmação vale para a marca ou tecnologia Pocket® da Castor, ou retirar essa comparação geral entre molas ensacadas."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir#3.r3",
+      "problem": "A resistência superior é apresentada como característica das molas ensacadas em geral, mas o trecho citado fala especificamente das molas Pocket® da Castor.",
+      "fix": "Identificar a afirmação como referente às molas Pocket® da Castor, ou retirar a afirmação da tabela."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "como-decidir#3.r0",
+      "problem": "A tabela promete mostrar características construtivas de cada tipo de mola, mas a linha apresenta informações apenas sobre molas ensacadas e não descreve o formato do Bonnel.",
+      "fix": "Mudar o título da seção ou da tabela para indicar que ela reúne características das molas ensacadas, sem prometer uma comparação entre os dois tipos."
+    }
+  ],
+  "usage": {
+    "input_tokens": 32898,
+    "output_tokens": 8352,
+    "calls": 3
+  }
+}

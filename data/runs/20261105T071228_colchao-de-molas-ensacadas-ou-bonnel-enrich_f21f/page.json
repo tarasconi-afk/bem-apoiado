@@ -1,0 +1,72 @@
+{
+  "slug": "colchao-de-molas-ensacadas-ou-bonnel",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 107767,
+    "output_tokens": 33096,
+    "calls": 43
+  },
+  "credits": 35.113581720000006,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A característica de maior quantidade de molas por metro quadrado é atribuída às molas ensacadas em geral, embora o trecho da Castor se refira especificamente à marca Pocket® (durabilidade-resistencia#1); Especificar que a afirmação vale para a marca ou tecnolo",
+      "A resistência superior é apresentada como característica das molas ensacadas em geral, mas o trecho citado fala especificamente das molas Pocket® da Castor (como-decidir#3.r3); Identificar a afirmação como referente às molas Pocket® da Castor, ou retirar a afi",
+      "A tabela promete mostrar características construtivas de cada tipo de mola, mas a linha apresenta informações apenas sobre molas ensacadas e não descreve o formato do Bonnel (como-decidir#3.r0); Mudar o título da seção ou da tabela para indicar que ela reúne c"
+    ],
+    "filler_refs": [
+      "durabilidade-resistencia#0",
+      "como-decidir#3.r2",
+      "como-decidir#3.r3",
+      "densidade-conforto#0"
+    ],
+    "decision_criteria": [
+      "Para casais que querem reduzir a transferência de movimento, escolher molas ensacadas.",
+      "Para casais com pesos muito diferentes, escolher molas ensacadas, pois cada mola se adapta individualmente ao corpo.",
+      "Para quem dorme sozinho e prefere uma superfície que ofereça mais resistência conforme o peso aumenta, considerar molas bonnel.",
+      "Conferir na ficha técnica a quantidade de molas ensacadas por metro quadrado; a Probel informa 196 molas por m² em um de seus sistemas.",
+      "Conferir a densidade das lâminas de espuma do estofamento, como D26, D28 ou D33, quando essa informação estiver disponível.",
+      "Comparar a cobertura da garantia por componente, como molas, espuma e tecido, e não apenas o prazo total.",
+      "Considerar a diferença de durabilidade declarada pela Probel: cerca de 5 anos para bonnel e até 10 anos para ensacadas, sem tratar isso como prazo garantido."
+    ],
+    "missing": [
+      "Para o leitor leigo: A característica de maior quantidade de molas por metro quadrado é atribuída às molas ensacadas em geral, embora o trecho da Castor se refira especificamente à marca Pocket® (durabilidade-resistencia#1); Especificar que a afirmação vale para a marca ou tecnolo",
+      "Para o leitor leigo: A resistência superior é apresentada como característica das molas ensacadas em geral, mas o trecho citado fala especificamente das molas Pocket® da Castor (como-decidir#3.r3); Identificar a afirmação como referente às molas Pocket® da Castor, ou retirar a afi",
+      "Para o leitor leigo: A tabela promete mostrar características construtivas de cada tipo de mola, mas a linha apresenta informações apenas sobre molas ensacadas e não descreve o formato do Bonnel (como-decidir#3.r0); Mudar o título da seção ou da tabela para indicar que ela reúne c",
+      "Uma comparação construtiva completa entre os dois sistemas, incluindo formato, interligação, revestimento individual e quantidade de molas bonnel e ensacadas em modelos equivalentes.",
+      "Uma fonte primária que associe de forma mais objetiva peso corporal, número de usuários e tipo de mola, em vez de apenas afirmar que ambos suportam diferentes tipos de corpo.",
+      "Detalhes do que o comprador deve conferir no selo ou na ficha para identificar o atendimento à certificação compulsória do Inmetro.",
+      "Dados comparáveis de densidade e espessura das camadas de conforto em modelos bonnel e ensacados equivalentes.",
+      "Declarações comparáveis de garantia e resistência para os dois tipos de mola em linhas ou modelos semelhantes."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que molas ensacadas são a escolha mais indicada para casais, especialmente quando há diferença de peso ou preocupação com transferência de movimento, enquanto bonnel pode atender quem dorme sozinho e prefere resistência progressiva. Também oferece critérios práticos para conferir no anúncio, como tipo de mola, quantidade por metro quadrado, densidade da espuma, garantia e durabilidade. A comparação construtiva e as informações sobre Inmetro ainda são incompletas, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.26666666666666666,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "durabilidade-resistencia#1",
+        "problem": "A característica de maior quantidade de molas por metro quadrado é atribuída às molas ensacadas em geral, embora o trecho da Castor se refira especificamente à marca Pocket®.",
+        "fix": "Especificar que a afirmação vale para a marca ou tecnologia Pocket® da Castor, ou retirar essa comparação geral entre molas ensacadas."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir#3.r3",
+        "problem": "A resistência superior é apresentada como característica das molas ensacadas em geral, mas o trecho citado fala especificamente das molas Pocket® da Castor.",
+        "fix": "Identificar a afirmação como referente às molas Pocket® da Castor, ou retirar a afirmação da tabela."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "como-decidir#3.r0",
+        "problem": "A tabela promete mostrar características construtivas de cada tipo de mola, mas a linha apresenta informações apenas sobre molas ensacadas e não descreve o formato do Bonnel.",
+        "fix": "Mudar o título da seção ou da tabela para indicar que ela reúne características das molas ensacadas, sem prometer uma comparação entre os dois tipos."
+      }
+    ]
+  }
+}
