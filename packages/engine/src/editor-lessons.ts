@@ -14,7 +14,10 @@ export const EDITOR_LESSONS_FILE = join(DATA, 'editor-lessons.json');
 // "o mesmo dado não aparece em mais de uma seção". Lição que some é aprendizado perdido, e o custo de carregar 20
 // regras curtas no prompt é pequeno perto de repetir o erro. Quando encher, quem escolhe o que sai é o editor,
 // pelo botão "remover" da lista (painel, em "Pedir ao motor").
-const MAX_LESSONS = 20;
+// 05/11: com 19 lições, a 21ª derrubaria em silêncio a mais antiga ("a resposta curta começa pela resposta prática",
+// a regra da página modelo). Teto 30, e o painel avisa quando faltar pouco.
+export const MAX_LESSONS = 30;
+export const lessonsNearCap = (n: number) => n >= MAX_LESSONS - 3;
 
 export const EditorLessons = z.object({ lessons: z.array(z.object({ text: z.string(), from: z.string(), at: z.string() })).default([]) });
 export type EditorLessons = z.infer<typeof EditorLessons>;

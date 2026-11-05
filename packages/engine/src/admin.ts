@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, type PageSpec, Slug } from '@bem-apoiado/core';
 import { cycleBadge, cycleInfo, renderStatus } from './status.ts';
 import { MAX_IMPROVE_ATTEMPTS, retryOff } from './stages/improve.ts';
-import { lessonId, loadEditorLessons } from './editor-lessons.ts';
+import { lessonId, lessonsNearCap, loadEditorLessons, MAX_LESSONS } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
 import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
 import { creditsToday, DAILY_CREDIT_CAP, queueStatus, slugOf } from './stages/autopilot.ts';
@@ -937,7 +937,7 @@ function requestsHtml(): string {
 <p class="muted">O motor transforma o pedido em ações que ele já faz com as travas de sempre (fila, refazer página com instrução, editar texto com auditoria, despublicar, relatório). Mudança de visual, código ou regra fica anotada para o desenvolvedor.</p>
 ${answers.slice(0, 1).filter((j) => !j.ended || Date.now() - Date.parse(j.started) < 6 * 3600_000).map(answerHtml).join('')}
 ${answers.length > 1 ? `<details style="margin-top:8px"><summary class="muted">pedidos anteriores (${answers.length - 1})</summary>${answers.slice(1).map(answerHtml).join('')}</details>` : ''}
-${lessons.length ? `<details style="margin-top:8px"><summary class="muted">${lessons.length} lição(ões) dos seus pedidos que o redator segue em todas as páginas</summary><ul class="muted">${lessons.map((l) => `<li>${esc(l.text)} <span class="muted">(${esc(l.from)})</span> ${form('licao-remover', { licao: lessonId(l.text) }, 'Remover', 'bad', 'Remover esta lição? O redator deixa de segui-la nas próximas páginas.')}</li>`).join('')}</ul><p class="muted">Lições nascem dos seus pedidos de ajuste e motivos de recusa que valem para todas as páginas. Para criar uma, escreva o pedido como regra ("sempre...", "nunca...").</p></details>` : ''}
+${lessons.length ? `<details style="margin-top:8px"><summary class="muted">${lessons.length} lição(ões) dos seus pedidos que o redator segue em todas as páginas</summary><ul class="muted">${lessons.map((l) => `<li>${esc(l.text)} <span class="muted">(${esc(l.from)})</span> ${form('licao-remover', { licao: lessonId(l.text) }, 'Remover', 'bad', 'Remover esta lição? O redator deixa de segui-la nas próximas páginas.')}</li>`).join('')}</ul>${lessonsNearCap(lessons.length) ? `<p><span class="b warn">atenção</span> ${lessons.length} de ${MAX_LESSONS} lições: quando encher, a mais antiga sai. Remova as repetidas.</p>` : ''}<p class="muted">Lições nascem dos seus pedidos de ajuste e motivos de recusa que valem para todas as páginas. Para criar uma, escreva o pedido como regra ("sempre...", "nunca...").</p></details>` : ''}
 ${dev.length ? `<details style="margin-top:8px"><summary class="muted">${dev.length} pedido(s) anotado(s) para o desenvolvedor</summary><ul class="muted">${dev.map((d) => `<li>${esc(d.summary)} <span class="muted">(${esc(d.at.slice(0, 10))})</span></li>`).join('')}</ul></details>` : ''}`;
 }
 

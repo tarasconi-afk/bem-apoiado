@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { dedupeLessons } from '../src/editor-lessons.ts';
+import { dedupeLessons, MAX_LESSONS } from '../src/editor-lessons.ts';
 
 const l = (text: string) => ({ text });
 
@@ -12,7 +12,7 @@ describe('lista de lições (27/10)', () => {
 
   it('respeita o teto mesmo quando o git junta duas listas', () => {
     const muitas = Array.from({ length: 40 }, (_, i) => l(`Regra distinta de número ${i} para o redator seguir.`));
-    expect(dedupeLessons(muitas)).toHaveLength(20);
+    expect(dedupeLessons(muitas)).toHaveLength(MAX_LESSONS);
     expect(dedupeLessons(muitas, 5)).toHaveLength(5);
   });
 
