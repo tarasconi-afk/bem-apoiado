@@ -234,7 +234,20 @@ export function fixFormWithoutAI(draft: Draft): { draft: Draft; refs: string[] }
   const refs: string[] = [];
   const nv = verdictFormOf(out.verdict.text);
   if (nv !== out.verdict.text.trim()) { out.verdict = { ...out.verdict, text: nv }; refs.push('verdict'); }
-  for (const sec of out.sections) sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && b.text.includes('—')) { b.text = b.text.replace(/\s*—\s*/g, ', '); refs.push(`${sec.id}#${i}`); } });
+  const dash = (t: string) => t.replace(/\s*—\s*/g, ', ');
+  for (const sec of out.sections) sec.blocks.forEach((b, i) => {
+    if (b.kind !== 'table') { if (b.text.includes('—')) { b.text = dash(b.text); refs.push(`${sec.id}#${i}`); } return; }
+    // Tabela também (05/11, cetim ou percal: "Solteiro — Lençol" em 8 células custou uma rodada paga do redator).
+    // Célula que é só o travessão é "sem dado", não pontuação.
+    const head = b.caption.includes('—') || b.columns.some((c) => c.includes('—'));
+    b.caption = dash(b.caption);
+    b.columns = b.columns.map(dash);
+    b.rows.forEach((r, ri) => {
+      if (!head && !r.cells.some((c) => c.text.includes('—'))) return;
+      r.cells = r.cells.map((c) => (c.text.trim() === '—' ? { text: 'Não informado nas fontes', claim_ids: [] } : { ...c, text: dash(c.text) }));
+      refs.push(`${sec.id}#${i}.r${ri}`);
+    });
+  });
   // Bloco de transição que só anuncia o que vem depois ("A seguir, veja o que os fabricantes dizem…") não muda nada
   // para quem decide: sai. Só os marcados como "framing" (sem fato nem fonte), então remover não tira informação.
   // 27/10: 4 blocos assim no "colchão D28 ou D33" no ar e 2 na página do protetor, todos com o juiz dando 4 de 4.

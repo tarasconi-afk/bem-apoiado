@@ -45,6 +45,10 @@ export function makePatchSchema(refs: string[], claimIds: string[], columns: Map
         claim_ids: Refs.optional(),
         // replace de linha de tabela
         cells: z.array(z.object({ text: z.string(), claim_ids: Refs })).optional(),
+        // legenda e nomes de coluna da tabela da linha: o auditor lê os dois em cada linha, e sem estes campos o
+        // remendo não os alcançava (05/11, cetim ou percal: coluna "Cetim (Corttex 300 fios)" recusada 3 rodadas)
+        caption: z.string().optional(),
+        columns: z.array(z.string()).optional(),
       }).superRefine((p, ctx) => {
         // A recusa fica na validação, não no tipo: um enum menor faria o tipo Patch perder "remove" e o
         // typecheck quebraria em quem aplica remendos (27/10, e com ele todo "Aplicar" do painel).
@@ -54,6 +58,9 @@ export function makePatchSchema(refs: string[], claimIds: string[], columns: Map
         const cols = columns.get(p.ref);
         if (cols && p.action === 'replace' && p.cells?.length !== cols.length) {
           ctx.addIssue({ code: 'custom', message: `a linha ${p.ref} precisa de exatamente ${cols.length} células, uma por coluna (${cols.join(' | ')}); use "Não informado nas fontes" com claim_ids vazio quando faltar dado` });
+        }
+        if (cols && p.columns && p.columns.length !== cols.length) {
+          ctx.addIssue({ code: 'custom', message: `columns de ${p.ref} precisa manter ${cols.length} colunas; mude só os nomes` });
         }
       }),
     ),
@@ -77,8 +84,10 @@ export function applyPatches(draft: Draft, patches: Patch[]): Draft {
     if (!block) continue;
     if (p.action === 'remove') {
       removals.push({ sec, block: bi, ...(ri !== undefined ? { row: ri } : {}) });
-    } else if (block.kind === 'table' && ri !== undefined && p.cells && p.cells.length === block.columns.length) {
-      block.rows[ri] = { cells: p.cells };
+    } else if (block.kind === 'table' && ri !== undefined) {
+      if (p.cells && p.cells.length === block.columns.length) block.rows[ri] = { cells: p.cells };
+      if (p.caption?.trim()) block.caption = p.caption.trim();
+      if (p.columns && p.columns.length === block.columns.length) block.columns = p.columns;
     } else if (block.kind !== 'table' && p.text) {
       block.text = p.text;
       block.basis = p.basis ?? block.basis;
@@ -147,6 +156,11 @@ export async function writePatches(
     (allowRemove
       ? `(ou "cells" para linha de tabela), ou "remove" se o bloco não se sustenta nem estreitado.\n`
       : `(ou "cells" para linha de tabela). O título da seção já está sendo corrigido à parte: NÃO apague o bloco; mantenha a informação que as fontes sustentam.\n`) +
+    (columns.size
+      ? `Em linha de tabela, o auditor lê a legenda e os nomes das colunas junto com a linha. Se o problema está neles ` +
+        `(de quem são os dados, que tipo de produto é), devolva também "caption" e/ou "columns" corrigidos (mesmo número ` +
+        `de colunas) e cite nas células as evidências que sustentam o que a legenda e as colunas afirmam.\n`
+      : '') +
     issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}${columns.has(i.ref!) ? ` [linha de tabela: exatamente ${columns.get(i.ref!)!.length} células, colunas ${columns.get(i.ref!)!.join(' | ')}]` : ''}`).join('\n');
   return callJson({ role: 'writer', system: writerSystem(), user, schema, schemaName: 'page_patches', maxTokens: 8000 }, fetchImpl);
 }
