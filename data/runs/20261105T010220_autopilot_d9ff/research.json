@@ -1,0 +1,170 @@
+{
+  "run_id": "20261105T010220_autopilot_d9ff",
+  "topic": "como-escolher-lencol",
+  "accepted": [
+    {
+      "claim_id": "clm_930a0fbc488a",
+      "question_id": "q_tipo_acabamento",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ac7ccd82207c",
+      "question_id": "q_contagem_fios",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2c1651177d8c",
+      "question_id": "q_contagem_fios",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f46f9c6c5c0c",
+      "question_id": "q_tipo_acabamento",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6c6537b1e24f",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_afd88b94cac8",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_2ec99be2ef39",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6d2f4dc1d7f8",
+      "question_id": "q_tamanho_colchao_medida_lencol",
+      "source_id": "src_8716bab2c10c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_507dc264b23d",
+      "question_id": "q_contagem_fios",
+      "source_id": "src_8716bab2c10c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_507dc264b23d",
+      "question_id": "q_tipo_acabamento",
+      "source_id": "src_8716bab2c10c",
+      "new": false
+    },
+    {
+      "claim_id": "clm_b60a8e5dcf80",
+      "question_id": "q_contagem_fios",
+      "source_id": "src_c097b201f0e5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c2df77272ada",
+      "question_id": "q_contagem_fios",
+      "source_id": "src_c097b201f0e5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_294935646b6b",
+      "question_id": "q_tipo_acabamento",
+      "source_id": "src_c097b201f0e5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b60a8e5dcf80",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_c097b201f0e5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_c2df77272ada",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_c097b201f0e5",
+      "new": false
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_2ec99be2ef39",
+      "question_id": "q_tamanho_colchao_medida_lencol",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Código Jogo de Cama Altura QMM\n362262 30 cm 10 Casal 1,88 m x 1,38 m\n362263 30 cm 10 Solteiro 1,88 m x 88 cm\n362261 2,00 m x 1,60 m Queen"
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "question_id": "q_elastico_profundidade",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Código Medidas QMM\n301826 10 Casal 2,50 m x 2,00 m\n316417 10 Solteiro\n2,50 m x 1,40 m\nAltura\n30 cm"
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "question_id": "q_tamanho_colchao_medida_lencol",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Código Jogo de Cama Altura QMM\n308327 30 cm 10 Casal 1,88 m x 1,38 m\n308328 30 cm 10 Solteiro 1,88 m x 88 cm\n308839 40 cm 10 Queen 2,00 m x 1,60 m"
+    },
+    {
+      "source_id": "src_c097b201f0e5",
+      "question_id": "q_contagem_fios",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "300 Fios"
+    }
+  ],
+  "coverage": {
+    "q_tamanho_colchao_medida_lencol": 1,
+    "q_elastico_profundidade": 0,
+    "q_composicao_etiqueta": 4,
+    "q_cuidados_conservacao": 0,
+    "q_contagem_fios": 5,
+    "q_tipo_acabamento": 4
+  },
+  "unanswered": [
+    "q_elastico_profundidade",
+    "q_cuidados_conservacao"
+  ],
+  "usage": {
+    "input_tokens": 2740,
+    "output_tokens": 2204,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_de695f2b763a"
+  ],
+  "triage": [
+    {
+      "source_id": "src_2ec99be2ef39",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.02
+    },
+    {
+      "source_id": "src_2ec99be2ef39",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_8716bab2c10c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_c097b201f0e5",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.93
+    }
+  ],
+  "credits": 52.09720860000001
+}
