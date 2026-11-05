@@ -1,0 +1,140 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que molas ensacadas reduzem a transferência de movimento e são recomendadas para casais, e que o sistema Bonnel oferece resistência progressiva com o aumento do peso. Porém, não dizem que se deve escolher Bonnel por preferência por “firmeza crescente” nem apresentam essa característica como recomendação para esse perfil; também atribuem a Probel uma recomendação que o trecho expressa como “ideal”.",
+      "fix": "Segundo Ortobom e Simmons, molas ensacadas reduzem a transferência de movimento e são recomendadas para casais. Segundo a Probel, o sistema Bonnel oferece resistência progressiva — quanto maior o peso, maior a resistência — e as molas ensacadas são consideradas ideais para casais com pesos diferentes."
+    },
+    {
+      "ref": "peso-corporal-e-tipo-mola#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os números aparecem como fatos do produto, mas os trechos são declarações dos fabricantes Probel e Gazin. O bloco não atribui explicitamente essas especificações às respectivas marcas.",
+      "fix": "Segundo a Probel, o Excede Premium com molas ensacadas suporta até 120 kg por pessoa. Segundo a Gazin, o Provence suporta até 135 kg de peso técnico e até 120 kg por pessoa."
+    },
+    {
+      "ref": "peso-corporal-e-tipo-mola#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade-conforto#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que a Castor declara densidades D26, D28 e D33 kg/m³ para lâminas de espuma convencional no estofamento superior. Eles não identificam modelos com molas ensacadas ou bonnel, não mostram que esses valores correspondem a esses tipos de mola e não dizem que a escolha da densidade depende da firmeza desejada.",
+      "fix": "A Castor declara, em diferentes especificações, lâminas de espuma convencional no estofamento superior com densidades nominais de D26, D28 e D33 kg/m³."
+    },
+    {
+      "ref": "garantia-fabricante#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam os prazos de garantia, mas não dizem que o Gazin Provence tem molas bonnel; o título da evidência indica molas ensacadas. Portanto, essa especificação do produto não é sustentada pelos trechos citados.",
+      "fix": "No colchão Excede Premium da Probel com molas ensacadas, a garantia é de 12 meses para molas e espuma, e 3 meses para tecido. No colchão Gazin Provence com molas ensacadas, a garantia total é de 1 ano: 3 meses de garantia legal e 9 meses de garantia especial concedida pelo fabricante."
+    },
+    {
+      "ref": "garantia-fabricante#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-resistencia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-resistencia#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-inmetro#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que há certificação compulsória com avaliação de conformidade dos requisitos de desempenho por OCP acreditado pelo Inmetro. Não sustentam a ausência de distinção pública entre molas ensacadas e bonnel nem a orientação para conferir um número de registro válido.",
+      "fix": "A certificação compulsória avalia a conformidade dos requisitos de desempenho por um Organismo de Certificação de Produto acreditado pelo Inmetro."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Castor informa características do arame, da borda, dos isolantes e a quantidade média de molas Bonnel, mas não diz que elas não têm revestimento individual. Além disso, o trecho da Probel diz que cada mola é ensacada individualmente, mas não explicita que o revestimento é de tecido.",
+      "fix": "Molas ensacadas: “Segundo a Probel, cada mola é ensacada individualmente e costurada.” Molas Bonnel: remova a afirmação sobre ausência de revestimento individual, pois ela não aparece no trecho citado."
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Castor diz que as molas Pocket são ensacadas individualmente, mas não afirma que têm formato cilíndrico. A informação sobre formato cilíndrico foi atribuída à Castor sem estar no trecho citado.",
+      "fix": "Molas ensacadas: “Segundo a Castor, são molas ensacadas individualmente.” Molas Bonnel: “Segundo a Probel, têm formato bicônico (em formato de cintura).”"
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Castor não diz que a resistência das molas ensacadas é proporcional ao peso; afirma apenas que elas buscam garantir resistência superior e são pré-comprimidas em 20%. A afirmação sobre resistência progressiva das molas Bonnel é sustentada pela Probel.",
+      "fix": "Molas ensacadas: “Segundo a Castor, têm o objetivo de garantir resistência superior” ou remova essa característica. Molas Bonnel: “Segundo a Probel, oferecem resistência progressiva: quanto mais peso, maior resistência.”"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que molas ensacadas reduzem a transferência de movimento e são recomendadas para casais, e que o sistema Bonnel oferece resistência progressiva com o aumento do peso. Porém, não dizem que se deve escolher Bonnel por preferência por “firmeza crescente” nem apresentam essa característica como recomendação para esse perfil; também atribuem a Probel uma recomendação que o trecho expressa como “ideal”. Versão sustentável: Molas ensacadas reduzem a transferência de movimento e são recomendadas para casais, segundo Ortobom e Simmons. Segundo a Probel, o sistema Bonnel oferece resistência progressiva, quanto maior o peso, maior a resistência, e as molas ensacadas são consideradas ideais para casais com pesos diferentes."
+    },
+    {
+      "ref": "peso-corporal-e-tipo-mola#0",
+      "msg": "MISATTRIBUTED. Os números aparecem como fatos do produto, mas os trechos são declarações dos fabricantes Probel e Gazin. O bloco não atribui explicitamente essas especificações às respectivas marcas. Versão sustentável: Segundo a Probel, o Excede Premium com molas ensacadas suporta até 120 kg por pessoa. Segundo a Gazin, o Provence suporta até 135 kg de peso técnico e até 120 kg por pessoa."
+    },
+    {
+      "ref": "densidade-conforto#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que a Castor declara densidades D26, D28 e D33 kg/m³ para lâminas de espuma convencional no estofamento superior. Eles não identificam modelos com molas ensacadas ou bonnel, não mostram que esses valores correspondem a esses tipos de mola e não dizem que a escolha da densidade depende da firmeza desejada. Versão sustentável: A Castor declara, em diferentes especificações, lâminas de espuma convencional no estofamento superior com densidades nominais de D26, D28 e D33 kg/m³."
+    },
+    {
+      "ref": "garantia-fabricante#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam os prazos de garantia, mas não dizem que o Gazin Provence tem molas bonnel; o título da evidência indica molas ensacadas. Portanto, essa especificação do produto não é sustentada pelos trechos citados. Versão sustentável: No colchão Excede Premium da Probel com molas ensacadas, a garantia é de 12 meses para molas e espuma, e 3 meses para tecido. No colchão Gazin Provence com molas ensacadas, a garantia total é de 1 ano: 3 meses de garantia legal e 9 meses de garantia especial concedida pelo fabricante."
+    },
+    {
+      "ref": "normas-inmetro#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que há certificação compulsória com avaliação de conformidade dos requisitos de desempenho por OCP acreditado pelo Inmetro. Não sustentam a ausência de distinção pública entre molas ensacadas e bonnel nem a orientação para conferir um número de registro válido. Versão sustentável: A certificação compulsória avalia a conformidade dos requisitos de desempenho por um Organismo de Certificação de Produto acreditado pelo Inmetro."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "MISATTRIBUTED. O trecho da Castor informa características do arame, da borda, dos isolantes e a quantidade média de molas Bonnel, mas não diz que elas não têm revestimento individual. Além disso, o trecho da Probel diz que cada mola é ensacada individualmente, mas não explicita que o revestimento é de tecido. Versão sustentável: Molas ensacadas: “Segundo a Probel, cada mola é ensacada individualmente e costurada.” Molas Bonnel: remova a afirmação sobre ausência de revestimento individual, pois ela não aparece no trecho citado."
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "msg": "MISATTRIBUTED. O trecho da Castor diz que as molas Pocket são ensacadas individualmente, mas não afirma que têm formato cilíndrico. A informação sobre formato cilíndrico foi atribuída à Castor sem estar no trecho citado. Versão sustentável: Molas ensacadas: “Segundo a Castor, são molas ensacadas individualmente.” Molas Bonnel: “Segundo a Probel, têm formato bicônico (em formato de cintura).”"
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "msg": "MISATTRIBUTED. O trecho da Castor não diz que a resistência das molas ensacadas é proporcional ao peso; afirma apenas que elas buscam garantir resistência superior e são pré-comprimidas em 20%. A afirmação sobre resistência progressiva das molas Bonnel é sustentada pela Probel. Versão sustentável: Molas ensacadas: “Segundo a Castor, têm o objetivo de garantir resistência superior” ou remova essa característica. Molas Bonnel: “Segundo a Probel, oferecem resistência progressiva: quanto mais peso, maior resistência.”"
+    }
+  ]
+}

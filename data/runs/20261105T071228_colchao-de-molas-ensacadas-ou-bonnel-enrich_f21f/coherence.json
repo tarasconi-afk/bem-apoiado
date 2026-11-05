@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir#3.r1",
+      "problem": "O leitor pode entender que todo colchão de molas ensacadas tem 196 molas por m², mas o trecho informa esse número para o molejo Pocket Pró, um caso específico.",
+      "fix": "Reescrever como exemplo específico: “No molejo Pocket Pró da Probel, são 196 molas por m²”; ou tirar o número da tabela."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16731,
+    "output_tokens": 3940,
+    "calls": 2
+  }
+}

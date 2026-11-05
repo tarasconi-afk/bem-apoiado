@@ -1,0 +1,110 @@
+{
+  "findings": [
+    {
+      "ref": "peso-corporal-e-tipo-mola#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-fabricante#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-resistencia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "durabilidade-resistencia#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-corporal-e-tipo-mola#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Probel sustentam apenas que o Excede Premium suporta 120 kg por pessoa; não sustentam os dados do Provence. Portanto, a expressão final “segundo a Probel e a garzin” atribui indevidamente à Probel as capacidades do Provence.",
+      "fix": "Segundo a Probel, o Excede Premium com molas ensacadas suporta até 120 kg por pessoa. Segundo a Gazin, o Provence suporta até 135 kg de peso técnico e até 120 kg por pessoa."
+    },
+    {
+      "ref": "densidade-conforto#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-fabricante#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Castor informa que as molas Bonnell são de arame de aço, mas não diz que não têm revestimento individual. Essa parte da afirmação não é sustentada pelo trecho citado.",
+      "fix": "Molas bonnel: segundo a Castor, são feitas de arame de aço de 2,2 mm. Remova a afirmação sobre ausência de revestimento individual."
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "peso-corporal-e-tipo-mola#0",
+      "msg": "MISATTRIBUTED. Os trechos da Probel sustentam apenas que o Excede Premium suporta 120 kg por pessoa; não sustentam os dados do Provence. Portanto, a expressão final “segundo a Probel e a garzin” atribui indevidamente à Probel as capacidades do Provence. Versão sustentável: Segundo a Probel, o Excede Premium com molas ensacadas suporta até 120 kg por pessoa. Segundo a Gazin, o Provence suporta até 135 kg de peso técnico e até 120 kg por pessoa."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "UNSUPPORTED. O trecho da Castor informa que as molas Bonnell são de arame de aço, mas não diz que não têm revestimento individual. Essa parte da afirmação não é sustentada pelo trecho citado. Versão sustentável: Molas bonnel: segundo a Castor, são feitas de arame de aço de 2,2 mm. Remova a afirmação sobre ausência de revestimento individual."
+    }
+  ]
+}
