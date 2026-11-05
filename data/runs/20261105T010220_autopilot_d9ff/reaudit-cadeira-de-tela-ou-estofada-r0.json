@@ -1,0 +1,59 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a ventilação da malha em uso prolongado, as opções de revestimento do estofado e a verificação da densidade de espuma entre 45 e 55 kg/m³ para uso diário de 8 horas. Porém, não mencionam regulagens nem capacidade de carga, e não sustentam recomendar genericamente a escolha entre tela e estofado conforme as preferências descritas.",
+      "fix": "Considere a malha quando a ventilação em períodos longos for importante e o estofado quando houver interesse em espuma e opções de revestimento, conforme os fabricantes citados. Na ficha técnica, verifique o material e, se houver espuma, sua densidade; para uso diário de 8 horas, a Flexform indica verificar a faixa de 45 a 55 kg/m³."
+    },
+    {
+      "ref": "identificar-no-anuncio#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da fabricante distingue dois códigos e suas respectivas combinações de assento e encosto, mas não afirma que o anúncio ou a ficha técnica deve indicar claramente essa informação. A formulação transforma uma descrição da fabricante em uma exigência geral.",
+      "fix": "Segundo a moveis-schuster, o código 118.106.06 corresponde a uma cadeira com assento estofado e encosto em tela, enquanto o código 118.106.03 corresponde a uma cadeira com assento e encosto em tela natural. Essa distinção ajuda a identificar o tipo de cadeira."
+    },
+    {
+      "ref": "especificacoes-tela#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "especificacoes-estofada#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "especificacoes-estofada#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado orienta verificar se a densidade está na faixa de 45 a 55 kg/m³ para uso diário de 8 horas, mas não afirma explicitamente que essa faixa é “recomendada”.",
+      "fix": "Segundo a Flexform, se a ficha técnica declarar a densidade, verifique se ela está na faixa de 45 a 55 kg/m³ para uso diário de 8 horas."
+    },
+    {
+      "ref": "regulagens-oferecidas#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Flexform apenas lista essas regulagens. Não sustenta que cadeiras de tela e estofadas possam oferecer as mesmas regulagens, nem que isso ocorra independentemente do material ou que seja necessário conferir a ficha técnica do modelo específico.",
+      "fix": "Segundo a Flexform, regulagens relevantes incluem altura do assento por pistão a gás, apoio lombar ajustável em altura, profundidade do assento, mecanismo de inclinação do encosto e apoio de braços ajustável."
+    },
+    {
+      "ref": "referencias-nr17#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a malha é respirável, especialmente para uso prolongado, e que uma tela de qualidade tem tensão uniforme. Porém, não dizem que a malha fica necessariamente no encosto ou no assento, nem que a informação deve ser conferida especificamente na ficha técnica.",
+      "fix": "Se você prioriza ventilação, considere uma cadeira com malha respirável, especialmente para uso prolongado. Verifique se a descrição do produto informa material respirável e se a tela apresenta tensão uniforme em toda a superfície."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Funcional sustenta assento estofado com espuma de alta resiliência e opções de revestimento, enquanto a Flexform sustenta apenas a verificação da densidade de 45 a 55 kg/m³ para uso diário de 8 horas. Portanto, não é correto atribuir a primeira recomendação conjuntamente à Funcional e à Flexform.",
+      "fix": "Se você prioriza sensação de acolchoamento e opções de revestimento, considere um assento estofado com espuma de alta resiliência e diferentes revestimentos, segundo a Funcional. Para uso diário de 8 horas, verifique se a ficha técnica informa densidade da espuma entre 45 e 55 kg/m³, segundo a Flexform."
+    }
+  ]
+}

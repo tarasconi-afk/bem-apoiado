@@ -1,0 +1,1328 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Confira na etiqueta ou na página do produto a indicação de tamanho e suas dimensões, como largura, comprimento e altura, em vez de depender apenas do nome da categoria. Verifique também se a composição é 100% algodão ou uma mistura de algodão e poliéster. Se usar secadora, alvejante ou ferro, siga as instruções de cuidados informadas para o produto, pois elas podem diferir entre lençóis.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_457c0af8ed1c",
+        "clm_31809dc35d6e",
+        "clm_338868b7ddbd",
+        "clm_0e47e3881cb5",
+        "clm_0eb47d1c20ae",
+        "clm_1e273b9a3de9",
+        "clm_2e0ca964b047",
+        "clm_a730fea8b014",
+        "clm_0102678ce439",
+        "clm_208252be8e73",
+        "clm_2d2227266924"
+      ]
+    },
+    {
+      "ref": "tamanho-elasfico#0",
+      "action": "replace",
+      "text": "A Karsten informa altura de 30 cm para esses modelos de lençol com elástico. Confira a ficha do produto para verificar como essa medida é definida antes de compará-la com a altura do colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0105c7d61b30",
+        "clm_338868b7ddbd"
+      ]
+    },
+    {
+      "ref": "tamanho-elasfico#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro, Döhler Atlantis 180 fios",
+          "claim_ids": [
+            "clm_15f919e7946e"
+          ]
+        },
+        {
+          "text": "O trecho descreve o tecido percal, mas não informa a altura do elástico",
+          "claim_ids": [
+            "clm_15f919e7946e"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "tamanho-elasfico#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal, Karsten Tesso",
+          "claim_ids": [
+            "clm_338868b7ddbd"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, altura do lençol de 30 cm",
+          "claim_ids": [
+            "clm_338868b7ddbd"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "tamanho-elasfico#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen, Karsten Tesso",
+          "claim_ids": [
+            "clm_0105c7d61b30"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, altura do lençol de 30 cm",
+          "claim_ids": [
+            "clm_0105c7d61b30"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "tamanho-elasfico#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen, Altenburg malha",
+          "claim_ids": [
+            "clm_31809dc35d6e"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, dimensão de 40 cm declarada no catálogo",
+          "claim_ids": [
+            "clm_31809dc35d6e"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "tamanho-elasfico#1.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King, Döhler Uni Maite 180 fios",
+          "claim_ids": [
+            "clm_140d796664b3"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, lençol com elástico King com dimensão de 40 cm",
+          "claim_ids": [
+            "clm_140d796664b3"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "action": "replace",
+      "text": "O Inmetro afirma que a indicação de tamanho ou dimensão, conforme o caso, é obrigatória e deve constar no produto têxtil, em etiqueta, selo, rótulo ou meio similar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2ebc5dbbf935"
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Altenburg Percal 200 fios",
+          "claim_ids": [
+            "clm_0e47e3881cb5"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, 100% algodão",
+          "claim_ids": [
+            "clm_0e47e3881cb5"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Appel Percal 200 fios Hotel Deluxe",
+          "claim_ids": [
+            "clm_1e273b9a3de9"
+          ]
+        },
+        {
+          "text": "Segundo a Appel, 60% algodão e 40% poliéster",
+          "claim_ids": [
+            "clm_1e273b9a3de9"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Karsten Matiza 160 fios percal",
+          "claim_ids": [
+            "clm_0eb47d1c20ae"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 100% algodão",
+          "claim_ids": [
+            "clm_0eb47d1c20ae"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Teka Madri 180 fios",
+          "claim_ids": [
+            "clm_2e0ca964b047"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 60% algodão e 40% poliéster",
+          "claim_ids": [
+            "clm_2e0ca964b047"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#1.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Döhler Atlantis 180 fios",
+          "claim_ids": [
+            "clm_0f5407e7fefe"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 100% algodão",
+          "claim_ids": [
+            "clm_0f5407e7fefe"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "A informação sobre cuidados de conservação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante, importador ou de outros responsáveis pelo produto, segundo o Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a730fea8b014"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Teka Madri 180 fios",
+          "claim_ids": [
+            "clm_0102678ce439"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 60°C, processo normal",
+          "claim_ids": [
+            "clm_0102678ce439"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 60°C",
+          "claim_ids": [
+            "clm_0102678ce439"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 110°C",
+          "claim_ids": [
+            "clm_0102678ce439"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Karsten Alanis 200 fios",
+          "claim_ids": [
+            "clm_1c69fb9cd2da"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 40°C",
+          "claim_ids": [
+            "clm_1c69fb9cd2da"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 60°C",
+          "claim_ids": [
+            "clm_1c69fb9cd2da"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 150°C",
+          "claim_ids": [
+            "clm_1c69fb9cd2da"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Trussardi Piera rosa 100% algodão",
+          "claim_ids": [
+            "clm_208252be8e73"
+          ]
+        },
+        {
+          "text": "Segundo a Trussardi, 40°C",
+          "claim_ids": [
+            "clm_208252be8e73"
+          ]
+        },
+        {
+          "text": "Segundo a Trussardi, proibido secar em tambor",
+          "claim_ids": [
+            "clm_208252be8e73"
+          ]
+        },
+        {
+          "text": "Segundo a Trussardi, 110°C",
+          "claim_ids": [
+            "clm_208252be8e73"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Teka Pérola 300 fios",
+          "claim_ids": [
+            "clm_2d2227266924"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 60°C",
+          "claim_ids": [
+            "clm_2d2227266924"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 60°C",
+          "claim_ids": [
+            "clm_2d2227266924"
+          ]
+        },
+        {
+          "text": "Segundo a Teka, 110°C",
+          "claim_ids": [
+            "clm_2d2227266924"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Karsten Tom Titânio 200 fios",
+          "claim_ids": [
+            "clm_35d0a08fbed7"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 60°C",
+          "claim_ids": [
+            "clm_35d0a08fbed7"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 60°C",
+          "claim_ids": [
+            "clm_35d0a08fbed7"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 150°C",
+          "claim_ids": [
+            "clm_35d0a08fbed7"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "contagem-fios#0",
+      "action": "replace",
+      "text": "A Buddemeyer informa que tecidos a partir de 180 fios têm trama chamada de percal e são conhecidos por respirabilidade, alta absorção e secagem rápida.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_35887e6649c3"
+      ]
+    },
+    {
+      "ref": "contagem-fios#1.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Döhler Atlantis King 180 fios",
+          "claim_ids": [
+            "clm_0f5407e7fefe"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 180 fios",
+          "claim_ids": [
+            "clm_0f5407e7fefe"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "contagem-fios#1.r7",
+      "action": "remove"
+    },
+    {
+      "ref": "acabamento-tipo#0",
+      "action": "replace",
+      "text": "Fabricantes descrevem o acabamento percal em seus produtos. Segundo a Döhler, o percal é uma trama de alta densidade que garante um tecido fresco, macio, durável e com excelente respirabilidade; segundo a Appel, o percal de algodão se mantém fresco em dias quentes e aconchegante em noites mais frias.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_15f919e7946e",
+        "clm_411b6835277f",
+        "clm_313436808276"
+      ]
+    },
+    {
+      "ref": "acabamento-tipo#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Altenburg Haus King",
+          "claim_ids": [
+            "clm_06a53f470883"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, 400 fios",
+          "claim_ids": [
+            "clm_06a53f470883"
+          ]
+        },
+        {
+          "text": "Não informada no trecho citado",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "acabamento-tipo#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Altenburg Haus Queen",
+          "claim_ids": [
+            "clm_34ea99b443a3"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, 400 fios",
+          "claim_ids": [
+            "clm_34ea99b443a3"
+          ]
+        },
+        {
+          "text": "Não informada no trecho citado",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você já tem colchão, confira na ficha ou etiqueta suas medidas de largura, comprimento e altura ou profundidade e escolha um lençol com medidas compatíveis, segundo fabricantes como Castor e Altenburg.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_457c0af8ed1c",
+        "clm_31809dc35d6e"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher lençol: medida, composição e cuidados",
+    "description": "Guia para escolher o tamanho, altura de elástico, composição têxtil e cuidados de lençol segundo fichas de fabricantes e regras do Inmetro.",
+    "verdict": {
+      "text": "Confira na etiqueta ou na página do produto a indicação de tamanho e suas dimensões, como largura, comprimento e altura, em vez de depender apenas do nome da categoria, segundo fabricantes como Castor, Altenburg e Karsten. Verifique também se a composição é 100% algodão ou uma mistura de algodão e poliéster. Se usar secadora, alvejante ou ferro, siga as instruções de cuidados informadas para o produto, pois elas podem diferir entre lençóis.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_457c0af8ed1c",
+        "clm_31809dc35d6e",
+        "clm_338868b7ddbd",
+        "clm_0e47e3881cb5",
+        "clm_0eb47d1c20ae",
+        "clm_1e273b9a3de9",
+        "clm_2e0ca964b047",
+        "clm_a730fea8b014",
+        "clm_0102678ce439",
+        "clm_208252be8e73",
+        "clm_2d2227266924"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tamanho-elasfico",
+        "heading": "Qual altura de elástico o lençol suporta",
+        "blocks": [
+          {
+            "text": "A Karsten informa altura de 30 cm para esses modelos de lençol com elástico. Confira a ficha do produto para verificar como essa medida é definida antes de compará-la com a altura do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0105c7d61b30",
+              "clm_338868b7ddbd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Altura de elástico declarada por fabricantes, conforme tamanho do lençol",
+            "columns": [
+              "Tamanho e marca",
+              "Altura do elástico"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro, Döhler Atlantis 180 fios",
+                    "claim_ids": [
+                      "clm_15f919e7946e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, o trecho descreve o tecido percal, mas não informa a altura do elástico",
+                    "claim_ids": [
+                      "clm_15f919e7946e"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal, Karsten Tesso",
+                    "claim_ids": [
+                      "clm_338868b7ddbd"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, altura do lençol de 30 cm",
+                    "claim_ids": [
+                      "clm_338868b7ddbd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen, Karsten Tesso",
+                    "claim_ids": [
+                      "clm_0105c7d61b30"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, altura do lençol de 30 cm",
+                    "claim_ids": [
+                      "clm_0105c7d61b30"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen, Altenburg malha",
+                    "claim_ids": [
+                      "clm_31809dc35d6e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, dimensão de 40 cm declarada no catálogo",
+                    "claim_ids": [
+                      "clm_31809dc35d6e"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King, Döhler Uni Maite 180 fios",
+                    "claim_ids": [
+                      "clm_140d796664b3"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, lençol com elástico King com dimensão de 40 cm",
+                    "claim_ids": [
+                      "clm_140d796664b3"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "composicao-etiqueta",
+        "heading": "O que a etiqueta deve informar sobre composição",
+        "blocks": [
+          {
+            "text": "O Inmetro afirma que a indicação de tamanho ou dimensão, conforme o caso, é obrigatória e deve constar no produto têxtil, em etiqueta, selo, rótulo ou meio similar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ebc5dbbf935"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Exemplos de composição declarada por fabricantes na etiqueta",
+            "columns": [
+              "Marca e modelo",
+              "Composição declarada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Altenburg Percal 200 fios",
+                    "claim_ids": [
+                      "clm_0e47e3881cb5"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 100% algodão",
+                    "claim_ids": [
+                      "clm_0e47e3881cb5"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Appel Percal 200 fios Hotel Deluxe",
+                    "claim_ids": [
+                      "clm_1e273b9a3de9"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 60% algodão e 40% poliéster",
+                    "claim_ids": [
+                      "clm_1e273b9a3de9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Matiza 160 fios percal",
+                    "claim_ids": [
+                      "clm_0eb47d1c20ae"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 100% algodão",
+                    "claim_ids": [
+                      "clm_0eb47d1c20ae"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Teka Madri 180 fios",
+                    "claim_ids": [
+                      "clm_2e0ca964b047"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 60% algodão e 40% poliéster",
+                    "claim_ids": [
+                      "clm_2e0ca964b047"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Döhler Atlantis 180 fios",
+                    "claim_ids": [
+                      "clm_0f5407e7fefe"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 100% algodão",
+                    "claim_ids": [
+                      "clm_0f5407e7fefe"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "O que a etiqueta deve informar sobre cuidados",
+        "blocks": [
+          {
+            "text": "A informação sobre cuidados de conservação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante, importador ou de outros responsáveis pelo produto, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a730fea8b014"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Exemplos de cuidados de conservação declarados na etiqueta",
+            "columns": [
+              "Marca e modelo",
+              "Lavagem máxima",
+              "Secadora",
+              "Ferro máximo"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Teka Madri 180 fios",
+                    "claim_ids": [
+                      "clm_0102678ce439"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 60°C, processo normal",
+                    "claim_ids": [
+                      "clm_0102678ce439"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 60°C",
+                    "claim_ids": [
+                      "clm_0102678ce439"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 110°C",
+                    "claim_ids": [
+                      "clm_0102678ce439"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Alanis 200 fios",
+                    "claim_ids": [
+                      "clm_1c69fb9cd2da"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 40°C",
+                    "claim_ids": [
+                      "clm_1c69fb9cd2da"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 60°C",
+                    "claim_ids": [
+                      "clm_1c69fb9cd2da"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 150°C",
+                    "claim_ids": [
+                      "clm_1c69fb9cd2da"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Trussardi Piera rosa 100% algodão",
+                    "claim_ids": [
+                      "clm_208252be8e73"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, 40°C",
+                    "claim_ids": [
+                      "clm_208252be8e73"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, proibido secar em tambor",
+                    "claim_ids": [
+                      "clm_208252be8e73"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, 110°C",
+                    "claim_ids": [
+                      "clm_208252be8e73"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Teka Pérola 300 fios",
+                    "claim_ids": [
+                      "clm_2d2227266924"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 60°C",
+                    "claim_ids": [
+                      "clm_2d2227266924"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 60°C",
+                    "claim_ids": [
+                      "clm_2d2227266924"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Teka, 110°C",
+                    "claim_ids": [
+                      "clm_2d2227266924"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Tom Titânio 200 fios",
+                    "claim_ids": [
+                      "clm_35d0a08fbed7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 60°C",
+                    "claim_ids": [
+                      "clm_35d0a08fbed7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 60°C",
+                    "claim_ids": [
+                      "clm_35d0a08fbed7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 150°C",
+                    "claim_ids": [
+                      "clm_35d0a08fbed7"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contagem-fios",
+        "heading": "Contagem de fios declarada na ficha",
+        "blocks": [
+          {
+            "text": "A Buddemeyer informa que tecidos a partir de 180 fios têm trama chamada de percal e são conhecidos por respirabilidade, alta absorção e secagem rápida.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_35887e6649c3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Contagem de fios declarada por fabricantes",
+            "columns": [
+              "Marca e modelo",
+              "Fios declarados"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Altenburg Percal",
+                    "claim_ids": [
+                      "clm_0e47e3881cb5"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 200 fios",
+                    "claim_ids": [
+                      "clm_0e47e3881cb5"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Appel Percal 300 fios Treccenti casal",
+                    "claim_ids": [
+                      "clm_16cf629ece08"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 300 fios",
+                    "claim_ids": [
+                      "clm_16cf629ece08"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Matiza 160 fios",
+                    "claim_ids": [
+                      "clm_0eb47d1c20ae"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 160 fios",
+                    "claim_ids": [
+                      "clm_0eb47d1c20ae"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Altenburg Percal 200 fios Queen Hotel",
+                    "claim_ids": [
+                      "clm_2cfa2e0f4661"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 200 fios",
+                    "claim_ids": [
+                      "clm_2cfa2e0f4661"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Döhler Atlantis King 180 fios",
+                    "claim_ids": [
+                      "clm_0f5407e7fefe"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 180 fios",
+                    "claim_ids": [
+                      "clm_0f5407e7fefe"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Bouton Percal Cristal",
+                    "claim_ids": [
+                      "clm_0fabd849fa08"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Bouton, 300 fios",
+                    "claim_ids": [
+                      "clm_0fabd849fa08"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Tom Titânio 200 fios",
+                    "claim_ids": [
+                      "clm_3117a54550da"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 200 fios",
+                    "claim_ids": [
+                      "clm_3117a54550da"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Sultan Linha Branca",
+                    "claim_ids": [
+                      "clm_ac7ccd82207c"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Sultan, 140 fios",
+                    "claim_ids": [
+                      "clm_ac7ccd82207c"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "acabamento-tipo",
+        "heading": "Tipos de acabamento declarados pelos fabricantes",
+        "blocks": [
+          {
+            "text": "Fabricantes descrevem o acabamento percal em seus produtos, segundo a Döhler e a Appel. Segundo a Döhler, o percal é uma trama de alta densidade que garante um tecido fresco, macio, durável e com excelente respirabilidade; segundo a Appel, o percal de algodão se mantém fresco em dias quentes e aconchegante em noites mais frias.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_15f919e7946e",
+              "clm_411b6835277f",
+              "clm_313436808276"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Tipos de acabamento com composição declarada",
+            "columns": [
+              "Marca e modelo",
+              "Fios"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Matiza Queen",
+                    "claim_ids": [
+                      "clm_0eb47d1c20ae"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 160 fios",
+                    "claim_ids": [
+                      "clm_0eb47d1c20ae"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Appel Hotel Deluxe casal",
+                    "claim_ids": [
+                      "clm_22ea1fca089c"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 200 fios",
+                    "claim_ids": [
+                      "clm_22ea1fca089c"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Altenburg Haus King",
+                    "claim_ids": [
+                      "clm_06a53f470883"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 400 fios",
+                    "claim_ids": [
+                      "clm_06a53f470883"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Altenburg Haus Queen",
+                    "claim_ids": [
+                      "clm_34ea99b443a3"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 400 fios",
+                    "claim_ids": [
+                      "clm_34ea99b443a3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Bouton Percal Cristal",
+                    "claim_ids": [
+                      "clm_39428a653325"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Bouton, 300 fios",
+                    "claim_ids": [
+                      "clm_39428a653325"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Karsten Ayla Queen",
+                    "claim_ids": [
+                      "clm_3d22abd8b1bb"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 200 fios",
+                    "claim_ids": [
+                      "clm_3d22abd8b1bb"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Appel Cotton Dreams Queen",
+                    "claim_ids": [
+                      "clm_45e7bd3b1c58"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 200 fios",
+                    "claim_ids": [
+                      "clm_45e7bd3b1c58"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir qual lençol comprar",
+        "blocks": [
+          {
+            "text": "Se você já tem colchão, confira na ficha ou etiqueta suas medidas de largura, comprimento e altura ou profundidade e escolha um lençol com medidas compatíveis, segundo fabricantes como Castor e Altenburg.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2ebc5dbbf935",
+              "clm_457c0af8ed1c",
+              "clm_31809dc35d6e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer algodão puro, procure um lençol cuja composição declare 100% algodão na etiqueta, segundo fabricantes como Altenburg, Karsten e Appel. Se aceita mistura, confira a proporção de algodão e poliéster antes de comprar, pois ela varia entre os modelos.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0e47e3881cb5",
+              "clm_0eb47d1c20ae",
+              "clm_1e273b9a3de9",
+              "clm_2e0ca964b047"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere percal, escolha um lençol identificado como percal e confira também a contagem de fios e a composição na etiqueta, pois há modelos percal de 100% algodão e modelos com mistura de fibras, segundo fabricantes como Appel, Karsten e Altenburg.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_16cf629ece08",
+              "clm_0eb47d1c20ae",
+              "clm_1e273b9a3de9",
+              "clm_2cfa2e0f4661"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você usa secadora, alvejante ou ferro quente, escolha um lençol cuja etiqueta de cuidados permita esses procedimentos; as instruções de lavagem, secagem e passagem variam entre os produtos, segundo a Teka e a Trussardi.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_a730fea8b014",
+              "clm_0102678ce439",
+              "clm_208252be8e73",
+              "clm_2d2227266924"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram que o tamanho ou a dimensão deve constar na identificação do produto e trazem exemplos de medidas e composições, mas não afirmam que as denominações como “solteiro” e “casal” variam entre marcas. Também não mostram uma ficha do produto nem sustentam expressamente a orientação de escolher o lençol conforme as medidas do colchão. Versão sustentável: Confira na etiqueta ou na página do produto a indicação de tamanho e suas dimensões, como largura, comprimento e altura, em vez de depender apenas do nome da categoria. Verifique também se a composição é 100% algodão ou uma mistura de algodão e poliéster. Se usar secadora, alvejante ou ferro, siga as instruções de cuidados informadas para o produto, pois elas podem diferir entre lençóis."
+    },
+    {
+      "ref": "tamanho-elasfico#0",
+      "msg": "MISATTRIBUTED. Os trechos da Karsten informam apenas “Altura do Lençol 30cm”; não dizem que o elástico suporta essa altura nem que ela representa a profundidade máxima do colchão. A recomendação de comparar com o colchão também não é sustentada pelos trechos. Versão sustentável: A Karsten informa altura de 30 cm para esses modelos de lençol. Confira a ficha do produto para verificar como essa medida é definida antes de compará-la com a altura do colchão."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r0",
+      "msg": "UNSUPPORTED. O trecho citado fala sobre percal, densidade do tecido, maciez e respirabilidade, mas não informa a altura do elástico nem demonstra que essa medida não foi especificada na ficha. Versão sustentável: A ficha citada descreve o tecido percal de 180 fios, mas o trecho não informa a altura do elástico."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r1",
+      "msg": "OVERSTATED. O trecho informa “Altura do Lençol 30cm”, mas não chama essa medida de altura do elástico. Versão sustentável: Tamanho e marca: Casal, Karsten Tesso | Altura do lençol informada pela Karsten: 30 cm."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r2",
+      "msg": "OVERSTATED. O trecho informa “Altura do Lençol 30cm”, mas não especifica que se trata da altura do elástico. Versão sustentável: Tamanho e marca: Queen, Karsten Tesso | Altura do lençol informada pela Karsten: 30 cm."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r3",
+      "msg": "OVERSTATED. O catálogo mostra as dimensões “1,58m x 1,98m x 40cm” para o tamanho Queen, mas o trecho não identifica expressamente os 40 cm como altura do elástico. Versão sustentável: Tamanho e marca: Queen, Altenburg malha | Dimensão de 40 cm indicada no catálogo da Altenburg."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r4",
+      "msg": "OVERSTATED. O trecho informa que o lençol com elástico King mede 1,93 m x 2,03 m x 40 cm, mas não denomina especificamente os 40 cm como altura do elástico. Versão sustentável: Tamanho e marca: King, Döhler Uni Maite 180 fios | O produto é descrito pela Döhler com a dimensão de 40 cm."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "msg": "UNSUPPORTED. O trecho citado trata apenas da obrigatoriedade de informar tamanho ou dimensão no produto têxtil. Não afirma que o tipo de fibra e o percentual de cada fibra sejam obrigatórios, nem sustenta especificamente a regra descrita para a composição. Versão sustentável: O Inmetro afirma que a indicação de tamanho ou dimensão, conforme o caso, é obrigatória e deve constar no produto têxtil, em etiqueta, selo, rótulo ou meio similar."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r0",
+      "msg": "MISATTRIBUTED. O trecho da Altenburg sustenta que o material é 100% algodão, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de catálogo/produto. Versão sustentável: Marca e modelo: Altenburg Percal 200 fios | Composição declarada pela Altenburg: 100% algodão."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r1",
+      "msg": "MISATTRIBUTED. O trecho da Appel sustenta a composição de 60% algodão e 40% poliéster, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Appel Percal 200 fios Hotel Deluxe | Composição declarada pela Appel: 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r2",
+      "msg": "MISATTRIBUTED. O trecho da Karsten sustenta que o produto é 100% algodão e possui 160 fios, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Karsten Matiza 160 fios percal | Composição declarada pela Karsten: 100% algodão."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r3",
+      "msg": "MISATTRIBUTED. O trecho da Teka sustenta a composição de 60% algodão e 40% poliéster, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Teka Madri 180 fios | Composição declarada pela Teka: 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r4",
+      "msg": "MISATTRIBUTED. O trecho da Döhler sustenta que o produto é feito com 100% algodão e tem 180 fios, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Döhler Atlantis 180 fios | Composição declarada pela Döhler: 100% algodão."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "UNSUPPORTED. O trecho citado afirma apenas que a informação pode ser indicada por símbolos, textos ou ambos e que essa escolha cabe a determinados responsáveis. Ele não especifica que a etiqueta deve informar como lavar, secar e passar o lençol, nem atribui a escolha exclusivamente ao fabricante. Versão sustentável: O trecho citado afirma que a informação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante, importador ou de outros responsáveis previstos na fonte."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r0",
+      "msg": "MISATTRIBUTED. Os valores de lavagem, secagem e passagem são informados no trecho da página da Teka, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Teka na página do produto. Marca e modelo: Teka Madri 180 fios | Lavagem máxima: 60°C, processo normal | Secadora: 60°C | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r1",
+      "msg": "MISATTRIBUTED. Os valores são informados no trecho da página da Karsten, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Karsten na página do produto. Marca e modelo: Karsten Alanis 200 fios | Lavagem máxima: 40°C | Secadora: 60°C | Ferro máximo: 150°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r2",
+      "msg": "MISATTRIBUTED. Os cuidados estão no trecho da página da Trussardi, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Trussardi na página do produto. Marca e modelo: Trussardi Piera rosa 100% algodão | Lavagem máxima: 40°C | Secadora: proibido secar em tambor | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r3",
+      "msg": "MISATTRIBUTED. Os valores são informados no trecho da página da Teka, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Teka na página do produto. Marca e modelo: Teka Pérola 300 fios | Lavagem máxima: 60°C | Secadora: 60°C | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r4",
+      "msg": "MISATTRIBUTED. Os valores são informados no trecho da página da Karsten, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Karsten na página do produto. Marca e modelo: Karsten Tom Titânio 200 fios | Lavagem máxima: 60°C | Secadora: 60°C | Ferro máximo: 150°C."
+    },
+    {
+      "ref": "contagem-fios#0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que contagem de fios também é chamada de fios por polegada nem que ela mede a densidade do tecido. O trecho sustenta apenas que tecidos a partir de 180 fios são chamados de percal e que são conhecidos por respirabilidade, absorção e secagem rápida. Versão sustentável: A Buddemeyer informa que tecidos a partir de 180 fios têm trama chamada de percal e são conhecidos por respirabilidade, alta absorção e secagem rápida."
+    },
+    {
+      "ref": "contagem-fios#1.r4",
+      "msg": "MISATTRIBUTED. O trecho citado identifica o produto como lençol com elástico King, enquanto o bloco o apresenta como modelo solteiro. Embora os 180 fios estejam no trecho, a identificação do modelo não corresponde à fonte citada. Versão sustentável: Marca e modelo: Döhler Atlantis King | Fios declarados: Segundo a Döhler, 180 fios."
+    },
+    {
+      "ref": "contagem-fios#1.r7",
+      "msg": "UNSUPPORTED. O trecho literal citado menciona apenas tecido sanforizado e mercerizado; não informa 200 fios, percal nem o modelo San Lorenzo. Versão sustentável: Remover esta linha ou citar um trecho que informe que o produto San Lorenzo é de percal com 200 fios."
+    },
+    {
+      "ref": "acabamento-tipo#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a descrição do percal pela Döhler, mas não mostram que Döhler e Appel declaram conjuntamente tipo de acabamento, contagem de fios e composição. Também não há trecho citado sobre as características próprias do cetim. Versão sustentável: Fabricantes descrevem o percal em seus produtos. Segundo a Döhler, o percal é uma trama de alta densidade que resulta em tecido fresco, macio, durável e respirável; segundo a Appel, o percal de algodão se mantém fresco em dias quentes e aconchegante em noites frias."
+    },
+    {
+      "ref": "acabamento-tipo#1.r2",
+      "msg": "UNSUPPORTED. O trecho informa 400 fios e menciona cetim, mas não declara que a composição é 100% algodão. A expressão “cetim de algodão” no título não sustenta, por si só, a afirmação de composição 100% algodão. Versão sustentável: Marca e modelo: Altenburg Haus King | Fios: Segundo a Altenburg, 400 fios | Composição: não informada no trecho citado."
+    },
+    {
+      "ref": "acabamento-tipo#1.r3",
+      "msg": "UNSUPPORTED. O trecho informa “Cetim de Algodão 400 Fios”, mas não declara que a composição é 100% algodão. A afirmação de composição excede a evidência citada. Versão sustentável: Marca e modelo: Altenburg Haus Queen | Fios: Segundo a Altenburg, 400 fios | Composição: não informada no trecho citado."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam consultar dimensões e verificar medidas de colchões ou lençóis, mas não dizem que os nomes solteiro, casal, queen e king variam entre fabricantes nem que o número deve pesar mais que o nome. Versão sustentável: Se você já tem colchão, confira na ficha ou etiqueta suas medidas de largura, comprimento e altura/profundidade e escolha um lençol com medidas compatíveis."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 4016
+  }
+}

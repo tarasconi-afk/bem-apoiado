@@ -1,0 +1,356 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que o tamanho ou a dimensão deve constar na identificação do produto e trazem exemplos de medidas e composições, mas não afirmam que as denominações como “solteiro” e “casal” variam entre marcas. Também não mostram uma ficha do produto nem sustentam expressamente a orientação de escolher o lençol conforme as medidas do colchão.",
+      "fix": "Confira na etiqueta ou na página do produto a indicação de tamanho e suas dimensões, como largura, comprimento e altura, em vez de depender apenas do nome da categoria. Verifique também se a composição é 100% algodão ou uma mistura de algodão e poliéster. Se usar secadora, alvejante ou ferro, siga as instruções de cuidados informadas para o produto, pois elas podem diferir entre lençóis."
+    },
+    {
+      "ref": "tamanho-elasfico#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Karsten informam apenas “Altura do Lençol 30cm”; não dizem que o elástico suporta essa altura nem que ela representa a profundidade máxima do colchão. A recomendação de comparar com o colchão também não é sustentada pelos trechos.",
+      "fix": "A Karsten informa altura de 30 cm para esses modelos de lençol. Confira a ficha do produto para verificar como essa medida é definida antes de compará-la com a altura do colchão."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado fala sobre percal, densidade do tecido, maciez e respirabilidade, mas não informa a altura do elástico nem demonstra que essa medida não foi especificada na ficha.",
+      "fix": "A ficha citada descreve o tecido percal de 180 fios, mas o trecho não informa a altura do elástico."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa “Altura do Lençol 30cm”, mas não chama essa medida de altura do elástico.",
+      "fix": "Tamanho e marca: Casal, Karsten Tesso | Altura do lençol informada pela Karsten: 30 cm."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa “Altura do Lençol 30cm”, mas não especifica que se trata da altura do elástico.",
+      "fix": "Tamanho e marca: Queen, Karsten Tesso | Altura do lençol informada pela Karsten: 30 cm."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r3",
+      "verdict": "OVERSTATED",
+      "problem": "O catálogo mostra as dimensões “1,58m x 1,98m x 40cm” para o tamanho Queen, mas o trecho não identifica expressamente os 40 cm como altura do elástico.",
+      "fix": "Tamanho e marca: Queen, Altenburg malha | Dimensão de 40 cm indicada no catálogo da Altenburg."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r4",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa que o lençol com elástico King mede 1,93 m x 2,03 m x 40 cm, mas não denomina especificamente os 40 cm como altura do elástico.",
+      "fix": "Tamanho e marca: King, Döhler Uni Maite 180 fios | O produto é descrito pela Döhler com a dimensão de 40 cm."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado trata apenas da obrigatoriedade de informar tamanho ou dimensão no produto têxtil. Não afirma que o tipo de fibra e o percentual de cada fibra sejam obrigatórios, nem sustenta especificamente a regra descrita para a composição.",
+      "fix": "O Inmetro afirma que a indicação de tamanho ou dimensão, conforme o caso, é obrigatória e deve constar no produto têxtil, em etiqueta, selo, rótulo ou meio similar."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Altenburg sustenta que o material é 100% algodão, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de catálogo/produto.",
+      "fix": "Marca e modelo: Altenburg Percal 200 fios | Composição declarada pela Altenburg: 100% algodão."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Appel sustenta a composição de 60% algodão e 40% poliéster, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto.",
+      "fix": "Marca e modelo: Appel Percal 200 fios Hotel Deluxe | Composição declarada pela Appel: 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Karsten sustenta que o produto é 100% algodão e possui 160 fios, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto.",
+      "fix": "Marca e modelo: Karsten Matiza 160 fios percal | Composição declarada pela Karsten: 100% algodão."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Teka sustenta a composição de 60% algodão e 40% poliéster, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto.",
+      "fix": "Marca e modelo: Teka Madri 180 fios | Composição declarada pela Teka: 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Döhler sustenta que o produto é feito com 100% algodão e tem 180 fios, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto.",
+      "fix": "Marca e modelo: Döhler Atlantis 180 fios | Composição declarada pela Döhler: 100% algodão."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado afirma apenas que a informação pode ser indicada por símbolos, textos ou ambos e que essa escolha cabe a determinados responsáveis. Ele não especifica que a etiqueta deve informar como lavar, secar e passar o lençol, nem atribui a escolha exclusivamente ao fabricante.",
+      "fix": "O trecho citado afirma que a informação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante, importador ou de outros responsáveis previstos na fonte."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores de lavagem, secagem e passagem são informados no trecho da página da Teka, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada.",
+      "fix": "Tabela: Exemplos de cuidados de conservação informados pela Teka na página do produto. Marca e modelo: Teka Madri 180 fios | Lavagem máxima: 60°C, processo normal | Secadora: 60°C | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores são informados no trecho da página da Karsten, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada.",
+      "fix": "Tabela: Exemplos de cuidados de conservação informados pela Karsten na página do produto. Marca e modelo: Karsten Alanis 200 fios | Lavagem máxima: 40°C | Secadora: 60°C | Ferro máximo: 150°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os cuidados estão no trecho da página da Trussardi, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada.",
+      "fix": "Tabela: Exemplos de cuidados de conservação informados pela Trussardi na página do produto. Marca e modelo: Trussardi Piera rosa 100% algodão | Lavagem máxima: 40°C | Secadora: proibido secar em tambor | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores são informados no trecho da página da Teka, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada.",
+      "fix": "Tabela: Exemplos de cuidados de conservação informados pela Teka na página do produto. Marca e modelo: Teka Pérola 300 fios | Lavagem máxima: 60°C | Secadora: 60°C | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores são informados no trecho da página da Karsten, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada.",
+      "fix": "Tabela: Exemplos de cuidados de conservação informados pela Karsten na página do produto. Marca e modelo: Karsten Tom Titânio 200 fios | Lavagem máxima: 60°C | Secadora: 60°C | Ferro máximo: 150°C."
+    },
+    {
+      "ref": "contagem-fios#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que contagem de fios também é chamada de fios por polegada nem que ela mede a densidade do tecido. O trecho sustenta apenas que tecidos a partir de 180 fios são chamados de percal e que são conhecidos por respirabilidade, absorção e secagem rápida.",
+      "fix": "A Buddemeyer informa que tecidos a partir de 180 fios têm trama chamada de percal e são conhecidos por respirabilidade, alta absorção e secagem rápida."
+    },
+    {
+      "ref": "contagem-fios#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "contagem-fios#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "contagem-fios#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "contagem-fios#1.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "contagem-fios#1.r4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado identifica o produto como lençol com elástico King, enquanto o bloco o apresenta como modelo solteiro. Embora os 180 fios estejam no trecho, a identificação do modelo não corresponde à fonte citada.",
+      "fix": "Marca e modelo: Döhler Atlantis King | Fios declarados: Segundo a Döhler, 180 fios."
+    },
+    {
+      "ref": "contagem-fios#1.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "contagem-fios#1.r6",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "contagem-fios#1.r7",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho literal citado menciona apenas tecido sanforizado e mercerizado; não informa 200 fios, percal nem o modelo San Lorenzo.",
+      "fix": "Remover esta linha ou citar um trecho que informe que o produto San Lorenzo é de percal com 200 fios."
+    },
+    {
+      "ref": "contagem-fios#1.r8",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "acabamento-tipo#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a descrição do percal pela Döhler, mas não mostram que Döhler e Appel declaram conjuntamente tipo de acabamento, contagem de fios e composição. Também não há trecho citado sobre as características próprias do cetim.",
+      "fix": "Fabricantes descrevem o percal em seus produtos. Segundo a Döhler, o percal é uma trama de alta densidade que resulta em tecido fresco, macio, durável e respirável; segundo a Appel, o percal de algodão se mantém fresco em dias quentes e aconchegante em noites frias."
+    },
+    {
+      "ref": "acabamento-tipo#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "acabamento-tipo#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "acabamento-tipo#1.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho informa 400 fios e menciona cetim, mas não declara que a composição é 100% algodão. A expressão “cetim de algodão” no título não sustenta, por si só, a afirmação de composição 100% algodão.",
+      "fix": "Marca e modelo: Altenburg Haus King | Fios: Segundo a Altenburg, 400 fios | Composição: não informada no trecho citado."
+    },
+    {
+      "ref": "acabamento-tipo#1.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho informa “Cetim de Algodão 400 Fios”, mas não declara que a composição é 100% algodão. A afirmação de composição excede a evidência citada.",
+      "fix": "Marca e modelo: Altenburg Haus Queen | Fios: Segundo a Altenburg, 400 fios | Composição: não informada no trecho citado."
+    },
+    {
+      "ref": "acabamento-tipo#1.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "acabamento-tipo#1.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "acabamento-tipo#1.r6",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam consultar dimensões e verificar medidas de colchões ou lençóis, mas não dizem que os nomes solteiro, casal, queen e king variam entre fabricantes nem que o número deve pesar mais que o nome.",
+      "fix": "Se você já tem colchão, confira na ficha ou etiqueta suas medidas de largura, comprimento e altura/profundidade e escolha um lençol com medidas compatíveis."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram que o tamanho ou a dimensão deve constar na identificação do produto e trazem exemplos de medidas e composições, mas não afirmam que as denominações como “solteiro” e “casal” variam entre marcas. Também não mostram uma ficha do produto nem sustentam expressamente a orientação de escolher o lençol conforme as medidas do colchão. Versão sustentável: Confira na etiqueta ou na página do produto a indicação de tamanho e suas dimensões, como largura, comprimento e altura, em vez de depender apenas do nome da categoria. Verifique também se a composição é 100% algodão ou uma mistura de algodão e poliéster. Se usar secadora, alvejante ou ferro, siga as instruções de cuidados informadas para o produto, pois elas podem diferir entre lençóis."
+    },
+    {
+      "ref": "tamanho-elasfico#0",
+      "msg": "MISATTRIBUTED. Os trechos da Karsten informam apenas “Altura do Lençol 30cm”; não dizem que o elástico suporta essa altura nem que ela representa a profundidade máxima do colchão. A recomendação de comparar com o colchão também não é sustentada pelos trechos. Versão sustentável: A Karsten informa altura de 30 cm para esses modelos de lençol. Confira a ficha do produto para verificar como essa medida é definida antes de compará-la com a altura do colchão."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r0",
+      "msg": "UNSUPPORTED. O trecho citado fala sobre percal, densidade do tecido, maciez e respirabilidade, mas não informa a altura do elástico nem demonstra que essa medida não foi especificada na ficha. Versão sustentável: A ficha citada descreve o tecido percal de 180 fios, mas o trecho não informa a altura do elástico."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r1",
+      "msg": "OVERSTATED. O trecho informa “Altura do Lençol 30cm”, mas não chama essa medida de altura do elástico. Versão sustentável: Tamanho e marca: Casal, Karsten Tesso | Altura do lençol informada pela Karsten: 30 cm."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r2",
+      "msg": "OVERSTATED. O trecho informa “Altura do Lençol 30cm”, mas não especifica que se trata da altura do elástico. Versão sustentável: Tamanho e marca: Queen, Karsten Tesso | Altura do lençol informada pela Karsten: 30 cm."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r3",
+      "msg": "OVERSTATED. O catálogo mostra as dimensões “1,58m x 1,98m x 40cm” para o tamanho Queen, mas o trecho não identifica expressamente os 40 cm como altura do elástico. Versão sustentável: Tamanho e marca: Queen, Altenburg malha | Dimensão de 40 cm indicada no catálogo da Altenburg."
+    },
+    {
+      "ref": "tamanho-elasfico#1.r4",
+      "msg": "OVERSTATED. O trecho informa que o lençol com elástico King mede 1,93 m x 2,03 m x 40 cm, mas não denomina especificamente os 40 cm como altura do elástico. Versão sustentável: Tamanho e marca: King, Döhler Uni Maite 180 fios | O produto é descrito pela Döhler com a dimensão de 40 cm."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "msg": "UNSUPPORTED. O trecho citado trata apenas da obrigatoriedade de informar tamanho ou dimensão no produto têxtil. Não afirma que o tipo de fibra e o percentual de cada fibra sejam obrigatórios, nem sustenta especificamente a regra descrita para a composição. Versão sustentável: O Inmetro afirma que a indicação de tamanho ou dimensão, conforme o caso, é obrigatória e deve constar no produto têxtil, em etiqueta, selo, rótulo ou meio similar."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r0",
+      "msg": "MISATTRIBUTED. O trecho da Altenburg sustenta que o material é 100% algodão, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de catálogo/produto. Versão sustentável: Marca e modelo: Altenburg Percal 200 fios | Composição declarada pela Altenburg: 100% algodão."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r1",
+      "msg": "MISATTRIBUTED. O trecho da Appel sustenta a composição de 60% algodão e 40% poliéster, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Appel Percal 200 fios Hotel Deluxe | Composição declarada pela Appel: 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r2",
+      "msg": "MISATTRIBUTED. O trecho da Karsten sustenta que o produto é 100% algodão e possui 160 fios, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Karsten Matiza 160 fios percal | Composição declarada pela Karsten: 100% algodão."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r3",
+      "msg": "MISATTRIBUTED. O trecho da Teka sustenta a composição de 60% algodão e 40% poliéster, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Teka Madri 180 fios | Composição declarada pela Teka: 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-etiqueta#1.r4",
+      "msg": "MISATTRIBUTED. O trecho da Döhler sustenta que o produto é feito com 100% algodão e tem 180 fios, e a atribuição à marca está correta. Porém, não mostra que essa composição foi declarada na etiqueta; o trecho vem de uma página de produto. Versão sustentável: Marca e modelo: Döhler Atlantis 180 fios | Composição declarada pela Döhler: 100% algodão."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "UNSUPPORTED. O trecho citado afirma apenas que a informação pode ser indicada por símbolos, textos ou ambos e que essa escolha cabe a determinados responsáveis. Ele não especifica que a etiqueta deve informar como lavar, secar e passar o lençol, nem atribui a escolha exclusivamente ao fabricante. Versão sustentável: O trecho citado afirma que a informação pode ser indicada por símbolos, textos ou ambos, a critério do fabricante, importador ou de outros responsáveis previstos na fonte."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r0",
+      "msg": "MISATTRIBUTED. Os valores de lavagem, secagem e passagem são informados no trecho da página da Teka, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Teka na página do produto. Marca e modelo: Teka Madri 180 fios | Lavagem máxima: 60°C, processo normal | Secadora: 60°C | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r1",
+      "msg": "MISATTRIBUTED. Os valores são informados no trecho da página da Karsten, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Karsten na página do produto. Marca e modelo: Karsten Alanis 200 fios | Lavagem máxima: 40°C | Secadora: 60°C | Ferro máximo: 150°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r2",
+      "msg": "MISATTRIBUTED. Os cuidados estão no trecho da página da Trussardi, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Trussardi na página do produto. Marca e modelo: Trussardi Piera rosa 100% algodão | Lavagem máxima: 40°C | Secadora: proibido secar em tambor | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r3",
+      "msg": "MISATTRIBUTED. Os valores são informados no trecho da página da Teka, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Teka na página do produto. Marca e modelo: Teka Pérola 300 fios | Lavagem máxima: 60°C | Secadora: 60°C | Ferro máximo: 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1.r4",
+      "msg": "MISATTRIBUTED. Os valores são informados no trecho da página da Karsten, mas o trecho não diz que foram declarados na etiqueta. A referência à etiqueta não é demonstrada pela evidência citada. Versão sustentável: Tabela: Exemplos de cuidados de conservação informados pela Karsten na página do produto. Marca e modelo: Karsten Tom Titânio 200 fios | Lavagem máxima: 60°C | Secadora: 60°C | Ferro máximo: 150°C."
+    },
+    {
+      "ref": "contagem-fios#0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que contagem de fios também é chamada de fios por polegada nem que ela mede a densidade do tecido. O trecho sustenta apenas que tecidos a partir de 180 fios são chamados de percal e que são conhecidos por respirabilidade, absorção e secagem rápida. Versão sustentável: A Buddemeyer informa que tecidos a partir de 180 fios têm trama chamada de percal e são conhecidos por respirabilidade, alta absorção e secagem rápida."
+    },
+    {
+      "ref": "contagem-fios#1.r4",
+      "msg": "MISATTRIBUTED. O trecho citado identifica o produto como lençol com elástico King, enquanto o bloco o apresenta como modelo solteiro. Embora os 180 fios estejam no trecho, a identificação do modelo não corresponde à fonte citada. Versão sustentável: Marca e modelo: Döhler Atlantis King | Fios declarados: Segundo a Döhler, 180 fios."
+    },
+    {
+      "ref": "contagem-fios#1.r7",
+      "msg": "UNSUPPORTED. O trecho literal citado menciona apenas tecido sanforizado e mercerizado; não informa 200 fios, percal nem o modelo San Lorenzo. Versão sustentável: Remover esta linha ou citar um trecho que informe que o produto San Lorenzo é de percal com 200 fios."
+    },
+    {
+      "ref": "acabamento-tipo#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a descrição do percal pela Döhler, mas não mostram que Döhler e Appel declaram conjuntamente tipo de acabamento, contagem de fios e composição. Também não há trecho citado sobre as características próprias do cetim. Versão sustentável: Fabricantes descrevem o percal em seus produtos. Segundo a Döhler, o percal é uma trama de alta densidade que resulta em tecido fresco, macio, durável e respirável; segundo a Appel, o percal de algodão se mantém fresco em dias quentes e aconchegante em noites frias."
+    },
+    {
+      "ref": "acabamento-tipo#1.r2",
+      "msg": "UNSUPPORTED. O trecho informa 400 fios e menciona cetim, mas não declara que a composição é 100% algodão. A expressão “cetim de algodão” no título não sustenta, por si só, a afirmação de composição 100% algodão. Versão sustentável: Marca e modelo: Altenburg Haus King | Fios: Segundo a Altenburg, 400 fios | Composição: não informada no trecho citado."
+    },
+    {
+      "ref": "acabamento-tipo#1.r3",
+      "msg": "UNSUPPORTED. O trecho informa “Cetim de Algodão 400 Fios”, mas não declara que a composição é 100% algodão. A afirmação de composição excede a evidência citada. Versão sustentável: Marca e modelo: Altenburg Haus Queen | Fios: Segundo a Altenburg, 400 fios | Composição: não informada no trecho citado."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam consultar dimensões e verificar medidas de colchões ou lençóis, mas não dizem que os nomes solteiro, casal, queen e king variam entre fabricantes nem que o número deve pesar mais que o nome. Versão sustentável: Se você já tem colchão, confira na ficha ou etiqueta suas medidas de largura, comprimento e altura/profundidade e escolha um lençol com medidas compatíveis."
+    }
+  ]
+}

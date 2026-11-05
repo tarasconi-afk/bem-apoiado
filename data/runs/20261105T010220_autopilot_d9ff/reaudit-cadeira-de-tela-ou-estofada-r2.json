@@ -1,0 +1,21 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha tela (mesh) quando a ventilação for importante em períodos longos de uso, e estofada quando preferir opções de espuma e revestimento. Na ficha técnica, se houver espuma declarada, verifique a densidade: para uso diário de 8 horas, a Flexform recomenda 45 a 55 kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3cc0fef72b12",
+        "clm_b8de95003ec1",
+        "clm_338d4e70e583"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não dizem que telas (mesh) oferecem ventilação importante em períodos longos nem estabelecem a escolha entre tela e estofado conforme preferência. O trecho da Funcional apenas descreve assento estofado com espuma e opções de revestimento. A faixa de 45 a 55 kg/m³ para uso diário de 8 horas está sustentada e foi corretamente atribuída à Flexform."
+    }
+  ]
+}
