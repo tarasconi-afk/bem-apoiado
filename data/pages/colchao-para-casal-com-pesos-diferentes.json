@@ -5,32 +5,30 @@
   "title": "Colchão para casal com pesos diferentes: como escolher",
   "description": "Escolha colchão de casal pela densidade do seu peso e do seu parceiro. Veja quando usar molas ensacadas e colchão dupla face.",
   "primary_query": "colchão para casal com pesos diferentes",
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-11-05",
   "verdict": {
-    "text": "Para um casal com pesos diferentes, confira na tabela da Castor a densidade indicada para cada peso. A Probel indica modelos D45 Firmpedic PróExtreme e Guarda Costas para casais com biotipos diferentes, com suporte de até 150 kg por pessoa. Simmons, Ortobom e Castor afirmam que molas ensacadas reduzem ou evitam a transferência de movimento entre os lados.",
+    "text": "Para um casal com pesos diferentes, confira a densidade recomendada para cada pessoa: segundo a Castor, até 50 kg densidade 23; de 51 a 60 kg densidade 26; de 61 a 70 kg densidade 28; de 71 a 80 kg densidade 33; de 81 a 100 kg densidade 33 a 45; acima de 100 kg densidade 45 ou maior. Molas ensacadas evitam a transferência de movimento entre as pessoas, segundo a Castor e a Simmons.",
     "basis": "reasoning",
     "claim_ids": [
       "clm_03538692a465",
-      "clm_cd04855fe4e4",
-      "clm_d764d3890d66",
-      "clm_87b27d434320",
-      "clm_c1ce97ad6576",
-      "clm_2bfe0b0f071c",
-      "clm_0522b96db922",
-      "clm_78163da83401"
+      "clm_78163da83401",
+      "clm_96d010e677f5"
     ]
   },
   "sections": [
     {
       "id": "densidade-faixa-peso",
-      "heading": "Qual densidade escolher para cada faixa de peso",
+      "heading": "Faixas de suporte por pessoa em modelos Probel",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Probel oferece modelos de colchão de casal com suporte de 60 kg a 150 kg por pessoa.",
+          "text": "Segundo as páginas da Probel citadas, dois modelos de espuma D45 para casal informam suporte de até 150 kg por pessoa. A página de um colchão Probel com molas ensacadas informa suporte de até 120 kg por pessoa.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_04e2adda967a"
+            "clm_87b27d434320",
+            "clm_c1ce97ad6576",
+            "clm_cd04855fe4e4",
+            "clm_e4f1ede8a94b"
           ]
         }
       ]
@@ -232,7 +230,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261024T130332_autopilot_5b24+edit:20261024T130332_autopilot_5b24+editor:20261024T145242_colchao-para-casal-com-pesos-diferentes-ajuste_a819+editor:20261024T145447_colchao-para-casal-com-pesos-diferentes-ajuste_d613+editor:20261024T164838_colchao-para-casal-com-pesos-diferentes-ajuste_cf4b+editor:20261026T123120_colchao-para-casal-com-pesos-diferentes-ajuste_ff59",
+    "run_id": "20261024T130332_autopilot_5b24+edit:20261024T130332_autopilot_5b24+editor:20261024T145242_colchao-para-casal-com-pesos-diferentes-ajuste_a819+editor:20261024T145447_colchao-para-casal-com-pesos-diferentes-ajuste_d613+editor:20261024T164838_colchao-para-casal-com-pesos-diferentes-ajuste_cf4b+editor:20261026T123120_colchao-para-casal-com-pesos-diferentes-ajuste_ff59+editor:20261105T084452_colchao-para-casal-com-pesos-diferentes-ajuste_9b8f",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
