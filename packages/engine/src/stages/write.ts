@@ -52,7 +52,7 @@ Regras do gate (o código recusa a página sem ler o conteúdo; cada uma custa u
 Regras de forma:
 - Português do Brasil, frases curtas. Explique termos técnicos na primeira vez.
 - Não use travessão (—); use vírgula, dois-pontos ou ponto.
-- "title" até 70 caracteres com a dúvida principal; "description" entre 50 e 160 caracteres.
+- "title" até 70 caracteres com a dúvida principal; "description" entre 50 e 160 caracteres, dizendo o que o leitor vai decidir e o que confere (é o texto que aparece no Google), sem lista de nomes de modelos.
 - "verdict": resposta curta e honesta à dúvida (geralmente "depende de X e Y"), com basis "reasoning" e evidências.
 - 4 a 6 seções com "id" em kebab-case, nesta lógica: ${n.decision_outline.join('; ')}. A última seção é sempre "Como decidir", com orientações condicionais ("se você...") sustentadas pelas evidências; ela aparece no topo da página, logo abaixo da resposta curta. Tabela que ajuda a decidir (faixa de peso × densidade, tamanho × medida, modelo × ficha) fica DENTRO do "Como decidir", nunca numa seção de detalhe (o editor, 22/10: as tabelas são o que há de mais visual e ficam melhor ali).
 - Alcance da fonte: nunca apresente como regra geral o que vale para um anexo ou setor específico. Na resposta curta e em "Como decidir", diga o alcance em palavras simples, sem nome de norma, anexo ou número de item (ex.: "uma regra do Ministério do Trabalho para postos de atendimento por telefone usa como referência..."); o nome técnico ("Anexo II da NR-17") fica só nas seções de detalhe.
