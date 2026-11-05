@@ -278,17 +278,28 @@ case "$action" in
   auditar)
     # auditar <teto de créditos>: coerência nas páginas no ar (stages/site-audit.ts); cada página com problema vira
     # um ajuste só nos blocos apontados, como resultado no quadro para o editor aplicar.
+    # 05/11: com teto 40, a auditoria semanal gastou 245 créditos (o teto valia só para a leitura; cada ajuste tinha
+    # o próprio de 15) e pôs 11 cartões no quadro de uma vez, um deles em conflito com a reescrita pendente da mesma
+    # página. Agora o teto vale para tudo, no máximo BEM_AUDIT_MAX_ADJUST cartões por rodada, e página com resultado
+    # pendente fica para a próxima (o achado continua anotado e volta em 2 dias).
     fresh
+    teto=${2:-40}; max_adj=${BEM_AUDIT_MAX_ADJUST:-4}; inicio=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     out=$(mktemp)
-    npm run -s engine -- audit-site "--max=${2:-40}" | tee "$out" | grep -v '^AJUSTE'
-    ok=0; fail=0
+    npm run -s engine -- audit-site "--max=$teto" | tee "$out" | grep -v '^AJUSTE'
+    pendentes=" $(for b in $(git branch -r --no-merged origin/main --list 'origin/pagina/*'); do git diff --name-only "origin/main...$b" -- data/pages; done | sed -E 's#^data/pages/(.*)\.json$#\1#' | sort -u | tr '\n' ' ') "
+    ok=0; fail=0; adiados=0
     while IFS=$'\t' read -r _ slug file blocos; do
+      if [[ "$pendentes" == *" $slug "* ]]; then echo "— $slug fica para a próxima: já tem resultado pendente no quadro"; adiados=$((adiados+1)); continue; fi
+      gasto=$(npm run -s engine -- credits-since "$inicio")
+      if [ $((ok+fail)) -ge "$max_adj" ] || awk -v g="$gasto" -v t="$teto" 'BEGIN{exit !(g+8>t)}'; then
+        echo "— $slug fica para a próxima: teto da auditoria (${gasto} de ${teto} créditos, ${max_adj} ajustes no máximo)"; adiados=$((adiados+1)); continue
+      fi
       echo "— ajuste de $slug"
       if adjust_page main "$slug" "$file" "" "$blocos" "Auditoria: ajuste em"; then ok=$((ok+1)); else fail=$((fail+1)); fi
       fresh
     done < <(grep '^AJUSTE' "$out")
     rm -f "$out"
-    echo "auditoria: $ok ajuste(s) no quadro para você aplicar$([ $fail -gt 0 ] && echo ", $fail não salvo(s) (o conserto não passou na auditoria das fontes)")"
+    echo "auditoria: $ok ajuste(s) no quadro para você aplicar$([ $fail -gt 0 ] && echo ", $fail não salvo(s) (o conserto não passou na auditoria das fontes)")$([ $adiados -gt 0 ] && echo ", $adiados para a próxima rodada") (~$(npm run -s engine -- credits-since "$inicio") créditos)"
     ;;
   pedido)
     fresh

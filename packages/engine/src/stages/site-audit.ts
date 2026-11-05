@@ -1,5 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { latestSnapshot, pageStats } from '../gsc.ts';
 import { creditsSpent, type FetchLike } from '../llm.ts';
 import { buildIndex, loadPages, readState, STATE_DIR, writeState } from '../store.ts';
 import { auditCoherence, COHERENCE_CHECKS, type CoherenceFinding } from './coherence.ts';
@@ -70,6 +71,17 @@ export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?
       writeFileSync(file, req.text);
       out.adjustments.push({ slug: p.slug, file, refs: req.refs });
     }
+  }
+  // Ajustes de quem o Google já mostra primeiro: com no máximo alguns cartões por rodada (painel-acao.sh), o achado
+  // numa página com impressões vale mais que o mesmo achado numa que ninguém vê ainda.
+  try {
+    const snap = latestSnapshot();
+    if (snap) {
+      const st = pageStats(snap);
+      out.adjustments.sort((a, b) => (st.get(b.slug)?.impressions ?? 0) - (st.get(a.slug)?.impressions ?? 0));
+    }
+  } catch {
+    /* sem Search Console: mantém a ordem da auditoria */
   }
   return out;
 }

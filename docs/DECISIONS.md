@@ -829,3 +829,26 @@ De 02/11 às 16h a 04/11 às 16h, nenhum ciclo entregou página nova. Três caus
 
 Na escolha de pautas (`ideas.ts`): "X ou Y" só com nomes que as fichas usam para o mesmo atributo. Diferença
 "de dicionário" (manta × cobertor, conjugada × bipartida) não tem ficha que decida: vira outra pauta ou sai.
+
+## 2026-11-05 — Página antes da manutenção pesada; auditoria semanal com teto de verdade
+
+O que aconteceu: de 02/11 16h a 05/11 4h, 12 ciclos sem página nova. Às 22h de 04/11, "como escolher lençol" passou
+na checagem antes da redação e parou no teto durante a redação, depois de a re-auditoria de "cadeira de tela" gastar
+~26 créditos sem conserto. Às 4h de 05/11, enriquecimento + re-auditoria + busca de lacuna ocuparam o ciclo inteiro.
+Às 5h, a auditoria semanal (teto 40) gastou 245 créditos e pôs 11 cartões no quadro; 4 deles com nota de leitor igual
+(4 → 4) mas defeito novo, e 6 pediam só título novo e tiveram o bloco reescrito junto.
+
+Decidido (PM, cartões decididos pelo painel em nome do editor; modo sombra gravou cada decisão):
+- Manutenção leve antes; a pesada (imagens, re-auditoria, lacuna, enriquecimento, resumo) depois da página quando há
+  pauta na fila, com o que sobrar do teto. Teto estourado na manutenção não derruba o ciclo.
+- "Nova tentativa" (vai depois das pautas novas) é só a pauta que não passou na checagem antes da redação, ou o
+  rascunho com lacuna. A que passou e parou no teto mantém a vez (o lençol tinha sido rebaixado pela regra de 04/11).
+- Auditoria do site: teto vale para a rodada inteira; no máximo 4 cartões (BEM_AUDIT_MAX_ADJUST); pula página com
+  resultado pendente; prioriza páginas com impressões. Conserto que só pede título troca o título sem redator.
+- Lições: teto 30 (estava em 19 de 20) e aviso no painel antes de encher.
+- Rascunho de pauta sem fabricantes não promete mais "o motor ainda tenta"; oferece encerrar.
+
+Erro do PM, registrado: recomendei pedir correção em "cadeira com apoio de cabeça" dizendo que a Flexform não sustentava
+"não funciona para quem fica reto digitando" — a evidência está no Como decidir da própria página. E pedi para tirar as
+faixas da Castor da resposta curta do casal; a revisão de leitor caiu de 4 para 3,5 e a página modelo (firme ou macio)
+faz igual. Antes de pedir correção: procurar a frase nas evidências da página e comparar com a página modelo.

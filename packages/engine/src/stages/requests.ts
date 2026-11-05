@@ -253,6 +253,19 @@ export const decisionMarkers = (t: string) => (t.match(/\b(escolha|prefira|opte|
 // O conserto que a auditoria de coerência escreve fala em título ("Mude o título para…", "a seção promete…").
 export const asksForTitle = (instruction: string): boolean => /t[íi]tulo|promete|anuncia|chamada da se[çc][ãa]o/i.test(instruction);
 
+// Blocos cujo conserto (pedido da auditoria do site: "No bloco X: problema. Conserto: …") é só trocar o título da
+// seção. 05/11: 6 dos 10 cartões da auditoria semanal pediam só título novo, e o redator reescreveu o bloco junto —
+// num deles pôs a medida do colchão solteiro na seção do solteirão; noutro tirou o "segundo a Probel" de uma frase.
+// Com o título trocado, o bloco fica como estava (e o ajuste custa ~0,1 crédito em vez de ~8).
+export function titleOnlyRefs(instruction: string): Set<string> {
+  const out = new Set<string>();
+  for (const m of instruction.matchAll(/No bloco ([a-z0-9-]+#\d+):([\s\S]*?)(?=No bloco [a-z0-9-]+(?:#\d+)?:|$)/g)) {
+    const fix = /Conserto:\s*([\s\S]*)$/.exec(m[2]!)?.[1]?.trim() ?? '';
+    if (/^(mud|troc|ajust|renome|alter)\w*\s+(o\s+)?t[íi]tulo/i.test(fix)) out.add(m[1]!);
+  }
+  return out;
+}
+
 export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean; refs?: string[] } = {}): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
@@ -324,8 +337,10 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
         fetchImpl,
       ).then((r) => r.data.headings).catch(() => [])
     : [];
+  const titleOnly = titleFix ? titleOnlyRefs(instruction) : new Set<string>();
+  const forcedWrite = forced.filter((r) => !(titleOnly.has(r) && forcedHeads.some((h) => h.id === r.split('#')[0])));
   const pick = forced.length
-    ? { data: { rewrite_summary: false, refs: forced, headings: forcedHeads as { id: (typeof secIds)[number]; heading: string }[], moves: [] as { ref: (typeof movable)[number]; to: (typeof secIds)[number]; position: 'start' | 'after_first' | 'end' }[], removes: [] as (typeof movable)[number][], drop_columns: [] as { ref: string; column: string }[], unsupported: '' } }
+    ? { data: { rewrite_summary: false, refs: forcedWrite, headings: forcedHeads as { id: (typeof secIds)[number]; heading: string }[], moves: [] as { ref: (typeof movable)[number]; to: (typeof secIds)[number]; position: 'start' | 'after_first' | 'end' }[], removes: [] as (typeof movable)[number][], drop_columns: [] as { ref: string; column: string }[], unsupported: '' } }
     : await callJson(
     {
       role: 'extractor',

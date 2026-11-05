@@ -21,7 +21,7 @@ import { TopicBrief, type PageSpec, type Product } from '@bem-apoiado/core';
 import { findProductsFromAmazon } from './products.ts';
 import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources, loadRegistry, makersFor } from './discover.ts';
-import { decisionReadiness, logReadiness, saveRules } from './readiness.ts';
+import { decisionReadiness, logReadiness, NOTE_PREFIX, saveRules } from './readiness.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS, retryOff } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
@@ -145,7 +145,12 @@ const exhausted = (t: TopicBrief, written: Set<string>) => t.evidence_gaps.lengt
 // de 29/10 a 04/11, látex, cobertor ou manta e cama box voltaram a cada 3 dias na frente de "como escolher lençol",
 // "edredom" e "cobertor" e gastaram ~170 créditos em 8 ciclos sem nenhuma página (0 de 4 melhorias viraram página).
 // Pesquisa paga e interrompida sem lacuna (teto de créditos, saída inválida) não é isto: essa é retomada e mantém a vez.
-export const isGapRetry = (t?: TopicBrief) => !!t && t.researched_source_ids.length > 0 && t.evidence_gaps.length > 0;
+// Também mantém a vez a pauta que PASSOU na checagem antes da redação (tem regra de escolha gravada) e parou sem
+// página: 04/11 22h, "como escolher lençol" passou com 4 regras, parou no teto durante a redação, as 2 perguntas sem
+// resposta viraram lacuna e a regra acima a mandou para trás de "edredom" — com a pesquisa paga e pronta para escrever.
+// Rascunho com lacuna (melhoria de página já escrita) continua indo depois das pautas novas.
+export const isGapRetry = (t?: TopicBrief, hasPage = false) =>
+  !!t && t.researched_source_ids.length > 0 && t.evidence_gaps.length > 0 && (hasPage || !t.editorial_notes.some((n) => n.startsWith(NOTE_PREFIX)));
 
 // Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas; pauta nova antes de
 // nova tentativa por lacuna (isGapRetry), que só roda quando não há pauta nova disponível.
@@ -169,7 +174,7 @@ export function nextQuery(): string | null {
     if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || exhausted(t, written) || retryOff(t.product_kinds))) continue;
     if (lacksMakers(item.query, t)) continue;
     if (isDeferred(slug)) continue;
-    if (!isGapRetry(t)) return item.query;
+    if (!isGapRetry(t, written.has(slug))) return item.query;
     retry ??= item.query;
   }
   return retry;
@@ -196,7 +201,7 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     else if (lacksMakers(item.query, t)) state = 'faltam fabricantes';
     else if (isDeferred(slug)) state = 'adiada (falta fonte)';
     else state = 'na fila';
-    return { query: item.query, state, retry: isGapRetry(t) };
+    return { query: item.query, state, retry: isGapRetry(t, !!page) };
   });
   // A mesma escolha do nextQuery: a primeira pauta nova; sem nenhuma, a primeira nova tentativa.
   const next = rows.find((r) => r.state === 'na fila' && !r.retry) ?? rows.find((r) => r.state === 'na fila');
@@ -572,6 +577,21 @@ async function maintainProducts(runId: string, steps: string[], only?: string): 
   return changed;
 }
 
+// Manutenção que custa mais (redator e auditor). Teto estourado aqui não derruba o ciclo: o que terminou fica.
+async function heavyMaintenance(runId: string, steps: string[]): Promise<boolean> {
+  let changed = false;
+  for (const step of [() => maintainImages(steps), () => maintainAudit(runId, steps), () => maintainGapSources(steps), () => maintainEnrich(runId, steps), () => maintainSummary(runId, steps)]) {
+    try {
+      changed = (await step()) || changed;
+    } catch (e) {
+      if (!(e instanceof LlmError)) throw e;
+      steps.push(`manutenção parou por ${e.code === 'BUDGET_EXCEEDED' ? 'teto de créditos' : 'falha do provedor'}; o que terminou fica`);
+      break;
+    }
+  }
+  return changed;
+}
+
 export async function runCycle(runId: string): Promise<CycleResult> {
   // Cada passo concluído vai também para o status ao vivo do painel.
   const steps: string[] = new Proxy([] as string[], {
@@ -580,7 +600,14 @@ export async function runCycle(runId: string): Promise<CycleResult> {
       return Reflect.get(t, k, r);
     },
   });
-  const done = (r: Omit<CycleResult, 'credits'>): CycleResult => {
+  // Manutenção pesada que ficou para depois da página (ver abaixo): roda uma vez, com o que sobrou do teto, antes de
+  // fechar o ciclo por qualquer caminho.
+  let heavyLater = false;
+  const done = async (r: Omit<CycleResult, 'credits'>): Promise<CycleResult> => {
+    if (heavyLater) {
+      heavyLater = false;
+      await heavyMaintenance(runId, steps);
+    }
     const credits = creditsSpent();
     recordCredits(credits);
     const result = { ...r, credits };
@@ -593,23 +620,25 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const cal = calibrate(loadVerdicts());
   if (applyCalibration(cal)) steps.push(`revisão recalibrada: enchimento ≤ ${cal.best.max_filler_ratio}, critérios ≥ ${cal.best.min_criteria} (${cal.best.agree}/${cal.labels} vereditos)`);
 
-  // Manutenção primeiro (todas rodam; qualquer mudança vira ramo de manutenção se não houver pauta).
+  // Manutenção leve primeiro (produtos, Search Console, ideias, links, domínios: poucos créditos). A pesada (imagens,
+  // re-auditoria, busca de fonte para lacuna, enriquecimento, resumo) roda antes só quando não há pauta; com pauta na
+  // fila, roda DEPOIS da página, com o que sobrar. 02–05/11: 12 ciclos seguidos sem página nova; em vários, a pesada
+  // gastou primeiro (re-auditoria de 26 créditos às 22h de 04/11; enriquecimento + re-auditoria + lacuna = o ciclo
+  // inteiro às 4h de 05/11) e a página ficou sem orçamento ou parou no meio da redação.
   const m1 = await maintainProducts(runId, steps);
-  const m2 = await maintainImages(steps);
-  const m3 = await maintainAudit(runId, steps);
-  const m4a = await maintainGapSources(steps);
-  const m4 = await maintainEnrich(runId, steps);
   const m5 = await maintainGsc(steps);
   const m6 = await maintainIdeas(steps);
   const m7 = await maintainLinks(steps);
-  const m8 = await maintainSummary(runId, steps);
   const m9 = await maintainDuplicates(steps);
   const m10 = await maintainDomains(steps);
-  const maintained = m1 || m2 || m3 || m4a || m4 || m5 || m6 || m7 || m8 || m9 || m10;
+  const pending = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
+  const heavyFirst = pending ? false : await heavyMaintenance(runId, steps);
+  heavyLater = !!pending;
+  const maintained = m1 || m5 || m6 || m7 || m9 || m10 || heavyFirst;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
-  const query = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
+  const query = pending ?? (creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null);
   if (!query && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);
   if (!query) {
     const why = creditsLeft() < PAGE_MIN_CREDITS ? 'sem orçamento para página nova neste ciclo' : 'fila sem pauta pendente';

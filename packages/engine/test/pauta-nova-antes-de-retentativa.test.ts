@@ -11,17 +11,19 @@ const raiz = mkdtempSync(join(tmpdir(), 'bem-retentativa-'));
 mkdirSync(join(raiz, 'data', 'topics'), { recursive: true });
 mkdirSync(join(raiz, 'data', 'pages'), { recursive: true });
 writeFileSync(join(raiz, 'package.json'), JSON.stringify({ name: 'bem-apoiado' }));
-const topico = (slug: string, query: string, gaps: string[]) =>
+const topico = (slug: string, query: string, gaps: string[], notes: string[] = []) =>
   writeFileSync(join(raiz, 'data', 'topics', `${slug}.json`), JSON.stringify({
     slug, primary_query: query, page_type: 'decision_compare',
     questions: [{ id: 'q_a', text: 'O que o fabricante declara?' }],
     source_ids: ['src_aaaaaaaaaaaa'], researched_source_ids: ['src_aaaaaaaaaaaa'],
-    evidence_gaps: gaps, editorial_notes: [], focus_terms: [], improve_attempts: 1, product_kinds: [], listing_terms: [],
+    evidence_gaps: gaps, editorial_notes: notes, focus_terms: [], improve_attempts: 1, product_kinds: [], listing_terms: [],
   }));
 const fila = (queries: string[]) =>
   writeFileSync(join(raiz, 'data', 'queue.json'), JSON.stringify({ items: queries.map((query) => ({ query, added_at: '2026-11-04' })) }));
 topico('colchao-de-latex-vale-a-pena', 'colchão de látex vale a pena', ['Fonte de fabricante sobre para quem é indicado']);
 topico('lencol-de-cetim-ou-percal-diferenca', 'lençol de cetim ou percal: diferença', []);
+// 04/11 22h: passou na checagem (regra gravada), parou no teto na redação; as perguntas sem resposta viraram lacuna.
+topico('como-escolher-lencol', 'como escolher lençol', ['Altura do colchão que o elástico suporta'], ['Regra de decisão sustentada: Se você já tem o colchão, confira as medidas. (evidências: clm_aaaaaaaaaaaa)']);
 process.env.BEM_ROOT = raiz;
 process.env.BEM_STATE_DIR = join(raiz, '.state');
 
@@ -30,10 +32,16 @@ const estado = (re: RegExp) => queueStatus(new Set()).find((q) => re.test(q.quer
 
 describe('pauta nova antes de nova tentativa por lacuna', () => {
   it('a pauta nova passa na frente da que já parou por falta de evidência', () => {
-    fila(['colchão de látex vale a pena', 'como escolher lençol']);
+    fila(['colchão de látex vale a pena', 'como escolher edredom']);
+    expect(nextQuery()).toBe('como escolher edredom');
+    expect(estado(/edredom/)).toBe('próxima');
+    expect(estado(/látex/)).toBe('na fila');
+  });
+
+  it('pauta que passou na checagem e parou no teto mantém a vez, mesmo com lacuna', () => {
+    fila(['como escolher lençol', 'como escolher edredom']);
     expect(nextQuery()).toBe('como escolher lençol');
     expect(estado(/lençol/)).toBe('próxima');
-    expect(estado(/látex/)).toBe('na fila');
   });
 
   it('sem pauta nova, a nova tentativa ainda roda', () => {
@@ -43,7 +51,7 @@ describe('pauta nova antes de nova tentativa por lacuna', () => {
   });
 
   it('retomada de pesquisa paga, sem lacuna, mantém a vez na ordem da fila', () => {
-    fila(['lençol de cetim ou percal: diferença', 'como escolher lençol']);
+    fila(['lençol de cetim ou percal: diferença', 'como escolher edredom']);
     expect(nextQuery()).toBe('lençol de cetim ou percal: diferença');
   });
 });

@@ -427,6 +427,18 @@ async function main(): Promise<number> {
       // (22/10: mover tabela salvava a página e o script tratava como falha, sem commit).
       return /NÃO salvo/.test(msg) ? 1 : 0;
     }
+    case 'credits-since': {
+      // credits-since <ISO>: créditos do livro-caixa desde o instante (o script da auditoria do site usa para o teto
+      // total: o teto do audit-site valia só para a leitura, e cada ajuste tinha o próprio — 05/11: 245 com teto 40).
+      const since = Date.parse(rest[0] ?? '');
+      if (!Number.isFinite(since)) {
+        console.error('uso: credits-since <data ISO>');
+        return 2;
+      }
+      const { ledger } = await import('./credits.ts');
+      console.log(ledger().filter((e) => Date.parse(e.at) >= since).reduce((t, e) => t + e.credits, 0).toFixed(1));
+      return 0;
+    }
     case 'audit-site': {
       // Auditoria do site (botão do painel): audit-site [--max=40]. Imprime uma linha AJUSTE por página com problema
       // (slug, arquivo do pedido, blocos); o script painel-acao.sh transforma cada uma em resultado no quadro.
