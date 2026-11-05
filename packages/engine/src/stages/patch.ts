@@ -99,6 +99,25 @@ export function applyPatches(draft: Draft, patches: Patch[]): Draft {
   return d;
 }
 
+// Evidências que vão ao redator num remendo. 05/11: o remendo de 1 ou 2 blocos levava TODAS as evidências da pauta
+// (pillow top: 133, ~87 mil caracteres; firme ou macio: 146) e cada chamada custava ~7 créditos com o Haiku; o ajuste
+// de pillow top parou no teto três vezes e 8 de 19 ajustes da auditoria semanal também. Vão: as citadas nas seções
+// tocadas, as que a mensagem cita pelo id (evidências novas de um pedido) e as mais próximas, por palavras em comum,
+// do texto dos blocos e do problema — até PATCH_MAX_CLAIMS. O enum de claim_ids segue a mesma lista: o redator só
+// cita o que leu.
+export const PATCH_MAX_CLAIMS = 45;
+const words = (t: string) => new Set(t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 3));
+export function claimsForPatch(claims: Claim[], draft: Draft, refs: string[], issues: Issue[], max = PATCH_MAX_CLAIMS): Claim[] {
+  if (claims.length <= max) return claims;
+  const touched = new Set(refs.map((r) => r.split('#')[0]));
+  const ctx = JSON.stringify([touched.has('verdict') ? draft.verdict : null, draft.sections.filter((x) => touched.has(x.id))]);
+  const must = new Set([...ctx.matchAll(/clm_[a-f0-9]{12}/g), ...issues.flatMap((i) => [...i.msg.matchAll(/clm_[a-f0-9]{12}/g)])].map((m) => m[0]));
+  const near = words(`${ctx} ${issues.map((i) => i.msg).join(' ')}`);
+  const score = (c: Claim) => [...words(`${c.statement} ${c.quote}`)].filter((w) => near.has(w)).length;
+  const rest = claims.filter((c) => !must.has(c.id)).map((c) => ({ c, n: score(c) })).sort((a, b) => b.n - a.n).map((x) => x.c);
+  return [...claims.filter((c) => must.has(c.id)), ...rest].slice(0, Math.max(max, must.size));
+}
+
 export async function writePatches(
   topic: TopicBrief,
   claims: Claim[],
@@ -110,6 +129,7 @@ export async function writePatches(
 ) {
   const allowRemove = opts.allowRemove ?? true;
   const refs = [...new Set(issues.map((i) => i.ref).filter((r): r is string => r !== null))];
+  claims = claimsForPatch(claims, draft, refs, issues);
   const columns = tableColumns(draft, refs);
   const schema = makePatchSchema(refs, claims.map((c) => c.id), columns, allowRemove);
   // Contexto enxuto: só as seções com bloco a corrigir (o resto está trancado e não precisa ser relido).

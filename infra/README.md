@@ -23,6 +23,6 @@
   página aprovada sem produto (uma tentativa por página por semana, se sobrarem 20+ créditos). Sem pauta na
   fila, só a manutenção vira ramo `pagina/manutencao-produtos-*`. Tentativas ficam em
   `/var/lib/bem-apoiado/products-{refresh,attempts}.json`.
-- Tetos: 75 créditos/ciclo (`BEM_CYCLE_BUDGET`, nunca acima do que resta no dia), 250/dia nos ciclos automáticos (`BEM_DAILY_CREDIT_CAP`; o ciclo pedido no painel não conta enquanto houver menos de 20 páginas no ar) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
+- Tetos: 90 créditos/ciclo (`BEM_CYCLE_BUDGET`, nunca acima do que resta no dia), 400/dia nos ciclos automáticos (05/11: subido de 250 durante o ajuste fino, autorizado pelo editor) (`BEM_DAILY_CREDIT_CAP`; o ciclo pedido no painel não conta enquanto houver menos de 20 páginas no ar) (`/var/lib/bem-apoiado/llm-usage.json`), Tavily 1.400/mês.
 - `bem-apoiado-hits.service`: contador de visitas sem cookie (`npm run engine -- hits-server`, 127.0.0.1:8788);
   o Caddy publica só `POST /c` em `t.bemapoiado.com`. Dados em `/var/lib/bem-apoiado/hits/AAAA-MM-DD.jsonl`.
