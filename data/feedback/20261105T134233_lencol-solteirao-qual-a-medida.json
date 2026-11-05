@@ -1,0 +1,16 @@
+{
+  "slug": "lencol-solteirao-qual-a-medida",
+  "verdict": "reject",
+  "reason": "Página sobre a medida de um tamanho só usa medidas de produtos identificados com esse tamanho. Aqui, lençóis \"Solteiro\" (1,80 × 2,40 m e 1,50 × 2,40 m) aparecem como se fossem do solteirão, e a descrição para o Google diz que o solteirão mede 1,50 × 2,40 m. A resposta deve separar a medida do colchão (1,00 × 2,00 m) da medida do lençol, com ficha de lençol solteirão; sem ela, diga o que conferir e o que falta.",
+  "at": "2026-11-05T13:42:33.160Z",
+  "run_id": "20261105T130810_autopilot_5caa+editor:20261105T131307_lencol-solteirao-qual-a-medida-autocorrecao_88eb",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "filler_ratio": 0,
+    "criteria": 5,
+    "reader_fit": true,
+    "quick_answer": false,
+    "rule_publishable": false
+  }
+}
