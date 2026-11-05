@@ -1,0 +1,687 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O percal é feito a partir de 180 fios e é descrito como respirável e de secagem rápida; já os tecidos de 300 fios da Buddemeyer usam trama de cetim, que reflete a luz e tem brilho suave e elegante. Escolha conforme priorize respirabilidade ou aparência.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_35887e6649c3",
+        "clm_b863ceeff6b0"
+      ]
+    },
+    {
+      "ref": "tecelagem-e-contagem-fios#1",
+      "action": "replace",
+      "text": "Segundo a Buddemeyer, tecidos a partir de 180 fios têm trama percal, são respiráveis, têm alta absorção e secagem rápida. Os tecidos de 300 fios da marca são confeccionados em trama de cetim, com mais fios paralelos que refletem a luz e apresentam brilho suave e elegante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_35887e6649c3",
+        "clm_b863ceeff6b0"
+      ]
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "action": "replace",
+      "text": "A Appel declara 100% algodão no lençol Percal 300 Fios e 60% algodão e 40% poliéster no lençol Percal 200 Fios Hotel Deluxe.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_16cf629ece08",
+        "clm_1e273b9a3de9"
+      ]
+    },
+    {
+      "ref": "composicao-fibras#1",
+      "action": "replace",
+      "text": "Nos exemplos citados, a Buddemeyer declara 100% algodão, a Trussardi declara 100% algodão egípcio, e a Altenburg descreve o produto como cetim de algodão de 400 fios.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5712cd58862c",
+        "clm_5728064784bf",
+        "clm_34ea99b443a3"
+      ]
+    },
+    {
+      "ref": "composicao-fibras#2",
+      "action": "replace",
+      "text": "O Inmetro lista como informação obrigatória o nome das fibras ou filamentos têxteis e seus percentuais em massa.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf"
+      ]
+    },
+    {
+      "ref": "etiquetagem-e-cuidados#1",
+      "action": "replace",
+      "text": "A Karsten declara, para dois lençóis de algodão, instruções como: lavação a 40 °C ou 60 °C, proibido alvejar, secagem em tambor a no máximo 60 °C, ferro a no máximo 150 °C e proibido lavar a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1c69fb9cd2da",
+        "clm_35d0a08fbed7"
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro — Lençol (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "1,60 m × 2,50 m",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro — Lençol com elástico (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "88 cm × 1,88 m × 30 cm",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal — Lençol (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "2,20 m × 2,40 m",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal — Lençol com elástico (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "1,38 m × 1,88 m × 40 cm",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r4",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen — Lençol (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "2,40 m × 2,60 m",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r5",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen — Lençol com elástico (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "1,60 m × 2,00 m × 40 cm",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r6",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King — Lençol (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "2,50 m × 2,70 m",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-declaradas#0.r7",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King — Lençol com elástico (Corttex, 300 fios)",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        },
+        {
+          "text": "1,93 m × 2,03 m × 40 cm",
+          "claim_ids": [
+            "clm_abdd7731f146"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-cetim-percal#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Contagem de fios mínima",
+          "claim_ids": [
+            "clm_35887e6649c3",
+            "clm_52725545497f"
+          ]
+        },
+        {
+          "text": "A partir de 180 fios, segundo Buddemeyer",
+          "claim_ids": [
+            "clm_35887e6649c3"
+          ]
+        },
+        {
+          "text": "300 fios, segundo Karsten e Buddemeyer",
+          "claim_ids": [
+            "clm_52725545497f",
+            "clm_b863ceeff6b0"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-cetim-percal#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Composição declarada em exemplos de produto",
+          "claim_ids": [
+            "clm_16cf629ece08",
+            "clm_5728064784bf"
+          ]
+        },
+        {
+          "text": "100% algodão no exemplo Appel 300 fios percal",
+          "claim_ids": [
+            "clm_16cf629ece08"
+          ]
+        },
+        {
+          "text": "100% algodão egípcio (Trussardi)",
+          "claim_ids": [
+            "clm_5728064784bf"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Lençol de cetim ou percal: qual escolher",
+    "description": "Compare cetim e percal pela contagem de fios, tipo de trama e composição para decidir qual tecido escolher na compra de lençol.",
+    "verdict": {
+      "text": "O percal é feito a partir de 180 fios e é descrito como respirável e de secagem rápida; já os tecidos de 300 fios da Buddemeyer usam trama de cetim, que reflete a luz e tem brilho suave e elegante. Escolha conforme priorize respirabilidade ou aparência.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_35887e6649c3",
+        "clm_b863ceeff6b0"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tecelagem-e-contagem-fios",
+        "heading": "Qual a diferença na tecelagem e contagem de fios",
+        "blocks": [
+          {
+            "text": "A contagem de fios refere-se ao número total de fios entrelaçados em uma polegada quadrada de tecido, considerando fios na direção do comprimento e na largura, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e21a98c50eb9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Buddemeyer, tecidos a partir de 180 fios têm trama percal, são respiráveis, têm alta absorção e secagem rápida. Os tecidos de 300 fios da marca são confeccionados em trama de cetim, com mais fios paralelos que refletem a luz e apresentam brilho suave e elegante, segundo a Buddemeyer.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_35887e6649c3",
+              "clm_b863ceeff6b0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Karsten, tecidos de 300 fios são geralmente confeccionados com algodão egípcio, com fibras mais longas, e são classificados como cetim.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_52725545497f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-fibras",
+        "heading": "Composição de fibras declarada pelos fabricantes",
+        "blocks": [
+          {
+            "text": "A Appel declara 100% algodão no lençol Percal 300 Fios e 60% algodão e 40% poliéster no lençol Percal 200 Fios Hotel Deluxe.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_16cf629ece08",
+              "clm_1e273b9a3de9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nos exemplos citados, a Buddemeyer declara 100% algodão, a Trussardi declara 100% algodão egípcio, e a Altenburg descreve o produto como cetim de algodão de 400 fios.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5712cd58862c",
+              "clm_5728064784bf",
+              "clm_34ea99b443a3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro lista como informação obrigatória o nome das fibras ou filamentos têxteis e seus percentuais em massa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiquetagem-e-cuidados",
+        "heading": "O que a etiqueta deve informar sobre cuidados",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que a etiqueta de produtos têxteis indique cuidados para a conservação do produto de acordo com a norma NM ISO 3758:2013, e essa informação pode ser indicada por símbolos, textos ou ambos, conforme escolha do fabricante.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d4deb5834cee",
+              "clm_a730fea8b014"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Karsten declara, para dois lençóis de algodão, instruções como: lavação a 40 °C ou 60 °C, proibido alvejar, secagem em tambor a no máximo 60 °C, ferro a no máximo 150 °C e proibido lavar a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1c69fb9cd2da",
+              "clm_35d0a08fbed7"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-declaradas",
+        "heading": "Medidas declaradas para cada tamanho",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Exemplos de medidas declaradas em lençóis de percal e cetim (segundo a Corttex)",
+            "columns": [
+              "Tamanho",
+              "Cetim (Corttex 300 fios)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro — Lençol (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "1,60 m × 2,50 m",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro — Lençol com elástico (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "88 cm × 1,88 m × 30 cm",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal — Lençol (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "2,20 m × 2,40 m",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal — Lençol com elástico (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "1,38 m × 1,88 m × 40 cm",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen — Lençol (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "2,40 m × 2,60 m",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen — Lençol com elástico (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "1,60 m × 2,00 m × 40 cm",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King — Lençol (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "2,50 m × 2,70 m",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King — Lençol com elástico (Corttex, 300 fios)",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  },
+                  {
+                    "text": "1,93 m × 2,03 m × 40 cm",
+                    "claim_ids": [
+                      "clm_abdd7731f146"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "O Inmetro exige que a indicação de tamanho ou dimensão conste obrigatoriamente no produto têxtil quando aplicável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_531debf45868"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir-cetim-percal",
+        "heading": "Como decidir entre cetim e percal",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Características de cetim e percal conforme declarado por fabricantes",
+            "columns": [
+              "Característica",
+              "Percal",
+              "Cetim"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Contagem de fios mínima",
+                    "claim_ids": [
+                      "clm_35887e6649c3",
+                      "clm_52725545497f"
+                    ]
+                  },
+                  {
+                    "text": "A partir de 180 fios, segundo Buddemeyer",
+                    "claim_ids": [
+                      "clm_35887e6649c3"
+                    ]
+                  },
+                  {
+                    "text": "300 fios, segundo Karsten e Buddemeyer",
+                    "claim_ids": [
+                      "clm_52725545497f",
+                      "clm_b863ceeff6b0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Tipo de trama",
+                    "claim_ids": [
+                      "clm_a22e920b180c",
+                      "clm_b863ceeff6b0"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Buddemeyer, trama percal",
+                    "claim_ids": [
+                      "clm_a22e920b180c"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Buddemeyer, trama de cetim com fios paralelos que refletem luz",
+                    "claim_ids": [
+                      "clm_b863ceeff6b0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Composição declarada em exemplos de produto",
+                    "claim_ids": [
+                      "clm_16cf629ece08",
+                      "clm_5728064784bf"
+                    ]
+                  },
+                  {
+                    "text": "100% algodão no exemplo Appel 300 fios percal",
+                    "claim_ids": [
+                      "clm_16cf629ece08"
+                    ]
+                  },
+                  {
+                    "text": "100% algodão egípcio (Trussardi)",
+                    "claim_ids": [
+                      "clm_5728064784bf"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você prioriza respirabilidade, absorção e secagem rápida, escolha um lençol de percal, características atribuídas pela Buddemeyer a essa trama.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a22e920b180c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere um tecido com brilho suave e aparência mais elegante, escolha um lençol de cetim, característica descrita pela Buddemeyer para seus tecidos nessa trama.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b863ceeff6b0"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que, segundo a Buddemeyer, tecidos a partir de 180 fios são percal e que os seus tecidos de 300 fios são cetim. Não sustentam a generalização de que o cetim usa “300 fios ou mais” em geral. A recomendação de escolher entre respirabilidade e aparência decorre das características citadas. Versão sustentável: O percal é feito a partir de 180 fios e é descrito como respirável e de secagem rápida; já os tecidos de 300 fios da marca usam trama de cetim, que reflete a luz e tem brilho suave e elegante, segundo a Buddemeyer. Escolha conforme priorize respirabilidade ou aparência."
+    },
+    {
+      "ref": "tecelagem-e-contagem-fios#1",
+      "msg": "OVERSTATED. Os trechos dizem que tecidos a partir de 180 fios têm trama percal e descrevem os 300 fios da Buddemeyer como confeccionados em trama de cetim, mas não especificam que se trata de lençóis. O bloco restringe as afirmações a lençóis sem esse alcance estar explícito nos trechos. Versão sustentável: Segundo a Buddemeyer, tecidos a partir de 180 fios têm trama percal, são respiráveis, têm alta absorção e secagem rápida. Os tecidos de 300 fios da marca são confeccionados em trama de cetim, com mais fios paralelos que refletem a luz e apresentam brilho suave e elegante."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "msg": "OVERSTATED. Os trechos sustentam as composições dos dois produtos específicos da Appel, mas não mostram que fabricantes de lençóis de percal costumam declarar 100% algodão. Além disso, um dos exemplos citados é justamente uma mistura de algodão e poliéster. Versão sustentável: A Appel declara 100% algodão no lençol Percal 300 Fios e 60% algodão e 40% poliéster no lençol Percal 200 Fios Hotel Deluxe."
+    },
+    {
+      "ref": "composicao-fibras#1",
+      "msg": "OVERSTATED. Os trechos mostram declarações específicas de Buddemeyer, Trussardi e Altenburg, mas não sustentam a generalização de que fabricantes de lençóis de cetim declaram predominantemente 100% algodão. O trecho da Altenburg também diz apenas “Cetim de Algodão 400 Fios”, sem informar 100%. Versão sustentável: Nos exemplos citados, a Buddemeyer declara 100% algodão, a Trussardi declara 100% algodão egípcio, e a Altenburg descreve o produto como cetim de algodão de 400 fios."
+    },
+    {
+      "ref": "composicao-fibras#2",
+      "msg": "OVERSTATED. O trecho lista como informação obrigatória o nome das fibras ou filamentos têxteis e seus percentuais em massa, mas não especifica, no trecho citado, que essa exigência se aplica “quando se trata de mistura de fibras” nem menciona expressamente a etiqueta. Versão sustentável: O Inmetro lista como informação obrigatória o nome das fibras ou filamentos têxteis e seus percentuais em massa."
+    },
+    {
+      "ref": "etiquetagem-e-cuidados#1",
+      "msg": "OVERSTATED. Os trechos citam dois produtos da Karsten, ambos descritos como 100% algodão, mas não dizem que são de percal nem sustentam a referência a fabricantes no plural. A atribuição à Karsten está correta. Versão sustentável: A Karsten declara, para dois lençóis de algodão, instruções como: lavação a 40 °C ou 60 °C, proibido alvejar, secagem em tambor a no máximo 60 °C, ferro a no máximo 150 °C e proibido lavar a seco."
+    },
+    {
+      "ref": "medidas-declaradas#0.r0",
+      "msg": "MISATTRIBUTED. Os trechos da Corttex sustentam as medidas do lençol de solteiro e a referência ao produto de 300 fios, mas não dizem que o tecido é de cetim nem mencionam percal. Assim, a classificação do tecido é atribuída à Corttex sem que o trecho a apresente. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “Solteiro — Lençol (Corttex, 300 fios): 1,60 m × 2,50 m”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r1",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol com elástico de solteiro e o produto de 300 fios, mas não identifica o tecido como cetim nem menciona percal. Essa classificação é atribuída à Corttex sem apoio literal. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo apenas a medida declarada pela Corttex: “Solteiro — Lençol com elástico (Corttex, 300 fios): 88 cm × 1,88 m × 30 cm”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r2",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol de casal e o produto de 300 fios, mas não diz que se trata de cetim nem menciona percal. A identificação do tecido é atribuída à Corttex sem que o trecho a contenha. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “Casal — Lençol (Corttex, 300 fios): 2,20 m × 2,40 m”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r3",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol com elástico de casal e o produto de 300 fios, mas não identifica o tecido como cetim nem menciona percal. A classificação do tecido não está no trecho citado. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “Casal — Lençol com elástico (Corttex, 300 fios): 1,38 m × 1,88 m × 40 cm”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r4",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol queen e o produto de 300 fios, mas não afirma que o tecido é cetim nem menciona percal. Essa informação foi atribuída à Corttex sem apoio no trecho. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “Queen — Lençol (Corttex, 300 fios): 2,40 m × 2,60 m”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r5",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol com elástico queen e o produto de 300 fios, mas não identifica o tecido como cetim nem menciona percal. A classificação do tecido não é dita pela fonte citada. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “Queen — Lençol com elástico (Corttex, 300 fios): 1,60 m × 2,00 m × 40 cm”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r6",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol king e o produto de 300 fios, mas não diz que o tecido é cetim nem menciona percal. A identificação do tecido é atribuída à Corttex sem base literal. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “King — Lençol (Corttex, 300 fios): 2,50 m × 2,70 m”."
+    },
+    {
+      "ref": "medidas-declaradas#0.r7",
+      "msg": "MISATTRIBUTED. O trecho sustenta as medidas do lençol com elástico king e o produto de 300 fios, mas não identifica o tecido como cetim nem menciona percal. Essa classificação não aparece na evidência citada. Versão sustentável: Remover “em lençóis de percal e cetim” e “Cetim”, mantendo: “King — Lençol com elástico (Corttex, 300 fios): 1,93 m × 2,03 m × 40 cm”."
+    },
+    {
+      "ref": "como-decidir-cetim-percal#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam percal a partir de 180 fios e cetim em 300 fios, mas não sustentam a generalização \"300 fios ou mais\" para cetim. Versão sustentável: Característica: Contagem de fios mínima | Percal: a partir de 180 fios, segundo Buddemeyer | Cetim: 300 fios, segundo Karsten e Buddemeyer."
+    },
+    {
+      "ref": "como-decidir-cetim-percal#0.r2",
+      "msg": "MISATTRIBUTED. Embora o título do produto da Trussardi contenha \"Cetim 300 Fios\", o trecho de quantidade de fios citado informa \"300 Fios Percal\". Assim, o exemplo é apresentado como cetim apesar da descrição citada indicar percal. Versão sustentável: Composição declarada em exemplos de produto | Percal: 100% algodão, no exemplo da Appel de 300 fios percal | Trussardi: 100% algodão egípcio; o trecho citado informa 300 fios percal, embora o título do produto contenha \"Cetim\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 2352
+  }
+}
