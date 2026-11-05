@@ -1,0 +1,77 @@
+{
+  "run_id": "20261105T120936_pillow-top-o-que-e-e-vale-a-pena-fonte_f6b1",
+  "topic": "pillow-top-o-que-e-e-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_4784d42e97f5",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_07bbd6432e6a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2271d2689baf",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_07bbd6432e6a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c0e146660c69",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_07bbd6432e6a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4784d42e97f5",
+      "question_id": "q_ajuste_c4956f17",
+      "source_id": "src_07bbd6432e6a",
+      "new": false
+    },
+    {
+      "claim_id": "clm_c0e146660c69",
+      "question_id": "q_ajuste_c4956f17",
+      "source_id": "src_07bbd6432e6a",
+      "new": false
+    },
+    {
+      "claim_id": "clm_e2a5892940fa",
+      "question_id": "q_ajuste_fe3336ff",
+      "source_id": "src_07bbd6432e6a",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade_pillowtop": 0,
+    "q_definicao_pillowtop": 2,
+    "q_fixo_ou_removivel": 1,
+    "q_altura_total": 0,
+    "q_certificacao_inmetro": 0,
+    "q_garantia_pillowtop": 0,
+    "q_ajuste_fe3336ff": 1,
+    "q_ajuste_c9c3cbbc": 0,
+    "q_ajuste_c4956f17": 2
+  },
+  "unanswered": [
+    "q_peso_densidade_pillowtop",
+    "q_altura_total",
+    "q_certificacao_inmetro",
+    "q_garantia_pillowtop",
+    "q_ajuste_c9c3cbbc"
+  ],
+  "usage": {
+    "input_tokens": 3713,
+    "output_tokens": 801,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_07bbd6432e6a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    }
+  ],
+  "credits": 0.5422176
+}
