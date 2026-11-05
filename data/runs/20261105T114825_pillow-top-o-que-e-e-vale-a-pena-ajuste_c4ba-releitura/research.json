@@ -1,0 +1,150 @@
+{
+  "run_id": "20261105T114825_pillow-top-o-que-e-e-vale-a-pena-ajuste_c4ba-releitura",
+  "topic": "pillow-top-o-que-e-e-vale-a-pena",
+  "accepted": [
+    {
+      "claim_id": "clm_b1050968cac8",
+      "question_id": "q_definicao_pillowtop",
+      "source_id": "src_9f659de4bc0a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4f27c796a8df",
+      "question_id": "q_fixo_ou_removivel",
+      "source_id": "src_9f659de4bc0a",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_9f659de4bc0a",
+      "question_id": "q_altura_total",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Altura do Colchão: 30 cm\nAltura da Base Box: 26 cm\nAltura dos pezinhos: 12 cm\nAltura do Conjunto: 68 cm"
+    },
+    {
+      "source_id": "src_9f659de4bc0a",
+      "question_id": "q_certificacao_inmetro",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Certificação Inmetro: Fábrica GO - 004646/2024, Fábrica MS - 013683/2024, Fábrica MT - 006380/2024, Fábrica PB - 005483/2024"
+    },
+    {
+      "source_id": "src_9f659de4bc0a",
+      "question_id": "q_garantia_pillowtop",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Garantia: 12 Meses Estrutura, 3 Meses Tecido"
+    },
+    {
+      "source_id": "src_9f659de4bc0a",
+      "question_id": "q_peso_densidade_pillowtop",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Suporte de peso: 130 kg por pessoa"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_pillowtop": 0,
+    "q_definicao_pillowtop": 1,
+    "q_fixo_ou_removivel": 1,
+    "q_altura_total": 0,
+    "q_certificacao_inmetro": 0,
+    "q_garantia_pillowtop": 0,
+    "q_ajuste_fe3336ff": 0,
+    "q_ajuste_c9c3cbbc": 0,
+    "q_ajuste_c4956f17": 0
+  },
+  "unanswered": [
+    "q_peso_densidade_pillowtop",
+    "q_altura_total",
+    "q_certificacao_inmetro",
+    "q_garantia_pillowtop",
+    "q_ajuste_fe3336ff",
+    "q_ajuste_c9c3cbbc",
+    "q_ajuste_c4956f17"
+  ],
+  "usage": {
+    "input_tokens": 3512,
+    "output_tokens": 756,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_2dcccfbb1253",
+    "src_3184bd94b53b",
+    "src_563b65260e1f"
+  ],
+  "triage": [
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.05
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.08
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_3184bd94b53b",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_563b65260e1f",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.08
+    },
+    {
+      "source_id": "src_563b65260e1f",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.03
+    },
+    {
+      "source_id": "src_563b65260e1f",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.06
+    },
+    {
+      "source_id": "src_563b65260e1f",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0.05
+    },
+    {
+      "source_id": "src_563b65260e1f",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_9f659de4bc0a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.64
+    }
+  ],
+  "credits": 2.41019112
+}
