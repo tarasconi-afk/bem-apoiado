@@ -1,0 +1,58 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-diferencia#0",
+      "o-que-diferencia#1"
+    ],
+    "decision_criteria": [
+      "Para quem precisa de mais de 188 cm de comprimento, escolher o solteirão de 100 × 200 cm ou o solteiro king equivalente, e confirmar a medida da base.",
+      "Para quarto estreito, considerar o solteiro de 88 × 188 cm, desde que sobrem espaço para móveis e circulação.",
+      "Para quem quer mais largura e tem espaço para 128 cm, escolher o viúva de 128 × 188 cm.",
+      "Conferir no anúncio a largura e o comprimento exatos, porque os nomes solteirão e solteiro king variam entre fabricantes.",
+      "Confirmar se a medida do colchão é compatível com a base ou o estrado disponível."
+    ],
+    "missing": [
+      "Uma regra mais explícita relacionando cada tamanho ao número de pessoas e ao uso pretendido, já que o viúva oferece mais espaço, mas não é apresentado como opção para duas pessoas.",
+      "Medidas compatíveis de base ou estrado informadas pelos fabricantes, em vez de apenas dimensões de colchões.",
+      "Uma comparação com a folga necessária para circulação e móveis no quarto, além da largura nominal do colchão."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que a escolha depende principalmente do espaço disponível e do comprimento desejado, com medidas concretas para solteiro, solteirão e viúva. A tabela e os blocos de decisão orientam o leitor a conferir largura, comprimento e compatibilidade com a base antes da compra. Há repetição nos blocos “O que diferencia”, mas ela não compromete a utilidade geral.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "base-compativel#0"
+    ],
+    "decision_criteria": [
+      "Para quem precisa de mais de 188 cm de comprimento, conferir o solteirão de 100 × 200 cm da Probel ou o solteiro king de 100 × 200 cm da Castor.",
+      "Para quarto estreito, considerar o solteiro de 88 × 188 cm e verificar também o espaço necessário para circulação e móveis.",
+      "Para quem quer mais largura e tem pelo menos 128 cm disponíveis, escolher o viúva de 128 × 188 cm.",
+      "Conferir as medidas exatas do colchão, da base e do espaço disponível antes da compra, porque os nomes variam entre fabricantes.",
+      "Não tratar os nomes como equivalentes entre marcas: a medida de 100 × 200 cm é chamada de solteirão pela Probel e de solteiro king pela Castor."
+    ],
+    "missing": [
+      "Uma indicação explícita de quantas pessoas podem dormir em cada tamanho, baseada em fonte primária do fabricante.",
+      "Medidas e compatibilidade da base ou do estrado para cada tamanho, em vez de apenas a menção a um kit de base box.",
+      "Uma segunda fonte primária que use explicitamente o nome solteirão e informe sua medida, para comparar fabricantes sem depender da equivalência com solteiro king."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à dúvida com medidas concretas e regras práticas para escolher entre solteiro, solteirão e viúva conforme comprimento, largura e espaço disponível. O leitor também é orientado a conferir as medidas no anúncio e a considerar a variação de nomes entre fabricantes; faltam apenas detalhes complementares sobre uso por uma ou duas pessoas e compatibilidade da base.",
+    "filler_ratio": 0.07692307692307693,
+    "model_opinion": true
+  }
+}
