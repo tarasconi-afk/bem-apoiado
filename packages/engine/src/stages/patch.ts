@@ -23,7 +23,8 @@ export function refFromWhere(where: string): string | null {
 export function tableColumns(draft: Draft, refs: string[]): Map<string, string[]> {
   const out = new Map<string, string[]>();
   for (const ref of refs) {
-    const m = /^([^#]+)#(\d+)\.r\d+$/.exec(ref);
+    // Linha (sec#0.r2) ou a tabela inteira (sec#0, quando o gate aponta a legenda ou uma coluna).
+    const m = /^([^#]+)#(\d+)(?:\.r\d+)?$/.exec(ref);
     const b = m ? draft.sections.find((x) => x.id === m[1])?.blocks[Number(m[2])] : undefined;
     if (b?.kind === 'table') out.set(ref, b.columns);
   }
@@ -56,7 +57,7 @@ export function makePatchSchema(refs: string[], claimIds: string[], columns: Map
           ctx.addIssue({ code: 'custom', message: `o bloco ${p.ref} não pode ser apagado: o título da seção já está sendo corrigido, mantenha a informação que as fontes sustentam` });
         }
         const cols = columns.get(p.ref);
-        if (cols && p.action === 'replace' && p.cells?.length !== cols.length) {
+        if (cols && p.ref.includes('.r') && p.action === 'replace' && p.cells?.length !== cols.length) {
           ctx.addIssue({ code: 'custom', message: `a linha ${p.ref} precisa de exatamente ${cols.length} células, uma por coluna (${cols.join(' | ')}); use "Não informado nas fontes" com claim_ids vazio quando faltar dado` });
         }
         if (cols && p.columns && p.columns.length !== cols.length) {
@@ -84,11 +85,13 @@ export function applyPatches(draft: Draft, patches: Patch[]): Draft {
     if (!block) continue;
     if (p.action === 'remove') {
       removals.push({ sec, block: bi, ...(ri !== undefined ? { row: ri } : {}) });
-    } else if (block.kind === 'table' && ri !== undefined) {
-      if (p.cells && p.cells.length === block.columns.length) block.rows[ri] = { cells: p.cells };
+    } else if (block.kind === 'table') {
+      // 06/11, como escolher lençol: o gate apontou a tabela inteira (coluna "Medida padrão da cama"); o redator
+      // mandou a coluna nova nas 3 rodadas, mas só remendo de linha era aplicado, e a tabela acabou removida.
+      if (ri !== undefined && p.cells && p.cells.length === block.columns.length) block.rows[ri] = { cells: p.cells };
       if (p.caption?.trim()) block.caption = p.caption.trim();
       if (p.columns && p.columns.length === block.columns.length) block.columns = p.columns;
-    } else if (block.kind !== 'table' && p.text) {
+    } else if (p.text) {
       block.text = p.text;
       block.basis = p.basis ?? block.basis;
       block.claim_ids = p.claim_ids ?? [];
@@ -161,6 +164,6 @@ export async function writePatches(
         `(de quem são os dados, que tipo de produto é), devolva também "caption" e/ou "columns" corrigidos (mesmo número ` +
         `de colunas) e cite nas células as evidências que sustentam o que a legenda e as colunas afirmam.\n`
       : '') +
-    issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}${columns.has(i.ref!) ? ` [linha de tabela: exatamente ${columns.get(i.ref!)!.length} células, colunas ${columns.get(i.ref!)!.join(' | ')}]` : ''}`).join('\n');
+    issues.filter((i) => i.ref).map((i) => `- ${i.ref}: ${i.msg}${!columns.has(i.ref!) ? '' : i.ref!.includes('.r') ? ` [linha de tabela: exatamente ${columns.get(i.ref!)!.length} células, colunas ${columns.get(i.ref!)!.join(' | ')}]` : ` [tabela inteira: corrija em "caption" e/ou "columns" (${columns.get(i.ref!)!.length} colunas: ${columns.get(i.ref!)!.join(' | ')}); não mande "cells"]`}`).join('\n');
   return callJson({ role: 'writer', system: writerSystem(), user, schema, schemaName: 'page_patches', maxTokens: 8000 }, fetchImpl);
 }

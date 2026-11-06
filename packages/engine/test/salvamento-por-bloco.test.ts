@@ -80,3 +80,26 @@ describe('tabela com problema na legenda ou no travessão (05/11, cetim ou perca
     expect(s.safeParse({ patches: [{ ...base, columns: ['Tamanho', 'Medida', 'Extra'] }] }).success).toBe(false);
   });
 });
+
+describe('gate aponta a tabela inteira (06/11, como escolher lençol)', () => {
+  const cell = (text: string) => ({ text, claim_ids: ['clm_aaaaaaaaaaaa'] });
+  const draft = {
+    title: 't', description: 'd', verdict: { text: 'v', basis: 'evidence', claim_ids: ['clm_aaaaaaaaaaaa'] },
+    sections: [{ id: 'como-decidir', heading: 'Como decidir', blocks: [
+      { kind: 'table', caption: 'Tamanho de cama e medida de lençol', columns: ['Tamanho de cama', 'Medida padrão da cama'], rows: [{ cells: [cell('Solteiro'), cell('0,88 m × 1,88 m')] }] },
+    ] }],
+  };
+
+  it('o remendo da tabela inteira troca a coluna sem mexer nas linhas', async () => {
+    const { makePatchSchema, tableColumns } = await import('../src/stages/patch.ts');
+    const cols = tableColumns(draft as never, ['como-decidir#0']);
+    expect(cols.get('como-decidir#0')).toEqual(['Tamanho de cama', 'Medida padrão da cama']);
+    const s = makePatchSchema(['como-decidir#0'], ['clm_aaaaaaaaaaaa'], cols);
+    const patch = { ref: 'como-decidir#0', action: 'replace', columns: ['Tamanho de cama', 'Medida declarada nos modelos citados'] };
+    expect(s.safeParse({ patches: [patch] }).success).toBe(true); // sem "cells"
+    const d = applyPatches(draft as never, [patch] as never);
+    const b = d.sections[0]!.blocks[0] as any;
+    expect(b.columns[1]).toBe('Medida declarada nos modelos citados');
+    expect(b.rows[0].cells[1].text).toBe('0,88 m × 1,88 m');
+  });
+});
