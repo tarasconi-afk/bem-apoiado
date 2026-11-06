@@ -1,0 +1,100 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha o tamanho do lençol conforme a cama: solteiro (0,88 m × 1,88 m), casal (1,38 m × 1,88 m), queen (1,58 m × 1,98 m) ou king (1,93 m × 2,03 m), segundo a Appel e a Castor. Para lençol com elástico, confira na ficha as medidas e a altura indicada de compatibilidade com o colchão. Confira na etiqueta os cuidados de conservação (temperatura de lavagem, secagem, passagem) declarados pelo fabricante.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0704b22751c0",
+        "clm_121dd0237943",
+        "clm_2d0771a14d8d",
+        "clm_457c0af8ed1c",
+        "clm_0ac2a5900652",
+        "clm_15a500704796",
+        "clm_a730fea8b014"
+      ]
+    },
+    {
+      "ref": "composicao-textil#0",
+      "action": "replace",
+      "text": "No lençol Percal 200 fios Hotel Deluxe da Appel, a composição é 60% algodão e 40% poliéster, conforme informado no produto.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1e273b9a3de9"
+      ]
+    },
+    {
+      "ref": "composicao-textil#1",
+      "action": "replace",
+      "text": "Se você prioriza respirabilidade, absorção e secagem rápida, procure lençol de percal, pois a Buddemeyer descreve tecidos de percal com essas características. Confira a composição declarada na ficha do modelo específico que pretende comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_35887e6649c3"
+      ]
+    },
+    {
+      "ref": "tipos-acabamento-fios#1",
+      "action": "replace",
+      "text": "Cetim é um tipo de acabamento declarado em lençóis. A Altenburg declara um modelo como cetim de algodão com 400 fios, e a Buddemeyer lista um jogo de cama como cetim de 300 fios e 100% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_34ea99b443a3",
+        "clm_5712cd58862c"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "Cada lençol deve informar cuidados de conservação na etiqueta. Segundo o Inmetro, essa informação pode ser indicada por símbolos, textos ou ambos, conforme a escolha do fabricante ou responsável.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a730fea8b014"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "action": "replace",
+      "text": "Os cuidados de conservação variam conforme o lençol. Exemplos de instruções declaradas incluem lavação a 40°C ou 60°C, permissão ou restrição para secar em secadora, secagem em varal, ferro de passar de até 110°C a 150°C, e permissão ou proibição de alvejante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_208252be8e73",
+        "clm_2d2227266924",
+        "clm_0102678ce439",
+        "clm_acfac29b6570"
+      ]
+    },
+    {
+      "ref": "medidas-tamanho#2",
+      "action": "replace",
+      "text": "Os lençóis com elástico declarados apresentam profundidades ou alturas de colchão compatível que variam conforme o modelo: compatibilidade com até 30 cm de altura, ou medidas como 1,93 m × 2,03 m × 40 cm ou 1,40 m × 1,90 m × 45 cm. Confira a medida informada na ficha do produto específico que você pretende comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_15a500704796",
+        "clm_0ac2a5900652",
+        "clm_301907fd7033",
+        "clm_5bf1f3cc3b1e",
+        "clm_59c5e4e51c00",
+        "clm_6a64688383d1"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas das camas e mostram fichas de lençóis com medidas e altura máxima compatível, mas não dizem que se devem conferir na etiqueta os cuidados de conservação nem especificam temperatura de lavagem, secagem e passagem. O trecho do Inmetro apenas afirma que certa informação pode ser indicada por símbolos ou textos pelo fabricante ou importador, sem identificar essa informação como cuidados de conservação."
+    },
+    {
+      "ref": "tipos-acabamento-fios#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que os fabricantes usam “cetim” nas descrições de produtos de cama, mas não dizem que cetim é um tipo de acabamento nem estabelecem essa classificação geral para lençóis. As informações sobre 400 fios, 300 fios e 100% algodão estão apoiadas."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. O trecho citado não afirma que cada lençol deve informar cuidados de conservação; apenas diz como essa informação pode ser indicada quando aplicável. A exigência geral foi acrescentada sem suporte no trecho."
+    },
+    {
+      "ref": "medidas-tamanho#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam compatibilidade com colchões de até 30 cm e informam medidas de lençóis como 1,93 m × 2,03 m × 40 cm, 1,40 m × 1,90 m × 30 cm/35 cm e 1,40 m × 1,90 m × 40 cm, além de 1,93 m × 2,03 m × 45 cm. Nenhum trecho informa a medida 1,40 m × 1,90 m × 45 cm, nem afirma que as medidas de 40 cm e 45 cm sejam alturas de colchão compatível."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as medidas dos tamanhos de cama e que tamanho ou dimensão deve constar na identificação do produto, mas não sustentam a recomendação geral de medir a altura do colchão e escolher aba igual ou maior, nem a orientação de conferir na etiqueta composição e cuidados de conservação. As fichas citadas apenas informam capacidades específicas de altura de colchão.",
+      "fix": "As fontes citadas listam as medidas de camas solteiro, casal, queen e king. Em exemplos da Appel, as fichas de lençóis com elástico informam as dimensões do lençol e a altura de colchão compatível, como até 30 cm ou 40 cm. O Inmetro determina a indicação de tamanho ou dimensão na identificação do produto têxtil."
+    },
+    {
+      "ref": "composicao-textil#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Appel apenas informam a composição de um produto (60% algodão e 40% poliéster); não dizem que a etiqueta deve obrigatoriamente indicar o percentual de cada fibra. O trecho do Inmetro citado também não sustenta essa exigência, e nenhum trecho citado apresenta um exemplo de 100% algodão.",
+      "fix": "A Appel informa que um de seus lençóis é composto por 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-textil#1",
+      "verdict": "OVERSTATED",
+      "problem": "A relação entre percal, respirabilidade, absorção e secagem rápida aparece apenas no trecho da Buddemeyer. Os trechos da Altenburg e da Appel informam composições de produtos, mas não sustentam essas propriedades; portanto, atribuir a recomendação conjuntamente a Buddemeyer, Altenburg e Appel excede as evidências.",
+      "fix": "Se você prioriza respirabilidade, absorção e secagem rápida, procure lençol de percal, pois a Buddemeyer descreve tecidos de percal com essas características. Confira também a composição: os trechos citados mostram exemplos de 100% algodão e de 60% algodão com 40% poliéster."
+    },
+    {
+      "ref": "tipos-acabamento-fios#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-acabamento-fios#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sustentam que a Altenburg declara cetim de algodão com 400 fios e que a Buddemeyer lista jogo de cama cetim de 300 fios e 100% algodão. Portanto, não sustentam dizer que Altenburg e Buddemeyer indicam cetim em modelos de 300 fios; a evidência da Altenburg mostra 400 fios.",
+      "fix": "A Altenburg declara tecido cetim de algodão com 400 fios, enquanto a Buddemeyer lista jogo de cama cetim de 300 fios e 100% algodão."
+    },
+    {
+      "ref": "tipos-acabamento-fios#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados mostram produtos de 140 fios e de 200 fios, mas não mencionam 180 nem 300 fios. Também não dizem que quanto maior a contagem, mais denso é o tecido.",
+      "fix": "A contagem declarada varia entre os produtos citados: há um item Sultan Day by Day de 140 fios e itens Altenburg e Karsten de 200 fios."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado apenas diz que uma informação pode ser indicada por símbolos, textos ou ambos. Ele não afirma que a etiqueta deve obrigatoriamente informar cuidados de conservação nem enumera temperatura de lavagem, secagem, passagem, lavagem a seco ou alvejamento.",
+      "fix": "A informação pode ser indicada por símbolos, textos ou ambos, conforme a opção do fabricante, importador ou responsável pela marca."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam exemplos de lavagem a 40°C e 60°C, restrições ou permissões de secagem, alvejante e ferro de até 110°C. Porém, não sustentam a faixa de ferro entre 110°C e 150°C; os exemplos citados indicam no máximo 110°C.",
+      "fix": "Exemplos de cuidados, segundo a Trussardi e a Teka, incluem lavagem a 40°C ou 60°C, restrição ou permissão para secadora, secagem em varal, ferro de passar de até 110°C e permissão ou proibição de alvejante."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanho#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas que a indicação de tamanho ou dimensão é obrigatória, quando aplicável, e deve constar na identificação do produto têxtil. Não sustentam que fabricantes declaram lençóis no formato largura × comprimento × altura de aba nem o exemplo numérico apresentado.",
+      "fix": "A indicação de tamanho ou dimensão, quando aplicável, é obrigatória e deve constar na etiqueta ou em outra forma de identificação do produto têxtil."
+    },
+    {
+      "ref": "medidas-tamanho#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa que um produto específico da Döhler, sem elástico, pode ser usado como sobrelençol e mede 1,40 m × 2,50 m. Não afirma como regra geral que todo lençol sem elástico tenha apenas duas medidas, nem que isso ocorre porque não possui aba para prender no colchão.",
+      "fix": "Segundo a Döhler, seu lençol avulso sem elástico pode ser usado como sobrelençol e mede 1,40 m × 2,50 m."
+    },
+    {
+      "ref": "medidas-tamanho#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram medidas de altura diferentes entre produtos citados, mas não demonstram variação entre modelos da mesma marca e do mesmo tamanho: na Karsten, os exemplos de 40 cm e 45 cm são, respectivamente, casal e king. Além disso, as fontes não dizem para sempre conferir a ficha do produto.",
+      "fix": "Os produtos citados apresentam alturas de aba de 30 cm, 35 cm, 40 cm e 45 cm; por isso, confira a medida informada na ficha do produto específico."
+    },
+    {
+      "ref": "como-decidir-tamanho-altura#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram medidas de lençóis e a indicação de dimensões, mas não dizem que o consumidor deve medir largura, comprimento e altura do colchão nem que a altura da aba deve ser igual ou maior que a do colchão. Também não há trecho que use o termo ou estabeleça essa regra para a aba.",
+      "fix": "Se você vai comprar lençol com elástico, confira na ficha as medidas informadas e a altura máxima ou compatibilidade indicada para o colchão; os exemplos citados mostram dimensões e, no caso da Appel, compatibilidade com colchões de até 30 cm."
+    },
+    {
+      "ref": "como-decidir-tamanho-altura#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Döhler afirma que um modelo sem elástico pode ser usado como sobrelençol e informa suas medidas. Os trechos da Appel, porém, tratam de um lençol com elástico e não sustentam a recomendação de escolher modelos sem elástico, nem a ideia de cobrir o colchão sem prender. Assim, atribuir a orientação à Döhler e à Appel excede o que a Appel disse.",
+      "fix": "Se quer uma peça para usar como sobrelençol, confira modelos sem elástico e as medidas informadas na ficha, conforme o exemplo da Döhler."
+    }
+  ]
+}
