@@ -1,0 +1,209 @@
+{
+  "run_id": "20261106T191421_cadeira-ergonomica-ou-gamer-lacuna_175d",
+  "topic": "cadeira-ergonomica-ou-gamer",
+  "queries": [
+    {
+      "q": "cadeira ergonômica ficha técnica regulagens altura assento apoio lombar braço reclinação",
+      "include_domains": [
+        "flexform.com.br",
+        "ergocadeiras.com",
+        "funcional.com.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "cadeira gamer ficha técnica peso máximo suportado regulagens especificações",
+      "include_domains": [
+        "xtracer.com.br",
+        "thunderx3.com.br",
+        "tx3brasil.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "NBR cadeira escritório ABNT norma regulação certificação",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "NR-17 ergonomia cadeira regulagens altura apoio lombar posto trabalho",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "frisokar.com.br"
+      ],
+      "results": 2
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "moveis-schuster.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "flexform.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "cadeira ergonômica ou gamer ficha técnica especificações",
+      "include_domains": [
+        "cavaletti.com.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_f739b3fe7d7b",
+      "url": "https://frisokar.com.br/produto/cadeira-de-escritorio-addit/",
+      "publisher": "Frisokar",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_fa79d97f48a3",
+      "url": "https://ergocadeiras.com/cadeira-ergonomica-como-ajustar/",
+      "publisher": "ergocadeiras",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_2d30fc9f8b6d",
+      "url": "https://ergocadeiras.com/melhores-cadeiras-ergonomicas/",
+      "publisher": "ergocadeiras",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_588ab7f4dacf",
+      "url": "https://blog.flexform.com.br/ergonomia/melhores-cadeiras-ergonomicas-black-friday/",
+      "publisher": "Flexform",
+      "source_class": "manufacturer",
+      "created": true
+    },
+    {
+      "source_id": "src_d593e2567430",
+      "url": "https://www.flexform.com.br/guias/ergonomia/ergonomia-no-trabalho",
+      "publisher": "Flexform",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 0,
+  "suggestions": [
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76105600000186/compras/2026/2/arquivos/3",
+      "title": "estudo técnico preliminar aquisição de mobiliários para ..."
+    },
+    {
+      "host": "ijui.rs.gov.br",
+      "url": "https://ijui.rs.gov.br/licitacao/download/8062",
+      "title": "de ljuí"
+    },
+    {
+      "host": "www.camarapocoverde.se.gov.br",
+      "url": "https://www.camarapocoverde.se.gov.br/sites/camarapocoverde.se.gov.br/files/AVISO%20DE%20CONTRATA%C3%87%C3%83O%20DIRETA.pdf",
+      "title": "AVISO DE CONTRATAÇÃO DIRETA.pdf"
+    }
+  ],
+  "snapshot_errors": [],
+  "tavily_credits_month": 446,
+  "triage": [
+    {
+      "url": "https://blog.flexform.com.br/ergonomia/melhores-cadeiras-ergonomicas-black-friday",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://ergocadeiras.com/cadeira-ergonomica-como-ajustar",
+      "p_useful": 0.72,
+      "keep": true
+    },
+    {
+      "url": "https://ergocadeiras.com/melhores-cadeiras-ergonomicas",
+      "p_useful": 0.96,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/ergonomia/ergonomia-no-trabalho-como-aplicar",
+      "p_useful": 0.85,
+      "keep": true
+    },
+    {
+      "url": "https://www.flexform.com.br/guias/cadeiras/cadeira-ergonomica/para-home-office",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://ergocadeiras.com/cadeira-ergonomica-pessoas-grandes",
+      "p_useful": 0.95,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/prodcert/certificados/detalhe.asp?sigla_certificador=ABNT++++&num_certificado=297.053%2F11&produto=Null&sel_marcaprod=S&sel_modeloprod=S&sel_desproduto=S",
+      "p_useful": 0.37,
+      "keep": false
+    },
+    {
+      "url": "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/norma-regulamentadora-no-17-nr-17",
+      "p_useful": 0.04,
+      "keep": false
+    },
+    {
+      "url": "https://frisokar.com.br/produto/cadeira-de-escritorio-addit",
+      "p_useful": 0.53,
+      "keep": true
+    },
+    {
+      "url": "https://frisokar.com.br",
+      "p_useful": 0,
+      "keep": false
+    }
+  ],
+  "sitemaps": [
+    {
+      "host": "frisokar.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "moveis-schuster.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "flexform.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "cavaletti.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "ergocadeiras.com",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "funcional.com.br",
+      "urls": 0,
+      "picked": []
+    }
+  ],
+  "llm_credits": 25.303842120000002
+}
