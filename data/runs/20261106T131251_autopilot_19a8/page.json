@@ -1,0 +1,49 @@
+{
+  "slug": "como-escolher-edredom",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 65416,
+    "output_tokens": 21359,
+    "calls": 27
+  },
+  "credits": 26.28449976,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta não diz rapidamente qual tamanho, material ou tipo de enchimento escolher para cada situação; apenas orienta a conferir a ficha.",
+      "A página menciona o tamanho king, mas não apresenta sua medida na tabela.",
+      "Não há orientação concreta sobre gramatura para verão, inverno ou meia-estação."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha um edredom cujo tamanho declarado corresponda à cama; a tabela informa 1,50 × 2,10 m para solteiro, 2,00 × 2,10 m para casal, 2,20 × 2,40 m para queen e 2,40 × 2,60 m para queen plus.",
+      "Se prefere enchimento sintético e quer evitar contato com plumas, procure poliéster na ficha técnica.",
+      "Se prefere enchimento natural, procure a declaração de 100% plumas de ganso.",
+      "Se prefere revestimento de algodão, confira se a ficha informa percal 100% algodão.",
+      "Se quer tecido flanelado, procure a indicação de tecido flanelado ou Flannel com Microfibra.",
+      "Confira se o modelo está disponível no tamanho da sua cama antes de comprar.",
+      "Verifique na etiqueta as instruções de lavagem, alvejante, secagem, passadoria e lavagem a seco."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta não diz rapidamente qual tamanho, material ou tipo de enchimento escolher para cada situação; apenas orienta a conferir a ficha.",
+      "Para o leitor leigo: A página menciona o tamanho king, mas não apresenta sua medida na tabela.",
+      "Para o leitor leigo: Não há orientação concreta sobre gramatura para verão, inverno ou meia-estação.",
+      "Uma tabela do fabricante relacionando solteiro, casal, queen e king às medidas do edredom, incluindo a medida do king.",
+      "Gramaturas declaradas pelo fabricante para verão, meia-estação e inverno, ou uma regra de escolha por faixa de gramatura.",
+      "Composição da etiqueta do próprio edredom, com os percentuais do tecido externo e do enchimento.",
+      "Instruções de conservação específicas do edredom, não apenas de jogos de cama.",
+      "Peso e medidas da embalagem declarados pelo fabricante.",
+      "Explicação documentada sobre edredom dupla face com duas gramaturas e identificação de cada lado."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável como guia parcial: oferece critérios concretos para escolher tamanho, composição, enchimento natural ou sintético e tecido, além de orientar o que conferir na ficha. Porém, a resposta rápida é genérica, não informa a medida king e não ajuda a escolher pelo calor desejado, pois faltam gramaturas para verão e inverno e informações específicas de etiqueta do edredom.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

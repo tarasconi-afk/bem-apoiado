@@ -1,0 +1,74 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que o colchão dupla face resolve pesos ou preferências diferentes ao permitir que cada pessoa escolha seu lado, mas o trecho só descreve dois lados do colchão e diz que cada um escolhe o lado naquela noite; o casal não usa lados diferent"
+    ],
+    "filler_refs": [
+      "molas-ensacadas-casal#2",
+      "molas-bonnell-casal#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Escolher a densidade da espuma conforme o peso de cada pessoa: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Para casais com pesos diferentes ou que se mexem durante a noite, preferir molas ensacadas, que reduzem a transferência de movimento entre os lados.",
+      "Comparar o peso de cada pessoa com o limite de peso por pessoa informado na ficha técnica do modelo, sem considerar apenas a soma do casal.",
+      "Considerar colchões dupla face quando o casal tem preferência por firmezas diferentes; o exemplo citado oferece D33, mais firme, e D28, mais macio.",
+      "Verificar na ficha técnica a densidade nominal, a espessura das camadas de espuma e o limite de peso por pessoa."
+    ],
+    "missing": [
+      "Uma orientação do fabricante explicando como escolher um único colchão quando os pesos do casal caem em faixas de densidade diferentes.",
+      "Especificação de fabricantes sobre se o limite por pessoa também deve ser convertido ou conferido como limite total para o casal.",
+      "Modelos de colchão misto, com espuma e molas, relacionando a construção ao suporte para pessoas de pesos diferentes.",
+      "Informação de fabricante sobre a transmissão de movimento em colchões com molas Bonnel quando os pesos dos ocupantes são diferentes.",
+      "Uma explicação mais clara sobre a aplicação de colchões dupla face para um casal, já que os níveis de firmeza são apresentados como lados do colchão e não necessariamente como metades independentes para cada pessoa."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece regras concretas para escolher a densidade pelo peso de cada pessoa, recomenda molas ensacadas para reduzir a transferência de movimento e orienta a conferir o limite de peso por pessoa na ficha técnica. Há alguma repetição entre os blocos e faltam orientações específicas para colchões mistos, molas Bonnel e para o caso em que cada pessoa se enquadra em uma densidade diferente, mas a resposta principal é direta e útil para a compra.",
+    "filler_ratio": 0.12,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "como-decidir#1",
+        "problem": "O leitor pode entender que o colchão dupla face resolve pesos ou preferências diferentes ao permitir que cada pessoa escolha seu lado, mas o trecho só descreve dois lados do colchão e diz que cada um escolhe o lado naquela noite; o casal não usa lados diferentes ao mesmo tempo.",
+        "fix": "Reescrever para apresentar o Iso Dupla Face apenas como opção para quem alterna entre firmeza maior e toque mais macio, sem dizer que ele atende simultaneamente às diferenças entre as pessoas, ou tirar o bloco."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#4"
+    ],
+    "decision_criteria": [
+      "Compare o peso de cada pessoa com a tabela de densidade: até 50 kg, D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+      "Quando os pesos ficam em faixas diferentes, escolha uma densidade que atenda à pessoa mais pesada.",
+      "Se o movimento de uma pessoa costuma acordar a outra, prefira molas ensacadas individualmente, que reduzem a transferência de movimento.",
+      "Se o casal prefere firmezas diferentes, confira modelos dupla face, como o Iso Dupla Face, com lado D33 mais firme e lado D28 mais macio.",
+      "Confira o limite de peso por pessoa na ficha técnica e compare-o com o peso de cada ocupante; o Iso Dupla Face informa limite de 80 kg por pessoa e o Prohotel Robuste, 200 kg por pessoa.",
+      "O molejo Bonnel oferece resistência progressiva: quanto maior o peso, maior a resistência."
+    ],
+    "missing": [
+      "Informação de fabricante sobre se a densidade escolhida para a pessoa mais pesada é adequada também para a pessoa mais leve e como ficam conforto e firmeza para ambos.",
+      "Especificação de fabricantes sobre modelos com firmeza diferente em cada lado da cama; a página apresenta um colchão dupla face com dois lados de firmeza diferente, mas não esclarece se cada ocupante pode usar uma firmeza diferente simultaneamente.",
+      "Informação de fabricante sobre a capacidade total do colchão de casal e se ela corresponde à soma dos limites individuais.",
+      "Orientação de fabricante sobre colchões mistos de espuma e molas para casais com pesos diferentes.",
+      "Especificação de fabricante sobre a transmissão de movimento em colchões com molas Bonnel."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que a densidade deve atender ao ocupante mais pesado, oferece faixas concretas de peso, orienta sobre molas ensacadas e indica o que conferir na ficha técnica. Ela não cobre todas as perguntas da pauta, especialmente colchões mistos, limite total somado e transmissão de movimento nas molas Bonnel, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.037037037037037035,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor pode entender que o Iso Dupla Face resolve a diferença de firmeza do casal, mas os trechos só dizem que o modelo tem dois lados de firmezas diferentes; eles não mostram como duas pessoas usam essas firmezas ao mesmo tempo.",
+      "fix": "Reescrever para dizer apenas que o Iso Dupla Face permite escolher entre um lado D33, mais firme, e outro D28, mais macio, sem apresentá-lo como solução para o casal usar firmezas diferentes simultaneamente."
+    }
+  ],
+  "usage": {
+    "input_tokens": 38970,
+    "output_tokens": 5188,
+    "calls": 3
+  }
+}

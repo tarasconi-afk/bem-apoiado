@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete orientar sobre gramatura, mas a página não explica qual gramatura escolher nem o que conferir sobre ela.",
+      "fix": "Retirar “gramatura” do título e da descrição, prometendo apenas orientação sobre tamanho, composição do enchimento e revestimento e cuidados da etiqueta."
+    }
+  ],
+  "usage": {
+    "input_tokens": 21020,
+    "output_tokens": 3895,
+    "calls": 3
+  }
+}
