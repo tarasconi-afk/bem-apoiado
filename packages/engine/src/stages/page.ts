@@ -78,6 +78,22 @@ export function toPageSpec(draft: Draft, topic: TopicBrief, runId: string, audit
   });
 }
 
+// Números da descrição que não estão no título. A descrição não tem fonte citada e nunca passou pelo auditor: em 05/11
+// o rascunho do lençol solteirão dizia "colchão 1,00 × 2,00 m: medidas sem elástico 1,50 × 2,40 m" (a medida era de um
+// item "Solteiro" da Altenburg), e 9 páginas no ar transformavam dado de um fabricante em regra ("até 80 kg D33 basta").
+// Número que está no título (D33 ou D45, 200 ou 400 fios) é o nome da dúvida, não um fato novo.
+const NUM = /\d+(?:[.,]\d+)?/g;
+export function descriptionNumbers(d: { title: string; description: string }): string[] {
+  const inTitle = new Set(d.title.match(NUM) ?? []);
+  return [...new Set((d.description.match(NUM) ?? []).filter((n) => !inTitle.has(n)))];
+}
+
+export function neutralDescription(title: string): string {
+  const t = title.replace(/[.:;!?]+$/, '');
+  const d = `${t}: o que conferir na ficha e no anúncio para decidir antes de comprar.`;
+  return d.length <= 160 ? d : `${t.slice(0, 160 - 60).replace(/\s+\S*$/, '')}: o que conferir na ficha e no anúncio antes de comprar.`;
+}
+
 // Regras de forma que não são integridade de evidência, mas também barram a página.
 // ref null = problema da página inteira.
 export function styleIssues(draft: Draft): Issue[] {
@@ -145,6 +161,8 @@ export function styleIssues(draft: Draft): Issue[] {
   }
   for (const d of duplicateBlocks(draft)) out.push({ ref: d.ref, msg: `repete o bloco ${d.of} (${Math.round(d.overlap * 100)}% das palavras): corte este bloco ou diga só o que ele acrescenta.` });
   if (draft.title.includes('—')) out.push({ ref: null, msg: 'title: remova o travessão (—).' });
+  const dn = descriptionNumbers(draft);
+  if (dn.length) out.push({ ref: 'description', msg: `a descrição para o Google afirma ${dn.join(', ')}, que não está no título e não passa pelo auditor: diga o que o leitor decide e o que confere, sem número ou medida.` });
   if (total > 1600) out.push({ ref: null, msg: `página com ${total} palavras; encurte para no máximo 1400, cortando o que não ajuda a decidir.` });
   // A decisão fecha a página: "escolher" no meio (ex.: "densidade e como escolher") não conta.
   const last = draft.sections.at(-1);
@@ -507,19 +525,27 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
     }));
     issues = [...gate, ...styleIssues(draft), ...decisionIssues(draft, (id) => idx.claims.get(id)?.claim_type)];
     let findings: AuditFinding[] = [];
-    // 2) Auditoria semântica só quando o gate passa (não paga auditor para rascunho quebrado).
-    if (issues.length === 0) {
+    // 2) Auditoria semântica só quando o gate passa (não paga auditor para rascunho quebrado). A descrição com número
+    // não segura o auditor: ela é consertada à parte, e o conteúdo precisa estar auditado se a saída for a descrição neutra.
+    if (issues.every((i) => i.ref === 'description')) {
       const a = await auditDraft(draft, idx.claims, idx.sources, fetchImpl, cache);
       add(a.usage, a.usage.calls);
       findings = a.findings;
       lastFindings = findings;
-      issues = findings
+      issues = [...issues, ...findings
         .filter((f) => f.verdict !== 'SUPPORTED')
-        .map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}${f.fix ? ` Versão sustentável: ${f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix}` : ''}` }));
+        .map((f) => ({ ref: f.ref, msg: `${f.verdict}. ${f.problem}${f.fix ? ` Versão sustentável: ${f.ref === 'verdict' ? verdictFormOf(f.fix) : f.fix}` : ''}` }))];
     }
     writeStage(runId, `audit-r${round}`, { findings, open_issues: issues });
 
     if (issues.length === 0) return finish(draft, round + 1);
+  }
+  // A descrição seguiu com número depois das rodadas: troca por uma neutra feita do título (nenhum fato, nada a
+  // auditar) e os consertos finais seguem só com o resto; a página não se perde pelo texto do Google.
+  if (draft && issues.some((i) => i.ref === 'description')) {
+    draft = { ...draft, description: neutralDescription(draft.title) };
+    issues = issues.filter((i) => i.ref !== 'description');
+    if (issues.length === 0 && ![...checkPage(toPageSpec(draft, topic, runId, 'pending'), idx), ...styleIssues(draft)].length) return finish(draft, MAX_FIX_ROUNDS + 1);
   }
   // Não convergiu: adota a versão que o próprio auditor disse que as fontes sustentam (mesmas fontes do
   // bloco) e audita só esses blocos. 22/10: a cadeira gamer parou duas vezes com 6 exageros que tinham, cada
@@ -615,7 +641,7 @@ async function buildPageInner(slug: string, runId: string, fetchImpl?: FetchLike
   // Não convergiu, mas sobraram poucos blocos sem prova: remove esses blocos (remover nunca acrescenta
   // fato) e, se o gate passar, segue para a revisão editorial como qualquer página. Antes, 1 bloco ruim
   // descartava a página inteira depois de 4 rodadas pagas do redator (21/10: 37,8 créditos perdidos).
-  if (draft && issues.length > 0 && salvageBlocks(issues) <= SALVAGE_MAX && issues.every((i) => i.ref && i.ref !== 'verdict')) {
+  if (draft && issues.length > 0 && salvageBlocks(issues) <= SALVAGE_MAX && issues.every((i) => i.ref && i.ref !== 'verdict' && i.ref !== 'description')) {
     const salvaged = applyPatches(draft, issues.map((i) => ({ ref: i.ref!, action: 'remove' as const })));
     const gate = [...checkPage(toPageSpec(salvaged, topic, runId, 'pending'), idx), ...styleIssues(salvaged)];
     if (gate.length === 0 && salvaged.sections.length >= 2) {

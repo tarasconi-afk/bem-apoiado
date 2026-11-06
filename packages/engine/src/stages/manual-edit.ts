@@ -21,6 +21,12 @@ export function applyTextEdits(d: Draft, edits: Record<string, string>): { draft
   const changed: string[] = [];
   for (const [ref, raw] of Object.entries(edits)) {
     const text = raw.replace(/\s+/g, ' ').trim();
+    // Título e descrição para o Google (06/11): sem fonte citada, passam só pelas regras de forma (tamanho, travessão,
+    // número na descrição que não está no título).
+    if (ref === 'title' || ref === 'description') {
+      if (text && text !== draft[ref]) (draft[ref] = text), changed.push(ref);
+      continue;
+    }
     if (ref === 'verdict') {
       if (text && text !== draft.verdict.text) (draft.verdict.text = text), changed.push(ref);
       continue;
@@ -38,15 +44,21 @@ export async function manualEdit(page: PageSpec, edits: Record<string, string>, 
   const base: Draft = { title: page.title, description: page.description, verdict: page.verdict, sections: page.sections };
   const { draft, changed } = applyTextEdits(base, edits);
   if (!changed.length) return { status: 'UNCHANGED' };
+  const touched = new Set(changed);
+  const size = [
+    ...(touched.has('title') && (draft.title.length < 10 || draft.title.length > 70) ? [{ ref: 'title', msg: `o título tem ${draft.title.length} caracteres; use de 10 a 70` }] : []),
+    ...(touched.has('description') && (draft.description.length < 50 || draft.description.length > 160) ? [{ ref: 'description', msg: `a descrição tem ${draft.description.length} caracteres; use de 50 a 160` }] : []),
+  ];
+  if (size.length) return { status: 'REJECTED', problems: size };
   const idx = buildIndex();
   const spec = PageSpec.parse({ ...page, ...draft });
-  const touched = new Set(changed);
   const gate = [
     ...checkPage(spec, idx).map((v) => ({ ref: v.where, msg: `${v.code} ${v.detail}` })),
-    ...styleIssues(draft).filter((i) => i.ref && touched.has(i.ref)).map((i) => ({ ref: i.ref!, msg: i.msg })),
+    ...styleIssues(draft).filter((i) => (i.ref && touched.has(i.ref)) || (touched.has('title') && /^title:/.test(i.msg))).map((i) => ({ ref: i.ref ?? 'title', msg: i.msg })),
   ];
   if (gate.length) return { status: 'REJECTED', problems: gate };
-  const a = await auditDraft(draft, idx.claims, idx.sources, fetchImpl, new Map(), touched);
+  const blocks = new Set([...touched].filter((r) => r !== 'title' && r !== 'description'));
+  const a = blocks.size ? await auditDraft(draft, idx.claims, idx.sources, fetchImpl, new Map(), blocks) : { findings: [] };
   writeStage(runId, 'manual-edit', { slug: page.slug, changed, findings: a.findings });
   const bad = a.findings.filter((f) => f.verdict !== 'SUPPORTED');
   if (bad.length) return { status: 'REJECTED', problems: bad.map((f) => ({ ref: f.ref, msg: `${f.verdict}: ${f.problem}${f.fix ? ` Versão que as fontes sustentam: "${f.fix}"` : ''}` })) };

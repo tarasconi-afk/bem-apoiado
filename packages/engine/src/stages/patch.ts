@@ -74,6 +74,11 @@ export function applyPatches(draft: Draft, patches: Patch[]): Draft {
   const d: Draft = structuredClone(draft);
   const removals: { sec: string; block: number; row?: number }[] = [];
   for (const p of patches) {
+    if (p.ref === 'description') {
+      const t = p.text?.replace(/\s+/g, ' ').trim();
+      if (p.action === 'replace' && t && t.length >= 50 && t.length <= 160) d.description = t;
+      continue;
+    }
     if (p.ref === 'verdict') {
       if (p.action === 'replace' && p.text) d.verdict = { text: p.text, basis: p.basis ?? d.verdict.basis, claim_ids: p.claim_ids ?? [] };
       continue;
@@ -150,6 +155,7 @@ export async function writePatches(
   const context = {
     title: draft.title,
     ...(touched.has('verdict') ? { verdict: draft.verdict } : {}),
+    ...(touched.has('description') ? { description: draft.description } : {}),
     sections: draft.sections.filter((s) => touched.has(s.id)),
   };
   const user =

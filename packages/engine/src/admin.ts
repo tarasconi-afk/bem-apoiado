@@ -954,6 +954,8 @@ function editHtml(page: ReturnType<typeof loadPages>[number]): string {
 <p><a href="${BASE}">← painel</a></p><h1 style="font-size:1.3rem">${esc(page.title)}</h1>
 <p style="color:#5b6159">Mude só o texto. As fontes citadas de cada bloco continuam as mesmas, e o auditor confere se o texto novo ainda é sustentado por elas (~0,1 crédito). Se não for, nada é salvo e o motivo aparece em "Últimas ações".</p>
 <form method="post" action="${BASE}acao"><input type="hidden" name="acao" value="editar"><input type="hidden" name="slug" value="${esc(page.slug)}">
+<div class="b"><div class="l">Título no Google (10 a 70 caracteres)</div><textarea name="b:title" rows="1">${esc(page.title)}</textarea></div>
+<div class="b"><div class="l">Descrição no Google (50 a 160 caracteres)</div><textarea name="b:description" rows="2">${esc(page.description)}</textarea><div class="q">Sem fonte citada: diga o que o leitor decide e confere, sem número ou medida que não esteja no título.</div></div>
 ${blocks.map((b) => `<div class="b"><div class="l">${esc(b.label)}</div><textarea name="b:${esc(b.ref)}" rows="${Math.min(10, Math.ceil(b.text.length / 90) + 1)}">${esc(b.text)}</textarea>${b.claim_ids.length ? `<div class="q">Fontes: ${b.claim_ids.map((id) => `"${esc((claims.get(id)?.quote ?? id).slice(0, 140))}"`).join(' · ')}</div>` : '<div class="q">Frase de contexto (sem fato e sem fonte).</div>'}</div>`).join('')}
 <button>Salvar (passa pelo auditor)</button></form>`;
 }
@@ -1482,7 +1484,7 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
       if (!Slug.safeParse(slug).success || !loadPages().some((p) => p.slug === slug)) msg = 'página inválida';
       else {
         const edits: Record<string, string> = {};
-        for (const [k, v] of f) if (k.startsWith('b:') && /^[a-z0-9-]+#\d+$|^verdict$/.test(k.slice(2))) edits[k.slice(2)] = v.slice(0, 2000);
+        for (const [k, v] of f) if (k.startsWith('b:') && /^[a-z0-9-]+#\d+$|^(verdict|title|description)$/.test(k.slice(2))) edits[k.slice(2)] = v.slice(0, 2000);
         const dir = join(STATE, 'edits');
         mkdirSync(dir, { recursive: true });
         const file = join(dir, `${Date.now().toString(36)}.json`);
