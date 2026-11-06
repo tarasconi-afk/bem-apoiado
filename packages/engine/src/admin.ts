@@ -293,7 +293,7 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
   const topics = loadTopics();
   const titleOf = (s?: string) => pages.find((p) => p.slug === s)?.title ?? s ?? '';
   const pageFor = (kind?: string) => pages.find((p) => p.status !== 'draft' && topics.find((t) => t.slug === p.slug)?.product_kinds.includes(kind ?? ''))?.slug;
-  const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
+  const query = /^(?:Tentativa \(rascunho\)|Tentativa sem página|Página nova): (.+)$/.exec(b.subject)?.[1];
   const outcome = plainOutcome(b.steps);
   const review = reviewFrom(readBranch(b.branch), slug);
   // Por que cada mudança está aqui, em uma frase para o editor.
@@ -326,7 +326,8 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
   const groups = new Map<string, ChangeItem[]>();
   for (const it of items) groups.set(target(it), [...(groups.get(target(it)) ?? []), it]);
   const groupHtml = [...groups].map(([s, its]) => `<div class="pg"><p class="pg-title">${s ? `<strong>${esc(titleOf(s))}</strong>${prev(`${esc(s)}/`, 'abrir prévia')}` : '<strong>Site todo</strong>'}</p><ul class="changes">${its.map(item).join('')}</ul></div>`).join('');
-  const draftNew = query && !items.some((i) => i.id === `page:${slug}`);
+  // Só promete rascunho quando a página foi escrita (06/11: o cobertor parou na redação e o cartão dizia o contrário).
+  const draftNew = query && !/^Tentativa sem página/.test(b.subject) && !/^não virou página/.test(outcome ?? '') && !items.some((i) => i.id === `page:${slug}`);
   return `<div class="result" data-pending>
 <p class="result-head"><strong>Resultado do ciclo de ${esc(fmt(b.when))}</strong>${b.cost !== null ? ` <span class="muted">· custo ~${b.cost.toFixed(1)} créditos</span>` : ''}</p>
 ${items.length ? `<form method="post" action="acao" onsubmit="return confirm('Aplicar só os itens marcados? Os desmarcados não entram (produto recusado não volta).')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${failedNote(slug)}
@@ -385,7 +386,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     try { items = gitChanges(`origin/${b.branch}`).summary.items; } catch { /* sem leitura: cartão informativo */ }
     // Resultado de um pedido em texto livre (ramo pagina/pedido-*): a página é a que o pedido mudou.
     if (slug === 'pedido') slug = items.find((i) => i.id.startsWith('page:'))?.slug ?? items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find(Boolean) ?? 'pedido';
-    const query = /^(?:Tentativa \(rascunho\)|Página nova): (.+)$/.exec(b.subject)?.[1];
+    const query = /^(?:Tentativa \(rascunho\)|Tentativa sem página|Página nova): (.+)$/.exec(b.subject)?.[1];
     const outcome = plainOutcome(b.steps);
     const rv = reviewFrom(readBranch(b.branch), slug)?.review ?? null;
     const failed = !!failedNow(slug);

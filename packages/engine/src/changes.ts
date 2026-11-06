@@ -214,6 +214,8 @@ export function plainOutcome(steps: string[]): string | null {
   if (!page) return null;
   if (page.startsWith('page: PASS')) return 'virou página aprovada pela auditoria e pela revisão';
   if (page.startsWith('page: NOT_PUBLISHABLE')) return 'virou rascunho: a revisão achou a página fraca; ela aparece em "Páginas: seu veredito" para você decidir';
+  // 06/11 (cobertor): "parou por segurança antes de publicar algo sem fonte" não era o caso; foi formato.
+  if (/LLM_INVALID_OUTPUT/.test(page)) return 'não virou página: o redator devolveu o texto fora do formato duas vezes; a pesquisa ficou guardada e a pauta volta a ser escrita num próximo ciclo';
   if ((research && research[1] === '0') || /INSUFFICIENT_EVIDENCE/.test(page)) return `não virou página: as fontes encontradas não responderam às perguntas da pauta (${research?.[1] ?? 'poucas'} evidências); o motor tenta de novo com outras buscas`;
   if (/AUDIT_NOT_CONVERGED/.test(page)) return 'não virou página: o auditor achou afirmações sem fonte que o redator não conseguiu corrigir em 3 voltas';
   if (page.startsWith('page: SAFE_STOP')) return 'não virou página: o motor parou por segurança antes de publicar algo sem fonte';

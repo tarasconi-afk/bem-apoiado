@@ -7,6 +7,28 @@ import { Basis, Slug, type Claim, type TopicBrief } from '@bem-apoiado/core';
 export const sectionId = (v: unknown) =>
   typeof v === 'string' ? v.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : v;
 
+// A descrição para o Google acima de 160 caracteres é encurtada em vez de derrubar o rascunho inteiro. 06/11, como
+// escolher cobertor: o Haiku devolveu a descrição longa duas vezes, a página parou (SAFE_STOP) com 38 evidências e
+// 4 regras de escolha prontas, e 25,3 créditos saíram sem página (02/11, solteirão: mesma causa no id da seção).
+// Corta no fim da última frase que cabe; sem frase inteira, na última vírgula ou palavra, sem conectivo solto no fim.
+// A descrição não cita fonte; o encurtamento só tira texto, e as regras da descrição (número fora do título) seguem.
+const MAX_DESC = 160;
+const MIN_DESC = 50;
+const DANGLING = /\s+(?:e|ou|de|da|do|das|dos|em|no|na|nos|nas|para|por|com|sem|que|a|o|as|os|um|uma|ao|à|se|mas)$/i;
+export function fitDescription(v: unknown): unknown {
+  if (typeof v !== 'string') return v;
+  const s = v.replace(/\s+/g, ' ').trim();
+  if (s.length <= MAX_DESC) return s;
+  for (let i = MAX_DESC - 1; i >= MIN_DESC - 1; i--) {
+    if (/[.!?]/.test(s.charAt(i)) && s.charAt(i + 1) === ' ') return s.slice(0, i + 1);
+  }
+  let cut = s.slice(0, MAX_DESC - 1);
+  const comma = cut.lastIndexOf(', ');
+  cut = comma >= MIN_DESC ? cut.slice(0, comma) : cut.replace(/\s+\S*$/, '');
+  for (let prev = ''; prev !== cut; ) { prev = cut; cut = cut.replace(/[\s,;:–—-]+$/, '').replace(DANGLING, ''); }
+  return cut.length >= MIN_DESC - 1 ? `${cut}.` : v;
+}
+
 // Schema do rascunho com claim_ids como ENUM FECHADO das evidências desta pauta.
 // O redator não consegue citar um id que não recebeu (lição do projeto anterior: atribuição por enum).
 export function makeDraftSchema(claimIds: string[]) {
@@ -15,7 +37,7 @@ export function makeDraftSchema(claimIds: string[]) {
   const Text = z.object({ text: z.string().min(1), basis: Basis, claim_ids: Refs });
   return z.object({
     title: z.string().min(10).max(70),
-    description: z.string().min(50).max(160),
+    description: z.preprocess(fitDescription, z.string().min(MIN_DESC).max(MAX_DESC)),
     verdict: z.object({ text: z.string().min(20), basis: Basis, claim_ids: Refs }),
     sections: z
       .array(

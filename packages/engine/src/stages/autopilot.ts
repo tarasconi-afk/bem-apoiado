@@ -1,4 +1,5 @@
 import { cutAtWord } from '../board.ts';
+import { plainOutcome } from '../changes.ts';
 import { reuseEvidence } from './reuse.ts';
 import { ensureAnchors } from './links.ts';
 import { ensureSearchLinks } from './search-links.ts';
@@ -751,7 +752,9 @@ export async function runCycle(runId: string): Promise<CycleResult> {
     return done(maintained ? { status: 'MAINTENANCE', slug: 'manutencao', steps } : { status: 'STOPPED', slug: topic.slug, query, steps });
   }
   const page = loadPages().find((p) => p.slug === topic.slug);
-  const status = page && page.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT';
+  // Sem página gravada não há rascunho: 06/11, o cobertor parou na redação e o PR dizia "deixa o rascunho em
+  // Páginas: seu veredito", que não existia.
+  const status = !page ? 'STOPPED' : page.status !== 'draft' ? 'PAGE_APPROVED' : 'PAGE_DRAFT';
   // Página aprovada neste ciclo já sai com exemplos à venda, se sobrar orçamento.
   if (status === 'PAGE_APPROVED') {
     await maintainProducts(runId, steps, topic.slug);
@@ -850,13 +853,15 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
 function writePrSummary(r: CycleResult, runId: string): void {
   const dir = join(ROOT, '.pr');
   mkdirSync(dir, { recursive: true });
-  const title = r.status === 'MAINTENANCE' ? 'Manutenção: produtos, imagens e re-auditoria' : r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : `Tentativa (rascunho): ${r.query}`;
+  const noPage = r.status === 'STOPPED';
+  const title = r.status === 'MAINTENANCE' ? 'Manutenção: produtos, imagens e re-auditoria' : r.status === 'PAGE_APPROVED' ? `Página nova: ${r.query}` : noPage ? `Tentativa sem página: ${r.query ?? r.slug}` : `Tentativa (rascunho): ${r.query}`;
   const body = [
     `**Pauta:** ${r.query ?? '— (manutenção)'}`,
     // 28/10: dizia "não será publicada; o merge só guarda o aprendizado", e não é verdade — o rascunho entra em
     // "Páginas: seu veredito" e o editor pode aprová-lo (foi o que aconteceu com os dois travesseiros, hoje no
     // ar). O painel já dizia certo; o texto do commit tinha ficado para trás e contradizia a tela.
-    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 manutenção: produtos (disponibilidade, exemplos novos), imagens e correções da re-auditoria em páginas no ar; veja a prévia antes de aceitar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : '📝 rascunho: não vai ao ar com o merge. Ele guarda o aprendizado (fontes, evidências, lacunas) e deixa o rascunho em "Páginas: seu veredito", onde você aprova, pede correção ou recusa'}`,
+    // 06/11: sem página gravada (STOPPED), não há rascunho para veredito; o merge guarda só o aprendizado.
+    `**Resultado:** ${r.status === 'MAINTENANCE' ? '🔧 manutenção: produtos (disponibilidade, exemplos novos), imagens e correções da re-auditoria em páginas no ar; veja a prévia antes de aceitar' : r.status === 'PAGE_APPROVED' ? '✅ aprovada pela auditoria e pela revisão editorial: o merge publica' : noPage ? `⛔ ${plainOutcome(r.steps) ?? 'não virou página'}. Não há rascunho para veredito: o merge guarda só o aprendizado (fontes, evidências, lacunas)` : '📝 rascunho: não vai ao ar com o merge. Ele guarda o aprendizado (fontes, evidências, lacunas) e deixa o rascunho em "Páginas: seu veredito", onde você aprova, pede correção ou recusa'}`,
     '',
     '**Etapas:**',
     ...r.steps.map((s) => `- ${s}`),
