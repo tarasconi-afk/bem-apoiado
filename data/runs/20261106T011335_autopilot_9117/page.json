@@ -1,0 +1,37 @@
+{
+  "slug": "lencol-de-cetim-ou-percal-diferenca",
+  "status": "PASS",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 73694,
+    "output_tokens": 30203,
+    "calls": 27
+  },
+  "credits": 25.594930679999994,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha percal se prioriza respirabilidade, absorção e secagem rápida; a Buddemeyer associa essa trama a tecidos a partir de 180 fios.",
+      "Escolha cetim se prefere brilho suave e aparência mais elegante; a Buddemeyer usa trama de cetim em tecidos de 300 fios.",
+      "Confira a contagem de fios no anúncio: os exemplos apresentados associam 180 fios ao percal e 300 fios ao cetim, segundo a Buddemeyer.",
+      "Confira a composição na etiqueta ou ficha: há percal 100% algodão e também mistura de 60% algodão com 40% poliéster, enquanto os exemplos de cetim citados são 100% algodão.",
+      "Verifique as medidas e os cuidados de lavagem do modelo específico, pois variam conforme fabricante, tamanho e tipo de lençol."
+    ],
+    "missing": [
+      "Uma comparação baseada em mais fabricantes mostrando se os valores de 180 fios para percal e 300 fios para cetim são apenas exemplos da Buddemeyer ou referências usadas de forma mais ampla.",
+      "Gramatura declarada pelos fabricantes para modelos de cetim e percal.",
+      "Uma tabela comparando medidas equivalentes de modelos de cetim e percal no mesmo tamanho.",
+      "Exemplos de cuidados de lavagem para os dois tipos em modelos comparáveis."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: explica a diferença entre percal e cetim pela trama, relaciona a contagem de fios a exemplos concretos e oferece uma regra prática de escolha por respirabilidade, secagem, brilho e composição. O leitor também sabe conferir a etiqueta e a ficha do produto, embora faltem dados de gramatura e uma comparação mais ampla entre fabricantes.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

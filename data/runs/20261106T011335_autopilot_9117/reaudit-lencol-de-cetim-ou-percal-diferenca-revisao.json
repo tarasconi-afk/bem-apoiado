@@ -1,0 +1,65 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0.r0",
+      "como-decidir#0.r1",
+      "como-decidir#0.r2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Escolha percal se prioriza respirabilidade, absorção e secagem rápida, características atribuídas pela Buddemeyer a tecidos percal a partir de 180 fios.",
+      "Escolha cetim se prefere brilho suave e aparência mais elegante, produzidos pela trama que reflete mais luz.",
+      "Confira a contagem de fios no anúncio: a Buddemeyer menciona percal a partir de 180 fios e cetim em seus tecidos de 300 fios.",
+      "Confira a composição na etiqueta ou ficha: há percal 100% algodão e também 60% algodão com 40% poliéster; os exemplos de cetim citados são 100% algodão.",
+      "Verifique no anúncio ou na etiqueta as medidas do lençol, especialmente se tem elástico e a altura do colchão.",
+      "Confira os símbolos ou instruções de lavagem, secagem, alvejamento, temperatura do ferro e lavagem a seco."
+    ],
+    "missing": [
+      "Uma comparação mais ampla, com fontes primárias de diferentes fabricantes, explicando que a contagem de fios não é uma regra universal para classificar todo tecido como cetim ou percal.",
+      "Faixas de contagem de fios e composições declaradas especificamente em fichas de vários modelos de cetim e percal.",
+      "Gramatura declarada pelos fabricantes para os modelos comparados.",
+      "Correção ou esclarecimento da medida apresentada como “1,40 cm”, que pode confundir o leitor na hora da compra."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: explica a diferença prática entre percal e cetim pela trama, aparência e características de uso, e dá critérios concretos para conferir contagem de fios, composição, medidas e cuidados no anúncio. A resposta poderia ser mais completa com uma comparação de vários fabricantes e com gramatura, mas não fica apenas no “depende”.",
+    "filler_ratio": 0.2222222222222222,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0.r1"
+    ],
+    "decision_criteria": [
+      "Escolha percal se prioriza respirabilidade, absorção e secagem rápida, características atribuídas pela Buddemeyer a tecidos a partir de 180 fios.",
+      "Escolha cetim se prefere brilho suave e aparência mais elegante, características atribuídas pela Buddemeyer à trama de cetim de 300 fios.",
+      "Confira a contagem de fios e a descrição da trama na ficha do produto, pois os exemplos apresentados são classificações de fabricantes específicos.",
+      "Confira a composição na etiqueta: há modelos de percal 100% algodão e modelos com 60% algodão e 40% poliéster; os exemplos de cetim citados são 100% algodão.",
+      "Confira também as medidas, a altura do colchão compatível e as instruções de lavagem na ficha ou etiqueta."
+    ],
+    "missing": [
+      "Uma comparação mais explícita de que a classificação por contagem de fios pode variar entre fabricantes, para não sugerir que 180 fios e 300 fios sejam limites universais.",
+      "Exemplos de contagem de fios e composição declarados por mais fabricantes para permitir uma comparação menos dependente da Buddemeyer.",
+      "Gramatura declarada em fichas de produtos de cetim e percal, já que essa informação é uma das perguntas da pauta.",
+      "Correção ou esclarecimento da medida informada como 1,40 cm no lençol de percal, que provavelmente deveria estar em metros."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente à diferença entre cetim e percal e oferece uma regra prática baseada em trama, contagem de fios, aparência, respirabilidade e composição. O leitor também sabe conferir composição, medidas e cuidados no anúncio. A principal limitação é que os valores de 180 e 300 fios vêm de uma classificação específica da Buddemeyer e não são apresentados como regra universal; faltam ainda dados de gramatura.",
+    "filler_ratio": 0.05555555555555555,
+    "model_opinion": true
+  }
+}

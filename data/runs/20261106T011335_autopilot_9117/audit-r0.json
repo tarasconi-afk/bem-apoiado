@@ -1,0 +1,162 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que tecidos a partir de 180 fios são chamados de percal, que são respiráveis, absorvem bastante e secam rapidamente, e que os 300 fios da Buddemeyer usam trama de cetim com fios paralelos que refletem a luz. Porém, não dizem que a trama do percal é cruzada nem que o cetim tem 300 fios ou mais como regra geral; mencionam especificamente os 300 fios da Buddemeyer. Os exemplos de composição sustentam a existência de percal 100% algodão e de percal 60% algodão/40% poliéster.",
+      "fix": "Segundo os trechos citados, na descrição da Buddemeyer, tecidos a partir de 180 fios são chamados de percal e são descritos como respiráveis, de alta absorção e secagem rápida; os 300 fios da Buddemeyer usam trama de cetim, com mais fios paralelos que refletem a luz e dão brilho suave. A composição pode variar, como mostram exemplos de percal 100% algodão e de percal com 60% algodão e 40% poliéster; confira a etiqueta."
+    },
+    {
+      "ref": "tecelagem-contagem-fios#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos dizem que tecidos a partir de 180 fios têm trama percal e que os 300 fios da Buddemeyer usam trama de cetim, mas não especificam lençóis. A aplicação exclusiva a lençóis excede o que está citado.",
+      "fix": "Segundo a Buddemeyer, tecidos a partir de 180 fios têm trama percal, enquanto os seus tecidos de 300 fios são confeccionados em trama de cetim. A contagem de fios refere-se ao número total de fios entrelaçados em uma polegada quadrada, considerando comprimento e largura, segundo a Karsten."
+    },
+    {
+      "ref": "tecelagem-contagem-fios#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Buddemeyer relaciona os fios paralelos, a reflexão da luz e o brilho suave aos seus tecidos de 300 fios em trama de cetim. O bloco generaliza essa descrição para o cetim em geral e omite a condição de 300 fios.",
+      "fix": "Segundo a Buddemeyer, seus tecidos de 300 fios são confeccionados em trama de cetim, com mais fios paralelos que refletem a luz e apresentam brilho suave e elegante."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibras#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibras#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-dimensoes#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A citação da Appel mostra “1,40cm”, não “1,40 m”, e não informa no trecho que se trata de lençol com elástico. Além disso, os trechos apresentam apenas exemplos em tamanho casal e não sustentam a afirmação geral de que as medidas variam conforme o tamanho.",
+      "fix": "A Appel informa, no trecho citado, a medida “1,40cm x 1,90m x 30cm” para seu produto casal; a Andreza informa “1,40 m x 1,90 m x 30 cm” para o lençol casal com elástico da linha Premium."
+    },
+    {
+      "ref": "medidas-dimensoes#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Corttex informa as medidas para o tamanho casal, mas não diz que o produto é de cetim. A associação com cetim só aparece no título do produto da Trussardi. O trecho da Trussardi também apresenta “2,00 x 40cm”, sem a unidade “m” após 2,00.",
+      "fix": "A Corttex declara, para tamanho casal, lençol avulso de 2,20 m x 2,40 m e lençol com elástico de 1,38 m x 1,88 m x 40 cm. A Trussardi declara, para seu jogo de cama solteiro de cetim, sobre lençol de 1,70 m x 2,80 m e lençol de baixo de 1,00 m x 2,00 x 40 cm."
+    },
+    {
+      "ref": "medidas-dimensoes#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos exigem a indicação quando aplicável, mas dizem que ela deve estar em um dos meios admitidos — como etiqueta, selo, rótulo, decalque, carimbo ou estampagem — e não necessariamente especificamente na etiqueta.",
+      "fix": "O Inmetro exige que a indicação de tamanho ou dimensão conste no produto têxtil, quando aplicável, por um dos meios admitidos, como etiqueta, selo, rótulo, decalque, carimbo ou estampagem."
+    },
+    {
+      "ref": "instrucoes-lavagem#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos tornam obrigatória a informação sobre cuidados, mas não dizem que ela deve constar especificamente na etiqueta. Além disso, mencionam também importador e outros responsáveis, não apenas o fabricante.",
+      "fix": "O Inmetro informa que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve seguir a NM ISO 3758:2013. Ela pode ser indicada por símbolos, textos ou ambos, conforme a opção do fabricante, importador ou outro responsável aplicável."
+    },
+    {
+      "ref": "instrucoes-lavagem#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Karsten identifica um produto de algodão, mas não o identifica como lençol de percal. Portanto, os dados da Karsten não podem ser apresentados como regras para lençóis de percal em geral.",
+      "fix": "No produto da Karsten citado, a marca declara lavação a 40°C, proibição de alvejar e lavar a seco, secagem em tambor até 60°C e ferro até 150°C. Para o lençol de percal da Appel citado, a marca orienta lavar antes do primeiro uso, usar sabão neutro, evitar cloro, secar à sombra e passar em temperatura média."
+    },
+    {
+      "ref": "instrucoes-lavagem#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que o percal tem trama cruzada. Eles apenas associam o percal a tecidos a partir de 180 fios; para o cetim, mencionam fios paralelos que refletem a luz.",
+      "fix": "Percal: segundo a Buddemeyer, tecidos a partir de 180 fios têm trama de percal. Cetim: segundo a Buddemeyer, seus tecidos de 300 fios têm trama de cetim, com mais fios paralelos que refletem a luz."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que os tecidos de percal começam em 180 fios, mas não sustenta que 300 fios seja uma contagem mínima para cetim. A fonte diz apenas que os tecidos de 300 fios da Buddemeyer são confeccionados em trama de cetim.",
+      "fix": "Característica: contagem mencionada pela Buddemeyer | Percal: tecidos a partir de 180 fios | Cetim: os tecidos de 300 fios da Buddemeyer são confeccionados em trama de cetim."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos dizem que tecidos a partir de 180 fios com trama de percal são conhecidos por serem respiráveis, terem alta absorção e secagem rápida, mas não dizem especificamente que se trata de 'lençóis' da Buddemeyer.",
+      "fix": "Se você prioriza respirabilidade, absorção e secagem rápida, o percal pode ser uma opção: segundo a Buddemeyer, tecidos de percal a partir de 180 fios são conhecidos por essas características."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os exemplos sustentam a existência de percal 100% algodão e de percal com 60% algodão e 40% poliéster. O trecho do Inmetro, porém, diz que todo produto têxtil deve informar a natureza, a porcentagem e o nome genérico das fibras; ele não especifica no trecho que o fabricante deve fazer isso na etiqueta.",
+      "fix": "Se a composição da fibra é decisiva para você, confira as informações de composição do produto: há percal 100% algodão e também percal com 60% algodão e 40% poliéster. Segundo o Inmetro, todo produto têxtil deve informar a natureza, a porcentagem e o nome genérico das fibras que o compõem."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que tecidos a partir de 180 fios são chamados de percal, que são respiráveis, absorvem bastante e secam rapidamente, e que os 300 fios da Buddemeyer usam trama de cetim com fios paralelos que refletem a luz. Porém, não dizem que a trama do percal é cruzada nem que o cetim tem 300 fios ou mais como regra geral; mencionam especificamente os 300 fios da Buddemeyer. Os exemplos de composição sustentam a existência de percal 100% algodão e de percal 60% algodão/40% poliéster. Versão sustentável: Na descrição da Buddemeyer, tecidos a partir de 180 fios são chamados de percal e são descritos como respiráveis, de alta absorção e secagem rápida; os 300 fios da Buddemeyer usam trama de cetim, com mais fios paralelos que refletem a luz e dão brilho suave, segundo os trechos citados. A composição pode variar, como mostram exemplos de percal 100% algodão e de percal com 60% algodão e 40% poliéster; confira a etiqueta."
+    },
+    {
+      "ref": "tecelagem-contagem-fios#0",
+      "msg": "OVERSTATED. Os trechos dizem que tecidos a partir de 180 fios têm trama percal e que os 300 fios da Buddemeyer usam trama de cetim, mas não especificam lençóis. A aplicação exclusiva a lençóis excede o que está citado. Versão sustentável: Segundo a Buddemeyer, tecidos a partir de 180 fios têm trama percal, enquanto os seus tecidos de 300 fios são confeccionados em trama de cetim. A contagem de fios refere-se ao número total de fios entrelaçados em uma polegada quadrada, considerando comprimento e largura, segundo a Karsten."
+    },
+    {
+      "ref": "tecelagem-contagem-fios#1",
+      "msg": "OVERSTATED. O trecho da Buddemeyer relaciona os fios paralelos, a reflexão da luz e o brilho suave aos seus tecidos de 300 fios em trama de cetim. O bloco generaliza essa descrição para o cetim em geral e omite a condição de 300 fios. Versão sustentável: Segundo a Buddemeyer, seus tecidos de 300 fios são confeccionados em trama de cetim, com mais fios paralelos que refletem a luz e apresentam brilho suave e elegante."
+    },
+    {
+      "ref": "medidas-dimensoes#0",
+      "msg": "MISATTRIBUTED. A citação da Appel mostra “1,40cm”, não “1,40 m”, e não informa no trecho que se trata de lençol com elástico. Além disso, os trechos apresentam apenas exemplos em tamanho casal e não sustentam a afirmação geral de que as medidas variam conforme o tamanho. Versão sustentável: A Appel informa, no trecho citado, a medida “1,40cm x 1,90m x 30cm” para seu produto casal; a Andreza informa “1,40 m x 1,90 m x 30 cm” para o lençol casal com elástico da linha Premium."
+    },
+    {
+      "ref": "medidas-dimensoes#1",
+      "msg": "MISATTRIBUTED. O trecho da Corttex informa as medidas para o tamanho casal, mas não diz que o produto é de cetim. A associação com cetim só aparece no título do produto da Trussardi. O trecho da Trussardi também apresenta “2,00 x 40cm”, sem a unidade “m” após 2,00. Versão sustentável: A Corttex declara, para tamanho casal, lençol avulso de 2,20 m x 2,40 m e lençol com elástico de 1,38 m x 1,88 m x 40 cm. A Trussardi declara, para seu jogo de cama solteiro de cetim, sobre lençol de 1,70 m x 2,80 m e lençol de baixo de 1,00 m x 2,00 x 40 cm."
+    },
+    {
+      "ref": "medidas-dimensoes#2",
+      "msg": "OVERSTATED. Os trechos exigem a indicação quando aplicável, mas dizem que ela deve estar em um dos meios admitidos — como etiqueta, selo, rótulo, decalque, carimbo ou estampagem — e não necessariamente especificamente na etiqueta. Versão sustentável: O Inmetro exige que a indicação de tamanho ou dimensão conste no produto têxtil, quando aplicável, por um dos meios admitidos, como etiqueta, selo, rótulo, decalque, carimbo ou estampagem."
+    },
+    {
+      "ref": "instrucoes-lavagem#0",
+      "msg": "UNSUPPORTED. Os trechos tornam obrigatória a informação sobre cuidados, mas não dizem que ela deve constar especificamente na etiqueta. Além disso, mencionam também importador e outros responsáveis, não apenas o fabricante. Versão sustentável: O Inmetro informa que a informação sobre os cuidados para a conservação do produto têxtil é obrigatória e deve seguir a NM ISO 3758:2013. Ela pode ser indicada por símbolos, textos ou ambos, conforme a opção do fabricante, importador ou outro responsável aplicável."
+    },
+    {
+      "ref": "instrucoes-lavagem#1",
+      "msg": "UNSUPPORTED. O trecho da Karsten identifica um produto de algodão, mas não o identifica como lençol de percal. Portanto, os dados da Karsten não podem ser apresentados como regras para lençóis de percal em geral. Versão sustentável: No produto da Karsten citado, a marca declara lavação a 40°C, proibição de alvejar e lavar a seco, secagem em tambor até 60°C e ferro até 150°C. Para o lençol de percal da Appel citado, a marca orienta lavar antes do primeiro uso, usar sabão neutro, evitar cloro, secar à sombra e passar em temperatura média."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que o percal tem trama cruzada. Eles apenas associam o percal a tecidos a partir de 180 fios; para o cetim, mencionam fios paralelos que refletem a luz. Versão sustentável: Percal: segundo a Buddemeyer, tecidos a partir de 180 fios têm trama de percal. Cetim: segundo a Buddemeyer, seus tecidos de 300 fios têm trama de cetim, com mais fios paralelos que refletem a luz."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. O trecho sustenta que os tecidos de percal começam em 180 fios, mas não sustenta que 300 fios seja uma contagem mínima para cetim. A fonte diz apenas que os tecidos de 300 fios da Buddemeyer são confeccionados em trama de cetim. Versão sustentável: Característica: contagem mencionada pela Buddemeyer | Percal: tecidos a partir de 180 fios | Cetim: os tecidos de 300 fios da Buddemeyer são confeccionados em trama de cetim."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos dizem que tecidos a partir de 180 fios com trama de percal são conhecidos por serem respiráveis, terem alta absorção e secagem rápida, mas não dizem especificamente que se trata de 'lençóis' da Buddemeyer. Versão sustentável: Se você prioriza respirabilidade, absorção e secagem rápida, o percal pode ser uma opção: segundo a Buddemeyer, tecidos de percal a partir de 180 fios são conhecidos por essas características."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os exemplos sustentam a existência de percal 100% algodão e de percal com 60% algodão e 40% poliéster. O trecho do Inmetro, porém, diz que todo produto têxtil deve informar a natureza, a porcentagem e o nome genérico das fibras; ele não especifica no trecho que o fabricante deve fazer isso na etiqueta. Versão sustentável: Se a composição da fibra é decisiva para você, confira as informações de composição do produto: há percal 100% algodão e também percal com 60% algodão e 40% poliéster. Segundo o Inmetro, todo produto têxtil deve informar a natureza, a porcentagem e o nome genérico das fibras que o compõem."
+    }
+  ]
+}
