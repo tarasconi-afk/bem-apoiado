@@ -135,7 +135,11 @@ export function classifyBranch(b: {
     return { kind: 'ajuste-no-ar', situation, suggestion: 'aplicar', why: 'A mudança passou na auditoria; confira o antes × depois.', correction: '', blocks };
   }
   if (b.items.length) {
+    // 06/11: a reescrita de OUTRA página no ar (enriquecimento no mesmo ciclo) não entrava no resumo nem no
+    // cartão e ia ao ar com "Aplicar" (colchão para casal: 21 trechos, com um conselho errado sobre dupla face).
+    const otherTexts = b.items.filter((i) => i.id.startsWith('page:') && i.id !== `page:${b.slug}`).length;
     const parts = [
+      otherTexts ? `texto de ${otherTexts} página(s) no ar (confira o antes → depois)` : '',
       b.items.some((i) => i.id === 'images') ? 'imagem nova' : '',
       b.items.filter((i) => i.id.startsWith('product:')).length ? `${b.items.filter((i) => i.id.startsWith('product:')).length} produto(s)` : '',
       b.items.some((i) => i.id === 'anchors' || i.id === 'search-links') ? 'links' : '',

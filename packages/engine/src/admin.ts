@@ -396,7 +396,10 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     if (info.kind === 'pauta-tentada' && !query) continue;
     const ready = existsSync(join(PREVIAS, dir, 'index.html'));
     const prevLink = (path: string, label: string) => (ready ? `<a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : '<span class="muted">sendo montada (até 5 min)</span>');
-    const visual = (it: ChangeItem) => CARD_OWN_BOX(it.id);
+    // Texto de OUTRA página que veio no mesmo ciclo (enriquecimento) tem caixa própria e antes → depois visível;
+    // antes ia escondido em `others`, marcado, e entrava no "Aplicar" sem aparecer (06/11, colchão para casal).
+    const otherPage = (it: ChangeItem) => it.id.startsWith('page:') && it.id !== `page:${slug}`;
+    const visual = (it: ChangeItem) => CARD_OWN_BOX(it.id) || otherPage(it);
     // Legenda de cada imagem (24/10, editor: "imagem nova" duas vezes, sem saber qual era a capa desta página e qual
     // era a de outra que veio junto no mesmo ciclo).
     const imgLabel = (x: string) => {
@@ -434,6 +437,10 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const extras = extraN ? `<details class="extras"><summary class="muted">${extraN} mudança(s) de outras páginas ou do site todo vieram no mesmo ciclo: ver</summary>${extraImgs}${extraProds.map(prodHtml).join('')}${siteWide.map((it) => `<div>${esc(it.title)} ${check(it, 'aceitar')}</div>`).join('')}<p class="muted">Não mudam esta página. Desmarque o que não quiser.</p></details>` : '';
     const others = items.filter((i) => !visual(i)).map((it) => `<input type="hidden" name="manter" value="${esc(it.id)}">`).join('');
     const pageItem = items.find((i) => i.id === `page:${slug}`);
+    const otherPagesHtml = items.filter(otherPage).map((it) => {
+      const s = it.id.slice('page:'.length);
+      return `<div class="pg"><strong>${esc(it.title)}</strong> ${prevLink(`${esc(s)}/`, 'abrir prévia')} ${check(it, 'aceitar este texto')}${it.diffs?.length ? `<details open><summary class="muted">antes → depois (${it.diffs.length})</summary>${it.diffs.slice(0, 30).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : ''}</div>`;
+    }).join('');
     const diffsHtml = pageItem?.diffs?.length ? `<details><summary class="muted">antes → depois (${pageItem.diffs.length})</summary>${pageItem.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
     // Manutenção: diz de qual página é a capa ou o produto, em vez de "Site todo".
     const coverOf = items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find((x) => x && pages.some((p) => p.slug === x));
@@ -453,7 +460,7 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
       ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}${shadowField(info.kind, info.suggestion, slug)}
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também entra', extras)}${row('Também neste ciclo', esc(alsoTried))}</dl>
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Texto de outra página no ar', otherPagesHtml)}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também entra', extras)}${row('Também neste ciclo', esc(alsoTried))}</dl>
 ${forceBox(slug)}</form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da

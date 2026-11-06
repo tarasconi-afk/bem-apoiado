@@ -26,6 +26,12 @@ describe('quadro de decisões', () => {
     expect([c.kind, c.suggestion]).toEqual(['manutencao', 'aplicar']);
     expect(c.situation).toContain('imagem nova, 1 produto(s)');
   });
+  it('texto de outra página no ar que veio no mesmo ciclo aparece no resumo (06/11, colchão para casal)', () => {
+    const items = [{ id: 'anchors', title: 'Links' }, { id: 'page:colchao-para-casal', title: 'Texto de "Colchão para casal": 21 trecho(s) alterado(s)' }, { id: 'product:B09', title: 'Exemplo retirado' }];
+    const c = classifyBranch({ slug: 'como-escolher-edredom', items, query: 'como escolher edredom', outcome: null, steps: [], review: null, failedAdjust: false });
+    expect(c.kind).toBe('manutencao');
+    expect(c.situation).toContain('texto de 1 página(s) no ar');
+  });
   it('pauta adiada: nada a fazer, com o que falta', () => {
     const c = classifyBranch({ slug: 'p', items: [], query: 'protetor', outcome: 'não virou página, por isso não há prévia: … Falta: fonte que diga o que o protetor resolve. Nada…', steps: ['pauta adiada antes da redação: x'], review: null, failedAdjust: false });
     expect([c.kind, c.suggestion]).toEqual(['pauta-tentada', 'nada']);
