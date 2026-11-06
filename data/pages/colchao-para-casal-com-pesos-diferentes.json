@@ -3,239 +3,115 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Colchão para casal com pesos diferentes: como escolher",
-  "description": "Escolha um colchão que suporte o peso de ambos e reduza movimento entre vocês. Confira densidade recomendada e tipo de mola na ficha.",
+  "description": "Escolha colchão de casal pela densidade do seu peso e do seu parceiro. Veja quando usar molas ensacadas e colchão dupla face.",
   "primary_query": "colchão para casal com pesos diferentes",
-  "updated_at": "2026-11-06",
+  "updated_at": "2026-11-05",
   "verdict": {
-    "text": "Se o casal tem pesos diferentes, escolha a densidade conforme o peso de cada um: segundo a Castor, até 50 kg densidade 23, de 51 a 60 kg densidade 26, de 61 a 70 kg densidade 28, de 71 a 80 kg densidade 33, de 81 a 100 kg densidade 33 a 45, e acima de 100 kg densidade 45 ou maior. Molas ensacadas individualmente, segundo a Simmons, evitam a transferência de movimento entre pessoas.",
+    "text": "Para um casal com pesos diferentes, confira a densidade recomendada para cada pessoa: segundo a Castor, até 50 kg densidade 23; de 51 a 60 kg densidade 26; de 61 a 70 kg densidade 28; de 71 a 80 kg densidade 33; de 81 a 100 kg densidade 33 a 45; acima de 100 kg densidade 45 ou maior. Molas ensacadas evitam a transferência de movimento entre as pessoas, segundo a Castor e a Simmons.",
     "basis": "reasoning",
     "claim_ids": [
       "clm_03538692a465",
-      "clm_2bfe0b0f071c"
+      "clm_78163da83401",
+      "clm_96d010e677f5"
     ]
   },
   "sections": [
     {
-      "id": "molas-ensacadas-casal",
-      "heading": "Por que molas ensacadas funcionam para casais com pesos diferentes",
+      "id": "densidade-faixa-peso",
+      "heading": "Faixas de suporte por pessoa em modelos Probel",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Colchões de molas ensacadas têm cada mola envolvida individualmente em um saco de tecido, segundo a Castor. Segundo a Castor, cada mola trabalha de forma independente, adaptando-se aos contornos do corpo e minimizando transferência de movimento para outras áreas.",
+          "text": "Segundo as páginas da Probel citadas, dois modelos de espuma D45 para casal informam suporte de até 150 kg por pessoa. A página de um colchão Probel com molas ensacadas informa suporte de até 120 kg por pessoa.",
           "basis": "evidence",
           "claim_ids": [
+            "clm_87b27d434320",
+            "clm_c1ce97ad6576",
+            "clm_cd04855fe4e4",
+            "clm_e4f1ede8a94b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "molas-ensacadas-movimento",
+      "heading": "Molas ensacadas: reduzem movimento entre os dois lados",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Segundo Ortobom e Simmons, colchões com molas ensacadas individualmente podem diminuir ou evitar a transferência de movimento entre os lados. A Castor afirma que cada mola trabalha de forma independente, adapta-se aos contornos do corpo e minimiza a transferência de movimento.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_0522b96db922",
+            "clm_2bfe0b0f071c",
+            "clm_78163da83401",
+            "clm_96d010e677f5",
             "clm_df2880298d16"
           ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Probel, quando um ocupante se mexe, o outro não sentirá absolutamente nada, graças ao sistema de isolamento de movimento oferecido pelas molas ensacadas individualmente.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_fff8b0ccca00"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "A Probel informa que o colchão se adapta ao corpo de cada pessoa que deita.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_04bccc35f45b"
-          ]
         }
       ]
     },
     {
-      "id": "colchoes-dupla-face",
-      "heading": "Colchões dupla face com firmeza diferente em cada lado",
+      "id": "peso-maximo-suportado",
+      "heading": "Peso máximo suportado: confira a declaração por pessoa",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Ortobom descreve o Iso Dupla Face como tendo dois lados com diferentes níveis de firmeza: D33, com maior sustentação, e D28, com toque mais macio. Separadamente, a Castor afirma que a densidade 33 é adequada para pessoas de peso médio a elevado e a densidade 28 para pessoas de peso leve a médio.",
+          "text": "Alguns modelos de colchão casal da Probel, como o Firmpedic PróExtreme e o Guarda Costas, são anunciados com suporte de até 150 kg por pessoa.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_fdf114a5b7ad",
-            "clm_ef14b707e1e9"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "No Iso Dupla Face da Ortobom, o fabricante declara que o colchão suporta até 80 kg por pessoa em cada lado.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_0c43575ffa3b"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "limite-peso-casal",
-      "heading": "Peso máximo que cada modelo suporta por pessoa",
-      "blocks": [
-        {
-          "kind": "table",
-          "caption": "Limite de peso por pessoa declarado pelos fabricantes",
-          "columns": [
-            "Modelo",
-            "Suporte de peso por pessoa"
-          ],
-          "rows": [
-            {
-              "cells": [
-                {
-                  "text": "Prohotel Robuste da Probel",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Segundo a Probel, 200 kg",
-                  "claim_ids": [
-                    "clm_2f5ab7b63a18"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Firmpedic PróExtreme da Probel",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Segundo a Probel, 150 kg",
-                  "claim_ids": [
-                    "clm_87b27d434320"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Guarda Costas da Probel",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Segundo a Probel, 150 kg",
-                  "claim_ids": [
-                    "clm_c1ce97ad6576"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Excede Premium da Probel",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Segundo a Probel, 120 kg",
-                  "claim_ids": [
-                    "clm_3aadeb3388f7"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Star da Probel",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Segundo a Probel, 120 kg",
-                  "claim_ids": [
-                    "clm_a763ebdd5232"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Iso Dupla Face da Ortobom",
-                  "claim_ids": []
-                },
-                {
-                  "text": "Segundo a Ortobom, 80 kg",
-                  "claim_ids": [
-                    "clm_0c43575ffa3b"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Para avaliar se um colchão serve ao casal, compare o peso de cada pessoa com o limite por pessoa que o fabricante declara no produto, segundo a Probel e a Ortobom.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_2f5ab7b63a18",
             "clm_87b27d434320",
-            "clm_3aadeb3388f7",
-            "clm_a763ebdd5232",
-            "clm_c1ce97ad6576",
-            "clm_0c43575ffa3b"
+            "clm_c1ce97ad6576"
           ]
         }
       ]
     },
     {
-      "id": "indicacao-biotipos-casais",
-      "heading": "Modelos indicados para casais com biotipos diferentes",
+      "id": "biotipos-diferentes",
+      "heading": "Casais com biotipos diferentes: o que o fabricante recomenda",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Probel declara que alguns modelos são indicados para casais com biotipos diferentes. O Firmpedic PróExtreme e o Guarda Costas trazem essa indicação em páginas de produto da Probel.",
+          "text": "A Probel indica os colchões D45 Firmpedic PróExtreme e Guarda Costas para casais com biotipos diferentes. Para escolher pela densidade conforme o peso de cada ocupante, Castor recomenda: até 50 kg densidade 23; 51 a 60 kg densidade 26; 61 a 70 kg densidade 28; 71 a 80 kg densidade 33; 81 a 100 kg densidade 33 a 45; acima de 100 kg densidade 45 ou maior.",
           "basis": "evidence",
           "claim_ids": [
             "clm_cd04855fe4e4",
-            "clm_d764d3890d66"
+            "clm_d764d3890d66",
+            "clm_03538692a465"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "A Probel afirma que suas molas ensacadas são uma escolha perfeita para casais com biotipos diferentes e que, quando um parceiro se movimenta durante a noite, o outro não sentirá nada.",
+          "text": "Ao avaliar a densidade, consulte as faixas indicadas pela Castor conforme o peso de cada ocupante; para pessoas acima de 100 kg, o trecho indica densidade 45 ou maior.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_65e001291eb8"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "molas-bonnell-casal",
-      "heading": "Molas Bonnel: diferença para casais",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Probel, o molejo Bonnel tem formato bicônico e oferece resistência progressiva: quanto maior o peso, maior a resistência.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_1b81a321a301"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Castor e a Ortobom, molas ensacadas podem ser indicadas para colchões de casal por reduzirem a interferência dos movimentos de uma pessoa no sono da outra.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_78163da83401",
-            "clm_0522b96db922"
+            "clm_03538692a465",
+            "clm_85a0052e1579"
           ]
         }
       ]
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir",
+      "heading": "Como decidir pelo peso de cada pessoa",
       "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Se um de vocês pesa até 80 kg e o outro acima de 80 kg, as densidades recomendadas podem ser diferentes. Nesse caso, confira modelos que a Probel indicou especificamente para casais com biotipos diferentes: o D45 Firmpedic PróExtreme e o Guarda Costas, ambos com suporte de até 150 kg por pessoa. Verifique na ficha de cada um o peso máximo por pessoa antes de escolher.",
+          "basis": "reasoning",
+          "claim_ids": [
+            "clm_03538692a465",
+            "clm_cd04855fe4e4",
+            "clm_d764d3890d66",
+            "clm_87b27d434320",
+            "clm_c1ce97ad6576"
+          ]
+        },
         {
           "kind": "table",
           "caption": "Densidade recomendada pela Castor para cada faixa de peso",
           "columns": [
-            "Faixa de peso por pessoa",
+            "Faixa de peso",
             "Densidade recomendada"
           ],
           "rows": [
@@ -243,7 +119,9 @@
               "cells": [
                 {
                   "text": "Até 50 kg",
-                  "claim_ids": []
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
                 },
                 {
                   "text": "D23",
@@ -257,7 +135,9 @@
               "cells": [
                 {
                   "text": "51 a 60 kg",
-                  "claim_ids": []
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
                 },
                 {
                   "text": "D26",
@@ -271,7 +151,9 @@
               "cells": [
                 {
                   "text": "61 a 70 kg",
-                  "claim_ids": []
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
                 },
                 {
                   "text": "D28",
@@ -285,7 +167,9 @@
               "cells": [
                 {
                   "text": "71 a 80 kg",
-                  "claim_ids": []
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
                 },
                 {
                   "text": "D33",
@@ -299,7 +183,9 @@
               "cells": [
                 {
                   "text": "81 a 100 kg",
-                  "claim_ids": []
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
                 },
                 {
                   "text": "D33 a D45 (conforme preferência)",
@@ -313,7 +199,9 @@
               "cells": [
                 {
                   "text": "Acima de 100 kg",
-                  "claim_ids": []
+                  "claim_ids": [
+                    "clm_03538692a465"
+                  ]
                 },
                 {
                   "text": "D45 ou maior",
@@ -327,18 +215,14 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se uma pessoa prefere mais macio e outra mais firme, você pode escolher um colchão dupla face, segundo a Ortobom. No Iso Dupla Face da Ortobom, um lado tem espuma D33 para maior sustentação e o outro tem D28 para toque mais macio; assim, cada um escolhe seu lado para dormir naquela noite.",
+          "text": "Molas ensacadas trabalham individualmente, minimizando a transferência de movimento entre áreas do colchão. Segundo Simmons e Castor, são recomendadas para casais; a Ortobom afirma que diminuem vibrações e evitam que os movimentos de uma pessoa interfiram no sono da outra.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_fdf114a5b7ad"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Na ficha do Probel Robuste, a Probel declara suporte de 200 kg por pessoa.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_2f5ab7b63a18"
+            "clm_2bfe0b0f071c",
+            "clm_78163da83401",
+            "clm_df2880298d16",
+            "clm_0522b96db922",
+            "clm_96d010e677f5"
           ]
         }
       ]
@@ -346,17 +230,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261106T131931_colchao-para-casal-com-pesos-diferentes-enrich_62ec+editor:20261106T132358_colchao-para-casal-com-pesos-diferentes-autocorrecao_2bc0",
+    "run_id": "20261024T130332_autopilot_5b24+edit:20261024T130332_autopilot_5b24+editor:20261024T145242_colchao-para-casal-com-pesos-diferentes-ajuste_a819+editor:20261024T145447_colchao-para-casal-com-pesos-diferentes-ajuste_d613+editor:20261024T164838_colchao-para-casal-com-pesos-diferentes-ajuste_cf4b+editor:20261026T123120_colchao-para-casal-com-pesos-diferentes-ajuste_ff59+editor:20261105T084452_colchao-para-casal-com-pesos-diferentes-ajuste_9b8f",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
-      "answers_primary_query": "partial",
+      "answers_primary_query": "yes",
       "concrete_guidance": true,
+      "filler_ratio": 0.10526315789473684,
+      "criteria": 7,
       "reader_fit": true,
       "quick_answer": true,
-      "filler_ratio": 0.16,
-      "criteria": 5,
       "rule_publishable": true
     }
   }
