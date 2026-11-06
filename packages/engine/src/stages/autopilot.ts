@@ -509,7 +509,9 @@ async function maintainLinks(steps: string[]): Promise<boolean> {
     const recent = readState<Record<string, string>>('links-made.json', {});
     const fresh = (slug: string) => !!recent[slug] && Date.now() - Date.parse(recent[slug]!) < 14 * 86_400_000;
     const pages = loadPages().filter((p) => !fresh(p.slug));
-    const done = await ensureAnchors(pages);
+    // Âncoras: a verdade é o data/link-anchors.json (só página sem âncora é processada), não o estado. 06/11: dois
+    // lençóis marcados em 03/11 ficaram sem âncora (o resultado não chegou ao main) e o filtro de 14 dias os pulava.
+    const done = await ensureAnchors(loadPages());
     if (done.length) steps.push(`links internos: âncoras para ${done.join(', ')}`);
     // Buscas na Amazon (link com a nossa tag) para página no ar que ainda não tem: ~0,05 crédito cada.
     const amz = await ensureSearchLinks(pages);

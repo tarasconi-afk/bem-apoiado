@@ -26,6 +26,7 @@ const Out = z.object({ anchors: z.array(z.string()) });
 
 const SYSTEM = `Você escolhe âncoras de link interno para um site de guias de compra em português do Brasil.
 Dada uma página, devolva de 3 a 6 expressões CURTAS (1 a 4 palavras, minúsculas) que outras páginas do site escreveriam no meio do texto ao falar do assunto desta página, e que um leitor clicaria esperando chegar nela.
+Use o nome do assunto como ele aparece numa frase ("colchão misto", "base de cama box"), não a busca em forma de pergunta ("colchão misto ou espuma", "diferença colchão misto espuma", "comprar pillow top"): ninguém escreve isso no meio de um texto.
 Regras: só o assunto PRINCIPAL da página, o que a busca principal pergunta; nunca um subtema de uma seção (lavagem, garantia, etiqueta, peso), que terá página própria. Ex.: "colchão D28 ou D33" → "densidade do colchão", "colchão d33"; "como escolher travesseiro" → "escolher o travesseiro", "tipos de travesseiro". Expressões que aparecem naturalmente em prosa; inclua variações de singular/plural quando forem comuns; nada genérico demais (só o nome do produto, "conforto", "qualidade"); nada de marca; sem pontuação.`;
 
 export async function ensureAnchors(pages: PageSpec[], fetchImpl?: FetchLike, max = 5, now = new Date()): Promise<string[]> {
