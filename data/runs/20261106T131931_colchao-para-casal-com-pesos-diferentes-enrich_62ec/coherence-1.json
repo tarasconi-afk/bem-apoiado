@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "como-decidir#1",
+      "problem": "O leitor pode entender que escolher a densidade do mais pesado resolve a diferença de pesos do casal, mas o trecho da Castor apenas relaciona densidades a faixas de peso individuais e não diz que uma única densidade atende aos dois.",
+      "fix": "Reescrever para orientar a comparar o peso de cada pessoa com o limite por pessoa declarado na ficha do modelo e apresentar a tabela da Castor apenas como referência de densidade por faixa de peso, sem afirmar que escolher a densidade do mais pesado resolve o caso."
+    },
+    {
+      "check": "produto_como_solucao",
+      "ref": "como-decidir#3",
+      "problem": "O leitor pode entender que um colchão dupla face permite que cada pessoa use simultaneamente uma firmeza diferente, mas os trechos descrevem dois lados do colchão, não dois níveis de firmeza disponíveis ao mesmo tempo para o casal.",
+      "fix": "Reescrever para dizer apenas que o modelo permite escolher entre dois lados de firmeza em momentos diferentes, ou tirar a orientação de dupla face para casais que preferem firmezas diferentes em cada lado."
+    }
+  ],
+  "usage": {
+    "input_tokens": 38232,
+    "output_tokens": 6775,
+    "calls": 3
+  }
+}

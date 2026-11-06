@@ -1,0 +1,38 @@
+{
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "molas-ensacadas-casal#1",
+      "molas-ensacadas-casal#2",
+      "molas-bonnell-casal#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Conferir a densidade indicada para o peso de cada pessoa: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Preferir molas ensacadas quando o casal quer reduzir a transferência de movimento e obter adaptação independente ao corpo de cada pessoa.",
+      "Considerar um colchão dupla face quando há preferência por firmezas diferentes: o modelo citado tem um lado D33, mais firme, e outro D28, mais macio.",
+      "Conferir o limite de peso por pessoa informado na ficha técnica do modelo; no Iso Dupla Face citado, o limite é de 80 kg por pessoa.",
+      "Para quem busca resistência progressiva conforme o peso, considerar o molejo Bonnel, segundo a Probel."
+    ],
+    "missing": [
+      "Uma regra do fabricante para escolher a densidade ou o modelo único quando os dois ocupantes têm pesos diferentes, especialmente se a densidade indicada para cada um não for a mesma.",
+      "Esclarecimento sobre se o limite de peso informado por pessoa deve ser comparado individualmente ou também à soma dos pesos do casal.",
+      "Especificação de fabricante sobre colchões mistos de espuma e molas distribuírem o suporte de forma diferente para cada ocupante.",
+      "Informação de fabricante sobre firmezas diferentes simultaneamente em cada metade do colchão; o exemplo de dupla face apresentado diferencia os lados superior e inferior, não necessariamente os dois lados da cama.",
+      "Dados específicos sobre transmissão de movimento em colchões Bonnel para casais com pesos diferentes."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece critérios concretos: relaciona densidade ao peso, recomenda molas ensacadas para reduzir movimentos e orienta conferir o limite por pessoa. Porém, responde apenas parcialmente à dúvida principal, pois não explica qual modelo escolher quando as duas pessoas exigem densidades diferentes e pode confundir colchão dupla face, que normalmente diferencia as faces superior e inferior, com firmezas diferentes em cada lado da cama.",
+    "filler_ratio": 0.16,
+    "model_opinion": true
+  },
+  "usage": {
+    "input_tokens": 14718,
+    "output_tokens": 4689
+  }
+}

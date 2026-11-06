@@ -1,0 +1,114 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam os tamanhos e exemplos de composição do revestimento e do enchimento, mas não mostram a recomendação de escolher o tamanho conforme a cama nem informam gramatura em g/m². O trecho da Andreza informa apenas “Manta 100g”, sem unidade por área.",
+      "fix": "As fontes consultadas listam opções de tamanho como solteiro, casal, queen e king. Confira na ficha a composição informada para o revestimento e o enchimento, que pode incluir algodão, poliéster, flanela, plumas de ganso ou manta; as opções variam entre as linhas consultadas."
+    },
+    {
+      "ref": "tamanho-edredom#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanho-edredom#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanho-edredom#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanho-edredom#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "enchimento-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "enchimento-composicao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a Karsten menciona tecido de percal 100% algodão de 180 fios e que o produto da Andreza tem composição 100% poliéster, tecido flanelado com microfibra e enchimento de manta de 100 g. Porém, não dizem expressamente que o poliéster é o revestimento ou tecido externo, não sustentam a generalização para “outras linhas” e informam “100 g”, não “100 g/m²”.",
+      "fix": "O revestimento pode ser de percal 100% algodão de 180 fios em um produto da Karsten. No Coberdrom Flannel Liso da Andreza Enxovais, a composição informada é 100% poliéster, o tecido é flanelado com microfibra e o enchimento é de manta de 100 g."
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citam jogos de cama da Teka, não edredons. Portanto, não sustentam a afirmação específica sobre a etiqueta de cuidados de um edredom. Além disso, a formulação sobre amaciante é sustentada apenas para alguns produtos, que dizem evitar o excesso.",
+      "fix": "A Teka informa, nas etiquetas consultadas de alguns jogos de cama, a temperatura máxima de lavagem, o uso de alvejante, a secagem em tambor, a passadoria, a proibição de lavagem a seco e, em alguns casos, o uso excessivo de amaciante."
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram instruções de cuidados de produtos específicos, mas não estabelecem uma recomendação geral para conferir essas informações antes da compra. Também dizem 'não lavar a seco' e 'evitar amaciante em excesso', não que o produto 'exige secagem a seco' ou simplesmente 'permite amaciante'.",
+      "fix": "Antes da compra, pode ser útil verificar na etiqueta do produto a temperatura máxima de lavagem, o uso de alvejante, a temperatura de secagem em tambor, as instruções de lavagem a seco e as orientações sobre amaciante."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que os edredons são confeccionados com tecidos de alta qualidade, como percal 100% algodão, mas não sustenta que todos os edredons da Karsten usam esse revestimento.",
+      "fix": "Se prefere revestimento de algodão, procure na ficha a declaração de percal 100% algodão. Segundo a Karsten, seus edredons podem ser confeccionados com tecidos como percal 100% algodão."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho informa “Composição: 100% Poliéster” e, separadamente, “Tecido: Flannel com Microfibra”; ele não afirma que o revestimento é 100% poliéster.",
+      "fix": "Se você quer um tecido flanelado, confira se a ficha declara Flannel com Microfibra, segundo a Andreza Enxovais. O produto citado informa composição 100% poliéster e tecido Flannel com Microfibra."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam os tamanhos e exemplos de composição do revestimento e do enchimento, mas não mostram a recomendação de escolher o tamanho conforme a cama nem informam gramatura em g/m². O trecho da Andreza informa apenas “Manta 100g”, sem unidade por área. Versão sustentável: As fontes consultadas listam opções de tamanho como solteiro, casal, queen e king. Confira na ficha a composição informada para o revestimento e o enchimento, que pode incluir algodão, poliéster, flanela, plumas de ganso ou manta; as opções variam entre as linhas consultadas."
+    },
+    {
+      "ref": "enchimento-composicao#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a Karsten menciona tecido de percal 100% algodão de 180 fios e que o produto da Andreza tem composição 100% poliéster, tecido flanelado com microfibra e enchimento de manta de 100 g. Porém, não dizem expressamente que o poliéster é o revestimento ou tecido externo, não sustentam a generalização para “outras linhas” e informam “100 g”, não “100 g/m²”. Versão sustentável: O revestimento pode ser de percal 100% algodão de 180 fios em um produto da Karsten. No Coberdrom Flannel Liso da Andreza Enxovais, a composição informada é 100% poliéster, o tecido é flanelado com microfibra e o enchimento é de manta de 100 g."
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "msg": "UNSUPPORTED. Os trechos citam jogos de cama da Teka, não edredons. Portanto, não sustentam a afirmação específica sobre a etiqueta de cuidados de um edredom. Além disso, a formulação sobre amaciante é sustentada apenas para alguns produtos, que dizem evitar o excesso. Versão sustentável: A Teka informa, nas etiquetas consultadas de alguns jogos de cama, a temperatura máxima de lavagem, o uso de alvejante, a secagem em tambor, a passadoria, a proibição de lavagem a seco e, em alguns casos, o uso excessivo de amaciante."
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "msg": "OVERSTATED. Os trechos mostram instruções de cuidados de produtos específicos, mas não estabelecem uma recomendação geral para conferir essas informações antes da compra. Também dizem 'não lavar a seco' e 'evitar amaciante em excesso', não que o produto 'exige secagem a seco' ou simplesmente 'permite amaciante'. Versão sustentável: Antes da compra, pode ser útil verificar na etiqueta do produto a temperatura máxima de lavagem, o uso de alvejante, a temperatura de secagem em tambor, as instruções de lavagem a seco e as orientações sobre amaciante."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho diz que os edredons são confeccionados com tecidos de alta qualidade, como percal 100% algodão, mas não sustenta que todos os edredons da Karsten usam esse revestimento. Versão sustentável: Se prefere revestimento de algodão, procure na ficha a declaração de percal 100% algodão. Segundo a Karsten, seus edredons podem ser confeccionados com tecidos como percal 100% algodão."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. O trecho informa “Composição: 100% Poliéster” e, separadamente, “Tecido: Flannel com Microfibra”; ele não afirma que o revestimento é 100% poliéster. Versão sustentável: Se você quer um tecido flanelado, confira se a ficha declara Flannel com Microfibra, segundo a Andreza Enxovais. O produto citado informa composição 100% poliéster e tecido Flannel com Microfibra."
+    }
+  ]
+}

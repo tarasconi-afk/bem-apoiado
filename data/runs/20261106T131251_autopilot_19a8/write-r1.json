@@ -1,0 +1,301 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "As fontes consultadas listam opções de tamanho como solteiro, casal, queen e king. Confira na ficha a composição informada para o revestimento e o enchimento, que pode incluir algodão, poliéster, flanela, plumas de ganso ou manta; as opções variam entre as linhas consultadas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_288e2e7a1464",
+        "clm_2ec25953b1d9",
+        "clm_0e86ea4ea87b",
+        "clm_1ae977ab120a",
+        "clm_3b9562b062c2"
+      ]
+    },
+    {
+      "ref": "enchimento-composicao#1",
+      "action": "replace",
+      "text": "O revestimento pode ser de percal 100% algodão de 180 fios em um produto da Karsten. No Coberdrom Flannel Liso da Andreza Enxovais, a composição informada é 100% poliéster, o tecido é flanelado com microfibra e o enchimento é de manta de 100 g.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3b9562b062c2",
+        "clm_1ae977ab120a"
+      ]
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "action": "replace",
+      "text": "A Teka informa, nas etiquetas consultadas de alguns jogos de cama, a temperatura máxima de lavagem, o uso de alvejante, a secagem em tambor, a passadoria, a proibição de lavagem a seco e, em alguns casos, o uso excessivo de amaciante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0102678ce439",
+        "clm_12c191e1c6a8",
+        "clm_2b42946cf41b"
+      ]
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "action": "replace",
+      "text": "Antes da compra, pode ser útil verificar na etiqueta do produto a temperatura máxima de lavagem, o uso de alvejante, a temperatura de secagem em tambor, as instruções de lavagem a seco e as orientações sobre amaciante.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0102678ce439",
+        "clm_12c191e1c6a8"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se prefere revestimento de algodão, procure na ficha a declaração de percal 100% algodão. Segundo a Karsten, seus edredons podem ser confeccionados com tecidos como percal 100% algodão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3b9562b062c2"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você quer um tecido flanelado, confira se a ficha declara Flannel com Microfibra, segundo a Andreza Enxovais. No Coberdrom Flannel Liso da Andreza Enxovais, a ficha informa composição 100% poliéster e tecido Flannel com Microfibra.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1ae977ab120a"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher edredom: tamanho, gramatura e composição",
+    "description": "Escolha edredom pelo tamanho da cama, gramatura do enchimento e composição do tecido. Veja o que conferir na etiqueta antes de comprar.",
+    "verdict": {
+      "text": "As fontes consultadas listam opções de tamanho como solteiro, casal, queen e king, segundo fabricantes como Karsten, Andreza Enxovais e Plumasul. Confira na ficha a composição informada para o revestimento e o enchimento, que pode incluir algodão, poliéster, flanela, plumas de ganso ou manta; as opções variam entre as linhas consultadas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_288e2e7a1464",
+        "clm_2ec25953b1d9",
+        "clm_0e86ea4ea87b",
+        "clm_1ae977ab120a",
+        "clm_3b9562b062c2"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tamanho-edredom",
+        "heading": "Qual tamanho de edredom para cada cama",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas de edredom por tamanho de cama declaradas pelos fabricantes (segundo a Andreza Enxovais)",
+            "columns": [
+              "Tamanho",
+              "Medidas (m)",
+              "Fabricante"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "1,50 × 2,10",
+                    "claim_ids": [
+                      "clm_2ec25953b1d9"
+                    ]
+                  },
+                  {
+                    "text": "Andreza Enxovais",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "2,00 × 2,10",
+                    "claim_ids": [
+                      "clm_2ec25953b1d9"
+                    ]
+                  },
+                  {
+                    "text": "Andreza Enxovais",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "2,20 × 2,40",
+                    "claim_ids": [
+                      "clm_2ec25953b1d9"
+                    ]
+                  },
+                  {
+                    "text": "Andreza Enxovais",
+                    "claim_ids": []
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen Plus",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "2,40 × 2,60",
+                    "claim_ids": [
+                      "clm_2ec25953b1d9"
+                    ]
+                  },
+                  {
+                    "text": "Andreza Enxovais",
+                    "claim_ids": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enchimento-composicao",
+        "heading": "O que saber sobre enchimento e revestimento",
+        "blocks": [
+          {
+            "text": "O enchimento pode ser de poliéster (sintético) ou plumas naturais, segundo a Karsten e a Plumasul. Segundo a Karsten, o enchimento de poliéster não entra em contato com a pele. No edredom Summer da Plumasul, o enchimento é 100% plumas de ganso, revestido com percal 100% algodão com tratamento que impede que as plumas escapem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_35ef4685e8de",
+              "clm_0e86ea4ea87b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O revestimento pode ser de percal 100% algodão de 180 fios em um produto da Karsten. No Coberdrom Flannel Liso da Andreza Enxovais, a composição informada é 100% poliéster, o tecido é flanelado com microfibra e o enchimento é de manta de 100 g.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3b9562b062c2",
+              "clm_1ae977ab120a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-cuidados",
+        "heading": "O que a etiqueta de cuidados informa",
+        "blocks": [
+          {
+            "text": "A Teka informa, nas etiquetas consultadas de alguns jogos de cama, a temperatura máxima de lavagem, o uso de alvejante, a secagem em tambor, a passadoria, a proibição de lavagem a seco e, em alguns casos, o uso excessivo de amaciante.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0102678ce439",
+              "clm_12c191e1c6a8",
+              "clm_2b42946cf41b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Antes da compra, pode ser útil verificar na etiqueta do produto a temperatura máxima de lavagem, o uso de alvejante, a temperatura de secagem em tambor, as instruções de lavagem a seco e as orientações sobre amaciante, segundo a Teka.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0102678ce439",
+              "clm_12c191e1c6a8"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como escolher edredom para sua cama",
+        "blocks": [
+          {
+            "text": "Se você prefere enchimento sintético e quer evitar contato com plumas, confira se a ficha técnica do edredom declara poliéster, segundo a Karsten. Segundo a Karsten, o enchimento de poliéster não entra em contato com a pele.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0e195d1a8adf",
+              "clm_35ef4685e8de"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere enchimento de plumas naturais, procure edredons que declarem 100% plumas de ganso na ficha, como o edredom Summer da Plumasul.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0e86ea4ea87b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se prefere revestimento de algodão, procure na ficha a declaração de percal 100% algodão, segundo a Karsten. Segundo a Karsten, seus edredons podem ser confeccionados com tecidos como percal 100% algodão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_3b9562b062c2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer um tecido flanelado, confira se a ficha declara Flannel com Microfibra, segundo a Andreza Enxovais. No Coberdrom Flannel Liso da Andreza Enxovais, a ficha informa composição 100% poliéster e tecido Flannel com Microfibra.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1ae977ab120a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique se o modelo está disponível no tamanho da sua cama (solteiro, casal, queen ou king) antes de comprar, pois as linhas consultadas não oferecem necessariamente todas essas opções, segundo a Karsten e a Andreza Enxovais.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_288e2e7a1464",
+              "clm_2ec25953b1d9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam os tamanhos e exemplos de composição do revestimento e do enchimento, mas não mostram a recomendação de escolher o tamanho conforme a cama nem informam gramatura em g/m². O trecho da Andreza informa apenas “Manta 100g”, sem unidade por área. Versão sustentável: As fontes consultadas listam opções de tamanho como solteiro, casal, queen e king. Confira na ficha a composição informada para o revestimento e o enchimento, que pode incluir algodão, poliéster, flanela, plumas de ganso ou manta; as opções variam entre as linhas consultadas."
+    },
+    {
+      "ref": "enchimento-composicao#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a Karsten menciona tecido de percal 100% algodão de 180 fios e que o produto da Andreza tem composição 100% poliéster, tecido flanelado com microfibra e enchimento de manta de 100 g. Porém, não dizem expressamente que o poliéster é o revestimento ou tecido externo, não sustentam a generalização para “outras linhas” e informam “100 g”, não “100 g/m²”. Versão sustentável: O revestimento pode ser de percal 100% algodão de 180 fios em um produto da Karsten. No Coberdrom Flannel Liso da Andreza Enxovais, a composição informada é 100% poliéster, o tecido é flanelado com microfibra e o enchimento é de manta de 100 g."
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "msg": "UNSUPPORTED. Os trechos citam jogos de cama da Teka, não edredons. Portanto, não sustentam a afirmação específica sobre a etiqueta de cuidados de um edredom. Além disso, a formulação sobre amaciante é sustentada apenas para alguns produtos, que dizem evitar o excesso. Versão sustentável: A Teka informa, nas etiquetas consultadas de alguns jogos de cama, a temperatura máxima de lavagem, o uso de alvejante, a secagem em tambor, a passadoria, a proibição de lavagem a seco e, em alguns casos, o uso excessivo de amaciante."
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "msg": "OVERSTATED. Os trechos mostram instruções de cuidados de produtos específicos, mas não estabelecem uma recomendação geral para conferir essas informações antes da compra. Também dizem 'não lavar a seco' e 'evitar amaciante em excesso', não que o produto 'exige secagem a seco' ou simplesmente 'permite amaciante'. Versão sustentável: Antes da compra, pode ser útil verificar na etiqueta do produto a temperatura máxima de lavagem, o uso de alvejante, a temperatura de secagem em tambor, as instruções de lavagem a seco e as orientações sobre amaciante."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho diz que os edredons são confeccionados com tecidos de alta qualidade, como percal 100% algodão, mas não sustenta que todos os edredons da Karsten usam esse revestimento. Versão sustentável: Se prefere revestimento de algodão, procure na ficha a declaração de percal 100% algodão. Segundo a Karsten, seus edredons podem ser confeccionados com tecidos como percal 100% algodão."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. O trecho informa “Composição: 100% Poliéster” e, separadamente, “Tecido: Flannel com Microfibra”; ele não afirma que o revestimento é 100% poliéster. Versão sustentável: Se você quer um tecido flanelado, confira se a ficha declara Flannel com Microfibra, segundo a Andreza Enxovais. O produto citado informa composição 100% poliéster e tecido Flannel com Microfibra."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 940
+  }
+}

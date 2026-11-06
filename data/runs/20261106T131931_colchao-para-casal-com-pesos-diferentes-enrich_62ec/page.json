@@ -1,0 +1,57 @@
+{
+  "slug": "colchao-para-casal-com-pesos-diferentes",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 138905,
+    "output_tokens": 39711,
+    "calls": 44
+  },
+  "credits": 64.79014451999998,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que escolher a densidade do mais pesado resolve a diferença de pesos do casal, mas o trecho da Castor apenas relaciona densidades a faixas de peso individuais e não diz que uma única densidade atende aos dois (como-decidir#1); Reescrever",
+      "O leitor pode entender que um colchão dupla face permite que cada pessoa use simultaneamente uma firmeza diferente, mas os trechos descrevem dois lados do colchão, não dois níveis de firmeza disponíveis ao mesmo tempo para o casal (como-decidir#3); Reescrever "
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Compare o peso de cada pessoa com a tabela de densidade da Castor: até 50 kg, D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+      "Quando os pesos estão em faixas diferentes, escolher uma densidade que atenda à pessoa mais pesada.",
+      "Para reduzir a transferência de movimento entre os lados, conferir se o colchão tem molas ensacadas individualmente.",
+      "Para buscar firmeza diferente, conferir se o modelo é dupla face e verificar a firmeza de cada lado; no Iso Dupla Face, a Ortobom informa D33 e D28.",
+      "Conferir na ficha técnica o limite de peso por pessoa; no Probel Robuste, por exemplo, a fabricante declara suporte de 200 kg por pessoa.",
+      "Considerar que o molejo Bonnel oferece resistência progressiva: quanto maior o peso, maior a resistência."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor pode entender que escolher a densidade do mais pesado resolve a diferença de pesos do casal, mas o trecho da Castor apenas relaciona densidades a faixas de peso individuais e não diz que uma única densidade atende aos dois (como-decidir#1); Reescrever",
+      "Para o leitor leigo: O leitor pode entender que um colchão dupla face permite que cada pessoa use simultaneamente uma firmeza diferente, mas os trechos descrevem dois lados do colchão, não dois níveis de firmeza disponíveis ao mesmo tempo para o casal (como-decidir#3); Reescrever ",
+      "Uma ficha técnica de fabricante que informe como colchões mistos de espuma e molas distribuem o suporte para pessoas com pesos diferentes.",
+      "Uma especificação de fabricante esclarecendo se o limite por pessoa deve ser somado para obter o limite total do casal em cada modelo.",
+      "Mais modelos com firmezas diferentes simultaneamente em cada lado da cama, com indicação de peso para cada lado.",
+      "Uma orientação de fabricante sobre quando a densidade única que atende ao ocupante mais pesado pode deixar o lado do ocupante mais leve excessivamente firme."
+    ],
+    "publishable": false,
+    "summary": "A página responde diretamente à dúvida com faixas de peso, indica escolher a densidade pelo ocupante mais pesado e orienta conferir molas ensacadas, firmeza dupla face e limite por pessoa. Ela leva à compra com critérios verificáveis na ficha técnica; faltam apenas informações mais amplas sobre colchões mistos, soma do limite para o casal e opções realmente diferentes em cada lado.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "como-decidir#1",
+        "problem": "O leitor pode entender que escolher a densidade do mais pesado resolve a diferença de pesos do casal, mas o trecho da Castor apenas relaciona densidades a faixas de peso individuais e não diz que uma única densidade atende aos dois.",
+        "fix": "Reescrever para orientar a comparar o peso de cada pessoa com o limite por pessoa declarado na ficha do modelo e apresentar a tabela da Castor apenas como referência de densidade por faixa de peso, sem afirmar que escolher a densidade do mais pesado resolve o caso."
+      },
+      {
+        "check": "produto_como_solucao",
+        "ref": "como-decidir#3",
+        "problem": "O leitor pode entender que um colchão dupla face permite que cada pessoa use simultaneamente uma firmeza diferente, mas os trechos descrevem dois lados do colchão, não dois níveis de firmeza disponíveis ao mesmo tempo para o casal.",
+        "fix": "Reescrever para dizer apenas que o modelo permite escolher entre dois lados de firmeza em momentos diferentes, ou tirar a orientação de dupla face para casais que preferem firmezas diferentes em cada lado."
+      }
+    ]
+  }
+}
