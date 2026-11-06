@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-06T12:17:04.980Z",
+  "instruction": "No bloco medidas-dimensoes#0: a ficha da Appel escreve \"1,40cm\", um erro de digitação que confunde quem vai comprar. Tire a medida da Appel e mantenha só a da Andreza Enxovais (1,40 m × 1,90 m × 30 cm, lençol casal com elástico da linha Premium), com a atribuição uma vez só, no fim da frase. Não mexa em outros blocos.\n",
+  "diffs": [
+    {
+      "where": "Medidas e dimensões declaradas nas fichas · bloco 1",
+      "before": "A Appel informa, para seu lençol de percal casal, a medida 1,40 cm × 1,90 m × 30 cm. A Andreza informa 1,40 m × 1,90 m × 30 cm para o lençol casal com elástico de sua linha Premium, segundo a Appel e a Andreza Enxovais.",
+      "after": "A Andreza Enxovais informa, para seu lençol casal com elástico da linha Premium, a medida 1,40 m × 1,90 m × 30 cm."
+    }
+  ]
+}
