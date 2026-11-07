@@ -1,0 +1,182 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as medidas mínimas para cobertores de solteiro e casal e a exigência de informar composição e cuidados de conservação. Porém, não dizem que a composição deve aparecer em ordem decrescente, que essas informações devem ser verificadas na etiqueta ou que são declaradas pelo fabricante. Além disso, as medidas vêm de especificações de uma contratação específica, não de uma regra geral para todos os cobertores.",
+      "fix": "Use: \"Como referência, as especificações citadas indicam medidas mínimas de 1,50 m × 2,20 m para solteiro e 2,00 m × 2,20 m para casal. A regulamentação citada exige informar o nome e o percentual das fibras, além dos processos de lavagem, alvejamento, secagem, passadoria e limpeza profissional, na sequência indicada.\""
+    },
+    {
+      "ref": "medidas-cobertor#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados sustentam as medidas atribuídas à Sultan, mas não dizem que outros fabricantes podem oferecer variações nessas medidas.",
+      "fix": "Segundo a Sultan, o solteiro mede 2,20 m × 1,50 m; o casal, 2,20 m × 1,80 m; o queen, 2,40 m × 2,20 m; e o king, 2,60 m × 2,40 m."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados estabelecem a exigência para produtos têxteis, mas não mencionam especificamente cobertores nem dizem expressamente que a informação deve constar na etiqueta. A afirmação sobre percentuais em ordem decrescente e com igual destaque é sustentada.",
+      "fix": "A regra exige que o nome das fibras têxteis e seu percentual em massa sejam informados para o produto têxtil; os percentuais devem aparecer em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "composicao-fibra#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não definem gramatura como peso do tecido por metro quadrado. Além disso, só mencionam um modelo de 350 g/m² como tendo peso ideal e aquecimento, sem sustentar a generalização para todos os cobertores com 350 g/m² ou mais.",
+      "fix": "A Döhler informa que o modelo Elise tem gramatura de 250 g/m² e o indica para meias-estações ou como camada complementar. Nos modelos Eva citados, a gramatura é de 350 g/m², descrita pela fabricante como oferecendo peso adequado para o aquecimento sem perder a leveza."
+    },
+    {
+      "ref": "gramatura#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco afirma, sem trechos citados, que modelos diferentes do mesmo fabricante têm orientações distintas de secagem e passadoria. Como a base é framing, essa afirmação factual não é sustentada.",
+      "fix": "Atenção: consulte a etiqueta específica do cobertor que pretende comprar antes de usá-lo pela primeira vez."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as medidas mínimas, mas não dizem que se deve comparar as dimensões com as do colchão nem que isso verifica a sobra nas laterais e na beira.",
+      "fix": "Se você vai usar o cobertor em cama de solteiro, confira uma medida de pelo menos 1,50 m × 2,20 m. Para cama de casal, procure por pelo menos 2,00 m × 2,20 m."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Döhler mostram instruções de cuidado para modelos Eva específicos, incluindo a proibição de secagem em tambor e, em um caso, secagem no varal sem torcer. Eles não apresentam a recomendação geral de escolher cobertores cuja etiqueta permita secagem em tambor. O trecho do Inmetro apenas informa que a secagem é um processo abrangido pelas informações de conservação.",
+      "fix": "Verifique na etiqueta as instruções de secagem. Nos modelos Eva citados da Döhler, não se deve secar em tambor; um dos trechos orienta secar no varal, sem torcer."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as descrições da Döhler sobre 250 g/m² para meia-estação ou camada complementar e sobre 350 g/m² associado ao aquecimento. Porém, nenhum trecho citado menciona a existência de um guia específico sobre comparação de aquecimento entre gramaturas.",
+      "fix": "Se você quer uma peça para meia-estação ou como camada complementar, considere cobertores de 250 g/m², descritos pela Döhler dessa forma. Para uma opção descrita pela Döhler como adequada ao aquecimento, compare modelos de 350 g/m²."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas mínimas para cobertores de solteiro e casal e a exigência de informar composição e cuidados de conservação. Porém, não dizem que a composição deve aparecer em ordem decrescente, que essas informações devem ser verificadas na etiqueta ou que são declaradas pelo fabricante. Além disso, as medidas vêm de especificações de uma contratação específica, não de uma regra geral para todos os cobertores. Versão sustentável: Use: \"Como referência, as especificações citadas indicam medidas mínimas de 1,50 m × 2,20 m para solteiro e 2,00 m × 2,20 m para casal. A regulamentação citada exige informar o nome e o percentual das fibras, além dos processos de lavagem, alvejamento, secagem, passadoria e limpeza profissional, na sequência indicada.\""
+    },
+    {
+      "ref": "medidas-cobertor#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam as medidas atribuídas à Sultan, mas não dizem que outros fabricantes podem oferecer variações nessas medidas. Versão sustentável: Segundo a Sultan, o solteiro mede 2,20 m × 1,50 m; o casal, 2,20 m × 1,80 m; o queen, 2,40 m × 2,20 m; e o king, 2,60 m × 2,40 m."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "msg": "OVERSTATED. Os trechos citados estabelecem a exigência para produtos têxteis, mas não mencionam especificamente cobertores nem dizem expressamente que a informação deve constar na etiqueta. A afirmação sobre percentuais em ordem decrescente e com igual destaque é sustentada. Versão sustentável: A regra exige que o nome das fibras têxteis e seu percentual em massa sejam informados para o produto têxtil; os percentuais devem aparecer em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "gramatura#0",
+      "msg": "UNSUPPORTED. Os trechos não definem gramatura como peso do tecido por metro quadrado. Além disso, só mencionam um modelo de 350 g/m² como tendo peso ideal e aquecimento, sem sustentar a generalização para todos os cobertores com 350 g/m² ou mais. Versão sustentável: A Döhler informa que o modelo Elise tem gramatura de 250 g/m² e o indica para meias-estações ou como camada complementar. Nos modelos Eva citados, a gramatura é de 350 g/m², descrita pela fabricante como oferecendo peso adequado para o aquecimento sem perder a leveza."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "FACT_IN_FRAMING. O bloco afirma, sem trechos citados, que modelos diferentes do mesmo fabricante têm orientações distintas de secagem e passadoria. Como a base é framing, essa afirmação factual não é sustentada. Versão sustentável: Atenção: consulte a etiqueta específica do cobertor que pretende comprar antes de usá-lo pela primeira vez."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas mínimas, mas não dizem que se deve comparar as dimensões com as do colchão nem que isso verifica a sobra nas laterais e na beira. Versão sustentável: Se você vai usar o cobertor em cama de solteiro, confira uma medida de pelo menos 1,50 m × 2,20 m. Para cama de casal, procure por pelo menos 2,00 m × 2,20 m."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. Os trechos da Döhler mostram instruções de cuidado para modelos Eva específicos, incluindo a proibição de secagem em tambor e, em um caso, secagem no varal sem torcer. Eles não apresentam a recomendação geral de escolher cobertores cuja etiqueta permita secagem em tambor. O trecho do Inmetro apenas informa que a secagem é um processo abrangido pelas informações de conservação. Versão sustentável: Verifique na etiqueta as instruções de secagem. Nos modelos Eva citados da Döhler, não se deve secar em tambor; um dos trechos orienta secar no varal, sem torcer."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. Os trechos sustentam as descrições da Döhler sobre 250 g/m² para meia-estação ou camada complementar e sobre 350 g/m² associado ao aquecimento. Porém, nenhum trecho citado menciona a existência de um guia específico sobre comparação de aquecimento entre gramaturas. Versão sustentável: Se você quer uma peça para meia-estação ou como camada complementar, considere cobertores de 250 g/m², descritos pela Döhler dessa forma. Para uma opção descrita pela Döhler como adequada ao aquecimento, compare modelos de 350 g/m²."
+    }
+  ]
+}

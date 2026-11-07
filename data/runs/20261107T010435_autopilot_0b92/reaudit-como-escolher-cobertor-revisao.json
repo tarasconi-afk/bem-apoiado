@@ -1,0 +1,65 @@
+{
+  "score_before": 3.5,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-cobertor#1"
+    ],
+    "decision_criteria": [
+      "Para cama de solteiro, conferir cobertor de pelo menos 1,50 m × 2,20 m.",
+      "Para cama de casal, conferir cobertor de pelo menos 2,00 m × 2,20 m.",
+      "Comparar as medidas declaradas no anúncio com o tamanho da cama; os exemplos citam 2,20 m × 1,50 m para solteiro, 2,20 m × 1,80 m para casal, 2,40 m × 2,20 m para queen e 2,60 m × 2,40 m para king.",
+      "Conferir na etiqueta o nome e o percentual de cada fibra, em ordem decrescente e com igual destaque.",
+      "Usar a gramatura como critério de aquecimento: a Döhler descreve 250 g/m² para meia-estação ou camada complementar e 350 g/m² para mais aquecimento com leveza.",
+      "Conferir na etiqueta as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional.",
+      "Verificar especificamente se o cobertor pode ser seco em tambor ou se deve ser seco no varal, conforme a etiqueta do modelo."
+    ],
+    "missing": [
+      "Uma regra ou tabela relacionando medidas de queen e king ao tamanho correspondente da cama na seção de decisão.",
+      "Explicação para a diferença entre as medidas dos catálogos da Sultan e as medidas mínimas usadas na recomendação, especialmente no tamanho casal.",
+      "Mais exemplos de fabricantes relacionando faixas de gramatura a níveis de aquecimento, sem depender apenas da descrição comercial da Döhler.",
+      "Informação de peso e dimensões do cobertor dobrado ou embalado para quem precisa planejar armazenamento."
+    ],
+    "publishable": true,
+    "summary": "A página é útil e publicável porque oferece critérios concretos para conferir medidas, composição, gramatura e cuidados na ficha do produto. Ela responde apenas parcialmente à dúvida ampla: a regra de medida cobre diretamente solteiro e casal, mas não orienta a escolha de queen e king, e há uma diferença não explicada entre as medidas mínimas e as medidas dos catálogos.",
+    "filler_ratio": 0.043478260869565216,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-cobertor#1",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Para cama de solteiro, conferir cobertores de pelo menos 1,50 m × 2,20 m; para cama de casal, pelo menos 2,00 m × 2,20 m.",
+      "Comparar a medida do cobertor com o tamanho da cama e conferir no anúncio se ela corresponde a solteiro, casal, queen ou king.",
+      "Verificar na etiqueta o nome e o percentual de cada fibra, em ordem decrescente; escolher 100% de uma fibra se quiser evitar misturas.",
+      "Usar a gramatura como referência de aquecimento: a Döhler indica 250 g/m² para meia-estação ou como camada complementar e descreve 350 g/m² como aquecido sem perder leveza.",
+      "Conferir as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional, especialmente se o cobertor pode ou não ir à secadora.",
+      "Verificar se a etiqueta informa a secagem adequada, como varal ou ausência de secagem em tambor."
+    ],
+    "missing": [
+      "Uma regra ou tabela de medidas mínimas também para camas queen e king, além dos exemplos de catálogo.",
+      "Mais exemplos de gramatura relacionados a situações de uso, como frio intenso, meia-estação e uso como camada complementar.",
+      "Informação primária sobre peso e medidas do cobertor dobrado ou embalado para armazenamento.",
+      "Exemplos de cobertores com fibras diferentes do poliéster, como algodão ou lã, para ampliar a comparação."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: oferece medidas concretas, composição, gramatura e cuidados para o leitor conferir no anúncio ou na etiqueta. A resposta rápida resolve parte importante da decisão, embora a orientação de medidas mínimas esteja limitada a solteiro e casal e faltem dados sobre embalagem e armazenamento.",
+    "filler_ratio": 0.08695652173913043,
+    "model_opinion": true
+  }
+}
