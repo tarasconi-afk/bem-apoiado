@@ -1,0 +1,68 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "As medidas do tamanho G aparecem com valores conflitantes: 111 cm de comprimento e 44,5 cm de manga em um bloco, mas 110 cm e 45,5 cm na tabela de decisão.",
+      "A orientação de tamanho é consultar a tabela da loja, mas a página não oferece uma regra prática por altura, peso ou medidas corporais."
+    ],
+    "filler_refs": [
+      "cuidados-conservacao#1"
+    ],
+    "decision_criteria": [
+      "Confira a tabela de medidas da loja antes de escolher entre os tamanhos P a GG.",
+      "Para priorizar absorção, conforto e maciez, prefira roupão de algodão.",
+      "Para ter uma peça leve e de secagem rápida, escolha microfibra.",
+      "Para usar no frio e aceitar uma peça mais pesada, considere roupão de veludo ou felpudo.",
+      "Ao comparar absorção, confira a gramatura e prefira opções a partir de 200 g/m².",
+      "Confira na ficha ou etiqueta a composição das fibras, como algodão, poliéster ou poliamida.",
+      "Verifique as instruções da etiqueta para temperatura de lavagem, uso de alvejante, secagem, ferro e lavagem a seco."
+    ],
+    "missing": [
+      "Para o leitor leigo: As medidas do tamanho G aparecem com valores conflitantes: 111 cm de comprimento e 44,5 cm de manga em um bloco, mas 110 cm e 45,5 cm na tabela de decisão.",
+      "Para o leitor leigo: A orientação de tamanho é consultar a tabela da loja, mas a página não oferece uma regra prática por altura, peso ou medidas corporais.",
+      "Tabela completa do fabricante ou da loja relacionando os tamanhos P, M, G e GG às medidas corporais, como altura, tórax e cintura.",
+      "Medidas totais consistentes de comprimento, manga e largura para todos os tamanhos apresentados.",
+      "Explicação simples do que a gramatura em g/m² indica e de seus limites para comparar roupões de materiais diferentes."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece regras concretas de escolha por tamanho, material, uso, peso da peça e gramatura, além de orientar o que conferir na ficha técnica e na etiqueta. A resposta curta resolve a dúvida em poucas frases, embora falte uma tabela prática de medidas corporais e seja necessário corrigir a divergência nas medidas do tamanho G.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira a tabela de medidas da loja antes de escolher entre os tamanhos P a GG.",
+      "Para priorizar absorção, conforto e maciez, prefira roupão de algodão.",
+      "Para ter uma peça leve e de secagem rápida, prefira microfibra.",
+      "Para usar no frio e aceitar uma peça mais pesada, considere roupão de veludo ou felpudo.",
+      "Ao comparar a absorção, confira a gramatura e prefira opções a partir de 200 g/m².",
+      "Compare na ficha do produto a composição das fibras, a gramatura e as instruções de lavagem, secagem e passagem.",
+      "Use as medidas declaradas de comprimento, largura do tórax e manga para comparar o caimento entre modelos."
+    ],
+    "missing": [
+      "Tabela de medidas completa relacionando P, M, G e GG às medidas do corpo, como tórax, altura ou comprimento de manga.",
+      "Medidas declaradas para todos os tamanhos dos modelos comparados, especialmente M e GG.",
+      "Explicação simples de que gramatura é o peso do tecido por metro quadrado e de como ela se relaciona a peso, absorção e secagem.",
+      "Orientação sobre como medir o corpo e comparar essas medidas com a tabela da loja.",
+      "Informação do fabricante sobre encolhimento após a lavagem, quando disponível."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece regras concretas para escolher o roupão por tamanho, material, gramatura e finalidade de uso, além de indicar o que conferir no anúncio. A resposta curta resolve a dúvida rapidamente, embora uma tabela completa relacionando P a GG às medidas do corpo e uma explicação simples de gramatura deixassem a decisão mais segura.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

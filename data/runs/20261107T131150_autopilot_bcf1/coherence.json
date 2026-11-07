@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "gramatura-tecido#0",
+      "problem": "O título promete explicar o que a gramatura significa, mas os blocos apenas apresentam e comparam gramaturas de modelos específicos.",
+      "fix": "Mudar o título da seção para “Gramaturas declaradas nos modelos citados” ou retirar da promessa o trecho “e o que ela significa”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14976,
+    "output_tokens": 2313,
+    "calls": 3
+  }
+}

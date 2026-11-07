@@ -1,0 +1,37 @@
+{
+  "patches": [
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "Segundo a Karsten, o Roupão Unissex Veluto tem estas instruções de cuidado: lavação a 40°C, proibição de alvejante, secagem em tambor a até 60°C, ferro a até 150°C e proibição de lavagem a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d6a5db0e2d21"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "action": "replace",
+      "text": "O Roupão Fio Cardado Veluto G da Karsten tem estas orientações: lavação a 40°C, sem alvejante, secagem em tambor a até 60°C, ferro a até 150°C e sem lavagem a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_a58d1203bdad"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "action": "replace",
+      "text": "No Roupão Infantil Microfibra Felpuda Deluxe Kids da Appel, as instruções são: lavação máxima de 30°C, sem alvejante, sem passar a ferro ou vapor, secagem em varal e lavagem separada de outras peças.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_36f6e6aecc53"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "repete o bloco cuidados-conservacao#0 (85% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ]
+}
