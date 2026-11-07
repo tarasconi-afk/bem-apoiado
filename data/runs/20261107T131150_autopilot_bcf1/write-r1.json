@@ -1,0 +1,410 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Confira, se possível, a tabela de medidas fornecida pela loja para escolher entre os tamanhos P a GG. Segundo a Appel, opções a partir de 200 g/m² são mais absorventes.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_ee112e09b055",
+        "clm_d5d779d01a9c"
+      ]
+    },
+    {
+      "ref": "composicao-material#0",
+      "action": "replace",
+      "text": "A Karsten informa que o roupão Fio Cardado Veluto tem composição de 100% algodão, enquanto o modelo Fio Cardado Lino tem 90% algodão e 10% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1f87efe02887",
+        "clm_0ba1546055bc"
+      ]
+    },
+    {
+      "ref": "composicao-material#1",
+      "action": "replace",
+      "text": "A Appel informa que o Kimono Microfibra Deluxe tem 88% poliéster e 12% poliamida, enquanto o Microfibra Flannel Pollo tem 100% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2bbecf2bcd7d",
+        "clm_6f7886b8d49b"
+      ]
+    },
+    {
+      "ref": "gramatura-tecido#0",
+      "action": "replace",
+      "text": "A Teka declara 300 g/m² para o roupão Aveludado Vênus, enquanto a Karsten declara 390 g/m² para o Fio Cardado; portanto, o modelo da Karsten tem gramatura declarada maior.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2aa76f0af026",
+        "clm_f3477da9a647"
+      ]
+    },
+    {
+      "ref": "gramatura-tecido#1",
+      "action": "replace",
+      "text": "A Teka declara 420 g/m² para o roupão Felpudo Hotelaria Clássica. A Appel declara 250 g/m² para o Kimono Microfibra Felpuda Deluxe e 240 g/m² para o Microfibra Flannel Pollo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_810a6fe9fa78",
+        "clm_6c89cd5e1745",
+        "clm_6f7886b8d49b"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "A etiqueta do roupão traz instruções de cuidado para conservação da peça. No roupão Unissex Veluto da Karsten, a etiqueta informa: lavação a 40°C, proibição de alvejante, secagem em tambor com temperatura máxima de 60°C, passagem de ferro com temperatura máxima de 150°C e proibição de lavagem a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d6a5db0e2d21"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "action": "replace",
+      "text": "No Infantil Microfibra Deluxe Kids da Appel, a etiqueta determina: lavação máxima de 30°C, sem alvejante, sem passar a ferro ou vapor, secagem em varal e lavagem separada de outras peças.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_36f6e6aecc53"
+      ]
+    },
+    {
+      "ref": "medidas-totais#0",
+      "action": "replace",
+      "text": "O roupão Fio Cardado Veluto P da Karsten possui comprimento total de 109 cm, largura de tórax de 66 cm e comprimento de manga de 41,5 cm. No tamanho G, o comprimento sobe para 111 cm, a largura do tórax para 70 cm e a manga para 44,5 cm, segundo a Karsten.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2215d718c14d",
+        "clm_7e7b14feb1ef"
+      ]
+    },
+    {
+      "ref": "medidas-totais#2",
+      "action": "replace",
+      "text": "O roupão Princess da Buddemeyer informa comprimento de 1,15 m, enquanto a Appel informa que o roupão infantil Microfibra Deluxe Kids está disponível nos tamanhos P (4 a 6 anos), M (6 a 8 anos) e G (8 a 10 anos), com orientação para consultar a tabela de medidas nas fotos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_23b104d5713d",
+        "clm_402a5a597008"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você vai escolher o tamanho, verifique, se possível, as tabelas de medidas fornecidas pelas lojas, segundo a Appel.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_ee112e09b055"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se você quer uma peça adequada para usar no frio e aceita um roupão mais pesado, considere um modelo de veludo ou felpudo, segundo a Appel.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4f56b05fc324"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher roupão de banho: tamanho, material e cuidados",
+    "description": "Escolha o tamanho certo consultando a tabela de medidas, confira a composição e gramatura na etiqueta, e saiba como lavar para durabilidade.",
+    "verdict": {
+      "text": "Confira, se possível, a tabela de medidas fornecida pela loja para escolher entre os tamanhos P a GG, segundo a Appel. Segundo a Appel, opções a partir de 200 g/m² são mais absorventes.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_ee112e09b055",
+        "clm_d5d779d01a9c"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-material",
+        "heading": "Composição e fibras declaradas na etiqueta",
+        "blocks": [
+          {
+            "text": "A Karsten informa que o roupão Fio Cardado Veluto tem composição de 100% algodão, enquanto o modelo Fio Cardado Lino tem 90% algodão e 10% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1f87efe02887",
+              "clm_0ba1546055bc"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Appel informa que o Kimono Microfibra Deluxe tem 88% poliéster e 12% poliamida, enquanto o Microfibra Flannel Pollo tem 100% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2bbecf2bcd7d",
+              "clm_6f7886b8d49b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O roupão Felpudo Hotelaria Clássica da Teka declara 100% algodão, enquanto o modelo Golden da mesma marca informa composição de 50% algodão e 50% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_06657271f302",
+              "clm_42ecc8846e8d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "gramatura-tecido",
+        "heading": "Gramatura do tecido (g/m²) e o que ela significa",
+        "blocks": [
+          {
+            "text": "A Teka declara 300 g/m² para o roupão Aveludado Vênus, enquanto a Karsten declara 390 g/m² para o Fio Cardado; portanto, o modelo da Karsten tem gramatura declarada maior.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2aa76f0af026",
+              "clm_f3477da9a647"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Teka declara 420 g/m² para o roupão Felpudo Hotelaria Clássica. A Appel declara 250 g/m² para o Kimono Microfibra Felpuda Deluxe e 240 g/m² para o Microfibra Flannel Pollo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_810a6fe9fa78",
+              "clm_6c89cd5e1745",
+              "clm_6f7886b8d49b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Cuidados de lavagem e secagem conforme a etiqueta",
+        "blocks": [
+          {
+            "text": "A etiqueta do roupão traz instruções de cuidado para conservação da peça, segundo a Karsten. No roupão Unissex Veluto da Karsten, a etiqueta informa: lavação a 40°C, proibição de alvejante, secagem em tambor com temperatura máxima de 60°C, passagem de ferro com temperatura máxima de 150°C e proibição de lavagem a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d6a5db0e2d21"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Fio Cardado Veluto G da Karsten segue as mesmas orientações: lavação a 40°C, sem alvejante, secagem em tambor até 60°C, ferro até 150°C e sem lavagem a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a58d1203bdad"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Infantil Microfibra Deluxe Kids da Appel, a etiqueta determina: lavação máxima de 30°C, sem alvejante, sem passar a ferro ou vapor, secagem em varal e lavagem separada de outras peças.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_36f6e6aecc53"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-totais",
+        "heading": "Medidas totais declaradas por tamanho",
+        "blocks": [
+          {
+            "text": "O roupão Fio Cardado Veluto P da Karsten possui comprimento total de 109 cm, largura de tórax de 66 cm e comprimento de manga de 41,5 cm. No tamanho G, o comprimento sobe para 111 cm, a largura do tórax para 70 cm e a manga para 44,5 cm, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2215d718c14d",
+              "clm_7e7b14feb1ef"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O roupão Unissex Veluto da Karsten no tamanho P mede 58 cm de largura por 1,09 m (109 cm) de comprimento total.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e67061d6a446"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O roupão Princess da Buddemeyer informa comprimento de 1,15 m, enquanto a Appel informa que o roupão infantil Microfibra Deluxe Kids está disponível nos tamanhos P (4 a 6 anos), M (6 a 8 anos) e G (8 a 10 anos), com orientação para consultar a tabela de medidas nas fotos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_23b104d5713d",
+              "clm_402a5a597008"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pelo tamanho e material",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas declaradas por tamanho nos modelos citados (segundo a Karsten)",
+            "columns": [
+              "Tamanho",
+              "Comprimento total",
+              "Largura tórax",
+              "Comprimento da manga"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "P",
+                    "claim_ids": [
+                      "clm_2215d718c14d"
+                    ]
+                  },
+                  {
+                    "text": "109 cm",
+                    "claim_ids": [
+                      "clm_2215d718c14d"
+                    ]
+                  },
+                  {
+                    "text": "66 cm",
+                    "claim_ids": [
+                      "clm_2215d718c14d"
+                    ]
+                  },
+                  {
+                    "text": "41,5 cm",
+                    "claim_ids": [
+                      "clm_2215d718c14d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "G",
+                    "claim_ids": [
+                      "clm_498ecf8178ed"
+                    ]
+                  },
+                  {
+                    "text": "110 cm",
+                    "claim_ids": [
+                      "clm_498ecf8178ed"
+                    ]
+                  },
+                  {
+                    "text": "70 cm",
+                    "claim_ids": [
+                      "clm_498ecf8178ed"
+                    ]
+                  },
+                  {
+                    "text": "45,5 cm",
+                    "claim_ids": [
+                      "clm_498ecf8178ed"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você vai escolher o tamanho, verifique, se possível, as tabelas de medidas fornecidas pelas lojas, segundo a Appel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ee112e09b055"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prioriza absorção, conforto e maciez depois do banho, escolha um roupão de algodão, segundo a Appel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f56b05fc324"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer um roupão leve e de secagem rápida, escolha um modelo de microfibra, segundo a Appel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f56b05fc324"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer uma peça adequada para usar no frio e aceita um roupão mais pesado, considere um modelo de veludo ou felpudo, segundo a Appel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f56b05fc324"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você está comparando a absorção entre modelos, confira a gramatura e prefira opções a partir de 200 g/m², segundo a Appel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d5d779d01a9c"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que os tamanhos vão de P a GG, que é possível consultar tabelas de medidas e que opções a partir de 200 g/m² são mais absorventes. Não sustentam que as letras variam entre marcas, nem que a composição indique absorção e durabilidade ou que a gramatura indique durabilidade. Versão sustentável: Confira, se possível, a tabela de medidas fornecida pela loja para escolher entre os tamanhos P a GG. Segundo a Appel, opções a partir de 200 g/m² são mais absorventes."
+    },
+    {
+      "ref": "composicao-material#0",
+      "msg": "UNSUPPORTED. Os trechos informam a composição dos dois modelos, mas não dizem que a etiqueta do roupão traz essa informação. Versão sustentável: A Karsten informa que o roupão Fio Cardado Veluto tem composição de 100% algodão, enquanto o modelo Fio Cardado Lino tem 90% algodão e 10% poliéster."
+    },
+    {
+      "ref": "composicao-material#1",
+      "msg": "OVERSTATED. Os trechos sustentam as composições de dois modelos específicos da Appel, mas não permitem generalizar que roupões de microfibra, em geral, tenham composição diferente. Versão sustentável: A Appel informa que o Kimono Microfibra Deluxe tem 88% poliéster e 12% poliamida, enquanto o Microfibra Flannel Pollo tem 100% poliéster."
+    },
+    {
+      "ref": "gramatura-tecido#0",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam apenas as gramaturas de 300 g/m² da Teka e 390 g/m² da Karsten. Não dizem que gramatura mede densidade, que maior gramatura implica maior absorção, nem que o modelo da Karsten é mais pesado e denso. Versão sustentável: A Teka declara 300 g/m² para o roupão Aveludado Vênus, enquanto a Karsten declara 390 g/m² para o Fio Cardado; portanto, o modelo da Karsten tem gramatura declarada maior."
+    },
+    {
+      "ref": "gramatura-tecido#1",
+      "msg": "UNSUPPORTED. O trecho da Teka sustenta 420 g/m², e os trechos da Appel sustentam 250 g/m² para o Kimono Deluxe e 240 g/m² para o Microfibra Flannel Pollo. Porém, nenhum trecho sustenta que 420 g/m² esteja entre as gramaturas mais altas, nem menciona o modelo Infantil Deluxe Kids com 250 g/m². Versão sustentável: A Teka declara 420 g/m² para o roupão Felpudo Hotelaria Clássica. A Appel declara 250 g/m² para o Kimono Microfibra Felpuda Deluxe e 240 g/m² para o Microfibra Flannel Pollo."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. O trecho lista instruções de cuidado, mas não afirma que elas são obrigatórias. Versão sustentável: A etiqueta do roupão traz instruções de cuidado para conservação da peça. No roupão Unissex Veluto da Karsten, a etiqueta informa: lavação a 40°C, proibição de alvejante, secagem em tambor com temperatura máxima de 60°C, passagem de ferro com temperatura máxima de 150°C e proibição de lavagem a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "OVERSTATED. O trecho sustenta essas instruções para o modelo Infantil Microfibra Deluxe Kids, mas não diz que todos os roupões de microfibra exigem cuidados mais restritos. Versão sustentável: No Infantil Microfibra Deluxe Kids da Appel, a etiqueta determina: lavação máxima de 30°C, sem alvejante, sem passar a ferro ou vapor, secagem em varal e lavagem separada de outras peças."
+    },
+    {
+      "ref": "medidas-totais#0",
+      "msg": "OVERSTATED. O trecho do tamanho G informa comprimento total de 111 cm, não 110 cm. As larguras e o comprimento da manga estão corretos. Versão sustentável: No tamanho G, o comprimento sobe para 111 cm, a largura do tórax para 70 cm e a manga para 44,5 cm, segundo a Karsten."
+    },
+    {
+      "ref": "medidas-totais#2",
+      "msg": "OVERSTATED. O trecho da Appel informa os tamanhos e orienta consultar a tabela de medidas nas fotos, mas não mostra as medidas detalhadas nem afirma que a tabela é fornecida por uma loja. Versão sustentável: O roupão Princess da Buddemeyer informa comprimento de 1,15 m, enquanto a Appel informa que o roupão infantil Microfibra Deluxe Kids está disponível nos tamanhos P (4 a 6 anos), M (6 a 8 anos) e G (8 a 10 anos), com orientação para consultar a tabela de medidas nas fotos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. O trecho diz que é possível verificar as tabelas de medidas das lojas, mas não afirma que as letras P, M, G ou GG variam entre fabricantes nem que se deve evitar basear-se apenas nelas. Versão sustentável: Se você vai escolher o tamanho, verifique, se possível, as tabelas de medidas fornecidas pelas lojas, segundo a Appel."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. O trecho afirma que roupões de veludo ou felpudos são pesados e ideais no frio, mas não diz expressamente que oferecem mais aquecimento. Versão sustentável: Se você quer uma peça adequada para usar no frio e aceita um roupão mais pesado, considere um modelo de veludo ou felpudo, segundo a Appel."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1569
+  }
+}
