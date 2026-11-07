@@ -1,0 +1,41 @@
+{
+  "slug": "como-escolher-cobertor",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 86661,
+    "output_tokens": 27291,
+    "calls": 40
+  },
+  "credits": 37.22925731999998,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-cobertor#1"
+    ],
+    "decision_criteria": [
+      "Para cama de solteiro, conferir cobertor de pelo menos 1,50 m × 2,20 m.",
+      "Para cama de casal, conferir cobertor de pelo menos 2,00 m × 2,20 m.",
+      "Para queen e king, comparar as medidas do anúncio com as dimensões indicadas na tabela de fabricantes: 2,40 m × 2,20 m e 2,60 m × 2,40 m, respectivamente.",
+      "Conferir na etiqueta o nome e o percentual de cada fibra; os percentuais devem aparecer em ordem decrescente.",
+      "Usar a gramatura como referência de aquecimento: 250 g/m² é apresentada para meia-estação ou como camada complementar, enquanto 350 g/m² é associada pela Döhler a mais aquecimento sem perder leveza.",
+      "Verificar na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional.",
+      "Se o cobertor não puder ir à secadora, conferir se a etiqueta orienta secagem no varal ou outro método específico."
+    ],
+    "missing": [
+      "Uma regra de compra explícita para escolher entre as medidas de queen e king, além dos exemplos de catálogo.",
+      "Uma tabela de gramaturas relacionando faixas de g/m² a níveis de aquecimento ou estações do ano, baseada em fabricantes.",
+      "Informação sobre peso e dimensões do cobertor dobrado ou embalado para armazenamento e transporte.",
+      "Orientação sobre a folga desejada nas laterais da cama, já que a medida adequada também depende de quanto o cobertor deve cobrir o colchão."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: oferece medidas, composição, gramatura e cuidados concretos para conferir no anúncio ou na etiqueta, e a resposta curta já orienta a escolha com medidas mínimas. Ela poderia ficar mais completa com regras explícitas para queen e king, uma comparação mais geral de gramaturas e dados de armazenamento, mas essas lacunas não impedem a decisão básica de compra.",
+    "filler_ratio": 0.043478260869565216,
+    "model_opinion": true
+  }
+}
