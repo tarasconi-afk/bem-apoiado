@@ -1,0 +1,163 @@
+
+
+<html>
+<head>
+<title>Compras.gov.br</title>
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="/imagens/style1.css" type="text/css" />
+<script type="text/javascript" src="/includes/ValidacoesBasicas.js"></script>
+<script type="text/javascript" src="/includes/aguarde.js"></script>
+<script>
+
+    function Voltar() {
+        if (aguarde()) {
+            bloqueiaAcoes(document);
+            window.location.href = "";
+        }
+    }
+
+    function ValidaCodigo() {
+        //var url = '/includes/ValidaCodigoEdital.asp?numprp=552018&modprp=5&coduasg=450068&bidbird=N';
+		var url = '/ConsultaLicitacoes/Download/Download.asp?coduasg=450068&numprp=552018&modprp=5&bidbird=N';
+		var MyWindow = window.open(url, 'ValidaCodigo', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=655,height=300');
+        MyWindow.focus();
+    }
+
+    function IrParaItem(qtdePaginas, tipo) {
+        if (aguarde()) {
+            var vMaiorPagina = parseInt(qtdePaginas);
+
+            if (document.frmPaginacao.txbIrPara.value != "") {
+                var pagina = document.frmPaginacao.txbIrPara.value;
+
+                if (!parseInt(pagina)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+
+                if ((parseInt(pagina) > vMaiorPagina) || parseInt(pagina == 0)) {
+                    alert('Informe um número entre 1 e ' + vMaiorPagina);
+                    document.frmPaginacao.txbIrPara.focus();
+                    return false;
+                }
+                bloqueiaAcoes(document);
+                document.frmPaginacao.pagina.value = document.frmPaginacao.txbIrPara.value;
+                document.frmPaginacao.submit();
+                //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+            }
+        }
+    }
+
+    function PaginarItens(strTipo, paginaAtual, tipo) {
+        if (aguarde()) {
+
+            bloqueiaAcoes(document);
+
+            var pagina = 0;
+
+            if (strTipo == "Proxima")
+                pagina = paginaAtual + 1;
+            else
+                pagina = paginaAtual - 1;
+
+            document.frmPaginacao.pagina.value = pagina;
+            document.frmPaginacao.submit();
+
+            //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo+"&pagina="+pagina;
+        }
+    }
+
+    function VisualizarItens(tipo) {
+        //window.location.href="download_editais_detalhe.asp"+vParam+"&tipo="+tipo;	
+
+        document.frmVisualizarItens.tipo.value = tipo;
+        document.frmVisualizarItens.submit();
+    }
+
+	function visualizarHistoricoEventos(parametros){
+		var url = "/ConsultaLicitacoes/ConsLicitacao_HistoricoEventos.asp" + parametros
+		window.open(url, 'HistoricoEventos', 'maximized=yes, screenX=250, screenY=0, toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=500,height=350');
+		return false;
+	}
+		
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- frame e tabela que apresentarão a mensagem de aguarde na tela -->
+<iframe id="frameloading" name="frameloading" src="javascript:false;" scrolling="no" frameborder="0" style="display: none; position: absolute; left: 0; top: 0; z-index: -1;"></iframe>
+<table style="display:none; position: absolute;" id="loading" name="loading" class="box">
+	<tr><td class="cabecbox">Aguarde!</td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2"><img src="/imagens/T_download_editais.gif" width="160" height="23" align="absbottom">
+                </td>
+              </tr>
+              <tr>
+                <td width="5"><img src="/imagens/risco.gif" width="5" height="3"></td>
+                <td width="100%"><img src="/imagens/risco2.gif" width="100%" height="3"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"><img src="/imagens/x2_dot.gif" width="5" height="5"></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="1" cellpadding="2">
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p>PREFEITURA MUNICIPAL DE VOLTA REDONDA RJ</p></td></tr><tr><td class='tex3'><p>Código da UASG: 450068</p></td></tr></table><br></td>
+        </tr>
+        <tr>
+		<td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td><td class='tex3'><table width='700' border='0' cellspacing='0' cellpadding='0'><tr><td class='tex3'><p><span class='tex3b'>Pregão Eletrônico Nº  55/2018</span><span class='mensagem'> - (Decreto Nº 5.450/2005)</span><br><b>Objeto:</b>&nbsp;Objeto: Pregão Eletrônico -  Aquisição de materiais diversos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <br><b>Edital a partir de:</b>&nbsp;21/03/2018 das 08:00 às 17:00 Hs <br><b>Endereço:</b>&nbsp;Praça Sávio Gama, Nº 53                                                              - Aterrado                                 - Volta Redonda                            (RJ)<br><b>Telefone:</b>&nbsp;(0xx24) 3399037 <br><b>Fax:</b>&nbsp;(0xx24)               <br><b>Entrega da Proposta:</b>&nbsp;21/03/2018 às 08:00Hs<br></p></td></tr></table><br></td>
+        </tr>
+        
+		    <tr>
+		    <td valign='top' align='right' width='23'><img src='/imagens/tm_bullet.gif' width='6' height='14'></td>
+		    <td class='tex3'>
+		    <span class='tex3b'>Itens de Material</span><table width='100%'><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>1 - COLCHONETE GINÁSTICA</span><br><span class='tex3'>Colchonete (CO3) para repouso (CONJUNTO COM 04 UNIDADES) Colchonete de lamina de espuma flexível de poliuretano para uso infantil, certificado pelo INMETRO e em conformidade com a norma ABNT NBR 13579-1 Dimensões: Comprimento: 185cm; Largura: 65cm; Espessura: 05cm. Características: Revestimento em material textil plastificado, \´atóxico\´, ref. \´CORINO\´, na cor AZUL REAL, impermeável, com acabamento em costura simples e acabamento em cadarço impermeável; Espuma com densidade nominal Kg/m: D-20. Norma ABNT NBR 8537 RECOMENDAÇÕES: Para fabricação indispensável atender as especifica coes técnicas especificas para cada material.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 154<br>Unidade de fornecimento: CONJUNTO            </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>2 - COLCHONETE GINÁSTICA</span><br><span class='tex3'>COLCHONETE P/TROCADOR D/CRECHE (CO2) (CONJUNTO COM 03 UNIDADES). SENDO: Descrição: Colchonete para trocador de espuma flexível de poliuretano. Dimensões: Comprimento: 100cm; Largura: 60cm; Espessura: 05cm.Tolerâncias do produto acabado com base nas dimensões declaradas na etiqueta, de +ou- 1,5cm para largura e comprimento e -0,5cm/+1,5cm para a altura. Características: Revestimento em material têxtil plastificado, \´atóxico\´, ref. \´CORINO\´, na cor AZUL REAL, impermeável, com acabamento em costura simples e acabamento em cadarço impermeável; Espuma com densidade nominal Kg/m3: D-20. Norma abnt nbr 8537. RECOMENDAÇÕES: Para fabricação e indispensável atender as especificações técnicas especificas para cada material.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 23<br>Unidade de fornecimento: CONJUNTO            </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>3 - ´LENÇOL CAMA´</span><br><span class='tex3'>LENÇOL CAMA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1090<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>4 - TRAVESSEIRO</span><br><span class='tex3'>TRAVESSEIRO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 575<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>5 - FRONHA</span><br><span class='tex3'>FRONHA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1150<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>6 - ´LENÇOL CAMA´</span><br><span class='tex3'>EDREDOM.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 565<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>7 - ´TOALHA BANHO´</span><br><span class='tex3'>TOALHA BANHO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 510<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>8 - ´TOALHA BANHO´</span><br><span class='tex3'>TOALHA ROSTO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 345<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>9 - ÁLCOOL ETÍLICO LIMPEZA DE AMBIENTES</span><br><span class='tex3'>ÁLCOOL ETÍLICO LIMPEZA DE AMBIENTES, TIPO ETÍLICO, APARÊNCIA VISUAL LÍQUIDO,  LÍMPIDO, ISENTO DE PARTÍCULAS, APLICAÇÃO LIMPEZA, CONCENTRAÇÃO 48 INPM<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1142<br>Unidade de fornecimento: FRASCO 800,00 ML    </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>10 - ÁLCOOL ANIDRO HIDRATADO COMBUSTÍVEL</span><br><span class='tex3'>ÁLCOOL ETÍLICO HIDRATADO.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1142<br>Unidade de fornecimento: un                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>11 - LUVA BORRACHA</span><br><span class='tex3'>LUVA LÁTEX<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 68<br>Unidade de fornecimento: cx                  </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>12 - ´PAPEL´</span><br><span class='tex3'>PAPEL TOALHA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 68<br>Unidade de fornecimento: pacote              </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>13 - LENCO DE TECIDO</span><br><span class='tex3'>LENÇO POLIÉSTER.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 1418<br>Unidade de fornecimento: pacote              </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>14 - FRALDA DESCARTÁVEL</span><br><span class='tex3'>FRALDA DESCARTÁVEL, TIPO FORMATO ANATÔMICO, TAMANHO MÉDIO, PESO USUÁRIO ATÉ 10KG, CARACTERÍSTICAS ADICIONAIS FLOCOS DE GEL, ABAS ANTIVAZAMENTO, FAIXA       AJUSTÁVE L, TIPO ADESIVO FIXAÇÃO FITAS ADESIVAS MULTIAJUSTÁVEIS,REUTILIZÁVEIS,TIPO USUÁRIO INFANTIL, USO ALGODÃO NÃO DESFAÇA QUANDO MOLHADO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 2960<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>15 - FRALDA DESCARTÁVEL</span><br><span class='tex3'>FRALDA DESCARTÁVEL, TIPO FORMATO ANATÔMICO, TAMANHO MÉDIO, PESO USUÁRIO ATÉ 10KG, CARACTERÍSTICAS ADICIONAIS FLOCOS DE GEL, ABAS ANTIVAZAMENTO, FAIXA       AJUSTÁVE L, TIPO ADESIVO FIXAÇÃO FITAS ADESIVAS MULTIAJUSTÁVEIS,REUTILIZÁVEIS,TIPO USUÁRIO INFANTIL, USO ALGODÃO NÃO DESFAÇA QUANDO MOLHADO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 4700<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>16 - FRALDA DESCARTÁVEL</span><br><span class='tex3'>FRALDA DESCARTÁVEL, TIPO FORMATO ANATÔMICO, TAMANHO MÉDIO, PESO USUÁRIO ATÉ 10KG, CARACTERÍSTICAS ADICIONAIS FLOCOS DE GEL, ABAS ANTIVAZAMENTO, FAIXA       AJUSTÁVE L, TIPO ADESIVO FIXAÇÃO FITAS ADESIVAS MULTIAJUSTÁVEIS,REUTILIZÁVEIS,TIPO USUÁRIO INFANTIL, USO ALGODÃO NÃO DESFAÇA QUANDO MOLHADO<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 11700<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>17 - SABÃO PÓ</span><br><span class='tex3'>SABÃO PÓ, APLICAÇÃO LIMPEZA GERAL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 186<br>Unidade de fornecimento: PACOTE 1,00 KG      </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>18 - TAPETE</span><br><span class='tex3'>TAPETE.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 75<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>19 - BORRIFADOR</span><br><span class='tex3'>BORRIFADOR.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 91<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>20 - COBERTURA CABEÇA INFANTIL</span><br><span class='tex3'>COBERTURA CABEÇA INFANTIL TOUCA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 150<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>21 - CREME DE BARBA / CREME CABELO</span><br><span class='tex3'>CREME DENTAL.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 2000<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>22 - ESCOVA LIMPEZA GERAL</span><br><span class='tex3'>ESCOVA DENTAL<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 2000<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>23 - CABO RODO / VASSOURA</span><br><span class='tex3'>VASSOURA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 500<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>24 - ´PAPEL´</span><br><span class='tex3'>PAPEL.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 2000<br>Unidade de fornecimento: FARDO               </span><br></td></tr><tr><td width='20' valign='top'>&nbsp;</td><td width='650' valign='top'><span class='tex3b'>25 - CADEIRA</span><br><span class='tex3'>CADEIRA.<br>Tratamento Diferenciado: Tipo I - Participação Exclusiva de ME/EPP/Equiparada<br>Aplicabilidade Decreto 7174: Não<br>Aplicabilidade Margem de Preferência: Não<br>Quantidade: 105<br>Unidade de fornecimento: UNIDADE             </span><br></td></tr></table>
+		    </td>
+		    </tr>		
+        
+            <tr>
+		      <td valign="top" align="right" width="23">
+			     <img src="/imagens/tm_bullet.gif" width="6" height="14">
+		      </td>	
+              <td class="tex3">
+                <span class="tex3b">Informações Adicionais do Download</span><br>
+                  <span class="mensagem">O conteúdo deste edital é de inteira responsabilidade do órgão licitante,
+                   e eventuais problemas devem ser tratados com o mesmo.</span><br><br>
+		       </td>
+		     </tr>
+		 
+         		
+         <tr>
+           <td valign="top" align="right" width="23">&nbsp;</td>
+           <td class="tex3">
+			 
+				 <input type="button" id="btnVoltar" name="btnVoltar" value="Voltar" onClick="Voltar();" class="texField2">&nbsp;
+			 
+			    <input type="button" name="Download" value="Download" onClick="javascript:ValidaCodigo();" class="texField2">
+            
+           </td>
+         </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

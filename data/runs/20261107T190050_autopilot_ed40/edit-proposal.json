@@ -1,0 +1,52 @@
+{
+  "edits": [
+    {
+      "ref": "verdict",
+      "action": "rewrite",
+      "text": "Priorize a ficha técnica do modelo específico: ela indica se o travesseiro favorece ventilação e dissipação de calor (como no látex) ou se adapta ao formato do corpo com retorno lento e distribuição de pressão (como no viscoelástico).",
+      "reason": "Remove repetição com a seção 'Como decidir', mantendo o resumo mais enxuto."
+    },
+    {
+      "ref": "o-que-sao#0",
+      "action": "rewrite",
+      "text": "Travesseiros de látex natural, como o da Duoflex, são feitos a partir da seiva da seringueira e descritos pelo fabricante como elásticos, macios, resilientes e duráveis. Já os de espuma viscoelástica, segundo a Duoflex, têm retorno lento (efeito memória), absorvem melhor o peso do corpo e distribuem a pressão de forma mais equilibrada.",
+      "claim_ids": [
+        "clm_040d170f6500",
+        "clm_19e91026281f"
+      ],
+      "absorbs": [
+        "o-que-sao#1"
+      ],
+      "reason": "Une as duas descrições de material em um único bloco mais direto, evitando repetição com a seção de composição."
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "action": "rewrite",
+      "text": "A Duoflex declara que o Travesseiro Natural Látex é feito a partir da seiva da seringueira. A Ortobom declara que o Travesseiro Pró-Latex usa espuma de alta resiliência 100% poliuretano, que não absorve calor e oferece flexibilidade, suporte e retorno.",
+      "claim_ids": [
+        "clm_040d170f6500",
+        "clm_e2c0e8d4ec93"
+      ],
+      "reason": "Elimina a repetição das características do látex já citadas em 'O que são', deixando só o essencial sobre composição."
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Se você busca ventilação e dissipação de calor, um modelo de látex, como o Travesseiro Natural Látex Duoflex, pode ser mais indicado, segundo o fabricante. Se prioriza adaptação ao formato do corpo, retorno lento e distribuição de pressão, um travesseiro viscoelástico, como os citados pela Duoflex e Ortobom, pode atender melhor.",
+      "claim_ids": [
+        "clm_040d170f6500",
+        "clm_19e91026281f",
+        "clm_5a4c626f4ede"
+      ],
+      "absorbs": [
+        "como-decidir#1"
+      ],
+      "reason": "Junta os dois critérios de decisão relacionados ao material em um único bloco, sem perder informação."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 4,
+    "output_tokens": 9491
+  }
+}

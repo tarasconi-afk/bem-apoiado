@@ -1,0 +1,37 @@
+{
+  "slug": "travesseiro-de-latex-ou-viscoelastico",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 112512,
+    "output_tokens": 37770,
+    "calls": 53
+  },
+  "credits": 37.36199760000002,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se a prioridade é ventilação e dissipação de calor, procurar um travesseiro de látex cuja ficha confirme essa característica.",
+      "Se a prioridade é retorno lento, absorção do peso e distribuição da pressão, considerar um travesseiro viscoelástico.",
+      "Conferir na etiqueta ou ficha o material declarado, o fabricante ou marca, a identificação fiscal, o país de origem, o tamanho e os cuidados de conservação.",
+      "Comparar as instruções de lavagem e secagem, pois elas variam entre os modelos de látex e viscoelástico.",
+      "Verificar o prazo de garantia informado para o modelo, que pode variar entre 90 dias e três meses nos exemplos citados."
+    ],
+    "missing": [
+      "Critérios de escolha relacionados à posição de dormir, altura do travesseiro, peso do usuário e necessidade de suporte para o pescoço.",
+      "Uma comparação mais ampla entre látex natural, látex sintético, blend e viscoelástico, com indicação de qual opção serve para cada perfil.",
+      "Informação de fonte primária sobre firmeza, altura e capacidade de adaptação dos modelos comparados.",
+      "Orientação para conferir se a composição do enchimento é realmente látex ou poliuretano, sem confundir o material da capa com o núcleo do travesseiro."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece uma regra de escolha concreta: látex para quem prioriza ventilação e dissipação de calor, e viscoelástico para quem busca retorno lento, absorção do peso e distribuição da pressão. Também orienta o leitor a conferir composição, identificação, cuidados e garantia na ficha do produto. Há repetição entre o veredito e os blocos de decisão, e faltam critérios como altura, posição de dormir e suporte para o pescoço, mas isso não impede a resposta à dúvida principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
