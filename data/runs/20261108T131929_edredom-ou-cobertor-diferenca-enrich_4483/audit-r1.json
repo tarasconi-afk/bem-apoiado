@@ -1,0 +1,232 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o edredom é volumoso, tem enchimento geralmente sintético e tecido externo de algodão ou microfibra, e que o cobertor é de tecido mais grosso, geralmente de lã, poliéster ou manta acrílica. Porém, não dizem que o cobertor não tem enchimento interno nem que é usado diretamente. Também há apenas um exemplo de edredom para capa duvet, insuficiente para afirmar que isso ocorre frequentemente ou segundo fichas de fabricantes no plural.",
+      "fix": "Edredom é uma peça volumosa com enchimento, geralmente de fibras sintéticas, e tecido externo de algodão ou microfibra. Cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica. Um produto da Buddemeyer é descrito como edredom para ser revestido com capa duvet."
+    },
+    {
+      "ref": "composicao-enchimento#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho confirma que o enchimento é de poliéster, proporciona volume e conforto e não entra em contato com a pele, mas não afirma que o enchimento é separado do tecido externo.",
+      "fix": "Segundo a Karsten, o enchimento do edredom é de poliéster, proporciona volume e conforto e não entra em contato com a pele."
+    },
+    {
+      "ref": "composicao-enchimento#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Plumasul não informa gramatura, portanto não sustenta a afirmação de que Plumasul e Altenburg declaram gramaturas variadas. Além disso, os trechos da Altenburg não identificam os modelos Leve Verano e Toque de Pluma; um deles informa 120g/m, sem a unidade m² usada no bloco.",
+      "fix": "A Plumasul informa enchimento de 100% de plumas de ganso e revestimento de tecido 100% algodão percal 233 fios. O catálogo da Altenburg informa manta siliconizada de 120g/m e poliéster siliconizado de 250g/m²."
+    },
+    {
+      "ref": "composicao-enchimento#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Trussardi sustenta a manta de edredom de 220g no produto identificado pelo documento como Cetim Lupi. Já o trecho da Altenburg informa manta de poliéster com 150g/m², mas não identifica o modelo Delicato.",
+      "fix": "A Trussardi declara manta de edredom de 220g no Cetim Lupi, enquanto a Altenburg informa manta de poliéster com 150g/m²."
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica, mas não diz que ele não tem enchimento interno nem que não há separação entre camadas.",
+      "fix": "Segundo a Karsten, o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica."
+    },
+    {
+      "ref": "composicao-cobertor#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o Blanket 300 tem gramatura de 280 g/m², mas não informam que ele é 100% poliéster. A composição de 100% poliéster está citada para o produto da Altenburg e para os dois produtos da Andreza.",
+      "fix": "Os fabricantes citados declaram dados de composição ou gramatura. O Blanket 300 da Kacyumara tem gramatura de 280 g/m²; os trechos não informam sua composição. O Desert da Altenburg e os modelos Viena Flannel e Quebec Flannel da Andreza são declarados como 100% poliéster, com as gramaturas indicadas nos trechos."
+    },
+    {
+      "ref": "composicao-cobertor#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Altenburg apenas lista o produto como Plush Flanel Fleece double layer, com 400 g/m². Ele não afirma que gramaturas mais altas oferecem maior densidade, não menciona 500 g/m² e não sustenta essa regra geral como posição da Altenburg.",
+      "fix": "A Altenburg lista o Cobertor King Desert como Plush Flanel Fleece double layer, com 400 g/m²."
+    },
+    {
+      "ref": "etiqueta-composicao-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta a informação sobre nome das fibras ou filamentos e percentuais em massa, mas não mostra que a exigência se aplica a “qualquer tecido” nem menciona especificamente edredom e cobertor.",
+      "fix": "O Inmetro exige a informação do nome das fibras ou filamentos têxteis e de seus percentuais em massa."
+    },
+    {
+      "ref": "etiqueta-composicao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que os processos de conservação devem ser descritos por textos e/ou símbolos e seguir a sequência indicada, mas não mostram explicitamente que o Inmetro exige que a etiqueta informe esse tratamento.",
+      "fix": "O Inmetro informa que os processos de conservação devem ser descritos por textos e/ou símbolos, na sequência: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O único trecho citado informa a gramatura do cobertor, sem declarar cuidados de lavagem, menor restrição ou maior liberdade de higienização. Também não sustenta a generalização de que cobertores frequentemente apresentam cuidados menos restritivos.",
+      "fix": "O trecho citado da ficha informa apenas que o cobertor tem gramatura de 280 g/m²; não permite concluir sobre seus cuidados de lavagem ou sobre a liberdade de higienização."
+    },
+    {
+      "ref": "tamanhos-medidas#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sustenta a medida de 2,10 m x 2,40 m para um edredom Altenburg, mas não identifica o produto como “Plumi”.",
+      "fix": "[tabela: Tamanhos de edredons e cobertores oferecidos pelos fabricantes] Tipo: Edredom | Medidas declaradas: 2,10 m x 2,40 m (Altenburg)"
+    },
+    {
+      "ref": "tamanhos-medidas#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sustenta a medida de 2,60 m x 2,40 m para um edredom Altenburg, mas não identifica o produto como “Plumi”.",
+      "fix": "[tabela: Tamanhos de edredons e cobertores oferecidos pelos fabricantes] Tipo: Edredom | Medidas declaradas: 2,60 m x 2,40 m (Altenburg)"
+    },
+    {
+      "ref": "tamanhos-medidas#0.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sustenta a medida de 2,80 m x 2,60 m para um edredom Altenburg, mas não identifica o produto como “Plumi”.",
+      "fix": "[tabela: Tamanhos de edredons e cobertores oferecidos pelos fabricantes] Tipo: Edredom | Medidas declaradas: 2,80 m x 2,60 m (Altenburg)"
+    },
+    {
+      "ref": "tamanhos-medidas#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "uso-com-capa-duvet#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos da Altenburg mostram um jogo de duvet com fechamento em zíper e seus tamanhos, mas não dizem que a empresa oferece edredons como o Plumi, que vende a capa separadamente ou que os tamanhos são os mesmos do edredom. O trecho da Buddemeyer sustenta apenas que o Intense é um edredom para capa duvet.",
+      "fix": "A Buddemeyer apresenta o edredom Intense como adequado para ser revestido com capa duvet. A Altenburg, nos trechos citados, lista um jogo de duvet com fechamento em zíper nos tamanhos casal, queen e king."
+    },
+    {
+      "ref": "uso-com-capa-duvet#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado comprova a afirmação sobre o edredom Sanomed Summer, mas não sustenta o plural “alguns edredons”. Há evidência de um produto específico da Buddemeyer.",
+      "fix": "A Buddemeyer declara que o edredom Sanomed Summer pode ser usado como enchimento para capa duvet."
+    },
+    {
+      "ref": "uso-com-capa-duvet#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco tenha base “framing”, ele afirma um fato sobre cobertores e seu uso sem citar qualquer trecho de evidência.",
+      "fix": "A seguir, veja o que as fontes dizem sobre o uso de cobertores."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam enchimento de poliéster, tecido externo de algodão ou microfibra e, em um cobertor específico, composição de poliéster e gramatura de 400 g/m². Eles não sustentam a lista geral de enchimentos “poliéster, pluma ou manta”, nem mostram que a gramatura deve ser conferida para todo edredom ou cobertor.",
+      "fix": "Se escolher um edredom, confira na ficha o tipo de enchimento, como poliéster, e o tecido externo, segundo as informações citadas. Para o cobertor Altenburg citado, a ficha informa composição 100% poliéster e gramatura de 400 g/m²."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as instruções de lavagem do edredom Summer da Plumasul e do edredom King da Trussardi, mas o trecho da Kacyumara informa apenas a gramatura do cobertor. Não há evidência de que o Blanket 300 não tenha restrições de lavagem ou ofereça maior facilidade de cuidado.",
+      "fix": "Se você lava a peça em casa, confira na ficha os cuidados específicos. No edredom Summer da Plumasul, a indicação é não lavar à água, lavar a seco e secar no varal; no edredom King da Trussardi, é permitido lavar a 40°C e secar em varal."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram a medida do edredom King da Trussardi e a gramatura de 280 g/m² do cobertor Blanket 300 da Kacyumara, mas não informam o peso da peça seca nem permitem concluir que essa gramatura indica menor volume que edredons com enchimento mais denso.",
+      "fix": "Se tem pouco espaço para armazenar, compare as medidas e a gramatura informadas nas fichas. O edredom King da Trussardi mede 2,90 m x 2,70 m, e o cobertor Blanket 300 da Kacyumara tem gramatura de 280 g/m²."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que o edredom é volumoso, tem enchimento geralmente sintético e tecido externo de algodão ou microfibra, e que o cobertor é de tecido mais grosso, geralmente de lã, poliéster ou manta acrílica. Porém, não dizem que o cobertor não tem enchimento interno nem que é usado diretamente. Também há apenas um exemplo de edredom para capa duvet, insuficiente para afirmar que isso ocorre frequentemente ou segundo fichas de fabricantes no plural. Versão sustentável: Edredom é uma peça volumosa com enchimento, geralmente de fibras sintéticas, e tecido externo de algodão ou microfibra. Cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica. Um produto da Buddemeyer é descrito como edredom para ser revestido com capa duvet."
+    },
+    {
+      "ref": "composicao-enchimento#0",
+      "msg": "UNSUPPORTED. O trecho confirma que o enchimento é de poliéster, proporciona volume e conforto e não entra em contato com a pele, mas não afirma que o enchimento é separado do tecido externo. Versão sustentável: Segundo a Karsten, o enchimento do edredom é de poliéster, proporciona volume e conforto e não entra em contato com a pele."
+    },
+    {
+      "ref": "composicao-enchimento#1",
+      "msg": "MISATTRIBUTED. O trecho da Plumasul não informa gramatura, portanto não sustenta a afirmação de que Plumasul e Altenburg declaram gramaturas variadas. Além disso, os trechos da Altenburg não identificam os modelos Leve Verano e Toque de Pluma; um deles informa 120g/m, sem a unidade m² usada no bloco. Versão sustentável: A Plumasul informa enchimento de 100% de plumas de ganso e revestimento de tecido 100% algodão percal 233 fios. O catálogo da Altenburg informa manta siliconizada de 120g/m e poliéster siliconizado de 250g/m²."
+    },
+    {
+      "ref": "composicao-enchimento#2",
+      "msg": "MISATTRIBUTED. O trecho da Trussardi sustenta a manta de edredom de 220g no produto identificado pelo documento como Cetim Lupi. Já o trecho da Altenburg informa manta de poliéster com 150g/m², mas não identifica o modelo Delicato. Versão sustentável: A Trussardi declara manta de edredom de 220g no Cetim Lupi, enquanto a Altenburg informa manta de poliéster com 150g/m²."
+    },
+    {
+      "ref": "composicao-cobertor#0",
+      "msg": "OVERSTATED. O trecho sustenta que o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica, mas não diz que ele não tem enchimento interno nem que não há separação entre camadas. Versão sustentável: Segundo a Karsten, o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica."
+    },
+    {
+      "ref": "composicao-cobertor#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o Blanket 300 tem gramatura de 280 g/m², mas não informam que ele é 100% poliéster. A composição de 100% poliéster está citada para o produto da Altenburg e para os dois produtos da Andreza. Versão sustentável: Os fabricantes citados declaram dados de composição ou gramatura. O Blanket 300 da Kacyumara tem gramatura de 280 g/m²; os trechos não informam sua composição. O Desert da Altenburg e os modelos Viena Flannel e Quebec Flannel da Andreza são declarados como 100% poliéster, com as gramaturas indicadas nos trechos."
+    },
+    {
+      "ref": "composicao-cobertor#2",
+      "msg": "MISATTRIBUTED. O trecho da Altenburg apenas lista o produto como Plush Flanel Fleece double layer, com 400 g/m². Ele não afirma que gramaturas mais altas oferecem maior densidade, não menciona 500 g/m² e não sustenta essa regra geral como posição da Altenburg. Versão sustentável: A Altenburg lista o Cobertor King Desert como Plush Flanel Fleece double layer, com 400 g/m²."
+    },
+    {
+      "ref": "etiqueta-composicao-inmetro#0",
+      "msg": "OVERSTATED. O trecho sustenta a informação sobre nome das fibras ou filamentos e percentuais em massa, mas não mostra que a exigência se aplica a “qualquer tecido” nem menciona especificamente edredom e cobertor. Versão sustentável: O Inmetro exige a informação do nome das fibras ou filamentos têxteis e de seus percentuais em massa."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que os processos de conservação devem ser descritos por textos e/ou símbolos e seguir a sequência indicada, mas não mostram explicitamente que o Inmetro exige que a etiqueta informe esse tratamento. Versão sustentável: O Inmetro informa que os processos de conservação devem ser descritos por textos e/ou símbolos, na sequência: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "UNSUPPORTED. O único trecho citado informa a gramatura do cobertor, sem declarar cuidados de lavagem, menor restrição ou maior liberdade de higienização. Também não sustenta a generalização de que cobertores frequentemente apresentam cuidados menos restritivos. Versão sustentável: O trecho citado da ficha informa apenas que o cobertor tem gramatura de 280 g/m²; não permite concluir sobre seus cuidados de lavagem ou sobre a liberdade de higienização."
+    },
+    {
+      "ref": "tamanhos-medidas#0.r1",
+      "msg": "MISATTRIBUTED. O trecho sustenta a medida de 2,10 m x 2,40 m para um edredom Altenburg, mas não identifica o produto como “Plumi”. Versão sustentável: [tabela: Tamanhos de edredons e cobertores oferecidos pelos fabricantes] Tipo: Edredom | Medidas declaradas: 2,10 m x 2,40 m (Altenburg)"
+    },
+    {
+      "ref": "tamanhos-medidas#0.r2",
+      "msg": "MISATTRIBUTED. O trecho sustenta a medida de 2,60 m x 2,40 m para um edredom Altenburg, mas não identifica o produto como “Plumi”. Versão sustentável: [tabela: Tamanhos de edredons e cobertores oferecidos pelos fabricantes] Tipo: Edredom | Medidas declaradas: 2,60 m x 2,40 m (Altenburg)"
+    },
+    {
+      "ref": "tamanhos-medidas#0.r3",
+      "msg": "MISATTRIBUTED. O trecho sustenta a medida de 2,80 m x 2,60 m para um edredom Altenburg, mas não identifica o produto como “Plumi”. Versão sustentável: [tabela: Tamanhos de edredons e cobertores oferecidos pelos fabricantes] Tipo: Edredom | Medidas declaradas: 2,80 m x 2,60 m (Altenburg)"
+    },
+    {
+      "ref": "uso-com-capa-duvet#0",
+      "msg": "UNSUPPORTED. Os trechos da Altenburg mostram um jogo de duvet com fechamento em zíper e seus tamanhos, mas não dizem que a empresa oferece edredons como o Plumi, que vende a capa separadamente ou que os tamanhos são os mesmos do edredom. O trecho da Buddemeyer sustenta apenas que o Intense é um edredom para capa duvet. Versão sustentável: A Buddemeyer apresenta o edredom Intense como adequado para ser revestido com capa duvet. A Altenburg, nos trechos citados, lista um jogo de duvet com fechamento em zíper nos tamanhos casal, queen e king."
+    },
+    {
+      "ref": "uso-com-capa-duvet#1",
+      "msg": "OVERSTATED. O trecho citado comprova a afirmação sobre o edredom Sanomed Summer, mas não sustenta o plural “alguns edredons”. Há evidência de um produto específico da Buddemeyer. Versão sustentável: A Buddemeyer declara que o edredom Sanomed Summer pode ser usado como enchimento para capa duvet."
+    },
+    {
+      "ref": "uso-com-capa-duvet#2",
+      "msg": "FACT_IN_FRAMING. Embora o bloco tenha base “framing”, ele afirma um fato sobre cobertores e seu uso sem citar qualquer trecho de evidência. Versão sustentável: A seguir, veja o que as fontes dizem sobre o uso de cobertores."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam enchimento de poliéster, tecido externo de algodão ou microfibra e, em um cobertor específico, composição de poliéster e gramatura de 400 g/m². Eles não sustentam a lista geral de enchimentos “poliéster, pluma ou manta”, nem mostram que a gramatura deve ser conferida para todo edredom ou cobertor. Versão sustentável: Se escolher um edredom, confira na ficha o tipo de enchimento, como poliéster, e o tecido externo, segundo as informações citadas. Para o cobertor Altenburg citado, a ficha informa composição 100% poliéster e gramatura de 400 g/m²."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam as instruções de lavagem do edredom Summer da Plumasul e do edredom King da Trussardi, mas o trecho da Kacyumara informa apenas a gramatura do cobertor. Não há evidência de que o Blanket 300 não tenha restrições de lavagem ou ofereça maior facilidade de cuidado. Versão sustentável: Se você lava a peça em casa, confira na ficha os cuidados específicos. No edredom Summer da Plumasul, a indicação é não lavar à água, lavar a seco e secar no varal; no edredom King da Trussardi, é permitido lavar a 40°C e secar em varal."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos mostram a medida do edredom King da Trussardi e a gramatura de 280 g/m² do cobertor Blanket 300 da Kacyumara, mas não informam o peso da peça seca nem permitem concluir que essa gramatura indica menor volume que edredons com enchimento mais denso. Versão sustentável: Se tem pouco espaço para armazenar, compare as medidas e a gramatura informadas nas fichas. O edredom King da Trussardi mede 2,90 m x 2,70 m, e o cobertor Blanket 300 da Kacyumara tem gramatura de 280 g/m²."
+    }
+  ]
+}
