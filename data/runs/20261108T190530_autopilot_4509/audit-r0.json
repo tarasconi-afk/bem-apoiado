@@ -1,0 +1,178 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que há um regulamento do Inmetro para colchões de espuma e que colchões de látex são excluídos dos requisitos citados, mas não afirmam que a certificação seja compulsória nem que a espuma tenha uma certificação obrigatória. O trecho da Castor traz faixas de densidade por peso, porém como recomendação do fabricante, não como referência geral. O trecho da Probel menciona elasticidade, mas não identifica látex no excerto, e nenhum trecho menciona propriedades antibacterianas. Portanto, a comparação completa e a alegação sobre propriedades antibacterianas não são sustentadas; além disso, recomendações de fabricante foram apresentadas sem atribuição.",
+      "fix": "O Inmetro tem um regulamento para colchões e colchonetes de espuma, enquanto o trecho citado exclui colchões de látex desses requisitos. A Castor apresenta, segundo o fabricante, faixas de densidade associadas ao peso, e a Probel descreve elasticidade em uma de suas tecnologias."
+    },
+    {
+      "ref": "espuma-faixas-densidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados sustentam densidades D20, D26, D28, D33, D24, D30 ou maior e D65 ou maior, mas não mostram D45. Além disso, citam apenas a Castor, não fabricantes no plural.",
+      "fix": "Segundo a Castor, são citadas densidades de D20, D26, D28 e D33 para espuma convencional; D24 para espuma macia; D30 ou maior para espuma viscoelástica; e D65 ou maior para espuma aglomerada."
+    },
+    {
+      "ref": "espuma-faixas-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espuma-faixas-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "latex-propriedades#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a Portaria nº 35/2021 trata de colchões de espuma flexível de poliuretano e que colchões de látex são excluídos dos requisitos citados, mas não dizem expressamente que essa exclusão é da certificação compulsória estabelecida pela Portaria nº 35/2021.",
+      "fix": "A Portaria Inmetro nº 35/2021 aprova regulamento para colchões e colchonetes de espuma flexível de poliuretano; no trecho citado do Inmetro, colchões de látex aparecem entre os produtos excluídos dos requisitos aprovados."
+    },
+    {
+      "ref": "latex-propriedades#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel sustenta alta elasticidade e maciez, mas não menciona propriedades antibacterianas ou antiácaros. O dado sobre densidade nominal D55 kg/m³ da Castor é sustentado.",
+      "fix": "Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com bolhas que proporcionam maior maciez. A Castor declara uma lâmina de espuma de látex com densidade nominal D55 kg/m³."
+    },
+    {
+      "ref": "latex-propriedades#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Como o bloco tem base de framing, a afirmação factual de que a regulação do Inmetro não avalia propriedades terapêuticas exige evidência, mas nenhum trecho foi citado. A orientação para procurar um profissional de saúde é permitida, porém não sustenta a afirmação regulatória.",
+      "fix": "Se você tem problemas de saúde, consulte um profissional de saúde para recomendação de tipo de colchão."
+    },
+    {
+      "ref": "medidas-comparacao#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-comparacao#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-comparacao#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado informa as medidas de um modelo chamado “Colchão Solteiro Espuma D28 Firmpedic PróMiddle”, não do “ProDormir Active D20 viúva”. Embora as dimensões coincidam, a fonte não sustenta a identificação do modelo apresentada no bloco.",
+      "fix": "Modelo: Colchão Solteiro Espuma D28 Firmpedic PróMiddle | Altura: 18 cm | Comprimento: 188 cm | Largura: 88 cm"
+    },
+    {
+      "ref": "medidas-comparacao#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora baseado em framing, afirma fatos sobre medidas: que elas variam conforme modelo e tamanho e que a altura declarada não inclui os pés. Também recomenda conferir a ficha específica, mas não há trechos citados que sustentem essas afirmações.",
+      "fix": "Para manter o bloco como framing sem afirmar fatos não evidenciados: “Confira as medidas na ficha do modelo específico que você quer comprar.”"
+    },
+    {
+      "ref": "cuidados-capa#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-capa#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora a recomendação de consultar a ficha técnica ou a etiqueta seja uma orientação, o bloco também afirma como fato que as instruções variam entre fabricantes e modelos. Como a base é framing e não há trechos citados, essa afirmação factual não está sustentada.",
+      "fix": "A seguir, veja informações sobre os cuidados com a capa."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a Portaria Inmetro nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma e que colchões de látex são excluídos, mas não dizem para conferir o selo na embalagem nem o registro no site do regulador, nem afirmam expressamente no trecho que a certificação é compulsória.",
+      "fix": "Se a certificação do Inmetro for um critério, consulte o regulamento aplicável: a Portaria Inmetro nº 35/2021 aprova regras para colchões e colchonetes de espuma, enquanto colchões de látex estão entre os produtos excluídos dos requisitos citados."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel menciona alta densidade e elasticidade, com pequenas bolhas que proporcionam maior maciez, mas não diz que o látex possui propriedades antibacterianas ou antiácaros. Também não mostra, no trecho citado, que essa descrição se refere especificamente a um colchão de látex.",
+      "fix": "Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com muitas pequenas bolhas que proporcionam maior maciez."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram que há um regulamento do Inmetro para colchões de espuma e que colchões de látex são excluídos dos requisitos citados, mas não afirmam que a certificação seja compulsória nem que a espuma tenha uma certificação obrigatória. O trecho da Castor traz faixas de densidade por peso, porém como recomendação do fabricante, não como referência geral. O trecho da Probel menciona elasticidade, mas não identifica látex no excerto, e nenhum trecho menciona propriedades antibacterianas. Portanto, a comparação completa e a alegação sobre propriedades antibacterianas não são sustentadas; além disso, recomendações de fabricante foram apresentadas sem atribuição. Versão sustentável: O Inmetro tem um regulamento para colchões e colchonetes de espuma, enquanto o trecho citado exclui colchões de látex desses requisitos. A Castor apresenta, segundo o fabricante, faixas de densidade associadas ao peso, e a Probel descreve elasticidade em uma de suas tecnologias."
+    },
+    {
+      "ref": "espuma-faixas-densidade#0",
+      "msg": "OVERSTATED. Os trechos citados sustentam densidades D20, D26, D28, D33, D24, D30 ou maior e D65 ou maior, mas não mostram D45. Além disso, citam apenas a Castor, não fabricantes no plural. Versão sustentável: Segundo a Castor, são citadas densidades de D20, D26, D28 e D33 para espuma convencional; D24 para espuma macia; D30 ou maior para espuma viscoelástica; e D65 ou maior para espuma aglomerada."
+    },
+    {
+      "ref": "latex-propriedades#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a Portaria nº 35/2021 trata de colchões de espuma flexível de poliuretano e que colchões de látex são excluídos dos requisitos citados, mas não dizem expressamente que essa exclusão é da certificação compulsória estabelecida pela Portaria nº 35/2021. Versão sustentável: A Portaria Inmetro nº 35/2021 aprova regulamento para colchões e colchonetes de espuma flexível de poliuretano; no trecho citado do Inmetro, colchões de látex aparecem entre os produtos excluídos dos requisitos aprovados."
+    },
+    {
+      "ref": "latex-propriedades#1",
+      "msg": "MISATTRIBUTED. O trecho da Probel sustenta alta elasticidade e maciez, mas não menciona propriedades antibacterianas ou antiácaros. O dado sobre densidade nominal D55 kg/m³ da Castor é sustentado. Versão sustentável: Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com bolhas que proporcionam maior maciez. A Castor declara uma lâmina de espuma de látex com densidade nominal D55 kg/m³."
+    },
+    {
+      "ref": "latex-propriedades#2",
+      "msg": "FACT_IN_FRAMING. Como o bloco tem base de framing, a afirmação factual de que a regulação do Inmetro não avalia propriedades terapêuticas exige evidência, mas nenhum trecho foi citado. A orientação para procurar um profissional de saúde é permitida, porém não sustenta a afirmação regulatória. Versão sustentável: Se você tem problemas de saúde, consulte um profissional de saúde para recomendação de tipo de colchão."
+    },
+    {
+      "ref": "medidas-comparacao#0.r2",
+      "msg": "MISATTRIBUTED. O trecho citado informa as medidas de um modelo chamado “Colchão Solteiro Espuma D28 Firmpedic PróMiddle”, não do “ProDormir Active D20 viúva”. Embora as dimensões coincidam, a fonte não sustenta a identificação do modelo apresentada no bloco. Versão sustentável: Modelo: Colchão Solteiro Espuma D28 Firmpedic PróMiddle | Altura: 18 cm | Comprimento: 188 cm | Largura: 88 cm"
+    },
+    {
+      "ref": "medidas-comparacao#1",
+      "msg": "FACT_IN_FRAMING. O bloco, embora baseado em framing, afirma fatos sobre medidas: que elas variam conforme modelo e tamanho e que a altura declarada não inclui os pés. Também recomenda conferir a ficha específica, mas não há trechos citados que sustentem essas afirmações. Versão sustentável: Para manter o bloco como framing sem afirmar fatos não evidenciados: “Confira as medidas na ficha do modelo específico que você quer comprar.”"
+    },
+    {
+      "ref": "cuidados-capa#1",
+      "msg": "FACT_IN_FRAMING. Embora a recomendação de consultar a ficha técnica ou a etiqueta seja uma orientação, o bloco também afirma como fato que as instruções variam entre fabricantes e modelos. Como a base é framing e não há trechos citados, essa afirmação factual não está sustentada. Versão sustentável: A seguir, veja informações sobre os cuidados com a capa."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Portaria Inmetro nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma e que colchões de látex são excluídos, mas não dizem para conferir o selo na embalagem nem o registro no site do regulador, nem afirmam expressamente no trecho que a certificação é compulsória. Versão sustentável: Se a certificação do Inmetro for um critério, consulte o regulamento aplicável: a Portaria Inmetro nº 35/2021 aprova regras para colchões e colchonetes de espuma, enquanto colchões de látex estão entre os produtos excluídos dos requisitos citados."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. O trecho da Probel menciona alta densidade e elasticidade, com pequenas bolhas que proporcionam maior maciez, mas não diz que o látex possui propriedades antibacterianas ou antiácaros. Também não mostra, no trecho citado, que essa descrição se refere especificamente a um colchão de látex. Versão sustentável: Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com muitas pequenas bolhas que proporcionam maior maciez."
+    }
+  ]
+}

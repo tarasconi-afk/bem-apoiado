@@ -1,0 +1,377 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Colchões de espuma têm certificação obrigatória do Inmetro e densidades variam conforme o peso: até 50 kg, densidade 23; de 51 a 80 kg, densidade 26 a 33; acima de 80 kg, densidade 33 ou maior. Colchões de látex não têm essa certificação e estão fora dos requisitos do regulador.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_12cadc22b5f0",
+        "clm_0e570f4c735f",
+        "clm_03538692a465"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão de espuma ou de látex: qual escolher",
+    "description": "Compare colchão de espuma e de látex pela densidade, peso suportado, certificação e cuidados com a capa. Confira o que cada tipo oferece para sua decisão.",
+    "verdict": {
+      "text": "Colchões de espuma têm certificação obrigatória do Inmetro e densidades variam conforme o peso: até 50 kg, densidade 23; de 51 a 80 kg, densidade 26 a 33; acima de 80 kg, densidade 33 ou maior. Colchões de látex não têm essa certificação e estão fora dos requisitos do regulador.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_12cadc22b5f0",
+        "clm_0e570f4c735f",
+        "clm_03538692a465"
+      ]
+    },
+    "sections": [
+      {
+        "id": "espuma-faixas-densidade",
+        "heading": "Faixas de densidade em colchão de espuma",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, as densidades de espuma citadas variam de D20 a D33 para espuma convencional; D24 para espuma macia; D30 ou maior para espuma viscoelástica; e D65 ou maior para espuma aglomerada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_32d156a5e40c",
+              "clm_60c28445fc2c",
+              "clm_06b006a31bac",
+              "clm_4297af1c743c",
+              "clm_5bf223750327",
+              "clm_4426e2fa75e0",
+              "clm_733b433c2430"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Gazin, densidades mais baixas (D20) servem para biotipos até 50 kg; D28 atende até 80 kg; D33 é para usuários acima de 70 kg que precisam de sustentação firme, segundo a garzin.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_47deb0916a91",
+              "clm_b917c89d9c72",
+              "clm_08c3164e90f9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A regulação define requisitos mínimos de densidade: espumas de alta resiliência e viscoelástica devem ter densidade mínima de 30 kg/m³; espumas de aglomerado, 65 kg/m³ ou maior.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_086d520fd395"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "latex-propriedades",
+        "heading": "Colchão de látex: propriedades e regulação",
+        "blocks": [
+          {
+            "text": "A Portaria Inmetro nº 35/2021 aprova regulamento para colchões e colchonetes de espuma flexível de poliuretano. No regulamento do Inmetro citado, colchões de látex aparecem entre os produtos excluídos dos requisitos aprovados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12cadc22b5f0",
+              "clm_0e570f4c735f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com muitas pequenas bolhas que proporcionam maior maciez. A Castor declara uma lâmina de espuma de látex com densidade nominal D55 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_924071da178b",
+              "clm_9063a5e2f786"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você tem problemas de saúde, consulte um profissional de saúde para recomendação de tipo de colchão.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "medidas-comparacao",
+        "heading": "Medidas de colchão de espuma e de látex",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Exemplos de medidas declaradas (colchão solteiro de espuma vs. modelos em catálogo) (segundo a Probel)",
+            "columns": [
+              "Modelo",
+              "Altura",
+              "Comprimento",
+              "Largura"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Probel Queen Espuma D20 Guarda Costas",
+                    "claim_ids": [
+                      "clm_117b6ee114d5"
+                    ]
+                  },
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_117b6ee114d5"
+                    ]
+                  },
+                  {
+                    "text": "198 cm",
+                    "claim_ids": [
+                      "clm_117b6ee114d5"
+                    ]
+                  },
+                  {
+                    "text": "158 cm",
+                    "claim_ids": [
+                      "clm_117b6ee114d5"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Probel Queen Espuma D40 Hiper Firme",
+                    "claim_ids": [
+                      "clm_8fd3c727a1fe"
+                    ]
+                  },
+                  {
+                    "text": "26 cm",
+                    "claim_ids": [
+                      "clm_8fd3c727a1fe"
+                    ]
+                  },
+                  {
+                    "text": "198 cm",
+                    "claim_ids": [
+                      "clm_8fd3c727a1fe"
+                    ]
+                  },
+                  {
+                    "text": "158 cm",
+                    "claim_ids": [
+                      "clm_8fd3c727a1fe"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Colchão Solteiro Espuma D28 Firmpedic PróMiddle",
+                    "claim_ids": [
+                      "clm_f3ce3aecbd90"
+                    ]
+                  },
+                  {
+                    "text": "18 cm",
+                    "claim_ids": [
+                      "clm_f3ce3aecbd90"
+                    ]
+                  },
+                  {
+                    "text": "188 cm",
+                    "claim_ids": [
+                      "clm_f3ce3aecbd90"
+                    ]
+                  },
+                  {
+                    "text": "88 cm",
+                    "claim_ids": [
+                      "clm_f3ce3aecbd90"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Confira as medidas na ficha do modelo específico que você quer comprar.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-capa",
+        "heading": "Cuidados com a capa de colchão",
+        "blocks": [
+          {
+            "text": "Os cuidados com a capa (revestimento) do colchão variam conforme o modelo, segundo a Ortobom e a Probel. No colchão Orthopur da Ortobom, a capa não pode ser lavada nem secada em tambor; permite-se apenas secagem na horizontal à sombra. No colchão Firmpedic PróMiddle da Probel, a capa em poliéster é fácil de higienizar e de secar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a4cf7c97bb38",
+              "clm_bc3f0ffd40c6",
+              "clm_5f7a5d7ffb1f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Consulte a ficha técnica ou a etiqueta do modelo que você quer comprar para conhecer as instruções de cuidado com a capa.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre espuma e látex",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso (colchão de espuma)",
+            "columns": [
+              "Faixa de peso",
+              "Densidade recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer definir a escolha pelo seu peso, escolha um colchão de espuma com a densidade indicada na tabela acima, segundo a Castor. Segundo a Castor, cada faixa de peso corresponde a uma densidade de espuma.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_03538692a465"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a certificação do Inmetro for um critério, saiba que a Portaria Inmetro nº 35/2021 aprova regras para colchões e colchonetes de espuma, enquanto colchões de látex estão entre os produtos excluídos dos requisitos citados.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_12cadc22b5f0",
+              "clm_0e570f4c735f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prioriza elasticidade e maior maciez declaradas pelo fabricante, escolha um colchão com a tecnologia citada e confirme essas características na ficha do modelo, segundo a Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_924071da178b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 207
+  }
+}
