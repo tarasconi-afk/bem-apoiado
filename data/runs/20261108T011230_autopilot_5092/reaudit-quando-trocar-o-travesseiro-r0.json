@@ -1,0 +1,89 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "prazo-recomendado#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Appel e da Duoflex dizem que especialistas recomendam a troca; não dizem que os próprios fabricantes Appel e Duoflex fazem essa recomendação. Apenas o trecho da Ortobom apresenta a recomendação como própria. O acúmulo de ácaros é mencionado pela Ortobom, não pelos demais trechos.",
+      "fix": "A Appel e a Duoflex citam especialistas que recomendam trocar o travesseiro a cada 1 a 2 anos, enquanto a Ortobom recomenda a troca a cada dois anos e menciona acúmulo de ácaros nesse período."
+    },
+    {
+      "ref": "prazo-recomendado#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A comparação específica entre látex, plumas, penas e fibras aparece apenas no trecho da Duoflex. O trecho da Appel sustenta apenas que material e rotina de uso influenciam a duração, sem fazer essa comparação entre materiais.",
+      "fix": "Segundo a Appel, a duração pode depender do material e da rotina de uso. A Duoflex afirma que o látex pode durar mais, enquanto plumas, penas e fibras tendem a durar menos, e que a boa conservação mantém as propriedades por mais tempo."
+    },
+    {
+      "ref": "sinais-fisicos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "sinais-fisicos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "higienizacao-durabilidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos qualificam as orientações: a fibra de poliéster pode ser lavada na máquina \"em geral\", a espuma viscoelástica \"normalmente\" não deve ser mergulhada em água, e as recomendações são apresentadas como referência. O bloco transforma essas formulações qualificadas em regras categóricas.",
+      "fix": "Confira a etiqueta de cuidados do travesseiro antes de lavar ou secar, segundo a Appel. Como referência, a Appel diz que a fibra de poliéster em geral pode ser lavada na máquina, que a espuma viscoelástica normalmente não deve ser mergulhada em água e que o látex pede limpeza cuidadosa e secagem completa."
+    },
+    {
+      "ref": "higienizacao-durabilidade#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que se deve observar as instruções e só lavar se for possível garantir a secagem completa, além de dar preferência a lavanderias especializadas que sigam estritamente as instruções. Eles não classificam as instruções de lavagem como \"críticas\".",
+      "fix": "Segundo a Duoflex, observe as instruções para saber se o travesseiro pode ser lavado e só o lave se puder garantir a secagem completa. Se for necessário lavar, dê preferência a lavanderias especializadas e exija que sigam estritamente as instruções de lavagem."
+    },
+    {
+      "ref": "higienizacao-durabilidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-material#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

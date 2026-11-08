@@ -1,0 +1,39 @@
+{
+  "slug": "quando-trocar-o-travesseiro",
+  "status": "PASS",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 84886,
+    "output_tokens": 28500,
+    "calls": 38
+  },
+  "credits": 38.242017359999984,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Troque o travesseiro por volta de 2 anos de uso, conforme recomendações citadas de Duoflex e Ortobom.",
+      "Antecipe a troca se houver deformação, afundamento permanente, perda de sustentação, manchas persistentes ou mau cheiro.",
+      "Considere trocar antes do prazo se surgirem ou aumentarem sintomas como nariz entupido e alergias ao deitar.",
+      "Travesseiros de látex podem durar mais; os de plumas, penas ou fibras tendem a durar menos, conforme as fontes citadas.",
+      "Confira a etiqueta antes de lavar ou secar, pois os cuidados variam conforme o material.",
+      "Para conservar o produto, use capa protetora, mantenha-o arejado e evite umidade; só lave se conseguir garantir a secagem completa.",
+      "Na compra ou avaliação da garantia, confira o prazo específico do fabricante e as condições de cobertura, que variam entre produtos."
+    ],
+    "missing": [
+      "Uma tabela ou orientação de fabricante relacionando cada tipo de enchimento à vida útil esperada e às condições de uso.",
+      "Uma recomendação primária sobre como os cuidados da etiqueta alteram, na prática, o tempo até a troca.",
+      "A composição, o peso e as medidas de modelos específicos, com eventual orientação do fabricante sobre sua relação com a durabilidade.",
+      "Informações mais completas sobre a garantia de cada modelo, incluindo defeitos cobertos, exclusões e procedimento para solicitar atendimento."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde rapidamente que a troca costuma ser indicada em cerca de dois anos e oferece sinais concretos para antecipá-la. Também orienta o leitor a conferir a etiqueta, cuidar do travesseiro e verificar a garantia. Há alguma repetição nos blocos de decisão, mas ela não impede a escolha nem a compra informada.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

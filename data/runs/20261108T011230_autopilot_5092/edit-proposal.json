@@ -1,0 +1,56 @@
+{
+  "edits": [
+    {
+      "ref": "prazo-recomendado#0",
+      "action": "rewrite",
+      "text": "Fabricantes como Appel, Duoflex e Ortobom recomendam trocar o travesseiro a cada 1 a 2 anos, já que o uso diário afeta a higiene e o suporte, podendo haver acúmulo de ácaros nesse período.",
+      "claim_ids": [
+        "clm_10db7b4666df",
+        "clm_e186ead3d525",
+        "clm_1bec3812eaf0"
+      ],
+      "reason": "Frase mais curta, mesma informação, sem perder as fontes citadas."
+    },
+    {
+      "ref": "diferenca-material#0",
+      "action": "rewrite",
+      "text": "Segundo a Duoflex, travesseiros de látex tendem a durar mais, enquanto os de plumas, penas ou fibras duram menos.",
+      "claim_ids": [
+        "clm_91611c0d2d44"
+      ],
+      "reason": "Remove repetição sobre troca a cada 2 anos, já coberta em prazo-recomendado."
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "rewrite",
+      "text": "A durabilidade varia conforme o material e o uso. Confira a etiqueta, higienize conforme as instruções do fabricante, use capa protetora e mantenha o travesseiro em local ventilado.",
+      "claim_ids": [
+        "clm_5d88753c100c",
+        "clm_63e0427b9f1b",
+        "clm_9cce466877a2"
+      ],
+      "reason": "Frase mais direta para o leitor leigo, sem perder o conteúdo essencial."
+    },
+    {
+      "ref": "higienizacao-durabilidade#2",
+      "action": "rewrite",
+      "text": "Use capa protetora, mantenha o travesseiro arejado e evite ambientes úmidos. A Appel recomenda lavar as fronhas semanalmente.",
+      "claim_ids": [
+        "clm_9cce466877a2",
+        "clm_dc38bed587c9",
+        "clm_a4c1c228d95e"
+      ],
+      "reason": "Remove redundância entre 'arejado' e 'arejar e ventilar com luz indireta', mantendo a informação essencial."
+    },
+    {
+      "ref": "sinais-fisicos#1",
+      "action": "remove",
+      "reason": "Informação já citada em sinais-fisicos#0 e como-decidir#0 sobre acúmulo de ácaros após 2 anos."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 4,
+    "output_tokens": 7217
+  }
+}
