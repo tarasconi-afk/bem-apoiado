@@ -1,0 +1,154 @@
+{
+  "findings": [
+    {
+      "ref": "espuma-faixas-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espuma-faixas-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-comparacao#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-comparacao#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-capa#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos do Inmetro citam um regulamento para colchões de espuma, mas não dizem que a certificação é obrigatória. As densidades e faixas de peso vêm de uma recomendação da fabricante Castor, porém o bloco as apresenta como regra geral. O trecho do Inmetro sustenta apenas que colchões de látex estão excluídos dos requisitos aprovados.",
+      "fix": "O Inmetro estabelece um regulamento para colchões e colchonetes de espuma flexível de poliuretano, enquanto colchões de látex são excluídos dos requisitos citados. Segundo a Castor, as densidades sugeridas são 23 até 50 kg, 26 de 51 a 60 kg, 28 de 61 a 70 kg, 33 de 71 a 80 kg, 33 a 45 de 81 a 100 kg e 45 ou mais acima de 100 kg."
+    },
+    {
+      "ref": "espuma-faixas-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "latex-propriedades#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "latex-propriedades#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "latex-propriedades#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-comparacao#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-comparacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-capa#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora marcado como framing, recomenda consultar a ficha técnica ou a etiqueta para obter instruções de cuidado, afirmando implicitamente que essas informações estarão disponíveis nesses locais. Não há trechos citados para sustentar esse fato.",
+      "fix": "A seguir, veja orientações gerais sobre cuidados com a capa."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sobre a exclusão de colchões de látex vem de um documento identificado como Portaria Inmetro nº 515/2019, enquanto o bloco o coloca junto das regras aprovadas pela Portaria nº 35/2021. Os trechos não demonstram que a exclusão citada se refere à Portaria nº 35/2021.",
+      "fix": "A Portaria Inmetro nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma. Em outro documento do Inmetro, colchões de látex aparecem entre os produtos excluídos dos requisitos ali aprovados."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "A Probel declara elasticidade e maior maciez, mas o trecho não recomenda escolher um colchão com essa tecnologia nem orienta confirmar as características na ficha do modelo. Essas instruções práticas excedem o conteúdo citado.",
+      "fix": "Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com muitas pequenas bolhas que proporcionam maior maciez."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos do Inmetro citam um regulamento para colchões de espuma, mas não dizem que a certificação é obrigatória. As densidades e faixas de peso vêm de uma recomendação da fabricante Castor, porém o bloco as apresenta como regra geral. O trecho do Inmetro sustenta apenas que colchões de látex estão excluídos dos requisitos aprovados. Versão sustentável: O Inmetro estabelece um regulamento para colchões e colchonetes de espuma flexível de poliuretano, enquanto colchões de látex são excluídos dos requisitos citados. Segundo a Castor, as densidades sugeridas são 23 até 50 kg, 26 de 51 a 60 kg, 28 de 61 a 70 kg, 33 de 71 a 80 kg, 33 a 45 de 81 a 100 kg e 45 ou mais acima de 100 kg."
+    },
+    {
+      "ref": "cuidados-capa#1",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, recomenda consultar a ficha técnica ou a etiqueta para obter instruções de cuidado, afirmando implicitamente que essas informações estarão disponíveis nesses locais. Não há trechos citados para sustentar esse fato. Versão sustentável: A seguir, veja orientações gerais sobre cuidados com a capa."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O trecho sobre a exclusão de colchões de látex vem de um documento identificado como Portaria Inmetro nº 515/2019, enquanto o bloco o coloca junto das regras aprovadas pela Portaria nº 35/2021. Os trechos não demonstram que a exclusão citada se refere à Portaria nº 35/2021. Versão sustentável: A Portaria Inmetro nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma. Em outro documento do Inmetro, colchões de látex aparecem entre os produtos excluídos dos requisitos ali aprovados."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. A Probel declara elasticidade e maior maciez, mas o trecho não recomenda escolher um colchão com essa tecnologia nem orienta confirmar as características na ficha do modelo. Essas instruções práticas excedem o conteúdo citado. Versão sustentável: Segundo a Probel, a tecnologia citada apresenta alta densidade e elasticidade, com muitas pequenas bolhas que proporcionam maior maciez."
+    }
+  ]
+}
