@@ -1,0 +1,193 @@
+{
+  "run_id": "20261109T010649_autopilot_3f71",
+  "topic": "lencol-que-nao-faz-bolinha-como-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_d8d60a63fa81",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_758272e87d8d",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e38632753557",
+      "question_id": "q_tipo_tecido_fio",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_38db224872c2",
+      "question_id": "q_tipo_tecido_fio",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8b1c32353c49",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_62d7e925b1fc",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_aa61ce160f1e",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_81d6dcd48b45",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a26b69e23127",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_f6db5e0a5847",
+      "new": true
+    },
+    {
+      "claim_id": "clm_76e71962ca33",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a256e70f4d18",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0846c5289ec6",
+      "question_id": "q_tipo_tecido_fio",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f9803126576e",
+      "question_id": "q_tipo_tecido_fio",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_89f27f357357",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3eff97971832",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_648ae73a2280",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0d5f8089b411",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_653b66f68970",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1978d7329c5c",
+      "question_id": "q_medidas_tamanho",
+      "source_id": "src_ae81aef471d1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a8199735f1b2",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_8f4f59066c5c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e1cfe9872384",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_8f4f59066c5c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9c6727b584ed",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_8f4f59066c5c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5fa83532df31",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_8f4f59066c5c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_270e80939148",
+      "question_id": "q_cuidados_lavagem",
+      "source_id": "src_8f4f59066c5c",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_composicao_fibra": 4,
+    "q_etiquetagem_inmetro": 0,
+    "q_tipo_tecido_fio": 4,
+    "q_cuidados_lavagem": 8,
+    "q_medidas_tamanho": 8
+  },
+  "unanswered": [
+    "q_etiquetagem_inmetro"
+  ],
+  "usage": {
+    "input_tokens": 5511,
+    "output_tokens": 2916,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_0198255e1e4c",
+    "src_4499e0612f51",
+    "src_bf2f7e8ce689"
+  ],
+  "triage": [
+    {
+      "source_id": "src_f6db5e0a5847",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_ae81aef471d1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_8f4f59066c5c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.5
+    }
+  ],
+  "credits": 20.28440172
+}

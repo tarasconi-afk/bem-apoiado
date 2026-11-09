@@ -1,0 +1,26 @@
+{
+  "edits": [
+    {
+      "ref": "como-decidir#2",
+      "action": "remove",
+      "reason": "Repete a mesma recomendação de ciclo leve/delicado já presente em como-decidir#0.r0 e no verdict."
+    },
+    {
+      "ref": "verdict",
+      "action": "rewrite",
+      "text": "Se evitar bolinhas é prioridade, escolha um lençol de algodão egípcio: a Karsten afirma que suas fibras longas impedem a formação de pilling. Na lavagem, prefira ciclos leves ou delicados, como recomenda a Karsten, para preservar fibras e acabamento.",
+      "reason": "Texto mais direto, sem alterar o sentido, evitando repetição com como-decidir#1."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Para evitar bolinhas, verifique na etiqueta ou ficha técnica se o tecido usa fibras longas, como algodão egípcio, que a Karsten associa à prevenção de pilling e a um tecido mais suave.",
+      "reason": "Remove repetição da citação já usada no verdict, mantendo a mesma informação de forma mais enxuta."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 3344
+  }
+}

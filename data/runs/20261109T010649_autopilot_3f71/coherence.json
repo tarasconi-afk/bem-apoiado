@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "medidas-tamanhos#0.r0",
+      "problem": "A seção promete medidas para cada tamanho, mas a tabela não traz o tamanho Solteiro King, embora ele apareça entre os tamanhos mencionados pela fonte da Karsten.",
+      "fix": "Mudar o título para \"Medidas declaradas nos exemplos de tamanhos\" ou \"Medidas declaradas para solteiro, casal, queen e king\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 21788,
+    "output_tokens": 3912,
+    "calls": 3
+  }
+}
