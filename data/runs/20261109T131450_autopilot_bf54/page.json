@@ -1,0 +1,40 @@
+{
+  "slug": "colchao-de-espuma-ou-de-latex",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 70492,
+    "output_tokens": 25438,
+    "calls": 33
+  },
+  "credits": 28.0156242,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se optar por colchão de espuma, escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+      "Confira no anúncio ou na etiqueta a densidade nominal, em kg/m³, de cada lâmina de espuma, especialmente em colchões compostos ou mistos.",
+      "O colchão de látex citado declara densidade nominal de 55 kg/m³, mas a página não relaciona essa densidade ao peso do usuário nem a uma situação de uso.",
+      "Para colchões de espuma, confira a etiqueta e o selo ou registro relacionado à certificação compulsória do Inmetro; colchões de látex ficam fora dos requisitos aprovados pela Portaria citada, embora um fabricante possa informar certificação própria.",
+      "Confira as instruções da etiqueta para conservar a capa: no modelo citado, não são permitidos lavagem, alvejamento, secagem em tambor ou passadoria, e a secagem deve ser horizontal e à sombra."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma comparação direta, baseada em fontes primárias, explicando em quais casos o leitor deve preferir espuma ou látex.",
+      "Tabela de fabricante relacionando a densidade do látex ao peso do usuário, à firmeza ou ao tipo de uso.",
+      "Fichas técnicas de colchões de espuma e látex do mesmo tamanho, comparando peso, altura, comprimento e largura.",
+      "Informações de fabricantes sobre diferenças práticas entre espuma e látex, como adaptação ao corpo, elasticidade, ventilação, durabilidade e sensação de firmeza.",
+      "Instruções de cuidados e lavagem da capa de um colchão de látex para comparação com o modelo de espuma."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma regra concreta para escolher a densidade de um colchão de espuma pelo peso e ensina o que conferir na etiqueta, mas não responde à escolha principal entre espuma e látex. O látex aparece apenas com uma densidade e informações regulatórias, sem regra de uso ou comparação direta; por isso, a resposta rápida não resolve a dúvida e a página não deve ser publicada sem ampliar o critério de escolha.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

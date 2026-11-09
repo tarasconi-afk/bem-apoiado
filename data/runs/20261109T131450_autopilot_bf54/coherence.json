@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "A página promete escolher entre espuma e látex conforme o peso, mas só apresenta faixas de peso para colchões de espuma e não indica quando o látex atende esse caso.",
+      "fix": "Limitar a promessa a comparar as informações disponíveis sobre densidade e requisitos de colchões de espuma e látex, sem afirmar que a página permite decidir qual atende ao peso."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "densidades-latex#0",
+      "problem": "A densidade D55 informada no manual de um produto da Castor aparece como se fosse a densidade de colchões de látex em geral.",
+      "fix": "Especificar que D55 é a densidade nominal da lâmina de espuma de látex do produto descrito no manual da Castor."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "densidades-latex#0",
+      "problem": "A seção promete faixas de densidade para colchões de látex, mas traz apenas uma densidade nominal de um produto, sem faixas por peso.",
+      "fix": "Mudar o título para algo como \"Densidade nominal de um produto de látex da Castor\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18426,
+    "output_tokens": 3941,
+    "calls": 2
+  }
+}

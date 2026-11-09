@@ -1,0 +1,31 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Colchões de espuma têm densidade obrigatória na etiqueta conforme regulação do Inmetro. Colchões de látex estão fora dessa certificação compulsória, segundo a mesma regulação.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0a61647d4d99",
+        "clm_0e570f4c735f"
+      ]
+    },
+    {
+      "ref": "densidades-latex#0",
+      "action": "replace",
+      "text": "No manual da Castor para seus colchões, a marca informa densidade nominal de 55 kg/m³ para a lâmina de espuma de látex.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9063a5e2f786"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "densidades-latex#0"
+  ],
+  "still": [
+    "verdict: OVERSTATED"
+  ]
+}

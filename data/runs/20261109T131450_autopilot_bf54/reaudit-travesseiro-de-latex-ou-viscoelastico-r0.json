@@ -1,0 +1,95 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-sao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-sao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-obrigatorias#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-obrigatorias#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-limpeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-limpeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-limpeza#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam os prazos para os dois produtos da Ortobom e para um modelo específico da Probel, mas não mostram que a Probel oferece esse prazo para “modelos viscoelásticos” em geral. Além disso, 90 dias e 3 meses não demonstram necessariamente prazos variados.",
+      "fix": "A Ortobom informa garantia de 90 dias para o Travesseiro Pró-Latex e para o Viscopur. A Probel informa garantia de 3 meses para o Travesseiro Nasa Probel Paz Viscoelástico D30."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco repete a alegação de que o produto proporciona “alívio de pressões e tensões”, uma alegação de alívio relacionada à saúde que não deve ser apresentada, mesmo quando atribuída à fabricante. Além disso, o trecho da Duoflex não identifica explicitamente os produtos como viscoelásticos.",
+      "fix": "A Duoflex descreve retorno lento, absorção do peso e distribuição equalizada da pressão. A Ortobom afirma que sua espuma viscoelástica se adapta aos contornos do corpo."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
