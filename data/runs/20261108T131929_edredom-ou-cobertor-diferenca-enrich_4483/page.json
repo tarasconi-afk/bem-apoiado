@@ -1,0 +1,42 @@
+{
+  "slug": "edredom-ou-cobertor-diferenca",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 91821,
+    "output_tokens": 31715,
+    "calls": 45
+  },
+  "credits": 53.37901512,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "composicao-cobertor#0"
+    ],
+    "decision_criteria": [
+      "Escolha o edredom se busca uma peça volumosa com enchimento separado do tecido externo.",
+      "Escolha o cobertor se prefere uma peça de tecido mais grosso usada diretamente.",
+      "No edredom, confira na ficha o tipo de enchimento e o tecido externo.",
+      "No cobertor, confira a composição e a gramatura; há exemplo de modelo 100% poliéster com 400 g/m².",
+      "Se lava em casa, confira os cuidados da ficha: alguns edredons exigem lavagem a seco, enquanto outros permitem lavagem a 40 °C.",
+      "Se tem pouco espaço, compare as medidas e a gramatura informadas para estimar o volume de armazenamento.",
+      "Se pretende usar capa, confira se a ficha declara que o edredom é adequado para capa duvet separada."
+    ],
+    "missing": [
+      "Indicação de temperatura ou estação do ano relacionada à gramatura de cada peça.",
+      "Medidas dos cobertores e correspondência clara entre medidas e tamanhos solteiro, casal, queen e king.",
+      "Peso ou volume dobrado das peças, para orientar melhor quem tem pouco espaço de armazenamento.",
+      "Explicação simples do que é uma capa duvet e em quais modelos ela é vendida separadamente.",
+      "Cuidados de lavagem e secagem de um cobertor com ficha técnica que traga essas informações."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente à diferença entre edredom e cobertor e oferece critérios concretos para escolher pela estrutura, composição, gramatura, cuidados de lavagem e possibilidade de uso com capa. A resposta curta é compreensível e a seção de decisão leva o leitor a conferir informações práticas na ficha do produto. Faltam dados completos de tamanhos, medidas dos cobertores e relação entre gramatura e temperatura, mas essas lacunas não impedem a publicação para a dúvida principal.",
+    "filler_ratio": 0.041666666666666664,
+    "model_opinion": true
+  }
+}
