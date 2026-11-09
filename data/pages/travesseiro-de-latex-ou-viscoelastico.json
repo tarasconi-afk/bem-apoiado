@@ -5,7 +5,7 @@
   "title": "Travesseiro de látex ou viscoelástico: qual escolher",
   "description": "Diferenças entre látex natural e viscoelástico, composição, certificações, garantia e cuidados conforme fabricantes e regulador.",
   "primary_query": "travesseiro de látex ou viscoelástico",
-  "updated_at": "2026-11-07",
+  "updated_at": "2026-11-09",
   "verdict": {
     "text": "Se você prioriza ventilação e dissipação de calor, considere um modelo cuja documentação confirme essa característica; segundo a Duoflex, o Travesseiro Natural Látex Duoflex mantém a ventilação interna e ajuda a dissipar o calor. Segundo a Duoflex, determinados travesseiros podem oferecer retorno lento, absorção do peso e distribuição equalizada da pressão.",
     "basis": "evidence",
@@ -43,15 +43,6 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Duoflex declara que o Travesseiro Natural Látex é feito a partir da seiva da seringueira. A Ortobom declara que o Travesseiro Pró-Latex usa espuma de alta resiliência 100% poliuretano, que não absorve calor e oferece flexibilidade, suporte e retorno.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_040d170f6500",
-            "clm_e2c0e8d4ec93"
-          ]
-        },
-        {
-          "kind": "paragraph",
           "text": "A Ortobom declara que o enchimento do Travesseiro Viscopur é de espuma viscoelástica 100% poliuretano.",
           "basis": "evidence",
           "claim_ids": [
@@ -78,14 +69,6 @@
           "basis": "evidence",
           "claim_ids": [
             "clm_abc7525d8d39"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Um documento de compras cita requisitos técnicos para espuma e menciona a ABNT-NBR 13579.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_28c014b1297b"
           ]
         }
       ]
@@ -184,10 +167,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "Confira na etiqueta o fabricante ou marca, a identificação fiscal, o país de origem, os nomes e percentuais das fibras ou filamentos, o tamanho e os tratamentos de conservação indicados por símbolos ou texto.",
+          "text": "Se você quer um travesseiro de látex, confira a composição declarada: no Travesseiro Grid Tech da Luuna, o enchimento é 100% bloco de látex Talalay. Já o Pró-Latex da Ortobom é composto por espuma de alta resiliência 100% poliuretano, apesar do nome.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_28e1007029ee"
+            "clm_5f2e0e702303",
+            "clm_e2c0e8d4ec93"
           ]
         }
       ]
@@ -195,17 +179,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261107T190050_autopilot_ed40+edit:20261107T190050_autopilot_ed40",
+    "run_id": "20261107T190050_autopilot_ed40+edit:20261107T190050_autopilot_ed40+editor:20261109T121201_travesseiro-de-latex-ou-viscoelastico-ajuste_f3e1",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0,
       "criteria": 5,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }
