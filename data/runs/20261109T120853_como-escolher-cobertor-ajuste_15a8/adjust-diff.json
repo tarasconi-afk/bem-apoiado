@@ -1,0 +1,51 @@
+{
+  "at": "2026-11-09T12:10:32.113Z",
+  "instruction": "Tire a tabela \"Medidas mínimas de cobertor por tamanho de cama, conforme referência de compras públicas\" e o parágrafo da referência de compras públicas: não serve a quem compra para casa e contradiz as medidas da Sultan. Na tabela \"Medidas de cobertor por tamanho\", troque o título da coluna para \"Medidas declaradas\", sem dizer qual número é largura e qual é comprimento. Reescreva a resposta curta para decidir: escolha a medida pelo tamanho da cama (tabela da Sultan), confira a composição na etiqueta e escolha a gramatura pela época: 250 g/m² para meia-estação e 350 g/m² para aquecer sem pesar",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Guia para escolher cobertor conforme o tamanho da cama, composição de fibra na etiqueta, gramatura e cuidados de lavagem e secagem declarados pelo fabricante.",
+      "after": "Escolha cobertor pelo tamanho da cama, confira fibra e gramatura na etiqueta para decidir entre meia-estação e inverno."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "Como referência, as especificações de cobertores indicam medidas mínimas de 1,50 m × 2,20 m para solteiro e 2,00 m × 2,20 m para casal. A regulamentação exige informar o nome e o percentual das fibras em ordem decrescente e com igual destaque, além dos processos de lavagem, alvejamento, secagem, passadoria e limpeza profissional, nessa sequência.",
+      "after": "Escolha o tamanho pela medida da sua cama conforme a Sultan, confira a composição das fibras na etiqueta em ordem decrescente, e conheça a gramatura do modelo que escolher: segundo a Döhler, um cobertor de 350 g/m² oferece aquecimento sem perder leveza, e outro de 250 g/m² funciona para meia-estação ou como camada complementar."
+    },
+    {
+      "where": "Gramatura: peso do tecido · bloco 1",
+      "before": "A Döhler informa que o modelo Elise tem gramatura de 250 g/m² e o indica para meias-estações ou como camada complementar. Nos modelos Eva citados, a gramatura é de 350 g/m², descrita pela fabricante como oferecendo peso adequado para o aquecimento sem perder a leveza, segundo a Döhler.",
+      "after": "A seguir, veja uma tabela sobre gramatura."
+    },
+    {
+      "where": "Como decidir pelo tamanho, fibra e cuidados · bloco 1",
+      "before": "Medidas mínimas de cobertor por tamanho de cama, conforme referência de compras públicas · Solteiro | 1,50 m × 2,20 m / Casal | 2,00 m × 2,20 m",
+      "after": "Se você quer escolher o tamanho, confira a medida do cobertor no anúncio: segundo a Sultan, solteiro mede 2,20 m × 1,50 m, casal mede 2,20 m × 1,80 m, queen mede 2,40 m × 2,20 m e king mede 2,60 m × 2,40 m."
+    },
+    {
+      "where": "Como decidir pelo tamanho, fibra e cuidados · tabela",
+      "before": "Se você vai usar o cobertor em cama de solteiro, uma referência de compras públicas indica pelo menos 1,50 m × 2,20 m. Para cama de casal, a mesma referência aponta pelo menos 2,00 m × 2,20 m.",
+      "after": "Medidas de cobertor por tamanho, conforme catálogo da Sultan · Solteiro | 2,20 m × 1,50 m / Casal | 2,20 m × 1,80 m / Queen | 2,40 m × 2,20 m / King | 2,60 m × 2,40 m"
+    },
+    {
+      "where": "Como decidir pelo tamanho, fibra e cuidados · bloco 3",
+      "before": "Se você tem preferência por uma fibra específica ou quer evitar misturas, escolha apenas cobertores cuja etiqueta informe a composição percentual, como 100% poliéster. Confira se os percentuais estão declarados em ordem decrescente conforme exigido pelo Inmetro.",
+      "after": "Se você tem preferência por uma fibra específica, confira a composição: o nome das fibras deve vir acompanhado do percentual em massa, informado em ordem decrescente e com igual destaque."
+    },
+    {
+      "where": "Como decidir pelo tamanho, fibra e cuidados · bloco 4",
+      "before": "Verifique na etiqueta as instruções de secagem, segundo a Döhler. Nos modelos Eva da Döhler, não se deve secar em tambor; confira se a etiqueta orienta a secagem no varal ou em outro local específico.",
+      "after": "Se você quer saber se a gramatura aquece bem, confira no anúncio: segundo a Döhler, um cobertor de 350 g/m² oferece aquecimento sem perder leveza; em outro modelo, a marca descreve 250 g/m² como adequado para meia-estação ou como camada complementar."
+    },
+    {
+      "where": "Como decidir pelo tamanho, fibra e cuidados · bloco 5",
+      "before": "Se você busca o aquecimento descrito pela fabricante, a Döhler apresenta modelos de 350 g/m² como oferecendo o peso ideal para garantir o aquecimento necessário sem perder a leveza.",
+      "after": "Confira se os cuidados de conservação são informados nesta ordem: lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    },
+    {
+      "where": "Quais medidas encontrar para cada tamanho · bloco 2",
+      "before": "Segundo a Sultan, o solteiro mede 2,20 m × 1,50 m; o casal, 2,20 m × 1,80 m; o queen, 2,40 m × 2,20 m; e o king, 2,60 m × 2,40 m.",
+      "after": "(removido)"
+    }
+  ]
+}
