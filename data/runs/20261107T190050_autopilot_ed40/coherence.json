@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "certificacao-inmetro#0",
+      "problem": "A seção anuncia certificação compulsória, mas os blocos apenas informam que travesseiros devem cumprir um regulamento e citam requisitos técnicos de um documento de compras; não apresentam uma certificação compulsória.",
+      "fix": "Mudar o título para “Regulação e requisitos técnicos citados” ou retirar da promessa a expressão “certificação compulsória”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 21517,
+    "output_tokens": 3014,
+    "calls": 3
+  }
+}

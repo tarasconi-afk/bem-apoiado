@@ -1,0 +1,126 @@
+{
+  "findings": [
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-sao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-sao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-declarada#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado afirma que a indicação deve conter o nome das fibras ou filamentos e a composição em percentual, mas não usa explicitamente a formulação de que o regulador \"exige\" isso.",
+      "fix": "O regulamento do Inmetro prevê a indicação do nome das fibras ou filamentos e de sua composição expressa em percentual."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-obrigatorias#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que o produto têxtil deve conter essas informações, mas não afirma especificamente que elas devem estar na etiqueta. Além disso, exige pelo menos os cinco principais tratamentos, enquanto o bloco pode ser lido como se fossem exatamente cinco.",
+      "fix": "Segundo o Inmetro, o produto têxtil deve conter nome ou razão social ou marca registrada do fabricante, identificação fiscal do fabricante nacional ou importador (CNPJ), país de origem, nome das fibras ou filamentos têxteis e seu conteúdo em porcentagem, uma indicação de tamanho e pelo menos os cinco principais tratamentos de conservação, por símbolos e/ou texto, conforme a Norma NM-ISO 3758:2013."
+    },
+    {
+      "ref": "informacoes-obrigatorias#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-limpeza#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-limpeza#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-limpeza#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados mostram as instruções de cuidado de três produtos da Ortobom, mas não dizem que a Ortobom recomenda conferir a etiqueta antes da compra nem formulam essa orientação geral.",
+      "fix": "Nos exemplos citados da Ortobom, o Pró-Latex e o Viscopur têm lavagem proibida e permitem limpeza profissional a úmido muito suave, enquanto o Anatomic Visco permite lavagem a até 40 °C. Consulte a etiqueta do modelo para verificar suas instruções de cuidado."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "composicao-declarada#2",
+      "msg": "OVERSTATED. O trecho citado afirma que a indicação deve conter o nome das fibras ou filamentos e a composição em percentual, mas não usa explicitamente a formulação de que o regulador \"exige\" isso. Versão sustentável: O regulamento do Inmetro prevê a indicação do nome das fibras ou filamentos e de sua composição expressa em percentual."
+    },
+    {
+      "ref": "informacoes-obrigatorias#0",
+      "msg": "OVERSTATED. O trecho diz que o produto têxtil deve conter essas informações, mas não afirma especificamente que elas devem estar na etiqueta. Além disso, exige pelo menos os cinco principais tratamentos, enquanto o bloco pode ser lido como se fossem exatamente cinco. Versão sustentável: Segundo o Inmetro, o produto têxtil deve conter nome ou razão social ou marca registrada do fabricante, identificação fiscal do fabricante nacional ou importador (CNPJ), país de origem, nome das fibras ou filamentos têxteis e seu conteúdo em porcentagem, uma indicação de tamanho e pelo menos os cinco principais tratamentos de conservação, por símbolos e/ou texto, conforme a Norma NM-ISO 3758:2013."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. Os trechos citados mostram as instruções de cuidado de três produtos da Ortobom, mas não dizem que a Ortobom recomenda conferir a etiqueta antes da compra nem formulam essa orientação geral. Versão sustentável: Nos exemplos citados da Ortobom, o Pró-Latex e o Viscopur têm lavagem proibida e permitem limpeza profissional a úmido muito suave, enquanto o Anatomic Visco permite lavagem a até 40 °C. Consulte a etiqueta do modelo para verificar suas instruções de cuidado."
+    }
+  ]
+}

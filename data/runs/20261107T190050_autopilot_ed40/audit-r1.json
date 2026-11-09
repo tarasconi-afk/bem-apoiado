@@ -1,0 +1,178 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A ventilação e a dissipação de calor estão explicitamente atribuídas ao fabricante, mas as características de retorno lento, absorção do peso e distribuição da pressão são apresentadas como propriedades gerais de qualquer travesseiro viscoelástico, embora o trecho citado seja uma afirmação da Duoflex e nem sequer identifique explicitamente, no excerto, o sujeito de “oferecem”. Além disso, a fonte citada é um artigo do fabricante, não uma ficha técnica.",
+      "fix": "Se você prioriza ventilação e dissipação de calor, considere um modelo cuja documentação confirme essa característica; segundo a Duoflex, o Travesseiro Natural Látex Duoflex mantém a ventilação interna e ajuda a dissipar o calor. Segundo a Duoflex, determinados travesseiros podem oferecer retorno lento, absorção do peso e distribuição equalizada da pressão."
+    },
+    {
+      "ref": "o-que-sao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta que o travesseiro Natural Látex Duoflex é produzido a partir da seiva da seringueira e tem as propriedades listadas, mas não define travesseiro de látex como aquele com enchimento de látex natural ou sintético.",
+      "fix": "Travesseiro de látex natural da Duoflex é produzido a partir da seiva da seringueira e é descrito pela fabricante como naturalmente elástico, macio, resiliente e durável."
+    },
+    {
+      "ref": "o-que-sao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta as afirmações sobre absorção do peso, distribuição da pressão, retorno lento e efeito de amortecimento, mas não diz que o travesseiro viscoelástico tem enchimento de espuma viscoelástica, que essa espuma é de poliuretano, nem menciona especificamente os travesseiros Nasa.",
+      "fix": "Segundo a Duoflex, materiais viscoelásticos oferecem maior capacidade de absorção do peso e distribuição equalizada da pressão sobre o corpo, têm retorno lento ou memória e atuam como amortecedores."
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco repete a alegação de que o travesseiro possui propriedades hipoalergênicas. Isso sugere uma propriedade relacionada à prevenção ou redução de uma condição de saúde, o que não é permitido, mesmo quando atribuído ao fabricante. As demais afirmações estão nos trechos citados.",
+      "fix": "Fabricantes declaram o tipo de material e outras propriedades dos travesseiros. A Duoflex afirma que o Travesseiro Natural Látex é produzido a partir da seiva da seringueira, sendo elástico, macio, resiliente e durável. A Ortobom afirma que o Travesseiro Pró-Latex é composto por espuma de alta resiliência 100% poliuretano, que não absorve calor e oferece flexibilidade, suporte e retorno."
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas a composição do Travesseiro Viscopur da Ortobom. Não sustenta a generalização sobre fabricantes de travesseiros viscoelásticos nem a afirmação sobre o Travesseiro Anatômico Visco, para o qual não há evidência citada.",
+      "fix": "A Ortobom declara que o enchimento do Travesseiro Viscopur é de espuma viscoelástica 100% poliuretano."
+    },
+    {
+      "ref": "composicao-declarada#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado menciona a indicação do nome das fibras ou filamentos e sua composição em percentual, na forma prevista no capítulo IV, mas não menciona etiqueta nem demonstra, isoladamente, uma exigência aplicável ao produto. Também não sustenta a afirmação de que nenhuma fonte consultada declarou processo específico de fabricação, como vulcanização ou moldagem.",
+      "fix": "O regulador indica que o nome das fibras ou filamentos e sua composição devem ser expressos em percentual, na forma prevista no capítulo IV. O trecho citado não menciona processos específicos de fabricação."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta apenas que o travesseiro é produto têxtil e deve atender ao Regulamento Técnico da Portaria Inmetro nº 118, de 2021. Não sustenta a afirmação de que travesseiros não estão sujeitos à certificação compulsória nem a comparação com colchões de espuma e de molas.",
+      "fix": "Travesseiros são classificados como produtos têxteis e devem atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021, segundo o Inmetro."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram requisitos técnicos para espuma e mencionam a ABNT-NBR 13579, mas não demonstram que não existe norma ABNT específica para travesseiros, que a norma se aplica à espuma usada em travesseiros ou que ela não aborda requisitos de design ou uso do produto final.",
+      "fix": "Um documento de compras citado estabelece requisitos técnicos para uma espuma e menciona a ABNT-NBR 13579."
+    },
+    {
+      "ref": "informacoes-obrigatorias#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho cita os cinco principais tratamentos de conservação, mas o bloco acrescenta “pelo menos”, sugerindo cinco ou mais. Também troca “tamanho” por “tamanho ou dimensão”, embora o trecho citado só mencione indicação de tamanho.",
+      "fix": "Segundo o Inmetro, a etiqueta de um produto têxtil deve conter nome ou razão social ou marca registrada do fabricante, identificação fiscal do fabricante nacional ou importador (CNPJ), país de origem, nome das fibras ou filamentos têxteis e seu conteúdo em porcentagem, uma indicação de tamanho e os cinco principais tratamentos de conservação, por símbolos e/ou texto, conforme a Norma NM-ISO 3758:2013."
+    },
+    {
+      "ref": "informacoes-obrigatorias#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que a escolha pode caber ao fabricante, ao importador ou a outros responsáveis mencionados. O bloco atribui essa escolha apenas ao fabricante, generalizando o responsável pela indicação.",
+      "fix": "As informações de cuidados de conservação podem ser indicadas por símbolos, textos ou ambos; a opção pode caber ao fabricante, ao importador ou a outro responsável aplicável, conforme o caso."
+    },
+    {
+      "ref": "cuidados-limpeza#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Duoflex não identifica o Travesseiro Natural Látex nem afirma que alguns modelos específicos desse produto têm capas removíveis e laváveis; ele fala genericamente em alguns modelos. Além disso, os trechos não dizem explicitamente que os cuidados de travesseiros de látex são diferentes dos de viscoelásticos.",
+      "fix": "Segundo a Ortobom, o Travesseiro Pró-Latex não deve ser lavado nem passado, pode secar na horizontal à sombra e admite limpeza profissional a úmido muito suave. A Duoflex orienta higienizar conforme as instruções do fabricante e afirma que alguns modelos têm capas removíveis e laváveis."
+    },
+    {
+      "ref": "cuidados-limpeza#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as restrições e permissões de dois modelos viscoelásticos da Ortobom, mas não sustentam a generalização para fabricantes de travesseiros viscoelásticos em geral. Os detalhes atribuídos aos modelos Viscopur e Anatomic Visco estão de acordo com as evidências.",
+      "fix": "A Ortobom estabelece cuidados específicos para os modelos Viscopur e Anatomic Visco. No Viscopur, a lavagem, o alvejamento e a passadoria são proibidos, enquanto são permitidas a secagem horizontal à sombra e a limpeza profissional a úmido muito suave. No Anatomic Visco, é permitida lavagem a até 40 °C e secagem em tambor a até 60 °C; alvejamento, passadoria e limpeza a seco são proibidos."
+    },
+    {
+      "ref": "cuidados-limpeza#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "A afirmação da troca a cada dois anos é sustentada pelo trecho da Duoflex. Porém, o trecho citado não permite concluir que nenhum fabricante consultado declara vida útil específica em anos para nenhum dos tipos, pois só apresenta uma evidência da Duoflex e não documenta uma consulta abrangente nem a ausência de declarações de outros fabricantes.",
+      "fix": "Segundo a Duoflex, é preciso trocar o travesseiro a cada dois anos porque ele acumula ácaros e perde sustentação. Remova a afirmação sobre nenhum fabricante declarar vida útil específica ou cite evidências que sustentem essa ausência."
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Duoflex sustenta retorno lento, absorção do peso e distribuição equalizada da pressão, mas o trecho da Ortobom apenas diz que a espuma viscoelástica se adapta aos contornos do corpo e proporciona alívio de pressões e tensões. Portanto, não é correto atribuir todas essas características às duas fontes.",
+      "fix": "Se você prioriza retorno lento, absorção do peso e distribuição equalizada da pressão, considere um travesseiro viscoelástico, segundo a Duoflex. A Ortobom afirma que seu modelo se adapta aos contornos do corpo e proporciona alívio de pressões e tensões."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos mostram exemplos da Ortobom, não uma diferenciação entre fabricantes. Além disso, eles não dizem que o modelo de látex é de “látex puro”, nem sustentam que os modelos devam declarar “apenas” limpeza profissional ou secagem sem imersão em água. Um dos modelos viscoelásticos citados permite lavagem, enquanto outros a proíbem.",
+      "fix": "Confira na etiqueta as instruções de cuidado. Nos exemplos da Ortobom, o Pró-Latex e o Viscopur proíbem lavagem e permitem limpeza profissional a úmido muito suave, enquanto o Anatomic Visco permite lavagem a até 40 °C."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos do Inmetro sustentam a identificação do fabricante, CNPJ ou identificação fiscal, país de origem, nome e percentual das fibras, tamanho e tratamentos de conservação. Não sustentam a exigência de informar o material do enchimento nem de especificar látex natural, sintético, bloco de látex ou espuma viscoelástica de poliuretano.",
+      "fix": "Confira na etiqueta o fabricante ou marca, a identificação fiscal, o país de origem, os nomes e percentuais das fibras, o tamanho e os tratamentos de conservação indicados por símbolos ou texto. Os trechos citados não estabelecem as especificações adicionais sobre látex ou espuma."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A ventilação e a dissipação de calor estão explicitamente atribuídas ao fabricante, mas as características de retorno lento, absorção do peso e distribuição da pressão são apresentadas como propriedades gerais de qualquer travesseiro viscoelástico, embora o trecho citado seja uma afirmação da Duoflex e nem sequer identifique explicitamente, no excerto, o sujeito de “oferecem”. Além disso, a fonte citada é um artigo do fabricante, não uma ficha técnica. Versão sustentável: Se você prioriza ventilação e dissipação de calor, considere um modelo cuja documentação confirme essa característica; segundo a Duoflex, o Travesseiro Natural Látex Duoflex mantém a ventilação interna e ajuda a dissipar o calor. Segundo a Duoflex, determinados travesseiros podem oferecer retorno lento, absorção do peso e distribuição equalizada da pressão."
+    },
+    {
+      "ref": "o-que-sao#0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta que o travesseiro Natural Látex Duoflex é produzido a partir da seiva da seringueira e tem as propriedades listadas, mas não define travesseiro de látex como aquele com enchimento de látex natural ou sintético. Versão sustentável: Travesseiro de látex natural da Duoflex é produzido a partir da seiva da seringueira e é descrito pela fabricante como naturalmente elástico, macio, resiliente e durável."
+    },
+    {
+      "ref": "o-que-sao#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta as afirmações sobre absorção do peso, distribuição da pressão, retorno lento e efeito de amortecimento, mas não diz que o travesseiro viscoelástico tem enchimento de espuma viscoelástica, que essa espuma é de poliuretano, nem menciona especificamente os travesseiros Nasa. Versão sustentável: Segundo a Duoflex, materiais viscoelásticos oferecem maior capacidade de absorção do peso e distribuição equalizada da pressão sobre o corpo, têm retorno lento ou memória e atuam como amortecedores."
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "msg": "SAFETY_CLAIM. O bloco repete a alegação de que o travesseiro possui propriedades hipoalergênicas. Isso sugere uma propriedade relacionada à prevenção ou redução de uma condição de saúde, o que não é permitido, mesmo quando atribuído ao fabricante. As demais afirmações estão nos trechos citados. Versão sustentável: Fabricantes declaram o tipo de material e outras propriedades dos travesseiros. A Duoflex afirma que o Travesseiro Natural Látex é produzido a partir da seiva da seringueira, sendo elástico, macio, resiliente e durável. A Ortobom afirma que o Travesseiro Pró-Latex é composto por espuma de alta resiliência 100% poliuretano, que não absorve calor e oferece flexibilidade, suporte e retorno."
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas a composição do Travesseiro Viscopur da Ortobom. Não sustenta a generalização sobre fabricantes de travesseiros viscoelásticos nem a afirmação sobre o Travesseiro Anatômico Visco, para o qual não há evidência citada. Versão sustentável: A Ortobom declara que o enchimento do Travesseiro Viscopur é de espuma viscoelástica 100% poliuretano."
+    },
+    {
+      "ref": "composicao-declarada#2",
+      "msg": "UNSUPPORTED. O trecho citado menciona a indicação do nome das fibras ou filamentos e sua composição em percentual, na forma prevista no capítulo IV, mas não menciona etiqueta nem demonstra, isoladamente, uma exigência aplicável ao produto. Também não sustenta a afirmação de que nenhuma fonte consultada declarou processo específico de fabricação, como vulcanização ou moldagem. Versão sustentável: O regulador indica que o nome das fibras ou filamentos e sua composição devem ser expressos em percentual, na forma prevista no capítulo IV. O trecho citado não menciona processos específicos de fabricação."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas que o travesseiro é produto têxtil e deve atender ao Regulamento Técnico da Portaria Inmetro nº 118, de 2021. Não sustenta a afirmação de que travesseiros não estão sujeitos à certificação compulsória nem a comparação com colchões de espuma e de molas. Versão sustentável: Travesseiros são classificados como produtos têxteis e devem atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021, segundo o Inmetro."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "UNSUPPORTED. Os trechos mostram requisitos técnicos para espuma e mencionam a ABNT-NBR 13579, mas não demonstram que não existe norma ABNT específica para travesseiros, que a norma se aplica à espuma usada em travesseiros ou que ela não aborda requisitos de design ou uso do produto final. Versão sustentável: Um documento de compras citado estabelece requisitos técnicos para uma espuma e menciona a ABNT-NBR 13579."
+    },
+    {
+      "ref": "informacoes-obrigatorias#0",
+      "msg": "OVERSTATED. O trecho cita os cinco principais tratamentos de conservação, mas o bloco acrescenta “pelo menos”, sugerindo cinco ou mais. Também troca “tamanho” por “tamanho ou dimensão”, embora o trecho citado só mencione indicação de tamanho. Versão sustentável: Segundo o Inmetro, a etiqueta de um produto têxtil deve conter nome ou razão social ou marca registrada do fabricante, identificação fiscal do fabricante nacional ou importador (CNPJ), país de origem, nome das fibras ou filamentos têxteis e seu conteúdo em porcentagem, uma indicação de tamanho e os cinco principais tratamentos de conservação, por símbolos e/ou texto, conforme a Norma NM-ISO 3758:2013."
+    },
+    {
+      "ref": "informacoes-obrigatorias#1",
+      "msg": "OVERSTATED. O trecho diz que a escolha pode caber ao fabricante, ao importador ou a outros responsáveis mencionados. O bloco atribui essa escolha apenas ao fabricante, generalizando o responsável pela indicação. Versão sustentável: As informações de cuidados de conservação podem ser indicadas por símbolos, textos ou ambos; a opção pode caber ao fabricante, ao importador ou a outro responsável aplicável, conforme o caso."
+    },
+    {
+      "ref": "cuidados-limpeza#0",
+      "msg": "MISATTRIBUTED. O trecho da Duoflex não identifica o Travesseiro Natural Látex nem afirma que alguns modelos específicos desse produto têm capas removíveis e laváveis; ele fala genericamente em alguns modelos. Além disso, os trechos não dizem explicitamente que os cuidados de travesseiros de látex são diferentes dos de viscoelásticos. Versão sustentável: Segundo a Ortobom, o Travesseiro Pró-Latex não deve ser lavado nem passado, pode secar na horizontal à sombra e admite limpeza profissional a úmido muito suave. A Duoflex orienta higienizar conforme as instruções do fabricante e afirma que alguns modelos têm capas removíveis e laváveis."
+    },
+    {
+      "ref": "cuidados-limpeza#1",
+      "msg": "OVERSTATED. Os trechos sustentam as restrições e permissões de dois modelos viscoelásticos da Ortobom, mas não sustentam a generalização para fabricantes de travesseiros viscoelásticos em geral. Os detalhes atribuídos aos modelos Viscopur e Anatomic Visco estão de acordo com as evidências. Versão sustentável: A Ortobom estabelece cuidados específicos para os modelos Viscopur e Anatomic Visco. No Viscopur, a lavagem, o alvejamento e a passadoria são proibidos, enquanto são permitidas a secagem horizontal à sombra e a limpeza profissional a úmido muito suave. No Anatomic Visco, é permitida lavagem a até 40 °C e secagem em tambor a até 60 °C; alvejamento, passadoria e limpeza a seco são proibidos."
+    },
+    {
+      "ref": "cuidados-limpeza#2",
+      "msg": "UNSUPPORTED. A afirmação da troca a cada dois anos é sustentada pelo trecho da Duoflex. Porém, o trecho citado não permite concluir que nenhum fabricante consultado declara vida útil específica em anos para nenhum dos tipos, pois só apresenta uma evidência da Duoflex e não documenta uma consulta abrangente nem a ausência de declarações de outros fabricantes. Versão sustentável: Segundo a Duoflex, é preciso trocar o travesseiro a cada dois anos porque ele acumula ácaros e perde sustentação. Remova a afirmação sobre nenhum fabricante declarar vida útil específica ou cite evidências que sustentem essa ausência."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. O trecho da Duoflex sustenta retorno lento, absorção do peso e distribuição equalizada da pressão, mas o trecho da Ortobom apenas diz que a espuma viscoelástica se adapta aos contornos do corpo e proporciona alívio de pressões e tensões. Portanto, não é correto atribuir todas essas características às duas fontes. Versão sustentável: Se você prioriza retorno lento, absorção do peso e distribuição equalizada da pressão, considere um travesseiro viscoelástico, segundo a Duoflex. A Ortobom afirma que seu modelo se adapta aos contornos do corpo e proporciona alívio de pressões e tensões."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. Os trechos mostram exemplos da Ortobom, não uma diferenciação entre fabricantes. Além disso, eles não dizem que o modelo de látex é de “látex puro”, nem sustentam que os modelos devam declarar “apenas” limpeza profissional ou secagem sem imersão em água. Um dos modelos viscoelásticos citados permite lavagem, enquanto outros a proíbem. Versão sustentável: Confira na etiqueta as instruções de cuidado. Nos exemplos da Ortobom, o Pró-Latex e o Viscopur proíbem lavagem e permitem limpeza profissional a úmido muito suave, enquanto o Anatomic Visco permite lavagem a até 40 °C."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos do Inmetro sustentam a identificação do fabricante, CNPJ ou identificação fiscal, país de origem, nome e percentual das fibras, tamanho e tratamentos de conservação. Não sustentam a exigência de informar o material do enchimento nem de especificar látex natural, sintético, bloco de látex ou espuma viscoelástica de poliuretano. Versão sustentável: Confira na etiqueta o fabricante ou marca, a identificação fiscal, o país de origem, os nomes e percentuais das fibras, o tamanho e os tratamentos de conservação indicados por símbolos ou texto. Os trechos citados não estabelecem as especificações adicionais sobre látex ou espuma."
+    }
+  ]
+}
