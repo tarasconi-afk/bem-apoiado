@@ -94,7 +94,10 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         (gaps.length ? `\nEm pautas anteriores, estas informações NÃO foram encontradas em texto de fonte primária; não dependa delas para a decisão:\n${gaps.map((g) => `- ${g}`).join('\n')}\n` : ''),
       schema: Out,
       schemaName: 'topic_plan',
-      maxTokens: 2500,
+      // 09/11: com 2500, TODA primeira chamada do planejador custava 4,67 créditos — o valor exato de 2500 tokens de
+      // saída do Sonnet 5 — e voltava JSON cortado; a segunda tentativa às vezes salvava. Nos ciclos das 04h de 07, 08 e
+      // 09/11 as duas falharam e o ciclo terminou sem página (≈9 créditos e uma página perdidos por dia).
+      maxTokens: 6000,
     },
     fetchImpl,
   );
