@@ -1,0 +1,66 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "gramatura#0",
+      "como-decidir#1.r0",
+      "como-decidir#1.r1",
+      "como-decidir#1.r2",
+      "como-decidir#1.r3"
+    ],
+    "decision_criteria": [
+      "Confira a medida declarada no anúncio e escolha conforme o tamanho da cama: solteiro, casal, queen ou king.",
+      "Confira na etiqueta o nome e o percentual de cada fibra, apresentados em ordem decrescente.",
+      "Use a gramatura como referência de aquecimento: 350 g/m² é descrita pela Döhler como aquecida e leve, enquanto 250 g/m² é indicada para meia-estação ou como camada complementar.",
+      "Confira os cuidados de conservação declarados para lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Critérios práticos para escolher entre poliéster, algodão, lã e outras fibras, além de apenas conferir a composição.",
+      "Informação sobre peso e medidas do cobertor dobrado ou embalado para armazenamento.",
+      "Orientação para conferir a medida exata do modelo escolhido, já que as dimensões podem variar entre fabricantes e linhas.",
+      "Explicação de que a gramatura é o peso do tecido por metro quadrado e não determina sozinha o aquecimento em todos os cobertores."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente como escolher cobertor, oferece medidas por tamanho de cama, composição, gramaturas e cuidados concretos para conferir no anúncio ou na etiqueta. Há repetição das tabelas de medidas na seção de decisão e uma frase vazia sobre gramatura, que devem ser removidas; a orientação sobre fibras é limitada a verificar a composição, sem ajudar a comparar materiais.",
+    "filler_ratio": 0.20833333333333334,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "medidas-cobertor#1"
+    ],
+    "decision_criteria": [
+      "Para cama de solteiro, conferir cobertor de pelo menos 1,50 m × 2,20 m; os catálogos também apresentam a medida de 2,20 m × 1,50 m.",
+      "Para cama de casal, conferir pelo menos 2,00 m × 2,20 m; o catálogo da Sultan informa 2,20 m × 1,80 m.",
+      "Para queen, conferir a medida de 2,40 m × 2,20 m; para king, 2,60 m × 2,40 m, conforme o catálogo citado.",
+      "Conferir na etiqueta o nome e o percentual de cada fibra, em ordem decrescente; os exemplos apresentados são cobertores 100% poliéster.",
+      "Para meia-estação ou como camada complementar, considerar o modelo de 250 g/m² indicado pela Döhler; o modelo de 350 g/m² é apresentado pela fabricante como opção mais aquecida sem perder leveza.",
+      "Conferir a gramatura declarada na ficha do produto, pois os exemplos variam de 250 a 350 g/m².",
+      "Verificar as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional na etiqueta.",
+      "Se não houver secadora ou se o cobertor exigir esse cuidado, conferir se a etiqueta permite secagem no varal; os modelos Eva citados não devem ser secos em tambor."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma regra explícita relacionando cada tamanho de cama, inclusive queen e king, à medida recomendada do cobertor e à sobra desejada nas laterais.",
+      "Critérios de aquecimento por faixa de gramatura sustentados por mais de um fabricante, em vez de depender principalmente da descrição da Döhler.",
+      "Uma comparação prática entre fibras, explicando quando preferir poliéster, algodão, lã ou misturas, caso existam recomendações dos fabricantes.",
+      "Informação sobre peso e medidas do cobertor dobrado ou embalado para ajudar no armazenamento."
+    ],
+    "publishable": false,
+    "summary": "Publicável, mas responde apenas parcialmente à dúvida ampla. A página oferece critérios concretos para conferir medida, composição, gramatura e cuidados, porém a resposta curta não cobre todos os tamanhos de cama e não transforma completamente os dados em uma regra de escolha; também há repetição no bloco de medidas.",
+    "filler_ratio": 0.043478260869565216,
+    "model_opinion": true
+  }
+}

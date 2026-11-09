@@ -1,0 +1,158 @@
+{
+  "findings": [
+    {
+      "ref": "medidas-cobertor#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-cobertor#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora esteja marcado como framing, o bloco dá uma recomendação prática sobre a etiqueta e o primeiro uso do produto. Não há nenhum trecho citado que sustente essa orientação; também não é uma simples frase de transição sobre a própria página.",
+      "fix": "Remover a recomendação ou acrescentar uma evidência que diga para consultar a etiqueta específica antes do primeiro uso."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam 350 g/m² como oferecendo o aquecimento necessário, mas não dizem explicitamente que proporciona maior aquecimento do que modelos de 250 g/m² nem estabelecem essa comparação entre as gramaturas.",
+      "fix": "Para opções que a Döhler descreve como oferecendo aquecimento, compare modelos de 350 g/m², segundo a Döhler."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "FACT_IN_FRAMING. Embora esteja marcado como framing, o bloco dá uma recomendação prática sobre a etiqueta e o primeiro uso do produto. Não há nenhum trecho citado que sustente essa orientação; também não é uma simples frase de transição sobre a própria página. Versão sustentável: Remover a recomendação ou acrescentar uma evidência que diga para consultar a etiqueta específica antes do primeiro uso."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. Os trechos citam 350 g/m² como oferecendo o aquecimento necessário, mas não dizem explicitamente que proporciona maior aquecimento do que modelos de 250 g/m² nem estabelecem essa comparação entre as gramaturas. Versão sustentável: Para opções que a Döhler descreve como oferecendo aquecimento, compare modelos de 350 g/m², segundo a Döhler."
+    }
+  ]
+}
