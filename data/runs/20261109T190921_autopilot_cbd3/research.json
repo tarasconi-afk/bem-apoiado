@@ -1,0 +1,203 @@
+{
+  "run_id": "20261109T190921_autopilot_cbd3",
+  "topic": "lencol-para-o-calor-qual-tecido-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_eaede34a5ccd",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_db3609c82356",
+      "new": true
+    },
+    {
+      "claim_id": "clm_eaede34a5ccd",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_db3609c82356",
+      "new": false
+    },
+    {
+      "claim_id": "clm_164c85e5fbfb",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_db3609c82356",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c819346c2883",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_85eef5ea0246",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2a93f2142199",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_85eef5ea0246",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cadc77db2eda",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_85eef5ea0246",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3324a116da1c",
+      "question_id": "q_lavagem_secagem_tecido",
+      "source_id": "src_85eef5ea0246",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f5d061ad06a7",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_f535b03748df",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4bcbc7afd4da",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_f535b03748df",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b9be419b6d2c",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_199b67efc069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ab572595bcc9",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_199b67efc069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_790874f6ba53",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_199b67efc069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_61f9d202290b",
+      "question_id": "q_lavagem_secagem_tecido",
+      "source_id": "src_199b67efc069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0ada1f466806",
+      "question_id": "q_lavagem_secagem_tecido",
+      "source_id": "src_199b67efc069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f825c9413333",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_8a6372b029cf",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d8f6411e0b1c",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_8a6372b029cf",
+      "new": true
+    },
+    {
+      "claim_id": "clm_57c9e35bf5e3",
+      "question_id": "q_lavagem_secagem_tecido",
+      "source_id": "src_8a6372b029cf",
+      "new": true
+    },
+    {
+      "claim_id": "clm_699fba7f842f",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_bb8d94dbfb23",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2da6459e7dc9",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_bb8d94dbfb23",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3da66455784e",
+      "question_id": "q_tecer_percal_cetim",
+      "source_id": "src_bb8d94dbfb23",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ff2960dc522b",
+      "question_id": "q_composicao_fios_calor",
+      "source_id": "src_bb8d94dbfb23",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_f535b03748df",
+      "question_id": "q_composicao_fios_calor",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tecido: Percal 180 Fios"
+    }
+  ],
+  "coverage": {
+    "q_composicao_fios_calor": 8,
+    "q_tecer_percal_cetim": 9,
+    "q_lavagem_secagem_tecido": 4,
+    "q_etiqueta_composicao_inmetro": 0,
+    "q_limite_avaliacao_regulador": 0
+  },
+  "unanswered": [
+    "q_etiqueta_composicao_inmetro",
+    "q_limite_avaliacao_regulador"
+  ],
+  "usage": {
+    "input_tokens": 15475,
+    "output_tokens": 3253,
+    "calls": 7
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_db3609c82356",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.87
+    },
+    {
+      "source_id": "src_db3609c82356",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.84
+    },
+    {
+      "source_id": "src_85eef5ea0246",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_f535b03748df",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_199b67efc069",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_8a6372b029cf",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_bb8d94dbfb23",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    }
+  ],
+  "credits": 16.23125772
+}

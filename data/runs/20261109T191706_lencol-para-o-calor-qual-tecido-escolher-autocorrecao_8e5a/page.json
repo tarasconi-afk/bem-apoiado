@@ -1,0 +1,83 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que o percal de 160 fios é uma opção comprovadamente adequada ao calor, mas os trechos só dizem separadamente que jogos de cama de 160 fios são leves e respiráveis e que o percal de algodão se mantém fresco (como-decidir#0); Reescrever para re",
+      "O toque encorpado e a combinação de frescor e respirabilidade são características informadas para o modelo Alanis da Karsten, mas o texto as transforma em regra para qualquer percal de 200 fios (como-decidir#1); Restringir a orientação ao produto citado: por e"
+    ],
+    "filler_refs": [
+      "o-que-etiqueta-nao-avalia#0"
+    ],
+    "decision_criteria": [
+      "Para quem sente muito calor, escolher percal de 160 fios, descrito pela Karsten como mais leve e respirável para climas quentes.",
+      "Escolher percal de algodão quando a prioridade é uma sensação fresca em dias quentes, segundo a Appel.",
+      "Escolher percal de 200 fios se quiser manter a respirabilidade e preferir um toque mais encorpado.",
+      "Conferir na embalagem ou na etiqueta a composição das fibras e os percentuais em massa.",
+      "Conferir as instruções de lavagem, secagem, passadoria e demais cuidados informadas pelo fabricante."
+    ],
+    "missing": [
+      "Dados de fabricantes sobre gramatura ou contagem de fios e indicação para calor em lençóis de linho, viscose e microfibra.",
+      "Comparações de fichas de produtos de algodão percal e cetim com a mesma fibra, mostrando claramente a trama e a contagem de fios.",
+      "Instruções de conservação de fabricantes para lençóis de linho, viscose e microfibra.",
+      "Uma explicação mais direta de que a contagem de fios, sozinha, não determina necessariamente o frescor sem considerar fibra, trama e gramatura."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página dá uma regra de escolha concreta para quem sente calor: priorizar percal de 160 fios; também diferencia a opção de 200 fios para quem prefere toque mais encorpado e orienta o leitor a conferir composição e cuidados na ficha. Ela não cobre todos os tecidos da pauta, mas responde à dúvida principal com rapidez e sem depender de propaganda.",
+    "filler_ratio": 0.08333333333333333,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "como-decidir#0",
+        "problem": "O leitor entende que o percal de 160 fios é uma opção comprovadamente adequada ao calor, mas os trechos só dizem separadamente que jogos de cama de 160 fios são leves e respiráveis e que o percal de algodão se mantém fresco.",
+        "fix": "Reescrever para recomendar um jogo de cama de 160 fios para quem prioriza leveza e respirabilidade; mencionar o percal de algodão separadamente como tecido descrito como fresco em dias quentes."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir#1",
+        "problem": "O toque encorpado e a combinação de frescor e respirabilidade são características informadas para o modelo Alanis da Karsten, mas o texto as transforma em regra para qualquer percal de 200 fios.",
+        "fix": "Restringir a orientação ao produto citado: por exemplo, dizer que o modelo Alanis, da Karsten, é um percal de 200 fios descrito como fresco, respirável e de toque encorpado."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A recomendação de compra fica apoiada praticamente só em descrições da Karsten, embora a página também cite Trussardi e Inmetro.",
+      "O termo percal é usado como principal opção sem explicar ao leitor leigo o que ele significa ou como se diferencia do cetim."
+    ],
+    "filler_refs": [
+      "o-que-etiqueta-nao-avalia#0",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Para quem sente muito calor e prioriza leveza e respirabilidade, escolher percal de 160 fios, segundo a Karsten.",
+      "Para quem quer um percal fresco e respirável com toque mais encorpado, escolher percal de 200 fios, segundo a Karsten.",
+      "Conferir na etiqueta ou embalagem o nome de cada fibra e seu percentual em massa, em ordem decrescente e com igual destaque.",
+      "Conferir as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional.",
+      "Usar a contagem de fios como referência de construção do tecido: quanto maior a contagem, mais fina tende a ser a linha e mais fechada a trama, segundo a Trussardi."
+    ],
+    "missing": [
+      "Para o leitor leigo: A recomendação de compra fica apoiada praticamente só em descrições da Karsten, embora a página também cite Trussardi e Inmetro.",
+      "Para o leitor leigo: O termo percal é usado como principal opção sem explicar ao leitor leigo o que ele significa ou como se diferencia do cetim.",
+      "Comparação, em fontes primárias, entre algodão percal, algodão cetim, linho, viscose e microfibra para uso em clima quente.",
+      "Fichas de produtos desses tecidos informando contagem de fios ou gramatura e relacionando esses dados à leveza, respirabilidade ou sensação de frescor.",
+      "Explicação, em fonte primária, do que caracteriza a trama percal e a trama cetim e de como escolher entre elas para o calor.",
+      "Instruções de conservação de fabricantes para lençóis de linho, viscose e microfibra, além dos exemplos de algodão.",
+      "Declaração mais direta, apoiada no escopo da norma do Inmetro, de que a etiqueta de conservação e composição não comprova propriedades de frescor ou controle de temperatura."
+    ],
+    "publishable": false,
+    "summary": "A página dá uma regra concreta para escolher entre percal de 160 e 200 fios e informa o que conferir na composição e nos cuidados. Porém, responde apenas parcialmente à dúvida sobre qual tecido escolher para o calor, pois não compara linho, viscose, microfibra e cetim, e a seção de decisão depende de uma única marca apesar de citar outras fontes. Precisa ampliar a comparação e explicar os termos principais antes de ser publicada.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": false
+  }
+}

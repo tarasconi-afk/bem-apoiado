@@ -1,0 +1,36 @@
+{
+  "patches": [
+    {
+      "ref": "percal-vs-cetim-contagem-fios#0",
+      "action": "replace",
+      "text": "Percal de 160 fios é descrito como um tecido leve e respirável, segundo a Karsten. No modelo Alanis da Karsten, o percal de 200 fios combina suavidade e frescor com um toque mais encorpado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_699fba7f842f",
+        "clm_f825c9413333"
+      ]
+    },
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. No modelo Alanis da Karsten, o percal de 200 fios é descrito como fresco e respirável com toque mais encorpado. Verifique se a composição informa os nomes das fibras e seus percentuais em massa, conforme exigido pelo Inmetro.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_699fba7f842f",
+        "clm_f825c9413333",
+        "clm_055cf59ece8e",
+        "clm_14318594c448"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "percal-vs-cetim-contagem-fios#0",
+    "percal-vs-cetim-contagem-fios#1"
+  ],
+  "still": [
+    "verdict: OVERSTATED",
+    "percal-vs-cetim-contagem-fios#0: OVERSTATED"
+  ]
+}

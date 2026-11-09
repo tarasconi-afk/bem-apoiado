@@ -1,0 +1,71 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete explicar as diferenças entre percal e cetim na contagem de fios, mas o bloco apenas descreve o percal, relaciona 300 fios ao cetim e cita características de modelos específicos, sem fazer uma comparação clara entre os dois tecidos (percal-vs-ce"
+    ],
+    "filler_refs": [
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Para quem sente muito calor, escolher lençol de 160 fios, descrito pela Karsten como mais leve e respirável.",
+      "Preferir percal de algodão para uma opção descrita como fresca em dias quentes.",
+      "Escolher o percal de 200 fios Alanis se quiser uma opção mais encorpada, sem deixar de priorizar o percal.",
+      "Conferir na embalagem ou ficha do produto a composição das fibras e a contagem de fios.",
+      "Verificar na etiqueta as instruções de lavagem, secagem e passadoria antes da compra."
+    ],
+    "missing": [
+      "Faixas de contagem de fios ou gramatura para linho, viscose e microfibra indicadas para clima quente.",
+      "Comparação prática entre algodão percal, algodão cetim, linho, viscose e microfibra para quem sente calor.",
+      "Explicação mais clara da diferença entre percal e cetim em lençóis de algodão.",
+      "Instruções de cuidados de conservação para lençóis de linho, viscose e microfibra, além dos exemplos de algodão.",
+      "Informação do fabricante sobre propriedades de frescor ou controle de temperatura para os diferentes tecidos, quando disponível em fonte primária."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde rapidamente que o leitor com calor deve procurar um jogo de 160 fios e pode preferir percal de algodão, além de indicar o que conferir na ficha e na etiqueta. Ela não compara todos os tecidos da pauta nem traz gramatura ou cuidados para outras fibras, mas oferece uma regra concreta de compra em vez de apenas dizer que depende.",
+    "filler_ratio": 0.08333333333333333,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "percal-vs-cetim-contagem-fios#0",
+        "problem": "A seção promete explicar as diferenças entre percal e cetim na contagem de fios, mas o bloco apenas descreve o percal, relaciona 300 fios ao cetim e cita características de modelos específicos, sem fazer uma comparação clara entre os dois tecidos.",
+        "fix": "Mudar o título para algo como “Exemplos de tecidos e contagens de fios”, que corresponde ao que o bloco realmente traz."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-etiqueta-nao-avalia#0",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Para quem sente muito calor, escolher percal de 160 fios, descrito pela Karsten como mais leve e respirável para climas quentes.",
+      "Para quem quer percal fresco e respirável, mas prefere toque mais encorpado, escolher a opção de 200 fios.",
+      "Conferir no anúncio ou na ficha se o produto é de algodão percal e qual é a contagem de fios.",
+      "Comparar a trama e a contagem de fios: o percal é associado a opções mais leves, enquanto tecidos de 300 fios são classificados pela Karsten como cetim.",
+      "Consultar na etiqueta a composição das fibras e as instruções de lavagem, secagem e passadoria."
+    ],
+    "missing": [
+      "Dados de ficha técnica ou embalagem de fabricantes para linho, viscose e microfibra, permitindo comparar esses tecidos com o algodão percal em clima quente.",
+      "Faixas de gramatura ou contagem de fios declaradas pelos fabricantes para cada tipo de tecido e uma indicação correspondente para quem sente calor.",
+      "Comparação direta, baseada em fichas de produtos, entre percal, cetim, linho, viscose e microfibra quanto à ventilação e ao conforto térmico.",
+      "Instruções de conservação de produtos de linho, viscose e microfibra, além dos exemplos de lençóis de algodão."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página dá uma escolha concreta para quem sente calor — percal de 160 fios — e oferece uma alternativa de 200 fios para quem prefere toque mais encorpado. Ela também orienta o leitor a conferir composição, contagem de fios e cuidados na ficha do produto; embora não compare os demais tecidos pedidos na pauta, isso não impede a resposta direta à dúvida principal.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  }
+}

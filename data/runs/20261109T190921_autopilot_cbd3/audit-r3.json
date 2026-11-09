@@ -1,0 +1,102 @@
+{
+  "findings": [
+    {
+      "ref": "o-que-e-contagem-de-fios#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-contagem-de-fios#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos do Inmetro determinam que os nomes das fibras sejam acompanhados dos percentuais em massa, mas não dizem que essa informação deve ser conferida especificamente na etiqueta. O restante do bloco é sustentado pelos trechos citados e as atribuições à Karsten estão explícitas.",
+      "fix": "Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Verifique se a composição informa os nomes das fibras e seus percentuais em massa, conforme exigido pelo Inmetro."
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-na-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-na-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-etiqueta-nao-avalia#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que as informações obrigatórias de conservação incluem lavagem, alvejamento, secagem, passadoria e limpeza profissional. Porém, não dizem que frescor e regulação de temperatura aparecem na descrição do produto pelo fabricante, nem estabelecem que essas propriedades não aparecem na etiqueta de cuidados.",
+      "fix": "A etiqueta, segundo o Inmetro, informa os processos de conservação obrigatórios: lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Appel é citada como se sustentasse a recomendação de conferir se a composição é 100% algodão, mas o trecho da fabricante apenas informa a composição específica do lençol. Os trechos do Inmetro sustentam que a etiqueta deve informar as fibras e seus percentuais. A composição de 60% algodão e 40% poliéster é sustentada pelo trecho da Appel.",
+      "fix": "Se você prefere evitar misturas de fibras, confira na etiqueta o nome das fibras e seus percentuais. No lençol Percal 200 Fios Hotel Deluxe, a Appel informa composição de 60% algodão e 40% poliéster."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos do Inmetro determinam que os nomes das fibras sejam acompanhados dos percentuais em massa, mas não dizem que essa informação deve ser conferida especificamente na etiqueta. O restante do bloco é sustentado pelos trechos citados e as atribuições à Karsten estão explícitas. Versão sustentável: Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Verifique se a composição informa os nomes das fibras e seus percentuais em massa, conforme exigido pelo Inmetro."
+    },
+    {
+      "ref": "o-que-etiqueta-nao-avalia#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que as informações obrigatórias de conservação incluem lavagem, alvejamento, secagem, passadoria e limpeza profissional. Porém, não dizem que frescor e regulação de temperatura aparecem na descrição do produto pelo fabricante, nem estabelecem que essas propriedades não aparecem na etiqueta de cuidados. Versão sustentável: A etiqueta, segundo o Inmetro, informa os processos de conservação obrigatórios: lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. A Appel é citada como se sustentasse a recomendação de conferir se a composição é 100% algodão, mas o trecho da fabricante apenas informa a composição específica do lençol. Os trechos do Inmetro sustentam que a etiqueta deve informar as fibras e seus percentuais. A composição de 60% algodão e 40% poliéster é sustentada pelo trecho da Appel. Versão sustentável: Se você prefere evitar misturas de fibras, confira na etiqueta o nome das fibras e seus percentuais. No lençol Percal 200 Fios Hotel Deluxe, a Appel informa composição de 60% algodão e 40% poliéster."
+    }
+  ]
+}

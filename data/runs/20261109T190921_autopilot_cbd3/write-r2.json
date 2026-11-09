@@ -1,0 +1,415 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Confira na etiqueta o nome das fibras e seus percentuais em massa, conforme as informações obrigatórias indicadas pelo Inmetro.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_699fba7f842f",
+        "clm_b9be419b6d2c",
+        "clm_f825c9413333",
+        "clm_d8f6411e0b1c",
+        "clm_055cf59ece8e",
+        "clm_14318594c448"
+      ]
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#0",
+      "action": "replace",
+      "text": "Percal de 160 fios é descrito como um tecido leve e respirável, segundo a Karsten, enquanto o percal de 200 fios combina suavidade e frescor com um toque mais encorpado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_699fba7f842f",
+        "clm_f825c9413333"
+      ]
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#1",
+      "action": "replace",
+      "text": "Segundo a Karsten, tecidos de 300 fios, geralmente confeccionados com algodão egípcio, são classificados como cetim.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2da6459e7dc9"
+      ]
+    },
+    {
+      "ref": "composicao-na-etiqueta#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, o nome genérico das fibras ou filamentos deve ser acompanhado dos respectivos percentuais em massa, consignados em ordem decrescente e com igual destaque, observadas as exceções previstas na norma.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_055cf59ece8e",
+        "clm_14318594c448"
+      ]
+    },
+    {
+      "ref": "composicao-na-etiqueta#1",
+      "action": "replace",
+      "text": "Segundo o Inmetro, quando embalados, produtos de cama, mesa, cozinha, banho e cortinas devem trazer na embalagem a informação relativa à composição têxtil.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_186e0a4a8d35"
+      ]
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "action": "replace",
+      "text": "A etiqueta deve informar, na sequência indicada, lavagem, alvejamento, secagem, passadoria e limpeza profissional, segundo o Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_29960a788266"
+      ]
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r2",
+      "action": "replace",
+      "text": "Instruções de cuidados declaradas por fabricantes de lençol de algodão",
+      "basis": "framing",
+      "claim_ids": [],
+      "cells": [
+        {
+          "text": "Matiza King Rosa Giz (Karsten)",
+          "claim_ids": [
+            "clm_61f9d202290b"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, máximo 60°C",
+          "claim_ids": [
+            "clm_61f9d202290b"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, tambor até 60°C",
+          "claim_ids": [
+            "clm_61f9d202290b"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, máximo 150°C",
+          "claim_ids": [
+            "clm_61f9d202290b"
+          ]
+        }
+      ],
+      "caption": "Instruções de cuidados declaradas por fabricantes de lençol de algodão",
+      "columns": [
+        "Modelo e fabricante",
+        "Temperatura de lavagem",
+        "Secagem",
+        "Passadoria"
+      ]
+    },
+    {
+      "ref": "o-que-etiqueta-nao-avalia#0",
+      "action": "replace",
+      "text": "A etiqueta, segundo o Inmetro, traz informações de conservação: lavagem, alvejamento, secagem, passadoria e limpeza profissional. Propriedades como frescor e regulação de temperatura aparecem na descrição do produto pelo fabricante, não na etiqueta de cuidados.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_29960a788266",
+        "clm_1ed51f1b07b3"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você prefere evitar misturas de fibras, confira na etiqueta se a composição é 100% algodão. No lençol Percal 200 Fios Hotel Deluxe da Appel, a composição é 60% algodão e 40% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e5f8661d994",
+        "clm_1a9fa3a6c7bf",
+        "clm_1e273b9a3de9"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Lençol para o calor: qual tecido escolher",
+    "description": "Escolha o lençol pelo tipo de tecido e contagem de fios para climas quentes. Confira na etiqueta a composição têxtil e a contagem de fios.",
+    "verdict": {
+      "text": "Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Confira na etiqueta o nome das fibras e seus percentuais em massa, conforme as informações obrigatórias indicadas pelo Inmetro.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_699fba7f842f",
+        "clm_b9be419b6d2c",
+        "clm_f825c9413333",
+        "clm_d8f6411e0b1c",
+        "clm_055cf59ece8e",
+        "clm_14318594c448"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-e-contagem-de-fios",
+        "heading": "O que é contagem de fios",
+        "blocks": [
+          {
+            "text": "Contagem de fios é o número total de fios entrelaçados em uma polegada quadrada de tecido, somando os fios no comprimento e na largura, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3da66455784e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quanto maior a contagem de fios, mais fina é a linha e mais fechada é a trama, segundo a Trussardi.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0846c5289ec6"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "percal-vs-cetim-contagem-fios",
+        "heading": "Diferenças entre percal e cetim na contagem de fios",
+        "blocks": [
+          {
+            "text": "Percal de 160 fios é descrito como um tecido leve e respirável, segundo a Karsten, enquanto o percal de 200 fios combina suavidade e frescor com um toque mais encorpado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_699fba7f842f",
+              "clm_f825c9413333"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Karsten, tecidos de 300 fios, geralmente confeccionados com algodão egípcio, são classificados como cetim.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2da6459e7dc9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-na-etiqueta",
+        "heading": "O que a etiqueta deve informar sobre a composição",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, o nome genérico das fibras ou filamentos deve ser acompanhado dos respectivos percentuais em massa, consignados em ordem decrescente e com igual destaque, observadas as exceções previstas na norma.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_055cf59ece8e",
+              "clm_14318594c448"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo o Inmetro, quando embalados, produtos de cama, mesa, cozinha, banho e cortinas devem trazer na embalagem a informação relativa à composição têxtil.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_186e0a4a8d35"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-de-conservacao",
+        "heading": "Cuidados de conservação: o que a etiqueta manda",
+        "blocks": [
+          {
+            "text": "A etiqueta deve informar, na sequência indicada, lavagem, alvejamento, secagem, passadoria e limpeza profissional, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29960a788266"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Instruções de cuidados declaradas por fabricantes de lençol de algodão (segundo a Karsten)",
+            "columns": [
+              "Modelo e fabricante",
+              "Temperatura de lavagem",
+              "Secagem",
+              "Passadoria"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Matiza King Rosa Giz (Karsten)",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, máximo 60°C",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, tambor até 60°C",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, máximo 150°C",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Alanis Casal (Karsten)",
+                    "claim_ids": [
+                      "clm_57c9e35bf5e3"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 40°C",
+                    "claim_ids": [
+                      "clm_57c9e35bf5e3"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, tambor até 60°C",
+                    "claim_ids": [
+                      "clm_57c9e35bf5e3"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, máximo 150°C",
+                    "claim_ids": [
+                      "clm_57c9e35bf5e3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Matiza King Rosa Giz (Karsten)",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, máximo 60°C",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, tambor até 60°C",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, máximo 150°C",
+                    "claim_ids": [
+                      "clm_61f9d202290b"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "o-que-etiqueta-nao-avalia",
+        "heading": "O que a etiqueta não avalia sobre o lençol",
+        "blocks": [
+          {
+            "text": "A etiqueta, segundo o Inmetro, traz informações de conservação: lavagem, alvejamento, secagem, passadoria e limpeza profissional. Propriedades como frescor e regulação de temperatura aparecem na descrição do produto pelo fabricante, não na etiqueta de cuidados.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_29960a788266",
+              "clm_1ed51f1b07b3"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se você sente muito calor e prioriza um lençol mais leve e respirável, escolha percal de 160 fios, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_699fba7f842f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer um percal fresco e respirável, mas prefere toque mais encorpado, escolha percal de 200 fios, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f825c9413333",
+              "clm_d8f6411e0b1c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere evitar misturas de fibras, confira na etiqueta se a composição é 100% algodão, segundo a Appel. No lençol Percal 200 Fios Hotel Deluxe da Appel, a composição é 60% algodão e 40% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e5f8661d994",
+              "clm_1a9fa3a6c7bf",
+              "clm_1e273b9a3de9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as descrições de que o percal de 160 fios é mais leve e respirável e de que o de 200 fios tem toque encorpado, além de exigirem a identificação das fibras e seus percentuais. Porém, nenhum trecho diz que a composição de algodão ou poliéster afeta o conforto. Também não há base específica para limitar a composição a 100% algodão ou mistura com poliéster. Versão sustentável: Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Confira na etiqueta o nome das fibras e seus percentuais em massa, conforme as informações obrigatórias indicadas pelo Inmetro."
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#0",
+      "msg": "OVERSTATED. O trecho sobre 200 fios afirma toque encorpado, suavidade, frescor e respirabilidade, mas não diz que o tecido combina leveza com esse toque encorpado. A leveza é mencionada explicitamente apenas para os tecidos de 160 fios. Versão sustentável: Percal de 160 fios é descrito como um tecido leve e respirável, segundo a Karsten, enquanto o percal de 200 fios combina suavidade e frescor com um toque mais encorpado."
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#1",
+      "msg": "OVERSTATED. O trecho diz que os tecidos de 300 fios são geralmente confeccionados com algodão egípcio e classificados como cetim. O bloco amplia isso para todos os lençóis de 300 fios feitos de algodão, sem que essa abrangência seja sustentada. Versão sustentável: Segundo a Karsten, tecidos de 300 fios, geralmente confeccionados com algodão egípcio, são classificados como cetim."
+    },
+    {
+      "ref": "composicao-na-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam a indicação do nome genérico das fibras, dos percentuais em massa, em ordem decrescente e com igual destaque, mas mencionam uma exceção prevista no item 10. O bloco apresenta a obrigação como abrangendo sempre cada fibra, sem essa ressalva. Versão sustentável: Segundo o Inmetro, o nome genérico das fibras ou filamentos deve ser acompanhado dos respectivos percentuais em massa, consignados em ordem decrescente e com igual destaque, observadas as exceções previstas na norma."
+    },
+    {
+      "ref": "composicao-na-etiqueta#1",
+      "msg": "UNSUPPORTED. O trecho citado exige a informação de composição na embalagem apenas para produtos de cama, mesa, cozinha, banho e cortinas quando embalados; não afirma que a composição também aparece na etiqueta do produto nem sustenta a generalização para todos os produtos. Versão sustentável: Segundo o Inmetro, quando embalados, produtos de cama, mesa, cozinha, banho e cortinas devem trazer na embalagem a informação relativa à composição têxtil."
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que os processos devem ser informados na sequência indicada, mas não condicionam a limpeza profissional ou a limpeza a seco à expressão “quando aplicável”. Versão sustentável: A etiqueta deve informar, na sequência indicada, lavagem, alvejamento, secagem, passadoria e limpeza profissional, segundo o Inmetro."
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r2",
+      "msg": "UNSUPPORTED. O trecho citado não informa a passadoria nem afirma que ela não foi especificada; portanto, “não especificado” não é sustentado pela evidência apresentada. Versão sustentável: Passadoria: o trecho citado não informa essa instrução."
+    },
+    {
+      "ref": "o-que-etiqueta-nao-avalia#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a etiqueta trata de processos de conservação — lavagem, alvejamento, secagem, passadoria e limpeza profissional —, mas não dizem que frescor, regulação de temperatura ou benefícios à saúde aparecem apenas na descrição do fabricante, nem que devam ser tratados como informações comerciais não comprovadas. A afirmação de que a etiqueta não avalia essas propriedades é uma conclusão possível sobre o escopo, mas as demais afirmações não são sustentadas. Versão sustentável: Os trechos citados descrevem a etiqueta como voltada a informações de conservação, incluindo lavagem, alvejamento, secagem, passadoria e limpeza profissional. Eles não mencionam frescor, regulação de temperatura ou benefícios à saúde."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam conferir na etiqueta os percentuais das fibras e informam que o produto da Appel tem 60% de algodão e 40% de poliéster, mas não dizem que essa mistura oferece desempenho inferior ou diferente ao de um algodão puro. Versão sustentável: Se você prefere evitar misturas de fibras, confira na etiqueta se a composição é 100% algodão. A Appel informa que o lençol citado é composto por 60% algodão e 40% poliéster."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1484
+  }
+}
