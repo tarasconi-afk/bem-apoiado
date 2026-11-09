@@ -1,0 +1,68 @@
+{
+  "slug": "lencol-para-o-calor-qual-tecido-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 91077,
+    "output_tokens": 33895,
+    "calls": 51
+  },
+  "credits": 43.84943292,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que todo percal de 200 fios é fresco, respirável e encorpado, mas o trecho descreve especificamente o modelo Alanis da Karsten (percal-vs-cetim-contagem-fios#0); Reescrever para deixar claro que essas características são do modelo Alanis",
+      "A seção promete explicar o que a etiqueta não avalia, mas o bloco apenas lista os processos de conservação que ela informa (o-que-etiqueta-nao-avalia#0); Mudar o título para algo como “O que a etiqueta informa sobre a conservação”",
+      "O texto apresenta o percal de 200 fios como uma opção geral para o calor, mas o trecho citado descreve o tecido do modelo Alanis da Karsten (verdict); Reescrever como recomendação específica: “Se prefere o modelo Alanis da Karsten, ele é descrito como fresco e"
+    ],
+    "filler_refs": [
+      "como-decidir#0",
+      "o-que-etiqueta-nao-avalia#0"
+    ],
+    "decision_criteria": [
+      "Para quem sente muito calor, escolher percal de 160 fios, descrito pela Karsten como mais leve e respirável.",
+      "Para quem quer frescor e respirabilidade com toque mais encorpado, escolher percal de 200 fios.",
+      "Conferir na embalagem ou etiqueta o nome e o percentual em massa de cada fibra, em ordem decrescente.",
+      "Usar a contagem de fios como indicação de trama mais fechada e fios mais finos: quanto maior a contagem, mais fechada tende a ser a trama.",
+      "Conferir as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional na etiqueta."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor pode entender que todo percal de 200 fios é fresco, respirável e encorpado, mas o trecho descreve especificamente o modelo Alanis da Karsten (percal-vs-cetim-contagem-fios#0); Reescrever para deixar claro que essas características são do modelo Alanis",
+      "Para o leitor leigo: A seção promete explicar o que a etiqueta não avalia, mas o bloco apenas lista os processos de conservação que ela informa (o-que-etiqueta-nao-avalia#0); Mudar o título para algo como “O que a etiqueta informa sobre a conservação”",
+      "Para o leitor leigo: O texto apresenta o percal de 200 fios como uma opção geral para o calor, mas o trecho citado descreve o tecido do modelo Alanis da Karsten (verdict); Reescrever como recomendação específica: “Se prefere o modelo Alanis da Karsten, ele é descrito como fresco e",
+      "Comparação, em fontes primárias, entre percal, cetim, linho, viscose e microfibra para quem sente calor.",
+      "Faixas de contagem de fios ou gramatura indicadas pelos fabricantes para cada tecido em clima quente.",
+      "Fichas de produtos de linho, viscose e microfibra com composição, gramatura ou contagem de fios e descrição de respirabilidade ou frescor.",
+      "Explicação mais direta da diferença prática entre percal e cetim para quem dorme com calor.",
+      "Instruções de cuidados de conservação de fabricantes para lençóis de linho, viscose e microfibra."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque responde rapidamente com uma escolha concreta entre percal de 160 e 200 fios e informa o que conferir na composição e na etiqueta. A resposta, porém, é parcial: não compara de forma prática os outros tecidos citados na dúvida principal, como linho, viscose e microfibra. Os blocos de decisão repetem o veredicto e podem ser removidos ou fundidos.",
+    "filler_ratio": 0.15384615384615385,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "percal-vs-cetim-contagem-fios#0",
+        "problem": "O leitor pode entender que todo percal de 200 fios é fresco, respirável e encorpado, mas o trecho descreve especificamente o modelo Alanis da Karsten.",
+        "fix": "Reescrever para deixar claro que essas características são do modelo Alanis da Karsten, ou retirar a generalização sobre o percal de 200 fios."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "o-que-etiqueta-nao-avalia#0",
+        "problem": "A seção promete explicar o que a etiqueta não avalia, mas o bloco apenas lista os processos de conservação que ela informa.",
+        "fix": "Mudar o título para algo como “O que a etiqueta informa sobre a conservação”."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "verdict",
+        "problem": "O texto apresenta o percal de 200 fios como uma opção geral para o calor, mas o trecho citado descreve o tecido do modelo Alanis da Karsten.",
+        "fix": "Reescrever como recomendação específica: “Se prefere o modelo Alanis da Karsten, ele é descrito como fresco e respirável, com toque mais encorpado.”"
+      }
+    ]
+  }
+}

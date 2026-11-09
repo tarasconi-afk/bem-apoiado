@@ -1,0 +1,132 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as descrições de que o percal de 160 fios é mais leve e respirável e de que o de 200 fios tem toque encorpado, além de exigirem a identificação das fibras e seus percentuais. Porém, nenhum trecho diz que a composição de algodão ou poliéster afeta o conforto. Também não há base específica para limitar a composição a 100% algodão ou mistura com poliéster.",
+      "fix": "Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Confira na etiqueta o nome das fibras e seus percentuais em massa, conforme as informações obrigatórias indicadas pelo Inmetro."
+    },
+    {
+      "ref": "o-que-e-contagem-de-fios#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-contagem-de-fios#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sobre 200 fios afirma toque encorpado, suavidade, frescor e respirabilidade, mas não diz que o tecido combina leveza com esse toque encorpado. A leveza é mencionada explicitamente apenas para os tecidos de 160 fios.",
+      "fix": "Percal de 160 fios é descrito como um tecido leve e respirável, segundo a Karsten, enquanto o percal de 200 fios combina suavidade e frescor com um toque mais encorpado."
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que os tecidos de 300 fios são geralmente confeccionados com algodão egípcio e classificados como cetim. O bloco amplia isso para todos os lençóis de 300 fios feitos de algodão, sem que essa abrangência seja sustentada.",
+      "fix": "Segundo a Karsten, tecidos de 300 fios, geralmente confeccionados com algodão egípcio, são classificados como cetim."
+    },
+    {
+      "ref": "composicao-na-etiqueta#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a indicação do nome genérico das fibras, dos percentuais em massa, em ordem decrescente e com igual destaque, mas mencionam uma exceção prevista no item 10. O bloco apresenta a obrigação como abrangendo sempre cada fibra, sem essa ressalva.",
+      "fix": "Segundo o Inmetro, o nome genérico das fibras ou filamentos deve ser acompanhado dos respectivos percentuais em massa, consignados em ordem decrescente e com igual destaque, observadas as exceções previstas na norma."
+    },
+    {
+      "ref": "composicao-na-etiqueta#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado exige a informação de composição na embalagem apenas para produtos de cama, mesa, cozinha, banho e cortinas quando embalados; não afirma que a composição também aparece na etiqueta do produto nem sustenta a generalização para todos os produtos.",
+      "fix": "Segundo o Inmetro, quando embalados, produtos de cama, mesa, cozinha, banho e cortinas devem trazer na embalagem a informação relativa à composição têxtil."
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que os processos devem ser informados na sequência indicada, mas não condicionam a limpeza profissional ou a limpeza a seco à expressão “quando aplicável”.",
+      "fix": "A etiqueta deve informar, na sequência indicada, lavagem, alvejamento, secagem, passadoria e limpeza profissional, segundo o Inmetro."
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado não informa a passadoria nem afirma que ela não foi especificada; portanto, “não especificado” não é sustentado pela evidência apresentada.",
+      "fix": "Passadoria: o trecho citado não informa essa instrução."
+    },
+    {
+      "ref": "o-que-etiqueta-nao-avalia#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a etiqueta trata de processos de conservação — lavagem, alvejamento, secagem, passadoria e limpeza profissional —, mas não dizem que frescor, regulação de temperatura ou benefícios à saúde aparecem apenas na descrição do fabricante, nem que devam ser tratados como informações comerciais não comprovadas. A afirmação de que a etiqueta não avalia essas propriedades é uma conclusão possível sobre o escopo, mas as demais afirmações não são sustentadas.",
+      "fix": "Os trechos citados descrevem a etiqueta como voltada a informações de conservação, incluindo lavagem, alvejamento, secagem, passadoria e limpeza profissional. Eles não mencionam frescor, regulação de temperatura ou benefícios à saúde."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam conferir na etiqueta os percentuais das fibras e informam que o produto da Appel tem 60% de algodão e 40% de poliéster, mas não dizem que essa mistura oferece desempenho inferior ou diferente ao de um algodão puro.",
+      "fix": "Se você prefere evitar misturas de fibras, confira na etiqueta se a composição é 100% algodão. A Appel informa que o lençol citado é composto por 60% algodão e 40% poliéster."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as descrições de que o percal de 160 fios é mais leve e respirável e de que o de 200 fios tem toque encorpado, além de exigirem a identificação das fibras e seus percentuais. Porém, nenhum trecho diz que a composição de algodão ou poliéster afeta o conforto. Também não há base específica para limitar a composição a 100% algodão ou mistura com poliéster. Versão sustentável: Para quem sente muito calor, escolha percal de 160 fios, descrito pela Karsten como mais leve e respirável. Se prefere um percal fresco com toque mais encorpado, considere o de 200 fios, segundo a Karsten. Confira na etiqueta o nome das fibras e seus percentuais em massa, conforme as informações obrigatórias indicadas pelo Inmetro."
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#0",
+      "msg": "OVERSTATED. O trecho sobre 200 fios afirma toque encorpado, suavidade, frescor e respirabilidade, mas não diz que o tecido combina leveza com esse toque encorpado. A leveza é mencionada explicitamente apenas para os tecidos de 160 fios. Versão sustentável: Percal de 160 fios é descrito como um tecido leve e respirável, segundo a Karsten, enquanto o percal de 200 fios combina suavidade e frescor com um toque mais encorpado."
+    },
+    {
+      "ref": "percal-vs-cetim-contagem-fios#1",
+      "msg": "OVERSTATED. O trecho diz que os tecidos de 300 fios são geralmente confeccionados com algodão egípcio e classificados como cetim. O bloco amplia isso para todos os lençóis de 300 fios feitos de algodão, sem que essa abrangência seja sustentada. Versão sustentável: Segundo a Karsten, tecidos de 300 fios, geralmente confeccionados com algodão egípcio, são classificados como cetim."
+    },
+    {
+      "ref": "composicao-na-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam a indicação do nome genérico das fibras, dos percentuais em massa, em ordem decrescente e com igual destaque, mas mencionam uma exceção prevista no item 10. O bloco apresenta a obrigação como abrangendo sempre cada fibra, sem essa ressalva. Versão sustentável: Segundo o Inmetro, o nome genérico das fibras ou filamentos deve ser acompanhado dos respectivos percentuais em massa, consignados em ordem decrescente e com igual destaque, observadas as exceções previstas na norma."
+    },
+    {
+      "ref": "composicao-na-etiqueta#1",
+      "msg": "UNSUPPORTED. O trecho citado exige a informação de composição na embalagem apenas para produtos de cama, mesa, cozinha, banho e cortinas quando embalados; não afirma que a composição também aparece na etiqueta do produto nem sustenta a generalização para todos os produtos. Versão sustentável: Segundo o Inmetro, quando embalados, produtos de cama, mesa, cozinha, banho e cortinas devem trazer na embalagem a informação relativa à composição têxtil."
+    },
+    {
+      "ref": "cuidados-de-conservacao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que os processos devem ser informados na sequência indicada, mas não condicionam a limpeza profissional ou a limpeza a seco à expressão “quando aplicável”. Versão sustentável: A etiqueta deve informar, na sequência indicada, lavagem, alvejamento, secagem, passadoria e limpeza profissional, segundo o Inmetro."
+    },
+    {
+      "ref": "cuidados-de-conservacao#1.r2",
+      "msg": "UNSUPPORTED. O trecho citado não informa a passadoria nem afirma que ela não foi especificada; portanto, “não especificado” não é sustentado pela evidência apresentada. Versão sustentável: Passadoria: o trecho citado não informa essa instrução."
+    },
+    {
+      "ref": "o-que-etiqueta-nao-avalia#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a etiqueta trata de processos de conservação — lavagem, alvejamento, secagem, passadoria e limpeza profissional —, mas não dizem que frescor, regulação de temperatura ou benefícios à saúde aparecem apenas na descrição do fabricante, nem que devam ser tratados como informações comerciais não comprovadas. A afirmação de que a etiqueta não avalia essas propriedades é uma conclusão possível sobre o escopo, mas as demais afirmações não são sustentadas. Versão sustentável: Os trechos citados descrevem a etiqueta como voltada a informações de conservação, incluindo lavagem, alvejamento, secagem, passadoria e limpeza profissional. Eles não mencionam frescor, regulação de temperatura ou benefícios à saúde."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam conferir na etiqueta os percentuais das fibras e informam que o produto da Appel tem 60% de algodão e 40% de poliéster, mas não dizem que essa mistura oferece desempenho inferior ou diferente ao de um algodão puro. Versão sustentável: Se você prefere evitar misturas de fibras, confira na etiqueta se a composição é 100% algodão. A Appel informa que o lençol citado é composto por 60% algodão e 40% poliéster."
+    }
+  ]
+}
