@@ -1,0 +1,40 @@
+{
+  "slug": "como-escolher-roupao-de-banho",
+  "status": "PASS",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 87217,
+    "output_tokens": 24871,
+    "calls": 33
+  },
+  "credits": 25.02366456000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "cuidados-conservacao#1"
+    ],
+    "decision_criteria": [
+      "Confira a tabela de medidas da loja para escolher entre os tamanhos P a GG.",
+      "Para priorizar absorção, conforto e maciez, escolha um roupão de algodão.",
+      "Para ter uma peça leve e de secagem rápida, escolha microfibra.",
+      "Para usar no frio e aceitar uma peça mais pesada, considere um roupão de veludo ou felpudo.",
+      "Ao comparar a absorção, confira a gramatura e prefira opções a partir de 200 g/m².",
+      "Confira na ficha ou etiqueta a composição das fibras, como 100% algodão ou misturas de algodão, poliéster e poliamida.",
+      "Verifique as instruções de lavagem, secagem, uso de alvejante e passagem a ferro na etiqueta."
+    ],
+    "missing": [
+      "Tabela do fabricante relacionando os tamanhos P, M, G e GG às medidas do corpo, altura ou peso do usuário.",
+      "Medidas completas de comprimento e manga para todos os tamanhos adultos citados.",
+      "Orientação prática para comparar as próprias medidas com a tabela da loja e escolher um tamanho quando estiver entre duas opções."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque oferece regras concretas para escolher o roupão por material, finalidade, gramatura e tabela de medidas, além de indicar o que conferir na etiqueta e na ficha do produto. A resposta curta resolve a dúvida de forma rápida, embora a falta de uma tabela adulta completa impeça uma orientação mais precisa entre P, M, G e GG.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  }
+}
