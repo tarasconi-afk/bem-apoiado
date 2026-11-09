@@ -1,0 +1,378 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A Castor relaciona faixas de peso a densidades de colchão de espuma, informando que quanto maior o peso, maior a densidade recomendada. O Inmetro exige que a etiqueta informe a densidade nominal de cada lâmina de espuma. A Portaria exclui colchões de látex dos requisitos que aprovados para colchões de espuma.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_0a61647d4d99",
+        "clm_0e570f4c735f"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "action": "replace",
+      "text": "A Portaria Inmetro nº 35/2021 aprova o regulamento consolidado, os requisitos de avaliação da conformidade e as especificações para o selo aplicáveis a colchões e colchonetes de espuma flexível de poliuretano.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_12cadc22b5f0"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "action": "replace",
+      "text": "A Portaria exclui colchões de látex, de molas, pneumáticos, elétricos e de água do cumprimento dos requisitos nela aprovados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e570f4c735f"
+      ]
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "action": "replace",
+      "text": "A Probel informa certificação Inmetro para seus colchões de látex, com números de registros para suas fábricas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_102f1f3131f2",
+        "clm_86231f9ff3ca",
+        "clm_8bafad9f75d7"
+      ]
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "action": "replace",
+      "text": "A etiqueta do colchão deve informar os cuidados mínimos para conservação do produto.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_06281792169b"
+      ]
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, a capa do colchão Pró-Saúde Ultra Firme proíbe lavagem, alvejamento, secagem em tambor e passadoria; permite secagem na horizontal à sombra e limpeza a úmido profissional muito suave.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_45c0c2581fe1"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você escolhe colchão de espuma, a Castor relaciona diferentes densidades a faixas de peso. Confira na etiqueta a densidade nominal de cada lâmina em kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_0a61647d4d99"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Segundo a Probel, alta densidade e elasticidade, associadas a muitas pequenas bolhas, proporcionam maior maciez.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_924071da178b"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão de espuma ou de látex: qual escolher",
+    "description": "Compare densidade, peso suportado, certificação e cuidados de limpeza entre colchão de espuma e colchão de látex para decidir qual atende seu peso.",
+    "verdict": {
+      "text": "A Castor relaciona faixas de peso a densidades de colchão de espuma, informando que quanto maior o peso, maior a densidade recomendada. O Inmetro exige que a etiqueta informe a densidade nominal de cada lâmina de espuma. A Portaria exclui colchões de látex dos requisitos que aprovados para colchões de espuma.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_0a61647d4d99",
+        "clm_0e570f4c735f"
+      ]
+    },
+    "sections": [
+      {
+        "id": "densidades-espuma",
+        "heading": "Faixas de densidade em colchão de espuma",
+        "blocks": [
+          {
+            "text": "Segundo a Gazin, a densidade D20 é ideal para biotipos até 50 kg, a D28 atende com conforto pessoas de até 80 kg, e a D33 é recomendada para usuários acima de 70 kg que necessitam de sustentação firme, segundo a garzin.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_47deb0916a91"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, a densidade ideal varia conforme o peso e altura: para até 1,50 m de altura e até 50 kg, a recomendação é D23; para 51 a 60 kg, D26; para 61 a 70 kg, D33; para 71 a 80 kg, D28; para 81 a 90 kg, D40; para 91 a 100 kg, D45; para 101 a 120 kg e 121 a 150 kg, D40 a D45.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_030854313d16"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidades-latex",
+        "heading": "Faixas de densidade em colchão de látex",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, colchão de látex declara densidade nominal de 55 kg/m³ em espuma de látex.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9063a5e2f786"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "certificacao-inmetro",
+        "heading": "Certificação compulsória: espuma e látex",
+        "blocks": [
+          {
+            "text": "A Portaria Inmetro nº 35/2021 aprova o regulamento consolidado, os requisitos de avaliação da conformidade e as especificações para o selo aplicáveis a colchões e colchonetes de espuma flexível de poliuretano.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12cadc22b5f0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Portaria exclui colchões de látex, de molas, pneumáticos, elétricos e de água do cumprimento dos requisitos nela aprovados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e570f4c735f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel informa certificação Inmetro para seus colchões de látex, com números de registros para suas fábricas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_102f1f3131f2",
+              "clm_86231f9ff3ca",
+              "clm_8bafad9f75d7"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "densidade-minima-norma",
+        "heading": "Requisitos mínimos de densidade segundo o Inmetro",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, espumas de alta resiliência e viscoelástica em colchão de espuma devem ter densidade mínima de 30 kg/m³, e espumas de aglomerado devem ter densidade mínima de 65 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_086d520fd395"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-cuidados",
+        "heading": "Cuidados com a capa do colchão",
+        "blocks": [
+          {
+            "text": "A etiqueta do colchão deve informar os cuidados mínimos para conservação do produto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_06281792169b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, a capa do colchão Pró-Saúde Ultra Firme proíbe lavagem, alvejamento, secagem em tambor e passadoria; permite secagem na horizontal à sombra e limpeza a úmido profissional muito suave.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_45c0c2581fe1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro alerta: em revestimentos plastificados ou emborrachados, não use álcool ou solvente orgânico, pois podem danificá-los.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_084fcd7b230e"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre espuma e látex",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso em colchão de espuma",
+            "columns": [
+              "Faixa de peso",
+              "Densidade recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45 (conforme preferência)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você escolhe colchão de espuma, a Castor relaciona diferentes densidades a faixas de peso. Confira na etiqueta a densidade nominal de cada lâmina em kg/m³.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, alta densidade e elasticidade, associadas a muitas pequenas bolhas, proporcionam maior maciez.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_924071da178b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a Castor relaciona faixas de peso a densidades e que o Inmetro exige informar a densidade nominal das lâminas de espuma. Porém, não dizem que a densidade permite ajustar a firmeza conforme o peso, nem que o trecho da Probel se refere especificamente a colchões de látex ou que se deve confirmar isso na ficha. Além disso, o trecho do Inmetro apenas exclui colchões de látex dos requisitos citados; não afirma, neste excerto, que colchões de espuma estão sujeitos à certificação compulsória. Versão sustentável: A Castor relaciona faixas de peso a densidades de colchão, e o Inmetro exige a informação da densidade nominal das lâminas de espuma. O trecho citado do Inmetro exclui colchões de látex dos requisitos aprovados, mas não permite concluir, sozinho, que a certificação de colchões de espuma seja compulsória."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. O trecho citado informa que a Portaria nº 35/2021 aprova um regulamento, requisitos de avaliação da conformidade e especificações para o selo, mas não afirma expressamente que o Inmetro exige certificação compulsória. Versão sustentável: A Portaria Inmetro nº 35/2021 aprova o regulamento consolidado, os requisitos de avaliação da conformidade e as especificações para o selo aplicáveis a colchões e colchonetes de espuma flexível de poliuretano."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "OVERSTATED. O trecho diz que esses tipos de colchão estão excluídos do cumprimento dos requisitos aprovados, mas não declara expressamente que estão excluídos de uma certificação compulsória. Versão sustentável: A Portaria exclui colchões de látex, de molas, pneumáticos, elétricos e de água do cumprimento dos requisitos nela aprovados."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "msg": "MISATTRIBUTED. Os trechos mostram apenas que a Probel anuncia certificação Inmetro em três produtos. Eles não comprovam que alguns fabricantes, em geral, oferecem essa certificação por decisão própria nem estabelecem que ela não é obrigatória por lei; essa conclusão geral não pode ser atribuída aos trechos do fabricante. Versão sustentável: A Probel informa certificação Inmetro para os modelos de colchão de látex citados, com números de registros para suas fábricas."
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "msg": "OVERSTATED. O trecho exige cuidados mínimos para conservação do produto, mas não especifica que sejam para a capa nem que ela seja a parte têxtil do produto. Versão sustentável: A etiqueta do colchão deve informar os cuidados mínimos para conservação do produto."
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "msg": "OVERSTATED. O trecho citado descreve as instruções de um produto específico da Ortobom, mas o bloco generaliza para “algumas capas de colchão”. Versão sustentável: Segundo a Ortobom, a capa do produto citado proíbe lavagem, alvejamento, secagem em tambor, passadoria e limpeza a seco, permitindo secagem na horizontal à sombra e limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos relacionam densidades a faixas de peso e exigem a informação da densidade nominal das lâminas, mas não dizem que a densidade é o principal critério para ajustar a firmeza ao peso. Essa formulação hierarquiza o critério além do que as evidências sustentam. Versão sustentável: Se você escolhe colchão de espuma, a Castor relaciona diferentes densidades a faixas de peso. Confira na etiqueta a densidade nominal de cada lâmina em kg/m³."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O trecho citado da Probel menciona alta densidade, elasticidade, pequenas bolhas e maior maciez, mas não identifica látex nem diz que essas características pertencem a uma espuma de látex. Assim, a afirmação sobre colchão de látex é atribuída à Probel sem aparecer no trecho citado; a instrução para confirmar látex na ficha também não é sustentada pelo trecho. Versão sustentável: Segundo a Probel, alta densidade e elasticidade, associadas a muitas pequenas bolhas, proporcionam maior maciez."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 975
+  }
+}

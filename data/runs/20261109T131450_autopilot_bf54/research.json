@@ -1,0 +1,206 @@
+{
+  "run_id": "20261109T131450_autopilot_bf54",
+  "topic": "colchao-de-espuma-ou-de-latex",
+  "accepted": [
+    {
+      "claim_id": "clm_5e0ee31efc35",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_e819967be80d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0d0e81c67615",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_e819967be80d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9cc0110ff1c9",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_e819967be80d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_102f1f3131f2",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_e819967be80d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_86231f9ff3ca",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_22b422898ef4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8bafad9f75d7",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_933c5f0d5c09",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5496c3bf9ff5",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_fd2c89c8d65e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9f3e52679d54",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_35aa700ab1ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5e1b9ba6e5d1",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_35aa700ab1ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e038b5732177",
+      "question_id": "q_espuma_densidade",
+      "source_id": "src_35aa700ab1ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_004a22712d67",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_35aa700ab1ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fbc0f5ed1c4b",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_35aa700ab1ca",
+      "new": true
+    },
+    {
+      "claim_id": "clm_89bd9222b855",
+      "question_id": "q_espuma_densidade",
+      "source_id": "src_716e7c16ce0c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ea80b16a6295",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_716e7c16ce0c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b8f8cc854f16",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_716e7c16ce0c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ccdbbe813086",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_716e7c16ce0c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4df1239067bf",
+      "question_id": "q_espuma_densidade",
+      "source_id": "src_35216811f702",
+      "new": true
+    },
+    {
+      "claim_id": "clm_53a96f2b9243",
+      "question_id": "q_peso_medidas_declarados",
+      "source_id": "src_35216811f702",
+      "new": true
+    },
+    {
+      "claim_id": "clm_45c0c2581fe1",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_35216811f702",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_22b422898ef4",
+      "question_id": "q_peso_medidas_declarados",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura\n\n158 cm\n\nComprimento\n\n198 cm\n\nAltura\n\n34 cm"
+    },
+    {
+      "source_id": "src_933c5f0d5c09",
+      "question_id": "q_peso_medidas_declarados",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura\n\n193 cm\n\nComprimento\n\n203 cm\n\nAltura\n\n34 cm"
+    },
+    {
+      "source_id": "src_fd2c89c8d65e",
+      "question_id": "q_peso_medidas_declarados",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura\n\n88 cm\n\nComprimento\n\n188 cm\n\nAltura\n\n34 cm"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade_faixa": 0,
+    "q_espuma_densidade": 3,
+    "q_latex_densidade": 0,
+    "q_inmetro_certificacao": 6,
+    "q_nbr_requisitos": 0,
+    "q_peso_medidas_declarados": 7,
+    "q_cuidado_capa": 3
+  },
+  "unanswered": [
+    "q_peso_densidade_faixa",
+    "q_latex_densidade",
+    "q_nbr_requisitos"
+  ],
+  "usage": {
+    "input_tokens": 15987,
+    "output_tokens": 2710,
+    "calls": 7
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_e819967be80d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.82
+    },
+    {
+      "source_id": "src_22b422898ef4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.84
+    },
+    {
+      "source_id": "src_933c5f0d5c09",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.79
+    },
+    {
+      "source_id": "src_fd2c89c8d65e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    },
+    {
+      "source_id": "src_35aa700ab1ca",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_716e7c16ce0c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_35216811f702",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    }
+  ],
+  "credits": 6.262695000000001
+}
