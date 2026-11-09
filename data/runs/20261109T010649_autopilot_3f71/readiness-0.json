@@ -1,0 +1,19 @@
+{
+  "rules": [
+    {
+      "rule": "Se a prioridade é evitar bolinhas, escolha um lençol cuja ficha do fabricante declare fibras longas que impedem a formação de pilling, em vez de decidir apenas pela contagem de fios ou pela composição.",
+      "claim_ids": [
+        "clm_3b58b95388a9"
+      ]
+    }
+  ],
+  "ready": false,
+  "missing": [
+    "Uma segunda regra específica para lençóis que compare opções, como acabamento antipilling, tipo de fio ou composição, com declaração do fabricante de que reduz a formação de bolinhas."
+  ],
+  "queries": [
+    "site:*.com.br lençol fabricante acabamento antipilling não forma bolinhas",
+    "site:*.com.br lençol fio penteado não forma bolinhas fabricante",
+    "site:*.com.br lençol fibras longas impedem formação de bolinhas"
+  ]
+}

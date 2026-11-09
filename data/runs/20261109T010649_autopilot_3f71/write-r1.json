@@ -1,0 +1,624 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Confira a etiqueta de conservação e, seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3b58b95388a9",
+        "clm_e1cfe9872384"
+      ]
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, os produtos têxteis devem informar os nomes das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_055cf59ece8e",
+        "clm_1a9fa3a6c7bf"
+      ]
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "action": "replace",
+      "text": "Segundo a Appel, o Appel Home Lençol Casal Percal 200 Fios Hotel Deluxe é composto por 60% algodão e 40% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_22ea1fca089c"
+      ]
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "action": "replace",
+      "text": "Segundo a Karsten, as fibras longas do algodão egípcio impedem a formação de bolinhas e contribuem para um tecido mais suave e confortável.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3b58b95388a9"
+      ]
+    },
+    {
+      "ref": "tipo-tecido-contagem#0",
+      "action": "replace",
+      "text": "Segundo a Trussardi, o número de fios indica a quantidade de fios trançados por polegada quadrada; quanto maior a contagem, mais fina é a linha utilizada e mais fechada é a trama.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0846c5289ec6"
+      ]
+    },
+    {
+      "ref": "tipo-tecido-contagem#1",
+      "action": "replace",
+      "text": "Os lençóis podem ter diferentes tipos de tecido e contagens de fios declarados pelos fabricantes. A Altenburg oferece percal 200 fios 100% algodão, e a Buddemeyer declara percal 200 fios.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e47e3881cb5",
+        "clm_e974b6013c19"
+      ]
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "action": "replace",
+      "text": "A Döhler instrui lavar em processo suave a no máximo 30 °C, não usar alvejante, não lavar a seco, não secar em tambor e, se necessário, passar a no máximo 110 °C sem vapor.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3164d1238646"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen",
+          "claim_ids": [
+            "clm_01060f126ab7"
+          ]
+        },
+        {
+          "text": "Segundo a Trussardi, 1,60 m × 2,00 m (lençol avulso)",
+          "claim_ids": [
+            "clm_81d6dcd48b45"
+          ]
+        },
+        {
+          "text": "Informação não disponível",
+          "claim_ids": []
+        },
+        {
+          "text": "Trussardi",
+          "claim_ids": [
+            "clm_81d6dcd48b45"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King",
+          "claim_ids": [
+            "clm_01060f126ab7"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 1,93 m × 2,03 m × 40 cm",
+          "claim_ids": [
+            "clm_140d796664b3"
+          ]
+        },
+        {
+          "text": "Informação não disponível",
+          "claim_ids": []
+        },
+        {
+          "text": "Döhler",
+          "claim_ids": [
+            "clm_140d796664b3"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "action": "replace",
+      "text": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil. Nos produtos de cama embalados, as dimensões de cada componente devem constar na embalagem.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_186e0a4a8d35"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Fibra declarada: algodão egípcio",
+          "claim_ids": [
+            "clm_055cf59ece8e"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, as fibras longas do algodão egípcio impedem a formação de bolinhas; a composição é informação obrigatória na etiqueta",
+          "claim_ids": [
+            "clm_3b58b95388a9",
+            "clm_055cf59ece8e"
+          ]
+        },
+        {
+          "text": "Procure na ficha por 'algodão egípcio' ou 'fibras longas'",
+          "claim_ids": [
+            "clm_3b58b95388a9"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Contagem de fios declarada",
+          "claim_ids": [
+            "clm_0846c5289ec6"
+          ]
+        },
+        {
+          "text": "Segundo a Trussardi, quanto maior a contagem de fios, mais fina é a linha utilizada e mais fechada é a trama",
+          "claim_ids": [
+            "clm_0846c5289ec6"
+          ]
+        },
+        {
+          "text": "Confira na ficha: 200, 300, 400 ou 600 fios",
+          "claim_ids": [
+            "clm_0846c5289ec6"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Instruções de conservação: ciclo de lavagem",
+          "claim_ids": [
+            "clm_1ed51f1b07b3"
+          ]
+        },
+        {
+          "text": "Ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, segundo a Karsten; confira na etiqueta as instruções de lavagem, secagem e passadoria",
+          "claim_ids": [
+            "clm_e1cfe9872384",
+            "clm_1ed51f1b07b3"
+          ]
+        },
+        {
+          "text": "Procure símbolos ou instruções de ciclo suave ou delicado",
+          "claim_ids": [
+            "clm_e1cfe9872384"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você quer preservar o lençol, siga na etiqueta as instruções de conservação e prefira ciclos leves ou delicados, segundo a Karsten.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_e1cfe9872384"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "A etiqueta deve informar obrigatoriamente a composição, com os percentuais das fibras em ordem decrescente, e as instruções de conservação, incluindo lavagem, secagem e passadoria. Confira essas informações antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_055cf59ece8e",
+        "clm_1ed51f1b07b3",
+        "clm_29960a788266"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Lençol que não faz bolinha: como escolher",
+    "description": "Saiba qual composição de fibra, tipo de tecido e contagem de fios reduzem a formação de bolinhas em lençóis, e como a lavagem correta preserva o acabamento.",
+    "verdict": {
+      "text": "Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Confira a etiqueta de conservação e, seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3b58b95388a9",
+        "clm_e1cfe9872384"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-fibra",
+        "heading": "Qual composição de fibra o fabricante declara",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, os produtos têxteis devem informar os nomes das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_055cf59ece8e",
+              "clm_1a9fa3a6c7bf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Appel, o Appel Home Lençol Casal Percal 200 Fios Hotel Deluxe é composto por 60% algodão e 40% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_22ea1fca089c"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "tipo-tecido-contagem",
+        "heading": "Tipo de tecido e contagem de fios declarados",
+        "blocks": [
+          {
+            "text": "Segundo a Trussardi, o número de fios indica a quantidade de fios trançados por polegada quadrada; quanto maior a contagem, mais fina é a linha utilizada e mais fechada é a trama.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0846c5289ec6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Os lençóis podem ter diferentes tipos de tecido e contagens de fios declarados pelos fabricantes, segundo a Altenburg e a Buddemeyer. A Altenburg oferece percal 200 fios 100% algodão, e a Buddemeyer declara percal 200 fios.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e47e3881cb5",
+              "clm_e974b6013c19"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Lençóis em cetim também estão disponíveis: Altenburg oferece cetim de algodão com 400 fios. Malhas são encontradas em marcas como Appel, com 100% algodão penteado de 140 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_06a53f470883",
+              "clm_2152d70bd5aa"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "lavagem-secagem",
+        "heading": "Instruções de lavagem e secagem na etiqueta",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a etiqueta deve informar obrigatoriamente o tratamento de cuidado para conservação, incluindo lavagem, alvejamento, secagem, passadoria e limpeza a seco, em símbolos ou texto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1ed51f1b07b3",
+              "clm_29960a788266"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo Karsten, prefira ciclos leves ou delicados na lavagem para preservar as fibras e o acabamento das peças. Um exemplo de instrução declarada: lavação a 40°C, proibido alvejar, secar em tambor com temperatura máxima de 60°C, ferro de passar com temperatura máxima de 150°C, proibido lavar a seco, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e1cfe9872384",
+              "clm_2a0adc0fd772"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Döhler instrui lavar em processo suave a no máximo 30 °C, não usar alvejante, não lavar a seco, não secar em tambor e, se necessário, passar a no máximo 110 °C sem vapor.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3164d1238646"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-tamanhos",
+        "heading": "Medidas declaradas para cada tamanho",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas de lençol declaradas pelos fabricantes, conforme tamanho",
+            "columns": [
+              "Tamanho",
+              "Lençol com elástico (largura × comprimento × altura abas)",
+              "Fonte"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_01060f126ab7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 88 cm × 188 cm × 30 cm",
+                    "claim_ids": [
+                      "clm_34b1d5af57d1"
+                    ]
+                  },
+                  {
+                    "text": "Appel",
+                    "claim_ids": [
+                      "clm_34b1d5af57d1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": [
+                      "clm_01060f126ab7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Corttex, 1,38 m × 1,88 m × 30 cm",
+                    "claim_ids": [
+                      "clm_5ecf1d0f423d"
+                    ]
+                  },
+                  {
+                    "text": "Corttex",
+                    "claim_ids": [
+                      "clm_5ecf1d0f423d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": [
+                      "clm_01060f126ab7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, 1,60 m × 2,00 m (lençol avulso)",
+                    "claim_ids": [
+                      "clm_81d6dcd48b45"
+                    ]
+                  },
+                  {
+                    "text": "Trussardi",
+                    "claim_ids": [
+                      "clm_81d6dcd48b45"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": [
+                      "clm_01060f126ab7"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 1,93 m × 2,03 m × 40 cm",
+                    "claim_ids": [
+                      "clm_140d796664b3"
+                    ]
+                  },
+                  {
+                    "text": "Döhler",
+                    "claim_ids": [
+                      "clm_140d796664b3"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil. Nos produtos de cama embalados, as dimensões de cada componente devem constar na embalagem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ebc5dbbf935",
+              "clm_186e0a4a8d35"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "O que conferir na etiqueta do lençol para evitar bolinhas",
+            "columns": [
+              "O que procurar",
+              "Por quê",
+              "Exemplos"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Fibra declarada: algodão egípcio",
+                    "claim_ids": [
+                      "clm_055cf59ece8e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, as fibras longas do algodão egípcio impedem a formação de bolinhas; a composição é informação obrigatória na etiqueta",
+                    "claim_ids": [
+                      "clm_3b58b95388a9",
+                      "clm_055cf59ece8e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, procure na ficha por 'algodão egípcio' ou 'fibras longas'",
+                    "claim_ids": [
+                      "clm_3b58b95388a9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Contagem de fios declarada",
+                    "claim_ids": [
+                      "clm_0846c5289ec6"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, quanto maior a contagem de fios, mais fina é a linha utilizada e mais fechada é a trama",
+                    "claim_ids": [
+                      "clm_0846c5289ec6"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, confira na ficha: 200, 300, 400 ou 600 fios",
+                    "claim_ids": [
+                      "clm_0846c5289ec6"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Instruções de conservação: ciclo de lavagem",
+                    "claim_ids": [
+                      "clm_1ed51f1b07b3"
+                    ]
+                  },
+                  {
+                    "text": "Ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, segundo a Karsten; confira na etiqueta as instruções de lavagem, secagem e passadoria",
+                    "claim_ids": [
+                      "clm_e1cfe9872384",
+                      "clm_1ed51f1b07b3"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, procure símbolos ou instruções de ciclo suave ou delicado",
+                    "claim_ids": [
+                      "clm_e1cfe9872384"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer evitar bolinhas, procure na ficha técnica e na etiqueta a declaração de fibras longas, como algodão egípcio, que o fabricante associe à prevenção de pilling, segundo a Karsten. Segundo Karsten, essas fibras impedem a formação de bolinhas e criam um tecido mais suave.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3b58b95388a9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer preservar o lençol, siga na etiqueta as instruções de conservação e prefira ciclos leves ou delicados, segundo a Karsten.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_e1cfe9872384"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta deve informar obrigatoriamente a composição, com os percentuais das fibras em ordem decrescente, e as instruções de conservação, incluindo lavagem, secagem e passadoria. Confira essas informações antes de comprar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_055cf59ece8e",
+              "clm_1ed51f1b07b3",
+              "clm_29960a788266"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O trecho da Trussardi fala apenas sobre contagem de fios, espessura da linha e trama; não associa fibras longas ou algodão egípcio à prevenção de bolinhas. A associação entre fibras longas e impedimento de bolinhas aparece apenas no trecho da Karsten. Além disso, os trechos não dizem que a fibra deve estar declarada na ficha. Versão sustentável: Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Confira a etiqueta de conservação e, seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a informação de que fibras têxteis devem ser declaradas com seus percentuais, em ordem decrescente e com igual destaque. Porém, não dizem especificamente que lençóis podem ser 100% algodão ou mistos, nem mencionam algodão e poliéster como exemplos de composição de lençóis. Versão sustentável: Segundo o Inmetro, os produtos têxteis devem informar os nomes das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "msg": "MISATTRIBUTED. Os trechos da Appel não informam que o jogo de cama Paulo Cezar Enxovais nem o Buddemeyer Gran Percalle Classic são 100% algodão. Eles apenas declaram que o lençol Appel Home citado é composto por 60% algodão e 40% poliéster. Também não sustentam a generalização sobre lençóis avulsos de outras marcas. Versão sustentável: Segundo a Appel, o Appel Home Lençol Casal Percal 200 Fios Hotel Deluxe é composto por 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "msg": "UNSUPPORTED. O trecho da Karsten sustenta que fibras longas impedem a formação de bolinhas e proporcionam um tecido mais suave e confortável. Não sustenta que a contagem de fios sozinha não define a resistência a bolinhas, nem que o que importa é a qualidade e o comprimento das fibras declaradas. Versão sustentável: Segundo a Karsten, as fibras longas do algodão egípcio impedem a formação de bolinhas e contribuem para um tecido mais suave e confortável."
+    },
+    {
+      "ref": "tipo-tecido-contagem#0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas a explicação sobre o número de fios, a espessura da linha e o fechamento da trama. Não informa que a ficha técnica declara o tipo de tecido nem menciona percal, cetim ou malha. Versão sustentável: Segundo a Trussardi, o número de fios indica a quantidade de fios trançados por polegada quadrada; quanto maior a contagem, mais fina é a linha utilizada e mais fechada é a trama."
+    },
+    {
+      "ref": "tipo-tecido-contagem#1",
+      "msg": "UNSUPPORTED. Os trechos citados não mostram os nomes dos dois modelos mencionados, não sustentam a alegação sobre Paulo Cezar Enxovais nem apresentam uma contagem de 400 fios. Eles apenas indicam percal 200 fios em produtos associados à Altenburg e à Buddemeyer. Versão sustentável: Os trechos citados indicam produtos de percal 200 fios associados à Altenburg e à Buddemeyer."
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "msg": "OVERSTATED. O trecho citado apresenta uma instrução da Döhler, mas não diz que ela é uma recomendação. Além disso, a expressão “outros fabricantes” generaliza para mais de um fabricante, embora só a Döhler seja citada neste bloco. Versão sustentável: A Döhler instrui lavar em processo suave a no máximo 30 °C, não usar alvejante, não lavar a seco, não secar em tambor e, se necessário, passar a no máximo 110 °C sem vapor."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "msg": "UNSUPPORTED. O trecho citado informa apenas a medida do lençol avulso queen da Trussardi. Não sustenta que a medida do lençol com elástico varie conforme o fabricante nem a atribuição dessa afirmação à Trussardi. Versão sustentável: Tamanho: Queen | Lençol avulso: Segundo a Trussardi, 1,60 m × 2,00 m."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "msg": "UNSUPPORTED. O trecho citado sustenta a medida do lençol com elástico King, mas não afirma que a medida do lençol superior varie conforme o fabricante nem atribui essa afirmação à Döhler. Versão sustentável: Tamanho: King | Lençol com elástico: Segundo a Döhler, 1,93 m × 2,03 m × 40 cm."
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "msg": "OVERSTATED. Os trechos sustentam a obrigatoriedade da indicação de tamanho ou dimensão e, para produtos de cama embalados, das dimensões de cada componente na embalagem. Não sustentam que os fabricantes declarem sempre cada componente na etiqueta ou embalagem; a regra citada distingue a informação no produto têxtil da exigência específica para produtos embalados. Versão sustentável: Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil. Nos produtos de cama embalados, as dimensões de cada componente devem constar na embalagem."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a exigência de declarar a composição e a afirmação da Karsten sobre fibras longas, mas não sustentam os exemplos específicos do jogo de cama Paulo Cezar nem do Buddemeyer Gran Percalle Classic, tampouco que esses produtos sejam de algodão. O trecho da Buddemeyer citado apenas diz “Percal 200 Fios”. Versão sustentável: Remova os exemplos não comprovados ou use apenas exemplos cuja composição esteja explicitamente nos trechos citados, como um produto descrito como 100% algodão."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho da Trussardi explica a relação entre contagem de fios, espessura dos fios e fechamento da trama, mas não afirma que o tipo de tecido influencia a contagem de fios e a estrutura, nem que percal e cetim são declarados em ficha técnica. Também não comprova o exemplo do produto Paulo Cezar. Versão sustentável: Diga apenas que, segundo a Trussardi, a contagem de fios se relaciona à espessura dos fios e ao fechamento da trama, e mantenha somente o exemplo “300 Fios Cetim”, que aparece no trecho."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. Os trechos sustentam que as instruções de conservação são obrigatórias e que a Karsten recomenda ciclos leves ou delicados para ajudar a preservar fibras e acabamento. Não sustentam, porém, que esses ciclos reduzam o risco de bolinhas. A temperatura de 40 °C e a secagem a até 60 °C aparecem para um modelo específico, não como regra geral. Versão sustentável: Substitua por: “Ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, segundo a Karsten; confira na etiqueta as instruções de lavagem, secagem e demais cuidados do modelo.”"
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. A evidência recomenda ciclos leves ou delicados e diz que eles ajudam a preservar fibras e acabamento, mas não afirma que se deve escolher um modelo “compatível” com esses ciclos. Versão sustentável: Diga: “Se você quer preservar o lençol, siga na etiqueta as instruções de conservação e prefira ciclos leves ou delicados, segundo a Karsten.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam a declaração obrigatória dos percentuais das fibras em ordem decrescente e a obrigatoriedade das informações de conservação, incluindo lavagem, secagem e passadoria. Não sustentam que o tipo de tecido deva ser informado obrigatoriamente na etiqueta. Versão sustentável: Remova “o tipo de tecido” e diga: “A etiqueta deve informar obrigatoriamente a composição, com os percentuais das fibras em ordem decrescente, e as instruções de conservação, incluindo lavagem, secagem e passadoria.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 2337
+  }
+}

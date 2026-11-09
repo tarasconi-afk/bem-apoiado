@@ -1,0 +1,49 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "text": "Confira na etiqueta as instruções de lavagem, secagem e passadoria; segundo a Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e1cfe9872384",
+        "clm_1ed51f1b07b3"
+      ],
+      "cells": [
+        {
+          "text": "Instruções de conservação: ciclo de lavagem",
+          "claim_ids": [
+            "clm_1ed51f1b07b3"
+          ]
+        },
+        {
+          "text": "Ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, segundo a Karsten",
+          "claim_ids": [
+            "clm_e1cfe9872384"
+          ]
+        },
+        {
+          "text": "Procure símbolos ou instruções de ciclo suave ou delicado na etiqueta",
+          "claim_ids": [
+            "clm_1ed51f1b07b3"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Segundo a Karsten, o algodão egípcio tem fibras longas que impedem a formação de bolinhas e criam um tecido mais suave.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3b58b95388a9"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam que ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, mas não dizem que eles evitam a formação de bolinhas. O título atribui ao procedimento esse resultado específico."
+    }
+  ]
+}

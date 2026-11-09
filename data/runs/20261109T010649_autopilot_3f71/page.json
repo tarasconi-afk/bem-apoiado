@@ -1,0 +1,39 @@
+{
+  "slug": "lencol-que-nao-faz-bolinha-como-escolher",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 117133,
+    "output_tokens": 43028,
+    "calls": 49
+  },
+  "credits": 46.99302492000002,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Prefira um lençol cuja ficha ou etiqueta declare fibras longas, como algodão egípcio, quando o fabricante associar essa característica à prevenção de bolinhas.",
+      "Confira na etiqueta o nome e o percentual de cada fibra para saber se o lençol é de algodão, poliéster ou uma mistura.",
+      "Dê preferência a produtos com instruções de lavagem suave ou delicada e siga os limites de temperatura, alvejante, secagem e passadoria indicados.",
+      "Confira o tipo de tecido e a contagem de fios declarados na ficha, como percal, cetim ou malha, para comparar produtos.",
+      "Verifique as medidas do lençol e a altura das abas em relação ao colchão antes da compra."
+    ],
+    "missing": [
+      "Uma declaração de fabricante comparando diretamente diferentes composições, tipos de tecido ou contagens de fios quanto à formação de bolinhas.",
+      "Informação do fabricante sobre quais características do fio, da trama ou do acabamento, além das fibras longas, reduzem o pilling.",
+      "Medidas completas e comparáveis para lençóis com elástico e lençóis avulsos em todos os tamanhos, incluindo a altura das abas quando aplicável."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que o comprador deve procurar fibras longas, como algodão egípcio, quando essa característica for associada pelo fabricante à prevenção de bolinhas, e orienta a conferir composição e cuidados na etiqueta. Também oferece critérios práticos de compra, embora a recomendação principal esteja apoiada sobretudo em uma fabricante e não compare diretamente outras composições quanto ao pilling.",
+    "filler_ratio": 0.11764705882352941,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Trussardi fala apenas sobre contagem de fios, espessura da linha e trama; não associa fibras longas ou algodão egípcio à prevenção de bolinhas. A associação entre fibras longas e impedimento de bolinhas aparece apenas no trecho da Karsten. Além disso, os trechos não dizem que a fibra deve estar declarada na ficha.",
+      "fix": "Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Confira a etiqueta de conservação e, seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a informação de que fibras têxteis devem ser declaradas com seus percentuais, em ordem decrescente e com igual destaque. Porém, não dizem especificamente que lençóis podem ser 100% algodão ou mistos, nem mencionam algodão e poliéster como exemplos de composição de lençóis.",
+      "fix": "Segundo o Inmetro, os produtos têxteis devem informar os nomes das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Appel não informam que o jogo de cama Paulo Cezar Enxovais nem o Buddemeyer Gran Percalle Classic são 100% algodão. Eles apenas declaram que o lençol Appel Home citado é composto por 60% algodão e 40% poliéster. Também não sustentam a generalização sobre lençóis avulsos de outras marcas.",
+      "fix": "Segundo a Appel, o Appel Home Lençol Casal Percal 200 Fios Hotel Deluxe é composto por 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Karsten sustenta que fibras longas impedem a formação de bolinhas e proporcionam um tecido mais suave e confortável. Não sustenta que a contagem de fios sozinha não define a resistência a bolinhas, nem que o que importa é a qualidade e o comprimento das fibras declaradas.",
+      "fix": "Segundo a Karsten, as fibras longas do algodão egípcio impedem a formação de bolinhas e contribuem para um tecido mais suave e confortável."
+    },
+    {
+      "ref": "tipo-tecido-contagem#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas a explicação sobre o número de fios, a espessura da linha e o fechamento da trama. Não informa que a ficha técnica declara o tipo de tecido nem menciona percal, cetim ou malha.",
+      "fix": "Segundo a Trussardi, o número de fios indica a quantidade de fios trançados por polegada quadrada; quanto maior a contagem, mais fina é a linha utilizada e mais fechada é a trama."
+    },
+    {
+      "ref": "tipo-tecido-contagem#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados não mostram os nomes dos dois modelos mencionados, não sustentam a alegação sobre Paulo Cezar Enxovais nem apresentam uma contagem de 400 fios. Eles apenas indicam percal 200 fios em produtos associados à Altenburg e à Buddemeyer.",
+      "fix": "Os trechos citados indicam produtos de percal 200 fios associados à Altenburg e à Buddemeyer."
+    },
+    {
+      "ref": "tipo-tecido-contagem#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-secagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-secagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado apresenta uma instrução da Döhler, mas não diz que ela é uma recomendação. Além disso, a expressão “outros fabricantes” generaliza para mais de um fabricante, embora só a Döhler seja citada neste bloco.",
+      "fix": "A Döhler instrui lavar em processo suave a no máximo 30 °C, não usar alvejante, não lavar a seco, não secar em tambor e, se necessário, passar a no máximo 110 °C sem vapor."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa apenas a medida do lençol avulso queen da Trussardi. Não sustenta que a medida do lençol com elástico varie conforme o fabricante nem a atribuição dessa afirmação à Trussardi.",
+      "fix": "Tamanho: Queen | Lençol avulso: Segundo a Trussardi, 1,60 m × 2,00 m."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta a medida do lençol com elástico King, mas não afirma que a medida do lençol superior varie conforme o fabricante nem atribui essa afirmação à Döhler.",
+      "fix": "Tamanho: King | Lençol com elástico: Segundo a Döhler, 1,93 m × 2,03 m × 40 cm."
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a obrigatoriedade da indicação de tamanho ou dimensão e, para produtos de cama embalados, das dimensões de cada componente na embalagem. Não sustentam que os fabricantes declarem sempre cada componente na etiqueta ou embalagem; a regra citada distingue a informação no produto têxtil da exigência específica para produtos embalados.",
+      "fix": "Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil. Nos produtos de cama embalados, as dimensões de cada componente devem constar na embalagem."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a exigência de declarar a composição e a afirmação da Karsten sobre fibras longas, mas não sustentam os exemplos específicos do jogo de cama Paulo Cezar nem do Buddemeyer Gran Percalle Classic, tampouco que esses produtos sejam de algodão. O trecho da Buddemeyer citado apenas diz “Percal 200 Fios”.",
+      "fix": "Remova os exemplos não comprovados ou use apenas exemplos cuja composição esteja explicitamente nos trechos citados, como um produto descrito como 100% algodão."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Trussardi explica a relação entre contagem de fios, espessura dos fios e fechamento da trama, mas não afirma que o tipo de tecido influencia a contagem de fios e a estrutura, nem que percal e cetim são declarados em ficha técnica. Também não comprova o exemplo do produto Paulo Cezar.",
+      "fix": "Diga apenas que, segundo a Trussardi, a contagem de fios se relaciona à espessura dos fios e ao fechamento da trama, e mantenha somente o exemplo “300 Fios Cetim”, que aparece no trecho."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que as instruções de conservação são obrigatórias e que a Karsten recomenda ciclos leves ou delicados para ajudar a preservar fibras e acabamento. Não sustentam, porém, que esses ciclos reduzam o risco de bolinhas. A temperatura de 40 °C e a secagem a até 60 °C aparecem para um modelo específico, não como regra geral.",
+      "fix": "Substitua por: “Ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, segundo a Karsten; confira na etiqueta as instruções de lavagem, secagem e demais cuidados do modelo.”"
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "A evidência recomenda ciclos leves ou delicados e diz que eles ajudam a preservar fibras e acabamento, mas não afirma que se deve escolher um modelo “compatível” com esses ciclos.",
+      "fix": "Diga: “Se você quer preservar o lençol, siga na etiqueta as instruções de conservação e prefira ciclos leves ou delicados, segundo a Karsten.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a declaração obrigatória dos percentuais das fibras em ordem decrescente e a obrigatoriedade das informações de conservação, incluindo lavagem, secagem e passadoria. Não sustentam que o tipo de tecido deva ser informado obrigatoriamente na etiqueta.",
+      "fix": "Remova “o tipo de tecido” e diga: “A etiqueta deve informar obrigatoriamente a composição, com os percentuais das fibras em ordem decrescente, e as instruções de conservação, incluindo lavagem, secagem e passadoria.”"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O trecho da Trussardi fala apenas sobre contagem de fios, espessura da linha e trama; não associa fibras longas ou algodão egípcio à prevenção de bolinhas. A associação entre fibras longas e impedimento de bolinhas aparece apenas no trecho da Karsten. Além disso, os trechos não dizem que a fibra deve estar declarada na ficha. Versão sustentável: Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Confira a etiqueta de conservação e, seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a informação de que fibras têxteis devem ser declaradas com seus percentuais, em ordem decrescente e com igual destaque. Porém, não dizem especificamente que lençóis podem ser 100% algodão ou mistos, nem mencionam algodão e poliéster como exemplos de composição de lençóis. Versão sustentável: Segundo o Inmetro, os produtos têxteis devem informar os nomes das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "msg": "MISATTRIBUTED. Os trechos da Appel não informam que o jogo de cama Paulo Cezar Enxovais nem o Buddemeyer Gran Percalle Classic são 100% algodão. Eles apenas declaram que o lençol Appel Home citado é composto por 60% algodão e 40% poliéster. Também não sustentam a generalização sobre lençóis avulsos de outras marcas. Versão sustentável: Segundo a Appel, o Appel Home Lençol Casal Percal 200 Fios Hotel Deluxe é composto por 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "composicao-fibra#2",
+      "msg": "UNSUPPORTED. O trecho da Karsten sustenta que fibras longas impedem a formação de bolinhas e proporcionam um tecido mais suave e confortável. Não sustenta que a contagem de fios sozinha não define a resistência a bolinhas, nem que o que importa é a qualidade e o comprimento das fibras declaradas. Versão sustentável: Segundo a Karsten, as fibras longas do algodão egípcio impedem a formação de bolinhas e contribuem para um tecido mais suave e confortável."
+    },
+    {
+      "ref": "tipo-tecido-contagem#0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas a explicação sobre o número de fios, a espessura da linha e o fechamento da trama. Não informa que a ficha técnica declara o tipo de tecido nem menciona percal, cetim ou malha. Versão sustentável: Segundo a Trussardi, o número de fios indica a quantidade de fios trançados por polegada quadrada; quanto maior a contagem, mais fina é a linha utilizada e mais fechada é a trama."
+    },
+    {
+      "ref": "tipo-tecido-contagem#1",
+      "msg": "UNSUPPORTED. Os trechos citados não mostram os nomes dos dois modelos mencionados, não sustentam a alegação sobre Paulo Cezar Enxovais nem apresentam uma contagem de 400 fios. Eles apenas indicam percal 200 fios em produtos associados à Altenburg e à Buddemeyer. Versão sustentável: Os trechos citados indicam produtos de percal 200 fios associados à Altenburg e à Buddemeyer."
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "msg": "OVERSTATED. O trecho citado apresenta uma instrução da Döhler, mas não diz que ela é uma recomendação. Além disso, a expressão “outros fabricantes” generaliza para mais de um fabricante, embora só a Döhler seja citada neste bloco. Versão sustentável: A Döhler instrui lavar em processo suave a no máximo 30 °C, não usar alvejante, não lavar a seco, não secar em tambor e, se necessário, passar a no máximo 110 °C sem vapor."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "msg": "UNSUPPORTED. O trecho citado informa apenas a medida do lençol avulso queen da Trussardi. Não sustenta que a medida do lençol com elástico varie conforme o fabricante nem a atribuição dessa afirmação à Trussardi. Versão sustentável: Tamanho: Queen | Lençol avulso: Segundo a Trussardi, 1,60 m × 2,00 m."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "msg": "UNSUPPORTED. O trecho citado sustenta a medida do lençol com elástico King, mas não afirma que a medida do lençol superior varie conforme o fabricante nem atribui essa afirmação à Döhler. Versão sustentável: Tamanho: King | Lençol com elástico: Segundo a Döhler, 1,93 m × 2,03 m × 40 cm."
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "msg": "OVERSTATED. Os trechos sustentam a obrigatoriedade da indicação de tamanho ou dimensão e, para produtos de cama embalados, das dimensões de cada componente na embalagem. Não sustentam que os fabricantes declarem sempre cada componente na etiqueta ou embalagem; a regra citada distingue a informação no produto têxtil da exigência específica para produtos embalados. Versão sustentável: Segundo o Inmetro, a indicação de tamanho ou dimensão é obrigatória e deve constar no produto têxtil. Nos produtos de cama embalados, as dimensões de cada componente devem constar na embalagem."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a exigência de declarar a composição e a afirmação da Karsten sobre fibras longas, mas não sustentam os exemplos específicos do jogo de cama Paulo Cezar nem do Buddemeyer Gran Percalle Classic, tampouco que esses produtos sejam de algodão. O trecho da Buddemeyer citado apenas diz “Percal 200 Fios”. Versão sustentável: Remova os exemplos não comprovados ou use apenas exemplos cuja composição esteja explicitamente nos trechos citados, como um produto descrito como 100% algodão."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. O trecho da Trussardi explica a relação entre contagem de fios, espessura dos fios e fechamento da trama, mas não afirma que o tipo de tecido influencia a contagem de fios e a estrutura, nem que percal e cetim são declarados em ficha técnica. Também não comprova o exemplo do produto Paulo Cezar. Versão sustentável: Diga apenas que, segundo a Trussardi, a contagem de fios se relaciona à espessura dos fios e ao fechamento da trama, e mantenha somente o exemplo “300 Fios Cetim”, que aparece no trecho."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. Os trechos sustentam que as instruções de conservação são obrigatórias e que a Karsten recomenda ciclos leves ou delicados para ajudar a preservar fibras e acabamento. Não sustentam, porém, que esses ciclos reduzam o risco de bolinhas. A temperatura de 40 °C e a secagem a até 60 °C aparecem para um modelo específico, não como regra geral. Versão sustentável: Substitua por: “Ciclos leves ou delicados ajudam a preservar as fibras e o acabamento, segundo a Karsten; confira na etiqueta as instruções de lavagem, secagem e demais cuidados do modelo.”"
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. A evidência recomenda ciclos leves ou delicados e diz que eles ajudam a preservar fibras e acabamento, mas não afirma que se deve escolher um modelo “compatível” com esses ciclos. Versão sustentável: Diga: “Se você quer preservar o lençol, siga na etiqueta as instruções de conservação e prefira ciclos leves ou delicados, segundo a Karsten.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam a declaração obrigatória dos percentuais das fibras em ordem decrescente e a obrigatoriedade das informações de conservação, incluindo lavagem, secagem e passadoria. Não sustentam que o tipo de tecido deva ser informado obrigatoriamente na etiqueta. Versão sustentável: Remova “o tipo de tecido” e diga: “A etiqueta deve informar obrigatoriamente a composição, com os percentuais das fibras em ordem decrescente, e as instruções de conservação, incluindo lavagem, secagem e passadoria.”"
+    }
+  ]
+}

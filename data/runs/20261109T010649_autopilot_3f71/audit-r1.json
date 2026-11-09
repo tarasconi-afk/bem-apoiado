@@ -1,0 +1,150 @@
+{
+  "findings": [
+    {
+      "ref": "tipo-tecido-contagem#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-secagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-secagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "O bloco recomenda conferir a etiqueta de conservação, mas nenhum trecho citado sustenta essa orientação. As demais afirmações são atribuídas à Karsten e correspondem aos trechos.",
+      "fix": "Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento."
+    },
+    {
+      "ref": "composicao-fibra#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibra#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipo-tecido-contagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipo-tecido-contagem#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados mostram apenas exemplos de percal 200 fios — com 100% algodão no caso da Altenburg — e não sustentam a afirmação geral de que os lençóis podem ter diferentes tipos de tecido e contagens de fios.",
+      "fix": "A Altenburg informa percal 200 fios 100% algodão, e a Buddemeyer declara percal 200 fios."
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a alegação da Karsten sobre fibras longas e bolinhas e a exigência de declarar a composição, mas não dizem que o consumidor deve procurar, na ficha, especificamente “algodão egípcio” ou “fibras longas”. A evidência também não explicita, no trecho citado, que essa informação deve estar na etiqueta.",
+      "fix": "O que procurar: composição declarada. Por quê: a composição deve informar os percentuais das fibras em ordem decrescente; segundo a Karsten, fibras longas do algodão egípcio impedem a formação de bolinhas."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta a explicação sobre maior contagem de fios e dá como exemplos 400, 600 e 1000 fios. Ele não sustenta os exemplos 200 e 300 fios, nem afirma que conferir a contagem evita bolinhas.",
+      "fix": "O que procurar: contagem de fios declarada. Por quê: segundo a Trussardi, quanto maior a contagem, mais fina é a linha e mais fechada é a trama. Exemplos citados: 400, 600 ou 1000 fios."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Karsten recomenda ciclos leves ou delicados para preservar as fibras e o acabamento, mas não diz para seguir, na etiqueta, as instruções de conservação. Essa orientação sobre a etiqueta não é sustentada pelo único trecho citado.",
+      "fix": "Se você quer preservar as fibras e o acabamento, prefira ciclos leves ou delicados, segundo a Karsten."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a declaração da composição com percentuais em ordem decrescente e a obrigatoriedade de informar processos de conservação como lavagem, secagem e passadoria. Porém, não sustentam a recomendação adicional de conferir essas informações antes de comprar.",
+      "fix": "A composição deve ser informada com os percentuais das fibras em ordem decrescente, e as informações de conservação devem abranger lavagem, secagem e passadoria."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. O bloco recomenda conferir a etiqueta de conservação, mas nenhum trecho citado sustenta essa orientação. As demais afirmações são atribuídas à Karsten e correspondem aos trechos. Versão sustentável: Se a prioridade é reduzir bolinhas, considere um lençol de algodão egípcio com fibras longas, pois a Karsten afirma que essas fibras impedem a formação de bolinhas. Seguindo a recomendação da Karsten, prefira ciclos leves ou delicados para ajudar a preservar as fibras e o acabamento."
+    },
+    {
+      "ref": "tipo-tecido-contagem#1",
+      "msg": "UNSUPPORTED. Os trechos citados mostram apenas exemplos de percal 200 fios — com 100% algodão no caso da Altenburg — e não sustentam a afirmação geral de que os lençóis podem ter diferentes tipos de tecido e contagens de fios. Versão sustentável: A Altenburg informa percal 200 fios 100% algodão, e a Buddemeyer declara percal 200 fios."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam a alegação da Karsten sobre fibras longas e bolinhas e a exigência de declarar a composição, mas não dizem que o consumidor deve procurar, na ficha, especificamente “algodão egípcio” ou “fibras longas”. A evidência também não explicita, no trecho citado, que essa informação deve estar na etiqueta. Versão sustentável: O que procurar: composição declarada. Por quê: a composição deve informar os percentuais das fibras em ordem decrescente; segundo a Karsten, fibras longas do algodão egípcio impedem a formação de bolinhas."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. O trecho sustenta a explicação sobre maior contagem de fios e dá como exemplos 400, 600 e 1000 fios. Ele não sustenta os exemplos 200 e 300 fios, nem afirma que conferir a contagem evita bolinhas. Versão sustentável: O que procurar: contagem de fios declarada. Por quê: segundo a Trussardi, quanto maior a contagem, mais fina é a linha e mais fechada é a trama. Exemplos citados: 400, 600 ou 1000 fios."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho da Karsten recomenda ciclos leves ou delicados para preservar as fibras e o acabamento, mas não diz para seguir, na etiqueta, as instruções de conservação. Essa orientação sobre a etiqueta não é sustentada pelo único trecho citado. Versão sustentável: Se você quer preservar as fibras e o acabamento, prefira ciclos leves ou delicados, segundo a Karsten."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos sustentam a declaração da composição com percentuais em ordem decrescente e a obrigatoriedade de informar processos de conservação como lavagem, secagem e passadoria. Porém, não sustentam a recomendação adicional de conferir essas informações antes de comprar. Versão sustentável: A composição deve ser informada com os percentuais das fibras em ordem decrescente, e as informações de conservação devem abranger lavagem, secagem e passadoria."
+    }
+  ]
+}
