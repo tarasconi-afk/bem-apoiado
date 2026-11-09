@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { TopicBrief } from '@bem-apoiado/core';
 import { creditsSpent } from '../llm.ts';
 import { writeStage } from '../runs.ts';
-import { DATA, TOPICS_DIR, writeJson } from '../store.ts';
+import { buildIndex, DATA, TOPICS_DIR, writeJson } from '../store.ts';
 import { discoverSources } from './discover.ts';
 import { buildPage, type PageOutcome } from './page.ts';
 import { loadTopic, research } from './research.ts';
@@ -67,6 +67,7 @@ export async function improveTopic(slug: string, runId: string): Promise<Improve
   const off = retryOff(topic.product_kinds);
   if (off) return stop(`RETRY_OFF: ${off}`);
   writeJson(join(TOPICS_DIR, `${slug}.json`), TopicBrief.parse({ ...topic, improve_attempts: topic.improve_attempts + 1 }));
+  const known = new Set(buildIndex().claims.keys());
 
   const d = await discoverSources(slug, runId, { maxSearches: 6, maxSources: 8 });
   const fresh = d.added.filter((a) => !topic.source_ids.includes(a.source_id));
@@ -78,9 +79,21 @@ export async function improveTopic(slug: string, runId: string): Promise<Improve
 
   const steps: string[] = [];
   const { readyOrResearch } = await import('./autopilot.ts');
-  if (!(await readyOrResearch(slug, runId, steps))) return stop(`NOT_READY: ${steps.at(-1) ?? 'sem regra de escolha'}`);
+  const rules = await readyOrResearch(slug, runId, steps);
+  if (!rules) return stop(`NOT_READY: ${steps.at(-1) ?? 'sem regra de escolha'}`);
+  // 09/11, colchão de espuma ou de látex: a 2ª tentativa achou 7 fontes e 19 evidências, mas as regras de escolha
+  // continuaram nas mesmas evidências da 1ª (densidade por peso da Castor; látex "mais elástico" de uma ficha só).
+  // O redator recebeu a mesma base de decisão e entregou a mesma página fraca (nota 0,5 → 1,5 de 4): ~45 créditos
+  // de redação e auditoria sem ganho. Evidência nova que não entra em nenhuma regra não muda o que o leitor decide;
+  // sem ela, para antes de escrever e a pauta vai para o editor encerrar ou indicar fonte.
+  if (!rulesUseNewEvidence(rules, known)) return stop(`NO_NEW_RULE: ${newClaims} evidências novas, nenhuma muda as regras de escolha`);
   const p = await buildPage(slug, runId);
   const result: ImproveOutcome = { status: 'DONE', page: p.status, new_sources: fresh.length, new_claims: newClaims, credits: creditsSpent() };
   writeStage(runId, 'improve', result);
   return result;
+}
+
+// Alguma regra de escolha se apoia em evidência que não existia antes desta tentativa?
+export function rulesUseNewEvidence(rules: { claim_ids: string[] }[], known: Set<string>): boolean {
+  return rules.some((r) => r.claim_ids.some((id) => !known.has(id)));
 }

@@ -22,7 +22,7 @@ import { TopicBrief, type PageSpec, type Product } from '@bem-apoiado/core';
 import { findProductsFromAmazon } from './products.ts';
 import { REFRESH_AFTER_DAYS, refreshProducts } from './refresh.ts';
 import { discoverSources, loadRegistry, makersFor } from './discover.ts';
-import { decisionReadiness, logReadiness, NOTE_PREFIX, saveRules } from './readiness.ts';
+import { decisionReadiness, logReadiness, NOTE_PREFIX, saveRules, type Readiness } from './readiness.ts';
 import { editPage } from './edit.ts';
 import { improveTopic, MAX_IMPROVE_ATTEMPTS, retryOff } from './improve.ts';
 import { buildPage, styleIssues } from './page.ts';
@@ -823,7 +823,8 @@ export async function autoCorrect(slug: string, runId: string, steps: string[]):
 
 // Checagem do dado que decide antes da redação (readiness.ts). true = pode escrever (regras gravadas como nota
 // da pauta para o redator); false = pauta adiada, com o que falta registrado como lacuna.
-export async function readyOrResearch(slug: string, runId: string, steps: string[]): Promise<boolean> {
+// Devolve as regras sustentadas (a nova tentativa confere se alguma usa evidência nova) ou false.
+export async function readyOrResearch(slug: string, runId: string, steps: string[]): Promise<false | Readiness['rules']> {
   let r = await decisionReadiness(slug, loadTopic(slug));
   logReadiness(runId, 0, r);
   if (!r.ready) {
@@ -846,7 +847,7 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
   }
   saveRules(slug, loadTopic(slug), r.rules);
   steps.push(`checagem antes de escrever: ${r.rules.length} regras de escolha sustentadas`);
-  return true;
+  return r.rules;
 }
 
 // Resumo que o script de ciclo usa como título e corpo do PR.

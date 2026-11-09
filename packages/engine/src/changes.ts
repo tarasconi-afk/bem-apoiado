@@ -208,6 +208,7 @@ export function plainOutcome(steps: string[]): string | null {
     if (/página SAFE_STOP/.test(imp)) return 'não virou página: na nova tentativa, o auditor ainda achou afirmações sem fonte que o redator não conseguiu corrigir; o que ele recusou fica anotado para a próxima';
     if (/NO_NEW_SOURCES/.test(imp)) return 'não virou página: a busca dirigida ao que faltava não achou fonte nova confiável; a pauta espera fonte nova (ou um fabricante que você indicar)';
     if (/NO_NEW_EVIDENCE/.test(imp)) return 'não virou página: as fontes novas não tinham trecho que respondesse ao que faltava';
+    if (/NO_NEW_RULE/.test(imp)) return 'não virou página: as fontes novas não mudaram a regra de escolha, e reescrever daria a mesma página fraca; encerre a pauta ou indique uma fonte que compare as opções';
     if (/IMPROVE_LIMIT/.test(imp)) return 'não virou página: a pauta já teve todas as tentativas; ela só volta se você pedir';
     if (/NOT_READY/.test(imp)) return 'não virou página, por isso não há prévia: antes de escrever, o motor viu que as fontes ainda não dizem ao leitor o que escolher; ele tenta de novo em 3 dias';
   }
