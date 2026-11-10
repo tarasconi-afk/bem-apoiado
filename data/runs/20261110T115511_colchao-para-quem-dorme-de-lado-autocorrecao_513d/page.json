@@ -1,0 +1,81 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#1.r0",
+      "como-decidir#1.r1",
+      "como-decidir#1.r2",
+      "como-decidir#1.r3",
+      "como-decidir#1.r4",
+      "como-decidir#1.r5"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23.",
+      "De 51 a 60 kg: procurar D26.",
+      "De 61 a 70 kg: procurar D28.",
+      "De 71 a 80 kg: procurar D33.",
+      "De 81 a 100 kg: escolher entre D33 e D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg: procurar D45 ou maior.",
+      "Quem prefere um equilíbrio entre conforto, suporte e maciez pode buscar firmeza intermediária.",
+      "Pessoas acima de 120 kg que procuram maior capacidade de suporte podem considerar colchões firmes.",
+      "Conferir na etiqueta a densidade nominal, em kg/m³, e a espessura de cada lâmina de espuma, especialmente em colchões compostos ou mistos.",
+      "Verificar na etiqueta as dimensões do colchão e os cuidados de conservação.",
+      "Não usar álcool ou solventes orgânicos em capas com revestimento tipo napa, courvin, plástico ou similar.",
+      "Não molhar a espuma; limpar a capa conforme as instruções do fabricante."
+    ],
+    "missing": [
+      "Uma recomendação específica para quem dorme de lado, relacionando firmeza ou densidade ao alívio de pressão em ombros e quadris.",
+      "Informação de fabricante sobre quando escolher espuma, molas ensacadas ou colchão misto para dormir de lado.",
+      "Explicação mais direta de que códigos como D33 e D45 correspondem à densidade da espuma em kg/m³."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: oferece uma regra concreta de escolha por peso e preferência de firmeza, além de indicar o que conferir na etiqueta. Ela responde à dúvida de forma prática, embora pudesse ser mais específica sobre o alívio de pressão em ombros e quadris de quem dorme de lado.",
+    "filler_ratio": 0.28,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página dá uma tabela de densidade por peso, mas não explica qual firmeza ou construção é mais adequada especificamente para quem dorme de lado.",
+      "Os códigos D23, D26, D33 e D45 aparecem na resposta curta sem explicar que representam a densidade da espuma em kg/m³.",
+      "A orientação sobre firmeza intermediária é vaga e não se transforma em uma regra clara de escolha para ombros e quadris."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Até 50 kg: D23; de 51 a 60 kg: D26; de 61 a 70 kg: D28; de 71 a 80 kg: D33; de 81 a 100 kg: D33 a D45 conforme a preferência por firmeza; acima de 100 kg: D45 ou maior, segundo a Castor.",
+      "Pessoas mais pesadas devem usar densidades maiores para reduzir o afundamento, obter suporte e aumentar a durabilidade, segundo a Castor.",
+      "A densidade D33 corresponde a 33 kg/m³, e a Castor relaciona maior densidade a maior firmeza.",
+      "A firmeza intermediária pode equilibrar maciez e firmeza e se ajustar a pontos de maior pressão do corpo, segundo a Probel.",
+      "Confira na etiqueta a densidade nominal de cada camada de espuma e, em colchões compostos ou mistos, a espessura de cada camada.",
+      "Confira na etiqueta as dimensões do colchão e os cuidados de conservação.",
+      "Capa com napa, courvin, plástico ou material similar não deve ser limpa com álcool ou solventes orgânicos.",
+      "A capa pode ser limpa com pano úmido ou aspirada, mas a espuma não deve ser molhada, segundo a Luuna."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página dá uma tabela de densidade por peso, mas não explica qual firmeza ou construção é mais adequada especificamente para quem dorme de lado.",
+      "Para o leitor leigo: Os códigos D23, D26, D33 e D45 aparecem na resposta curta sem explicar que representam a densidade da espuma em kg/m³.",
+      "Para o leitor leigo: A orientação sobre firmeza intermediária é vaga e não se transforma em uma regra clara de escolha para ombros e quadris.",
+      "Uma orientação de fonte primária que relacione dormir de lado à firmeza ou ao tipo de superfície, especialmente para aliviar a pressão em ombros e quadris.",
+      "Uma regra que combine posição de dormir e peso para indicar quando escolher colchão macio, intermediário ou firme.",
+      "Fichas técnicas de fabricantes comparando espuma, molas ensacadas e colchões mistos para pessoas que dormem de lado.",
+      "Informação clara sobre a capacidade de peso por pessoa e por lado do colchão nos modelos considerados."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma tabela útil de densidade por peso e orienta o leitor a conferir a etiqueta, mas não responde bem à dúvida principal de quem dorme de lado. Falta uma regra concreta relacionando a posição lateral à firmeza e ao alívio de pressão em ombros e quadris; por isso, apesar de ter informação técnica aproveitável, não deve ser publicada nesse formato.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

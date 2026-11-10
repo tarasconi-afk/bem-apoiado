@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor que dorme de lado pode entender que a firmeza intermediária resolve seu caso, mas o trecho apenas diz que um colchão específico se ajusta aos pontos de maior pressão, sem relacionar isso a dormir de lado.",
+      "fix": "Tirar a afirmação sobre firmeza intermediária como orientação para quem dorme de lado, ou apresentá-la apenas como descrição do colchão específico citado, sem dizer que resolve esse caso."
+    }
+  ],
+  "usage": {
+    "input_tokens": 34949,
+    "output_tokens": 5544,
+    "calls": 3
+  }
+}

@@ -7,7 +7,7 @@
   "primary_query": "jogo de cama ou jogo de lençol: diferença",
   "updated_at": "2026-11-10",
   "verdict": {
-    "text": "O jogo de cama inclui lençol de cima, lençol de baixo e fronhas, segundo a Sultan. O jogo de lençol pode trazer apenas lençol com elástico e fronha, como no modelo Mael da Döhler. Confira a lista de peças na embalagem antes de comprar, pois os itens variam entre modelos.",
+    "text": "O jogo de cama inclui lençol de cima, lençol de baixo e fronhas, segundo a Sultan. Já o modelo Mael da Döhler inclui um lençol e uma fronha. Confira a lista de peças na embalagem antes de comprar, pois os itens podem variar entre modelos.",
     "basis": "evidence",
     "claim_ids": [
       "clm_4571b01f12ee",
@@ -45,10 +45,10 @@
         },
         {
           "kind": "paragraph",
-          "text": "Os cuidados de conservação obrigatórios na etiqueta são: lavagem, alvejamento, secagem, passadoria e limpeza profissional, nessa sequência, conforme o Inmetro.",
+          "text": "Os cuidados de conservação obrigatórios são lavagem, alvejamento, secagem, passadoria e limpeza profissional, informados nessa sequência, conforme o Inmetro.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_29960a788266"
+            "clm_5e5684a05ad0"
           ]
         }
       ]
@@ -269,7 +269,7 @@
       "blocks": [
         {
           "kind": "table",
-          "caption": "Cuidados declarados em jogos de lençol (segundo a Döhler)",
+          "caption": "Cuidados de conservação declarados em modelos de jogos de lençol (Döhler)",
           "columns": [
             "Modelo e marca",
             "Lavar",
@@ -308,40 +308,6 @@
                   "text": "Até 150 °C",
                   "claim_ids": [
                     "clm_3f1a06ffb054"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Allan da Döhler",
-                  "claim_ids": [
-                    "clm_5e5684a05ad0"
-                  ]
-                },
-                {
-                  "text": "Processo suave, máximo 60 °C",
-                  "claim_ids": [
-                    "clm_5e5684a05ad0"
-                  ]
-                },
-                {
-                  "text": "Proibido",
-                  "claim_ids": [
-                    "clm_dfa5a8cb5829"
-                  ]
-                },
-                {
-                  "text": "Não especificado",
-                  "claim_ids": [
-                    "clm_5e5684a05ad0"
-                  ]
-                },
-                {
-                  "text": "Máximo 150 °C",
-                  "claim_ids": [
-                    "clm_ce6026197913"
                   ]
                 }
               ]
@@ -432,7 +398,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261110T070250_autopilot_bf82+editor:20261110T070846_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_f9fb+editor:20261110T070922_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_6098+editor:20261110T111241_jogo-de-cama-ou-jogo-de-lencol-diferenca-ajuste_a686",
+    "run_id": "20261110T070250_autopilot_bf82+editor:20261110T070846_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_f9fb+editor:20261110T070922_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_6098+editor:20261110T111241_jogo-de-cama-ou-jogo-de-lencol-diferenca-ajuste_a686+reaudit:20261110T114812_autopilot_a467",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
