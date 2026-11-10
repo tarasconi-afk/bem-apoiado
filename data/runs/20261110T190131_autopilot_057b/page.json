@@ -1,0 +1,73 @@
+{
+  "slug": "edredom-ou-duvet-diferenca",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 50685,
+    "output_tokens": 17025,
+    "calls": 15
+  },
+  "credits": 36.089383440000006,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que qualquer edredom é uma peça pronta para usar, mas os trechos só confirmam essa característica em um modelo específico da Altenburg (verdict); Restringir a conclusão ao produto citado: “nesse modelo, o edredom vem como uma peça pronta para ",
+      "A manta de 112 gramas de um duvet específico é apresentada como exemplo de enchimento leve, embora o trecho da fonte apenas informe a gramatura (gramatura-estacao#2); Dizer apenas que “o duvet Trussardi consultado informa manta de 112 g” e retirar a conclusão ",
+      "A seção promete informações sobre medidas e peso embalado, mas os blocos de edredom e duvet só trazem medidas, e outro bloco informa que o peso não foi encontrado (medidas-peso-embalado#0); Mudar o título para “Medidas totais” ou retirar “e peso embalado” da p",
+      "A indicação de 130 g/m² para todas as estações vem da ficha de um edredom Döhler, mas o texto a apresenta como uma associação geral de gramatura (gramatura-estacao#0); Dizer que, no edredom Döhler citado, a fabricante indica 130 g/m² para todas as estações"
+    ],
+    "filler_refs": [
+      "estrutura-edredom#0"
+    ],
+    "decision_criteria": [
+      "Escolha o edredom se quiser uma peça única, já pronta para usar, com capa e enchimento costurados.",
+      "Escolha o duvet se quiser remover e trocar a capa, mantendo o enchimento, e confira se o anúncio inclui a capa e a manta.",
+      "Confira a gramatura do enchimento: 120 g/m² indica uma opção leve; 130 a 180 g/m², uso equilibrado; e 200 g/m², um enchimento mais denso.",
+      "Confira as medidas declaradas para o tamanho da cama: o exemplo de edredom King mede 2,80 m × 2,50 m e o duvet King, 2,90 m × 2,70 m.",
+      "Antes de lavar, verifique separadamente as etiquetas do enchimento e da capa do duvet, pois as instruções podem ser diferentes."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que qualquer edredom é uma peça pronta para usar, mas os trechos só confirmam essa característica em um modelo específico da Altenburg (verdict); Restringir a conclusão ao produto citado: “nesse modelo, o edredom vem como uma peça pronta para ",
+      "Para o leitor leigo: A manta de 112 gramas de um duvet específico é apresentada como exemplo de enchimento leve, embora o trecho da fonte apenas informe a gramatura (gramatura-estacao#2); Dizer apenas que “o duvet Trussardi consultado informa manta de 112 g” e retirar a conclusão ",
+      "Para o leitor leigo: A seção promete informações sobre medidas e peso embalado, mas os blocos de edredom e duvet só trazem medidas, e outro bloco informa que o peso não foi encontrado (medidas-peso-embalado#0); Mudar o título para “Medidas totais” ou retirar “e peso embalado” da p",
+      "Para o leitor leigo: A indicação de 130 g/m² para todas as estações vem da ficha de um edredom Döhler, mas o texto a apresenta como uma associação geral de gramatura (gramatura-estacao#0); Dizer que, no edredom Döhler citado, a fabricante indica 130 g/m² para todas as estações",
+      "Uma explicação mais explícita sobre quando o duvet é vendido com capa e enchimento juntos ou separadamente, além do exemplo da ficha da Trussardi.",
+      "Uma tabela do fabricante relacionando gramatura a faixas de temperatura ou estações para diferentes modelos.",
+      "Peso total embalado declarado pelo fabricante, caso essa informação esteja disponível."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde diretamente à diferença entre edredom e duvet e dá uma regra simples de escolha: peça única e pronta para usar versus capa removível e trocável. Também orienta o leitor a conferir gramatura, medidas, itens incluídos e etiquetas de lavagem; faltam apenas informações mais gerais sobre venda separada e peso embalado.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor entende que qualquer edredom é uma peça pronta para usar, mas os trechos só confirmam essa característica em um modelo específico da Altenburg.",
+        "fix": "Restringir a conclusão ao produto citado: “nesse modelo, o edredom vem como uma peça pronta para usar”; ou retirar a recomendação geral de escolher um edredom por esse motivo."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "gramatura-estacao#2",
+        "problem": "A manta de 112 gramas de um duvet específico é apresentada como exemplo de enchimento leve, embora o trecho da fonte apenas informe a gramatura.",
+        "fix": "Dizer apenas que “o duvet Trussardi consultado informa manta de 112 g” e retirar a conclusão de que esse valor indica um enchimento leve."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "medidas-peso-embalado#0",
+        "problem": "A seção promete informações sobre medidas e peso embalado, mas os blocos de edredom e duvet só trazem medidas, e outro bloco informa que o peso não foi encontrado.",
+        "fix": "Mudar o título para “Medidas totais” ou retirar “e peso embalado” da promessa da seção."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "gramatura-estacao#0",
+        "problem": "A indicação de 130 g/m² para todas as estações vem da ficha de um edredom Döhler, mas o texto a apresenta como uma associação geral de gramatura.",
+        "fix": "Dizer que, no edredom Döhler citado, a fabricante indica 130 g/m² para todas as estações."
+      }
+    ]
+  }
+}
