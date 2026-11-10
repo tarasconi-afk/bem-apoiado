@@ -1,0 +1,58 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o edredom se quiser uma peça única, com capa e enchimento costurados e pronta para usar.",
+      "Escolha o duvet se quiser remover ou trocar a capa sem retirar o enchimento.",
+      "Confira na ficha se o produto inclui o edredom completo ou a capa e o enchimento, além do tipo de fechamento.",
+      "Compare a gramatura ou o peso do enchimento para avaliar a proposta térmica do produto.",
+      "Confira as medidas da peça e as instruções de lavagem separadamente para o enchimento e para a capa do duvet."
+    ],
+    "missing": [
+      "Uma ficha de fabricante que deixe explícito se o duvet é vendido com capa e enchimento juntos ou se esses itens também podem ser comprados separadamente.",
+      "Uma regra mais clara relacionando faixas de gramatura ou indicação de estação à escolha para frio, meia-estação ou calor.",
+      "Medidas e peso embalado informados pelo fabricante para permitir comparação logística entre edredom e duvet."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente à diferença principal: o edredom é uma peça única, enquanto o duvet tem capa removível ligada ao enchimento, geralmente por zíper. Também oferece critérios práticos para escolher, conferir a composição da compra, comparar gramatura, medidas e cuidados de lavagem. Pode ser publicada, embora uma informação explícita sobre venda conjunta ou separada do duvet e uma regra sazonal de gramatura deixassem a orientação ainda mais completa.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": []
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "estrutura-edredom#0"
+    ],
+    "decision_criteria": [
+      "Escolha o edredom se quiser uma peça única, já pronta para usar, com capa e enchimento costurados.",
+      "Escolha o duvet se quiser remover e trocar a capa, mantendo o enchimento separado e preso por zíper.",
+      "Confira na ficha se a compra inclui apenas a capa ou o conjunto com enchimento.",
+      "Compare a gramatura do enchimento: 120 g/m² tende a ser leve, 130 a 180 g/m² oferece uso equilibrado e 200 g/m² é mais denso e quente.",
+      "No duvet, verifique a gramatura descrita como manta; 112 g indica um enchimento leve.",
+      "Confira as medidas declaradas para o tamanho da cama, como 2,80 m × 2,50 m no edredom King Döhler e 2,90 m × 2,70 m no duvet King Trussardi.",
+      "Antes de lavar, consulte separadamente as etiquetas do enchimento e da capa do duvet, pois as instruções podem ser diferentes."
+    ],
+    "missing": [
+      "Uma tabela comparando, em vários fabricantes, se duvet e capa são vendidos juntos ou separadamente.",
+      "Indicação mais ampla dos fabricantes relacionando gramatura a faixas de temperatura ou estações do ano.",
+      "Peso total do produto fora da embalagem, além das medidas, para permitir comparação direta entre edredom e duvet."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página diferencia claramente edredom e duvet e dá uma regra prática de escolha: peça única e pronta versus capa removível e trocável. Também orienta o leitor a conferir gramatura, medidas, itens inclusos e etiquetas de conservação; o único excesso relevante é a repetição da definição do edredom no bloco de decisão.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true
+  }
+}

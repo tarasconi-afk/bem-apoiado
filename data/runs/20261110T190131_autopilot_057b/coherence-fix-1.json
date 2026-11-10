@@ -1,0 +1,47 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O edredom é uma peça única com capa e enchimento costurados juntos; o duvet tem enchimento e capa separáveis, ligados por zíper, segundo a Altenburg. Se você quer algo pronto para usar, escolha um edredom; se prefere trocar a capa, escolha um duvet.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_69524f16006d",
+        "clm_3856b70ebb42",
+        "clm_9cc2ee52da80",
+        "clm_3adfe861f0fe"
+      ]
+    },
+    {
+      "ref": "gramatura-estacao#0",
+      "action": "replace",
+      "text": "A gramatura (peso do enchimento) aparece na ficha do produto em gramas por metro quadrado (g/m²). No edredom Casal Dupla Face Otto Poppi da Döhler, a gramatura de 130 g/m² indica equilíbrio para todas as estações, segundo a fabricante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5fbf97f0fe55"
+      ]
+    },
+    {
+      "ref": "gramatura-estacao#2",
+      "action": "replace",
+      "text": "Em duvets, a gramatura aparece como \"manta\": o Duvet King 300 fios Portello da Trussardi informa manta de 112 gramas, segundo a fabricante.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_887d80061977"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "gramatura-estacao#0",
+    "gramatura-estacao#1",
+    "gramatura-estacao#2"
+  ],
+  "still": [
+    "verdict: OVERSTATED",
+    "gramatura-estacao#0: OVERSTATED",
+    "gramatura-estacao#1: OVERSTATED",
+    "gramatura-estacao#2: OVERSTATED"
+  ]
+}

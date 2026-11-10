@@ -1,0 +1,33 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que qualquer edredom é uma peça pronta para usar, mas os trechos só confirmam essa característica em um modelo específico da Altenburg.",
+      "fix": "Restringir a conclusão ao produto citado: “nesse modelo, o edredom vem como uma peça pronta para usar”; ou retirar a recomendação geral de escolher um edredom por esse motivo."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "gramatura-estacao#2",
+      "problem": "A manta de 112 gramas de um duvet específico é apresentada como exemplo de enchimento leve, embora o trecho da fonte apenas informe a gramatura.",
+      "fix": "Dizer apenas que “o duvet Trussardi consultado informa manta de 112 g” e retirar a conclusão de que esse valor indica um enchimento leve."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "medidas-peso-embalado#0",
+      "problem": "A seção promete informações sobre medidas e peso embalado, mas os blocos de edredom e duvet só trazem medidas, e outro bloco informa que o peso não foi encontrado.",
+      "fix": "Mudar o título para “Medidas totais” ou retirar “e peso embalado” da promessa da seção."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "gramatura-estacao#0",
+      "problem": "A indicação de 130 g/m² para todas as estações vem da ficha de um edredom Döhler, mas o texto a apresenta como uma associação geral de gramatura.",
+      "fix": "Dizer que, no edredom Döhler citado, a fabricante indica 130 g/m² para todas as estações."
+    }
+  ],
+  "usage": {
+    "input_tokens": 28998,
+    "output_tokens": 8196,
+    "calls": 3
+  }
+}
