@@ -1,0 +1,54 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se você quer lençol de baixo, lençol de cima e fronhas no mesmo conjunto, escolha um jogo de cama conforme a composição informada pelo fabricante.",
+      "Não presuma a quantidade de peças pelo nome: confira na embalagem ou na ficha se o jogo inclui lençol com elástico, lençol de cima e quantas fronhas.",
+      "Para comprar o tamanho correto, compare as medidas declaradas de cada lençol com o comprimento, a largura e a altura do colchão.",
+      "Confira a composição têxtil, as dimensões de cada componente e os cuidados de conservação na etiqueta ou na embalagem."
+    ],
+    "missing": [
+      "Uma comparação mais abrangente, com fontes primárias de vários fabricantes, mostrando se há uma distinção padronizada entre “jogo de cama” e “jogo de lençol”.",
+      "Dados de jogo de lençol nos tamanhos queen e king, além de mais exemplos de medidas para cada tamanho.",
+      "Peso e medidas das embalagens dos dois tipos de produto, informação prevista na pauta mas ausente na página.",
+      "Tabela completa de cuidados de conservação, incluindo limpeza profissional, para os modelos comparados."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde que a diferença prática está na composição e dá uma regra útil para conferir as peças antes da compra. O leitor entende que um jogo de cama pode incluir lençol de cima, lençol de baixo e fronhas, enquanto o jogo de lençol pode ter apenas lençol com elástico e uma ou duas fronhas. Faltam dados de embalagem, cobertura de tamanhos e uma comparação mais ampla entre fabricantes, mas isso não impede a decisão principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Escolha o jogo de cama se quiser um conjunto com lençol de cima, lençol de baixo com elástico e fronhas.",
+      "Confira a quantidade e os tipos de peças na embalagem, porque o jogo de lençol pode ter duas ou três peças conforme o modelo.",
+      "Verifique na embalagem a composição têxtil e as dimensões de cada componente.",
+      "Compare o tamanho declarado do lençol com o tamanho e a altura do colchão."
+    ],
+    "missing": [
+      "Uma regra mais abrangente, baseada em fichas de vários fabricantes, sobre a composição típica de um jogo de cama e de um jogo de lençol.",
+      "Exemplos de medidas para mais tamanhos de jogos de lençol, especialmente queen e king.",
+      "Pesos e medidas das embalagens de cada tipo, caso essa informação seja relevante para a compra."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente à diferença e dá uma regra prática: o jogo de cama costuma incluir lençol de cima, lençol de baixo e fronhas, enquanto o jogo de lençol pode variar e deve ser conferido na embalagem. A resposta curta é concreta e orienta a compra. Porém, o bloco como-decidir#1 deve ser corrigido ou removido, pois diz que exemplos da Trussardi e da Döhler incluem três peças, embora o Mael da Döhler tenha duas peças e o exemplo da Trussardi tenha quatro.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true
+  }
+}
