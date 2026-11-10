@@ -16,7 +16,10 @@ import { docLabel } from './write.ts';
 // protetor: "Tipos de protetor: elástico simples, ajustável e com zíper", e os blocos só falavam de altura) e
 // promessa do título ou da resposta curta que a página inteira não cumpre.
 export const COHERENCE_CHECKS = ['produto_como_solucao', 'dado_de_produto_vira_regra', 'caso_sem_orientacao', 'secao_nao_entrega', 'promessa_do_titulo'] as const;
-export type CoherenceCheck = (typeof COHERENCE_CHECKS)[number];
+// Fora da lista do modelo (10/11/2026, trazida do Ferramenta Clara): verificação DETERMINÍSTICA, sem custo, somada ao
+// resultado das leituras. Edredom ou duvet (10/11) saiu com nota 4 de 4 e resposta curta abrindo por "A Altenburg
+// anuncia…", circular e sem decidir; nenhuma camada pegou.
+export type CoherenceCheck = (typeof COHERENCE_CHECKS)[number] | 'resposta_abre_pela_fonte';
 
 export const CHECK_LABEL: Record<CoherenceCheck, string> = {
   produto_como_solucao: 'produto apresentado como solução sem que a fonte diga isso',
@@ -24,7 +27,23 @@ export const CHECK_LABEL: Record<CoherenceCheck, string> = {
   caso_sem_orientacao: 'caso da resposta curta sem orientação no Como decidir',
   secao_nao_entrega: 'título da seção promete o que os blocos dela não trazem',
   promessa_do_titulo: 'o título ou a resposta curta prometem o que a página não cumpre',
+  resposta_abre_pela_fonte: 'a resposta curta abre creditando a fonte em vez de responder',
 };
+
+const semAcento = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+// Abre atribuindo: "A Altenburg anuncia…", "Segundo a Probel…", "De acordo com a ficha…", "O fabricante informa…".
+const ABRE_ATRIBUINDO = /^(a|o|as|os|segundo|conforme|de acordo com|a ficha|o manual|o fabricante|a fabricante)\b[^.]{0,80}\b(informa|informam|declara|declaram|indica|indicam|descreve|descrevem|diz|dizem|afirma|afirmam|apresenta|apresentam|registra|anuncia|anunciam|recomenda|recomendam)\b/;
+const ABRE_SEGUNDO = /^(segundo|conforme|de acordo com)\b/;
+export function respostaAbrePelaFonte(page: Pick<PageSpec, 'verdict'>): CoherenceFinding | null {
+  const primeira = semAcento((page.verdict?.text ?? '').trim().split(/(?<=[.!?])\s+/)[0] ?? '');
+  if (!primeira || !(ABRE_ATRIBUINDO.test(primeira) || ABRE_SEGUNDO.test(primeira))) return null;
+  return {
+    check: 'resposta_abre_pela_fonte',
+    ref: 'verdict',
+    problem: 'a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor',
+    fix: 'comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte',
+  };
+}
 
 const system = () => `Você revisa páginas do site ${loadNiche().brand} antes da publicação, lendo a página INTEIRA como o leitor leigo vai ler, do título ao fim, como quem lê um artigo com começo, meio e fim.
 Cada bloco já foi auditado sozinho contra os próprios trechos. Você procura só os 5 problemas abaixo, que só aparecem quando se lê a página toda. Não aponte mais nada (estilo, tamanho, falta de dados, jargão): isso é de outra etapa.
@@ -106,7 +125,9 @@ export async function auditCoherence(
     throw motivo instanceof LlmError ? motivo : new LlmError(`coerência: nenhuma das 3 leituras voltou (${String((motivo as Error)?.message ?? motivo).slice(0, 120)})`, 'NETWORK');
   }
   const usage = runs.reduce((a, r) => ({ input_tokens: a.input_tokens + r.usage.input_tokens, output_tokens: a.output_tokens + r.usage.output_tokens, calls: a.calls + 1 }), { input_tokens: 0, output_tokens: 0, calls: 0 });
-  const findings = coherenceMajority(runs.map((r) => r.data.findings));
+  const findings: CoherenceFinding[] = coherenceMajority(runs.map((r) => r.data.findings));
+  const abre = respostaAbrePelaFonte(page);
+  if (abre && !findings.some((f) => f.check === abre.check)) findings.push(abre);
   return { findings, problems: findings.map(problemText), usage };
 }
 

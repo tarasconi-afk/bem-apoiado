@@ -8,7 +8,7 @@ import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { join } from 'node:path';
 import { EDITOR_PICK_MAX_AGE_DAYS, hasListingItem, type PageSpec, Slug } from '@bem-apoiado/core';
-import { cycleBadge, cycleInfo, renderStatus } from './status.ts';
+import { aquecerIntegridade, cycleBadge, cycleInfo, renderStatus } from './status.ts';
 import { MAX_IMPROVE_ATTEMPTS, retryOff } from './stages/improve.ts';
 import { lessonId, lessonsNearCap, loadEditorLessons, MAX_LESSONS } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
@@ -106,10 +106,13 @@ const jobs: Job[] = existsSync(JOBS_FILE) ? JSON.parse(readFileSync(JOBS_FILE, '
 // (22/10: a D33 ou D45 foi aprovada sem a tabela porque o aviso passou despercebido). Os jobs vêm do mais novo.
 // adjustedAt: hora do último commit "Painel: ajuste em <slug>" (main ou resultado pendente). Ajuste salvo depois da
 // falha (pedido de novo, inclusive fora do painel) apaga o aviso; antes, ele ficava preso até outro ajuste pelo painel.
-export function failedAdjust(list: Job[], slug: string, adjustedAt = 0): string | null {
+// 10/11 (painel levando ~1 min para abrir): adjustedAt pode vir como função e só é calculado quando HÁ ajuste com falha.
+// Antes, cada página no ar rodava um `git log --grep` no histórico inteiro a cada abertura (44 chamadas com 50 páginas).
+export function failedAdjust(list: Job[], slug: string, adjustedAt: number | (() => number) = 0): string | null {
   const j = list.find((x) => x.args[0] === 'ajustar' && x.args[2] === slug);
   if (!j || !j.ended || (j.code === 0 && !/NÃO salvo/.test(j.output))) return null;
-  if (adjustedAt && Date.parse(j.ended) < adjustedAt) return null;
+  const quando = typeof adjustedAt === 'function' ? adjustedAt() : adjustedAt;
+  if (quando && Date.parse(j.ended) < quando) return null;
   return (j.output.split('\n').reverse().find((l) => /NÃO salvo|Error|motivo/.test(l)) ?? 'o ajuste falhou').slice(0, 200);
 }
 const lastAdjustAt = (slug: string): number => {
@@ -120,7 +123,7 @@ const lastAdjustAt = (slug: string): number => {
     return 0;
   }
 };
-const failedNow = (slug: string) => failedAdjust(jobs, slug, lastAdjustAt(slug));
+const failedNow = (slug: string) => failedAdjust(jobs, slug, () => lastAdjustAt(slug));
 const failedNote = (slug: string) => {
   const why = failedNow(slug);
   return why ? `<p class="flash bad-flash">O último ajuste pedido para esta página <strong>não foi salvo</strong>: ${esc(why)}. Peça de novo antes de aprovar, ou marque "aprovar assim mesmo".</p>` : '';
@@ -191,7 +194,14 @@ function startJob(label: string, args: string[]): string | null {
 pump();
 
 // Ramos do motor ainda não mesclados: resultado de ciclos esperando decisão.
-function pendingBranches(): { branch: string; subject: string; when: string; steps: string[]; cost: number | null }[] {
+// Uma leitura por segundo basta (10/11): a mesma abertura do painel pedia a lista 8 vezes, cada uma um `git for-each-ref`.
+let pendentesCache: { at: number; v: ReturnType<typeof lerPendentes> } | null = null;
+function pendingBranches(): ReturnType<typeof lerPendentes> {
+  if (pendentesCache && Date.now() - pendentesCache.at < 1000) return pendentesCache.v;
+  pendentesCache = { at: Date.now(), v: lerPendentes() };
+  return pendentesCache.v;
+}
+function lerPendentes(): { branch: string; subject: string; when: string; steps: string[]; cost: number | null }[] {
   try {
     const out = execFileSync('git', ['for-each-ref', '--no-merged=origin/main', '--sort=-committerdate', '--format=%(refname:short)%1f%(subject)%1f%(committerdate:iso-strict)%1f%(body)%1e', 'refs/remotes/origin/pagina/'], { cwd: ROOT, encoding: 'utf8' });
     return out.split('\x1e').map((x) => x.trim()).filter(Boolean).map((l) => {
@@ -1573,6 +1583,13 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
   res.end();
 }
 
+const codigoAtual = () => {
+  try {
+    return execFileSync('git', ['rev-parse', 'HEAD:packages', 'HEAD:scripts', 'HEAD:package.json'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {
+    return head();
+  }
+};
 const head = () => {
   try {
     return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim();
@@ -1645,10 +1662,17 @@ export function adminPage(msg: string | null): string {
 export function startAdmin() {
   // Código novo no main (ação do painel, sync, ciclo): sai quando nada está rodando e o systemd
   // (Restart=always) sobe de novo já com o código atualizado. Sem privilégio de reiniciar nada.
-  const started = head();
+  // 10/11: compara só o CÓDIGO (árvores git de packages/ e scripts/ e o package.json), não o HEAD. Antes, todo commit de
+  // dados (veredito, ciclo, sync) reiniciava o painel — 12 vezes num dia — e a abertura seguinte pagava tudo a frio.
+  const started = codigoAtual();
   setInterval(() => {
-    if (!running() && !queuedJobs().length && head() !== started) process.exit(0);
+    if (!running() && !queuedJobs().length && codigoAtual() !== started) process.exit(0);
   }, 60_000).unref();
+  // A conferência de integridade (1.422 fontes, ~1 GB) fica pronta em segundo plano: a abertura do painel encontra o
+  // resultado guardado em vez de reler todas as fontes (status.ts → integridade, chave = commit dos dados).
+  const aquecer = () => { if (!running()) { try { aquecerIntegridade(); } catch { /* a abertura confere */ } } };
+  setTimeout(aquecer, 5_000).unref();
+  setInterval(aquecer, 60_000).unref();
   createServer((req, res) => {
     handle(req, res).catch((e) => {
       res.writeHead(500, { 'content-type': 'text/plain; charset=utf-8' });

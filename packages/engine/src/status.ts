@@ -1,5 +1,6 @@
 import { creditsToday, DAILY_CREDIT_CAP } from './stages/autopilot.ts';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { trafficSummary } from './hits.ts';
 import { auditStats } from './lessons.ts';
 import { calibrate, loadVerdicts, MIN_LABELS } from './feedback.ts';
@@ -130,21 +131,48 @@ function versionLine(): string {
   }
 }
 
+// Conferência de integridade (hash de cada bruto de fonte + cada citação + cada página + cada produto) guardada enquanto
+// os dados não mudam (10/11/2026: o painel levava ~1 min para abrir; esta conferência relia centenas de MB de fontes a
+// cada abertura e crescia com o acervo). Chave: commit dos dados + alterações não commitadas em data/ + o dia (a validade
+// de produto depende da data). Sem git (ou nos testes), confere sempre, como antes.
+let integridadeCache: { chave: string; v: Violation[] } | null = null;
+function chaveDosDados(now: Date): string | null {
+  if (process.env.VITEST) return null;
+  try {
+    const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    const sujo = execFileSync('git', ['status', '--porcelain', '--', 'data'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    return head ? `${head}|${createHash('sha1').update(sujo).digest('hex')}|${now.toISOString().slice(0, 10)}` : null;
+  } catch {
+    return null;
+  }
+}
+export function integridade(idx: ReturnType<typeof buildIndex>, pages: ReturnType<typeof loadPages>, products: ReturnType<typeof loadProducts>, now = new Date()): Violation[] {
+  const chave = chaveDosDados(now);
+  if (chave && integridadeCache?.chave === chave) return integridadeCache.v;
+  const v: Violation[] = [];
+  for (const s of idx.sources.values()) if (!rawIntact(s)) v.push({ code: 'SOURCE_RAW_CORRUPT', where: s.id, detail: '' });
+  for (const c of idx.claims.values()) v.push(...checkClaim(c, idx));
+  for (const p of pages) v.push(...checkPage(p, idx));
+  for (const p of products) v.push(...checkProduct(p, idx, now));
+  if (chave) integridadeCache = { chave, v };
+  return v;
+}
+
+export function aquecerIntegridade(now = new Date()): void {
+  integridade(buildIndex(), loadPages(), loadProducts(), now);
+}
+
 export function renderStatus(now = new Date(), opts: { adminHtml?: string; topHtml?: string; refresh?: number } = {}): string {
   const runs = collectRuns();
   const idx = buildIndex();
   const pages = loadPages();
-  const violations: Violation[] = [];
-  for (const s of idx.sources.values()) if (!rawIntact(s)) violations.push({ code: 'SOURCE_RAW_CORRUPT', where: s.id, detail: '' });
-  for (const c of idx.claims.values()) violations.push(...checkClaim(c, idx));
-  for (const p of pages) violations.push(...checkPage(p, idx));
   const products = loadProducts();
+  const violations: Violation[] = integridade(idx, pages, products, now);
   const cal = calibrate(loadVerdicts());
   const led = ledger();
   const q = auditStats();
   const avg = (xs: number[]) => (xs.length ? (xs.reduce((t, x) => t + x, 0) / xs.length).toFixed(1) : '—');
   const bal = balanceNow(led);
-  for (const p of products) violations.push(...checkProduct(p, idx, now));
 
   const since = (h: number) => runs.filter((r) => now.getTime() - r.when.getTime() < h * 3600_000);
   const sum = (rs: RunRow[]) => rs.reduce((t, r) => t + (r.credits ?? 0), 0);
