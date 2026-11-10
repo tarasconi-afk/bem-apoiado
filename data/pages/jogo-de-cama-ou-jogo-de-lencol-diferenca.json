@@ -7,11 +7,12 @@
   "primary_query": "jogo de cama ou jogo de lençol: diferença",
   "updated_at": "2026-11-10",
   "verdict": {
-    "text": "O jogo de cama inclui lençol de cima, lençol de baixo e fronhas, segundo a Sultan. Já o modelo Mael da Döhler inclui um lençol e uma fronha. Confira a lista de peças na embalagem antes de comprar, pois os itens podem variar entre modelos.",
+    "text": "A composição varia entre modelos. Segundo a Sultan, um jogo de cama completo inclui 1 lençol de baixo, 1 lençol de cima e 2 fronhas; no modelo Mael da Döhler, a embalagem contém 1 lençol com elástico e 1 fronha, sem lençol de cima.",
     "basis": "evidence",
     "claim_ids": [
       "clm_4571b01f12ee",
-      "clm_6fb70e4146d3"
+      "clm_6fb70e4146d3",
+      "clm_8720c3563c60"
     ]
   },
   "sections": [
@@ -318,7 +319,7 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir entre jogo de cama e jogo de lençol",
+      "heading": "Diferenças entre jogo de cama e jogo de lençol",
       "blocks": [
         {
           "kind": "paragraph",
@@ -398,7 +399,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261110T070250_autopilot_bf82+editor:20261110T070846_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_f9fb+editor:20261110T070922_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_6098+editor:20261110T111241_jogo-de-cama-ou-jogo-de-lencol-diferenca-ajuste_a686+reaudit:20261110T114812_autopilot_a467",
+    "run_id": "20261110T070250_autopilot_bf82+editor:20261110T070846_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_f9fb+editor:20261110T070922_jogo-de-cama-ou-jogo-de-lencol-diferenca-autocorrecao_6098+editor:20261110T111241_jogo-de-cama-ou-jogo-de-lencol-diferenca-ajuste_a686+reaudit:20261110T114812_autopilot_a467+editor:20261110T122759_jogo-de-cama-ou-jogo-de-lencol-diferenca-ajuste_9b56",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
