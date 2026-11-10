@@ -1,0 +1,108 @@
+{
+  "findings": [
+    {
+      "ref": "numero-de-pecas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "numero-de-pecas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-medidas#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Appel informam medidas de cama de casal padrão e de cama de solteiro, não que um jogo de cama tenha essas medidas. A diferença de 0,50 m é corretamente calculada a partir das larguras citadas, mas a afirmação sobre o jogo não é dita pela fonte.",
+      "fix": "A Appel informa que a cama de casal padrão mede 1,38 m × 1,88 m e que a cama de solteiro mede 0,88 m × 1,88 m; portanto, a cama de casal é 0,50 m mais larga."
+    },
+    {
+      "ref": "diferenca-medidas#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram dimensões de 30 cm para solteiro e casal e de 40 cm para queen e king, mas não qualificam essas medidas como “altura máxima”.",
+      "fix": "Nos produtos citados, a Plumasul informa dimensão de 30 cm para solteiro e de 40 cm para queen e king, enquanto a Bouton informa dimensão de 30 cm para casal."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A medida da fronha (50 cm × 70 cm) aparece no trecho da Bouton sob “Casal”, não sob “King”. Portanto, o bloco a apresenta indevidamente como medida da fronha King segundo a Bouton. As demais medidas estão explicitamente sustentadas pelos trechos citados.",
+      "fix": "Na linha King, remova a medida da fronha ou substitua-a por uma evidência da Bouton que a associe explicitamente ao tamanho King. Alternativamente, rotule 50 cm × 70 cm como medida indicada pela Bouton para Casal."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "diferenca-medidas#0",
+      "msg": "MISATTRIBUTED. Os trechos da Appel informam medidas de cama de casal padrão e de cama de solteiro, não que um jogo de cama tenha essas medidas. A diferença de 0,50 m é corretamente calculada a partir das larguras citadas, mas a afirmação sobre o jogo não é dita pela fonte. Versão sustentável: A Appel informa que a cama de casal padrão mede 1,38 m × 1,88 m e que a cama de solteiro mede 0,88 m × 1,88 m; portanto, a cama de casal é 0,50 m mais larga."
+    },
+    {
+      "ref": "diferenca-medidas#1",
+      "msg": "OVERSTATED. Os trechos mostram dimensões de 30 cm para solteiro e casal e de 40 cm para queen e king, mas não qualificam essas medidas como “altura máxima”. Versão sustentável: Nos produtos citados, a Plumasul informa dimensão de 30 cm para solteiro e de 40 cm para queen e king, enquanto a Bouton informa dimensão de 30 cm para casal."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "MISATTRIBUTED. A medida da fronha (50 cm × 70 cm) aparece no trecho da Bouton sob “Casal”, não sob “King”. Portanto, o bloco a apresenta indevidamente como medida da fronha King segundo a Bouton. As demais medidas estão explicitamente sustentadas pelos trechos citados. Versão sustentável: Na linha King, remova a medida da fronha ou substitua-a por uma evidência da Bouton que a associe explicitamente ao tamanho King. Alternativamente, rotule 50 cm × 70 cm como medida indicada pela Bouton para Casal."
+    }
+  ]
+}

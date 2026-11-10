@@ -1,0 +1,24 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha o tamanho do jogo de cama pela medida do seu colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m ou king 1,93 m × 2,03 m, segundo fabricantes como Appel e Trussardi. Confira também a altura máxima do lençol com elástico que o tamanho escolhido suporta, pois varia entre marcas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_117a9fbc38fc",
+        "clm_1e0279a51aff",
+        "clm_0d5f8089b411",
+        "clm_2d0771a14d8d",
+        "clm_1978d7329c5c"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: UNSUPPORTED"
+  ]
+}
