@@ -1,0 +1,59 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o jogo de cama se quiser lençol de cima, lençol de baixo com elástico e fronhas.",
+      "Considere o jogo de lençol quando o conjunto trouxer apenas lençol com elástico e fronha.",
+      "Confira na embalagem ou na ficha do produto a lista e a quantidade de peças, pois o conteúdo varia entre modelos.",
+      "Confira as dimensões de cada lençol, fronha e o tamanho da cama antes da compra.",
+      "Verifique na etiqueta a composição das fibras, os percentuais, o tamanho ou as dimensões e os cuidados de conservação."
+    ],
+    "missing": [
+      "Uma comparação mais ampla, com fichas de fabricantes de diferentes modelos de jogo de cama e jogo de lençol, ajudaria a mostrar com mais segurança como a quantidade de peças varia.",
+      "Seria útil apresentar também exemplos de medidas para casal, queen e king em jogos de lençol, além dos exemplos de solteiro e casal."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente à diferença: o jogo de cama tende a incluir lençol de cima, lençol de baixo e fronhas, enquanto o jogo de lençol pode trazer apenas lençol com elástico e fronha. Ela dá ao leitor uma ação clara — conferir peças, quantidades e medidas na embalagem ou na ficha — e oferece exemplos concretos de fabricantes. Deve ser publicada, mas convém remover a repetição de como-decidir#0 e corrigir a frase que sugere que os exemplos citados sempre têm três peças, pois a própria tabela mostra conjuntos com quatro peças.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O bloco como-decidir#1 é confuso ao dizer que exemplos de jogos de lençol têm três peças, enquanto o exemplo Mael da própria página tem duas; a variação deveria ser explicada com mais clareza."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha jogo de cama se quiser, em regra, lençol de baixo com elástico, lençol de cima e duas fronhas.",
+      "Escolha jogo de lençol apenas depois de conferir a embalagem, pois a quantidade pode variar entre duas e três peças.",
+      "Confira no anúncio ou na embalagem a lista de itens inclusos e a quantidade de cada peça.",
+      "Confira o tamanho e as dimensões declaradas para o colchão e para cada lençol.",
+      "Verifique na etiqueta ou embalagem a composição das fibras, o percentual de cada uma e os cuidados de conservação."
+    ],
+    "missing": [
+      "Para o leitor leigo: O bloco como-decidir#1 é confuso ao dizer que exemplos de jogos de lençol têm três peças, enquanto o exemplo Mael da própria página tem duas; a variação deveria ser explicada com mais clareza.",
+      "Uma comparação mais abrangente, baseada em fichas de fabricantes, sobre a composição de cada tipo de conjunto e a variação de quantidade de peças.",
+      "Exemplos de jogos de cama e jogos de lençol nos tamanhos casal e king, além dos exemplos já apresentados.",
+      "Medidas declaradas para todos os tamanhos e modelos citados, especialmente para jogos de lençol queen e king.",
+      "Pesos e medidas das embalagens de cada tipo de produto.",
+      "Uma explicação mais clara de que os nomes comerciais podem variar e de que a lista de peças da embalagem é o critério decisivo."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que o jogo de cama costuma incluir lençol de cima, lençol de baixo e fronhas, enquanto o jogo de lençol pode ter quantidade variável, e orienta o leitor a conferir a embalagem. Há critérios concretos para compra, embora faltem mais tamanhos, medidas e dados de embalagem; o trecho que resume os exemplos de jogos de lençol precisa ser corrigido para não contradizer a tabela.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Döhler confirma que o modelo Mael contém um lençol e uma fronha, mas não informa que o lençol tem elástico. Portanto, essa característica não é sustentada pelos trechos citados.",
+      "fix": "O jogo de cama inclui lençol de cima, lençol de baixo e fronhas, segundo a Sultan. Já o modelo Mael da Döhler inclui um lençol e uma fronha. Confira a lista de peças na embalagem antes de comprar, pois os itens podem variar entre modelos."
+    },
+    {
+      "ref": "composicao-e-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-cuidados#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-cuidados#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-cuidados#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado estabelece a obrigatoriedade desses cinco processos e a sequência, mas não especifica que a informação deve estar na etiqueta.",
+      "fix": "Os cuidados de conservação obrigatórios são lavagem, alvejamento, secagem, passadoria e limpeza profissional, informados nessa sequência, conforme o Inmetro."
+    },
+    {
+      "ref": "tamanhos-disponiveis#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponiveis#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponiveis#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponiveis#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponiveis#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-disponiveis#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados não informam se a secagem é ou não especificada; apenas não apresentam uma instrução sobre secagem. Portanto, “Secar: Não especificado” não é diretamente sustentado para o produto.",
+      "fix": "Remover o campo de secagem ou escrever “Secagem: não informada nos trechos citados”."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

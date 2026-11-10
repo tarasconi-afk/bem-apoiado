@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que escolher a densidade indicada pela Castor resolve o caso de quem dorme de lado, mas o trecho da fonte só relaciona densidade ao peso e não diz que ela atende essa posição de dormir.",
+      "fix": "Reescrever a resposta para dizer apenas que a Castor relaciona a densidade ao peso, sem apresentá-la como solução específica para quem dorme de lado."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "escolha-pela-densidade-peso-e-posicao#0.r0",
+      "problem": "A seção anuncia escolha pela posição de dormir, mas seus blocos só apresentam densidades para faixas de peso e não explicam como a posição influencia a escolha.",
+      "fix": "Mudar o título da seção para “Escolha pela densidade e pelo peso”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 27336,
+    "output_tokens": 5174,
+    "calls": 2
+  }
+}
