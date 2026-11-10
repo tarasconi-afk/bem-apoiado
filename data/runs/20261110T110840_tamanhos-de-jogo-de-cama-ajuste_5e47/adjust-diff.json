@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-10T11:09:56.877Z",
+  "instruction": "Corrija só o que segue, com o que as fontes sustentam:\n1) Tabela de \"Como escolher o tamanho conforme seu colchão\": falta a linha King, e a resposta curta fala de King. Acrescente a linha King com a medida do colchão que a resposta curta já usa (1,93 m × 2,03 m, mesma fonte). Nas outras colunas do King, use só dado com fonte; sem fonte, escreva \"confira na ficha\".\n2) Altura do lençol com elástico: a resposta curta diz que no queen chega a 35 cm, mas a tabela (Bouton) e o texto (Plumasul) dão 40 cm para queen. Deixe resposta curta, tabela e texto com os mesmos números, como os trechos mostram (",
+  "diffs": [
+    {
+      "where": "Resposta curta",
+      "before": "Escolha o tamanho do jogo de cama conforme a medida do colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m e king 1,93 m × 2,03 m, segundo os fabricantes citados. A altura do lençol com elástico varia entre produtos: solteiro chega a 30 cm, casal a 30 ou 35 cm, queen a 35 cm e king a 40 cm.",
+      "after": "Escolha o tamanho do jogo de cama conforme a medida do colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m e king 1,93 m × 2,03 m, segundo fabricantes como Appel, Camesa e Altenburg. A altura do lençol com elástico varia entre produtos: solteiro chega a 30 cm, casal a 30 ou 35 cm, queen a 40 cm e king a 40 cm, segundo fabricantes como Appel, Camesa e Altenburg."
+    },
+    {
+      "where": "Quantas peças e fronhas compõem o jogo de cama · bloco 1",
+      "before": "Segundo a Plumasul, este jogo de cama solteiro tem 3 peças: 1 lençol de baixo com elástico, 1 lençol de cima e 1 fronha.",
+      "after": "Segundo a Plumasul, o jogo de cama solteiro citado aqui tem 3 peças: 1 lençol de baixo com elástico, 1 lençol de cima e 1 fronha."
+    },
+    {
+      "where": "Diferença de largura entre cama de casal e solteiro · bloco 2",
+      "before": "Nos produtos citados, a Plumasul informa dimensão de 30 cm para solteiro e de 40 cm para queen e king, enquanto a Bouton informa dimensão de 30 cm para casal.",
+      "after": "Nos produtos citados, a Plumasul lista lençol com elástico de 30 cm para solteiro e de 40 cm para queen e king, enquanto a Corttex lista lençol com elástico de 30 cm para casal."
+    },
+    {
+      "where": "Como escolher o tamanho conforme seu colchão · tabela",
+      "before": "Medidas de cada tamanho de jogo de cama segundo os fabricantes · Solteiro | Segundo a Appel, 0,88 m × 1,88 m | Segundo a Plumasul, 30 cm | Segundo a Corttex, 1,50 m × 2,20 m | Segundo a Corttex, 50 cm × 70 cm / Casal | Segundo a Appel, 1,38 m × 1,88 m | Segundo a Bouton, 30 cm | Segundo a Corttex, 2,00 m × 2,20 m | Segundo a Bouton, 50 cm × 70 cm / Queen | Segundo a Trussardi, 1,58 m × 1,98 m | Segundo a Bouton, 40 cm | Segundo a Corttex, 2,20 m × 2,40 m | Segundo a Corttex, 50 cm × 70 cm",
+      "after": "Medidas de cada tamanho de jogo de cama segundo os fabricantes · Solteiro | Segundo a Appel, 0,88 m × 1,88 m | Segundo a Corttex, 1,50 m × 2,20 m | Segundo a Corttex, 50 cm × 70 cm / Casal | Segundo a Appel, 1,38 m × 1,88 m | Segundo a Corttex, 2,00 m × 2,20 m | Segundo a Bouton, 50 cm × 70 cm / Queen | Segundo a Trussardi, 1,58 m × 1,98 m | Segundo a Corttex, 2,20 m × 2,40 m | Segundo a Corttex, 50 cm × 70 cm"
+    },
+    {
+      "where": "Como escolher o tamanho conforme seu colchão · bloco 2",
+      "before": "Se seu colchão mede cerca de 0,88 m × 1,88 m, escolha jogo de cama solteiro e confira na ficha se o lençol com elástico tem essas medidas, segundo a Appel.",
+      "after": "Veja, a seguir, as informações apresentadas nas fontes sobre jogos de cama."
+    },
+    {
+      "where": "Como escolher o tamanho conforme seu colchão · bloco 3",
+      "before": "Se seu colchão tem mais de 30 cm de altura, não escolha apenas pelo nome solteiro, casal, queen ou king: confira a profundidade máxima do lençol com elástico na ficha do jogo, segundo Corttex e Plumasul.",
+      "after": "Os fabricantes citados informam medidas de 30 cm ou 40 cm de altura para os lençóis com elástico, conforme o produto e o tamanho."
+    }
+  ]
+}
