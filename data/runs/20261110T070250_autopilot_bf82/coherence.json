@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "verdict",
+      "problem": "O leitor pode entender que todo jogo de lençol tem apenas um lençol de baixo com elástico e fronhas, mas a fonte citada descreve só o modelo Mael e a própria página informa que a quantidade e os itens podem variar.",
+      "fix": "Reescrever para: “O modelo Mael da Döhler traz um lençol de baixo com elástico e uma fronha. Em jogos de lençol, confira a lista de peças, pois a quantidade e os itens podem variar.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 25436,
+    "output_tokens": 3796,
+    "calls": 3
+  }
+}

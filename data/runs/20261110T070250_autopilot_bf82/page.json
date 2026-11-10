@@ -1,0 +1,48 @@
+{
+  "slug": "jogo-de-cama-ou-jogo-de-lencol-diferenca",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 44069,
+    "output_tokens": 13211,
+    "calls": 12
+  },
+  "credits": 36.16068096000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que todo jogo de lençol tem apenas um lençol de baixo com elástico e fronhas, mas a fonte citada descreve só o modelo Mael e a própria página informa que a quantidade e os itens podem variar (verdict); Reescrever para: “O modelo Mael da "
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha jogo de cama se quiser lençol de cima, lençol de baixo com elástico e fronhas.",
+      "Escolha jogo de lençol se quiser apenas lençol de baixo com elástico e fronhas, sem lençol de cima.",
+      "Confira na embalagem ou na ficha do produto a lista de peças e a quantidade, porque os conjuntos podem variar entre modelos e marcas.",
+      "Confira o tamanho e as medidas declaradas do lençol, especialmente a altura do colchão indicada para o lençol com elástico.",
+      "Verifique na etiqueta a composição das fibras, o percentual de cada uma, o tamanho ou as dimensões e os cuidados de conservação."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor pode entender que todo jogo de lençol tem apenas um lençol de baixo com elástico e fronhas, mas a fonte citada descreve só o modelo Mael e a própria página informa que a quantidade e os itens podem variar (verdict); Reescrever para: “O modelo Mael da ",
+      "Uma ficha de fabricante que compare diretamente jogo de cama e jogo de lençol com uma definição padronizada para todas as marcas.",
+      "Exemplos de medidas e peças para mais combinações de tamanhos, especialmente jogos de lençol Queen e King e jogo de cama Casal.",
+      "A lista completa de cuidados de conservação, incluindo limpeza profissional, para os modelos apresentados.",
+      "Informações de peso e medidas da embalagem para cada tipo de conjunto."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde diretamente que o jogo de cama normalmente inclui lençol de cima, lençol de baixo com elástico e fronhas, enquanto o jogo de lençol traz o lençol de baixo e fronhas. Também oferece uma orientação prática de compra — conferir peças, quantidades, tamanho e medidas na ficha ou embalagem — sem tratar os nomes comerciais como regras absolutas.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "verdict",
+        "problem": "O leitor pode entender que todo jogo de lençol tem apenas um lençol de baixo com elástico e fronhas, mas a fonte citada descreve só o modelo Mael e a própria página informa que a quantidade e os itens podem variar.",
+        "fix": "Reescrever para: “O modelo Mael da Döhler traz um lençol de baixo com elástico e uma fronha. Em jogos de lençol, confira a lista de peças, pois a quantidade e os itens podem variar.”"
+      }
+    ]
+  }
+}
