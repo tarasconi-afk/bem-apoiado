@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "caso_sem_orientacao",
+      "ref": "verdict",
+      "problem": "O leitor com colchão king é informado de que deve escolher esse tamanho, mas a seção \"Como decidir\" não mostra o que conferir ou escolher para king.",
+      "fix": "Incluir na seção \"Como decidir\" uma orientação específica para king, usando a medida do colchão de 1,93 m × 2,03 m e a profundidade do lençol com elástico informada na ficha."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "diferenca-medidas#0",
+      "problem": "A seção promete diferenças entre casal, queen e king, mas o primeiro bloco compara apenas casal e solteiro.",
+      "fix": "Mudar o título da seção para algo como \"Diferença de largura entre cama de casal e solteiro\" ou retirar a promessa de comparação entre casal, queen e king."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18372,
+    "output_tokens": 3717,
+    "calls": 3
+  }
+}

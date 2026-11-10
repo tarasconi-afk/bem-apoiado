@@ -1,0 +1,57 @@
+{
+  "slug": "tamanhos-de-jogo-de-cama",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 76706,
+    "output_tokens": 28116,
+    "calls": 37
+  },
+  "credits": 58.24762884000001,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor com colchão king é informado de que deve escolher esse tamanho, mas a seção \"Como decidir\" não mostra o que conferir ou escolher para king (verdict); Incluir na seção \"Como decidir\" uma orientação específica para king, usando a medida do colchão de 1,",
+      "A seção promete diferenças entre casal, queen e king, mas o primeiro bloco compara apenas casal e solteiro (diferenca-medidas#0); Mudar o título da seção para algo como \"Diferença de largura entre cama de casal e solteiro\" ou retirar a promessa de comparação e"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Compare a largura e o comprimento do colchão com a medida do tamanho do jogo: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m e queen 1,58 m × 1,98 m.",
+      "Se o colchão tiver mais de 30 cm de altura, confira na ficha a profundidade máxima do lençol com elástico, em vez de escolher apenas pelo nome solteiro, casal ou queen.",
+      "Confira no anúncio as medidas do lençol de cima e das fronhas, porque elas variam conforme o produto.",
+      "Confira a quantidade de peças e de fronhas no anúncio, pois jogos do mesmo tamanho podem ter composições diferentes.",
+      "Verifique na etiqueta ou embalagem a dimensão do produto, a composição das fibras e as instruções de lavagem e secagem."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor com colchão king é informado de que deve escolher esse tamanho, mas a seção \"Como decidir\" não mostra o que conferir ou escolher para king (verdict); Incluir na seção \"Como decidir\" uma orientação específica para king, usando a medida do colchão de 1,",
+      "Para o leitor leigo: A seção promete diferenças entre casal, queen e king, mas o primeiro bloco compara apenas casal e solteiro (diferenca-medidas#0); Mudar o título da seção para algo como \"Diferença de largura entre cama de casal e solteiro\" ou retirar a promessa de comparação e",
+      "Uma linha para o tamanho king, com medida do colchão, altura máxima do lençol com elástico, medidas do lençol de cima e das fronhas e número de peças.",
+      "Informação sobre o tamanho solteirão, ou uma explicação clara de que ele não foi contemplado e como diferenciá-lo do solteiro.",
+      "Uma tabela baseada em fichas de produtos identificados para cada tamanho, sem misturar a medida do colchão de um fabricante com a altura ou as peças de outro.",
+      "A altura máxima suportada pelo lençol com elástico para cada tamanho, distinguindo claramente capacidade máxima de exemplos de dimensões de produtos.",
+      "A quantidade de peças e de fronhas para queen e king, além da composição completa de cada tamanho."
+    ],
+    "publishable": false,
+    "summary": "A página dá uma regra útil para conferir a medida do colchão e a profundidade do elástico, mas responde apenas parcialmente à dúvida sobre os tamanhos de jogo de cama. Faltam o king e o solteirão na tabela, além de dados completos de peças, fronhas e alturas máximas por tamanho; por isso, o leitor não consegue comparar todos os tamanhos nem comprar com segurança.",
+    "filler_ratio": 0,
+    "model_opinion": false,
+    "coherence": [
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "verdict",
+        "problem": "O leitor com colchão king é informado de que deve escolher esse tamanho, mas a seção \"Como decidir\" não mostra o que conferir ou escolher para king.",
+        "fix": "Incluir na seção \"Como decidir\" uma orientação específica para king, usando a medida do colchão de 1,93 m × 2,03 m e a profundidade do lençol com elástico informada na ficha."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "diferenca-medidas#0",
+        "problem": "A seção promete diferenças entre casal, queen e king, mas o primeiro bloco compara apenas casal e solteiro.",
+        "fix": "Mudar o título da seção para algo como \"Diferença de largura entre cama de casal e solteiro\" ou retirar a promessa de comparação entre casal, queen e king."
+      }
+    ]
+  }
+}

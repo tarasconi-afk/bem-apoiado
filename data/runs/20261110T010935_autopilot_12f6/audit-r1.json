@@ -1,0 +1,124 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as medidas indicadas para solteiro, casal, queen e king e mostram alturas de 30 cm e 40 cm em produtos diferentes. Porém, não dizem que se deve “sempre” conferir a altura nem estabelecem de forma geral que ela varia entre tamanhos e marcas; também apresentam medidas específicas de produtos, não uma regra geral para todos os lençóis com elástico.",
+      "fix": "Escolha o tamanho do jogo de cama conforme a medida do colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m e king 1,93 m × 2,03 m, conforme medidas informadas por fabricantes. As especificações de altura do lençol com elástico podem diferir entre produtos, como mostram os exemplos de 30 cm e 40 cm."
+    },
+    {
+      "ref": "numero-de-pecas#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Plumasul sustenta a composição de um modelo solteiro específico, mas não afirma que a maioria dos jogos de cama tenha essa composição. A generalização para a maioria dos jogos excede a evidência.",
+      "fix": "Segundo a Plumasul, este jogo de cama solteiro tem 3 peças: 1 lençol de baixo com elástico, 1 lençol de cima e 1 fronha."
+    },
+    {
+      "ref": "numero-de-pecas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-e-etiqueta#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que tamanho ou dimensão deve constar em algum meio de identificação do produto têxtil, que pode ser etiqueta, selo, rótulo, decalque, carimbo ou outro meio similar. Ele não exige especificamente que a informação esteja na etiqueta.",
+      "fix": "O tamanho ou a dimensão do produto é uma informação obrigatória e deve constar em algum meio de identificação, como etiqueta, selo ou rótulo, segundo o Inmetro."
+    },
+    {
+      "ref": "composicao-e-etiqueta#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos apresentam instruções de lavagem de três fabricantes, mas não dizem que elas devem constar na etiqueta. Também não sustentam a afirmação de que a maioria dos fabricantes recomenda esses procedimentos, nem que todos recomendam lavagem em ciclo suave ou normal; apenas a Teka menciona processo normal. Além disso, os trechos são instruções específicas de produtos, não uma recomendação geral.",
+      "fix": "Nas páginas citadas, Karsten e Trussardi indicam lavagem a 40°C; a Teka indica lavagem a até 60°C em processo normal. Karsten e Teka permitem secagem em tambor a até 60°C, enquanto a Trussardi indica secagem em varal; as temperaturas máximas para passar variam de 110°C a 150°C entre esses produtos."
+    },
+    {
+      "ref": "diferenca-medidas#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as medidas de 1,38 m para casal e 0,88 m para solteiro, mas a diferença é de 0,50 m, não 0,20 m. Além disso, não dizem que isso proporciona melhor espaço lateral para um casal.",
+      "fix": "O jogo casal mede 1,38 m × 1,88 m, enquanto o solteiro mede 0,88 m × 1,88 m; portanto, o casal é 0,50 m mais largo, segundo as medidas informadas pela Appel."
+    },
+    {
+      "ref": "diferenca-medidas#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Nenhum trecho citado é da Corttex; os dados vêm da Plumasul e da Bouton. Além disso, os trechos mostram medidas de produtos específicos, não uma regra geral de capacidade máxima para todas as roupas de cama de cada tamanho.",
+      "fix": "Nos produtos citados, a Plumasul informa 30 cm para solteiro e 40 cm para queen e king, enquanto a Bouton informa 30 cm para casal."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Döhler citado informa apenas a medida do lençol com elástico King, não a medida da fronha nem que ela seja um mínimo. Portanto, a atribuição da medida da fronha à Döhler não é sustentada.",
+      "fix": "Remova a informação sobre a fronha ou cite um trecho da Döhler que informe explicitamente a fronha de 50 cm × 70 cm. Sem essa evidência, a linha pode terminar em “Medida do lençol de cima: Segundo a Bouton, 2,60 m × 2,80 m”."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas indicadas para solteiro, casal, queen e king e mostram alturas de 30 cm e 40 cm em produtos diferentes. Porém, não dizem que se deve “sempre” conferir a altura nem estabelecem de forma geral que ela varia entre tamanhos e marcas; também apresentam medidas específicas de produtos, não uma regra geral para todos os lençóis com elástico. Versão sustentável: Escolha o tamanho do jogo de cama conforme a medida do colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m e king 1,93 m × 2,03 m, conforme medidas informadas por fabricantes. As especificações de altura do lençol com elástico podem diferir entre produtos, como mostram os exemplos de 30 cm e 40 cm."
+    },
+    {
+      "ref": "numero-de-pecas#0",
+      "msg": "OVERSTATED. O trecho da Plumasul sustenta a composição de um modelo solteiro específico, mas não afirma que a maioria dos jogos de cama tenha essa composição. A generalização para a maioria dos jogos excede a evidência. Versão sustentável: Segundo a Plumasul, este jogo de cama solteiro tem 3 peças: 1 lençol de baixo com elástico, 1 lençol de cima e 1 fronha."
+    },
+    {
+      "ref": "composicao-e-etiqueta#2",
+      "msg": "OVERSTATED. O trecho diz que tamanho ou dimensão deve constar em algum meio de identificação do produto têxtil, que pode ser etiqueta, selo, rótulo, decalque, carimbo ou outro meio similar. Ele não exige especificamente que a informação esteja na etiqueta. Versão sustentável: O tamanho ou a dimensão do produto é uma informação obrigatória e deve constar em algum meio de identificação, como etiqueta, selo ou rótulo, segundo o Inmetro."
+    },
+    {
+      "ref": "composicao-e-etiqueta#3",
+      "msg": "OVERSTATED. Os trechos apresentam instruções de lavagem de três fabricantes, mas não dizem que elas devem constar na etiqueta. Também não sustentam a afirmação de que a maioria dos fabricantes recomenda esses procedimentos, nem que todos recomendam lavagem em ciclo suave ou normal; apenas a Teka menciona processo normal. Além disso, os trechos são instruções específicas de produtos, não uma recomendação geral. Versão sustentável: Nas páginas citadas, Karsten e Trussardi indicam lavagem a 40°C; a Teka indica lavagem a até 60°C em processo normal. Karsten e Teka permitem secagem em tambor a até 60°C, enquanto a Trussardi indica secagem em varal; as temperaturas máximas para passar variam de 110°C a 150°C entre esses produtos."
+    },
+    {
+      "ref": "diferenca-medidas#0",
+      "msg": "OVERSTATED. Os trechos sustentam as medidas de 1,38 m para casal e 0,88 m para solteiro, mas a diferença é de 0,50 m, não 0,20 m. Além disso, não dizem que isso proporciona melhor espaço lateral para um casal. Versão sustentável: O jogo casal mede 1,38 m × 1,88 m, enquanto o solteiro mede 0,88 m × 1,88 m; portanto, o casal é 0,50 m mais largo, segundo as medidas informadas pela Appel."
+    },
+    {
+      "ref": "diferenca-medidas#1",
+      "msg": "MISATTRIBUTED. Nenhum trecho citado é da Corttex; os dados vêm da Plumasul e da Bouton. Além disso, os trechos mostram medidas de produtos específicos, não uma regra geral de capacidade máxima para todas as roupas de cama de cada tamanho. Versão sustentável: Nos produtos citados, a Plumasul informa 30 cm para solteiro e 40 cm para queen e king, enquanto a Bouton informa 30 cm para casal."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "MISATTRIBUTED. O trecho da Döhler citado informa apenas a medida do lençol com elástico King, não a medida da fronha nem que ela seja um mínimo. Portanto, a atribuição da medida da fronha à Döhler não é sustentada. Versão sustentável: Remova a informação sobre a fronha ou cite um trecho da Döhler que informe explicitamente a fronha de 50 cm × 70 cm. Sem essa evidência, a linha pode terminar em “Medida do lençol de cima: Segundo a Bouton, 2,60 m × 2,80 m”."
+    }
+  ]
+}
