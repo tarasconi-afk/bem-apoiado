@@ -1,0 +1,68 @@
+{
+  "score_before": 3.5,
+  "score_after": 2.5,
+  "kept": false,
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Meça a largura e o comprimento do colchão e escolha o jogo com a mesma categoria de tamanho: solteiro, casal, queen ou king.",
+      "Use como referência 0,88 m × 1,88 m para solteiro, 1,38 m × 1,88 m para casal, 1,58 m × 1,98 m para queen e 1,93 m × 2,03 m para king.",
+      "Confira a altura máxima do colchão aceita pelo lençol com elástico, pois ela varia conforme o produto: há modelos de 30 cm, 35 cm e 40 cm.",
+      "Confira no anúncio as medidas do lençol de cima e das fronhas, porque elas variam entre fabricantes.",
+      "Verifique a quantidade de peças e de fronhas na descrição: jogos de casal podem ter 3 ou 4 peças.",
+      "Confira na etiqueta ou embalagem a composição, as dimensões e as instruções de lavagem e secagem."
+    ],
+    "missing": [
+      "Medida do colchão e altura suportada para o tamanho solteirão.",
+      "Linha correspondente ao tamanho king na tabela, incluindo medidas do lençol de cima e das fronhas.",
+      "Altura máxima do lençol com elástico para cada tamanho, apresentada de forma organizada por produto.",
+      "Medidas dos componentes e quantidade de peças para king e solteirão, além de uma indicação clara de que essas informações variam conforme o modelo.",
+      "Diferença de medida entre casal padrão, queen e king apresentada em conjunto, para facilitar a comparação na compra."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque dá uma regra prática de compra: medir o colchão, conferir a categoria correspondente e verificar a altura do elástico e as medidas dos componentes no anúncio. A resposta curta é rápida e concreta, mas a cobertura é parcial: o solteirão não aparece e a tabela não inclui king, embora o veredicto cite esse tamanho. Os blocos sobre medidas dos componentes, composição, etiqueta e quantidade de peças ajudam na compra; apenas as frases de introdução e repetição da altura são enchimento.",
+    "filler_ratio": 0.14285714285714285,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "diferenca-medidas#1",
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Escolha o jogo pela medida do colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m e king 1,93 m × 2,03 m.",
+      "Confira a altura máxima do colchão suportada pelo lençol com elástico: 30 cm para alguns modelos de solteiro e casal, e 40 cm para alguns modelos queen e king.",
+      "Verifique no anúncio quantas peças o jogo inclui: há modelos de solteiro com 3 peças e modelos de casal com 4 ou 3 peças.",
+      "Confira na embalagem ou na etiqueta a composição das fibras, as dimensões dos componentes, o país de origem e as instruções de lavagem e secagem.",
+      "Não presuma que todos os jogos de um mesmo tamanho tenham a mesma quantidade de fronhas ou as mesmas medidas de lençol."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Medida do colchão, altura máxima, medidas dos componentes e quantidade de peças para o tamanho solteirão.",
+      "Medidas do lençol de cima e das fronhas e quantidade de peças para o tamanho king.",
+      "Medidas completas dos componentes e quantidade de fronhas para queen e demais tamanhos, com indicação do produto específico.",
+      "Uma tabela única relacionando cada tamanho ao colchão compatível e à altura máxima do lençol com elástico, sem deixar claro apenas que os valores variam conforme o modelo.",
+      "Diferença de medidas entre casal padrão, queen e king; a página compara casal e solteiro, mas não apresenta a comparação completa entre os três tamanhos principais."
+    ],
+    "publishable": true,
+    "summary": "A página traz uma regra útil para escolher pelo tamanho do colchão e pela altura do lençol, mas responde apenas parcialmente à dúvida sobre tamanhos de jogo de cama. Faltam o solteirão, dados completos do king e informações de peças e medidas dos componentes para todos os tamanhos. Como o leitor não consegue conferir uma opção completa para cada tamanho antes da compra, a página ainda não é publicável.",
+    "filler_ratio": 0.21428571428571427,
+    "model_opinion": false
+  }
+}
