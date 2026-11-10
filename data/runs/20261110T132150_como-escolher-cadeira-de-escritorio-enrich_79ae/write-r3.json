@@ -1,0 +1,401 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Para postos de teleatendimento e telemarketing, o Anexo II da NR-17 indica altura ajustável de 37 a 50 cm, profundidade útil de 38 a 46 cm e apoio de braços regulável de 20 a 25 cm a partir do assento. Segundo a ergocadeiras, quem pesa 110 kg deve buscar capacidade declarada de pelo menos 130 kg. A Flexform recomenda conferir na ficha valores declarados para regulagens de altura, profundidade e apoio lombar, e a norma técnica exige espuma de densidade mínima de 40 kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_41a4004759fb",
+        "clm_438e0fbf5ab1",
+        "clm_4f2607815f3b",
+        "clm_c92d9a709e25",
+        "clm_832b248a7da8",
+        "clm_0e998ebf8065"
+      ]
+    },
+    {
+      "ref": "o-que-e-cadeira-ergonomica#2",
+      "action": "replace",
+      "text": "Segundo a ergocadeiras, para tarefas que exigem foco, como digitação, mantenha o encosto mais reto, entre 90° e 100°; para leitura ou descanso, é possível incliná-lo até 110°.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_86e6abd24fd9"
+      ]
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#2",
+      "action": "replace",
+      "text": "Verifique a densidade da espuma na ficha técnica: a Flexform menciona espuma de 45 a 55 kg/m³, enquanto a norma técnica exige densidade mínima de 40 kg/m³.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_8c21a540e6a1",
+        "clm_0e998ebf8065"
+      ]
+    },
+    {
+      "ref": "rodizios-e-componentes#0",
+      "action": "replace",
+      "text": "No Anexo II sobre trabalho em teleatendimento e telemarketing, o assento deve ter apoio em 5 pés com rodízios cuja resistência evite deslocamentos involuntários sem comprometer a estabilidade, segundo o Ministério do Trabalho e Emprego. Segundo a Flexform, há rodízios disponíveis para todo tipo de piso com garantia de até 7 anos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_24102364e5e1",
+        "clm_8c21a540e6a1"
+      ]
+    },
+    {
+      "ref": "rodizios-e-componentes#2",
+      "action": "replace",
+      "text": "Segundo a Flexform, o modelo Cadeira Gamer Flexform Sigma 2 Pro Black possui um sistema de segurança anti-impacto e regulagem de altura por pistão a gás.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_908abe43f0b8"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "A Flexform recomenda ajustar o assento para que os cotovelos fiquem aproximadamente na altura da mesa com ombros relaxados. Para postos de teleatendimento e telemarketing, a NR-17 indica altura do assento entre 37 e 50 cm do piso.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_09fb68ffaab2",
+        "clm_be7789c3d30e"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Para postos de teleatendimento e telemarketing, a NR-17 indica profundidade útil de 38 a 46 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_438e0fbf5ab1"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Para postos de teleatendimento e telemarketing, a NR-17 indica apoio de braços regulável entre 20 e 25 cm a partir do assento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4f2607815f3b"
+      ]
+    },
+    {
+      "ref": "como-decidir#6",
+      "action": "replace",
+      "text": "Quando não há ajuste de profundidade do assento, verifique se a profundidade fixa é compatível com o comprimento da perna, segundo a ergocadeiras. Se couberem menos de dois dedos atrás do joelho, você pode colocar uma almofada fina no encosto para avançar o corpo; o efeito é similar ao de um assento mais raso.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d54ddeb4cd6f"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher cadeira de escritório: ajustes e medidas",
+    "description": "Descubra quais ajustes (altura, profundidade, apoio de braços) conferir na ficha técnica e como escolher pela sua altura e peso.",
+    "verdict": {
+      "text": "Para postos de teleatendimento e telemarketing, o Anexo II da NR-17 indica altura ajustável de 37 a 50 cm, profundidade útil de 38 a 46 cm e apoio de braços regulável de 20 a 25 cm a partir do assento, segundo a ergocadeiras e a Flexform. Segundo a ergocadeiras, quem pesa 110 kg deve buscar capacidade declarada de pelo menos 130 kg. A Flexform recomenda conferir na ficha valores declarados para regulagens de altura, profundidade e apoio lombar, e a norma técnica exige espuma de densidade mínima de 40 kg/m³.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_41a4004759fb",
+        "clm_438e0fbf5ab1",
+        "clm_4f2607815f3b",
+        "clm_c92d9a709e25",
+        "clm_832b248a7da8",
+        "clm_0e998ebf8065"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-e-cadeira-ergonomica",
+        "heading": "O que é uma cadeira ergonômica?",
+        "blocks": [
+          {
+            "text": "Uma cadeira ergonômica é apresentada pela Flexform como um assento com regulagens documentadas, altura por pistão a gás, apoio lombar ajustável em altura, profundidade do assento e apoio de braços, que atendem a parâmetros mínimos da NR-17.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d2f50e9c0cfb"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A altura do assento pode ser regulada por pistão a gás, segundo a Flexform. Ao escolher uma cadeira para uso doméstico, verifique o curso do pistão; cursos amplos de 100 mm ou mais cobrem melhor a variação de alturas de mesas domésticas, segundo a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ec6555f69dd",
+              "clm_09fb68ffaab2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, para tarefas que exigem foco, como digitação, mantenha o encosto mais reto, entre 90° e 100°; para leitura ou descanso, é possível incliná-lo até 110°.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_86e6abd24fd9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "informacoes-da-ficha-tecnica",
+        "heading": "O que conferir na ficha técnica ou manual",
+        "blocks": [
+          {
+            "text": "Segundo a Flexform, procure regulagens declaradas com valores para a altura do assento em centímetros, a profundidade do assento em centímetros e o ajuste do apoio lombar em centímetros.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_832b248a7da8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, o peso máximo suportado é o limite estrutural absoluto, geralmente testado em condições controladas de laboratório, enquanto o peso máximo recomendado é frequentemente 10% a 20% menor e corresponde ao uso diário normal por um período razoável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b03b9545e8a9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Verifique a densidade da espuma na ficha técnica: a Flexform menciona espuma de 45 a 55 kg/m³, enquanto a norma técnica exige densidade mínima de 40 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8c21a540e6a1",
+              "clm_0e998ebf8065"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, cadeiras com espuma de 45 a 55 kg/m³, mecanismo de qualidade e base robusta, usadas 8 horas por dia e dentro da capacidade de carga especificada, têm vida útil de 5 a 10 anos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e158908ac521"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "normas-e-certificacoes",
+        "heading": "Normas e testes que as cadeiras devem atender",
+        "blocks": [
+          {
+            "text": "No trabalho manual sentado ou em pé no contexto de teleatendimento e telemarketing, deve ser fornecido mobiliário que atenda aos itens indicados da NR-17 e permita variações posturais com ajustes de fácil acionamento, segundo a norma do Ministério do Trabalho.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0f1613e910f2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Os trechos técnicos citados mencionam espuma com densidade mínima de 40 kg/m³, estrutura dimensionada para suportar no mínimo 120 kg, e ensaios de durabilidade para rodízios, assento e encosto conforme a ABNT NBR 13962:2018.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e998ebf8065",
+              "clm_438c016f8896",
+              "clm_de716e4c0673"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Flexform declara que seus produtos passaram por ensaios no Laboratório Galileo, acreditado pela CGCRE, e estão em conformidade com a NR-17 e a ABNT NBR 13962.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_64e4a5ecc3ac"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No trabalho de operadores de checkout, a NR-17 exige uma cadeira de trabalho com assento e encosto para apoio lombar, estofamento de densidade adequada e ajustes à estatura do trabalhador e à natureza da tarefa.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a3df1a3a7c67"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "rodizios-e-componentes",
+        "heading": "Rodízios, base e segurança",
+        "blocks": [
+          {
+            "text": "No Anexo II sobre trabalho em teleatendimento e telemarketing, o assento deve ter apoio em 5 pés com rodízios cuja resistência evite deslocamentos involuntários sem comprometer a estabilidade, segundo o Ministério do Trabalho e Emprego. Segundo a Flexform, há rodízios disponíveis para todo tipo de piso com garantia de até 7 anos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_24102364e5e1",
+              "clm_8c21a540e6a1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A ABNT NBR 13962:2018 inclui um ensaio de durabilidade ao deslocamento de rodízios, no item 7.3.8.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_438c016f8896"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Flexform, o modelo Cadeira Gamer Flexform Sigma 2 Pro Black possui um sistema de segurança anti-impacto e regulagem de altura por pistão a gás.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_908abe43f0b8"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela altura, profundidade e peso suportado",
+        "blocks": [
+          {
+            "text": "A Flexform recomenda ajustar o assento para que os cotovelos fiquem aproximadamente na altura da mesa com ombros relaxados. Para postos de teleatendimento e telemarketing, a NR-17 indica altura do assento entre 37 e 50 cm do piso, segundo a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_09fb68ffaab2",
+              "clm_be7789c3d30e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para postos de teleatendimento e telemarketing, a NR-17 indica profundidade útil de 38 a 46 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_438e0fbf5ab1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para postos de teleatendimento e telemarketing, a NR-17 indica apoio de braços regulável entre 20 e 25 cm a partir do assento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4f2607815f3b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Capacidade de carga recomendada conforme seu peso (segundo a ergocadeiras)",
+            "columns": [
+              "Seu peso",
+              "Capacidade mínima recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "110 kg",
+                    "claim_ids": [
+                      "clm_c92d9a709e25"
+                    ]
+                  },
+                  {
+                    "text": "Pelo menos 130 kg",
+                    "claim_ids": [
+                      "clm_c92d9a709e25"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "130 kg",
+                    "claim_ids": [
+                      "clm_c92d9a709e25"
+                    ]
+                  },
+                  {
+                    "text": "Pelo menos 150 kg",
+                    "claim_ids": [
+                      "clm_c92d9a709e25"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa mais de 110 kg, procure evitar bases de plástico (nylon): com o tempo o material sofre fadiga e pode partir, segundo a ergocadeiras. Bases de aço ou alumínio duram mais.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_597a6ae39dba"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para pessoas mais altas, procure encostos com altura acima de 75 cm se você mede entre 1,85 m e 1,90 m, e acima de 80 cm se mede mais de 1,90 m, segundo a ergocadeiras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3d7dc4962bf8"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quando não há ajuste de profundidade do assento, verifique se a profundidade fixa é compatível com o comprimento da perna, segundo a ergocadeiras. Se couberem menos de dois dedos atrás do joelho, você pode colocar uma almofada fina no encosto para avançar o corpo; o efeito é similar ao de um assento mais raso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d54ddeb4cd6f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, os ajustes da cadeira devem ser revistos quando a pessoa troca de mesa ou configuração de trabalho ou quando seu peso muda significativamente, pois isso afeta o funcionamento de componentes como o reclino e o suporte lombar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3fc79e3468ce"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. As faixas de 37–50 cm, 38–46 cm e 20–25 cm aparecem no trecho do Anexo II da NR 17 para trabalho em teleatendimento/telemarketing, não em ergocadeiras ou Flexform; portanto, a atribuição a essas duas fontes é incorreta. Além disso, a recomendação de capacidade de 130 kg é sustentada por ergocadeiras, mas não pelo trecho da Flexform. O texto também apresenta a regra específica de teleatendimento como orientação geral para qualquer cadeira. Versão sustentável: Para postos de teleatendimento/telemarketing, o Anexo II da NR 17 indica altura ajustável de 37 a 50 cm, profundidade útil de 38 a 46 cm e apoio de braços regulável de 20 a 25 cm a partir do assento. Segundo a ergocadeiras, quem pesa 110 kg deve buscar capacidade declarada de pelo menos 130 kg. A Flexform recomenda conferir na ficha valores declarados para regulagens de altura, profundidade e apoio lombar, e o trecho da CAUSC indica espuma de densidade mínima de 40 kg/m³."
+    },
+    {
+      "ref": "o-que-e-cadeira-ergonomica#2",
+      "msg": "UNSUPPORTED. O trecho citado sustenta os ângulos recomendados para digitação, leitura e descanso, mas não afirma que o encosto é regulável em inclinação nem que essa regulagem permite inclinar a cadeira para trás. Versão sustentável: Segundo a ergocadeiras, para tarefas que exigem foco, como digitação, mantenha o encosto mais reto, entre 90° e 100°; para leitura ou descanso, é possível incliná-lo até 110°."
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#2",
+      "msg": "OVERSTATED. O trecho da Flexform informa a faixa de espuma, mas não diz explicitamente que ela se aplica a todas as suas linhas. Além disso, o trecho independente estabelece um requisito de densidade mínima para o assento, mas não o identifica literalmente como uma norma técnica. Versão sustentável: Verifique a densidade da espuma na ficha técnica: um trecho da Flexform menciona espuma de 45 a 55 kg/m³, e o documento citado exige densidade mínima de 40 kg/m³ para o assento."
+    },
+    {
+      "ref": "rodizios-e-componentes#0",
+      "msg": "MISATTRIBUTED. O requisito do assento no Anexo II é dito pelo trecho do Ministério do Trabalho e Emprego, não pela Flexform. A atribuição “segundo a Flexform” fica indevidamente ligada a essa exigência regulatória. Versão sustentável: No Anexo II sobre trabalho em teleatendimento e telemarketing, o assento deve ter apoio em 5 pés com rodízios cuja resistência evite deslocamentos involuntários sem comprometer a estabilidade, segundo o Ministério do Trabalho e Emprego. Segundo a Flexform, há rodízios disponíveis para todo tipo de piso com garantia de até 7 anos."
+    },
+    {
+      "ref": "rodizios-e-componentes#2",
+      "msg": "OVERSTATED. O trecho citado descreve um modelo específico, a Cadeira Gamer Flexform Sigma 2 Pro Black. Ele não sustenta a generalização para “determinados modelos” nem afirma expressamente que os dois recursos formam um sistema combinado. Versão sustentável: Segundo a Flexform, o modelo Cadeira Gamer Flexform Sigma 2 Pro Black possui um sistema de segurança anti-impacto e regulagem de altura por pistão a gás."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. O trecho da Flexform sustenta a orientação sobre cotovelos, mesa e ombros, mas não afirma a faixa de 37 a 50 cm nem que a NR-17 a indique. Essa faixa aparece no trecho do Ministério do Trabalho, portanto “segundo a Flexform” atribui a ela algo que o trecho não diz. Versão sustentável: A Flexform recomenda ajustar o assento para que os cotovelos fiquem aproximadamente na altura da mesa com ombros relaxados. Para postos de teleatendimento e telemarketing, o trecho citado da NR-17 indica altura do assento entre 37 e 50 cm do piso."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. O trecho sustenta a faixa de profundidade útil, mas não menciona conforto nem orienta o leitor a procurar essas medidas quando a cadeira permite ajuste. Versão sustentável: Para postos de teleatendimento e telemarketing, a NR-17 indica profundidade útil de 38 a 46 cm."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho sustenta a regulagem do apoio de braços entre 20 e 25 cm a partir do assento, mas não diz que o apoio não deve interferir no movimento de aproximação da cadeira à mesa. Versão sustentável: Para postos de teleatendimento e telemarketing, a NR-17 indica apoio de braços regulável entre 20 e 25 cm a partir do assento."
+    },
+    {
+      "ref": "como-decidir#6",
+      "msg": "MISATTRIBUTED. O trecho da ergocadeiras fala em deixar menos de dois dedos atrás do joelho, não entre a borda frontal do assento e as coxas. A recomendação da almofada no encosto e o efeito similar ao de um assento mais raso são sustentados, mas a localização da medida foi alterada. Versão sustentável: Quando não há ajuste de profundidade do assento, verifique se a profundidade fixa é compatível com o comprimento da perna, segundo a ergocadeiras. Se couberem menos de dois dedos atrás do joelho, você pode colocar uma almofada fina no encosto para avançar o corpo; o efeito é similar ao de um assento mais raso."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1429
+  }
+}

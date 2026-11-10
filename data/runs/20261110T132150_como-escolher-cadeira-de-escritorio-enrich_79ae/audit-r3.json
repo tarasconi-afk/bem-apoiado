@@ -1,0 +1,162 @@
+{
+  "findings": [
+    {
+      "ref": "o-que-e-cadeira-ergonomica#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-cadeira-ergonomica#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-e-certificacoes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-e-certificacoes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-e-certificacoes#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-e-certificacoes#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodizios-e-componentes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Flexform sustenta a orientação sobre cotovelos, mesa e ombros, mas não afirma a faixa de 37 a 50 cm nem que a NR-17 a indique. Essa faixa aparece no trecho do Ministério do Trabalho, portanto “segundo a Flexform” atribui a ela algo que o trecho não diz.",
+      "fix": "A Flexform recomenda ajustar o assento para que os cotovelos fiquem aproximadamente na altura da mesa com ombros relaxados. Para postos de teleatendimento e telemarketing, o trecho citado da NR-17 indica altura do assento entre 37 e 50 cm do piso."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#7",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos do Ministério do Trabalho sustentam as medidas do Anexo II, mas os trechos da ergocadeiras e da Flexform não as apresentam; portanto, não cabe dizer que essas medidas são “segundo a ergocadeiras e a Flexform”. Além disso, o trecho da causc afirma uma especificação de um documento, mas não mostra que se trate de uma norma técnica; atribuir-lhe essa exigência como “a norma técnica exige” excede e reclassifica a fonte.",
+      "fix": "O Anexo II da NR-17, para postos de teleatendimento e telemarketing, indica altura ajustável de 37 a 50 cm, profundidade útil de 38 a 46 cm e apoio de braços regulável de 20 a 25 cm a partir do assento. Segundo a ergocadeiras, quem pesa 110 kg deve buscar capacidade declarada de pelo menos 130 kg. A Flexform orienta verificar na ficha valores declarados para regulagens de altura, profundidade e apoio lombar. Em um documento da causc, consta que o assento deve ter espuma de alta resistência com densidade mínima de 40 kg/m³ ou tecnologia equivalente."
+    },
+    {
+      "ref": "o-que-e-cadeira-ergonomica#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da CAUSC estabelece densidade mínima de 40 kg/m³ para a espuma do assento, mas não diz que se trata de uma norma técnica. Além disso, o bloco generaliza a exigência para a espuma em geral, enquanto o trecho se refere especificamente ao assento.",
+      "fix": "Verifique a densidade da espuma na ficha técnica: a Flexform menciona espuma de 45 a 55 kg/m³, enquanto um documento da CAUSC estabelece densidade mínima de 40 kg/m³ para a espuma do assento."
+    },
+    {
+      "ref": "rodizios-e-componentes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodizios-e-componentes#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#6",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. O trecho da Flexform sustenta a orientação sobre cotovelos, mesa e ombros, mas não afirma a faixa de 37 a 50 cm nem que a NR-17 a indique. Essa faixa aparece no trecho do Ministério do Trabalho, portanto “segundo a Flexform” atribui a ela algo que o trecho não diz. Versão sustentável: A Flexform recomenda ajustar o assento para que os cotovelos fiquem aproximadamente na altura da mesa com ombros relaxados. Para postos de teleatendimento e telemarketing, o trecho citado da NR-17 indica altura do assento entre 37 e 50 cm do piso."
+    },
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos do Ministério do Trabalho sustentam as medidas do Anexo II, mas os trechos da ergocadeiras e da Flexform não as apresentam; portanto, não cabe dizer que essas medidas são “segundo a ergocadeiras e a Flexform”. Além disso, o trecho da causc afirma uma especificação de um documento, mas não mostra que se trate de uma norma técnica; atribuir-lhe essa exigência como “a norma técnica exige” excede e reclassifica a fonte. Versão sustentável: O Anexo II da NR-17, para postos de teleatendimento e telemarketing, indica altura ajustável de 37 a 50 cm, profundidade útil de 38 a 46 cm e apoio de braços regulável de 20 a 25 cm a partir do assento. Segundo a ergocadeiras, quem pesa 110 kg deve buscar capacidade declarada de pelo menos 130 kg. A Flexform orienta verificar na ficha valores declarados para regulagens de altura, profundidade e apoio lombar."
+    },
+    {
+      "ref": "informacoes-da-ficha-tecnica#2",
+      "msg": "MISATTRIBUTED. O trecho da CAUSC estabelece densidade mínima de 40 kg/m³ para a espuma do assento, mas não diz que se trata de uma norma técnica. Além disso, o bloco generaliza a exigência para a espuma em geral, enquanto o trecho se refere especificamente ao assento. Versão sustentável: Verifique a densidade da espuma na ficha técnica: a Flexform menciona espuma de 45 a 55 kg/m³, enquanto um documento da CAUSC estabelece densidade mínima de 40 kg/m³ para a espuma do assento."
+    }
+  ]
+}

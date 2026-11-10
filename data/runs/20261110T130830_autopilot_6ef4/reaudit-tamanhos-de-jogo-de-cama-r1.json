@@ -1,0 +1,27 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha o tamanho do jogo de cama conforme a medida do colchão: solteiro 0,88 m × 1,88 m, casal 1,38 m × 1,88 m, queen 1,58 m × 1,98 m e king 1,93 m × 2,03 m, segundo fabricantes como Appel, Camesa e Altenburg. A altura do lençol com elástico varia entre produtos: nos trechos citados, solteiro chega a 30 cm, casal a 30 ou 35 cm, queen a 35, 38 ou 40 cm, e king a 40 cm, segundo Camesa, Altenburg e Plumasul.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1e0279a51aff",
+        "clm_117a9fbc38fc",
+        "clm_b3400b6274df",
+        "clm_f8e2bfaa695c",
+        "clm_373bb7eb8778",
+        "clm_81b6414ab95a",
+        "clm_087a7f33bba2",
+        "clm_8a640f3e5431",
+        "clm_70d20b702351"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "não escreva \"trechos citados\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\") ou o que não foi informado (\"a ficha não informa\")."
+    }
+  ]
+}

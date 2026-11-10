@@ -1,0 +1,207 @@
+{
+  "run_id": "20261110T132150_como-escolher-cadeira-de-escritorio-enrich_79ae",
+  "topic": "como-escolher-cadeira-de-escritorio",
+  "accepted": [
+    {
+      "claim_id": "clm_fe5fdec9609b",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b6d154a7c614",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a9a6570f77c0",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_df7581675dc0",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cb1fb924b640",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dc4b94542263",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4f3063274c02",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_eb4fb9b122e1",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_de716e4c0673",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_438c016f8896",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6a12323430e8",
+      "question_id": "q_classificacao_tipo",
+      "source_id": "src_c2a577370a94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0e998ebf8065",
+      "question_id": "q_nbr13962_especificacoes",
+      "source_id": "src_b7fec81e5a1c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8e23d21bbfbf",
+      "question_id": "q_ajustes_fabricante",
+      "source_id": "src_b7fec81e5a1c",
+      "new": false
+    },
+    {
+      "claim_id": "clm_2307bc7ab07a",
+      "question_id": "q_capacidade_carga",
+      "source_id": "src_b7fec81e5a1c",
+      "new": false
+    },
+    {
+      "claim_id": "clm_85ff092b216c",
+      "question_id": "q_componentes_seguranca",
+      "source_id": "src_b7fec81e5a1c",
+      "new": false
+    },
+    {
+      "claim_id": "clm_c0bd234f58f6",
+      "question_id": "q_classificacao_tipo",
+      "source_id": "src_b7fec81e5a1c",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_b7fec81e5a1c",
+      "question_id": "q_nr17_requisitos",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "o mobiliário destinado aos postos de trabalho deve ser compatível com as características psicofisiológicas dos usuários, de modo a proporcionar condições adequadas de conforto, segurança, saúde e dese"
+    },
+    {
+      "source_id": "src_b7fec81e5a1c",
+      "question_id": "q_nr17_requisitos",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "a utilização de cadeiras desgastadas, com perda de suas características funcionais e sem os mecanismos de regulagem ergonômica necessários, tais como ajuste de altura, inclinação e apoio lombar, compr"
+    },
+    {
+      "source_id": "src_b7fec81e5a1c",
+      "question_id": "q_certificacao_responsavel",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "O produto deve estar em estrita conformidade com a do Ministério do NR-17 (Ergonomia) Trabalho e Emprego e com a norma técnica (ou equivalente), que rege os padrões de segurança, estabilidade e resist"
+    }
+  ],
+  "coverage": {
+    "q_nr17_requisitos": 0,
+    "q_nbr13962_especificacoes": 11,
+    "q_ajustes_fabricante": 1,
+    "q_capacidade_carga": 1,
+    "q_componentes_seguranca": 1,
+    "q_certificacao_responsavel": 0,
+    "q_classificacao_tipo": 2,
+    "q_ajuste_c4cca5f8": 0,
+    "q_ajuste_d6db067b": 0,
+    "q_ajuste_392454a8": 0
+  },
+  "unanswered": [
+    "q_nr17_requisitos",
+    "q_certificacao_responsavel",
+    "q_ajuste_c4cca5f8",
+    "q_ajuste_d6db067b",
+    "q_ajuste_392454a8"
+  ],
+  "usage": {
+    "input_tokens": 9,
+    "output_tokens": 3247,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_5a6429a0d119"
+  ],
+  "triage": [
+    {
+      "source_id": "src_c2a577370a94",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.79
+    },
+    {
+      "source_id": "src_c2a577370a94",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.59
+    },
+    {
+      "source_id": "src_c2a577370a94",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.18
+    },
+    {
+      "source_id": "src_c2a577370a94",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0.08
+    },
+    {
+      "source_id": "src_c2a577370a94",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0.08
+    },
+    {
+      "source_id": "src_c2a577370a94",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0.02
+    },
+    {
+      "source_id": "src_b7fec81e5a1c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_b7fec81e5a1c",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.06
+    },
+    {
+      "source_id": "src_b7fec81e5a1c",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.37
+    }
+  ],
+  "credits": 41.770122119999996
+}
