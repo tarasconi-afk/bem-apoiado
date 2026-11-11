@@ -1,0 +1,27 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Edredons são identificados por tamanho (solteiro, casal, queen, king), mas as medidas variam entre fabricantes. Comece identificando o tamanho da sua cama, procure um edredom com a mesma denominação e confira as medidas exatas na ficha do modelo antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3731b66d45a4",
+        "clm_dcb982b686b5",
+        "clm_4b490a370e7b",
+        "clm_12f63e7aa23f",
+        "clm_9e18a9b935a2",
+        "clm_d3396bc1fbfb",
+        "clm_1b7c66e7b4c8",
+        "clm_2b6bb6621b4a"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: MISATTRIBUTED"
+  ]
+}

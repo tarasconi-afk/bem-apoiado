@@ -1,0 +1,64 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "Quem tem cama de solteiro é orientado a começar pelo edredom desse tamanho, mas a seção “Como decidir pelo tamanho” não diz qual medida escolher ou conferir para esse caso (verdict); Incluir na seção “Como decidir pelo tamanho” uma orientação para cama de solt"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha inicialmente o tamanho nominal correspondente à cama: solteiro, casal, queen ou king.",
+      "Confira a largura e o comprimento informados na ficha do modelo, porque edredons do mesmo tamanho nominal podem ter medidas diferentes entre fabricantes.",
+      "Ao comparar dois modelos do mesmo tamanho, prefira a medida declarada na ficha em vez de considerar apenas o nome solteiro, casal, queen ou king.",
+      "Confira também a etiqueta de conservação para saber as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Peso e medidas do edredom embalado, conforme declaração do fabricante.",
+      "Uma orientação sobre quanto de sobra lateral e nos pés da cama o edredom deve ter, caso exista recomendação do fabricante."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável: responde de forma direta que o comprador deve partir do tamanho nominal da cama e confirmar as medidas exatas na ficha do produto, mostrando variações concretas entre fabricantes. A resposta curta é compreensível e leva à compra, embora não informe o peso e as dimensões da embalagem e não apresente uma regra sobre a sobra de tecido nas laterais da cama.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "verdict",
+        "problem": "Quem tem cama de solteiro é orientado a começar pelo edredom desse tamanho, mas a seção “Como decidir pelo tamanho” não diz qual medida escolher ou conferir para esse caso.",
+        "fix": "Incluir na seção “Como decidir pelo tamanho” uma orientação para cama de solteiro, usando a medida de 1,80 m × 2,50 m declarada pela Döhler e recomendando conferir a medida na ficha do modelo."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "etiqueta-conservacao#0",
+      "etiqueta-conservacao#1"
+    ],
+    "decision_criteria": [
+      "Comece pelo edredom com o mesmo nome do tamanho da cama: solteiro, casal, queen ou king.",
+      "Confira a medida exata de largura e comprimento na ficha do produto, pois edredons do mesmo tamanho nominal variam entre fabricantes.",
+      "Para cama solteiro de 0,88 m × 1,88 m, o exemplo consultado de edredom mede 1,80 m × 2,50 m.",
+      "Para cama casal de 1,38 m × 1,88 m, os exemplos consultados variam de 2,20 m × 1,80 m a 2,20 m × 2,50 m.",
+      "Para cama queen de 1,58 m × 1,98 m, os exemplos consultados variam de 2,40 m × 2,50 m a 2,50 m × 2,70 m.",
+      "Para cama king, escolha um modelo identificado como king e compare as medidas declaradas, que variam entre fabricantes."
+    ],
+    "missing": [
+      "Medida de cama king usada como referência, para completar a comparação com solteiro, casal e queen.",
+      "Peso e medidas do edredom embalado, caso essa informação seja relevante para transporte e armazenamento."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente como escolher o tamanho do edredom: partir do tamanho nominal da cama e conferir largura e comprimento na ficha, já que as medidas variam entre fabricantes. A resposta curta é concreta e suficiente para orientar a compra; a tabela amplia a decisão com exemplos de medidas. As informações sobre etiqueta de conservação são corretas e detalhadas, mas não ajudam a escolher o tamanho e funcionam como conteúdo lateral.",
+    "filler_ratio": 0.2,
+    "model_opinion": true
+  }
+}
