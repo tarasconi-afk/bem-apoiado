@@ -1,0 +1,104 @@
+{
+  "findings": [
+    {
+      "ref": "composicao-declarada#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-fabricantes-declaram#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-fabricantes-declaram#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos do Inmetro sustentam que a etiqueta deve informar os nomes das fibras e seus percentuais, mas não dizem que ela deva informar especificamente “100% de algodão egípcio” nem que algodão egípcio seja uma opção para esse critério. As demais afirmações são sustentadas: os fabricantes relacionam fibras longas à suavidade ou à resistência às lavagens, e há produtos com instrução de secagem no varal sem secadora.",
+      "fix": "Algodão egípcio pode ser considerado se essa informação constar da descrição ou da etiqueta; para misturas, confira na etiqueta o nome e o percentual de cada fibra, conforme exigido pelo Inmetro. Segundo Appel e Karsten, fibras mais longas podem estar associadas a maior suavidade ou resistência às lavagens. Alguns produtos têm instruções específicas de secagem no varal, sem uso de secadora."
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Trussardi informa 100% algodão egípcio para o lençol avulso Grasso Branco, não para o jogo de cama Queen Romanza mencionado no bloco. As afirmações sobre a Appel e a Teka são sustentadas pelos respectivos trechos.",
+      "fix": "A Trussardi informa 100% algodão egípcio no lençol com elástico avulso Grasso Branco; a Appel informa 100% algodão, em fio de algodão egípcio penteado, na toalha Mêmphis; e a Teka informa uma mistura de 60% algodão e 40% poliéster no jogo de cama Madri."
+    },
+    {
+      "ref": "densidade-fios-gramatura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos do Inmetro sustentam que a etiqueta deve informar os nomes das fibras e seus percentuais, mas não dizem que ela deva informar especificamente “100% de algodão egípcio” nem que algodão egípcio seja uma opção para esse critério. As demais afirmações são sustentadas: os fabricantes relacionam fibras longas à suavidade ou à resistência às lavagens, e há produtos com instrução de secagem no varal sem secadora. Versão sustentável: Algodão egípcio pode ser considerado se essa informação constar da descrição ou da etiqueta; para misturas, confira na etiqueta o nome e o percentual de cada fibra, conforme exigido pelo Inmetro. Segundo Appel e Karsten, fibras mais longas podem estar associadas a maior suavidade ou resistência às lavagens. Alguns produtos têm instruções específicas de secagem no varal, sem uso de secadora."
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "msg": "MISATTRIBUTED. O trecho da Trussardi informa 100% algodão egípcio para o lençol avulso Grasso Branco, não para o jogo de cama Queen Romanza mencionado no bloco. As afirmações sobre a Appel e a Teka são sustentadas pelos respectivos trechos. Versão sustentável: A Trussardi informa 100% algodão egípcio no lençol com elástico avulso Grasso Branco; a Appel informa 100% algodão, em fio de algodão egípcio penteado, na toalha Mêmphis; e a Teka informa uma mistura de 60% algodão e 40% poliéster no jogo de cama Madri."
+    }
+  ]
+}

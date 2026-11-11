@@ -1,0 +1,358 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Algodão egípcio pode ser uma opção se você busca um produto cuja composição informe 100% de algodão egípcio; se aceitar misturas, confira na etiqueta o percentual de cada fibra, conforme exigido pelo Inmetro. Segundo Appel e Karsten, fibras mais longas podem deixar o tecido mais suave e contribuir para maior resistência às lavagens. Alguns produtos têm instruções específicas de secagem no varal, sem uso de secadora.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_80f702232d92",
+        "clm_1a9fa3a6c7bf",
+        "clm_fb3c245b3322",
+        "clm_fc5990575d4d",
+        "clm_884a9d07abf8",
+        "clm_d2d1eb455827"
+      ]
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "action": "replace",
+      "text": "Segundo os trechos citados, a Trussardi informa '100% Algodão Egípcio', a Appel informa '100% algodão' em fio de algodão egípcio, e a Teka informa uma mistura de 60% algodão e 40% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_72122c20e886",
+        "clm_0beac0ea658e",
+        "clm_2e0ca964b047"
+      ]
+    },
+    {
+      "ref": "o-que-fabricantes-declaram#2",
+      "action": "remove"
+    },
+    {
+      "ref": "densidade-fios-gramatura#0",
+      "action": "replace",
+      "text": "Os trechos citados informam que o jogo de cama Queen Romanza da Trussardi tem 300 fios em cetim e que a Toalha de Banho Mêmphis da Appel usa fio 30/2 de algodão egípcio penteado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_13b84993c0fa",
+        "clm_0beac0ea658e"
+      ]
+    },
+    {
+      "ref": "densidade-fios-gramatura#1",
+      "action": "replace",
+      "text": "Na página da Appel, a Toalha de Banho Mêmphis tem gramatura de 450 g/m²; na página da Kacyumara, a Toalha Lavabo 100% Algodão Egípcio Buddemeyer tem gramatura de 550 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_35a62f2d6e53",
+        "clm_6ad46f140b14"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "Na Toalha de Banho Mêmphis da Appel, a orientação é lavar na máquina a até 30°C, sem alvejante e separada de peças escuras; secar no varal, sem secadora; e passar com ferro a até 110°C, evitando vapor.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_884a9d07abf8",
+        "clm_d2d1eb455827"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "action": "replace",
+      "text": "O Inmetro inclui 'tratamento de cuidado para conservação' entre as informações obrigatórias em produtos têxteis.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_967a8a4db583",
+        "clm_7826221856ab"
+      ]
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, a etiqueta de um produto têxtil deve informar a composição das fibras e seus percentuais, o tamanho ou dimensão quando aplicável, o tratamento de cuidado para conservação e o país de origem usando os termos indicados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf",
+        "clm_2ebc5dbbf935",
+        "clm_967a8a4db583",
+        "clm_dba606a03ddf"
+      ]
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#1",
+      "action": "replace",
+      "text": "A indicação de tamanho ou dimensão é obrigatória quando aplicável e deve constar na etiqueta ou em outro meio admitido no produto têxtil.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2ebc5dbbf935",
+        "clm_531debf45868",
+        "clm_6b18a74c7007"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você aceita uma mistura de algodão egípcio com outras fibras, prefira produtos cuja etiqueta informe o percentual de cada fibra, conforme a exigência do Inmetro. Evite peças descritas apenas como 'blend' ou 'mistura' sem as proporções.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a9fa3a6c7bf"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você usa secadora, verifique as instruções de secagem na etiqueta do produto. A Toalha de Banho Mêmphis da Appel, por exemplo, proíbe secadora e exige secagem no varal.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_884a9d07abf8",
+        "clm_d2d1eb455827"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Algodão egípcio vale a pena: o que conferir na etiqueta",
+    "description": "Saiba qual composição e percentual de algodão egípcio declarar na etiqueta, densidade de fios e cuidados de lavagem para decidir se compensa comprar.",
+    "verdict": {
+      "text": "Algodão egípcio pode ser uma opção se você busca um produto cuja composição informe 100% de algodão egípcio; se aceitar misturas, confira na etiqueta o percentual de cada fibra, conforme exigido pelo Inmetro. Segundo Appel e Karsten, fibras mais longas podem deixar o tecido mais suave e contribuir para maior resistência às lavagens. Alguns produtos têm instruções específicas de secagem no varal, sem uso de secadora.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_80f702232d92",
+        "clm_1a9fa3a6c7bf",
+        "clm_fb3c245b3322",
+        "clm_fc5990575d4d",
+        "clm_884a9d07abf8",
+        "clm_d2d1eb455827"
+      ]
+    },
+    "sections": [
+      {
+        "id": "composicao-declarada",
+        "heading": "Qual composição a etiqueta deve informar",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a etiqueta do produto têxtil deve informar obrigatoriamente o nome de cada fibra e seus percentuais em massa. Isso vale para produtos 100% algodão egípcio e para misturas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf",
+              "clm_80f702232d92"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo os trechos citados, a Trussardi informa '100% Algodão Egípcio', a Appel informa '100% algodão' em fio de algodão egípcio, e a Teka informa uma mistura de 60% algodão e 40% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_72122c20e886",
+              "clm_0beac0ea658e",
+              "clm_2e0ca964b047"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-fabricantes-declaram",
+        "heading": "O que fabricantes declaram sobre a fibra",
+        "blocks": [
+          {
+            "text": "Segundo Appel, o algodão egípcio tem filamentos mais longos que o algodão comum, gera fio mais uniforme com menos pontas soltas e felpa que resiste melhor às lavagens. A Karsten declara que as fibras longas impedem formação de bolinhas e o toque é mais macio e confortável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fb3c245b3322",
+              "clm_fc5990575d4d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Appel também informa que o algodão egípcio garante maciez e durabilidade superiores, enquanto a Karsten menciona propriedades hipoalergênicas e respiráveis da fibra.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f16fb4e0ab6b",
+              "clm_3b58b95388a9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-fios-gramatura",
+        "heading": "Densidade de fios e gramatura declaradas",
+        "blocks": [
+          {
+            "text": "Os trechos citados informam que o jogo de cama Queen Romanza da Trussardi tem 300 fios em cetim e que a Toalha de Banho Mêmphis da Appel usa fio 30/2 de algodão egípcio penteado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_13b84993c0fa",
+              "clm_0beac0ea658e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Na página da Appel, a Toalha de Banho Mêmphis tem gramatura de 450 g/m²; na página da Kacyumara, a Toalha Lavabo 100% Algodão Egípcio Buddemeyer tem gramatura de 550 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_35a62f2d6e53",
+              "clm_6ad46f140b14"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Instruções de lavagem, secagem e passar",
+        "blocks": [
+          {
+            "text": "Na Toalha de Banho Mêmphis da Appel, a orientação é lavar na máquina a até 30°C, sem alvejante e separada de peças escuras; secar no varal, sem secadora; e passar com ferro a até 110°C, evitando vapor.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_884a9d07abf8",
+              "clm_d2d1eb455827"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Jogo de Cama Nanda da Karsten, a orientação é lavar a 40°C, não alvejar, secar em tambor a no máximo 60°C, passar a no máximo 150°C e não lavar a seco. A Karsten também recomenda lavar tipos de tecidos distintos separadamente, não misturar cores claras e escuras, usar ciclo leve e enxaguar bem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a0adc0fd772",
+              "clm_2b409ba6d37e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro inclui 'tratamento de cuidado para conservação' entre as informações obrigatórias em produtos têxteis.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_967a8a4db583",
+              "clm_7826221856ab"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "informacoes-obrigatorias-etiqueta",
+        "heading": "O que a etiqueta deve conter obrigatoriamente",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a etiqueta de um produto têxtil deve informar a composição das fibras e seus percentuais, o tamanho ou dimensão quando aplicável, o tratamento de cuidado para conservação e o país de origem usando os termos indicados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf",
+              "clm_2ebc5dbbf935",
+              "clm_967a8a4db583",
+              "clm_dba606a03ddf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A indicação de tamanho ou dimensão é obrigatória quando aplicável e deve constar na etiqueta ou em outro meio admitido no produto têxtil.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ebc5dbbf935",
+              "clm_531debf45868",
+              "clm_6b18a74c7007"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As instruções de cuidado podem ser indicadas por símbolos, textos ou ambos, conforme escolha do fabricante.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a730fea8b014"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir ao comprar",
+        "blocks": [
+          {
+            "text": "Se você quer 100% algodão egípcio, confira na etiqueta que a composição declare explicitamente essa porcentagem, segundo a Appel e a Trussardi. A lei exige que todo produto têxtil informe a natureza e a porcentagem de cada fibra que o compõe.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_80f702232d92",
+              "clm_0beac0ea658e",
+              "clm_72122c20e886"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você aceita uma mistura de algodão egípcio com outras fibras, prefira produtos cuja etiqueta informe o percentual de cada fibra, conforme a exigência do Inmetro. Evite peças descritas apenas como 'blend' ou 'mistura' sem as proporções.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1a9fa3a6c7bf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você usa secadora, verifique as instruções de secagem na etiqueta do produto, segundo a Appel. A Toalha de Banho Mêmphis da Appel, por exemplo, proíbe secadora e exige secagem no varal.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_884a9d07abf8",
+              "clm_d2d1eb455827"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A orientação para escolher produtos que informem o percentual de cada fibra é sustentada pelos trechos do Inmetro, não por Appel, Trussardi ou Buddemeyer. Os trechos desses fabricantes apenas mostram composições específicas; não apresentam essa recomendação. Além disso, os trechos citados não sustentam diretamente a afirmação de que o algodão egípcio \"vale a pena\". Versão sustentável: Algodão egípcio pode ser uma opção se você busca um produto cuja composição informe 100% de algodão egípcio; se aceitar misturas, confira na etiqueta o percentual de cada fibra, conforme exigido pelo Inmetro. Segundo Appel e Karsten, fibras mais longas podem deixar o tecido mais suave e contribuir para maior resistência às lavagens. Alguns produtos têm instruções específicas de secagem no varal, sem uso de secadora."
+    },
+    {
+      "ref": "composicao-declarada#1",
+      "msg": "UNSUPPORTED. Os trechos não sustentam o exemplo de mistura com 60% algodão egípcio e 40% linho: a Teka informa 60% algodão e 40% poliéster. Além disso, o trecho da Appel diz “100% algodão” em fio de algodão egípcio, não exatamente “100% algodão egípcio”. Versão sustentável: Segundo os trechos citados, a Trussardi informa “100% Algodão Egípcio”; a Appel informa “100% algodão” em fio de algodão egípcio; e a Teka informa uma mistura de 60% algodão e 40% poliéster."
+    },
+    {
+      "ref": "o-que-fabricantes-declaram#2",
+      "msg": "FACT_IN_FRAMING. O bloco afirma fatos sobre a disponibilidade de evidências e sobre o que o Inmetro avalia, mas não cita nenhum trecho que sustente essas afirmações. Como o basis é framing, o texto não pode apresentar essas alegações factuais. Versão sustentável: A seguir, veja as declarações dos fabricantes sobre o algodão egípcio."
+    },
+    {
+      "ref": "densidade-fios-gramatura#0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que a densidade de fios é informada em fios por polegada nem sustentam a faixa de 200 a 400 fios para produtos de algodão egípcio. Eles sustentam apenas que o jogo Romanza tem 300 fios em cetim e que a toalha Mêmphis usa fio 30/2 de algodão egípcio penteado. Versão sustentável: Os trechos citados informam que o jogo de cama Queen Romanza da Trussardi tem 300 fios em cetim e que a Toalha de Banho Mêmphis da Appel usa fio 30/2 de algodão egípcio penteado."
+    },
+    {
+      "ref": "densidade-fios-gramatura#1",
+      "msg": "UNSUPPORTED. Os trechos não definem gramatura como peso do tecido por metro quadrado, não dizem que ela aparece na etiqueta em g/m² e não atribuem essas explicações à Appel ou à Kacyumara. Eles sustentam apenas as gramaturas específicas de 450 g/m² para a toalha Mêmphis da Appel e de 550 g/m² para a toalha lavabo da Buddemeyer na página da Kacyumara. Versão sustentável: Na página da Appel, a Toalha de Banho Mêmphis tem gramatura de 450 g/m²; na página da Kacyumara, a Toalha Lavabo 100% Algodão Egípcio Buddemeyer tem gramatura de 550 g/m²."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos sustentam as instruções da Toalha de Banho Mêmphis da Appel, mas não dizem que produtos de algodão egípcio em geral têm instruções diferentes conforme o fabricante. Versão sustentável: Na Toalha de Banho Mêmphis da Appel, a orientação é lavar na máquina a até 30°C, sem alvejante e separada de peças escuras; secar no varal, sem secadora; e passar com ferro a até 110°C, evitando vapor."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "UNSUPPORTED. Os trechos citados apenas mencionam “Tratamento de cuidado para conservação”. Eles não afirmam que a etiqueta é exigida, que o fabricante deve declarar essa informação, nem que o consumidor deve comparar as instruções com sua máquina e seus hábitos de secagem. Versão sustentável: O Inmetro inclui “tratamento de cuidado para conservação” entre as informações relacionadas a produtos têxteis."
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam a exigência de composição, tamanho ou dimensão, tratamento de cuidado e país de origem para produtos têxteis, mas não mencionam especificamente algodão egípcio nem detalham o tratamento como lavagem, secagem e passar. Versão sustentável: Segundo o Inmetro, a etiqueta de um produto têxtil deve informar a composição das fibras e seus percentuais, o tamanho ou dimensão quando aplicável, o tratamento de cuidado para conservação e o país de origem usando os termos indicados."
+    },
+    {
+      "ref": "informacoes-obrigatorias-etiqueta#1",
+      "msg": "OVERSTATED. Os trechos sustentam que tamanho ou dimensão é obrigatório quando aplicável, mas não dizem que a etiqueta deve apresentar especificamente largura, comprimento, altura do elástico para lençol de baixo, nem que as medidas devem estar em centímetros ou metros. Versão sustentável: A indicação de tamanho ou dimensão é obrigatória quando aplicável e deve constar na etiqueta ou em outro meio admitido no produto têxtil."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. O trecho da Buddemeyer apenas informa que uma linha combina algodão egípcio com linho; não recomenda escolher produtos com percentuais informados nem evitar misturas sem proporções. A exigência de informar os percentuais vem do Inmetro. Versão sustentável: Se você aceita uma mistura de algodão egípcio com outras fibras, prefira produtos cuja etiqueta informe o percentual de cada fibra, conforme a exigência do Inmetro. Evite peças descritas apenas como “blend” ou “mistura” sem as proporções."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos da Appel dizem que a toalha Mêmphis não deve ser colocada na secadora e deve secar no varal, mas não estabelecem a recomendação geral de escolher, segundo a Appel, produtos cuja etiqueta permita secagem em máquina. Versão sustentável: A toalha de banho Mêmphis da Appel não deve ser colocada na secadora; as instruções indicam secagem no varal."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1687
+  }
+}

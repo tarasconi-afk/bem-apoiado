@@ -1,0 +1,46 @@
+{
+  "slug": "colchao-d33-suporta-quantos-kg",
+  "status": "PASS",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 64462,
+    "output_tokens": 21052,
+    "calls": 26
+  },
+  "credits": 25.378708319999998,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-e-densidade#1",
+      "peso-varia-por-modelo#0",
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Nos modelos consultados, um colchão D33 suporta de 100 a 120 kg por pessoa, conforme a marca e o modelo.",
+      "A Probel declara até 100 kg por pessoa para o Guarda Costas e 120 kg por pessoa para o PróIntense.",
+      "A Ortobom declara 120 kg por pessoa para o Pró Saúde Extra.",
+      "Para pessoas de 71 a 80 kg, a Castor indica densidade D33.",
+      "Para pessoas de 81 a 100 kg, a Castor indica D33 a D45, conforme a preferência por firmeza.",
+      "Para pessoas acima de 100 kg, a Castor indica D45 ou maior.",
+      "Na compra, confira na ficha técnica o peso suportado por pessoa e a densidade nominal de cada lâmina de espuma.",
+      "Em colchões compostos ou mistos, confira também a espessura de cada lâmina e não apenas a indicação D33."
+    ],
+    "missing": [
+      "Uma tabela mais ampla, baseada em fichas técnicas primárias, relacionando cada modelo D33 ao peso suportado e ao tamanho do colchão.",
+      "Informação primária mostrando se o limite total suportado muda entre solteiro, casal, queen e king.",
+      "Mais exemplos de fabricantes relacionando D23, D28, D33 e D45 a faixas de peso do usuário.",
+      "Esclarecimento dos fabricantes sobre quando o limite é por pessoa e quando é o peso total do colchão."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que D33 não tem um limite único e apresenta exemplos concretos de 100 e 120 kg por pessoa, além de uma regra de escolha por faixa de peso. O leitor também sabe conferir a ficha técnica e a etiqueta antes da compra. Há alguma repetição entre a tabela e os bullets, mas isso não impede a decisão.",
+    "filler_ratio": 0.35714285714285715,
+    "model_opinion": true
+  }
+}

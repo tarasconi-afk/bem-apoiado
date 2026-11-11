@@ -1,0 +1,57 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para pessoas de 71 a 80 kg, a Castor indica densidade D33.",
+      "Para pessoas de 81 a 100 kg, a Castor indica D33 a D45 conforme a preferência por firmeza.",
+      "Para pessoas acima de 100 kg, a Castor indica D45 ou maior.",
+      "O limite declarado varia conforme o modelo: os exemplos citados suportam 100 ou 120 kg por pessoa.",
+      "Na compra, conferir na ficha técnica o peso suportado por pessoa, a densidade nominal em kg/m³ e, em colchões compostos ou mistos, a espessura de cada lâmina."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando todas as densidades comuns, incluindo D18, D23, D28, D33 e D45, às respectivas faixas de peso.",
+      "A informação de como o limite de peso muda conforme o tamanho do colchão e se o valor declarado é por pessoa ou o total suportado.",
+      "Mais exemplos de fichas técnicas de modelos D33, especialmente nos tamanhos casal, queen e king."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que um colchão D33 pode suportar 100 ou 120 kg por pessoa nos modelos citados, explica que o valor varia conforme o fabricante e oferece uma regra de escolha por faixa de peso. A resposta curta é concreta e o leitor sabe o que conferir na ficha técnica; faltam apenas dados mais amplos sobre tamanhos e limites totais.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "A capacidade não é definida apenas pela densidade: nos modelos citados, há colchões D33 com suporte declarado de 100 kg por pessoa e outros com 120 kg por pessoa.",
+      "Para pessoas de 71 a 80 kg, a Castor indica densidade D33.",
+      "Para pessoas de 81 a 100 kg, a Castor indica D33 a D45, conforme a preferência por firmeza.",
+      "Acima de 100 kg, a Castor indica D45 ou maior.",
+      "Na compra, conferir na ficha técnica o peso suportado por pessoa e o tamanho do modelo, além da densidade nominal em kg/m³.",
+      "Em colchões compostos ou mistos, conferir também a espessura de cada lâmina de espuma."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando cada densidade, incluindo D18, D23, D28, D33 e D45, às faixas de peso recomendadas.",
+      "Mais exemplos de fichas técnicas mostrando se o suporte declarado muda entre os tamanhos solteiro, casal, queen e king.",
+      "Uma explicação específica sobre como interpretar o peso total do colchão para casais, quando o fabricante informar apenas o peso por pessoa.",
+      "Um valor padronizado de capacidade máxima para a densidade D33, caso algum órgão ou fabricante o declare como regra geral."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente que um colchão D33 pode suportar 100 ou 120 kg por pessoa nos modelos citados, mostra que a capacidade varia conforme o fabricante e oferece uma regra de escolha por peso baseada na Castor. Também orienta o leitor a conferir a ficha técnica, embora alguns trechos repitam a tabela e faltem dados mais amplos sobre outras densidades e tamanhos.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

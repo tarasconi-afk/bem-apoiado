@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "densidade-fios-gramatura#0",
+      "problem": "O título promete informações sobre densidade de fios e gramatura, mas o bloco só apresenta gramaturas de dois produtos.",
+      "fix": "Mudar o título da seção para “Gramatura declarada” ou retirar “densidade de fios” da promessa."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19596,
+    "output_tokens": 1740,
+    "calls": 3
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "algodao-egipcio-vale-a-pena",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 114171,
+    "output_tokens": 32772,
+    "calls": 50
+  },
+  "credits": 73.40841587999999,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para buscar o benefício atribuído pelos fabricantes às fibras longas, confira se a etiqueta declara 100% algodão egípcio, e não apenas algodão ou uma mistura sem proporções.",
+      "Se aceitar um blend, compre apenas quando a etiqueta informar o percentual de cada fibra; não basta dizer apenas “blend” ou “mistura”.",
+      "Confira as instruções de conservação antes da compra, especialmente se você usa secadora, pois há produto citado que exige secagem no varal.",
+      "Compare a gramatura informada na ficha quando esse dado for relevante, como nos exemplos de toalhas de 450 g/m² e 550 g/m²."
+    ],
+    "missing": [
+      "Uma regra explícita dizendo para quem o algodão egípcio compensa, relacionando maciez, durabilidade ou resistência a bolinhas ao perfil de uso do comprador.",
+      "Comparação de preço entre algodão egípcio, algodão comum e blends para permitir avaliar se o possível ganho justifica pagar mais.",
+      "Informação de fonte primária sobre comprovação de origem ou selo exigido para usar o termo “algodão egípcio”.",
+      "Dados de fabricantes de jogos de cama comparando diretamente produtos 100% algodão egípcio com produtos de algodão comum ou mistos."
+    ],
+    "publishable": true,
+    "summary": "A página oferece critérios úteis para conferir a composição, identificar blends e verificar os cuidados, mas responde apenas parcialmente se o algodão egípcio vale a pena. A resposta curta cita benefícios declarados por Appel e Karsten, porém não diz claramente para quem a opção compensa nem relaciona o possível benefício ao custo; falta essa regra de decisão antes da publicação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
