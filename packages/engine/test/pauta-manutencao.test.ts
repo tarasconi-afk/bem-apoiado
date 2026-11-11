@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { dedupeLessons, loadEditorLessons } from '../src/editor-lessons.ts';
+import { dedupeLessons, loadEditorLessons, MAX_LESSONS } from '../src/editor-lessons.ts';
 
 // 28/10, o editor sobre o rascunho de edredom ou cobertor: "sinto falta de diferenças na limpeza, espaço para
 // guardar". O redator não omitiu nada — nenhuma das 7 perguntas da pauta tratava disso, e a página só responde o
@@ -31,9 +31,11 @@ describe('manutenção e espaço entram como critério de decisão', () => {
     expect(lessons.reduce((t, l) => t + l.text.length, 0)).toBeLessThan(4000); // o que entra em todo prompt
   });
 
-  // 27/10: o teto cortou 4 lições em silêncio quando duas novas entraram. O teto é 20 e hoje são 19.
+  // 27/10: o teto cortou 4 lições em silêncio quando duas novas entraram. O teto subiu para 30 (MAX_LESSONS); a folga
+  // de 5 é para o editor ainda ensinar sem que a mais antiga caia. 11/11: o limite fixo em 20 (do teto antigo) derrubou
+  // o deploy com 22 lições legítimas; o que protege o prompt é o total de caracteres, conferido acima.
   it('a lista cabe no teto, com folga para o editor ainda ensinar', () => {
-    expect(lessons.length).toBeLessThanOrEqual(20);
+    expect(lessons.length).toBeLessThanOrEqual(MAX_LESSONS - 5);
     expect(dedupeLessons(lessons).length).toBe(lessons.length); // nenhuma repetida
   });
 });
