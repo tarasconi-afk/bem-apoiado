@@ -7,18 +7,14 @@
   "primary_query": "tamanho de edredom: como escolher",
   "updated_at": "2026-11-11",
   "verdict": {
-    "text": "Comece pelo edredom identificado como solteiro, casal, queen ou king conforme o tamanho da sua cama, mas a escolha correta depende da medida exata declarada na ficha do modelo que você quer comprar: fabricantes como Döhler, Karsten e Plumasul anunciam medidas diferentes para o mesmo tamanho.",
+    "text": "Escolha o edredom pelo tamanho da sua cama, mas confira a medida exata na ficha do modelo: ela muda entre fabricantes, segundo fabricantes como Döhler, Sultan e Karsten. Para solteiro, a Döhler declara 1,80 m × 2,50 m; para casal, varia de 2,20 m × 1,80 m (Sultan) a 2,20 m × 2,50 m (Döhler); para queen, de 2,40 m × 2,50 m (Döhler e Karsten) a 2,40 m × 2,60 m (Plumasul).",
     "basis": "reasoning",
     "claim_ids": [
-      "clm_3731b66d45a4",
-      "clm_dcb982b686b5",
-      "clm_4b490a370e7b",
       "clm_12f63e7aa23f",
+      "clm_059fb9ffbb4e",
+      "clm_1aa969fa777d",
+      "clm_2768aeae70d7",
       "clm_9e18a9b935a2",
-      "clm_d3396bc1fbfb",
-      "clm_1b7c66e7b4c8",
-      "clm_2b6bb6621b4a",
-      "clm_ab7614a35734",
       "clm_29c9aa736406",
       "clm_159c25313e14"
     ]
@@ -197,7 +193,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261111T070508_autopilot_8f86+editor:20261111T071335_tamanho-de-edredom-como-escolher-autocorrecao_7bce",
+    "run_id": "20261111T070508_autopilot_8f86+editor:20261111T071335_tamanho-de-edredom-como-escolher-autocorrecao_7bce+editor:20261111T112212_tamanho-de-edredom-como-escolher-ajuste_8ce3",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

@@ -1,0 +1,54 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o edredom pelo tamanho nominal da cama: solteiro, casal, queen ou king.",
+      "Entre modelos do mesmo tamanho, confira a largura e o comprimento exatos na ficha do produto, pois as medidas variam entre fabricantes.",
+      "Para casal, compare medidas como 2,20 m × 1,80 m, 2,20 m × 2,40 m e 2,20 m × 2,50 m conforme o modelo.",
+      "Para queen, compare medidas como 2,40 m × 2,50 m, 2,40 m × 2,60 m e 2,50 m × 2,70 m.",
+      "Para king, confira a medida declarada na ficha, pois os exemplos variam de 2,60 m × 2,40 m a 2,90 m × 2,70 m.",
+      "Não escolha apenas pelo nome do tamanho: use a medida do produto para conferir se ela atende à cama e à cobertura desejada.",
+      "Consulte a etiqueta de conservação para verificar lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Uma linha própria para o tamanho solteiro na tabela de decisão, com comparação entre mais de um fabricante.",
+      "A medida declarada do edredom embalado e o peso da embalagem, caso essas informações sejam encontradas em ficha primária.",
+      "Uma explicação sobre a cobertura desejada nas laterais e nos pés da cama, para orientar a escolha entre modelos com medidas diferentes do mesmo tamanho nominal."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente que o edredom deve ser escolhido pelo tamanho da cama e, principalmente, pela medida exata informada na ficha do modelo. Ela traz exemplos concretos para solteiro, casal, queen e king, além de orientar o leitor a comparar fabricantes; a resposta curta é compreensível e suficiente para uma decisão inicial. Seria melhor incluir uma linha explícita do solteiro na tabela e os dados de peso e medidas da embalagem, mas essas lacunas não impedem a resposta à dúvida principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha primeiro o tamanho nominal correspondente à cama: solteiro, casal, queen ou king.",
+      "Confira na ficha técnica a largura e o comprimento do modelo, porque edredons do mesmo tamanho nominal podem ter medidas diferentes entre fabricantes.",
+      "Ao comparar modelos do mesmo tamanho, prefira a medida declarada na ficha, em vez de decidir apenas pelo nome queen, casal ou outro.",
+      "Consulte a etiqueta de conservação para verificar lavagem, alvejamento, secagem, passadoria e limpeza profissional, além das restrições específicas do fabricante."
+    ],
+    "missing": [
+      "Uma tabela consolidada com as medidas de edredom solteiro, casal, queen e king, incluindo o solteiro na própria tabela.",
+      "Uma orientação do fabricante sobre a folga ou o caimento desejado nas laterais e nos pés da cama, caso exista em fonte primária.",
+      "Peso e dimensões do edredom embalado, se o leitor também precisar avaliar transporte ou espaço de armazenamento."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável porque responde à dúvida principal com uma regra prática: associe o edredom ao tamanho da cama e confirme a medida exata na ficha do produto, já que fabricantes variam. A resposta curta é direta, a tabela traz exemplos concretos de medidas e o leitor sabe o que conferir antes da compra; a ausência do peso e das dimensões embalado afeta apenas uma pergunta secundária da pauta.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}
