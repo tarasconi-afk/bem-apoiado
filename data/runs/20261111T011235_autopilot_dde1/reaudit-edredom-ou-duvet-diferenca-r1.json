@@ -1,0 +1,123 @@
+{
+  "patches": [
+    {
+      "ref": "estrutura-edredom#0",
+      "action": "replace",
+      "text": "Segundo a Altenburg, a embalagem contém 1 edredom e a quantidade informada é 1 peça.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_69524f16006d",
+        "clm_3856b70ebb42"
+      ]
+    },
+    {
+      "ref": "estrutura-edredom#1",
+      "action": "replace",
+      "text": "Nos produtos consultados, a Karsten informa enchimento de poliéster; a Plumasul informa revestimento 100% algodão e enchimento 100% plumas de ganso; e a Altenburg informa composição 100% algodão da capa.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e195d1a8adf",
+        "clm_1f9c24ea2f46",
+        "clm_0e86ea4ea87b"
+      ]
+    },
+    {
+      "ref": "estrutura-duvet#0",
+      "action": "replace",
+      "text": "A Altenburg informa que o duvet tem fechamento por zíper, que facilita a troca e mantém o enchimento fixo. A Trussardi lista 1 capa de duvet entre os itens inclusos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3adfe861f0fe",
+        "clm_9cc2ee52da80",
+        "clm_b4c8fb5b8e1c"
+      ]
+    },
+    {
+      "ref": "estrutura-duvet#1",
+      "action": "replace",
+      "text": "Na ficha da Trussardi, os itens inclusos incluem 1 capa de duvet.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_b4c8fb5b8e1c"
+      ]
+    },
+    {
+      "ref": "gramatura-estacao#1",
+      "action": "replace",
+      "text": "Exemplos de gramaturas em produtos de fabricantes: 120g/m segundo a Altenburg e 180 g/m² segundo a Karsten e a Döhler.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0f1f97f3af40",
+        "clm_036690964084",
+        "clm_9deae5accb6c"
+      ]
+    },
+    {
+      "ref": "medidas-peso-embalado#0",
+      "action": "replace",
+      "text": "Na ficha do edredom Döhler Memfis King, constam as dimensões de 2,80 m x 2,50 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3fd982b9b2f6"
+      ]
+    },
+    {
+      "ref": "medidas-peso-embalado#1",
+      "action": "replace",
+      "text": "Na ficha do duvet King Portello da Trussardi, consta a medida de 2,90 m x 2,70 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_34e2a7aef509"
+      ]
+    },
+    {
+      "ref": "medidas-peso-embalado#2",
+      "action": "remove"
+    },
+    {
+      "ref": "etiqueta-conservacao#0",
+      "action": "replace",
+      "text": "A Plumasul informa, para o edredom Chateau Versailles, temperatura máxima de lavagem de 30 °C, lavagem a seco proibida, sem alvejante, sem secagem em tambor e secagem à sombra. A Karsten informa, para o edredom Queen, lavação a 40 °C e secagem em tambor a no máximo 60 °C.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_47854f171f99",
+        "clm_a1ffbe788f28"
+      ]
+    },
+    {
+      "ref": "etiqueta-conservacao#2",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "A ficha da Altenburg informa que a embalagem contém 1 edredom e que o produto tem 1 peça.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_69524f16006d",
+        "clm_3856b70ebb42"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Na ficha da Trussardi, constam 1 capa de duvet. Em uma ficha da Altenburg, o fechamento com zíper é descrito como facilitador da troca e mantenedor do enchimento fixo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_b4c8fb5b8e1c",
+        "clm_3adfe861f0fe",
+        "clm_9cc2ee52da80"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "estrutura-edredom#1",
+      "msg": "OVERSTATED. O trecho da Altenburg informa apenas “Composição: 100% Algodão”; não especifica que essa composição é da capa. Versão sustentável: Nos produtos consultados, a Karsten informa enchimento de poliéster; a Plumasul informa revestimento 100% algodão e enchimento 100% plumas de ganso; e a Altenburg informa composição de 100% algodão."
+    },
+    {
+      "ref": "etiqueta-conservacao#0",
+      "msg": "MISATTRIBUTED. O bloco atribui à Plumasul a informação de que a lavagem a seco é proibida, mas o trecho citado diz “Lavar a seco”. As demais instruções da Plumasul e as informações da Karsten estão apoiadas pelos trechos. Versão sustentável: A Plumasul informa, para o edredom Chateau Versailles, temperatura máxima de lavagem de 30 °C, lavagem a seco, sem alvejante, sem secagem em tambor e secagem à sombra. A Karsten informa, para o edredom Queen, lavação a 40 °C e secagem em tambor a no máximo 60 °C."
+    }
+  ]
+}

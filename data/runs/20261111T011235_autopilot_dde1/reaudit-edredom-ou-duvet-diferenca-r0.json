@@ -1,0 +1,101 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "estrutura-edredom#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam apenas que a embalagem contém 1 edredom e que a quantidade é 1 peça. Não dizem que capa e enchimento são costurados juntos, que o produto chega pronto para usar ou que não há partes removíveis.",
+      "fix": "Segundo a Altenburg, a embalagem contém 1 edredom e a quantidade informada é 1 peça."
+    },
+    {
+      "ref": "estrutura-edredom#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam enchimento de poliéster e de plumas de ganso e, em um produto da Plumasul, revestimento 100% algodão. Não sustentam que a capa seja geralmente 100% algodão, nem mencionam fibra siliconizada ou que gramaturas indiquem o peso do enchimento.",
+      "fix": "Nos trechos citados, a Karsten informa enchimento de poliéster; a Plumasul informa revestimento 100% algodão e enchimento 100% plumas de ganso; e a Altenburg informa composição 100% algodão."
+    },
+    {
+      "ref": "estrutura-duvet#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que há fechamento por zíper, que ele facilita a troca e mantém o enchimento fixo, além de listarem uma capa de duvet. Porém, não dizem que o duvet é composto por capa e enchimento como peças separáveis, nem que a capa é ligada ao enchimento por zíper ou que pode ser removida e trocada nesses termos.",
+      "fix": "A Altenburg informa que o duvet tem fechamento por zíper, que facilita a troca e mantém o enchimento fixo; a Trussardi lista 1 capa de duvet entre os itens inclusos."
+    },
+    {
+      "ref": "estrutura-duvet#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "A ficha da Trussardi sustenta a inclusão de 1 capa de duvet, mas os trechos não informam que o enchimento (manta) vem junto nem que fica fixo por uma abertura de zíper.",
+      "fix": "Na ficha citada, a Trussardi informa que os itens inclusos incluem 1 capa de duvet."
+    },
+    {
+      "ref": "gramatura-estacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-estacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Altenburg informa literalmente “120g/m”, não “120 g/m²”. Os trechos da Karsten e da Döhler sustentam 180 g/m², mas a unidade atribuída à Altenburg excede o que foi citado.",
+      "fix": "Exemplos de gramaturas em produtos de fabricantes: 120g/m segundo a Altenburg e 180 g/m² segundo a Karsten e a Döhler."
+    },
+    {
+      "ref": "gramatura-estacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-peso-embalado#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta as dimensões de 2,80 m x 2,50 m, mas não afirma que a medida corresponde ao tamanho completo da peça pronta nem que isso seja uma característica geral das fichas de edredom.",
+      "fix": "Na ficha do edredom Döhler Memfis King, constam as dimensões de 2,80 m x 2,50 m, segundo a Döhler."
+    },
+    {
+      "ref": "medidas-peso-embalado#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho informa apenas “Medida: 2,90 m x 2,70 m”. Ele não diz que se trata da medida total da peça nem sustenta uma afirmação geral sobre fichas de duvet.",
+      "fix": "Na ficha do duvet King Portello da Trussardi, consta a medida de 2,90 m x 2,70 m."
+    },
+    {
+      "ref": "medidas-peso-embalado#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco esteja em framing, ele afirma um fato sobre as fichas consultadas e os fabricantes sem apresentar qualquer trecho citado que o sustente.",
+      "fix": "Nesta seção, verifique se as fichas consultadas informam o peso embalado de edredons ou duvets."
+    },
+    {
+      "ref": "etiqueta-conservacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram instruções de dois produtos de fabricantes diferentes, mas não sustentam que as instruções variam conforme o tipo de enchimento. Além disso, o trecho da Plumasul separa lavagem máxima a 30 °C de lavar a seco; o bloco combina essas informações como se fossem uma única instrução.",
+      "fix": "A Plumasul informa, para o edredom Chateau Versailles, lavagem máxima a 30 °C, lavagem a seco, proibição de alvejante e de secagem em tambor, além de secagem à sombra. A Karsten informa, para o edredom Queen, lavagem a 40 °C e secagem em tambor a no máximo 60 °C."
+    },
+    {
+      "ref": "etiqueta-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-conservacao#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora apresentado como framing, o bloco afirma fatos e recomendações sobre a capa e o enchimento, mas não há trechos citados que sustentem que suas instruções possam ser diferentes ou que ambas as etiquetas devam ser conferidas.",
+      "fix": "A seguir, veja as instruções de lavagem disponíveis para o produto."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam apenas que a embalagem contém 1 edredom e que há 1 peça. Não dizem que ele chega costurado, que não tem partes separadas, que já está pronto para cobrir a cama nem que deve ser preferido.",
+      "fix": "A ficha da Altenburg informa que a embalagem contém 1 edredom e que o produto tem 1 peça."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Trussardi informa apenas que estão incluídas 1 capa de duvet; não menciona fechamento por zíper nem enchimento fixo. Essas informações aparecem no trecho da Altenburg. Além disso, os trechos são de produtos específicos e não sustentam a regra geral de que todo duvet com zíper permite essa troca.",
+      "fix": "Na ficha da Trussardi, constam 1 capa de duvet. Em uma ficha da Altenburg, o fechamento com zíper é descrito como facilitador da troca e mantenedor do enchimento fixo."
+    }
+  ]
+}

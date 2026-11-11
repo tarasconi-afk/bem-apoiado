@@ -1,0 +1,39 @@
+{
+  "slug": "edredom-ou-colcha-diferenca",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 79396,
+    "output_tokens": 29378,
+    "calls": 43
+  },
+  "credits": 41.9779794,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Escolha a colcha se procura uma peça mais fina, leve e principalmente decorativa para cobrir a cama durante o dia.",
+      "Escolha o edredom se procura uma peça mais volumosa e com enchimento.",
+      "Compare a gramatura da manta ou do enchimento na ficha técnica; nos exemplos citados, o edredom tem 200 g e a colcha, 120 g.",
+      "Não classifique a peça apenas pela gramatura: a colcha também pode ter três camadas, enchimento e matelassê.",
+      "Confira na embalagem ou na ficha técnica as dimensões totais da peça e dos componentes, como porta-travesseiros."
+    ],
+    "missing": [
+      "Uma definição do fabricante com critério objetivo para diferenciar edredom e colcha, como presença obrigatória de enchimento, número de camadas ou faixa de gramatura.",
+      "Mais exemplos de medidas por tamanho de cama para edredom e colcha.",
+      "O peso total declarado pelos fabricantes para cada tipo de peça.",
+      "Orientação do fabricante sobre quando uma colcha acolchoada deve ser escolhida no lugar de um edredom, já que os dois podem ter enchimento e camadas."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente que o edredom tende a ser mais volumoso e ter enchimento, enquanto a colcha tende a ser mais fina, leve e decorativa, e orienta o leitor a conferir gramatura, enchimento e medidas na ficha técnica. A ressalva de que colchas também podem ter camadas e enchimento é importante, embora faltem critérios objetivos e mais exemplos de peso e dimensões.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": true
+  }
+}

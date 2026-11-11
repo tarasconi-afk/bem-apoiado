@@ -1,0 +1,378 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Edredom é uma peça volumosa com enchimento. A Appel descreve sua colcha como tendo um miolo que dá volume, sem chegar ao peso de um edredom. Segundo o Inmetro, a composição deve informar o percentual das fibras e a etiqueta deve trazer o tratamento de cuidado para a conservação do produto.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5dd3f32e0771",
+        "clm_dbbc06712707",
+        "clm_055cf59ece8e",
+        "clm_5a941d5d1915"
+      ]
+    },
+    {
+      "ref": "o-que-diferencia#1",
+      "action": "replace",
+      "text": "Os exemplos citados mostram edredons com gramaturas de 112 a 200 g/m² e colchas com gramaturas de 120 e 150 g/m²; nesses casos, a gramatura aparece como uma característica informada na ficha técnica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_036690964084",
+        "clm_1a21d4c53055",
+        "clm_2cee2d6888f5",
+        "clm_2a184a6cf7b9",
+        "clm_1e57c0934c4f",
+        "clm_5265e1b6c7bd"
+      ]
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, a composição do produto têxtil deve indicar o nome genérico das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_055cf59ece8e",
+        "clm_0e5f8661d994"
+      ]
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "action": "replace",
+      "text": "Segundo o Inmetro, a informação sobre os tratamentos de cuidado para a conservação do produto é obrigatória e deve seguir a NM ISO 3758:2013, podendo ser indicada por símbolos, textos ou ambos. Ela deve abranger lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5a941d5d1915",
+        "clm_bb62377cb70a"
+      ]
+    },
+    {
+      "ref": "medidas-peso#0",
+      "action": "replace",
+      "text": "A Plumasul informa que um edredom Queen mede 2,40 m × 2,60 m; a Appel informa que a colcha Casal Essence mede 2,20 m × 2,40 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_159c25313e14",
+        "clm_3c9c58e8bd48"
+      ]
+    },
+    {
+      "ref": "regulacao-colcha#0",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se quer uma peça fina, leve e principalmente decorativa para cobrir a cama durante o dia, escolha a colcha; se prefere uma peça mais volumosa e com enchimento, considere o edredom, segundo a Karsten.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7eacd890bef4",
+        "clm_5dd3f32e0771"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se prefere uma peça com menor peso que o edredom, escolha a colcha; se aceita uma peça mais volumosa e com enchimento, considere o edredom, segundo a Appel e a Karsten.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dbbc06712707",
+        "clm_5dd3f32e0771"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Ao comparar fichas técnicas, confira a gramatura da manta: nos exemplos da Trussardi citados, a manta do edredom é de 200 g e a da colcha, de 120 g.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2a184a6cf7b9",
+        "clm_79b0abc2e117"
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Colcha (Trussardi)",
+          "claim_ids": [
+            "clm_2a184a6cf7b9"
+          ]
+        },
+        {
+          "text": "120 g",
+          "claim_ids": [
+            "clm_2a184a6cf7b9"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Edredom (Trussardi)",
+          "claim_ids": [
+            "clm_2a184a6cf7b9"
+          ]
+        },
+        {
+          "text": "200 g",
+          "claim_ids": [
+            "clm_2a184a6cf7b9"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Edredom ou colcha: qual a diferença",
+    "description": "Descubra o que diferencia edredom e colcha na ficha técnica: gramatura do enchimento, número de camadas e volume.",
+    "verdict": {
+      "text": "Edredom é uma peça volumosa com enchimento, segundo a Karsten e a Appel. A Appel descreve sua colcha como tendo um miolo que dá volume, sem chegar ao peso de um edredom. Segundo o Inmetro, a composição deve informar o percentual das fibras e a etiqueta deve trazer o tratamento de cuidado para a conservação do produto.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5dd3f32e0771",
+        "clm_dbbc06712707",
+        "clm_055cf59ece8e",
+        "clm_5a941d5d1915"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-diferencia",
+        "heading": "O que diferencia edredom e colcha na ficha técnica",
+        "blocks": [
+          {
+            "text": "Segundo a Karsten, edredom é uma peça volumosa composta por enchimento de fibras sintéticas e tecido externo de algodão ou microfibra. A colcha, conforme o mesmo fabricante, é mais fina e leve, com função também decorativa, usada principalmente para cobrir a cama durante o dia.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5dd3f32e0771",
+              "clm_7eacd890bef4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Os exemplos citados mostram edredons com gramaturas de 112 a 200 g/m² e colchas com gramaturas de 120 e 150 g/m²; nesses casos, a gramatura aparece como uma característica informada na ficha técnica, segundo fabricantes como Karsten, Döhler e Trussardi.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_036690964084",
+              "clm_1a21d4c53055",
+              "clm_2cee2d6888f5",
+              "clm_2a184a6cf7b9",
+              "clm_1e57c0934c4f",
+              "clm_5265e1b6c7bd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Appel, a colcha também pode ter estrutura de três camadas (tecido superior, enchimento do meio e tecido inferior) que oferecem volume sem o peso de um edredom. O enchimento da colcha fica preso por matelassê para evitar que migre com as lavagens.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_dbbc06712707",
+              "clm_fab24076538c"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-composicao",
+        "heading": "O que consta na etiqueta sobre composição",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a composição do produto têxtil deve indicar o nome genérico das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_055cf59ece8e",
+              "clm_0e5f8661d994"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Também conforme o Inmetro, a embalagem ou o interior dela deve informar a composição têxtil, país de origem e dimensões de cada componente, de forma visível.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_28d07b587785"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-cuidados",
+        "heading": "O que consta na etiqueta sobre cuidados de conservação",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a informação sobre os tratamentos de cuidado para a conservação do produto é obrigatória e deve seguir a NM ISO 3758:2013, podendo ser indicada por símbolos, textos ou ambos. Ela deve abranger lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5a941d5d1915",
+              "clm_bb62377cb70a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quando a secagem em tambor não for permitida, o Inmetro exige que a etiqueta indique símbolos de secagem natural que correspondam às restrições do produto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1d159ab88b4a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-peso",
+        "heading": "Medidas declaradas na ficha do produto",
+        "blocks": [
+          {
+            "text": "A Plumasul informa que um edredom Queen mede 2,40 m × 2,60 m; a Appel informa que a colcha Casal Essence mede 2,20 m × 2,40 m.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_159c25313e14",
+              "clm_3c9c58e8bd48"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro exige que na embalagem ou em local visível conste as dimensões de cada componente, como a colcha e seus porta-travesseiros, se houver.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_28d07b587785"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir entre edredom e colcha",
+        "blocks": [
+          {
+            "text": "Se quer uma peça fina, leve e principalmente decorativa para cobrir a cama durante o dia, escolha a colcha; se prefere uma peça mais volumosa e com enchimento, considere o edredom, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7eacd890bef4",
+              "clm_5dd3f32e0771"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se prefere uma peça com menor peso que o edredom, escolha a colcha; se aceita uma peça mais volumosa e com enchimento, considere o edredom, segundo a Appel e a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_dbbc06712707",
+              "clm_5dd3f32e0771"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ao comparar fichas técnicas, confira a gramatura da manta: nos exemplos da Trussardi citados, a manta do edredom é de 200 g e a da colcha, de 120 g.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a184a6cf7b9",
+              "clm_79b0abc2e117"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Gramatura de enchimento em edredom e colcha (exemplos de fichas técnicas) (segundo a Trussardi)",
+            "columns": [
+              "Tipo de peça",
+              "Gramatura de enchimento"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Colcha (Trussardi)",
+                    "claim_ids": [
+                      "clm_2a184a6cf7b9"
+                    ]
+                  },
+                  {
+                    "text": "120 g",
+                    "claim_ids": [
+                      "clm_2a184a6cf7b9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Edredom (Trussardi)",
+                    "claim_ids": [
+                      "clm_2a184a6cf7b9"
+                    ]
+                  },
+                  {
+                    "text": "200 g",
+                    "claim_ids": [
+                      "clm_2a184a6cf7b9"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que o edredom é uma peça volumosa com enchimento e que a colcha mencionada pela Appel tem enchimento e não chega ao peso de um edredom. Porém, não sustentam as faixas de gramatura, que a colcha seja mais fina ou principalmente decorativa, nem que possa ser sem enchimento. O trecho do Inmetro sustenta a indicação dos percentuais das fibras e do tratamento de conservação, mas não especifica, nesses termos, cuidados de lavagem e secagem nem demonstra expressamente a aplicação a ambas as peças. Versão sustentável: Edredom é uma peça volumosa com enchimento. A Appel descreve sua colcha como tendo um miolo que dá volume, sem chegar ao peso de um edredom. Segundo o Inmetro, a composição deve informar o percentual das fibras e a etiqueta deve trazer o tratamento de cuidado para a conservação do produto."
+    },
+    {
+      "ref": "o-que-diferencia#1",
+      "msg": "OVERSTATED. Os trechos mostram edredons com gramaturas de 112, 130, 180 e 200 g/m², portanto não sustentam a generalização de que edredons típicos declaram necessariamente gramaturas de 130 a 200 g/m². Além disso, os exemplos de colchas citados são de 120 e 150 g/m², sem demonstrar uma regra geral de que a gramatura seja menor que a dos edredons. Versão sustentável: Os exemplos citados mostram edredons com gramaturas de 112 a 200 g/m² e colchas com gramaturas de 120 e 150 g/m²; nesses casos, a gramatura aparece como uma característica informada na ficha técnica."
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "msg": "OVERSTATED. Os trechos sustentam a indicação do nome das fibras, dos percentuais em massa, da ordem decrescente e do igual destaque, mas não mostram que a regra se aplica especificamente a edredons e colchas nem mencionam expressamente a etiqueta. Versão sustentável: Segundo o Inmetro, a composição do produto têxtil deve indicar o nome genérico das fibras e seus percentuais em massa, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "etiqueta-cuidados#0",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam a obrigatoriedade das informações de cuidados e listam os processos, mas não dizem que a regra se aplica especificamente a edredons e colchas. Versão sustentável: Segundo o Inmetro, a informação sobre os tratamentos de cuidado para a conservação do produto é obrigatória e deve seguir a NM ISO 3758:2013, podendo ser indicada por símbolos, textos ou ambos. Ela deve abranger lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional."
+    },
+    {
+      "ref": "medidas-peso#0",
+      "msg": "UNSUPPORTED. Os trechos não sustentam que as medidas variam conforme o tamanho da cama nem mencionam o edredom Estela Queen da Karsten ou a medida de 2,40 m × 2,50 m. O trecho da Plumasul informa 2,40 m × 2,60 m para um edredom Queen, enquanto o da Appel sustenta apenas a medida de 2,20 m × 2,40 m para a colcha Casal. Versão sustentável: A Plumasul informa que um edredom Queen mede 2,40 m × 2,60 m; a Appel informa que a colcha Casal Essence mede 2,20 m × 2,40 m."
+    },
+    {
+      "ref": "regulacao-colcha#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, afirma fatos sobre regulação técnica, fabricantes e exigências do Inmetro. Não há trechos citados para sustentar essas afirmações. Versão sustentável: Remover as afirmações factuais ou usar uma transição sem conteúdo factual, como: \"A seguir, veja o que as fontes dizem sobre colchas, edredons e etiquetagem têxtil.\""
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a colcha é fina, leve, decorativa e usada principalmente para cobrir a cama durante o dia, e que o edredom é mais volumoso e tem enchimento. Porém, não dizem que o edredom deve ser escolhido especificamente para uso como cobertura. Versão sustentável: Se quer uma peça fina, leve e principalmente decorativa para cobrir a cama durante o dia, escolha a colcha; se prefere uma peça mais volumosa e com enchimento, considere o edredom, segundo a Karsten."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a colcha pode ter volume sem alcançar o peso de um edredom e que o edredom é mais volumoso e tem enchimento. Eles não afirmam diretamente que a colcha tem menos volume; a comparação explícita é de peso. Versão sustentável: Se prefere uma peça com menor peso que o edredom, escolha a colcha; se aceita uma peça mais volumosa e com enchimento, considere o edredom, segundo a Appel e a Karsten."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos mostram a gramatura da manta em exemplos de colcha e edredom, mas não mencionam gramatura do enchimento nem estabelecem, de forma geral, que esse dado confirma qual peça é mais encorpada. Versão sustentável: Ao comparar essas fichas técnicas da Trussardi, confira a gramatura da manta: nos exemplos citados, a manta do edredom é de 200 g e a da colcha, de 120 g."
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "msg": "MISATTRIBUTED. O trecho citado informa apenas “manta colcha 120g” e “manta edredom 200g”. Não identifica a peça como “Trussardi Pienza Queen” nem mostra a unidade g/m²; portanto, esses detalhes são atribuídos à evidência sem aparecerem nela. Versão sustentável: [tabela: valores de manta em ficha técnica da Trussardi] Tipo de peça: Colcha | Gramatura da manta: 120 g."
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "msg": "MISATTRIBUTED. O trecho informa “manta edredom 200g”, mas não diz que se trata de gramatura de enchimento nem apresenta a unidade g/m². O nome Gaius Queen aparece no URL, mas a natureza do material medido continua sendo manta, não necessariamente enchimento. Versão sustentável: [tabela: valores de manta em ficha técnica da Trussardi] Tipo de peça: Edredom (Gaius Queen) | Gramatura da manta: 200 g."
+    }
+  ],
+  "usage": {
+    "input_tokens": 6,
+    "output_tokens": 2948
+  }
+}

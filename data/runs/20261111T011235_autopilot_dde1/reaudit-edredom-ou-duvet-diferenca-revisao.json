@@ -1,0 +1,64 @@
+{
+  "score_before": 4,
+  "score_after": 2.5,
+  "kept": false,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o edredom se quiser uma peça única, já pronta para usar, com capa e enchimento costurados.",
+      "Escolha o duvet se quiser remover ou trocar a capa sem retirar o enchimento.",
+      "Confira na ficha se a compra inclui o enchimento e a capa, e se há fechamento por zíper.",
+      "Compare a gramatura ou o peso do enchimento para avaliar a leveza e o aquecimento, sem tratar os exemplos de gramatura como regra universal.",
+      "Confira as instruções de lavagem e secagem tanto do enchimento quanto da capa do duvet, pois elas podem ser diferentes.",
+      "Verifique as medidas informadas na ficha para confirmar se correspondem ao tamanho da cama e à peça completa."
+    ],
+    "missing": [
+      "Uma indicação mais direta do fabricante sobre qual gramatura ou faixa de aquecimento serve para cada estação do ano.",
+      "Exemplos de fichas em que o duvet e a capa sejam vendidos separadamente, deixando mais clara a variação do conteúdo da embalagem.",
+      "Uma comparação padronizada entre as medidas da capa, do enchimento e da peça pronta em modelos equivalentes."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente à diferença entre edredom e duvet e dá uma regra prática de escolha baseada em peça única versus capa removível. Também orienta o leitor a conferir zíper, conteúdo da embalagem, medidas, gramatura e etiquetas de conservação; os exemplos de fabricantes sustentam a decisão sem depender de uma única marca.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "estrutura-edredom#0",
+      "estrutura-duvet#1",
+      "como-decidir#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Se a ficha informa uma peça única, trata-se do formato de edredom observado nos exemplos.",
+      "Se o produto tem capa com fechamento por zíper, ele permite trocar a capa e manter o enchimento fixo, característica observada no duvet Altenburg.",
+      "Confira na ficha os itens inclusos para saber se a compra inclui o enchimento, a capa ou ambos.",
+      "Compare a gramatura informada na ficha: os exemplos variam de 112 g a 180 g ou 180 g/m², e a Döhler associa 130 g/m² ao uso em todas as estações.",
+      "Confira as instruções de lavagem, secagem e temperatura na etiqueta ou na ficha, pois elas variam entre os produtos."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma definição direta e geral de edredom como capa e enchimento unidos em uma peça e de duvet como enchimento e capa removível, sem depender apenas dos exemplos.",
+      "Informação clara sobre se cada jogo de duvet é vendido com capa e enchimento juntos ou separadamente.",
+      "Regra de escolha relacionando gramatura ou indicação de estação ao nível de aquecimento esperado.",
+      "Peso e medidas totais embalados dos produtos, além das medidas separadas da capa e do enchimento quando aplicável.",
+      "Indicação de onde localizar na ficha a composição e as instruções de conservação de cada parte do duvet."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios úteis para conferir peça única, zíper, itens inclusos, gramatura e conservação, mas responde apenas parcialmente à diferença entre edredom e duvet. A resposta curta não define claramente os dois produtos nem orienta qual opção serve para cada caso; é preciso explicitar a estrutura de cada um e melhorar a regra de escolha.",
+    "filler_ratio": 0.2857142857142857,
+    "model_opinion": false
+  }
+}
