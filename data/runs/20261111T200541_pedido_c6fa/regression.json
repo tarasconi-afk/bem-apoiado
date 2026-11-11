@@ -1,0 +1,71 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Compare a altura declarada, que nos modelos citados varia de 12 a 14 cm.",
+      "Escolha conforme a firmeza desejada: há opções Extra Macio, Média e Firme.",
+      "Compare o material do enchimento, como fibra siliconada, espuma viscoelástica, espuma HR Gel ou látex Talalay.",
+      "Confira as medidas do travesseiro e se elas são compatíveis com a fronha disponível.",
+      "Verifique na etiqueta se o travesseiro inteiro pode ser lavado, se apenas a capa é removível ou se a limpeza profissional é obrigatória.",
+      "Confira os símbolos de lavagem, secagem e as restrições específicas de cada modelo.",
+      "Compare o prazo e a cobertura da garantia informados pelo fabricante."
+    ],
+    "missing": [
+      "Uma tabela de fabricante relacionando altura e firmeza à posição de dormir, largura dos ombros ou preferência de suporte.",
+      "Informação mais consistente de pelo menos dois fabricantes sobre peso do travesseiro, país de origem e compatibilidade entre medidas do travesseiro e da fronha.",
+      "Critérios técnicos usados pelas marcas para classificar a firmeza como macia, média ou firme."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde de forma rápida como escolher travesseiro e dá critérios concretos para comparar altura, firmeza, enchimento, tamanho, fronha, lavagem e garantia. Faltam regras mais específicas para relacionar a escolha à posição de dormir ou ao corpo, mas isso não impede a decisão básica de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção “Como decidir” usa termos técnicos como “D30”, “High Resilience Gel” e “adaptável à anatomia” sem explicar claramente o que significam para a escolha do leigo.",
+      "A página lista alturas e níveis de firmeza, mas não relaciona essas opções a situações concretas do comprador, como posição de dormir ou preferência por mais suporte."
+    ],
+    "filler_refs": [
+      "instrucoes-lavagem-conservacao#1"
+    ],
+    "decision_criteria": [
+      "Comparar a altura declarada na ficha; os modelos citados têm de 12 a 14 cm.",
+      "Comparar a firmeza declarada, de Extra Macio a Firme; a Luuna também informa firmeza Média.",
+      "Comparar o material do enchimento, como fibra siliconada, espuma viscoelástica, espuma HR Gel ou látex Talalay.",
+      "Considerar a fibra siliconada quando a preferência for por maciez e leveza.",
+      "Considerar a espuma viscoelástica D30 ou a espuma HR Gel D40 quando a ficha indicar firmeza e suporte; o HR Gel também é descrito com dissipação de calor.",
+      "Conferir as medidas do travesseiro e se são compatíveis com a fronha disponível.",
+      "Verificar se o modelo pode ser lavado, se apenas a capa é removível ou se exige limpeza profissional.",
+      "Observar as instruções específicas de lavagem, secagem e uso de alvejante para o modelo escolhido."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção “Como decidir” usa termos técnicos como “D30”, “High Resilience Gel” e “adaptável à anatomia” sem explicar claramente o que significam para a escolha do leigo.",
+      "Para o leitor leigo: A página lista alturas e níveis de firmeza, mas não relaciona essas opções a situações concretas do comprador, como posição de dormir ou preferência por mais suporte.",
+      "Uma tabela cruzando modelo, altura, firmeza e material de enchimento para facilitar a comparação entre fabricantes.",
+      "Regra relacionando altura e firmeza ao caso do comprador, como posição de dormir, largura dos ombros ou preferência por mais ou menos suporte.",
+      "Explicação em linguagem simples para termos como D30, HR Gel, Talalay e “adaptável à anatomia”.",
+      "Informação sobre peso do produto e país de origem, quando disponível na etiqueta ou ficha técnica.",
+      "Critérios técnicos usados pelos fabricantes para classificar a firmeza como macia, média ou firme.",
+      "Certificações e selos declarados pelos fabricantes, com o significado de cada um segundo a entidade responsável.",
+      "Vida útil recomendada e condições detalhadas da garantia, além do prazo de 90 dias ou três meses.",
+      "Indicação explícita dos tamanhos de fronha compatíveis com cada modelo."
+    ],
+    "publishable": false,
+    "summary": "A página é útil e publicável porque oferece uma checklist concreta para comparar travesseiros por altura, firmeza, enchimento, tamanho e lavagem. A resposta curta é rápida e acionável, mas a seção “Como decidir” precisa explicar os termos técnicos e dar uma regra mais clara para relacionar cada opção ao perfil do comprador.",
+    "filler_ratio": 0.08333333333333333,
+    "model_opinion": true
+  },
+  "score_before": 4,
+  "score_after": 2.5
+}
