@@ -1,0 +1,43 @@
+{
+  "edits": [
+    {
+      "ref": "o-que-diferencia#0",
+      "action": "rewrite",
+      "text": "Segundo a Karsten, o edredom tem enchimento de fibras sintéticas e tecido externo de algodão ou microfibra, enquanto a colcha é mais fina, leve e usada principalmente para cobrir a cama durante o dia.",
+      "claim_ids": [
+        "clm_5dd3f32e0771",
+        "clm_7eacd890bef4"
+      ],
+      "reason": "Reduz repetição com o bloco verdict, que já traz essa mesma definição da Karsten."
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "rewrite",
+      "text": "Se quer uma peça fina, leve, decorativa e de menor peso, escolha a colcha; se prefere algo mais volumoso e com enchimento, considere o edredom, segundo Karsten e Appel.",
+      "claim_ids": [
+        "clm_5dd3f32e0771",
+        "clm_7eacd890bef4",
+        "clm_dbbc06712707"
+      ],
+      "absorbs": [
+        "como-decidir#1"
+      ],
+      "reason": "Os dois blocos repetiam a mesma regra de decisão (colcha leve x edredom volumoso) com pequenas variações; unificados em um só."
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "remove",
+      "reason": "A informação (gramatura 200g edredom x 120g colcha, segundo Trussardi) já aparece de forma mais clara na tabela do bloco seguinte."
+    },
+    {
+      "ref": "medidas-peso#1",
+      "action": "remove",
+      "reason": "Repete a mesma exigência do Inmetro sobre dimensões na embalagem já citada em etiqueta-composicao#1."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 3459
+  }
+}
