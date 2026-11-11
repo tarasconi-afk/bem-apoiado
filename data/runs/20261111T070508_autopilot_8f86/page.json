@@ -1,0 +1,54 @@
+{
+  "slug": "tamanho-de-edredom-como-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 60730,
+    "output_tokens": 17694,
+    "calls": 22
+  },
+  "credits": 33.98811432000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que escolher o edredom com o mesmo nome da cama garante a escolha correta, mas os trechos apenas mostram nomes e medidas de camas e de edredons, sem confirmar que essa correspondência resolve o ajuste da cama (verdict); Reescrever para não tra",
+      "A resposta curta inclui a cama solteiro, mas a seção “Como decidir” não diz ao leitor desse caso qual medida de edredom escolher ou o que comparar na ficha (verdict); Adicionar a orientação para solteiro na seção “Como decidir”, usando a medida declarada pela "
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o edredom pelo mesmo tamanho nominal da cama: solteiro, casal, queen ou king.",
+      "Confira na ficha do produto a largura e o comprimento exatos, porque as medidas variam entre fabricantes mesmo dentro do mesmo tamanho.",
+      "Para cama solteiro, procure medidas como 1,80 m × 2,50 m; para casal, exemplos citados vão de 2,20 m × 1,80 m a 2,20 m × 2,50 m; para queen, de 2,40 m × 2,50 m a 2,50 m × 2,70 m; para king, de 2,60 m × 2,40 m a 2,90 m × 2,70 m.",
+      "Ao comparar dois edredons do mesmo tamanho nominal, prefira decidir pela medida declarada na ficha, e não apenas pelo nome do tamanho.",
+      "Confira também a etiqueta de conservação para saber as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que escolher o edredom com o mesmo nome da cama garante a escolha correta, mas os trechos apenas mostram nomes e medidas de camas e de edredons, sem confirmar que essa correspondência resolve o ajuste da cama (verdict); Reescrever para não tra",
+      "Para o leitor leigo: A resposta curta inclui a cama solteiro, mas a seção “Como decidir” não diz ao leitor desse caso qual medida de edredom escolher ou o que comparar na ficha (verdict); Adicionar a orientação para solteiro na seção “Como decidir”, usando a medida declarada pela ",
+      "Peso do edredom embalado e medidas da embalagem, conforme declaração do fabricante.",
+      "Uma tabela consolidada com medidas de solteiro, casal, queen e king de mais fabricantes, permitindo comparar as faixas de largura e comprimento com mais clareza."
+    ],
+    "publishable": false,
+    "summary": "A página responde diretamente como escolher o tamanho do edredom: começar pelo tamanho nominal da cama e confirmar as medidas exatas na ficha, já que elas variam entre fabricantes. A resposta curta é concreta e fácil para leigos, e os exemplos e a tabela orientam a compra. Falta apenas a informação de peso e dimensões do produto embalado, prevista na pauta, mas isso não impede a publicação.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor entende que escolher o edredom com o mesmo nome da cama garante a escolha correta, mas os trechos apenas mostram nomes e medidas de camas e de edredons, sem confirmar que essa correspondência resolve o ajuste da cama.",
+        "fix": "Reescrever para não tratar o mesmo nome como garantia: usar a identificação solteiro, casal, queen ou king apenas como referência inicial e destacar que a decisão depende da medida exata informada na ficha do modelo."
+      },
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "verdict",
+        "problem": "A resposta curta inclui a cama solteiro, mas a seção “Como decidir” não diz ao leitor desse caso qual medida de edredom escolher ou o que comparar na ficha.",
+        "fix": "Adicionar a orientação para solteiro na seção “Como decidir”, usando a medida declarada pela Döhler como exemplo e informando que o leitor deve conferir a medida exata do modelo; se isso não for feito, retirar solteiro da promessa de escolha."
+      }
+    ]
+  }
+}

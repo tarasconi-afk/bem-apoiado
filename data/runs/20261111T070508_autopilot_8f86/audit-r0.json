@@ -1,0 +1,84 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-solteiro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-casal#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-queen#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a obrigatoriedade dos cinco processos, a ordem e o uso de símbolos e/ou textos, mas não mostram que essa regra se aplica especificamente a edredons.",
+      "fix": "Segundo o Inmetro, a etiqueta de conservação deve informar obrigatoriamente lavagem, alvejamento, secagem, passadoria e limpeza profissional, nessa sequência. As informações podem ser apresentadas em símbolos e/ou textos."
+    },
+    {
+      "ref": "etiqueta-conservacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram lavagem a 40°C nos produtos citados. A temperatura de 60°C aparece apenas como temperatura máxima para secagem em tambor em um produto da Karsten, não como temperatura máxima de lavagem.",
+      "fix": "Os fabricantes podem indicar restrições específicas. Nos exemplos citados, há lavagem a 40°C, indicação sobre alvejamento, secagem em varal ou em tambor — neste último caso, com temperatura máxima de 60°C — e temperatura máxima de 110°C para o ferro."
+    },
+    {
+      "ref": "peso-medidas-embalado#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco usa basis \"framing\", mas afirma um fato sobre o conteúdo das evidências — que elas não informam o peso e as medidas — e também orienta a consulta à ficha do produto; não é apenas uma transição sobre a própria página.",
+      "fix": "As evidências citadas não permitem fazer essa afirmação. Remova o bloco ou use uma transição sem alegação factual, como: \"Consulte a ficha do produto para verificar as informações disponíveis.\""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "etiqueta-conservacao#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam a obrigatoriedade dos cinco processos, a ordem e o uso de símbolos e/ou textos, mas não mostram que essa regra se aplica especificamente a edredons. Versão sustentável: Segundo o Inmetro, a etiqueta de conservação deve informar obrigatoriamente lavagem, alvejamento, secagem, passadoria e limpeza profissional, nessa sequência. As informações podem ser apresentadas em símbolos e/ou textos."
+    },
+    {
+      "ref": "etiqueta-conservacao#1",
+      "msg": "OVERSTATED. Os trechos mostram lavagem a 40°C nos produtos citados. A temperatura de 60°C aparece apenas como temperatura máxima para secagem em tambor em um produto da Karsten, não como temperatura máxima de lavagem. Versão sustentável: Os fabricantes podem indicar restrições específicas. Nos exemplos citados, há lavagem a 40°C, indicação sobre alvejamento, secagem em varal ou em tambor — neste último caso, com temperatura máxima de 60°C — e temperatura máxima de 110°C para o ferro."
+    },
+    {
+      "ref": "peso-medidas-embalado#0",
+      "msg": "FACT_IN_FRAMING. O bloco usa basis \"framing\", mas afirma um fato sobre o conteúdo das evidências — que elas não informam o peso e as medidas — e também orienta a consulta à ficha do produto; não é apenas uma transição sobre a própria página. Versão sustentável: As evidências citadas não permitem fazer essa afirmação. Remova o bloco ou use uma transição sem alegação factual, como: \"Consulte a ficha do produto para verificar as informações disponíveis.\""
+    }
+  ]
+}
