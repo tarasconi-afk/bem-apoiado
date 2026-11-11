@@ -1,0 +1,35 @@
+{
+  "rules": [
+    {
+      "rule": "Se você quer pluma de ganso, escolha um modelo cuja ficha declare explicitamente “100% plumas de ganso” e confira se o tecido tem proteção contra a passagem do enchimento.",
+      "claim_ids": [
+        "clm_0e86ea4ea87b"
+      ]
+    },
+    {
+      "rule": "Se você prefere fibra, escolha um modelo cuja ficha informe enchimento de fibra ou poliéster e a gramatura; há opções declaradas de 100, 200 e 300 g/m².",
+      "claim_ids": [
+        "clm_bd249870ecdf",
+        "clm_26d4a59977f6",
+        "clm_25398e31fdab"
+      ]
+    },
+    {
+      "rule": "Se a descrição disser apenas “toque de plumas”, confira a composição antes de comprar: esse nome pode designar enchimento de poliéster, não pluma ou pena.",
+      "claim_ids": [
+        "clm_7bbc8514dd8b",
+        "clm_d9ca17f369be"
+      ]
+    }
+  ],
+  "ready": false,
+  "missing": [
+    "Falta uma fonte primária voltada ao comprador que compare pluma, pena e fibra quanto a aquecimento, peso, volume, manutenção e indicação de uso.",
+    "Falta uma ficha de fabricante que informe claramente a composição e as características de um edredom com enchimento de pena, para diferenciá-lo de pluma e fibra."
+  ],
+  "queries": [
+    "site:fabricante.com.br edredom pluma pena fibra diferenças aquecimento peso cuidados",
+    "site:fabricante.com.br edredom enchimento 100% pena de ganso composição",
+    "site:fabricante.com.br edredom plumas penas fibra manutenção alergia"
+  ]
+}
