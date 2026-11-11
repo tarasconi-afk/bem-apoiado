@@ -1,0 +1,187 @@
+{
+  "run_id": "20261111T131421_autopilot_68e6",
+  "topic": "colchao-d33-suporta-quantos-kg",
+  "accepted": [
+    {
+      "claim_id": "clm_82de267dddca",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_627c173e632c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1bacd9839fbd",
+      "question_id": "q_inmetro_densidade",
+      "source_id": "src_627c173e632c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5991ef54006b",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_57c88b0bc370",
+      "new": true
+    },
+    {
+      "claim_id": "clm_36da5e59bf68",
+      "question_id": "q_inmetro_densidade",
+      "source_id": "src_57c88b0bc370",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1a3849026040",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_e97dd4fe5767",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e67e70b8c024",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_e97dd4fe5767",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8b7ac26ff23c",
+      "question_id": "q_inmetro_densidade",
+      "source_id": "src_e97dd4fe5767",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8c8bfcb2c257",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_d496f11ac077",
+      "new": true
+    },
+    {
+      "claim_id": "clm_90f8bf9584eb",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_d496f11ac077",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1e83ab5d1c78",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_d496f11ac077",
+      "new": true
+    },
+    {
+      "claim_id": "clm_90a10abb23ff",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_a0b1ca2d8e2b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_76ff95aae93e",
+      "question_id": "q_peso_declarado_d33",
+      "source_id": "src_a0b1ca2d8e2b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_844138b91c59",
+      "question_id": "q_tamanho_afeta_peso_total",
+      "source_id": "src_a0b1ca2d8e2b",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_4367f9d107ea",
+      "question_id": "q_peso_por_densidade",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Massa (kg) Altura (m) Até 1,50 1,51 a 1,60 1,61 a 1,70 1,71 a 1,80 1,81 a 1,90 Acima de 1,90 Até 50 D-23 D-23(A)/20 D-23/20(A) D-20 51 a 60 D-26 D-26(A)/23 D-26/23(A) D-23 61 a 70 D-28 D-26/28(A) D-26"
+    },
+    {
+      "source_id": "src_4367f9d107ea",
+      "question_id": "q_inmetro_densidade",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "O colchão, para sua perfeita identificação, deve ter uma etiqueta costurada e nesta devem constar, obrigatoriamente, informações sobre nome do fabricante, marca do produto, dimensões do colchão, densi"
+    },
+    {
+      "source_id": "src_4367f9d107ea",
+      "question_id": "q_inmetro_peso_suportado",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Nenhuma das marcas analisadas apresentavam, na sua rotulagem, a identificação da força de indentação (suporte de carga). Porém, este dado, vinculado ao valor da densidade nominal, é o principal indica"
+    },
+    {
+      "source_id": "src_4367f9d107ea",
+      "question_id": "q_inmetro_densidade",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Densidade: Este ensaio verifica a quantidade de matéria-prima utilizada para produzir 1 m3 de espuma. Comercialmente, este dado, representado pela letra D, serve como referência para que o consumidor "
+    },
+    {
+      "source_id": "src_4367f9d107ea",
+      "question_id": "q_diferenca_outras_densidades",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "As não conformidades detectadas nas amostras das marcas analisadas indicam que estas marcas não possuem as características específicas de um colchão de densidade 33 kg/m3"
+    },
+    {
+      "source_id": "src_57c88b0bc370",
+      "question_id": "q_peso_declarado_d33",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Suporte de peso: 100 kg por pessoa"
+    }
+  ],
+  "coverage": {
+    "q_peso_por_densidade": 0,
+    "q_peso_declarado_d33": 9,
+    "q_inmetro_densidade": 3,
+    "q_inmetro_peso_suportado": 0,
+    "q_diferenca_outras_densidades": 0,
+    "q_tamanho_afeta_peso_total": 1
+  },
+  "unanswered": [
+    "q_peso_por_densidade",
+    "q_inmetro_peso_suportado",
+    "q_diferenca_outras_densidades"
+  ],
+  "usage": {
+    "input_tokens": 12256,
+    "output_tokens": 2740,
+    "calls": 6
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_4367f9d107ea",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_4367f9d107ea",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.39
+    },
+    {
+      "source_id": "src_627c173e632c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_57c88b0bc370",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e97dd4fe5767",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_d496f11ac077",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.86
+    },
+    {
+      "source_id": "src_a0b1ca2d8e2b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 11.63436672
+}

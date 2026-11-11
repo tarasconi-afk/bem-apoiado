@@ -1,0 +1,23 @@
+{
+  "edits": [
+    {
+      "ref": "o-que-e-densidade#1",
+      "action": "remove",
+      "reason": "Repete informações já dadas em 'O Inmetro não regula peso' (exigência de densidade) e em 'Peso varia por modelo' (faixa de 100-120kg), sem acrescentar nada novo nesta seção."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "action": "rewrite",
+      "text": "D33 indica densidade média de 33 kg/m³, segundo a Castor, que afirma que essa espuma oferece conforto e durabilidade.",
+      "claim_ids": [
+        "clm_0468e47e6472"
+      ],
+      "reason": "A recomendação de densidade por peso já aparece de forma detalhada na seção 'Como decidir', então foi removida daqui para evitar repetição."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 1955
+  }
+}

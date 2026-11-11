@@ -1,0 +1,128 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Probel sustentam limites de 100 kg e 120 kg por pessoa para dois modelos específicos D33, não que todos os colchões D33 suportem entre 100 e 120 kg. Além disso, os trechos não dizem que D33 equivale a 33 kg/m³ nem que o Inmetro não exige ou não avalia limite de peso; apenas mostram que a densidade nominal deve ser informada na etiqueta. A recomendação de conferir a ficha técnica é compatível com a variação entre modelos, mas não está expressamente dita nas fontes.",
+      "fix": "A capacidade varia conforme o modelo: os trechos citados informam suporte de até 100 kg por pessoa em um modelo D33 da Probel e de 120 kg por pessoa em outro. A Castor indica densidade 33 para pessoas de 71 a 80 kg e densidade de 33 a 45 para pessoas de 81 a 100 kg, conforme a preferência por firmeza. O Inmetro exige a informação da densidade nominal da espuma na identificação do produto; consulte a ficha técnica do modelo escolhido para verificar sua capacidade."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a Castor associa a espuma D33 à densidade média de 33 kg/m³ e a conforto e durabilidade. Porém, não dizem que densidades maiores evitam que o colchão afunde demais nem estabelecem uma relação geral entre maior densidade e maior durabilidade.",
+      "fix": "D33 indica, no produto citado pela Castor, densidade média de 33 kg/m³; a marca afirma que essa espuma oferece conforto e durabilidade. A Castor também recomenda densidade 45 ou maior para pessoas acima de 100 kg, para maior suporte."
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que o Inmetro exige a indicação das densidades nominais das lâminas de espuma e estabelece alguns requisitos de densidade, além de um produto da Probel declarar suporte de 120 kg por pessoa. Eles não afirmam que densidade não é capacidade de peso certificada pelo Inmetro, nem sustentam que o limite varia conforme modelo, tamanho e composição ou que cada fabricante declara esse valor na ficha técnica.",
+      "fix": "O Inmetro exige que sejam informadas as densidades nominais das lâminas de espuma e suas espessuras quando aplicável. No produto citado, a Probel declara suporte de peso de 120 kg por pessoa."
+    },
+    {
+      "ref": "o-inmetro-nao-regula-peso#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que essas informações são obrigatórias, mas não especifica que devem constar na etiqueta do colchão. Além disso, não define colchão composto ou misto como aquele com mais de um tipo de espuma.",
+      "fix": "O Inmetro exige a informação da densidade nominal das lâminas de espuma, em kg/m³, e, para colchões compostos ou mistos, as respectivas espessuras."
+    },
+    {
+      "ref": "o-inmetro-nao-regula-peso#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados não mencionam peso máximo suportado, avaliação ou exigência dessa informação, nem dizem que ela é voluntária ou varia entre marcas.",
+      "fix": "O Inmetro informa que, quando o fornecedor declara voluntariamente funcionalidades de colchões mistos, essas características não foram avaliadas pelo processo de certificação."
+    },
+    {
+      "ref": "peso-varia-por-modelo#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "peso-varia-por-modelo#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que densidades e espessuras das lâminas devem ser informadas e apresentam dois produtos com pesos suportados diferentes, mas não dizem que o limite depende da espessura total, da composição das camadas ou do tamanho. Também não sustentam que dois colchões D33 do mesmo tamanho suportariam pesos diferentes por terem estruturas distintas, nem atribuem essas conclusões à Probel e à Ortobom.",
+      "fix": "Os fabricantes informam limites diferentes para modelos citados: o Guarda Costas D33 da Probel suporta até 100 kg por pessoa, enquanto o Pró Saúde Extra D33 da Ortobom suporta 120 kg por pessoa. O Inmetro exige a informação das densidades e, em colchões compostos ou mistos, das respectivas espessuras das lâminas de espuma."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Ortobom cita o modelo Colchão Pro Saude Extra Solteiro e apenas informa o tamanho como solteiro; não cita Orthotel Superluxo nem as dimensões 100 × 200 cm. Embora sustente D33 e 120 kg por pessoa, o bloco atribui à fonte dados de outro modelo e dimensões não presentes no trecho.",
+      "fix": "Modelo e marca: Ortobom Colchão Pro Saude Extra Solteiro | Tamanho: segundo a Ortobom, solteiro | Peso suportado por pessoa: segundo a Ortobom, 120 kg; densidade: D33."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "As informações do bloco são sustentadas pelo título e pelo trecho da página da Probel, incluindo o modelo PróIntense solteiro, as dimensões 88 × 188 cm e o suporte de 120 kg por pessoa.",
+      "fix": "Manter o texto."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "O trecho da Probel identifica o modelo PróIntense queen e informa suporte de 120 kg por pessoa.",
+      "fix": "Manter o texto."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "O título e o trecho da Probel identificam o modelo Guarda Costas casal, com dimensões 138 × 188 cm, e informam suporte de até 100 kg por pessoa.",
+      "fix": "Manter o texto."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "O trecho da Castor indica densidade 33 para pessoas de 71 a 80 kg, e o bloco atribui expressamente essa indicação à Castor.",
+      "fix": "Manter o texto."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "O trecho da Castor informa, para 81 a 100 kg, densidade de 33 a 45, variando conforme a preferência por firmeza; o bloco reproduz esse conteúdo como recomendação da Castor.",
+      "fix": "Manter o texto."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "O trecho da Castor informa que, acima de 100 kg, a densidade deve ser 45 ou maior, para maior suporte; o bloco atribui essa indicação à Castor.",
+      "fix": "Manter o texto."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho do Inmetro sustenta a informação sobre densidades nominais em kg/m³ e, para colchões compostos ou mistos, as espessuras das lâminas. Ele não afirma que a densidade D33 sozinha não informa o peso máximo suportado, nem especifica que a consulta deve ser feita na etiqueta.",
+      "fix": "Confira as densidades nominais da espuma em kg/m³ e, se o colchão for composto ou misto, as espessuras de cada lâmina, conforme as informações obrigatórias do produto e da embalagem."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos da Probel sustentam limites de 100 kg e 120 kg por pessoa para dois modelos específicos D33, não que todos os colchões D33 suportem entre 100 e 120 kg. Além disso, os trechos não dizem que D33 equivale a 33 kg/m³ nem que o Inmetro não exige ou não avalia limite de peso; apenas mostram que a densidade nominal deve ser informada na etiqueta. A recomendação de conferir a ficha técnica é compatível com a variação entre modelos, mas não está expressamente dita nas fontes. Versão sustentável: A capacidade varia conforme o modelo: os trechos citados informam suporte de até 100 kg por pessoa em um modelo D33 da Probel e de 120 kg por pessoa em outro. A Castor indica densidade 33 para pessoas de 71 a 80 kg e densidade de 33 a 45 para pessoas de 81 a 100 kg, conforme a preferência por firmeza. O Inmetro exige a informação da densidade nominal da espuma na identificação do produto; consulte a ficha técnica do modelo escolhido para verificar sua capacidade."
+    },
+    {
+      "ref": "o-que-e-densidade#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a Castor associa a espuma D33 à densidade média de 33 kg/m³ e a conforto e durabilidade. Porém, não dizem que densidades maiores evitam que o colchão afunde demais nem estabelecem uma relação geral entre maior densidade e maior durabilidade. Versão sustentável: D33 indica, no produto citado pela Castor, densidade média de 33 kg/m³; a marca afirma que essa espuma oferece conforto e durabilidade. A Castor também recomenda densidade 45 ou maior para pessoas acima de 100 kg, para maior suporte."
+    },
+    {
+      "ref": "o-que-e-densidade#1",
+      "msg": "UNSUPPORTED. Os trechos mostram que o Inmetro exige a indicação das densidades nominais das lâminas de espuma e estabelece alguns requisitos de densidade, além de um produto da Probel declarar suporte de 120 kg por pessoa. Eles não afirmam que densidade não é capacidade de peso certificada pelo Inmetro, nem sustentam que o limite varia conforme modelo, tamanho e composição ou que cada fabricante declara esse valor na ficha técnica. Versão sustentável: O Inmetro exige que sejam informadas as densidades nominais das lâminas de espuma e suas espessuras quando aplicável. No produto citado, a Probel declara suporte de peso de 120 kg por pessoa."
+    },
+    {
+      "ref": "o-inmetro-nao-regula-peso#0",
+      "msg": "OVERSTATED. O trecho sustenta que essas informações são obrigatórias, mas não especifica que devem constar na etiqueta do colchão. Além disso, não define colchão composto ou misto como aquele com mais de um tipo de espuma. Versão sustentável: O Inmetro exige a informação da densidade nominal das lâminas de espuma, em kg/m³, e, para colchões compostos ou mistos, as respectivas espessuras."
+    },
+    {
+      "ref": "o-inmetro-nao-regula-peso#1",
+      "msg": "UNSUPPORTED. Os trechos citados não mencionam peso máximo suportado, avaliação ou exigência dessa informação, nem dizem que ela é voluntária ou varia entre marcas. Versão sustentável: O Inmetro informa que, quando o fornecedor declara voluntariamente funcionalidades de colchões mistos, essas características não foram avaliadas pelo processo de certificação."
+    },
+    {
+      "ref": "peso-varia-por-modelo#1",
+      "msg": "UNSUPPORTED. Os trechos mostram que densidades e espessuras das lâminas devem ser informadas e apresentam dois produtos com pesos suportados diferentes, mas não dizem que o limite depende da espessura total, da composição das camadas ou do tamanho. Também não sustentam que dois colchões D33 do mesmo tamanho suportariam pesos diferentes por terem estruturas distintas, nem atribuem essas conclusões à Probel e à Ortobom. Versão sustentável: Os fabricantes informam limites diferentes para modelos citados: o Guarda Costas D33 da Probel suporta até 100 kg por pessoa, enquanto o Pró Saúde Extra D33 da Ortobom suporta 120 kg por pessoa. O Inmetro exige a informação das densidades e, em colchões compostos ou mistos, das respectivas espessuras das lâminas de espuma."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom cita o modelo Colchão Pro Saude Extra Solteiro e apenas informa o tamanho como solteiro; não cita Orthotel Superluxo nem as dimensões 100 × 200 cm. Embora sustente D33 e 120 kg por pessoa, o bloco atribui à fonte dados de outro modelo e dimensões não presentes no trecho. Versão sustentável: Modelo e marca: Ortobom Colchão Pro Saude Extra Solteiro | Tamanho: segundo a Ortobom, solteiro | Peso suportado por pessoa: segundo a Ortobom, 120 kg; densidade: D33."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. O trecho do Inmetro sustenta a informação sobre densidades nominais em kg/m³ e, para colchões compostos ou mistos, as espessuras das lâminas. Ele não afirma que a densidade D33 sozinha não informa o peso máximo suportado, nem especifica que a consulta deve ser feita na etiqueta. Versão sustentável: Confira as densidades nominais da espuma em kg/m³ e, se o colchão for composto ou misto, as espessuras de cada lâmina, conforme as informações obrigatórias do produto e da embalagem."
+    }
+  ]
+}
