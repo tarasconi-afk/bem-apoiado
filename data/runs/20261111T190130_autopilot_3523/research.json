@@ -1,0 +1,152 @@
+{
+  "run_id": "20261111T190130_autopilot_3523",
+  "topic": "enchimento-de-edredom-pluma-pena-ou-fibra",
+  "accepted": [
+    {
+      "claim_id": "clm_f2a0b335d301",
+      "question_id": "q_fibra_composicao",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d1b914848318",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c9789bf502a6",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d5b92f8237c1",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f399c0773e76",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7a741ba23ed3",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_399bd1640115",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_9b1bdf81e152",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fedb212611be",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_841304691d94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8992a3ce4eb9",
+      "question_id": "q_fibra_composicao",
+      "source_id": "src_841304691d94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_55f6ea868abd",
+      "question_id": "q_fibra_composicao",
+      "source_id": "src_841304691d94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6695f4fbb9ab",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_841304691d94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8080818d5325",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_841304691d94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_38e7763a4d4b",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_841304691d94",
+      "new": true
+    },
+    {
+      "claim_id": "clm_70b6d8ea1514",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_841304691d94",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_841304691d94",
+      "question_id": "q_cuidados_etiqueta",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Lavagem: Lavar em processo suave na máquina, com temperatura máxima de 30°C"
+    },
+    {
+      "source_id": "src_841304691d94",
+      "question_id": "q_cuidados_etiqueta",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Secagem: Não utilize máquina secadora; faça a secagem em varal, na vertical e sem torcer"
+    },
+    {
+      "source_id": "src_841304691d94",
+      "question_id": "q_cuidados_etiqueta",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Lavagem a Seco: Não realizar lavagem a seco."
+    }
+  ],
+  "coverage": {
+    "q_gramatura_estacao": 2,
+    "q_pluma_composicao": 0,
+    "q_pena_composicao": 0,
+    "q_fibra_composicao": 3,
+    "q_cuidados_etiqueta": 3,
+    "q_peso_medidas": 6
+  },
+  "unanswered": [
+    "q_pluma_composicao",
+    "q_pena_composicao"
+  ],
+  "usage": {
+    "input_tokens": 5585,
+    "output_tokens": 1941,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_918f4e08182d"
+  ],
+  "triage": [
+    {
+      "source_id": "src_9b1bdf81e152",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_841304691d94",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_918f4e08182d",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.48
+    }
+  ],
+  "credits": 25.501250279999997
+}
