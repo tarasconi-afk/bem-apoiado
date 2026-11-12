@@ -43,7 +43,10 @@ export const CITACAO_IGNORA = ['lombar', 'cervical', 'anatomic', 'anatômic', 's
 const CITACAO_EXTRA = ['médic', 'fisioterap'];
 // 12/11: "cervical" fica fora da lista por causa de nomes de modelo ("NASA X Cervical"), mas "apoio cervical", "região
 // cervical" e "coluna cervical" numa citação são alegação de postura/saúde, não nome: entram pelo contexto.
-const CITACAO_CONTEXTO = [/\b(apoio|regiao|região|coluna|suporte)\s+cervical/iu, /\balinhamento\s+(da\s+)?(coluna|postural)/iu];
+// 12/11 (decisão comercial do dono): propriedade DECLARADA ("antialérgico", "antiácaro", "hipoalergênico") fica na citação;
+// o que sai é a promessa de resultado: proteger/evitar/prevenir/combater alergia ou ácaros, "ideal para alérgicos".
+const CITACAO_CONTEXTO = [/\b(apoio|regiao|região|coluna|suporte)\s+cervical/iu, /\balinhamento\s+(da\s+)?(coluna|postural)/iu,
+  /\b(proteg|evit|previn|combat|elimin|reduz)\w*\s+(contra\s+|os?\s+|as?\s+|a\s+)?(alerg|acaro|ácaro)/iu, /\b(ideal|indicad[oa])\s+para\s+(quem\s+tem\s+)?(alerg|alérg)/iu];
 export function citacaoSemAlegacao(quote: string, forbidden: string[]): { texto: string; omitidas: number } {
   const terms = [...forbidden.filter((t) => !CITACAO_IGNORA.includes(normalizeForMatch(t)) && !CITACAO_IGNORA.includes(t)), ...CITACAO_EXTRA];
   const frases = quote.split(/(?<=[.!?;])\s+/);

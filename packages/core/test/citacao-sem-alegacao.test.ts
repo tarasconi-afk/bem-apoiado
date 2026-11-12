@@ -1,15 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { citacaoSemAlegacao } from '../src/text.ts';
 
-const F = ['coluna', 'dor', 'postura', 'saúde', 'antialérg', 'hipoalergên', 'cervical', 'lombar', 'anatômic'];
+const F = ['coluna', 'dor', 'postura', 'saúde', 'cervical', 'lombar', 'anatômic', 'previne alerg', 'ideal para alérg'];
 describe('citação sem alegação de saúde (12/11)', () => {
   it('tira só a frase com o termo vetado e conta a omissão', () => {
     const r = citacaoSemAlegacao('Enchimento 100% penas de ganso. Promove o alinhamento ideal da coluna para um sono mais saudável. Fronha 50x70 cm.', F);
     expect(r.texto).toBe('Enchimento 100% penas de ganso. Fronha 50x70 cm.');
     expect(r.omitidas).toBe(1);
   });
-  it('citação inteira com alegação fica vazia', () => {
-    const r = citacaoSemAlegacao('Os travesseiros são antialérgicos e anti ácaros.', F);
+  it('citação inteira com alegação fica vazia (12/11: "antialérgico" declarado fica; a promessa sai)', () => {
+    expect(citacaoSemAlegacao('Os travesseiros são antialérgicos e anti ácaros.', F).omitidas).toBe(0);
+    const r = citacaoSemAlegacao('Previne alergias e protege contra ácaros.', F);
     expect(r.texto).toBe('');
     expect(r.omitidas).toBe(1);
   });

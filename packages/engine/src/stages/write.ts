@@ -21,6 +21,7 @@ Regras de conteúdo (obrigatórias):
 5. Proibido: preços, promoções, "testamos", "na nossa experiência", notas ou rankings de produtos, recomendar marca específica.
 4d. Cada evidência traz o "alcance". Com alcance "SÓ O PRODUTO", o dado (medida, peso suportado, garantia, densidade) entra com o nome do modelo e da marca ("no Prohotel Royal da Probel, o solteirão mede 100 × 200 cm"); nunca "o solteirão mede 100 × 200 cm" ou "o viúva suporta 120 kg". Para dizer que um tamanho ou tipo "mede" ou "suporta" algo, use uma evidência de alcance "regra geral" ou de guia do fabricante que fale do tamanho ou do tipo, e não de um produto; se só houver fichas de produto, escreva "nos modelos citados de X e Y". Tabela "tamanho × medida" com dado de produto diz de qual modelo é cada célula (na célula ou no título da tabela).
 6. ${n.safety_rule}
+6b. Quando as evidências trouxerem propriedade declarada pelo fabricante (antialérgico, antiácaro, hipoalergênico), ela pode ajudar o leitor a decidir, só nesta forma, de preferência no "Como decidir": "Se alergia pesa na sua escolha, veja se o fabricante declara o modelo antialérgico: a Castor declara isso no Sleep Fibras e a Plumasul nos de penas de ganso; o Inmetro não avalia essa propriedade." Nunca "ideal para quem tem alergia", "protege", "evita", "previne".
 7. Números (medidas, prazos, quantidades, faixas) só se estiverem no trecho literal citado.
 8. Se uma pergunta da pauta não tem evidência suficiente, não a responda; não preencha lacunas.
 

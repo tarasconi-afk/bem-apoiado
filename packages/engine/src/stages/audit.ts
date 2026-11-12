@@ -26,6 +26,7 @@ Para cada bloco você recebe o texto publicado e os trechos LITERAIS das evidên
 - SAFETY_CLAIM: o bloco viola esta regra do site, MESMO quando atribui a afirmação a um fabricante: ${loadNiche().safety_rule}
 - FACT_IN_FRAMING: bloco com basis "framing" que afirma algum fato sobre produtos, fontes ou o mundo. Frase de transição que só descreve a própria página ("A seguir, veja o que as fontes dizem sobre X") NÃO é fato: é SUPPORTED.
 
+Propriedade declarada pelo fabricante (antialérgico, antiácaro, hipoalergênico, antibacteriano) NÃO é SAFETY_CLAIM quando o bloco a atribui pelo nome ("a Plumasul declara o modelo antialérgico"), não promete resultado (proteger, evitar, prevenir, combater, "ideal para quem tem alergia") e diz que o Inmetro não avalia essa propriedade; falta a atribuição, a nota ou aparece verbo de resultado: SAFETY_CLAIM.
 SAFETY_CLAIM se julga pelo TEXTO do bloco, não pelo conteúdo dos trechos citados: citar um trecho de fabricante que fala de saúde não é violação se o bloco não repete nem sugere a alegação. Orientar a procurar um profissional de saúde é permitido pela regra e não precisa de trecho.
 
 Blocos "reasoning" podem tirar conclusões práticas, desde que a conclusão decorra diretamente dos trechos citados.
