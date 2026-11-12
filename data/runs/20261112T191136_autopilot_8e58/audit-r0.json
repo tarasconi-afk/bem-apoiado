@@ -1,0 +1,150 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as faixas de gramatura e suas características segundo a Teka, e a Appel sustenta maior absorção acima de 450 g/m². Porém, não dizem que a composição de fibras determina o poder de absorção, que a faixa de 400–450 g/m² equilibra especificamente absorção e secagem, nem que gramatura e composição devem ser conferidas na etiqueta. O trecho do Inmetro só estabelece a ordem decrescente dos percentuais de fibras.",
+      "fix": "Segundo a Teka, toalhas até 360 g/m² secam mais rápido, entre 400 e 450 g/m² equilibram conforto e praticidade, e acima de 500 g/m² são mais encorpadas e absorventes. A Appel afirma que toalhas acima de 450 g/m² oferecem maior absorção. Na etiqueta, os percentuais de participação das fibras aparecem em ordem decrescente de massa."
+    },
+    {
+      "ref": "o-que-e-gramatura#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a Teka classifica toalhas de até 360 g/m² como mais leves e de secagem rápida e as acima de 500 g/m² como mais encorpadas e absorventes. Porém, não dizem explicitamente que gramatura é o peso do tecido nem autorizam generalizar que, quanto maior ou menor a gramatura, essas características sempre ocorrerão; também não afirmam diretamente que maior gramatura significa mais pesada.",
+      "fix": "A Teka classifica toalhas de até 360 g/m² como mais leves e de secagem rápida, e toalhas acima de 500 g/m² como mais encorpadas e absorventes. Em um exemplo da marca, uma toalha de 500 g/m² pesa 647 g."
+    },
+    {
+      "ref": "composicao-fibras#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibras#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a gramatura de 500 g/m² e a alegação de excelente absorção, mas não informa a composição de 100% algodão.",
+      "fix": "Remover a composição ou citar um trecho da Karsten que informe que o produto é 100% algodão."
+    },
+    {
+      "ref": "composicao-fibras#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a composição de 100% algodão e a gramatura de 620 g/m², mas não diz que a toalha é muito absorvente.",
+      "fix": "Remover a descrição de que é muito absorvente ou substituí-la por uma formulação limitada à composição e à gramatura citadas."
+    },
+    {
+      "ref": "composicao-fibras#0.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a gramatura de 440 g/m² e as características de maciez e toque aveludado, mas não informa que a composição é 100% algodão.",
+      "fix": "Remover a composição ou citar um trecho da Döhler que informe que o produto é 100% algodão."
+    },
+    {
+      "ref": "composicao-fibras#0.r4",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a gramatura de 420 g/m², a boa absorção e a secagem rápida, mas não informa a composição de 100% algodão.",
+      "fix": "Remover a composição ou citar um trecho da Appel que informe que o produto é 100% algodão."
+    },
+    {
+      "ref": "composicao-fibras#0.r5",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a composição de 50% fibra de bambu e 50% algodão egípcio, além de maciez e excelente absorção, mas não informa a gramatura de 500 g/m².",
+      "fix": "Remover a gramatura ou citar um trecho da Appel que informe 500 g/m²."
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o percentual deve aparecer em ordem decrescente e com igual destaque, mas não especificam que os percentuais devem ter o mesmo tamanho de letra. A exigência também é apresentada como aplicável à composição do produto, enquanto os exemplos de toalhas são apenas ilustrações compatíveis com a regra geral.",
+      "fix": "O Inmetro exige que a etiqueta informe o nome das fibras têxteis e seu percentual em massa. A composição deve ser apresentada em ordem decrescente e com igual destaque; por exemplo, em uma toalha de 100% algodão, deve constar 100% algodão, e, em uma composição de 50% algodão e 50% poliéster, os percentuais devem receber igual destaque."
+    },
+    {
+      "ref": "textura-estrutura#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as explicações sobre fio penteado e fio cardado, além de textura encorpada e jacquard com relevo. Porém, não sustentam que a textura seja descrita na ficha técnica de cada modelo, que “felpuda” signifique felpa densa, nem as afirmações sobre o Teka Monaco, acabamento e absorção conforme a gramatura.",
+      "fix": "Karsten explica que o fio penteado remove fibras curtas e resulta em fio mais suave e uniforme, enquanto o fio cardado mantém essas fibras e dá toque mais encorpado. A Appel associa a maciez ao fio penteado e ao acabamento tumbler, e a Karsten descreve um modelo com jacquard em relevo e textura encorpada."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que a faixa de 400 a 450 g/m² oferece equilíbrio entre conforto e praticidade, mas não dizem que ela proporciona boa absorção nem que não é pesada.",
+      "fix": "[tabela: Gramatura recomendada conforme sua prioridade] Sua prioridade: Equilíbrio entre conforto e praticidade | Gramatura: Segundo a Teka, entre 400 e 450 g/m² | O que esperar: Segundo a Teka, equilíbrio entre conforto e praticidade"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos dizem que gramaturas acima de 500 g/m² são absorventes e têm sensação premium, e que a Appel associa toalhas acima de 450 g/m² a maior absorção e sensação de luxo. Eles não sustentam a ideia de 'máxima absorção'.",
+      "fix": "[tabela: Gramatura recomendada conforme sua prioridade] Sua prioridade: Maior absorção | Gramatura: Segundo a Teka, acima de 500 g/m²; a Appel menciona toalhas acima de 450 g/m² | O que esperar: Segundo as fontes, maior absorção e sensação premium ou de luxo"
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados exigem a informação sobre composição das fibras, incluindo percentuais em ordem decrescente e com igual destaque, mas não dizem que a gramatura deve aparecer na etiqueta. Portanto, a orientação para conferir a gramatura não está sustentada por essas evidências.",
+      "fix": "Confira na etiqueta a composição de fibras. O Inmetro exige que o percentual de cada fibra apareça em ordem decrescente e com igual destaque, em exemplos como '100% algodão' ou '50% algodão + 50% poliéster'."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as faixas de gramatura e suas características segundo a Teka, e a Appel sustenta maior absorção acima de 450 g/m². Porém, não dizem que a composição de fibras determina o poder de absorção, que a faixa de 400–450 g/m² equilibra especificamente absorção e secagem, nem que gramatura e composição devem ser conferidas na etiqueta. O trecho do Inmetro só estabelece a ordem decrescente dos percentuais de fibras. Versão sustentável: Toalhas até 360 g/m² secam mais rápido, entre 400 e 450 g/m² equilibram conforto e praticidade, e acima de 500 g/m² são mais encorpadas e absorventes, segundo a Teka. A Appel afirma que toalhas acima de 450 g/m² oferecem maior absorção. Na etiqueta, os percentuais de participação das fibras aparecem em ordem decrescente de massa."
+    },
+    {
+      "ref": "o-que-e-gramatura#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a Teka classifica toalhas de até 360 g/m² como mais leves e de secagem rápida e as acima de 500 g/m² como mais encorpadas e absorventes. Porém, não dizem explicitamente que gramatura é o peso do tecido nem autorizam generalizar que, quanto maior ou menor a gramatura, essas características sempre ocorrerão; também não afirmam diretamente que maior gramatura significa mais pesada. Versão sustentável: A Teka classifica toalhas de até 360 g/m² como mais leves e de secagem rápida, e toalhas acima de 500 g/m² como mais encorpadas e absorventes. Em um exemplo da marca, uma toalha de 500 g/m² pesa 647 g."
+    },
+    {
+      "ref": "composicao-fibras#0.r1",
+      "msg": "UNSUPPORTED. O trecho sustenta a gramatura de 500 g/m² e a alegação de excelente absorção, mas não informa a composição de 100% algodão. Versão sustentável: Remover a composição ou citar um trecho da Karsten que informe que o produto é 100% algodão."
+    },
+    {
+      "ref": "composicao-fibras#0.r2",
+      "msg": "UNSUPPORTED. O trecho sustenta a composição de 100% algodão e a gramatura de 620 g/m², mas não diz que a toalha é muito absorvente. Versão sustentável: Remover a descrição de que é muito absorvente ou substituí-la por uma formulação limitada à composição e à gramatura citadas."
+    },
+    {
+      "ref": "composicao-fibras#0.r3",
+      "msg": "UNSUPPORTED. O trecho sustenta a gramatura de 440 g/m² e as características de maciez e toque aveludado, mas não informa que a composição é 100% algodão. Versão sustentável: Remover a composição ou citar um trecho da Döhler que informe que o produto é 100% algodão."
+    },
+    {
+      "ref": "composicao-fibras#0.r4",
+      "msg": "UNSUPPORTED. O trecho sustenta a gramatura de 420 g/m², a boa absorção e a secagem rápida, mas não informa a composição de 100% algodão. Versão sustentável: Remover a composição ou citar um trecho da Appel que informe que o produto é 100% algodão."
+    },
+    {
+      "ref": "composicao-fibras#0.r5",
+      "msg": "UNSUPPORTED. O trecho sustenta a composição de 50% fibra de bambu e 50% algodão egípcio, além de maciez e excelente absorção, mas não informa a gramatura de 500 g/m². Versão sustentável: Remover a gramatura ou citar um trecho da Appel que informe 500 g/m²."
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o percentual deve aparecer em ordem decrescente e com igual destaque, mas não especificam que os percentuais devem ter o mesmo tamanho de letra. A exigência também é apresentada como aplicável à composição do produto, enquanto os exemplos de toalhas são apenas ilustrações compatíveis com a regra geral. Versão sustentável: O Inmetro exige que a etiqueta informe o nome das fibras têxteis e seu percentual em massa. A composição deve ser apresentada em ordem decrescente e com igual destaque; por exemplo, em uma toalha de 100% algodão, deve constar 100% algodão, e, em uma composição de 50% algodão e 50% poliéster, os percentuais devem receber igual destaque."
+    },
+    {
+      "ref": "textura-estrutura#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as explicações sobre fio penteado e fio cardado, além de textura encorpada e jacquard com relevo. Porém, não sustentam que a textura seja descrita na ficha técnica de cada modelo, que “felpuda” signifique felpa densa, nem as afirmações sobre o Teka Monaco, acabamento e absorção conforme a gramatura. Versão sustentável: Karsten explica que o fio penteado remove fibras curtas e resulta em fio mais suave e uniforme, enquanto o fio cardado mantém essas fibras e dá toque mais encorpado. A Appel associa a maciez ao fio penteado e ao acabamento tumbler, e a Karsten descreve um modelo com jacquard em relevo e textura encorpada."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a faixa de 400 a 450 g/m² oferece equilíbrio entre conforto e praticidade, mas não dizem que ela proporciona boa absorção nem que não é pesada. Versão sustentável: [tabela: Gramatura recomendada conforme sua prioridade] Sua prioridade: Equilíbrio entre conforto e praticidade | Gramatura: Segundo a Teka, entre 400 e 450 g/m² | O que esperar: Segundo a Teka, equilíbrio entre conforto e praticidade"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. Os trechos dizem que gramaturas acima de 500 g/m² são absorventes e têm sensação premium, e que a Appel associa toalhas acima de 450 g/m² a maior absorção e sensação de luxo. Eles não sustentam a ideia de 'máxima absorção'. Versão sustentável: [tabela: Gramatura recomendada conforme sua prioridade] Sua prioridade: Maior absorção | Gramatura: Segundo a Teka, acima de 500 g/m²; a Appel menciona toalhas acima de 450 g/m² | O que esperar: Segundo as fontes, maior absorção e sensação premium ou de luxo"
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos citados exigem a informação sobre composição das fibras, incluindo percentuais em ordem decrescente e com igual destaque, mas não dizem que a gramatura deve aparecer na etiqueta. Portanto, a orientação para conferir a gramatura não está sustentada por essas evidências. Versão sustentável: Confira na etiqueta a composição de fibras. O Inmetro exige que o percentual de cada fibra apareça em ordem decrescente e com igual destaque, em exemplos como '100% algodão' ou '50% algodão + 50% poliéster'."
+    }
+  ]
+}

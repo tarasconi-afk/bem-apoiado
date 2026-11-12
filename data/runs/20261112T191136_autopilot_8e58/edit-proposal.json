@@ -1,0 +1,40 @@
+{
+  "edits": [
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "rewrite",
+      "text": "A etiqueta de conservação é obrigatória e deve trazer, nesta ordem, as instruções de lavagem, alvejamento, secagem, passadoria e limpeza profissional, por meio de símbolos, textos ou ambos. Segundo a Karsten, um exemplo típico é: lavar em até 60°C, não alvejar, secar em até 40°C e passar em até 150°C.",
+      "claim_ids": [
+        "clm_29960a788266",
+        "clm_22439f119370",
+        "clm_a730fea8b014",
+        "clm_b72856d8e3ac"
+      ],
+      "absorbs": [
+        "cuidados-conservacao#1"
+      ],
+      "reason": "Os dois blocos repetiam a mesma regra do Inmetro sobre a ordem dos cuidados; foram unidos em um único parágrafo mais curto."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "remove",
+      "reason": "Repete quase literalmente a explicação já dada em etiqueta-composicao#0 sobre ordem e destaque dos percentuais de fibra."
+    },
+    {
+      "ref": "composicao-fibras#0.r4",
+      "action": "rewrite",
+      "text": "[tabela: Gramatura e composição em toalhas de diferentes fabricantes] Fabricante e modelo: Appel Bambu Supreme | Gramatura: não informada nesta fonte | Descrição do fabricante: Segundo a Appel, maciez e excelente absorção",
+      "claim_ids": [
+        "clm_29b7c7455050"
+      ],
+      "reason": "Frase da célula de gramatura estava confusa; simplificada sem alterar o sentido."
+    }
+  ],
+  "refused": [
+    "composicao-fibras#0.r4: só parágrafos e avisos podem ser reescritos"
+  ],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 3763
+  }
+}
