@@ -1,0 +1,66 @@
+{
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se precisa lavar o travesseiro em casa, escolha um modelo de fibra cuja etiqueta permita lavagem, como o Hug da Ortobom, que permite lavagem suave até 40 °C.",
+      "Se aceita limpeza a seco ou secagem natural, pode escolher um modelo de pluma de ganso cuja etiqueta permita esses cuidados.",
+      "Confira na etiqueta o nome do enchimento e os percentuais de composição para confirmar se o produto é de fibra ou de pluma de ganso.",
+      "Compare as dimensões declaradas na ficha técnica, pois os modelos consultados têm medidas diferentes."
+    ],
+    "missing": [
+      "Comparação sustentada por fontes sobre maciez, sustentação, altura e calor ao dormir, com uma regra clara de qual tipo serve para cada preferência.",
+      "Informações sustentadas por fontes sobre alergia, ácaros e eventual capa antiácaro, sem promessas de benefício à saúde.",
+      "Gramatura do enchimento dos modelos de fibra e de pluma de ganso.",
+      "Percentual detalhado de penas e plumas de ganso quando houver mistura entre esses materiais.",
+      "Identificação correta do produto Probel Conect Comfort na comparação de medidas e uso de fronha.",
+      "Recomendação específica de troca para cada tipo ou modelo, se os fabricantes declararem essa informação."
+    ],
+    "publishable": true,
+    "summary": "A página dá uma regra concreta baseada na lavagem e ensina o leitor a conferir composição e cuidados na etiqueta, mas responde apenas parcialmente à escolha entre pena de ganso e fibra. Falta a comparação pedida sobre conforto, calor e alergia, além de dados técnicos relevantes de enchimento; por isso, não deve ser publicada nesta versão.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Se a prioridade é lavar o travesseiro em casa, o Hug da Ortobom permite lavagem suave até 40 °C; confira a etiqueta do modelo específico.",
+      "No modelo de pluma de ganso citado, a lavagem e a secagem em tambor são proibidas, com limpeza a seco e secagem natural permitidas.",
+      "A Plumasul descreve travesseiros de penas de ganso como de toque macio, enquanto a Ortobom descreve o Seis Estrelas de fibra siliconada como de alta maciez.",
+      "Confira na etiqueta o nome do enchimento e os percentuais de composição; há modelo de fibra siliconada com 100% poliéster e modelos declarados com 100% de plumas de ganso.",
+      "Confira as dimensões na ficha, pois elas variam bastante entre os modelos: há exemplos de 50 × 70 cm, 90 × 50 cm, 140 × 50 cm e 40 × 60 cm.",
+      "A etiqueta deve informar os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza a seco por símbolos ou textos.",
+      "Segundo a Duoflex, a troca é recomendada a cada dois anos, embora a vida útil média informada seja de cerca de cinco anos."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma regra de escolha que compare claramente para quem serve o travesseiro de pena de ganso e para quem serve o de fibra, considerando sustentação, altura e sensação de maciez.",
+      "Informações sustentadas por fontes primárias sobre calor ao dormir e conforto de cada tipo.",
+      "Comparação sustentada por fontes primárias sobre alergia, ácaros e eventual uso de capa antiácaro, sem promessas de saúde.",
+      "Gramatura do enchimento de fibra e de plumas de ganso informada pelos fabricantes.",
+      "Percentual detalhado de penas e plumas de ganso quando houver mistura entre esses materiais.",
+      "Recomendação de troca ou vida útil específica para cada tipo de enchimento.",
+      "Correção da identificação do produto na tabela: o dado de 40 × 60 cm e fronha 50 × 70 cm deve ser atribuído ao Probel Conect Comfort, não a um travesseiro de fibra siliconada da Ortobom."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios úteis de etiqueta, composição, lavagem, maciez e medidas, mas não responde bem à decisão principal. A resposta curta se concentra na lavagem e não diz claramente para quem serve cada tipo; faltam comparação de sustentação, altura, calor e alergia, além de gramatura e correção da identificação do produto na tabela.",
+    "filler_ratio": 0.08333333333333333,
+    "model_opinion": false
+  },
+  "score_before": 3.5,
+  "score_after": 1.5
+}
