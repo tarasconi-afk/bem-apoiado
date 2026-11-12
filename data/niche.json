@@ -23,23 +23,28 @@
   "product_kinds": [
     {
       "id": "espuma",
-      "label": "Colchão de espuma"
+      "label": "Colchão de espuma",
+      "body_contact": true
     },
     {
       "id": "molas_ensacadas",
-      "label": "Colchão de molas ensacadas"
+      "label": "Colchão de molas ensacadas",
+      "body_contact": true
     },
     {
       "id": "molas_interligadas",
-      "label": "Colchão de molas interligadas"
+      "label": "Colchão de molas interligadas",
+      "body_contact": true
     },
     {
       "id": "misto",
-      "label": "Colchão misto"
+      "label": "Colchão misto",
+      "body_contact": true
     },
     {
       "id": "travesseiro",
-      "label": "Travesseiro"
+      "label": "Travesseiro",
+      "body_contact": true
     },
     {
       "id": "cadeira",
@@ -60,20 +65,25 @@
     {
       "id": "protetor",
       "label": "Protetor de colchão",
-      "accessory": true
+      "accessory": true,
+      "body_contact": true
     },
     {
       "id": "pillow_top",
       "label": "Pillow top",
-      "accessory": true
+      "accessory": true,
+      "body_contact": true
     },
     {
       "id": "jogo_de_cama",
-      "label": "Lençol e jogo de cama"
+      "label": "Lençol e jogo de cama",
+      "body_contact": true,
+      "sold_as_set": true
     },
     {
       "id": "edredom",
-      "label": "Edredom"
+      "label": "Edredom",
+      "body_contact": true
     },
     {
       "id": "cobertor",
@@ -84,15 +94,19 @@
         "cobertor elétrico",
         "cobertor eletrico",
         "manta térmica elétrica"
-      ]
+      ],
+      "body_contact": true
     },
     {
       "id": "toalha",
-      "label": "Toalha de banho"
+      "label": "Toalha de banho",
+      "body_contact": true,
+      "sold_as_set": true
     },
     {
       "id": "roupao",
-      "label": "Roupão de banho"
+      "label": "Roupão de banho",
+      "body_contact": true
     },
     {
       "id": "outro",

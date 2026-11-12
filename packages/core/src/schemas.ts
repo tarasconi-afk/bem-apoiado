@@ -82,7 +82,12 @@ export const NicheProfile = z.object({
   // not_terms: subtipo vendido com o nome do tipo mas com outro propósito. 03/11: um "cobertor pesado para
   // dormir, 2,3 kg, 91×122 cm" (cobertor ponderado) entrou como único exemplo de "cobertor mais quente"; a
   // trava de tipo só via "cobertor". Anúncio cujo nome traz um desses termos não é exemplo do tipo.
-  product_kinds: z.array(z.object({ id: ProductKind, label: z.string(), accessory: z.boolean().default(false), not_terms: z.array(z.string()).default([]) })).min(1),
+  // sold_as_set (12/11): o produto do tipo é vendido normalmente como JOGO de peças do mesmo tipo (lençol com fronhas,
+  // jogo de toalhas). "Jogo"/"kit" dessas peças não é motivo de recusa; combinado com produto de outro tipo continua.
+  // body_contact (12/11): produto em contato com o corpo ou o sono (têxteis, travesseiro, colchão). A pauta de decisão
+  // sobre ele leva uma pergunta de restrição do leitor (alergia, calor, cheiro, segurança): travesseiro de pena ou fibra
+  // saiu só sobre lavagem porque nenhuma pergunta tratava disso.
+  product_kinds: z.array(z.object({ id: ProductKind, label: z.string(), accessory: z.boolean().default(false), not_terms: z.array(z.string()).default([]), sold_as_set: z.boolean().default(false), body_contact: z.boolean().default(false) })).min(1),
   // Termos que o site nunca exibe, nem citando vendedor (aplicado a trechos de anúncio).
   forbidden_terms: z.array(z.string()).default([]),
   // Seções do site (páginas de categoria e agrupamento da home): cada uma reúne tipos de produto.

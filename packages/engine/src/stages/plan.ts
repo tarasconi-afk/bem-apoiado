@@ -20,17 +20,17 @@ const slugify = (s: string) =>
     .replace(/^-|-$/g, '')
     .slice(0, 60);
 
-export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Promise<{ topic: TopicBrief; created: boolean }> {
+export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Promise<{ topic: TopicBrief; created: boolean; added: string[] }> {
   const slug = Slug.parse(slugify(primaryQuery));
   const path = join(TOPICS_DIR, `${slug}.json`);
-  if (existsSync(path)) return { topic: TopicBrief.parse(JSON.parse(readFileSync(path, 'utf8'))), created: false };
+  if (existsSync(path)) return { topic: TopicBrief.parse(JSON.parse(readFileSync(path, 'utf8'))), created: false, added: [] };
 
   const niche = loadNiche();
   const kinds = niche.product_kinds.map((k) => k.id) as [string, ...string[]];
   const gaps = computeLearning().recurringGaps.map((g) => g.gap).slice(0, 8);
   const Out = z.object({
     page_type: z.enum(['decision_compare', 'buying_guide', 'explainer']),
-    questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15) })).min(4),
+    questions: z.array(z.object({ id: z.string().regex(/^q_[a-z0-9_]+$/), text: z.string().min(15), focus: z.enum(QUESTION_FOCUS).default('outro') })).min(4),
     focus_terms: z.array(z.string().min(2)).min(2).max(8),
     listing_terms: z.array(z.string().min(2)).default([]),
     // Sem limite rígido (23/10: 5 itens derrubavam a pauta inteira); o excesso é cortado depois.
@@ -84,6 +84,14 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         `fabricante, capacidade), não numa forma mais fina que nenhuma ficha traz (medida de cada módulo, peso de cada ` +
         `peça, "o critério X com valores" quando o fabricante só avisa para conferir). Pergunta que exige o que não é ` +
         `publicado faz a pesquisa descartar a fonte que responde.\n` +
+        // 12/11: travesseiro de pena ou fibra nasceu com 6 perguntas de etiqueta/ficha e a página saiu só sobre lavagem.
+        // O "focus" é enum fechado; a cobertura é conferida no código (ensureReaderQuestions), não só pedida aqui.
+        `"focus" de cada pergunta: "dado_que_decide" (a primeira), "opcao" (dado de uma das opções), "uso" (como a peça se ` +
+        `comporta no uso: maciez, firmeza, sustentação, calor, desempenho), "restricao" (alergia, ácaros, cheiro, calor, ` +
+        `segurança), "cuidado" (lavar, secar, conservar), "etiqueta_ficha" (o que a etiqueta ou a ficha deve declarar) ou ` +
+        `"outro". Em pauta de decisão, pelo menos uma pergunta "uso"; se o produto encosta no corpo (roupa de cama, banho, ` +
+        `travesseiro, colchão), também uma "restricao", sempre pelo que fabricante ou órgão informa por escrito e nunca ` +
+        `pedindo benefício para a saúde.\n` +
         `"focus_terms": palavras que um trecho de fonte útil quase certamente contém (curtas, em minúsculas), com as ` +
         `variações de gênero e número que a ficha pode usar ("bipartido" e "bipartida": a base é "o box").\n` +
         `"listing_terms": só quando a dúvida é sobre um item que apenas alguns produtos do tipo têm (ex.: "pillow top", "baú", "apoio de cabeça"): as palavras que o título do anúncio precisa ter para o produto servir de exemplo. Também quando a dúvida é entre tamanhos: os tamanhos comparados (ex.: ["solteiro", "solteirão", "viúva"]), senão a página mostra colchão casal numa dúvida de solteiro. Vazio quando qualquer produto do tipo serve (ex.: "colchão firme ou macio").\n` +
@@ -101,7 +109,62 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
     },
     fetchImpl,
   );
-  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, questions: r.data.questions.slice(0, 7), product_kinds: r.data.product_kinds.slice(0, 4), editorial_notes: r.data.editorial_notes.slice(0, 4), listing_terms: r.data.listing_terms.slice(0, 3), source_ids: [] });
+  const bodyContact = r.data.product_kinds.some((k) => niche.product_kinds.find((x) => x.id === k)?.body_contact);
+  const ensured = ensureReaderQuestions(primaryQuery, r.data.page_type, bodyContact, r.data.questions);
+  const topic = TopicBrief.parse({ slug, primary_query: primaryQuery, ...r.data, questions: ensured.questions.map(({ id, text }) => ({ id, text })), product_kinds: r.data.product_kinds.slice(0, 4), editorial_notes: r.data.editorial_notes.slice(0, 4), listing_terms: r.data.listing_terms.slice(0, 3), source_ids: [] });
   writeJson(path, topic);
-  return { topic, created: true };
+  return { topic, created: true, added: ensured.added };
+}
+
+// ─── Perguntas do leitor (12/11) ────────────────────────────────────────────────────────────────────────────────
+// A página só responde o que a pauta pergunta. O planejador, puxado para o que fabricante e norma publicam, gerava
+// pautas inteiras de etiqueta e ficha (travesseiro de pena ou fibra: 6 de 6), e a página não dizia ao leitor como a
+// peça se comporta no uso nem se serve para quem tem alergia. Regra conferida pelo TEXTO da pergunta (o rótulo do
+// modelo só ajuda a escolher qual substituir): falta → entra uma pergunta de modelo fixo, sem alegação terapêutica.
+export const QUESTION_FOCUS = ['dado_que_decide', 'opcao', 'uso', 'restricao', 'cuidado', 'etiqueta_ficha', 'outro'] as const;
+export type QuestionFocus = (typeof QUESTION_FOCUS)[number];
+type PlannedQuestion = { id: string; text: string; focus: QuestionFocus };
+export const MAX_QUESTIONS = 7;
+
+const fold = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+export const COVERS_USE = /(conforto|confortav|macie|macio|firmeza|\bfirme|sustenta|sensac|\btoque|desempenho|no uso|durante o uso|ao dormir|ao deitar|ao usar|aconchego|maleab|acomoda|molda|absorc|absorv)/;
+export const COVERS_RESTRICTION = /(alerg|acaro|cheiro|odor|calor|transpira|seguranc|irrita|sensib|inflamav|toxic|hipoalerg|antialerg)/;
+const LABEL_LIKE = /(etiqueta|ficha|inmetro|norma|declar|composic|percentual|gramatura|dimens|medida)/;
+
+export function ensureReaderQuestions(
+  primaryQuery: string,
+  pageType: 'decision_compare' | 'buying_guide' | 'explainer',
+  bodyContact: boolean,
+  input: PlannedQuestion[],
+): { questions: PlannedQuestion[]; added: string[] } {
+  let qs = input.slice(0, MAX_QUESTIONS);
+  const added: string[] = [];
+  if (pageType === 'explainer') return { questions: qs, added };
+  const q = primaryQuery.trim().replace(/[?.!\s]+$/, '');
+  const want: { focus: QuestionFocus; re: RegExp; q: PlannedQuestion; label: string }[] = [
+    {
+      focus: 'uso', re: COVERS_USE, label: 'uso (conforto/desempenho)',
+      q: { id: 'q_uso_leitor', focus: 'uso', text: `Em "${q}", o que os fabricantes declaram sobre como cada opção se comporta no uso (maciez, firmeza, sustentação, altura) e para qual perfil de uso indicam cada uma?` },
+    },
+  ];
+  if (bodyContact) want.push({
+    focus: 'restricao', re: COVERS_RESTRICTION, label: 'restrição (alergia/calor/cheiro)',
+    q: { id: 'q_restricao_leitor', focus: 'restricao', text: `Em "${q}", o que fabricantes, Inmetro ou órgãos de saúde e de defesa do consumidor informam por escrito sobre alergia e ácaros, retenção de calor, cheiro ou cuidados de segurança de cada opção?` },
+  });
+  for (const w of want) {
+    if (qs.some((x) => w.re.test(fold(x.text)))) continue;
+    let replaced = '';
+    if (qs.length >= MAX_QUESTIONS) {
+      // Sai a mais redundante: a última de etiqueta/ficha quando há pelo menos duas; senão a última que não é a
+      // primeira (o dado que decide) nem uma pergunta do leitor já garantida.
+      const labelIdx = qs.map((x, i) => ({ x, i })).filter(({ x, i }) => i > 0 && (x.focus === 'etiqueta_ficha' || LABEL_LIKE.test(fold(x.text))) && !x.id.endsWith('_leitor')).map(({ i }) => i);
+      const idx = labelIdx.length >= 2 ? labelIdx[labelIdx.length - 1]! : [...qs.keys()].reverse().find((i) => i > 0 && !qs[i]!.id.endsWith('_leitor'))!;
+      replaced = ` no lugar de "${qs[idx]!.text.slice(0, 60)}…"`;
+      qs = qs.filter((_, i) => i !== idx);
+    }
+    const id = qs.some((x) => x.id === w.q.id) ? `${w.q.id}_2` : w.q.id;
+    qs.push({ ...w.q, id });
+    added.push(`${w.label}${replaced}`);
+  }
+  return { questions: qs, added };
 }
