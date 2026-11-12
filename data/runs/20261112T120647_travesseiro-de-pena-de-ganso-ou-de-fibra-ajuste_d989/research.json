@@ -1,0 +1,118 @@
+{
+  "run_id": "20261112T120647_travesseiro-de-pena-de-ganso-ou-de-fibra-ajuste_d989",
+  "topic": "travesseiro-de-pena-de-ganso-ou-de-fibra",
+  "accepted": [
+    {
+      "claim_id": "clm_45f8537bbc4a",
+      "question_id": "q_dimensoes_padrao_cada_opcao",
+      "source_id": "src_6e49cb9de1fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e6cff81946e9",
+      "question_id": "q_composicao_gramatura_pena_ganso",
+      "source_id": "src_6e49cb9de1fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b04b84e830d4",
+      "question_id": "q_cuidado_lavagem_indica_escolha",
+      "source_id": "src_6e49cb9de1fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e6cff81946e9",
+      "question_id": "q_etiqueta_composicao_fibras_obrigatoria",
+      "source_id": "src_6e49cb9de1fe",
+      "new": false
+    },
+    {
+      "claim_id": "clm_b6c57b914764",
+      "question_id": "q_ajuste_23b7fc93",
+      "source_id": "src_6e49cb9de1fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_af3514f27ebf",
+      "question_id": "q_composicao_gramatura_fibra",
+      "source_id": "src_0f359438945c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d23ae80cf62",
+      "question_id": "q_dimensoes_padrao_cada_opcao",
+      "source_id": "src_0f359438945c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8a04d840bc88",
+      "question_id": "q_cuidado_lavagem_indica_escolha",
+      "source_id": "src_0f359438945c",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_cuidado_lavagem_indica_escolha": 2,
+    "q_composicao_gramatura_pena_ganso": 1,
+    "q_composicao_gramatura_fibra": 1,
+    "q_dimensoes_padrao_cada_opcao": 2,
+    "q_etiqueta_composicao_fibras_obrigatoria": 1,
+    "q_durabilidade_reposicao_declarada": 0,
+    "q_ajuste_4c01927c": 0,
+    "q_ajuste_23b7fc93": 1
+  },
+  "unanswered": [
+    "q_durabilidade_reposicao_declarada",
+    "q_ajuste_4c01927c"
+  ],
+  "usage": {
+    "input_tokens": 6110,
+    "output_tokens": 1113,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_0ecc873d813b",
+    "src_6a39f09ed768"
+  ],
+  "triage": [
+    {
+      "source_id": "src_6e49cb9de1fe",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_6e49cb9de1fe",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_11ae047a0943",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.57
+    },
+    {
+      "source_id": "src_0f359438945c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.86
+    },
+    {
+      "source_id": "src_0ecc873d813b",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.27
+    },
+    {
+      "source_id": "src_6a39f09ed768",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.22
+    }
+  ],
+  "credits": 2.51080812
+}
