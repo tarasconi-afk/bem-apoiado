@@ -1,0 +1,62 @@
+{
+  "slug": "quando-trocar-o-colchao",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 102634,
+    "output_tokens": 37979,
+    "calls": 56
+  },
+  "credits": 48.17172348000003,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete o tempo recomendado pelos fabricantes, mas os dois blocos trazem apenas a referência da Duoflex (tempo-de-uso-declarado#0); Mudar o título da seção para “Tempo de uso informado pela Duoflex”",
+      "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de"
+    ],
+    "filler_refs": [
+      "tempo-de-uso-declarado#1",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Use cinco anos como referência média de troca, conforme a Duoflex, mas avalie também o estado do colchão.",
+      "Troque se houver rasgos, manchas, deformações visíveis, ruídos, cheiro desagradável, afundamento central ou perda da qualidade do sono.",
+      "Diferencie desgaste natural de defeito de fabricação: acomodações e perda de suporte podem ser desgaste normal, enquanto costura aberta, mola rompida e espuma solta podem indicar defeito coberto pela garantia.",
+      "Confira a garantia antes de trocar: ela pode ter prazos diferentes para estrutura, espuma, tecido, costura e componentes.",
+      "Siga a orientação do fabricante para rodar ou virar o colchão, pois isso distribui o desgaste; não vire modelos One Face ou colchões com pillow top quando o fabricante não recomendar.",
+      "Uma perda de 8% a 12% da espessura da espuma pode estar dentro do limite informado para a garantia da Castor e não significa automaticamente defeito.",
+      "Ao comprar um substituto, confira na etiqueta a densidade nominal, as dimensões e as espessuras das camadas de espuma."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção promete o tempo recomendado pelos fabricantes, mas os dois blocos trazem apenas a referência da Duoflex (tempo-de-uso-declarado#0); Mudar o título da seção para “Tempo de uso informado pela Duoflex”",
+      "Para o leitor leigo: a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de",
+      "Uma referência primária específica para a vida útil média de colchões de molas, separada da referência de cinco anos para o colchão citada pela Duoflex.",
+      "Uma orientação primária que relacione cada sinal de desgaste ao momento de troca, distinguindo melhor defeito, desgaste normal e risco de continuar usando o colchão.",
+      "Uma tabela ou política de garantia completa que esclareça os prazos aplicáveis a cada tipo de colchão e resolva a apresentação aparentemente sobreposta dos prazos de estrutura da Castor.",
+      "Uma explicação em fonte primária sobre o que os ensaios de deformação e durabilidade das normas permitem concluir — e o que não permitem concluir — sobre a vida útil em anos.",
+      "Uma orientação primária que confirme se rodar ou virar o colchão efetivamente prolonga a vida útil ou apenas distribui o desgaste."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde diretamente quando considerar a troca: use cinco anos como referência e substitua antes se houver afundamento, deformação, ruídos, manchas, rasgos, cheiro desagradável ou perda do sono. Também oferece critérios práticos para diferenciar desgaste natural de defeito e consultar a garantia; há alguma repetição e faltam referências específicas para colchões de molas e para interpretar a durabilidade das normas, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.1,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "tempo-de-uso-declarado#0",
+        "problem": "A seção promete o tempo recomendado pelos fabricantes, mas os dois blocos trazem apenas a referência da Duoflex.",
+        "fix": "Mudar o título da seção para “Tempo de uso informado pela Duoflex”."
+      },
+      {
+        "check": "resposta_abre_pela_fonte",
+        "ref": "verdict",
+        "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+        "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tempo-de-uso-declarado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tempo-de-uso-declarado#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "sinais-de-desgaste#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-cobertura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "norma-durabilidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "inmetro-escopo#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-cobertura#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sustentam 12 meses de garantia na estrutura, mas não dizem que esse prazo se aplica especificamente a colchões de molas. Essa condição foi atribuída à Castor sem aparecer nos trechos citados.",
+      "fix": "Segundo a Castor, há 6 meses de garantia na estrutura, 90 dias no tecido, linha, cadarço, costura e pés, 36 meses na espuma e 12 meses na estrutura."
+    },
+    {
+      "ref": "norma-durabilidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "norma-durabilidade#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado associa a determinação da deformação permanente à compressão à ABNT NBR 8797:2022, mas não identifica o documento como uma certificação do Inmetro nem afirma expressamente que a norma estabelece um método.",
+      "fix": "Segundo documento do Inmetro, a determinação da deformação permanente à compressão é associada à ABNT NBR 8797:2022."
+    },
+    {
+      "ref": "inmetro-escopo#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "inmetro-escopo#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "garantia-e-cobertura#0",
+      "msg": "MISATTRIBUTED. Os trechos sustentam 12 meses de garantia na estrutura, mas não dizem que esse prazo se aplica especificamente a colchões de molas. Essa condição foi atribuída à Castor sem aparecer nos trechos citados. Versão sustentável: Segundo a Castor, há 6 meses de garantia na estrutura, 90 dias no tecido, linha, cadarço, costura e pés, 36 meses na espuma e 12 meses na estrutura."
+    },
+    {
+      "ref": "norma-durabilidade#2",
+      "msg": "MISATTRIBUTED. O trecho citado associa a determinação da deformação permanente à compressão à ABNT NBR 8797:2022, mas não identifica o documento como uma certificação do Inmetro nem afirma expressamente que a norma estabelece um método. Versão sustentável: Segundo documento do Inmetro, a determinação da deformação permanente à compressão é associada à ABNT NBR 8797:2022."
+    }
+  ]
+}

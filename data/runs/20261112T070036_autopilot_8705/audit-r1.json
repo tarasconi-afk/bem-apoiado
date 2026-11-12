@@ -1,0 +1,146 @@
+{
+  "findings": [
+    {
+      "ref": "tempo-de-uso-declarado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "sinais-de-desgaste#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-cobertura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "inmetro-escopo#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tempo-de-uso-declarado#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-cobertura#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 6 meses na estrutura, 90 dias nos itens listados e 36 meses na espuma, além de 12 meses na estrutura. Porém, não mostram que os 12 meses se aplicam especificamente a colchões de molas; essa condição foi acrescentada no bloco.",
+      "fix": "Segundo a Castor, há 6 meses de garantia na estrutura, 90 dias no tecido, linha, cadarço, costura e pés, 36 meses na espuma e 12 meses na estrutura."
+    },
+    {
+      "ref": "rodar-virar-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "norma-durabilidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "norma-durabilidade#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados listam os ensaios e os itens da ABNT NBR 15413-1:2013, mas não dizem que essa informação se aplica especificamente a colchões de molas.",
+      "fix": "A ABNT NBR 15413-1:2013 lista ensaios de determinação da deformação, determinação da indentação e rolagem, respectivamente nos itens 7.5, 7.6 e 7.3."
+    },
+    {
+      "ref": "norma-durabilidade#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho associa a determinação da deformação permanente à compressão à ABNT NBR 8797:2022, mas não afirma que a norma estabelece um método nem menciona espumas.",
+      "fix": "O trecho do Inmetro associa a determinação da deformação permanente à compressão (D.P.C.) à ABNT NBR 8797:2022."
+    },
+    {
+      "ref": "inmetro-escopo#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que esses tipos de colchão estão excluídos do cumprimento dos requisitos aprovados, mas não afirma expressamente que estão excluídos da certificação obrigatória. A segunda afirmação, sobre dois programas distintos, é sustentada.",
+      "fix": "O Inmetro exclui do cumprimento dos requisitos aprovados colchões de molas, pneumáticos, elétricos, de água e de látex. O regulador trata separadamente os programas de avaliação da conformidade para colchões de espuma flexível de poliuretano e para colchões de molas."
+    },
+    {
+      "ref": "inmetro-escopo#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho se refere especificamente a colchões mistos, enquanto o bloco generaliza a regra para colchões em geral. Os trechos sustentam que, quando o fornecedor declarar voluntariamente essas funcionalidades em colchões mistos, o manual deve informar que elas não foram avaliadas.",
+      "fix": "Quando o fornecedor declarar voluntariamente funcionalidades dos colchões mistos, como terapêuticas ou ortopédicas, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "garantia-e-cobertura#0",
+      "msg": "OVERSTATED. Os trechos sustentam 6 meses na estrutura, 90 dias nos itens listados e 36 meses na espuma, além de 12 meses na estrutura. Porém, não mostram que os 12 meses se aplicam especificamente a colchões de molas; essa condição foi acrescentada no bloco. Versão sustentável: Segundo a Castor, há 6 meses de garantia na estrutura, 90 dias no tecido, linha, cadarço, costura e pés, 36 meses na espuma e 12 meses na estrutura."
+    },
+    {
+      "ref": "norma-durabilidade#1",
+      "msg": "UNSUPPORTED. Os trechos citados listam os ensaios e os itens da ABNT NBR 15413-1:2013, mas não dizem que essa informação se aplica especificamente a colchões de molas. Versão sustentável: A ABNT NBR 15413-1:2013 lista ensaios de determinação da deformação, determinação da indentação e rolagem, respectivamente nos itens 7.5, 7.6 e 7.3."
+    },
+    {
+      "ref": "norma-durabilidade#2",
+      "msg": "UNSUPPORTED. O trecho associa a determinação da deformação permanente à compressão à ABNT NBR 8797:2022, mas não afirma que a norma estabelece um método nem menciona espumas. Versão sustentável: O trecho do Inmetro associa a determinação da deformação permanente à compressão (D.P.C.) à ABNT NBR 8797:2022."
+    },
+    {
+      "ref": "inmetro-escopo#0",
+      "msg": "OVERSTATED. O trecho diz que esses tipos de colchão estão excluídos do cumprimento dos requisitos aprovados, mas não afirma expressamente que estão excluídos da certificação obrigatória. A segunda afirmação, sobre dois programas distintos, é sustentada. Versão sustentável: O Inmetro exclui do cumprimento dos requisitos aprovados colchões de molas, pneumáticos, elétricos, de água e de látex. O regulador trata separadamente os programas de avaliação da conformidade para colchões de espuma flexível de poliuretano e para colchões de molas."
+    },
+    {
+      "ref": "inmetro-escopo#1",
+      "msg": "OVERSTATED. O trecho se refere especificamente a colchões mistos, enquanto o bloco generaliza a regra para colchões em geral. Os trechos sustentam que, quando o fornecedor declarar voluntariamente essas funcionalidades em colchões mistos, o manual deve informar que elas não foram avaliadas. Versão sustentável: Quando o fornecedor declarar voluntariamente funcionalidades dos colchões mistos, como terapêuticas ou ortopédicas, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto."
+    }
+  ]
+}

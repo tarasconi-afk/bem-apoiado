@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "tempo-de-uso-declarado#0",
+      "problem": "A seção promete o tempo recomendado pelos fabricantes, mas os dois blocos trazem apenas a referência da Duoflex.",
+      "fix": "Mudar o título da seção para “Tempo de uso informado pela Duoflex”."
+    },
+    {
+      "check": "resposta_abre_pela_fonte",
+      "ref": "verdict",
+      "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+      "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+    }
+  ],
+  "usage": {
+    "input_tokens": 18900,
+    "output_tokens": 3023,
+    "calls": 3
+  }
+}
