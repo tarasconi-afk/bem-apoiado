@@ -53,10 +53,13 @@ const slug = (q: string) => q.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 const INTENT_STOP = new Set('de da do das dos o a os as e ou para com que qual quais como escolher escolha conferir diferenca vale pena melhor um uma no na em por quem se mais tipos tipo guia'.split(' '));
 export const intentWords = (q: string) =>
   new Set(q.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter((w) => w && !INTENT_STOP.has(w)).map((w) => w.replace(/(?<=[a-z]{3})s$/, '')));
-export function sameIntent(a: string, b: string): boolean {
+// `contraExistente` (12/11): contra página/pauta que já existe, 2+ palavras próprias contidas já é a mesma dúvida
+// ("pillow top" × "pillow top: o que é e vale a pena"); a página existente responde, outra competiria com ela.
+export function sameIntent(a: string, b: string, contraExistente = false): boolean {
   const [x, y] = [intentWords(a), intentWords(b)].sort((m, n) => m.size - n.size) as [Set<string>, Set<string>];
+  if (!x.size) return false;
   const inside = [...x].every((w) => y.has(w));
-  return inside && (x.size === y.size || x.size >= 3);
+  return inside && (x.size === y.size || x.size >= 3 || (contraExistente && x.size >= 2));
 }
 
 export const Idea = z.object({

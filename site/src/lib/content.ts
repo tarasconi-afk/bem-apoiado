@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { affiliateUrl, amazonSearchUrl, checkProduct, hasListingItem, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
+import { affiliateUrl, amazonSearchUrl, checkProduct, citacaoSemAlegacao, hasListingItem, DEFAULT_THEME, placeLinks, Theme, referencedClaimIds, type Claim, type PageSpec, type Product, type Source } from '@bem-apoiado/core';
 import { buildIndex, citedSearchLinks, loadAnchors, loadClaims, loadSearchLinks, loadImageRegistry, loadNiche, loadPages, loadProducts, loadSources, loadTopics, ROOT, SEARCH_INDEX_NOTE } from '@bem-apoiado/engine';
 
 // Indexação só é liberada com SITE_INDEXABLE=true explícito no ambiente de deploy.
@@ -96,9 +96,12 @@ export function productsFor(page: PageSpec): ProductCard[] {
   // Dúvida sobre um item (pillow top, baú): só anúncio que tem o item serve; sem nenhum, a seção não aparece.
   const norm = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const terms = (topic.listing_terms ?? []).map(norm);
-  return loadProducts()
-    .filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0)
-    .filter((p) => hasListingItem(p.label, KIND_LABEL[p.kind], terms))
+  const doTipo = loadProducts().filter((p) => topic.product_kinds.includes(p.kind) && checkProduct(p, idx, new Date(), KIND_LABEL[p.kind], NICHE.forbidden_terms).length === 0);
+  // 12/11 (auditoria): 10 páginas no ar sem nenhum exemplo porque o filtro pelo item da pauta ("tela/estofada",
+  // "queen/king", "malha/algodão") zerava um catálogo que tinha o tipo. Sem nenhum produto que case o item, entram os
+  // do tipo (o leitor vê exemplos do tipo e os botões de busca, em vez de nada).
+  const comItem = doTipo.filter((p) => hasListingItem(p.label, KIND_LABEL[p.kind], terms));
+  return (comItem.length || !terms.length ? comItem : doTipo)
     // Com ficha oficial antes de "só anúncio" e da escolha do editor.
     .sort((a, b) => (a.evidence === b.evidence ? 0 : a.evidence === 'manufacturer' ? -1 : b.evidence === 'manufacturer' ? 1 : 0))
     .sort((a, b) => topic.product_kinds.indexOf(a.kind) - topic.product_kinds.indexOf(b.kind) || a.label.localeCompare(b.label))
@@ -113,8 +116,9 @@ export function productsFor(page: PageSpec): ProductCard[] {
       specs: p.spec_claim_ids.map((id) => {
         const c = idx.claims.get(id)!;
         const s = idx.sources.get(c.source_id)!;
-        return { statement: c.quote, sourceUrl: s.final_url, publisher: s.publisher };
-      }),
+        // 12/11: ficha do fabricante com alegação de saúde não vai para o cartão (regra do nicho vale também na citação).
+        return { statement: citacaoSemAlegacao(c.quote, NICHE.forbidden_terms).texto, sourceUrl: s.final_url, publisher: s.publisher };
+      }).filter((x) => x.statement),
       listingQuote: p.evidence === 'listing' ? idx.claims.get(p.availability_claim_id!)!.quote : null,
       checkedAt: p.evidence === 'editor' ? p.editor!.checked_at : idx.claims.get(p.availability_claim_id!)!.captured_at,
       searchOnly: p.evidence !== 'editor' && idx.sources.get(idx.claims.get(p.availability_claim_id!)!.source_id)?.note === SEARCH_INDEX_NOTE,

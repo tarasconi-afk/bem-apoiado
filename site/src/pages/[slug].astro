@@ -6,6 +6,7 @@ import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
 import { BRAND, comparesKinds, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, citedLinksFor, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
+import { citacaoSemAlegacao } from '@bem-apoiado/core';
 
 export function getStaticPaths() {
   return publicPages().map((page) => ({ params: { slug: page.slug }, props: { page } }));
@@ -228,7 +229,7 @@ const jsonLd = [
             <li id={`fonte-${note.n}`}>
               <a href={note.source.final_url} rel="nofollow noopener" target="_blank">{note.source.publisher}{note.source.title ? `: ${note.source.title.replace(/\s+—\s+.*$/, '')}` : ''}</a>
               <span class="src-meta">{note.source.source_class === 'regulator' ? 'Órgão regulador' : note.source.source_class === 'manufacturer' ? 'Fabricante' : note.source.source_class === 'standard_body' ? 'Norma técnica' : 'Fonte'} · consultado em {fmtDate(note.source.fetched_at)}</span>
-              <ul>{note.claims.map((c) => <li><q>{c.quote}</q></li>)}</ul>
+              <ul>{note.claims.map((c) => { const q = citacaoSemAlegacao(c.quote, NICHE.forbidden_terms); return <li>{q.texto && <q>{q.texto}</q>}{q.omitidas > 0 && <span class="src-omitido">[trecho omitido: alegação de saúde não avaliada pelo regulador]</span>}</li>; })}</ul>
             </li>
           ))}
         </ol>

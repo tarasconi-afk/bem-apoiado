@@ -15,8 +15,10 @@ import { descriptionNumbers } from './page.ts';
 // de texto no resultado do ciclo, para o editor aprovar (cartão mostra "Título"/"Descrição" antes → depois).
 // No máximo 1 página por ciclo e 1 vez a cada 14 dias por página; o registro guarda os números de antes para medir.
 
-export const SNIPPET_MIN_IMPRESSIONS = 100;
-export const SNIPPET_MAX_POSITION = 10;
+// 12/11: limiares do BA enquanto o site é novo (a página com mais impressões tinha 32, posição 13); com 100/10 o passo
+// nunca rodaria por meses.
+export const SNIPPET_MIN_IMPRESSIONS = 20;
+export const SNIPPET_MAX_POSITION = 20;
 export const SNIPPET_MAX_CTR = 0.01;
 export const SNIPPET_INTERVAL_DAYS = 14;
 export const SNIPPET_MIN_CREDITS = 2;
@@ -147,7 +149,7 @@ export async function maintainSnippet(runId: string, steps: string[], deps: Snip
       steps.push(`título/descrição de ${page.slug}: proposta descartada (${issues.join('; ')})`);
       return false;
     }
-    const updated = PageSpec.parse({ ...page, title: out.title, description: out.description, provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+snippet:${runId}` } });
+    const updated = PageSpec.parse({ ...page, title: out.title, description: out.description, updated_at: now.toISOString().slice(0, 10), provenance: { ...page.provenance, run_id: `${page.provenance.run_id}+snippet:${runId}` } });
     (deps.save ?? ((p: PageSpec) => writeJson(join(PAGES_DIR, `${p.slug}.json`), p)))(updated);
     writeState(SNIPPET_STATE, { ...log, [page.slug]: { ...entry, after: out } });
     steps.push(`título/descrição de ${page.slug} reescritos pelo Search Console (${nums}); confira antes de aceitar`);

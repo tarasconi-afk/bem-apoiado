@@ -3,7 +3,7 @@ import { plainOutcome } from '../changes.ts';
 import { reuseEvidence } from './reuse.ts';
 import { ensureAnchors } from './links.ts';
 import { ensureSearchLinks } from './search-links.ts';
-import { discoverIdeas, promoteIdeas } from './ideas.ts';
+import { sameIntent, discoverIdeas, promoteIdeas } from './ideas.ts';
 import { live, newRunId, writeStage } from '../runs.ts';
 import { fetchSnapshot, hasKey, homeOrder, HOME_ORDER_FILE, latestSnapshot, opportunities } from '../gsc.ts';
 import { firstForbidden } from '@bem-apoiado/core';
@@ -49,13 +49,29 @@ const corte = (t: string, max: number) => {
   return c.length < t.length ? `${c}…` : c;
 };
 
+// Mesma intenção de algo que já existe (12/11, auditoria: "pillow top" entrou pelo painel ao lado da página de mais
+// impressões do site, e "suporte para notebook vale a pena" ao lado de "suporte para notebook: qual escolher"). A
+// promoção de ideias já filtrava; o painel, não. Devolve o motivo, ou null.
+export function recusaDaFila(query: string, conhecidas: { label: string; slug: string }[]): string | null {
+  const gemea = conhecidas.find((k) => k.slug !== slugOf(query) && sameIntent(query, k.label, true));
+  return gemea ? `mesma intenção de ${gemea.slug}` : null;
+}
+export function conhecidasDaFila(): { label: string; slug: string }[] {
+  const path = join(DATA, 'queue.json');
+  const fila = existsSync(path) ? Queue.parse(JSON.parse(readFileSync(path, 'utf8'))).items : [];
+  return [
+    ...loadPages().map((p) => ({ label: p.title, slug: p.slug })),
+    ...loadTopics().map((t) => ({ label: t.primary_query, slug: t.slug })),
+    ...fila.map((i) => ({ label: i.query, slug: slugOf(i.query) })),
+  ];
+}
 export function editQueue(op: 'add' | 'remove', query: string, now = new Date()): boolean {
   const path = join(DATA, 'queue.json');
   const raw = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : { items: [] };
   const q = Queue.parse(raw);
   const key = slugOf(query);
   const has = q.items.some((i) => slugOf(i.query) === key);
-  if (op === 'add' && (has || query.trim().length < 3)) return false;
+  if (op === 'add' && (has || query.trim().length < 3 || recusaDaFila(query, conhecidasDaFila()))) return false;
   if (op === 'remove' && !has) return false;
   const items = op === 'add'
     ? [...q.items, { query: query.trim(), added_at: now.toISOString().slice(0, 10), origin: 'painel' }]
@@ -837,8 +853,12 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
     writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: [...new Set([...r.missing, ...r.queries])].slice(0, 5) }));
     // Busca dirigida mais larga antes de desistir: mais fabricantes do tipo, um a um (23/10: "pena ou fibra" foi
     // adiada depois de buscar em 2 dos 18 fabricantes de travesseiro cadastrados).
-    const d = await discoverSources(slug, runId, { maxSearches: 5, maxSources: 8, makerSearches: 6 });
-    if (d.added.length) await research(slug, runId);
+    // 12/11 (auditoria): com o MESMO runId, discover.json/research.json da primeira passada eram sobrescritos e o cartão
+    // dizia "0 fontes, 0 evidências" quando a busca dirigida tinha trazido 8 fontes e 26 evidências. Agora relatório
+    // próprio e uma linha com a contagem.
+    const d = await discoverSources(slug, `${runId}-dirigida`, { maxSearches: 5, maxSources: 8, makerSearches: 6 });
+    const rd = d.added.length ? await research(slug, `${runId}-dirigida`) : null;
+    steps.push(`busca dirigida: +${d.added.length} fonte(s), +${rd?.accepted.length ?? 0} evidência(s)`);
     r = await decisionReadiness(slug, loadTopic(slug));
     logReadiness(runId, 1, r);
     if (!r.ready) {

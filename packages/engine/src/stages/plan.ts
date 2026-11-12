@@ -144,7 +144,9 @@ export function ensureReaderQuestions(
   const want: { focus: QuestionFocus; re: RegExp; q: PlannedQuestion; label: string }[] = [
     {
       focus: 'uso', re: COVERS_USE, label: 'uso (conforto/desempenho)',
-      q: { id: 'q_uso_leitor', focus: 'uso', text: `Em "${q}", o que os fabricantes declaram sobre como cada opção se comporta no uso (maciez, firmeza, sustentação, altura) e para qual perfil de uso indicam cada uma?` },
+      // 12/11: "maciez, firmeza, sustentação, altura" só faz sentido para o que toca o corpo; mesa, suporte e cadeira
+      // pedem conforto, regulagens, estabilidade e capacidade.
+      q: { id: 'q_uso_leitor', focus: 'uso', text: `Em "${q}", o que os fabricantes declaram sobre como cada opção se comporta no uso (${bodyContact ? 'maciez, firmeza, sustentação, altura' : 'conforto, regulagens, estabilidade, capacidade e facilidade de uso'}) e para qual perfil de uso indicam cada uma?` },
     },
   ];
   if (bodyContact) want.push({

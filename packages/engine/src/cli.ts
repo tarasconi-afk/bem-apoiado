@@ -318,8 +318,9 @@ async function main(): Promise<number> {
         console.error('uso: queue add|remove <consulta>');
         return 2;
       }
-      const { editQueue } = await import('./stages/autopilot.ts');
-      console.log(editQueue(op, query) ? `fila: ${op} "${query}"` : `fila sem mudança ("${query}" ${op === 'add' ? 'já está na fila' : 'não está na fila'})`);
+      const { editQueue, recusaDaFila, conhecidasDaFila } = await import('./stages/autopilot.ts');
+      const motivo = op === 'add' ? recusaDaFila(query, conhecidasDaFila()) : null;
+      console.log(editQueue(op, query) ? `fila: ${op} "${query}"` : `fila sem mudança ("${query}" ${motivo ?? (op === 'add' ? 'já está na fila' : 'não está na fila')})`);
       return 0;
     }
     case 'reaudit': {

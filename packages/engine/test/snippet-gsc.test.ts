@@ -22,14 +22,14 @@ describe('título/descrição pelo Search Console: escolha', () => {
   const s = snap([
     row('a', 'nm', 236, 0, 9.8), row('a', 'o que significa nm', 600, 1, 5),
     row('b', 'b busca', 150, 0, 4), // elegível, menos impressões
-    row('c', 'c busca', 99, 0, 3), // abaixo de 100 impressões
-    row('d', 'd busca', 500, 1, 14), // posição > 10
+    row('c', 'c busca', 19, 0, 3), // abaixo de 20 impressões
+    row('d', 'd busca', 500, 1, 24), // posição > 20
     row('e', 'e busca', 300, 3, 5), // CTR = 1%
     row('f', 'f busca', 900, 0, 2), // rascunho
   ]);
   const pages = ['a', 'b', 'c', 'd', 'e'].map((x) => page(x)).concat(page('f', 'draft'));
 
-  it('pega a de mais impressões entre ≥100 impressões, posição ≤10 e CTR <1%, só no ar', () => {
+  it('pega a de mais impressões entre ≥20 impressões, posição ≤20 e CTR <1%, só no ar', () => {
     expect(pickSnippetPage(s, pages, {}, new Set(), NOW)?.page.slug).toBe('a');
   });
   it('pula página com resultado pendente no quadro', () => {
@@ -41,7 +41,7 @@ describe('título/descrição pelo Search Console: escolha', () => {
     expect(pickSnippetPage(s, pages, log('2026-10-28T00:00:00Z'), new Set(), NOW)?.page.slug).toBe('a');
   });
   it('nada elegível = nada', () => {
-    expect(pickSnippetPage(snap([row('c', 'c', 99, 0, 3)]), pages, {}, new Set(), NOW)).toBeNull();
+    expect(pickSnippetPage(snap([row('c', 'c', 19, 0, 3)]), pages, {}, new Set(), NOW)).toBeNull();
   });
 });
 
@@ -71,7 +71,7 @@ describe('título/descrição: passo do ciclo', () => {
   it('nada elegível: passo registrado e nenhuma chamada', async () => {
     let calls = 0;
     const steps: string[] = [];
-    const r = await maintainSnippet('run1', steps, { snapshot: snap([row('c', 'c', 99, 0, 3)]), pages: [page('c')], pending: new Set(), fetchImpl: async () => { calls++; return new Response('{}'); } });
+    const r = await maintainSnippet('run1', steps, { snapshot: snap([row('c', 'c', 19, 0, 3)]), pages: [page('c')], pending: new Set(), fetchImpl: async () => { calls++; return new Response('{}'); } });
     expect(r).toBe(false);
     expect(calls).toBe(0);
     expect(steps).toEqual(['Search Console: nenhuma página elegível para título/descrição']);

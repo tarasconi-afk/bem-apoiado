@@ -34,3 +34,16 @@ export function firstForbidden(text: string, terms: string[]): { index: number; 
   }
   return best;
 }
+
+// Citação literal sem alegação de saúde (12/11, auditoria: "alinhamento da coluna", "antialérgico", "médicos recomendam"
+// impressos na seção Fontes de 10 páginas). A regra do nicho vale para o texto; a quote saía sem filtro. Tira só a(s)
+// frase(s) com termo vetado; o renderer sinaliza a omissão. Nomes de modelo e peças ("NASA X Cervical", "Pró Saúde",
+// "Anatomic Visco", "apoio lombar ajustável") não são alegação: esses termos ficam fora do filtro de citação.
+export const CITACAO_IGNORA = ['lombar', 'cervical', 'anatomic', 'anatômic', 'saúde'];
+const CITACAO_EXTRA = ['médic', 'fisioterap'];
+export function citacaoSemAlegacao(quote: string, forbidden: string[]): { texto: string; omitidas: number } {
+  const terms = [...forbidden.filter((t) => !CITACAO_IGNORA.includes(normalizeForMatch(t)) && !CITACAO_IGNORA.includes(t)), ...CITACAO_EXTRA];
+  const frases = quote.split(/(?<=[.!?;])\s+/);
+  const ok = frases.filter((f) => !firstForbidden(f, terms));
+  return { texto: ok.join(' ').trim(), omitidas: frases.length - ok.length };
+}
