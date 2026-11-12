@@ -1,0 +1,192 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Duoflex sustentam cinco anos como média de troca e os sinais indicados como indícios para trocar, enquanto os da Orthocrin apenas distinguem defeitos de fabricação de desgaste natural. Nada sustenta planejar a troca antes de cinco anos mesmo sem sinais, nem qualifica os cinco anos como uma média recomendada. Também não há trecho explícito sobre cobertura pela garantia; apenas sobre o que caracteriza defeito de fabricação e o que não é coberto.",
+      "fix": "A Duoflex informa que a média para troca do colchão é de cinco anos e cita rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável, afundamento central e perda da qualidade do sono como sinais de que pode ser hora de trocá-lo. A Orthocrin diferencia defeitos como costura aberta e mola rompida do desgaste natural, que não é coberto. Consulte a garantia antes do descarte."
+    },
+    {
+      "ref": "tempo-de-uso-declarado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tempo-de-uso-declarado#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado apenas informa que a Duoflex indica uma média de cinco anos para a troca do colchão. Não sustenta afirmações sobre os demais fabricantes, fichas técnicas ou manuais, nem que essa seja a única indicação entre as marcas analisadas.",
+      "fix": "A Duoflex informa que, no caso do colchão, a média para troca é de cinco anos."
+    },
+    {
+      "ref": "sinais-de-desgaste#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-e-cobertura#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não sustentam que a garantia varia entre fabricantes nem que colchões de molas têm 3 meses de garantia no tecido. Também não mostram que os 36 meses na espuma se aplicam apenas a alguns modelos.",
+      "fix": "Segundo a Castor, há 6 meses de garantia na estrutura, 90 dias no tecido, linha, cadarço, costura e pés, 36 meses na espuma e 12 meses na estrutura. O trecho citado não informa o prazo para o tecido de colchões de molas nem o alcance por modelo."
+    },
+    {
+      "ref": "garantia-e-cobertura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Castor diz que, nos primeiros 2 meses, o colchão deve ser movimentado no sentido horário a cada quinzena; somente após esse período deve ser virado a cada 2 meses. O bloco apresenta \"vire o colchão\" como aplicável às duas etapas.",
+      "fix": "Segundo a Castor, nos primeiros 2 meses deve-se movimentar o colchão no sentido horário a cada quinzena; depois, deve-se virá-lo a cada 2 meses, colocando a parte de cima embaixo e vice-versa."
+    },
+    {
+      "ref": "rodar-virar-colchao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "rodar-virar-colchao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o colchão de molas ensacadas com pillow top não deve ser virado de lado e que o acolchoado fica embaixo e some. Eles não dizem que a única alternativa é rodá-lo de cabeça para os pés, nem afirmam expressamente que o acolchoado se danifica.",
+      "fix": "Segundo a Orthocrin, colchões de molas ensacadas com pillow top não devem ser virados de lado, pois o acolchoado fica embaixo e some."
+    },
+    {
+      "ref": "rodar-virar-colchao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "norma-durabilidade#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado sustenta que, segundo a Castor, a espuma pode perder de 8% a 12% da espessura durante a garantia, conforme a norma. Ele não diz que a norma exige que fabricantes declarem um limite nem que essa perda não seja considerada defeito.",
+      "fix": "Segundo a Castor, a espuma pode perder de 8% a 12% de sua espessura original dentro do prazo de garantia, conforme a densidade e a ABNT NBR 13579-1."
+    },
+    {
+      "ref": "norma-durabilidade#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho é uma afirmação da Castor sobre a possível perda de 23% a 32% da força inicial, dizendo apenas que isso ocorre conforme a norma. Ele não mostra que a norma estabelece esse limite de fadiga dinâmica.",
+      "fix": "Segundo a Castor, a espuma pode perder de 23% a 32% de sua força inicial dentro do prazo de garantia, conforme a densidade e a ABNT NBR 13579-1."
+    },
+    {
+      "ref": "norma-durabilidade#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos listam ensaios de deformação, indentação e rolagem com os respectivos itens da ABNT NBR 15413-1:2013. Não afirmam que a norma os exige nem que servem especificamente para avaliar a durabilidade das molas.",
+      "fix": "O documento lista ensaios de determinação da deformação, determinação da indentação e rolagem conforme os itens 7.5, 7.6 e 7.3 da ABNT NBR 15413-1:2013."
+    },
+    {
+      "ref": "norma-durabilidade#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta apenas a determinação da deformação permanente à compressão conforme a ABNT NBR 8797:2022. Não informa que se trata de espumas de colchões de molas, que a norma estabelece um método ou que indica um achatamento aceitável sem caracterizar defeito.",
+      "fix": "O documento lista a determinação da deformação permanente à compressão (D.P.C.) conforme a ABNT NBR 8797:2022."
+    },
+    {
+      "ref": "inmetro-escopo#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas a exclusão de colchões de molas, pneumáticos, elétricos, de água e de látex e mencionam dois programas distintos para espuma de poliuretano e molas. Não sustentam que a certificação para espuma seja obrigatória nem identificam a Portaria nº 35/2021.",
+      "fix": "Os requisitos citados excluem colchões de molas, pneumáticos, elétricos, de água e de látex. O Inmetro também trata separadamente os programas de avaliação da conformidade para colchões de espuma flexível de poliuretano e para colchões de molas."
+    },
+    {
+      "ref": "inmetro-escopo#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que as funcionalidades declaradas voluntariamente, como terapêuticas e ortopédicas, não foram avaliadas pelo processo de certificação e que essa informação deve constar do manual. Eles não dizem expressamente que se trata de uma certificação obrigatória nem sustentam a formulação geral sobre toda certificação obrigatória.",
+      "fix": "Quando o fornecedor declarar voluntariamente funcionalidades dos colchões, como terapêuticas ou ortopédicas, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "inmetro-escopo#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que a média de troca é de cinco anos, mas não diz que se deve planejar a troca mesmo sem sinais visíveis.",
+      "fix": "A Duoflex informa que a média para troca do colchão é de cinco anos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco recomenda trocar o colchão quando há dores nas costas, o que pode sugerir que o produto trate ou alivie uma condição de saúde; atribuir a recomendação à Duoflex não elimina essa restrição.",
+      "fix": "A Duoflex indica rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável e afundamento central como sinais de que chegou a hora de trocar o colchão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos classificam costura aberta, mola rompida e espuma solta como defeitos de fabricação e dizem que o desgaste natural não é coberto, mas não orientam explicitamente conferir a garantia, acionar o fabricante ou fazê-lo antes de descartar o colchão. Também não afirmam de forma geral que a garantia cobre defeitos.",
+      "fix": "Segundo a Orthocrin, costura aberta, mola rompida e espuma solta são exemplos de defeito de fabricação, enquanto o desgaste natural não é coberto."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos dizem que a perda de espessura ou deformação não significa defeito de fabricação e que a espuma pode perder de 8% a 12% da espessura dentro do prazo de garantia, mas não qualificam expressamente essa perda como desgaste normal causado pelo uso.",
+      "fix": "Segundo a Castor, a perda de espessura ou deformação do colchão não significa defeito de fabricação; dentro do prazo de garantia, a espuma pode perder de 8% a 12% de sua espessura original."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos da Duoflex sustentam cinco anos como média de troca e os sinais indicados como indícios para trocar, enquanto os da Orthocrin apenas distinguem defeitos de fabricação de desgaste natural. Nada sustenta planejar a troca antes de cinco anos mesmo sem sinais, nem qualifica os cinco anos como uma média recomendada. Também não há trecho explícito sobre cobertura pela garantia; apenas sobre o que caracteriza defeito de fabricação e o que não é coberto. Versão sustentável: A Duoflex informa que a média para troca do colchão é de cinco anos e cita rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável, afundamento central e perda da qualidade do sono como sinais de que pode ser hora de trocá-lo. A Orthocrin diferencia defeitos como costura aberta e mola rompida do desgaste natural, que não é coberto. Consulte a garantia antes do descarte."
+    },
+    {
+      "ref": "tempo-de-uso-declarado#1",
+      "msg": "UNSUPPORTED. O trecho citado apenas informa que a Duoflex indica uma média de cinco anos para a troca do colchão. Não sustenta afirmações sobre os demais fabricantes, fichas técnicas ou manuais, nem que essa seja a única indicação entre as marcas analisadas. Versão sustentável: A Duoflex informa que, no caso do colchão, a média para troca é de cinco anos."
+    },
+    {
+      "ref": "garantia-e-cobertura#0",
+      "msg": "UNSUPPORTED. Os trechos não sustentam que a garantia varia entre fabricantes nem que colchões de molas têm 3 meses de garantia no tecido. Também não mostram que os 36 meses na espuma se aplicam apenas a alguns modelos. Versão sustentável: Segundo a Castor, há 6 meses de garantia na estrutura, 90 dias no tecido, linha, cadarço, costura e pés, 36 meses na espuma e 12 meses na estrutura. O trecho citado não informa o prazo para o tecido de colchões de molas nem o alcance por modelo."
+    },
+    {
+      "ref": "rodar-virar-colchao#0",
+      "msg": "OVERSTATED. O trecho da Castor diz que, nos primeiros 2 meses, o colchão deve ser movimentado no sentido horário a cada quinzena; somente após esse período deve ser virado a cada 2 meses. O bloco apresenta \"vire o colchão\" como aplicável às duas etapas. Versão sustentável: Segundo a Castor, nos primeiros 2 meses deve-se movimentar o colchão no sentido horário a cada quinzena; depois, deve-se virá-lo a cada 2 meses, colocando a parte de cima embaixo e vice-versa."
+    },
+    {
+      "ref": "rodar-virar-colchao#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o colchão de molas ensacadas com pillow top não deve ser virado de lado e que o acolchoado fica embaixo e some. Eles não dizem que a única alternativa é rodá-lo de cabeça para os pés, nem afirmam expressamente que o acolchoado se danifica. Versão sustentável: Segundo a Orthocrin, colchões de molas ensacadas com pillow top não devem ser virados de lado, pois o acolchoado fica embaixo e some."
+    },
+    {
+      "ref": "norma-durabilidade#0",
+      "msg": "OVERSTATED. O trecho citado sustenta que, segundo a Castor, a espuma pode perder de 8% a 12% da espessura durante a garantia, conforme a norma. Ele não diz que a norma exige que fabricantes declarem um limite nem que essa perda não seja considerada defeito. Versão sustentável: Segundo a Castor, a espuma pode perder de 8% a 12% de sua espessura original dentro do prazo de garantia, conforme a densidade e a ABNT NBR 13579-1."
+    },
+    {
+      "ref": "norma-durabilidade#1",
+      "msg": "MISATTRIBUTED. O trecho é uma afirmação da Castor sobre a possível perda de 23% a 32% da força inicial, dizendo apenas que isso ocorre conforme a norma. Ele não mostra que a norma estabelece esse limite de fadiga dinâmica. Versão sustentável: Segundo a Castor, a espuma pode perder de 23% a 32% de sua força inicial dentro do prazo de garantia, conforme a densidade e a ABNT NBR 13579-1."
+    },
+    {
+      "ref": "norma-durabilidade#2",
+      "msg": "OVERSTATED. Os trechos listam ensaios de deformação, indentação e rolagem com os respectivos itens da ABNT NBR 15413-1:2013. Não afirmam que a norma os exige nem que servem especificamente para avaliar a durabilidade das molas. Versão sustentável: O documento lista ensaios de determinação da deformação, determinação da indentação e rolagem conforme os itens 7.5, 7.6 e 7.3 da ABNT NBR 15413-1:2013."
+    },
+    {
+      "ref": "norma-durabilidade#3",
+      "msg": "OVERSTATED. O trecho sustenta apenas a determinação da deformação permanente à compressão conforme a ABNT NBR 8797:2022. Não informa que se trata de espumas de colchões de molas, que a norma estabelece um método ou que indica um achatamento aceitável sem caracterizar defeito. Versão sustentável: O documento lista a determinação da deformação permanente à compressão (D.P.C.) conforme a ABNT NBR 8797:2022."
+    },
+    {
+      "ref": "inmetro-escopo#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas a exclusão de colchões de molas, pneumáticos, elétricos, de água e de látex e mencionam dois programas distintos para espuma de poliuretano e molas. Não sustentam que a certificação para espuma seja obrigatória nem identificam a Portaria nº 35/2021. Versão sustentável: Os requisitos citados excluem colchões de molas, pneumáticos, elétricos, de água e de látex. O Inmetro também trata separadamente os programas de avaliação da conformidade para colchões de espuma flexível de poliuretano e para colchões de molas."
+    },
+    {
+      "ref": "inmetro-escopo#1",
+      "msg": "OVERSTATED. Os trechos sustentam que as funcionalidades declaradas voluntariamente, como terapêuticas e ortopédicas, não foram avaliadas pelo processo de certificação e que essa informação deve constar do manual. Eles não dizem expressamente que se trata de uma certificação obrigatória nem sustentam a formulação geral sobre toda certificação obrigatória. Versão sustentável: Quando o fornecedor declarar voluntariamente funcionalidades dos colchões, como terapêuticas ou ortopédicas, o manual deve informar que essas características não foram avaliadas pelo processo de certificação do produto."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. O trecho sustenta que a média de troca é de cinco anos, mas não diz que se deve planejar a troca mesmo sem sinais visíveis. Versão sustentável: A Duoflex informa que a média para troca do colchão é de cinco anos."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "SAFETY_CLAIM. O bloco recomenda trocar o colchão quando há dores nas costas, o que pode sugerir que o produto trate ou alivie uma condição de saúde; atribuir a recomendação à Duoflex não elimina essa restrição. Versão sustentável: A Duoflex indica rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável e afundamento central como sinais de que chegou a hora de trocar o colchão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos classificam costura aberta, mola rompida e espuma solta como defeitos de fabricação e dizem que o desgaste natural não é coberto, mas não orientam explicitamente conferir a garantia, acionar o fabricante ou fazê-lo antes de descartar o colchão. Também não afirmam de forma geral que a garantia cobre defeitos. Versão sustentável: Segundo a Orthocrin, costura aberta, mola rompida e espuma solta são exemplos de defeito de fabricação, enquanto o desgaste natural não é coberto."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos dizem que a perda de espessura ou deformação não significa defeito de fabricação e que a espuma pode perder de 8% a 12% da espessura dentro do prazo de garantia, mas não qualificam expressamente essa perda como desgaste normal causado pelo uso. Versão sustentável: Segundo a Castor, a perda de espessura ou deformação do colchão não significa defeito de fabricação; dentro do prazo de garantia, a espuma pode perder de 8% a 12% de sua espessura original."
+    }
+  ]
+}
