@@ -12,7 +12,8 @@ import { aquecerIntegridade, cycleBadge, cycleInfo, renderStatus } from './statu
 import { MAX_IMPROVE_ATTEMPTS, retryOff } from './stages/improve.ts';
 import { lessonId, lessonsNearCap, loadEditorLessons, MAX_LESSONS } from './editor-lessons.ts';
 import { loadNiche } from './niche.ts';
-import { gitChanges, plainOutcome, type ChangeItem } from './changes.ts';
+import { gitChanges, normalizeExcluded, plainOutcome, type ChangeItem } from './changes.ts';
+import { cardSubject, CARTAO_CSS, costLine, costSummary, learningLine, textHint, whatBlock, type CartaoCtx } from './cartao.ts';
 import { creditsToday, DAILY_CREDIT_CAP, lacksMakers, queueStatus, slugOf } from './stages/autopilot.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
@@ -318,7 +319,7 @@ function pendingHtml(b: ReturnType<typeof pendingBranches>[number]): string {
     }
     if (it.id === 'anchors') return 'Quando outra página do site usar estas palavras, elas viram link para este guia (o texto não muda).';
     if (it.id === 'search-links') return 'Botões de busca na Amazon com a nossa tag, embaixo dos exemplos à venda.';
-    if (it.id === 'images') return 'Imagens novas geradas por IA (sem marca).';
+    if (it.id === 'images' || it.id.startsWith('image:')) return 'Imagem nova gerada por IA (sem marca).';
     if (it.id.startsWith('product:')) return it.title.startsWith('Novo') ? 'Exemplo à venda novo para as páginas deste tipo.' : 'Exemplo retirado (motivo abaixo).';
     if (it.id === 'theme') return 'Mudança de visual pedida por você.';
     return '';
@@ -393,7 +394,8 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const dir = b.branch.replace(/^pagina\//, '');
     let slug = dir.replace(/-\d{8}-\d{4}$/, '');
     let items: ChangeItem[] = [];
-    try { items = gitChanges(`origin/${b.branch}`).summary.items; } catch { /* sem leitura: cartão informativo */ }
+    let learning: string[] = [];
+    try { ({ items, learning } = gitChanges(`origin/${b.branch}`).summary); } catch { /* sem leitura: cartão informativo */ }
     // Resultado de um pedido em texto livre (ramo pagina/pedido-*): a página é a que o pedido mudou.
     if (slug === 'pedido') slug = items.find((i) => i.id.startsWith('page:'))?.slug ?? items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find(Boolean) ?? 'pedido';
     const query = /^(?:Tentativa \(rascunho\)|Tentativa sem página|Página nova): (.+)$/.exec(b.subject)?.[1];
@@ -406,57 +408,23 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     if (info.kind === 'pauta-tentada' && !query) continue;
     const ready = existsSync(join(PREVIAS, dir, 'index.html'));
     const prevLink = (path: string, label: string) => (ready ? `<a href="${BASE}previa/${esc(dir)}/${path}" target="_blank" rel="noopener">${label}</a>` : '<span class="muted">sendo montada (até 5 min)</span>');
-    // Texto de OUTRA página que veio no mesmo ciclo (enriquecimento) tem caixa própria e antes → depois visível;
-    // antes ia escondido em `others`, marcado, e entrava no "Aplicar" sem aparecer (06/11, colchão para casal).
-    const otherPage = (it: ChangeItem) => it.id.startsWith('page:') && it.id !== `page:${slug}`;
-    const visual = (it: ChangeItem) => CARD_OWN_BOX(it.id) || otherPage(it);
-    // Legenda de cada imagem (24/10, editor: "imagem nova" duas vezes, sem saber qual era a capa desta página e qual
-    // era a de outra que veio junto no mesmo ciclo).
-    const imgLabel = (x: string) => {
-      const id = /generated\/([a-z0-9_-]+)\.webp$/.exec(x)?.[1] ?? '';
-      const pg = /^pagina-(.+)$/.exec(id)?.[1];
-      if (pg) return pg === slug ? 'capa desta página' : `capa de outra página: ${titleOf(pg)}`;
-      if (id.startsWith('produto-')) return 'foto de exemplo à venda';
-      return `ilustração do tipo ${id}`;
-    };
-    const isImg = (x: string) => /^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(x);
-    const thumbsOf = (it: ChangeItem, keep: (x: string) => boolean = () => true) => it.paths.filter((x) => isImg(x) && keep(x)).map((x) => `<figure class="tfig"><a href="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="${esc(imgLabel(x))}" src="${BASE}imagem?ramo=${encodeURIComponent(b.branch)}&arquivo=${encodeURIComponent(x)}"></a><figcaption class="muted">${esc(imgLabel(x))}</figcaption></figure>`).join('');
-    const check = (it: ChangeItem, label: string) => `<label class="acc"><input type="checkbox" name="manter" value="${esc(it.id)}" checked> ${label}</label>`;
-    // Cartão de uma página (nova ou ajuste no ar): a linha "Imagem" mostra só a capa DESTA página e "Produtos novos" só
-    // os do tipo dela. O que veio de carona no mesmo ciclo (capa de outra página, ilustração de tipo, produto de outro
-    // tipo) vai para "Também entra", recolhido, com contagem e caixas (27/10, editor: "preciso entender o que estou
-    // publicando sempre"; o cartão do solteirão abria com a cadeira e um roupão).
+    // O que entra no site (12/11/2026): UMA linha e UMA caixa por mudança, em linguagem de leigo (cartao.ts). Antes,
+    // links, botões de busca e modelos citados viajavam escondidos (`others`) e o editor aplicava sem vê-los; capa e
+    // foto de produto eram uma caixa só. Nenhum item fica sem caixa: o que não vem no formulário é recusa.
     const pageCard = info.kind === 'pagina-nova' || info.kind === 'ajuste-no-ar';
-    const ownImg = (x: string) => new RegExp(`generated/pagina-${slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\.webp$`).test(x);
-    const pageKinds = new Set(loadTopics().find((t) => t.slug === slug)?.product_kinds ?? []);
-    const imgItems = items.filter((i) => i.id === 'images');
-    const imgs = imgItems.map((it) => { const own = pageCard ? it.paths.filter((x) => isImg(x) && ownImg(x)) : it.paths.filter(isImg); return own.length ? `<div class="thumbs">${thumbsOf(it, (x) => own.includes(x))}</div>${check(it, 'aceitar imagem')}` : ''; }).join('');
-    const extraImgPaths = pageCard ? imgItems.flatMap((it) => it.paths.filter((x) => isImg(x) && !ownImg(x))) : [];
-    const extraImgs = imgItems.map((it) => { const rest = it.paths.filter((x) => isImg(x) && extraImgPaths.includes(x)); return rest.length ? `<div class="thumbs">${thumbsOf(it, (x) => rest.includes(x))}</div>${it.paths.some(ownImg) ? '<span class="muted">entra junto com a capa acima (mesmo item)</span>' : check(it, 'aceitar também')}` : ''; }).join('');
-    const prodHtml = (it: ChangeItem) => `<div>${esc(it.title)}${it.asin ? ` · <a href="https://www.amazon.com.br/dp/${esc(it.asin)}" target="_blank" rel="noopener">anúncio</a>` : ''} ${check(it, 'aceitar')}</div>`;
-    const prodItems = items.filter((i) => i.id.startsWith('product:'));
-    const extraProds = pageCard ? prodItems.filter((it) => it.kind && !pageKinds.has(it.kind)) : [];
-    const prods = prodItems.filter((it) => !extraProds.includes(it)).map(prodHtml).join('');
-    // 29/10: "Ordem dos guias na home" e "Mudança de visual" contavam como `visual` (logo, fora do `others`
-    // escondido) e não tinham onde ser desenhadas no cartão — nem caixa visível, nem campo escondido. Sumiam do
-    // formulário, e o motor as registrava como RECUSADAS pelo editor em todo ciclo desde 28/10, sem ninguém ter
-    // recusado nada: ele acreditava estar aceitando tudo e a home nunca seguiu o Search Console. Agora aparecem
-    // aqui, marcadas, e quem decide é ele.
-    const siteWide = items.filter((i) => i.id === 'home' || i.id === 'theme');
-    const extraN = extraImgPaths.length + extraProds.length + siteWide.length;
-    const extras = extraN ? `<details class="extras"><summary class="muted">${extraN} mudança(s) de outras páginas ou do site todo vieram no mesmo ciclo: ver</summary>${extraImgs}${extraProds.map(prodHtml).join('')}${siteWide.map((it) => `<div>${esc(it.title)} ${check(it, 'aceitar')}</div>`).join('')}<p class="muted">Não mudam esta página. Desmarque o que não quiser.</p></details>` : '';
-    const others = items.filter((i) => !visual(i)).map((it) => `<input type="hidden" name="manter" value="${esc(it.id)}">`).join('');
+    const pageFor = (kind?: string) => pages.find((p) => p.status !== 'draft' && loadTopics().find((t) => t.slug === p.slug)?.product_kinds.includes(kind ?? ''))?.slug;
+    const imgSrc = (ramo: string, x: string) => `${BASE}imagem?ramo=${encodeURIComponent(ramo)}&arquivo=${encodeURIComponent(x)}`;
+    // Título de página que só existe no ramo (página nova): o do ramo, não o slug.
+    const titleIn = (s: string) => pages.find((p) => p.slug === s)?.title ?? (() => { try { return (JSON.parse(readBranch(b.branch)(`data/pages/${s}.json`) ?? 'null') as { title?: string } | null)?.title; } catch { return undefined; } })() ?? s;
+    const ctx: CartaoCtx = { titleOf: titleIn, isLive: (s) => pages.some((p) => p.slug === s && p.status !== 'draft'), pageFor, prev: (path, label) => (ready ? prevLink(path, label) : ''), imgUrl: (x) => imgSrc(b.branch, x), imgMainUrl: (x) => imgSrc('main', x), ownSlug: pageCard ? slug : undefined };
+    const whatHtml = whatBlock(items, ctx);
     const pageItem = items.find((i) => i.id === `page:${slug}`);
-    const otherPagesHtml = items.filter(otherPage).map((it) => {
-      const s = it.id.slice('page:'.length);
-      return `<div class="pg"><strong>${esc(it.title)}</strong> ${prevLink(`${esc(s)}/`, 'abrir prévia')} ${check(it, 'aceitar este texto')}${it.diffs?.length ? `<details open><summary class="muted">antes → depois (${it.diffs.length})</summary>${it.diffs.slice(0, 30).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : ''}</div>`;
-    }).join('');
     const diffsHtml = pageItem?.diffs?.length ? `<details><summary class="muted">antes → depois (${pageItem.diffs.length})</summary>${pageItem.diffs.slice(0, 12).map((d) => `<div class="diff"><span class="muted">${esc(d.where)}</span><del>${esc(d.before)}</del><ins>${esc(d.after)}</ins></div>`).join('')}</details>` : '';
-    // Manutenção: diz de qual página é a capa ou o produto, em vez de "Site todo".
+    // Capa de página no ar (manutenção): prévia e dica de onde se corrige o texto.
     const coverOf = items.flatMap((i) => i.paths).map((x) => /generated\/pagina-([a-z0-9-]+)\.webp$/.exec(x)?.[1]).find((x) => x && pages.some((p) => p.slug === x));
-    // 23/10: ciclo de "cadeira para obeso" que parou antes de virar página, mas trouxe a capa do pillow top,
-    // aparecia como "cadeira para obeso" com a imagem do pillow top. Manutenção leva o nome do que muda.
-    const maintSubject = items.find((i) => i.id === 'niche')?.title ?? (coverOf ? `Capa nova: ${titleOf(coverOf)}` : items.some((i) => i.id.startsWith('product:')) ? 'Exemplos à venda' : 'Site todo');
+    // Manutenção leva o nome do que muda: "<página> e mais K página(s): N mudanças" (antes "Site todo" ou
+    // "Capa nova: X", que escondia o resto). Tipo de produto novo continua com o nome do tipo.
+    const maintSubject = items.find((i) => i.id === 'niche')?.title ?? cardSubject(items, ctx);
     // Título da página do próprio resultado: depois de uma correção, o último commit do ramo é "Painel: ajuste…" e o
     // cartão perdia o nome da pauta e mostrava a capa de outra página que veio junto (24/10, "Capa nova: Base box baú"
     // num cartão que era o do casal com pesos diferentes).
@@ -469,8 +437,9 @@ export function boardHtml(pages: ReturnType<typeof loadPages>, branches: ReturnT
     const prevPath = pageItem || (query && info.kind !== 'manutencao') ? `${esc(slug)}/` : coverOf ? `${esc(coverOf)}/` : '';
     const primary = info.kind === 'pagina-nova' ? (info.suggestion === 'publicar' ? 'Publicar' : 'Publicar assim mesmo') : info.suggestion === 'aplicar' ? 'Aplicar' : 'Aplicar assim mesmo';
     const actionForm = items.length
-      ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${others}${shadowField(info.kind, info.suggestion, slug)}
-<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', pageItem || query ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Texto de outra página no ar', otherPagesHtml)}${row('Imagem', imgs)}${row('Produtos novos', prods)}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também entra', extras)}${row('Também neste ciclo', esc(alsoTried))}</dl>
+      ? `<form id="f-${esc(dir)}" method="post" action="acao" onsubmit="return confirm('${info.kind === 'pagina-nova' ? 'Publicar esta página' : 'Aplicar estas mudanças'} com os itens marcados? Roda testes e build antes de ir ao site.')"><input type="hidden" name="acao" value="mesclar"><input type="hidden" name="ramo" value="${esc(b.branch)}">${shadowField(info.kind, info.suggestion, slug)}
+<dl class="dl">${row('Situação', esc(info.situation))}${row('Nota de leitor', info.kind !== 'manutencao' && (pageItem || query) ? scoreHtml(readBranch(b.branch), slug) : '')}${row('Sugestão do motor', sugBadge(info.suggestion))}${row('Por quê', esc(info.why))}${row('Prévia', prevLink(prevPath, 'abrir prévia'))}${row('Também neste ciclo', esc(alsoTried))}</dl>
+${costLine(b.cost, query, outcome, info.kind)}${whatHtml}${info.kind === 'manutencao' ? textHint(items, coverOf ? titleOf(coverOf) : undefined, 'aba Páginas, linha da página, "ações", "pedir ajuste"') : ''}${learningLine(learning)}
 ${forceBox(slug)}</form>`
       : `<dl class="dl">${row('Situação', esc(info.situation))}${row('Sugestão do motor', sugBadge(info.suggestion))}${row(/Adiada/.test(info.situation) ? 'Falta' : 'Por quê', esc(info.why))}</dl>`;
     // O que cada escolha faz, escrito no próprio cartão (22/10: o editor não sabia a diferença entre tirar da
@@ -492,9 +461,10 @@ ${forceBox(slug)}</form>`
     // painel recusava por "ajuste não salvo" numa mensagem no topo e o cartão só voltava).
     const btnTag = items.length ? `<button form="f-${esc(dir)}" class="${goes ? 'ok' : 'link'}"${goes ? '' : ' name="forcar" value="1"'}>${primary}</button>` : '';
     const btn = goes ? btnTag : '';
-    const sc = pageItem || query ? scoreHtml(readBranch(b.branch), slug).replace(/ <span class="muted">.*$/, '') : '';
+    // Manutenção não mostra nota: a nota seria a do rascunho que o ciclo tentou, não do que se aplica (12/11).
+    const sc = info.kind !== 'manutencao' && (pageItem || query) ? scoreHtml(readBranch(b.branch), slug).replace(/ <span class="muted">.*$/, '') : '';
     const html = `<details class="dcard sg-${info.suggestion}"${info.suggestion === 'nada' ? '' : ' data-pending'}>
-<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(bornAt)}${b.cost !== null ? ` · ~${b.cost.toFixed(1)} créditos` : ''}</span></span><span class="dsc">${sc}</span>${btn}</summary>
+<summary class="dsum">${sugBadge(info.suggestion)}<span class="dt"><b>${esc(subject)}</b><span class="muted">${esc(KIND_LABEL[info.kind])} · ciclo de ${esc(bornAt)}${esc(costSummary(b.cost))}</span></span><span class="dsc">${sc}</span>${btn}</summary>
 <div class="dbody">${actionForm}${diffsHtml}${adjustDiffsHtml(readBranch(b.branch), slug)}
 ${info.kind !== 'pauta-tentada' && info.kind !== 'manutencao' ? correctionForm(b.branch, slug, info.correction, info.suggestion === 'corrigir', shadowField(info.kind, info.suggestion, slug), info.blocks) : ''}${extra}${!goes && btnTag ? `<div class="dactions"><span class="muted">ou, sem corrigir:</span> ${btnTag}</div>` : ''}
 ${info.kind === 'pauta-tentada' ? '' : info.kind === 'ajuste-no-ar'
@@ -1071,7 +1041,7 @@ input,select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-ra
 button{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:7px;border:1px solid var(--line);cursor:pointer;background:var(--nbg);color:var(--n)}
 button.ok{background:var(--okbg);color:var(--ok)}button.bad{background:var(--badbg);color:var(--bad)}
 td.actions{white-space:nowrap}td.actions form+form{margin-left:6px}pre{white-space:pre-wrap;font-size:.78rem;margin:6px 0 0}
-</style>`;
+${CARTAO_CSS}</style>`;
 
 function readBody(req: IncomingMessage): Promise<URLSearchParams> {
   return new Promise((resolve, reject) => {
@@ -1108,7 +1078,11 @@ function noteShadow(f: URLSearchParams): void {
     // Item desmarcado antes de aplicar = o editor não aceitou o resultado inteiro.
     const keep = new Set(f.getAll('manter'));
     let partial = false;
-    try { partial = gitChanges(`origin/${f.get('ramo')}`).summary.items.some((i) => !keep.has(i.id)); } catch { /* sem leitura: conta como aceito */ }
+    try {
+      const its = gitChanges(`origin/${f.get('ramo')}`).summary.items;
+      if (keep.has('images')) for (const i of its) if (i.id.startsWith('image:')) keep.add(i.id);
+      partial = its.some((i) => !keep.has(i.id));
+    } catch { /* sem leitura: conta como aceito */ }
     editor = partial ? 'corrigiu' : 'aceitou';
   } else if (acao === 'veredito') editor = f.get('veredito') === 'approve' ? 'aceitou' : 'recusou';
   else if (acao === 'descartar') editor = 'recusou';
@@ -1377,8 +1351,10 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
     if (failedNow(ramo.replace(/^pagina\//, '').replace(/-\d{8}-\d{4}$/, '')) && f.get('forcar') !== '1') return 'o último ajuste desta página não foi salvo: peça de novo ou marque "aprovar assim mesmo"';
     // Os recusados são calculados aqui, a partir das mudanças reais do ramo: o formulário só diz o que manter.
     const keep = new Set(f.getAll('manter'));
-    const all = gitChanges(`origin/${ramo}`).summary.items.map((i) => i.id);
-    const excl = all.filter((id) => !keep.has(id));
+    const summary = gitChanges(`origin/${ramo}`).summary;
+    const all = summary.items.map((i) => i.id);
+    // Formulário aberto antes de 12/11 manda "images" (todas as imagens numa caixa): vale para cada image:*.
+    const excl = all.filter((id) => !keep.has(id) && !(keep.has('images') && normalizeExcluded(summary, ['images']).includes(id)));
     if (all.length && excl.length === all.length) return 'nenhum item marcado: para não aplicar nada, use "Descartar tudo"';
     // Rótulo para o editor: o ramo tem o nome da pauta tentada, que confunde quando o que entra é outra coisa.
     const at = /-(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})$/.exec(ramo);
@@ -1388,11 +1364,6 @@ function toJob(f: URLSearchParams): { label: string; args: string[] } | string {
   return 'ação desconhecida';
 }
 
-// Itens que o cartão desenha com caixa PRÓPRIA; os demais viajam escondidos em `others`, marcados. Os dois
-// conjuntos TÊM de ser o mesmo: item que não cai em nenhum dos dois some do formulário e o motor o registra
-// como recusado pelo editor. Foi o que aconteceu com "home" e "theme" de 28 a 29/10. Ao acrescentar um tipo
-// de item em changes.ts, ou ele ganha caixa aqui, ou fica de fora desta lista (e vai escondido).
-export const CARD_OWN_BOX = (id: string) => id === 'images' || id.startsWith('product:') || id === 'theme' || id === 'home';
 
 const PREVIAS = join(STATE, 'previas');
 const TYPES: Record<string, string> = {
@@ -1428,12 +1399,13 @@ async function handle(req: IncomingMessage, res: ServerResponse) {
     // Miniatura de imagem nova de um resultado do motor, lida direto do ramo (só imagens geradas).
     const ramo = url.searchParams.get('ramo') ?? '';
     const path = url.searchParams.get('arquivo') ?? '';
-    if (!BRANCH.test(ramo) || !/^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(path)) {
+    // ramo=main: a imagem que está no ar hoje (o "hoje → nova" das trocas de capa no cartão).
+    if ((ramo !== 'main' && !BRANCH.test(ramo)) || !/^site\/src\/assets\/generated\/[a-z0-9_-]+\.webp$/.test(path)) {
       res.writeHead(400);
       return res.end();
     }
     try {
-      const img = execFileSync('git', ['show', `origin/${ramo}:${path}`], { cwd: ROOT, maxBuffer: 32 << 20, stdio: ['ignore', 'pipe', 'ignore'] });
+      const img = execFileSync('git', ['show', `${ramo === 'main' ? 'origin/main' : `origin/${ramo}`}:${path}`], { cwd: ROOT, maxBuffer: 32 << 20, stdio: ['ignore', 'pipe', 'ignore'] });
       res.writeHead(200, { 'content-type': 'image/webp', 'cache-control': 'private, max-age=600' });
       return res.end(img);
     } catch {

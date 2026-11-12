@@ -140,7 +140,7 @@ export function classifyBranch(b: {
     const otherTexts = b.items.filter((i) => i.id.startsWith('page:') && i.id !== `page:${b.slug}`).length;
     const parts = [
       otherTexts ? `texto de ${otherTexts} página(s) no ar (confira o antes → depois)` : '',
-      b.items.some((i) => i.id === 'images') ? 'imagem nova' : '',
+      b.items.some((i) => i.id === 'images' || i.id.startsWith('image:')) ? 'imagem nova' : '',
       b.items.filter((i) => i.id.startsWith('product:')).length ? `${b.items.filter((i) => i.id.startsWith('product:')).length} produto(s)` : '',
       b.items.some((i) => i.id === 'anchors' || i.id === 'search-links') ? 'links' : '',
       b.items.some((i) => i.id === 'theme' || i.id === 'home') ? 'visual da home' : '',
