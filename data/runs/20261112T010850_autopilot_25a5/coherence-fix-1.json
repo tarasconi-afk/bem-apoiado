@@ -1,0 +1,21 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Colchão e base box são componentes distintos que formam o conjunto da cama. A base box funciona como suporte estrutural do colchão, segundo a Simmons. Confira no anúncio se o produto inclui os dois ou apenas um deles.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_8824c5b22f56"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "remove"
+    }
+  ],
+  "kept": false,
+  "blocked": [
+    "a última seção tem de ser \"Como decidir\", com 2 a 4 orientações condicionais (\"se você..., ...\") sustentadas pelas evidências."
+  ]
+}
