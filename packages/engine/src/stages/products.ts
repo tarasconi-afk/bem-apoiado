@@ -181,6 +181,11 @@ export function kindExcluded(name: string, kind: string): string | null {
   return terms.find((t) => n.includes(loose(t))) ?? null;
 }
 
+// Jogo de peças do próprio tipo (tipo com sold_as_set no nicho): o título não nomeia outro tipo do nicho.
+export function setOfOwnKind(title: string, kind: string): boolean {
+  return !!loadNiche().product_kinds.find((k) => k.id === kind)?.sold_as_set && !kindConflict(title, kind);
+}
+
 // Captura do anúncio via Tavily; falha de UM anúncio vira motivo de pulo, nunca derruba a execução.
 export async function captureListing(asin: string): Promise<Source | string> {
   try {
@@ -290,6 +295,7 @@ export async function findProductsFromAmazon(
   const kinds = topic.product_kinds.length ? topic.product_kinds : niche.product_kinds.map((k) => k.id);
   const labels = new Map(niche.product_kinds.map((k) => [k.id, k.label]));
   const accessory = new Set(niche.product_kinds.filter((k) => k.accessory).map((k) => k.id));
+  const sets = new Set(niche.product_kinds.filter((k) => k.sold_as_set).map((k) => k.id));
   const idx = buildIndex();
   const known = knownAsins();
   const makers = loadRegistry().allow.filter((a) => a.source_class === 'manufacturer');
@@ -310,7 +316,7 @@ export async function findProductsFromAmazon(
   const cited = new Set<string>();
   if (page) for (const id of referencedClaimIds(page)) { const c = idx.claims.get(id); const s = c && idx.sources.get(c.source_id); if (s?.source_class === 'manufacturer') cited.add(loose(s.publisher)); }
 
-  const ctx: ListingCtx = { runId, kinds, labels, accessory, idx, known, makers, report, usedBrands, decide, fetchImpl };
+  const ctx: ListingCtx = { runId, kinds, labels, accessory, sets, idx, known, makers, report, usedBrands, decide, fetchImpl };
   for (const kind of kinds) {
     if (need <= 0) break;
     let added = 0;
@@ -338,6 +344,7 @@ interface ListingCtx {
   kinds: string[];
   labels: Map<string, string>;
   accessory: Set<string>;
+  sets: Set<string>;
   idx: ReturnType<typeof buildIndex>;
   known: Set<string>;
   makers: ReturnType<typeof loadRegistry>['allow'];
@@ -367,7 +374,7 @@ async function tryListing(c: ListingCtx, h: { url: string; title: string; conten
   const l = await callJson(
     {
       role: 'extractor',
-      system: `Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": false se for kit, conjunto com base/box${c.accessory.has(kind) ? ` ou combinado com outro produto (o ${kl.toLowerCase()} vendido sozinho é produto único)` : ' ou acessório'}.`,
+      system: `Do anúncio, extraia a marca e o modelo (nome comercial curto, sem medida). A marca é o fabricante (ex.: campo "Marca" do anúncio); se o anúncio não diz qual é, devolva brand vazio: nunca use densidade, medida, material ou o nome do modelo como marca. "is_single_product": ${c.sets.has(kind) ? `false só se vier junto com produto de OUTRO tipo (edredom, travesseiro, cortina, roupão); ${kl.toLowerCase()} vendido em jogo de peças do mesmo tipo (lençol com fronhas, jogo de toalhas) é produto único` : `false se for kit, conjunto com base/box${c.accessory.has(kind) ? ` ou combinado com outro produto (o ${kl.toLowerCase()} vendido sozinho é produto único)` : ' ou acessório'}`}.`,
       user: (sourceText(listing.id) ?? '').slice(0, 6000),
       schema: Listing,
       schemaName: 'listing',
@@ -375,7 +382,17 @@ async function tryListing(c: ListingCtx, h: { url: string; title: string; conten
     },
     c.fetchImpl,
   );
-  if (!l.data.is_single_product) return skip('kit/conjunto/acessório');
+  // Tipo vendido em jogo (12/11, lençol de malha Camaria "2 e 3 peças" recusado como kit): o jogo do próprio tipo é o
+  // produto. Só recusa se o título do anúncio nomear outro tipo do nicho (jogo de cama + edredom é outro produto).
+  const listingTitle = /^# (?!\[)(.+)$/m.exec(sourceText(listing.id) ?? '')?.[1] ?? h.title;
+  const setOk = c.sets.has(kind) && setOfOwnKind(listingTitle, kind);
+  if (!l.data.is_single_product && !setOk) return skip('kit/conjunto/acessório');
+  // Marca literal do anúncio ("Nome da marca | X", "Marca: X") vale mais que a leitura do modelo: 7 de 11 recusas por
+  // "marca genérica" em 07-12/11 tinham a marca escrita na página (Allstate, Salt Earth, obinsm, COTTON CRAFT,
+  // Camaria) e o extrator devolvera vazio. "Visite a loja X" só quando nada mais diz a marca. Nada inventado: só o
+  // que está escrito.
+  const literal = brandFromListing(sourceText(listing.id) ?? '');
+  if (literal.brand && (!l.data.brand.trim() || literal.strong)) l.data.brand = literal.brand;
   // Modelo citado: anúncio sem o campo "Marca" mas com a marca no título vale pela marca citada (26/10, Guarda Costas
   // da Probel: "Probel" no título e marca vazia na extração).
   if (want && !l.data.brand.trim() && loose(sourceText(listing.id) ?? '').includes(loose(want.brand))) l.data.brand = want.brand;
@@ -390,7 +407,9 @@ async function tryListing(c: ListingCtx, h: { url: string; title: string; conten
   // Tipo acessório: o anúncio tem de vender o acessório sozinho; colchão completo (mesmo "com pillow top") é recusado.
   const isKind = async (k: string) => {
     const lab = (c.labels.get(k) ?? k).toLowerCase();
-    const criteria = c.accessory.has(k)
+    const criteria = c.sets.has(k)
+      ? { sim: `o produto vendido é um(a) ${lab} para uso normal em casa, avulso ou em jogo de peças do mesmo tipo (ex.: lençol com fronhas, jogo de toalhas)`, nao: 'capa, bolsa, protetor, cama, edredom, travesseiro, cortina, outro tipo de produto junto, ou versão de viagem, portátil, para pet ou infantil' }
+      : c.accessory.has(k)
       ? { sim: `o produto vendido é só um(a) ${lab}, avulso(a), para uso normal em casa`, nao: 'colchão completo, cama, base, kit ou conjunto, outro acessório diferente deste, ou versão de viagem, para pet ou infantil' }
       : { sim: `o produto vendido é um(a) ${lab} para uso normal em casa`, nao: 'capa, bolsa, protetor, base, cama, kit, peça, acessório, ou versão de viagem, portátil, para pet ou infantil' };
     const r = await c.decide((sourceText(listing.id) ?? '').slice(0, 4000), { item: { type: 'choice', instructions: `Este anúncio vende um(a) ${lab} propriamente dito(a)?`, criteria } });
@@ -484,6 +503,7 @@ export async function findCitedProducts(slug: string, runId: string, fetchImpl?:
   const missing = models.filter((m) => !inCatalog(m, loadProducts())).slice(0, 3);
   const ctx: ListingCtx = {
     runId, kinds: topic.product_kinds, labels: new Map(niche.product_kinds.map((k) => [k.id, k.label])), accessory: new Set(niche.product_kinds.filter((k) => k.accessory).map((k) => k.id)),
+    sets: new Set(niche.product_kinds.filter((k) => k.sold_as_set).map((k) => k.id)),
     idx: buildIndex(), known: knownAsins(), makers: loadRegistry().allow.filter((a) => a.source_class === 'manufacturer'), report, usedBrands: new Set(), decide, fetchImpl,
   };
   for (const m of missing) {
@@ -500,9 +520,27 @@ export async function findCitedProducts(slug: string, runId: string, fetchImpl?:
 export function brandProblem(brand: string, kindLabel: string): string | null {
   const b = brand.trim();
   const generic = new Set([...loose(kindLabel).split(/\s+/), 'colchao', 'colchão', 'espuma', 'travesseiro', 'mola', 'molas', 'cadeira', 'mesa', 'suporte', 'almofada', 'generico', 'genérico', 'generica', 'genérica', 'sem', 'marca', 'kit']);
-  if (!b || loose(b).split(/\s+/).every((w) => generic.has(w))) return `marca genérica: "${brand}"`;
+  if (!b) return 'sem marca identificada no anúncio';
+  if (loose(b).split(/\s+/).every((w) => generic.has(w))) return `marca genérica: "${brand}"`;
   if (/^(o|a|os|as|um|uma)\s/i.test(b) || b.split(/\s+/).length > 3 || b.split(/\s+/).some((w) => /\d/.test(w))) return `marca implausível: "${brand}"`;
   return null;
+}
+
+// Marca escrita no anúncio da Amazon, na ordem de confiança: tabela de especificações ("Nome da marca | X", "| Marca |
+// X |"), link da marca ("Marca: X" / field-brandtextbin=X) e, por último, a loja ("Visite a loja X"), que às vezes é
+// revenda (strong = false: só preenche marca vazia). Devolve o texto literal; "Genérico" volta como está e a trava de
+// marca genérica recusa.
+export function brandFromListing(text: string): { brand: string; strong: boolean } {
+  const clean = (x: string) => x.replace(/\+/g, ' ').replace(/%([0-9A-F]{2})/gi, (_, h: string) => { try { return decodeURIComponent(`%${h}`); } catch { return ''; } }).replace(/\s+/g, ' ').trim();
+  const strong = [
+    /^\s*\|?\s*Nome da marca\s*\|\s*([^|\n]{2,40}?)\s*(?:\||$)/im,
+    /^\s*\|\s*Marca\s*\|\s*([^|\n]{2,40}?)\s*(?:\||$)/im,
+    /\[Marca:\s*([^\]\n]{2,40}?)\s*\]/i,
+    /brandtextbin=([^)&\s]{2,60})/i,
+  ];
+  for (const re of strong) { const m = re.exec(text); if (m) { const b = clean(m[1]!); if (b) return { brand: b, strong: true }; } }
+  const loja = /Visite a loja\s+(?:da\s+|de\s+|do\s+)?([^\]\n|]{2,40}?)\s*(?:\]|\||$)/im.exec(text);
+  return loja ? { brand: clean(loja[1]!), strong: false } : { brand: '', strong: false };
 }
 
 // Nível "só anúncio": sem ficha oficial. O cartão mostra apenas o tipo "anunciado como", com a linha
