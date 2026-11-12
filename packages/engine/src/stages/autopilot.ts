@@ -30,6 +30,7 @@ import { failureCause, reviewMetrics, reviewPage } from './review.ts';
 import { adjustWithResearch } from './requests.ts';
 import { withoutDuplicates } from './duplicates.ts';
 import { planTopic } from './plan.ts';
+import { maintainSnippet } from './snippet.ts';
 import { loadTopic, research } from './research.ts';
 
 // Piloto automático: um ciclo = uma pauta, do plano à página revisada. Não mexe em git (o script
@@ -630,6 +631,8 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   // inteiro às 4h de 05/11) e a página ficou sem orçamento ou parou no meio da redação.
   const m1 = await maintainProducts(runId, steps);
   const m5 = await maintainGsc(steps);
+  // Título/descrição de página no topo do Google com pouco clique (< 1 crédito; 1 página por ciclo, 14 dias por página).
+  const m5b = await maintainSnippet(runId, steps);
   const m6 = await maintainIdeas(steps);
   const m7 = await maintainLinks(steps);
   const m9 = await maintainDuplicates(steps);
@@ -637,7 +640,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const pending = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
   const heavyFirst = pending ? false : await heavyMaintenance(runId, steps);
   heavyLater = !!pending;
-  const maintained = m1 || m5 || m6 || m7 || m9 || m10 || heavyFirst;
+  const maintained = m1 || m5 || m5b || m6 || m7 || m9 || m10 || heavyFirst;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
