@@ -1,0 +1,68 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "tempo-de-uso-declarado#1",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Use cinco anos como referência média para avaliar a troca, conforme a orientação da Duoflex, mas verifique também o estado do produto.",
+      "Troque o colchão se houver afundamento central, deformações visíveis, rasgos, manchas, ruídos, cheiro desagradável ou perda da qualidade do sono.",
+      "Diferencie desgaste natural, como acomodação e perda de suporte nas áreas mais usadas, de defeitos como costura aberta, mola rompida ou espuma solta.",
+      "Confira no anúncio ou manual se o modelo deve ser apenas girado ou também virado; as orientações variam entre modelos One Face, Double Face e colchões com pillow top.",
+      "Verifique a etiqueta para consultar a densidade nominal das espumas, as espessuras e as dimensões do colchão.",
+      "Não escolha outro modelo apenas por preferência de conforto esperando cobertura de garantia, pois essa situação é excluída pela Castor."
+    ],
+    "missing": [
+      "Uma referência de vida útil específica para colchões de molas, além da média declarada pela Duoflex para colchões em geral.",
+      "Uma regra do fabricante relacionando diretamente cada sinal de desgaste ao momento de substituir o colchão, especialmente para ruídos, cheiro e perda da qualidade do sono.",
+      "Informação mais clara sobre se as orientações de girar ou virar realmente prolongam a vida útil e por quanto tempo.",
+      "Explicação, em linguagem leiga, do que os ensaios de deformação e durabilidade das normas indicam para o uso cotidiano e do que eles não garantem.",
+      "Prazos e exclusões de garantia apresentados separadamente para colchões de espuma e de molas, com indicação do modelo ou linha a que cada prazo se aplica."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente quando considerar a troca, com a referência de cinco anos e uma lista concreta de sinais de desgaste. Também ajuda na compra ao orientar o leitor a conferir garantia, etiqueta, tipo de colchão e instruções de manutenção. Há alguma repetição e faltam referências específicas para molas e para a relação entre ensaios de norma e vida útil, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.1,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "tempo-de-uso-declarado#0",
+      "como-decidir#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Considere trocar o colchão após cerca de cinco anos de uso, como referência indicada pela Duoflex.",
+      "Troque se houver rasgos, manchas, deformações visíveis, afundamento central, ruídos, cheiro desagradável ou perda de qualidade do sono.",
+      "Observe se há perda de espessura ou deformação durante a garantia; a Castor informa uma perda de 8% a 12% da espessura da espuma, conforme a densidade e a norma aplicável.",
+      "Gire ou vire o colchão conforme o tipo de modelo para distribuir o desgaste: a Castor indica intervalos diferentes para modelos One Face e Double Face.",
+      "Use toda a superfície do colchão para evitar acomodações e afundamentos localizados.",
+      "Não vire um colchão de molas ensacadas com pillow top quando o fabricante orientar que o acolchoado deve permanecer para cima."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Referências primárias de fabricantes separando a vida útil ou o prazo de troca para colchões de espuma e de molas.",
+      "Prazos de garantia declarados para cada tipo de colchão e os limites ou exclusões relacionados a desgaste natural e afundamento.",
+      "Explicação, baseada na norma ABNT aplicável, sobre o que os ensaios de deformação e durabilidade indicam para o desempenho ao longo do tempo.",
+      "Informação primária esclarecendo se a certificação compulsória do Inmetro avalia durabilidade ou vida útil e quais aspectos ficam fora do escopo.",
+      "Orientação para conferir no anúncio ou na ficha técnica do colchão substituto características adequadas ao caso do leitor."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde diretamente quando considerar a troca, combinando a referência de cerca de cinco anos com sinais concretos de desgaste e orientações de manutenção. Ela é fácil para leigos e oferece critérios práticos, embora não ajude a escolher o colchão substituto nem cubra plenamente garantia, norma e escopo do Inmetro.",
+    "filler_ratio": 0.25,
+    "model_opinion": true
+  },
+  "score_before": 4,
+  "score_after": 3
+}
