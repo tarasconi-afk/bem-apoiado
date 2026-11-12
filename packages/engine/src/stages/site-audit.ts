@@ -42,7 +42,10 @@ export function auditRequest(findings: CoherenceFinding[]): { text: string; refs
   };
 }
 
-export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?: FetchLike): Promise<SiteAuditResult> {
+// 12/11: a rodada semanal lia as 53 páginas (~47 créditos) e não sobrava nada para os ajustes. Por rodada, no máximo
+// MAX_PAGES_PER_RUN páginas, as auditadas há mais tempo primeiro; o resto fica para a próxima (o teto de créditos continua).
+export const MAX_PAGES_PER_RUN = 12;
+export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?: FetchLike, maxPages = MAX_PAGES_PER_RUN): Promise<SiteAuditResult> {
   const state = readState<Record<string, SiteAuditEntry>>(SITE_AUDIT_FILE, {});
   const id = checksId();
   const recent = (slug: string) => {
@@ -57,7 +60,7 @@ export async function auditSite(maxCredits: number, now = new Date(), fetchImpl?
   const dir = join(STATE_DIR, 'pedidos');
   mkdirSync(dir, { recursive: true });
   for (const [i, p] of due.entries()) {
-    if (creditsSpent() - start + PER_PAGE_ESTIMATE > maxCredits) {
+    if (i >= maxPages || creditsSpent() - start + PER_PAGE_ESTIMATE > maxCredits) {
       out.left = due.length - i;
       break;
     }

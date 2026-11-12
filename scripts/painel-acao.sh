@@ -283,15 +283,18 @@ case "$action" in
     # página. Agora o teto vale para tudo, no máximo BEM_AUDIT_MAX_ADJUST cartões por rodada, e página com resultado
     # pendente fica para a próxima (o achado continua anotado e volta em 2 dias).
     fresh
-    teto=${2:-40}; max_adj=${BEM_AUDIT_MAX_ADJUST:-4}; inicio=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    # 12/11: a leitura das 53 páginas gastava o teto inteiro (47,5 de 50) e nenhum ajuste rodava. Agora a leitura tem o
+    # seu teto (BEM_AUDIT_READ, padrão 12, e o motor lê no máximo 12 páginas por rodada) e cada ajuste tem ~15 garantidos
+    # dentro do teto total.
+    teto=${2:-40}; max_adj=${BEM_AUDIT_MAX_ADJUST:-4}; leitura=${BEM_AUDIT_READ:-12}; inicio=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     out=$(mktemp)
-    npm run -s engine -- audit-site "--max=$teto" | tee "$out" | grep -v '^AJUSTE'
+    npm run -s engine -- audit-site "--max=$leitura" | tee "$out" | grep -v '^AJUSTE'
     pendentes=" $(for b in $(git branch -r --no-merged origin/main --list 'origin/pagina/*'); do git diff --name-only "origin/main...$b" -- data/pages; done | sed -E 's#^data/pages/(.*)\.json$#\1#' | sort -u | tr '\n' ' ') "
     ok=0; fail=0; adiados=0
     while IFS=$'\t' read -r _ slug file blocos; do
       if [[ "$pendentes" == *" $slug "* ]]; then echo "— $slug fica para a próxima: já tem resultado pendente no quadro"; adiados=$((adiados+1)); continue; fi
       gasto=$(npm run -s engine -- credits-since "$inicio")
-      if [ $((ok+fail)) -ge "$max_adj" ] || awk -v g="$gasto" -v t="$teto" 'BEGIN{exit !(g+12>t)}'; then
+      if [ $((ok+fail)) -ge "$max_adj" ] || awk -v g="$gasto" -v t="$teto" 'BEGIN{exit !(g+15>t)}'; then
         echo "— $slug fica para a próxima: teto da auditoria (${gasto} de ${teto} créditos, ${max_adj} ajustes no máximo)"; adiados=$((adiados+1)); continue
       fi
       echo "— ajuste de $slug"

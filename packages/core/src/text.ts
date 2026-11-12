@@ -41,9 +41,12 @@ export function firstForbidden(text: string, terms: string[]): { index: number; 
 // "Anatomic Visco", "apoio lombar ajustável") não são alegação: esses termos ficam fora do filtro de citação.
 export const CITACAO_IGNORA = ['lombar', 'cervical', 'anatomic', 'anatômic', 'saúde'];
 const CITACAO_EXTRA = ['médic', 'fisioterap'];
+// 12/11: "cervical" fica fora da lista por causa de nomes de modelo ("NASA X Cervical"), mas "apoio cervical", "região
+// cervical" e "coluna cervical" numa citação são alegação de postura/saúde, não nome: entram pelo contexto.
+const CITACAO_CONTEXTO = [/\b(apoio|regiao|região|coluna|suporte)\s+cervical/iu, /\balinhamento\s+(da\s+)?(coluna|postural)/iu];
 export function citacaoSemAlegacao(quote: string, forbidden: string[]): { texto: string; omitidas: number } {
   const terms = [...forbidden.filter((t) => !CITACAO_IGNORA.includes(normalizeForMatch(t)) && !CITACAO_IGNORA.includes(t)), ...CITACAO_EXTRA];
   const frases = quote.split(/(?<=[.!?;])\s+/);
-  const ok = frases.filter((f) => !firstForbidden(f, terms));
+  const ok = frases.filter((f) => !firstForbidden(f, terms) && !CITACAO_CONTEXTO.some((re) => re.test(f)));
   return { texto: ok.join(' ').trim(), omitidas: frases.length - ok.length };
 }

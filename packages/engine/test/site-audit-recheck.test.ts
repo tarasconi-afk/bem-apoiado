@@ -19,3 +19,8 @@ describe('quando a página volta para a fila da auditoria', () => {
     expect(recheckDays([f()])).toBeLessThan(recheckDays([]));
   });
 });
+
+import { MAX_PAGES_PER_RUN } from '../src/stages/site-audit.ts';
+describe('auditoria semanal lê no máximo 12 páginas por rodada (12/11)', () => {
+  it('limite', () => { expect(MAX_PAGES_PER_RUN).toBe(12); });
+});

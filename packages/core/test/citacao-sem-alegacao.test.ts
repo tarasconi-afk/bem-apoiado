@@ -19,4 +19,9 @@ describe('citação sem alegação de saúde (12/11)', () => {
   it('"médicos recomendam" sai mesmo sem termo da lista', () => {
     expect(citacaoSemAlegacao('Médicos e fisioterapeutas recomendam trocar a cada dois anos. Acumula poeira.', F).texto).toBe('Acumula poeira.');
   });
+  it('"apoio cervical" é alegação pelo contexto; "NASA X Cervical" continua nome (12/11)', () => {
+    const r = citacaoSemAlegacao('Encosto com apoio cervical regulável. Tecido mesh. NASA X Cervical 50x70.', F);
+    expect(r.texto).toBe('Tecido mesh. NASA X Cervical 50x70.');
+    expect(r.omitidas).toBe(1);
+  });
 });
