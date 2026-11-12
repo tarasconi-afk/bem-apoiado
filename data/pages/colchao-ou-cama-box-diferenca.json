@@ -3,7 +3,7 @@
   "page_type": "explainer",
   "status": "draft",
   "title": "Colchão ou cama box: qual é a diferença?",
-  "description": "Saiba a diferença entre colchão e cama box, e escolha entre comprar cada peça separada ou o conjunto completo conforme suas necessidades de espaço e mobilidade.",
+  "description": "Colchão e cama box são peças diferentes: descubra quando comprar cada uma ou o conjunto completo, segundo marcas como Probel, Simmons e Castor.",
   "primary_query": "colchão ou cama box: diferença",
   "updated_at": "2026-11-12",
   "verdict": {
@@ -132,25 +132,32 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Probel informa, em um conjunto, as alturas do colchão (24 cm), da base box (26 cm), dos pés (12 cm) e do conjunto total (62 cm), mostrando que são componentes distintos. A Simmons oferece produtos descritos como cama box + colchão em diferentes medidas.",
+          "text": "Se você quer um conjunto com colchão e cama box, a Probel informa que no tamanho casal o colchão tem 24 cm de altura, a base tem 26 cm e os pés têm 12 cm, totalizando 62 cm de altura do conjunto.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_0a492db65a74",
-            "clm_232d0b48d54d"
+            "clm_0a492db65a74"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você precisa de espaço interno para guardar objetos, um box baú pode ser uma opção. Segundo a Probel, um modelo box baú Queen combina uma base com amplo compartimento interno. Em um kit específico, a marca informa sistema basculante com pistões pneumáticos (amortecedores).",
+          "text": "Os colchões variam de tamanho: segundo a Castor, o de solteiro mede 0,88 × 1,88 m, o solteiro king mede 1,00 × 2,00 m e o de casal mede 1,38 × 1,88 m.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_174acc27cb7c",
-            "clm_38fc28ebfa60"
+            "clm_007a1311f7ce"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Probel, uma base bipartida é formada por dois volumes. Confirme essa característica na ficha técnica antes de comprar.",
+          "text": "Segundo a Simmons, a cama box foi desenvolvida para complementar a engenharia dos colchões e proporcionar estabilidade estrutural ao conjunto. Segundo a Probel, a cama box oferece estabilidade e suporte adequados para o colchão.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_8824c5b22f56",
+            "clm_9c243af45d10"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Segundo a descrição de um kit da Probel, a base bipartida desse produto vem em dois volumes.",
           "basis": "evidence",
           "claim_ids": [
             "clm_5ccacf0ee607"
@@ -161,7 +168,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261112T010850_autopilot_25a5+editor:20261112T011902_colchao-ou-cama-box-diferenca-autocorrecao_dce8",
+    "run_id": "20261112T010850_autopilot_25a5+editor:20261112T011902_colchao-ou-cama-box-diferenca-autocorrecao_dce8+editor:20261112T151156_colchao-ou-cama-box-diferenca-ajuste_d3bd",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
