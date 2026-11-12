@@ -87,7 +87,7 @@ export async function planTopic(primaryQuery: string, fetchImpl?: FetchLike): Pr
         // 12/11: travesseiro de pena ou fibra nasceu com 6 perguntas de etiqueta/ficha e a página saiu só sobre lavagem.
         // O "focus" é enum fechado; a cobertura é conferida no código (ensureReaderQuestions), não só pedida aqui.
         `"focus" de cada pergunta: "dado_que_decide" (a primeira), "opcao" (dado de uma das opções), "uso" (como a peça se ` +
-        `comporta no uso: maciez, firmeza, sustentação, calor, desempenho), "restricao" (alergia, ácaros, cheiro, calor, ` +
+        `comporta no uso: maciez, firmeza, sustentação, calor, desempenho), "restricao" (cheiro, calor, ` +
         `segurança), "cuidado" (lavar, secar, conservar), "etiqueta_ficha" (o que a etiqueta ou a ficha deve declarar) ou ` +
         `"outro". Em pauta de decisão, pelo menos uma pergunta "uso"; se o produto encosta no corpo (roupa de cama, banho, ` +
         `travesseiro, colchão), também uma "restricao", sempre pelo que fabricante ou órgão informa por escrito e nunca ` +
@@ -128,7 +128,7 @@ export const MAX_QUESTIONS = 7;
 
 const fold = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export const COVERS_USE = /(conforto|confortav|macie|macio|firmeza|\bfirme|sustenta|sensac|\btoque|desempenho|no uso|durante o uso|ao dormir|ao deitar|ao usar|aconchego|maleab|acomoda|molda|absorc|absorv)/;
-export const COVERS_RESTRICTION = /(alerg|acaro|cheiro|odor|calor|transpira|seguranc|irrita|sensib|inflamav|toxic|hipoalerg|antialerg)/;
+export const COVERS_RESTRICTION = /(cheiro|odor|calor|transpira|seguranc|ruido|inflamav|toxic)/; // alergia não conta: regra de saúde do site
 const LABEL_LIKE = /(etiqueta|ficha|inmetro|norma|declar|composic|percentual|gramatura|dimens|medida)/;
 
 export function ensureReaderQuestions(
@@ -148,8 +148,10 @@ export function ensureReaderQuestions(
     },
   ];
   if (bodyContact) want.push({
-    focus: 'restricao', re: COVERS_RESTRICTION, label: 'restrição (alergia/calor/cheiro)',
-    q: { id: 'q_restricao_leitor', focus: 'restricao', text: `Em "${q}", o que fabricantes, Inmetro ou órgãos de saúde e de defesa do consumidor informam por escrito sobre alergia e ácaros, retenção de calor, cheiro ou cuidados de segurança de cada opção?` },
+    // 12/11: sem alergia e ácaros. A regra de saúde do site (niche.json) barra "antialérgico" mesmo atribuído ao
+    // fabricante (travesseiro: 3 tentativas recusadas como SAFETY_CLAIM); pesquisar isso era gasto sem página.
+    focus: 'restricao', re: COVERS_RESTRICTION, label: 'restrição (calor/cheiro/segurança)',
+    q: { id: 'q_restricao_leitor', focus: 'restricao', text: `Em "${q}", o que fabricantes, Inmetro ou órgãos de defesa do consumidor informam por escrito sobre retenção de calor, cheiro, ruído ou cuidados de segurança de cada opção?` },
   });
   for (const w of want) {
     if (qs.some((x) => w.re.test(fold(x.text)))) continue;

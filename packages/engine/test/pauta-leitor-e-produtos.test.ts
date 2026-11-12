@@ -66,7 +66,7 @@ describe('perguntas do leitor na pauta', () => {
     const cobertas = [
       ...TRAVESSEIRO.slice(0, 4),
       { id: 'q_x', text: 'O que os fabricantes declaram sobre maciez e sustentação de cada travesseiro?', focus: 'uso' as const },
-      { id: 'q_y', text: 'O que os fabricantes informam sobre ácaros e alergia em travesseiro de pena e de fibra?', focus: 'restricao' as const },
+      { id: 'q_y', text: 'O que os fabricantes informam sobre retenção de calor e cheiro em travesseiro de pena e de fibra?', focus: 'restricao' as const },
     ];
     expect(ensureReaderQuestions('travesseiro de pena ou fibra', 'decision_compare', true, cobertas).added).toEqual([]);
     const cadeira = ensureReaderQuestions('cadeira de tela ou de espuma', 'buying_guide', false, TRAVESSEIRO.slice(0, 4));
