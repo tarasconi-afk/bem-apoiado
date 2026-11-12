@@ -3,37 +3,28 @@
   "page_type": "buying_guide",
   "status": "draft",
   "title": "Quando trocar o colchão: sinais e prazos",
-  "description": "Saiba quando trocar o colchão pela idade, sinais de desgaste e garantia do fabricante. Confira o que a norma exige sobre durabilidade.",
+  "description": "Sinais de que é hora de trocar o colchão: rasgos, manchas, ruídos, cheiro ruim, afundamento. A Duoflex recomenda cinco anos como média de vida útil.",
   "primary_query": "quando trocar o colchão",
   "updated_at": "2026-11-12",
   "verdict": {
-    "text": "A Duoflex informa que a média para troca do colchão é de cinco anos e cita rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável, afundamento central e perda da qualidade do sono como sinais de que pode ser hora de trocá-lo. A Orthocrin diferencia defeitos como costura aberta e mola rompida do desgaste natural, que não é coberto.",
+    "text": "Troque o colchão se notar rasgos, manchas, deformidades, ruídos, cheiro desagradável, afundamento no centro ou piora na qualidade do sono. A Duoflex indica cinco anos como média para a troca.",
     "basis": "evidence",
     "claim_ids": [
-      "clm_45eb0253e62a",
       "clm_c58129524f70",
-      "clm_51776c7ea60a",
-      "clm_5384f5b15f4b"
+      "clm_45eb0253e62a"
     ]
   },
   "sections": [
     {
       "id": "tempo-de-uso-declarado",
-      "heading": "Tempo de uso recomendado pelos fabricantes",
+      "heading": "Tempo de uso informado pela Duoflex",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Duoflex recomenda a troca do colchão com média de cinco anos de uso. Esta é a orientação de vida útil que o fabricante declara como referência para o consumidor.",
-          "basis": "evidence",
+          "text": "Troque o colchão se notar rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável, afundamento no centro ou piora na qualidade do sono, segundo a Duoflex. Se não há esses sinais mas o colchão tem cerca de cinco anos de uso, planeje a troca mesmo assim, segundo a Duoflex.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_45eb0253e62a"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "A Duoflex informa que, no caso do colchão, a média para troca é de cinco anos.",
-          "basis": "evidence",
-          "claim_ids": [
+            "clm_c58129524f70",
             "clm_45eb0253e62a"
           ]
         }
@@ -193,15 +184,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Duoflex informa que a média para troca do colchão é de cinco anos.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_45eb0253e62a"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Se o colchão apresenta rasgos, manchas, deformidades visíveis, ruídos, cheiro desagradável e afundamento na região central, troque-o, segundo a Duoflex.",
+          "text": "Se você vê rasgos, manchas, deformidades visíveis, ouve ruídos, sente cheiro desagradável ou nota afundamento no centro do colchão, é hora de trocar, segundo a Duoflex.",
           "basis": "evidence",
           "claim_ids": [
             "clm_c58129524f70"
@@ -209,20 +192,18 @@
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Orthocrin, costura aberta, mola rompida e espuma solta são exemplos de defeito de fabricação, enquanto o desgaste natural não é coberto.",
+          "text": "Se o colchão já tem cerca de cinco anos de uso, a média indicada pela Duoflex para a troca é cinco anos.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_51776c7ea60a",
-            "clm_5384f5b15f4b"
+            "clm_45eb0253e62a"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Castor, a perda de espessura ou deformação do colchão não significa defeito de fabricação; dentro do prazo de garantia, a espuma pode perder de 8% a 12% de sua espessura original.",
+          "text": "Se encontrar costura aberta, mola rompida ou espuma solta, esses são exemplos de defeito de fabricação. Segundo a Orthocrin, o desgaste natural de dormir todos os dias não é coberto pela garantia.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_2afba6e31fb6",
-            "clm_d6966a60b01c"
+            "clm_51776c7ea60a"
           ]
         }
       ]
@@ -230,7 +211,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261112T070036_autopilot_8705",
+    "run_id": "20261112T070036_autopilot_8705+editor:20261112T152627_quando-trocar-o-colchao-ajuste_dd0c",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
