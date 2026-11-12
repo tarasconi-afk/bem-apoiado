@@ -178,7 +178,7 @@
       "colchão muito duro o que fazer"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Dúvida sobre adequação/ajuste de firmeza; informação útil para decisão de compra futura",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
@@ -188,7 +188,7 @@
       "colchão de espuma qual a melhor densidade"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Especificação de densidades para espuma; informação para decisão de compra",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
@@ -208,7 +208,7 @@
       "melhor colchão de espuma para casal"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Necessidade específica (casal); informação para decisão de compra",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
@@ -218,7 +218,7 @@
       "altura ideal colchão de espuma"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Especificação de altura para tipo específico; informação complementar não coberta completamente",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
@@ -228,8 +228,8 @@
       "colchão molas ensacadas para cama box casal"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Especificação de produto para uso específico; informação complementar",
+    "status": "descartada",
+    "reason": "mesma intenção de \"colchão ou cama box: diferença\"",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
   {
@@ -248,8 +248,8 @@
       "como forrar base de cama box"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Procedimento/manutenção após compra; fora do escopo de decisão de compra",
+    "status": "descartada",
+    "reason": "mesma intenção de \"base para cama box: o que conferir\"",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
   {
@@ -258,8 +258,8 @@
       "base de cama box para solteiro"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Especificação de tamanho para tipo de base; informação complementar",
+    "status": "descartada",
+    "reason": "mesma intenção de \"base para cama box: o que conferir\"",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
   {
@@ -268,8 +268,8 @@
       "base cama box tamanho queen"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Especificação de tamanho para tipo de base; informação complementar",
+    "status": "descartada",
+    "reason": "mesma intenção de \"base para cama box: o que conferir\"",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
   {
@@ -278,7 +278,7 @@
       "mesa de trabalho para quarto"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Necessidade específica de uso/local; informação para decisão de compra",
     "found_at": "2026-10-28T21:04:04.142Z"
   },
@@ -489,8 +489,8 @@
       "qual melhor suporte para notebook"
     ],
     "score": 20,
-    "status": "nova",
-    "reason": "Mesma pauta; 'qual melhor' é dúvida de decisão.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"suporte para notebook vale a pena\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -500,8 +500,8 @@
       "pillow top é bom"
     ],
     "score": 19,
-    "status": "nova",
-    "reason": "Mesma intenção de pauta existente.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"pillow top: o que é e vale a pena\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -511,8 +511,8 @@
       "suporte para notebook com cooler é bom"
     ],
     "score": 18,
-    "status": "nova",
-    "reason": "Dúvida se vale a pena o cooler acoplado; responde com benefícios técnicos e fichas de fabricante",
+    "status": "descartada",
+    "reason": "mesma intenção de \"suporte para notebook com cooler: qual escolher\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -522,8 +522,8 @@
       "diferença cobertor e edredom"
     ],
     "score": 18,
-    "status": "nova",
-    "reason": "Mesma intenção; canibalização",
+    "status": "descartada",
+    "reason": "mesma intenção de \"edredom ou cobertor: diferença\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -1325,5 +1325,75 @@
     "status": "nova",
     "reason": "Mesma intenção; canibalização com pauta existente",
     "found_at": "2026-11-05T01:03:36.488Z"
+  },
+  {
+    "query": "pillow top: tamanhos",
+    "from": [
+      "pillow top tamanhos"
+    ],
+    "score": 9,
+    "status": "nova",
+    "reason": "Dúvida sobre tamanhos disponíveis de pillow top; não há pauta específica para isso (as pautas existentes falam de comparações ou escolha geral, não guia de tamanhos).",
+    "found_at": "2026-11-12T01:10:11.092Z"
+  },
+  {
+    "query": "toalha de banho que enxuga melhor: como escolher",
+    "from": [
+      "qual toalha de banho seca melhor"
+    ],
+    "score": 9,
+    "status": "nova",
+    "reason": "Dúvida de decisão sobre qual toalha oferece melhor capacidade de enxugamento; já existe pauta.",
+    "found_at": "2026-11-12T01:10:11.092Z"
+  },
+  {
+    "query": "como escolher toalha de banho de qualidade",
+    "from": [
+      "como escolher toalha de banho de qualidade"
+    ],
+    "score": 9,
+    "status": "nova",
+    "reason": "Dúvida de decisão de compra; mesma intenção de pauta existente (genérica: 'como escolher toalha de banho').",
+    "found_at": "2026-11-12T01:10:11.092Z"
+  },
+  {
+    "query": "roupão de banho: qual tecido escolher",
+    "from": [
+      "qual melhor tecido para roupão de banho"
+    ],
+    "score": 9,
+    "status": "nova",
+    "reason": "Dúvida de decisão sobre qual tecido escolher para roupão; não há pauta específica (as pautas existentes falam de comparações entre dois tipos específicos, não guia de tecidos).",
+    "found_at": "2026-11-12T01:10:11.092Z"
+  },
+  {
+    "query": "como escolher colchão de solteiro",
+    "from": [
+      "como escolher colchão de solteiro"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida de decisão sobre tipo/tamanho específico de colchão (solteiro); não há pauta específica.",
+    "found_at": "2026-11-12T01:10:11.092Z"
+  },
+  {
+    "query": "cadeira para penteadeira: qual escolher",
+    "from": [
+      "cadeira para penteadeira"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Pauta existente cobre cadeira para atividades específicas em casa (costureira, penteadeira - mesma função)",
+    "found_at": "2026-11-12T01:10:11.092Z"
+  },
+  {
+    "query": "pillow top ou molas ensacadas",
+    "from": [
+      "pillow top ou molas ensacadas"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Comparação entre opções de conforto; pauta existente cobre pillow top vs alternativas",
+    "found_at": "2026-11-12T01:10:11.092Z"
   }
 ]

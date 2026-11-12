@@ -1,0 +1,39 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "o-que-sao#0",
+      "problem": "A seção promete explicar o que é colchão e o que é cama box, mas o bloco só descreve a função e as medidas do box, sem dizer o que é o colchão.",
+      "fix": "Mudar o título para algo como \"O que os produtos citados informam sobre a cama box\"."
+    },
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete explicar a diferença entre colchão e cama box, mas a página não apresenta uma comparação ou definição clara dos dois; ela traz apenas informações sobre o box, medidas de um conjunto e certificação.",
+      "fix": "Reescrever o título para prometer apenas o que a página entrega, como \"Cama box e colchão: componentes do conjunto e o que conferir na certificação\"."
+    },
+    {
+      "check": "caso_sem_orientacao",
+      "ref": "como-decidir#0",
+      "problem": "A seção promete orientar entre comprar colchão separado ou cama box completa, mas o bloco não dá uma decisão nem uma orientação efetiva sobre o que conferir.",
+      "fix": "Tirar a seção ou reescrever seu título para algo compatível com o trecho, como \"O que o anúncio citado informa sobre a base do conjunto\"."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "tipos-cama-box#0",
+      "problem": "O título promete apresentar tipos simples e bipartida, mas o bloco descreve um box baú e menciona apenas que um modelo é bipartido, sem explicar o tipo simples.",
+      "fix": "Mudar o título para algo como \"Box baú e sistema de abertura\" ou tirar da promessa os tipos simples e bipartida."
+    },
+    {
+      "check": "resposta_abre_pela_fonte",
+      "ref": "verdict",
+      "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+      "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+    }
+  ],
+  "usage": {
+    "input_tokens": 20297,
+    "output_tokens": 5330,
+    "calls": 3
+  }
+}
