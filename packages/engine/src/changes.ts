@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { PageSpec, Product } from '@bem-apoiado/core';
 import { ROOT } from './store.ts';
@@ -11,7 +11,9 @@ import { ROOT } from './store.ts';
 
 export interface FileChange { status: 'A' | 'M' | 'D'; path: string }
 export type Read = (path: string) => string | null;
-export interface ChangeItem { id: string; title: string; detail?: string; diffs?: { where: string; before: string; after: string }[]; paths: string[]; slug?: string; asin?: string; kind?: string }
+// `per`: o que muda em cada página (links, botões de busca, modelos citados), para o cartão escrever uma linha
+// por página em vez do `detail` cru. `replaces`: a imagem já existia no main (troca, não imagem nova).
+export interface ChangeItem { id: string; title: string; detail?: string; diffs?: { where: string; before: string; after: string }[]; paths: string[]; slug?: string; asin?: string; kind?: string; per?: { slug: string; values: string[]; had: number }[]; replaces?: boolean }
 export interface ChangeSummary { items: ChangeItem[]; learning: string[] }
 
 const parse = <T>(raw: string | null, f: (v: unknown) => T): T | null => {
@@ -101,12 +103,12 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
       const a = parse(readMain(f.path), (v) => v as { pages: Record<string, { anchors: string[] }> })?.pages ?? {};
       const b = parse(readBranch(f.path), (v) => v as { pages: Record<string, { anchors: string[] }> })?.pages ?? {};
       const changed = Object.keys(b).filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]));
-      items.push({ id: 'anchors', title: 'Links internos no texto', detail: changed.map((k) => `${k}: ${b[k]!.anchors.join(', ')}`).join(' · '), paths: [f.path] });
+      items.push({ id: 'anchors', title: 'Links internos no texto', detail: changed.map((k) => `${k}: ${b[k]!.anchors.join(', ')}`).join(' · '), paths: [f.path], per: changed.map((k) => ({ slug: k, values: b[k]!.anchors, had: a[k]?.anchors.length ?? 0 })) });
     } else if (f.path === 'data/search-links.json') {
       const a = parse(readMain(f.path), (v) => v as { pages: Record<string, { links: { label: string; query: string }[] }> })?.pages ?? {};
       const b = parse(readBranch(f.path), (v) => v as { pages: Record<string, { links: { label: string; query: string }[] }> })?.pages ?? {};
       const changed = Object.keys(b).filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]));
-      items.push({ id: 'search-links', title: 'Buscas na Amazon (links com a nossa tag)', detail: changed.map((k) => `${k}: ${b[k]!.links.map((l) => `"${l.label}" (${l.query})`).join(', ')}`).join(' · '), paths: [f.path] });
+      items.push({ id: 'search-links', title: 'Buscas na Amazon (links com a nossa tag)', detail: changed.map((k) => `${k}: ${b[k]!.links.map((l) => `"${l.label}" (${l.query})`).join(', ')}`).join(' · '), paths: [f.path], per: changed.map((k) => ({ slug: k, values: b[k]!.links.map((l) => l.label), had: a[k]?.links.length ?? 0 })) });
     } else if (f.path === 'data/cited-models.json') {
       // Só pede o editor quando muda o que o leitor vê: os modelos citados viram links "Ver <marca> <modelo> na
       // Amazon". Entrada sem modelo ("models": []) e carimbo de hora novo são anotação da manutenção ("já conferi,
@@ -117,7 +119,7 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
       const b = parse(readBranch(f.path), (v) => (v as { pages: Cited }).pages) ?? {};
       const nomes = (x?: { models: { brand: string; model: string }[] }) => JSON.stringify((x?.models ?? []).map((m) => `${m.brand} ${m.model}`).sort());
       const mudou = Object.keys(b).filter((k) => nomes(a[k]) !== nomes(b[k]) && (b[k]?.models.length ?? 0) > 0);
-      if (mudou.length) items.push({ id: 'cited', title: 'Modelos citados (links de busca na Amazon)', detail: mudou.map((k) => `${k}: ${b[k]!.models.map((m) => `${m.brand} ${m.model}`).join(', ')}`).join(' · '), paths: [f.path] });
+      if (mudou.length) items.push({ id: 'cited', title: 'Modelos citados (links de busca na Amazon)', detail: mudou.map((k) => `${k}: ${b[k]!.models.map((m) => `${m.brand} ${m.model}`).join(', ')}`).join(' · '), paths: [f.path], per: mudou.map((k) => ({ slug: k, values: b[k]!.models.map((m) => `${m.brand} ${m.model}`), had: a[k]?.models.length ?? 0 })) });
       else count.other++;
     } else if (f.path === 'data/niche.json') {
       // Tipo de produto novo (Pedir ao motor): diz qual, em vez de "Outra mudança: data/niche.json".
@@ -169,7 +171,15 @@ export function describeChanges(files: FileChange[], readMain: Read, readBranch:
   if (files_.length && files_.every(pageOf)) {
     for (const x of images) (pageOf(x) ?? pageOf(files_[0]!))!.paths.push(x);
     for (const i of new Set(files_.map(pageOf))) i!.detail = [i!.detail, 'inclui a imagem de capa nova (miniatura abaixo)'].filter(Boolean).join(' · ');
-  } else if (images.length) items.push({ id: 'images', title: `Imagens novas (${files_.length})`, paths: images });
+  } else if (files_.length) {
+    // Uma caixa por imagem (12/11, editor: a capa do travesseiro e a foto do protetor vinham numa caixa só). Os json
+    // de data/images/ não pertencem a nenhuma: entram com o ramo e, se uma imagem for recusada, exclusionOps tira
+    // (ou restaura) só a entrada dela no registro e nos briefs.
+    for (const x of files_) {
+      const name = x.split('/').pop()!;
+      items.push({ id: `image:${name}`, title: `Imagem: ${name.replace(/\.webp$/, '')}`, paths: [x], replaces: readMain(x) !== null });
+    }
+  } else if (images.length) count.other++;
   if (count.sources) learning.push(`${count.sources} fonte(s) nova(s) arquivada(s)`);
   if (count.claims) learning.push(`${count.claims} evidência(s) nova(s) ou ligada(s) a pautas`);
   if (count.topics) learning.push(`${count.topics} pauta(s) criada(s) ou atualizada(s)`);
@@ -225,8 +235,26 @@ export function plainOutcome(steps: string[]): string | null {
 
 // Desfaz no repositório (já mesclado) só os itens recusados: o arquivo volta à versão do main, ou sai se
 // for novo. Produto recusado vai para products-retired/, para a busca não trazê-lo de volta.
-export function exclusionOps(summary: ChangeSummary, excluded: string[], readMain: Read, readBranch: Read): { path: string; content: string | null }[] {
+// Id antigo "images" (formulário aberto antes de 12/11, quando todas as imagens eram uma caixa só) = todas as imagens.
+export function normalizeExcluded(summary: ChangeSummary, excluded: string[]): string[] {
+  if (!excluded.includes('images')) return excluded;
+  return [...new Set([...excluded.filter((x) => x !== 'images'), ...summary.items.filter((i) => i.id.startsWith('image:')).map((i) => i.id)])];
+}
+
+// `readNow`: o repositório já mesclado (o registro de imagens pode ter entradas de outros resultados mesclados depois
+// que este ramo saiu do main; filtrar a versão do ramo apagaria essas entradas).
+export function exclusionOps(summary: ChangeSummary, excludedIn: string[], readMain: Read, readBranch: Read, readNow: Read = readBranch): { path: string; content: string | null }[] {
+  const excluded = normalizeExcluded(summary, excludedIn);
   const ops: { path: string; content: string | null }[] = [];
+  const imgIds = summary.items.filter((i) => excluded.includes(i.id) && i.id.startsWith('image:')).map((i) => i.id.slice('image:'.length).replace(/\.webp$/, ''));
+  for (const json of imgIds.length ? ['data/images/registry.json', 'data/images/briefs.json'] : []) {
+    const now = parse(readNow(json), (v) => v as { id: string }[]);
+    if (!Array.isArray(now)) continue;
+    const before = parse(readMain(json), (v) => v as { id: string }[]) ?? [];
+    // Imagem nova recusada: some do registro. Troca recusada: volta a entrada do main (alt e arquivo antigos).
+    const next = now.flatMap((r) => (imgIds.includes(r.id) ? (Array.isArray(before) ? before.filter((x) => x.id === r.id) : []) : [r]));
+    ops.push({ path: json, content: JSON.stringify(next, null, 2) + '\n' });
+  }
   for (const it of summary.items.filter((i) => excluded.includes(i.id))) {
     for (const p of it.paths) ops.push({ path: p, content: readMain(p) });
     if (it.asin && it.title.startsWith('Novo exemplo')) {
@@ -258,14 +286,20 @@ export function gitChanges(ref: string, base = 'origin/main'): { summary: Change
 
 export function applyExclusions(ref: string, excluded: string[]): string[] {
   const { summary, readMain, readBranch } = gitChanges(ref);
-  const ops = exclusionOps(summary, excluded, readMain, readBranch);
+  const readNow: Read = (p) => (existsSync(join(ROOT, p)) ? readFileSync(join(ROOT, p), 'utf8') : null);
+  const ops = exclusionOps(summary, excluded, readMain, readBranch, readNow);
   for (const op of ops) {
     const abs = join(ROOT, op.path);
     if (op.content === null) rmSync(abs, { force: true });
-    else {
+    else if (/\.webp$/.test(op.path)) {
+      // Binário: o `Read` devolve texto (utf-8) e gravá-lo corromperia a imagem antiga; vem direto do git.
+      mkdirSync(dirname(abs), { recursive: true });
+      writeFileSync(abs, execFileSync('git', ['show', `origin/main:${op.path}`], { cwd: ROOT, maxBuffer: 64 << 20, stdio: ['ignore', 'pipe', 'ignore'] }));
+    } else {
       mkdirSync(dirname(abs), { recursive: true });
       writeFileSync(abs, op.content);
     }
   }
-  return summary.items.filter((i) => excluded.includes(i.id)).map((i) => i.title);
+  const ex = normalizeExcluded(summary, excluded);
+  return summary.items.filter((i) => ex.includes(i.id)).map((i) => i.title);
 }
