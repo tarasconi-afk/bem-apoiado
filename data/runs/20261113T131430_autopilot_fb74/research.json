@@ -1,0 +1,67 @@
+{
+  "run_id": "20261113T131430_autopilot_fb74",
+  "topic": "pillow-top-ou-topper",
+  "accepted": [
+    {
+      "claim_id": "clm_b829d0840dc4",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_7b1631c6b1c2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7baac518624e",
+      "question_id": "q_uso_firmeza",
+      "source_id": "src_7b1631c6b1c2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6692c438ee3f",
+      "question_id": "q_uso_firmeza",
+      "source_id": "src_7b1631c6b1c2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_098b733c8906",
+      "question_id": "q_restricao_capa",
+      "source_id": "src_7b1631c6b1c2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ca262f12976e",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_7b1631c6b1c2",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_dado_estrutura": 0,
+    "q_opcao_pillow_top": 1,
+    "q_opcao_topper": 0,
+    "q_uso_firmeza": 2,
+    "q_restricao_capa": 1,
+    "q_cuidado_lavagem": 1,
+    "q_restricao_leitor": 0
+  },
+  "unanswered": [
+    "q_dado_estrutura",
+    "q_opcao_topper",
+    "q_restricao_leitor"
+  ],
+  "usage": {
+    "input_tokens": 2432,
+    "output_tokens": 682,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_7b1631c6b1c2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 11.27725608
+}
