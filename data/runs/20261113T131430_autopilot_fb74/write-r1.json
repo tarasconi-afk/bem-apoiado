@@ -1,0 +1,384 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Pillow top é descrito pela Ortobom como uma camada extra de conforto; há modelos citados com 5 cm de espuma, e a Luuna informa que seu modelo de microfibra pode ser lavado à mão ou à máquina em ciclo delicado. As instruções de lavagem variam conforme o modelo, pois a Ortobom proíbe a lavagem do modelo citado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_070d1e8dcda0",
+        "clm_055e5ba5bfd2",
+        "clm_586dba932fa1",
+        "clm_564f06ab7596",
+        "clm_434df59765f1"
+      ]
+    },
+    {
+      "ref": "diferenca-estrutural#0",
+      "action": "replace",
+      "text": "Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais. No Pillow Top HR Gel da Ortobom, a lâmina é de espuma de alta resiliência gel 100% poliuretano, com densidade de 50 kg/m³ e 5,0 cm de espessura.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_070d1e8dcda0",
+        "clm_055e5ba5bfd2",
+        "clm_9d438d3d22aa"
+      ]
+    },
+    {
+      "ref": "diferenca-estrutural#1",
+      "action": "replace",
+      "text": "O Pillow-top de Microfibra Luuna tem até 5 cm de altura extra, enchimento 100% poliéster, tecido exterior 100% algodão e saia elástica de 65% poliéster e 35% algodão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_586dba932fa1",
+        "clm_9ce6240ef4c9",
+        "clm_9ce60070bbd9"
+      ]
+    },
+    {
+      "ref": "material-enchimento#0",
+      "action": "replace",
+      "text": "No Pillow Top HR Gel da Ortobom, a lâmina é de espuma de alta resiliência gel 100% poliuretano, com densidade de 50 kg/m³ e revestimento em malha 98% poliéster e 2% elastano. Na página do colchão Solteiro Espuma D33 Extra Firme da Probel, a primeira camada conta com Pillow Super e matelassê preenchido com fibra siliconada e espuma D20 Cilíndrica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9d438d3d22aa",
+        "clm_8bcdbe870e90",
+        "clm_5c279df3b6ee"
+      ]
+    },
+    {
+      "ref": "firmeza-sensacao#0",
+      "action": "replace",
+      "text": "A Ortobom declara que a espuma High Resilience Gel, por sua alta resiliência semelhante à do látex, oferece suporte firme ao corpo. O fabricante também declara que as partículas de gel proporcionam sensação de frescor ao toque e mantêm a temperatura agradável durante toda a noite.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2291ef2187d7",
+        "clm_6692c438ee3f"
+      ]
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "action": "replace",
+      "text": "A Luuna declara que o algodão presente no tecido superior do Pillow-top confere propriedades hipoalergênicas. O Inmetro não avalia essa propriedade.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2ee3f2a0014a"
+      ]
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "action": "replace",
+      "text": "O Inmetro não avalia propriedades como antialérgico, antiácaro ou hipoalergênico. Se alergia pesar na escolha, verifique se o fabricante declara essas propriedades e procure um profissional de saúde para orientações específicas.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Pillow Top HR Gel (Ortobom)",
+          "claim_ids": [
+            "clm_055e5ba5bfd2"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom, camada extra de conforto com elástico nas laterais",
+          "claim_ids": [
+            "clm_070d1e8dcda0"
+          ]
+        },
+        {
+          "text": "5,0 cm",
+          "claim_ids": [
+            "clm_055e5ba5bfd2"
+          ]
+        },
+        {
+          "text": "Proibida; permitida limpeza a úmido profissional muito suave",
+          "claim_ids": [
+            "clm_434df59765f1"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Pillow-top de Microfibra (Luuna)",
+          "claim_ids": [
+            "clm_586dba932fa1"
+          ]
+        },
+        {
+          "text": "Segundo a Luuna, camada extra com enchimento 100% poliéster",
+          "claim_ids": [
+            "clm_9ce6240ef4c9"
+          ]
+        },
+        {
+          "text": "Até 5 cm",
+          "claim_ids": [
+            "clm_586dba932fa1"
+          ]
+        },
+        {
+          "text": "À mão ou à máquina em ciclo delicado, em temperatura morna",
+          "claim_ids": [
+            "clm_564f06ab7596"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Pillow top ou topper: qual escolher",
+    "description": "Entenda a diferença entre pillow top costurado ao colchão e topper avulso. Veja espessura, material, firmeza e cuidados de lavagem de cada opção.",
+    "verdict": {
+      "text": "Pillow top é descrito pela Ortobom como uma camada extra de conforto; há modelos citados com 5 cm de espuma, e a Luuna informa que seu modelo de microfibra pode ser lavado à mão ou à máquina em ciclo delicado. As instruções de lavagem variam conforme o modelo, pois a Ortobom proíbe a lavagem do modelo citado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_070d1e8dcda0",
+        "clm_055e5ba5bfd2",
+        "clm_586dba932fa1",
+        "clm_564f06ab7596",
+        "clm_434df59765f1"
+      ]
+    },
+    "sections": [
+      {
+        "id": "diferenca-estrutural",
+        "heading": "Pillow top e topper: estrutura e espessura",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais. No Pillow Top HR Gel da Ortobom, a lâmina é de espuma de alta resiliência gel 100% poliuretano, com densidade de 50 kg/m³ e 5,0 cm de espessura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_070d1e8dcda0",
+              "clm_055e5ba5bfd2",
+              "clm_9d438d3d22aa"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Pillow-top de Microfibra Luuna tem até 5 cm de altura extra, enchimento 100% poliéster, tecido exterior 100% algodão e saia elástica de 65% poliéster e 35% algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_586dba932fa1",
+              "clm_9ce6240ef4c9",
+              "clm_9ce60070bbd9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "material-enchimento",
+        "heading": "Material de enchimento de cada opção",
+        "blocks": [
+          {
+            "text": "No Pillow Top HR Gel da Ortobom, a lâmina é de espuma de alta resiliência gel 100% poliuretano, com densidade de 50 kg/m³ e revestimento em malha 98% poliéster e 2% elastano. Na página do colchão Solteiro Espuma D33 Extra Firme da Probel, a primeira camada conta com Pillow Super e matelassê preenchido com fibra siliconada e espuma D20 Cilíndrica.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_9d438d3d22aa",
+              "clm_8bcdbe870e90",
+              "clm_5c279df3b6ee"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "firmeza-sensacao",
+        "heading": "Firmeza e sensação de conforto",
+        "blocks": [
+          {
+            "text": "A Ortobom declara que a espuma High Resilience Gel, por sua alta resiliência semelhante à do látex, oferece suporte firme ao corpo. O fabricante também declara que as partículas de gel proporcionam sensação de frescor ao toque e mantêm a temperatura agradável durante toda a noite.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2291ef2187d7",
+              "clm_6692c438ee3f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Pillow-top de Microfibra Luuna, o fabricante declara conforto e maciez no contato com o corpo, com acolchoamento que proporciona maior altura ao colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f5940863983e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "propriedades-declaradas",
+        "heading": "Propriedades declaradas na capa",
+        "blocks": [
+          {
+            "text": "A Luuna declara que o algodão presente no tecido superior do Pillow-top confere propriedades hipoalergênicas. O Inmetro não avalia essa propriedade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ee3f2a0014a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro não avalia propriedades como antialérgico, antiácaro ou hipoalergênico. Se alergia pesar na escolha, verifique se o fabricante declara essas propriedades e procure um profissional de saúde para orientações específicas.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Pillow top e topper: o que conferir antes de comprar",
+            "columns": [
+              "Opção",
+              "Estructura",
+              "Espessura declarada",
+              "Lavagem"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Pillow Top HR Gel (Ortobom)",
+                    "claim_ids": [
+                      "clm_055e5ba5bfd2"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, camada extra de conforto com elástico nas laterais",
+                    "claim_ids": [
+                      "clm_070d1e8dcda0"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, 5,0 cm",
+                    "claim_ids": [
+                      "clm_055e5ba5bfd2"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, proibida; permitida limpeza a úmido profissional muito suave",
+                    "claim_ids": [
+                      "clm_434df59765f1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Pillow-top de Microfibra (Luuna)",
+                    "claim_ids": [
+                      "clm_586dba932fa1"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Luuna, camada extra com enchimento 100% poliéster",
+                    "claim_ids": [
+                      "clm_9ce6240ef4c9"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Luuna, até 5 cm",
+                    "claim_ids": [
+                      "clm_586dba932fa1"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Luuna, à mão ou à máquina em ciclo delicado, em temperatura morna",
+                    "claim_ids": [
+                      "clm_564f06ab7596"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer lavar a camada em máquina, escolha um topper cuja ficha permita esse cuidado, como o Pillow-top de Microfibra Luuna, que permite lavação à máquina em ciclo delicado com água morna. O Pillow Top HR Gel da Ortobom proíbe lavagem.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_564f06ab7596",
+              "clm_434df59765f1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você busca espuma com gel, suporte firme e sensação de frescor, escolha um pillow top de espuma gel cuja ficha declare essas características, como o Pillow Top HR Gel da Ortobom. Se prefere enchimento 100% poliéster e acolchoamento macio, escolha o topper de microfibra da Luuna.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2291ef2187d7",
+              "clm_6692c438ee3f",
+              "clm_9ce6240ef4c9",
+              "clm_f5940863983e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam apenas que pillow top é uma camada extra de conforto, que há modelos com 5 cm e espuma, e que um modelo da Luuna pode ser lavado à mão ou à máquina. Eles não definem pillow top como camada costurada ou integrada, não definem topper como peça avulsa removível, não apresentam informações sobre topper, não sustentam enchimento de fibra nem a possibilidade de ajuste conforme necessário. Além disso, a lavagem à máquina não pode ser generalizada: o trecho da Ortobom proíbe a lavagem para outro modelo. Versão sustentável: Os trechos permitem dizer: \"Pillow top é descrito pela Ortobom como uma camada extra de conforto; há modelos citados com 5 cm de espuma, e a Luuna informa que seu modelo de microfibra pode ser lavado à mão ou à máquina em ciclo delicado. As instruções de lavagem variam conforme o modelo, pois a Ortobom proíbe a lavagem do modelo citado.\""
+    },
+    {
+      "ref": "diferenca-estrutural#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o pillow top é uma camada extra de conforto com elástico nas laterais e que a lâmina tem 5,0 cm, mas não dizem que ela é integrada ao colchão nem explicitamente que acrescenta 5,0 cm à altura total do colchão. Versão sustentável: Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais. No Pillow Top HR Gel da Ortobom, a lâmina é de espuma de alta resiliência gel 100% poliuretano, com densidade de 50 kg/m³ e 5,0 cm de espessura."
+    },
+    {
+      "ref": "diferenca-estrutural#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam a altura extra, o enchimento e os materiais dos tecidos e da saia elástica, mas não dizem que o topper é uma peça avulsa colocada sobre o colchão. Versão sustentável: O Pillow-top de Microfibra Luuna tem até 5 cm de altura extra, enchimento 100% poliéster, tecido exterior 100% algodão e saia elástica de 65% poliéster e 35% algodão."
+    },
+    {
+      "ref": "material-enchimento#0",
+      "msg": "OVERSTATED. Os trechos da Probel descrevem um colchão específico, mas o bloco generaliza para “colchões Probel”. Além disso, o trecho diz que o matelassê é preenchido com fibra siliconada e espuma D20 Cilíndrica, não que o Pillow Super esteja necessariamente “integrado ao matelassê”. Versão sustentável: Na página da Probel citada, a primeira camada do produto conta com Pillow Super e matelassê preenchido com fibra siliconada e espuma D20 Cilíndrica. No Pillow Top HR Gel da Ortobom, a lâmina é de espuma de alta resiliência gel 100% poliuretano, com densidade de 50 kg/m³, e o revestimento é de malha 98% poliéster e 2% elastano."
+    },
+    {
+      "ref": "firmeza-sensacao#0",
+      "msg": "MISATTRIBUTED. O trecho sobre suporte firme é uma declaração da Ortobom, mas o bloco a apresenta diretamente como fato do produto; apenas a afirmação sobre frescor é explicitamente atribuída ao fabricante. Versão sustentável: A Ortobom declara que a espuma High Resilience Gel, por sua alta resiliência semelhante à do látex, oferece suporte firme ao corpo. O fabricante também declara que as partículas de gel proporcionam sensação de frescor ao toque e mantêm a temperatura agradável durante toda a noite."
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "msg": "SAFETY_CLAIM. Embora a propriedade seja atribuída à Luuna, o texto também repete uma alegação de resultado em saúde ao dizer que ela ajuda a reduzir a proliferação de microrganismos. A regra do site não permite esse tipo de promessa, mesmo atribuída ao fabricante. Versão sustentável: A Luuna declara que o algodão presente no tecido superior do Pillow-top confere propriedades hipoalergênicas. O Inmetro não avalia essa propriedade."
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "msg": "MISATTRIBUTED. O trecho citado da Luuna não afirma que o Inmetro não avalia essas propriedades nem menciona capas de pillow top ou toppers; ele apenas declara uma propriedade do produto. Assim, atribuir essa informação à Luuna e generalizá-la para esses produtos não é sustentado pelo trecho. Versão sustentável: O Inmetro não avalia propriedades como antialérgico, antiácaro ou hipoalergênico. Se alergia pesar na escolha, verifique se o fabricante declara essas propriedades e procure um profissional de saúde para orientações específicas."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. Os trechos não dizem que a camada é costurada ao colchão. O trecho da Ortobom apenas a descreve como camada extra de conforto com elástico nas laterais. A espessura de 5,0 cm e as instruções de lavagem estão sustentadas. Versão sustentável: Opção: Pillow Top HR Gel (Ortobom) | Estrutura: segundo a Ortobom, camada extra de conforto com elástico nas laterais | Espessura declarada: 5,0 cm | Lavagem: proibida; permitida limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a espessura de até 5 cm e a lavagem à mão ou à máquina em ciclo delicado com água morna, mas não dizem que a peça é avulsa ou removível. Versão sustentável: Opção: Pillow-top de Microfibra (Luuna) | Espessura declarada: até 5 cm | Lavagem: à mão ou à máquina em ciclo delicado, em temperatura morna. Remova a afirmação de que é peça avulsa e removível, ou acrescente evidência que a sustente."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom não diz que o pillow top já vem costurado ao colchão; menciona apenas camada extra de conforto e elástico nas laterais. O trecho da Luuna informa até 5 cm de altura extra, mas não mostra que o produto é avulso, removível, ajustável ou substituível, nem que oferece as mesmas medidas de espessura que outro produto. Também não há base para atribuir espessura de até 5 cm à Ortobom neste bloco. Versão sustentável: A Luuna informa até 5 cm de altura extra para o colchão. No trecho citado da Ortobom, constam uma camada extra de conforto e elástico nas laterais. Os trechos não permitem concluir que o produto Ortobom seja costurado nem comparar a flexibilidade ou a substituição futura dos produtos."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1742
+  }
+}

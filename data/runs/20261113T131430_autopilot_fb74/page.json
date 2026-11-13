@@ -1,0 +1,47 @@
+{
+  "slug": "pillow-top-ou-topper",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 109249,
+    "output_tokens": 31463,
+    "calls": 41
+  },
+  "credits": 33.35245691999998,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página apresenta dois modelos de pillow top, mas não apresenta um topper vendido como peça avulsa.",
+      "O leitor não recebe uma regra clara para escolher entre pillow top e topper.",
+      "A resposta usa termos como espuma de alta resiliência sem explicar o que eles significam para a escolha."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se a possibilidade de lavar a camada for importante, conferir a instrução de lavagem: o modelo de microfibra da Luuna permite lavagem à mão ou à máquina em ciclo delicado, enquanto o Pillow Top HR Gel da Ortobom proíbe a lavagem.",
+      "Se a preferência for por suporte firme e sensação de frescor ao toque, conferir se a ficha declara espuma de alta resiliência com gel, como no modelo da Ortobom.",
+      "Se a preferência for por contato mais macio e enchimento de poliéster, conferir se a ficha declara essas características, como no modelo da Luuna.",
+      "Conferir na ficha a espessura declarada e o material de enchimento antes da compra."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página apresenta dois modelos de pillow top, mas não apresenta um topper vendido como peça avulsa.",
+      "Para o leitor leigo: O leitor não recebe uma regra clara para escolher entre pillow top e topper.",
+      "Para o leitor leigo: A resposta usa termos como espuma de alta resiliência sem explicar o que eles significam para a escolha.",
+      "Um exemplo real de topper avulso, com fabricante, medidas, peso, espessura, material e instruções de cuidado.",
+      "Uma comparação estrutural direta entre camada costurada ou integrada ao colchão e peça removível colocada sobre ele.",
+      "Uma regra de escolha que diga quando vale preferir pillow top e quando vale preferir topper, considerando possibilidade de remover, substituir ou lavar a camada.",
+      "Informação do fabricante sobre a firmeza ou maciez acrescentada por um topper avulso.",
+      "Dados primários sobre retenção de calor, cheiro, ruído e cuidados de segurança, se existirem.",
+      "Orientação de como conferir no anúncio se o produto é um colchão com pillow top ou um topper vendido separadamente."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios úteis sobre material, sensação e lavagem, mas não responde bem à comparação principal: os dois exemplos são pillow tops, e falta um topper avulso. A resposta curta também não dá uma regra de escolha nem permite conferir no anúncio qual opção serve ao caso do leitor; deve ser refeita com um exemplo real de cada tipo e uma comparação direta.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

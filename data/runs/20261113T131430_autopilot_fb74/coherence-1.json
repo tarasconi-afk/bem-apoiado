@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título e a descrição prometem comparar pillow top costurado ao colchão com topper avulso, mas a página só compara características declaradas de dois produtos chamados pillow top e não demonstra essa diferença estrutural.",
+      "fix": "Reescrever a promessa para algo como: “Pillow Top HR Gel Ortobom ou Pillow-top de Microfibra Luuna: compare espessura, material, firmeza e lavagem”."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "material-enchimento#0",
+      "problem": "A seção promete mostrar o material de enchimento de cada opção, mas o bloco descreve o Ortobom e um colchão Probel, sem apresentar o enchimento do pillow-top de microfibra da Luuna.",
+      "fix": "Mudar o título para “Materiais declarados no Pillow Top HR Gel da Ortobom e na primeira camada do colchão Probel”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 24891,
+    "output_tokens": 5291,
+    "calls": 3
+  }
+}

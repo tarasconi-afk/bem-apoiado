@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título e a resposta curta prometem comparar pillow top e topper, mas a página não apresenta a diferença entre um pillow top costurado e um topper avulso nem comprova que os produtos citados sejam essas duas opções.",
+      "fix": "Mudar a promessa para uma comparação entre o Pillow Top HR Gel da Ortobom e o Pillow-top de Microfibra da Luuna, com base em espessura, material, firmeza e lavagem."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "diferenca-estrutural#0",
+      "problem": "A seção promete explicar a estrutura e a espessura de pillow top e topper, mas os blocos só descrevem produtos chamados pillow top e não trazem a estrutura de um topper.",
+      "fix": "Mudar o título para algo como “Estrutura e espessura dos dois pillow tops citados”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 19535,
+    "output_tokens": 4006,
+    "calls": 3
+  }
+}

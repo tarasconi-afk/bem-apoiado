@@ -1,0 +1,86 @@
+{
+  "findings": [
+    {
+      "ref": "firmeza-sensacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que um modelo da Ortobom tem uma lâmina de espuma de 5 cm, mas não que há vários modelos com 5 cm de espuma. O trecho da Luuna fala em até 5 cm de altura extra, sem dizer que essa altura é de espuma. A conclusão sobre variação das instruções de lavagem é sustentada pela comparação entre a orientação da Luuna e a proibição da Ortobom.",
+      "fix": "Pillow top é descrito pela Ortobom como uma camada extra de conforto; um modelo citado da Ortobom tem uma lâmina de espuma de 5 cm, e a Luuna informa que seu modelo de microfibra pode ser lavado à mão ou à máquina em ciclo delicado. As instruções de lavagem variam conforme o modelo: a Luuna permite essas formas de lavagem, enquanto a Ortobom proíbe a lavagem do modelo citado."
+    },
+    {
+      "ref": "diferenca-estrutural#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-estrutural#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-enchimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-sensacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora esteja em basis framing, o bloco afirma fatos gerais sobre o que o Inmetro avalia, sobre declarações de fabricantes e sobre orientações para alergias; não é apenas uma frase de transição.",
+      "fix": "A seguir, veja o que o fabricante declara sobre propriedades hipoalergênicas."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que um modelo da Ortobom tem uma lâmina de espuma de 5 cm, mas não que há vários modelos com 5 cm de espuma. O trecho da Luuna fala em até 5 cm de altura extra, sem dizer que essa altura é de espuma. A conclusão sobre variação das instruções de lavagem é sustentada pela comparação entre a orientação da Luuna e a proibição da Ortobom. Versão sustentável: Pillow top é descrito pela Ortobom como uma camada extra de conforto; um modelo citado da Ortobom tem uma lâmina de espuma de 5 cm, e a Luuna informa que seu modelo de microfibra pode ser lavado à mão ou à máquina em ciclo delicado. As instruções de lavagem variam conforme o modelo: a Luuna permite essas formas de lavagem, enquanto a Ortobom proíbe a lavagem do modelo citado."
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "msg": "FACT_IN_FRAMING. Embora esteja em basis framing, o bloco afirma fatos gerais sobre o que o Inmetro avalia, sobre declarações de fabricantes e sobre orientações para alergias; não é apenas uma frase de transição. Versão sustentável: A seguir, veja o que o fabricante declara sobre propriedades hipoalergênicas."
+    }
+  ]
+}

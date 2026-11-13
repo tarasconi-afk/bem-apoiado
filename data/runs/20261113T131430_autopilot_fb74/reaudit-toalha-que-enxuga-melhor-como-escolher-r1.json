@@ -1,0 +1,36 @@
+{
+  "patches": [
+    {
+      "ref": "composicao-fibras#0.r4",
+      "action": "replace",
+      "basis": "evidence",
+      "cells": [
+        {
+          "text": "Karsten Imperial Vanilla",
+          "claim_ids": [
+            "clm_3cfca945e359"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 450 g/m²",
+          "claim_ids": [
+            "clm_18c41a7e2cf8"
+          ]
+        },
+        {
+          "text": "100% algodão; segundo a Karsten, toque super macio",
+          "claim_ids": [
+            "clm_3cfca945e359",
+            "clm_1ee246653eb0"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "composicao-fibras#0.r4",
+      "msg": "UNSUPPORTED. Os trechos sustentam os dados da toalha Karsten Imperial Vanilla, mas não sustentam que a tabela reúna toalhas de diferentes fabricantes; só há evidência de um fabricante neste bloco. Versão sustentável: Troque o título por “Gramatura e composição da toalha Karsten Imperial Vanilla” e mantenha os demais dados atribuídos à Karsten."
+    }
+  ]
+}

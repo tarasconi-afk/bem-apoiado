@@ -1,0 +1,64 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o modelo da Luuna se a possibilidade de lavar a peça em máquina for importante; a ficha permite lavagem em ciclo delicado com água morna.",
+      "Escolha o modelo da Ortobom se você prefere espuma com gel, suporte firme e sensação de frescor declarada pelo fabricante.",
+      "A Luuna declara enchimento 100% poliéster e conforto macio no contato com o corpo.",
+      "Confira a espessura declarada: 5 cm no modelo da Ortobom e até 5 cm de altura extra no modelo da Luuna.",
+      "Confira as medidas disponíveis da Luuna, que incluem solteiro, casal, queen, king e solteiro king.",
+      "Verifique na ficha as instruções de lavagem: a Ortobom proíbe a lavagem e permite apenas limpeza profissional a úmido muito suave."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Definição direta da diferença entre pillow top embutido ou costurado ao colchão e topper vendido como peça avulsa.",
+      "Um topper avulso usado como comparação, com fabricante, espessura, medidas, peso e material de enchimento declarados.",
+      "Uma regra de escolha que diga quando vale comprar um pillow top já integrado ao colchão e quando vale comprar um topper avulso.",
+      "Comparação das instruções de lavagem, capa, firmeza, maciez e cuidados entre as duas categorias, e não apenas entre dois modelos de pillow top.",
+      "Informações de fonte primária sobre retenção de calor, cheiro, ruído e cuidados de segurança, caso existam."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios concretos para escolher entre dois modelos de pillow top, especialmente lavagem, material, firmeza e sensação de frescor. Porém, não responde à comparação principal porque não apresenta nenhum topper avulso nem explica quando escolher cada categoria; a resposta curta também começa por um critério secundário e não resolve “pillow top ou topper” rapidamente.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0.r0",
+      "como-decidir#0.r1"
+    ],
+    "decision_criteria": [
+      "Se a possibilidade de lavar a camada em máquina é importante, escolha o modelo cuja ficha permita lavagem; o modelo da Luuna permite ciclo delicado, enquanto o da Ortobom proíbe a lavagem.",
+      "Se você busca suporte firme e sensação de frescor ao toque, o fabricante declara essas características para o pillow top de espuma gel da Ortobom.",
+      "Se prefere acolchoamento macio e enchimento de poliéster, o pillow-top de microfibra da Luuna declara essas características.",
+      "Confira na ficha a espessura declarada, o material do enchimento e as instruções de lavagem e secagem."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Definição explícita de topper como peça avulsa colocada sobre o colchão, com fonte primária.",
+      "Exemplo real de topper avulso, com medidas, espessura e peso declarados pelo fabricante.",
+      "Regra de escolha entre pillow top embutido e topper removível, relacionando a opção ao uso do leitor.",
+      "Informação do fabricante sobre como o topper avulso altera a firmeza ou a maciez do colchão.",
+      "Orientações de compatibilidade do topper com as medidas do colchão e de conferência no anúncio."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios concretos sobre lavagem, material, maciez e firmeza, mas não responde adequadamente à comparação “pillow top ou topper”: os dois exemplos apresentados são pillow tops, e falta um topper avulso e uma regra para decidir entre as duas opções. A resposta curta também não resolve a dúvida principal em até três frases, e a tabela repete informações já apresentadas.",
+    "filler_ratio": 0.18181818181818182,
+    "model_opinion": false
+  }
+}
