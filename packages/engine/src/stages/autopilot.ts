@@ -11,6 +11,7 @@ import { nextReaudit, reauditPage } from './reaudit.ts';
 import { MODELS } from '../models.ts';
 import { BRIEF_SYSTEM, BriefOut, ensureImages } from '../images.ts';
 import { applyCalibration, calibrate, loadVerdicts } from '../feedback.ts';
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -170,11 +171,58 @@ const exhausted = (t: TopicBrief, written: Set<string>) => t.evidence_gaps.lengt
 export const isGapRetry = (t?: TopicBrief, hasPage = false) =>
   !!t && t.researched_source_ids.length > 0 && t.evidence_gaps.length > 0 && (hasPage || !t.editorial_notes.some((n) => n.startsWith(NOTE_PREFIX)));
 
+// Assunto da pauta, para não escolher duas seguidas do mesmo (13/11: 3 ciclos seguidos em toalha — "toalha que enxuga
+// melhor", "toalha que não solta pelo", "quando trocar a toalha" — enquanto pautas de outros produtos esperavam).
+// Assunto = palavra principal do tipo de produto do nicho (Colchão, Toalha, Lençol...): pelos tipos da pauta, ou pelo
+// nome do tipo escrito na consulta; sem tipo reconhecido, a primeira palavra de conteúdo da consulta.
+const semAcento = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const VAZIAS = new Set(['como', 'qual', 'quais', 'quando', 'quanto', 'onde', 'porque', 'por', 'que', 'o', 'a', 'os', 'as', 'um', 'uma', 'de', 'do', 'da', 'dos', 'das', 'e', 'ou', 'para', 'com', 'sem', 'em', 'no', 'na', 'escolher', 'trocar', 'lavar', 'usar', 'comprar', 'melhor', 'tipos', 'tipo', 'diferenca', 'vale', 'pena', 'tamanho', 'tamanhos']);
+export function assuntosDaPauta(query: string, topicKinds: string[] = [], kinds: { id: string; label: string }[] = []): string[] {
+  const nucleo = (label: string) => semAcento(label).split(/\s+/)[0]!;
+  const q = semAcento(query);
+  const porTipo = topicKinds.length
+    ? kinds.filter((k) => topicKinds.includes(k.id) && k.id !== 'outro')
+    : kinds.filter((k) => k.id !== 'outro' && new RegExp(`\\b${nucleo(k.label)}`).test(q));
+  const s = [...new Set(porTipo.map((k) => nucleo(k.label)))];
+  if (s.length) return s;
+  const palavra = q.split(/[^a-z0-9]+/).find((w) => w.length >= 3 && !VAZIAS.has(w));
+  return palavra ? [palavra.replace(/s$/, '')] : [];
+}
+
+// Entre as candidatas na ordem da fila (novas antes das novas tentativas), a primeira de assunto diferente da última
+// pauta iniciada; se todas da mesma classe forem do mesmo assunto, segue a ordem da fila.
+export function escolherPorAssunto(cands: { query: string; retry: boolean; assuntos: string[]; retomada?: boolean }[], ultimo: string[]): { query: string | null; adiada: string | null } {
+  const classe = cands.some((c) => !c.retry) ? cands.filter((c) => !c.retry) : cands;
+  if (!classe.length) return { query: null, adiada: null };
+  const mesmo = (c: { assuntos: string[] }) => c.assuntos.some((a) => ultimo.includes(a));
+  const primeira = classe[0]!;
+  // Pauta retomada (pesquisa já paga, parou antes da página) mantém a vez: adiar só atrasaria o que já foi pago.
+  if (!ultimo.length || !mesmo(primeira) || primeira.retomada) return { query: primeira.query, adiada: null };
+  const outra = classe.find((c) => !mesmo(c));
+  return outra ? { query: outra.query, adiada: primeira.query } : { query: primeira.query, adiada: null };
+}
+
+export const RECENT_TOPICS_FILE = 'pautas-recentes.json';
+type PautaRecente = { query: string; assuntos: string[]; at: string };
+function kindsDoNicho(): { id: string; label: string }[] {
+  try {
+    return loadNiche().product_kinds;
+  } catch {
+    return [];
+  }
+}
+function registrarPautaIniciada(query: string, topicKinds: string[] = []): void {
+  const prev = readState<PautaRecente[]>(RECENT_TOPICS_FILE, []);
+  writeState(RECENT_TOPICS_FILE, [...prev, { query, assuntos: assuntosDaPauta(query, topicKinds, kindsDoNicho()), at: new Date().toISOString() }].slice(-5));
+}
+const ultimoAssunto = (): string[] => readState<PautaRecente[]>(RECENT_TOPICS_FILE, []).at(-1)?.assuntos ?? [];
+
 // Próxima pauta: primeira da fila sem página aprovada e que ainda não esgotou as tentativas; pauta nova antes de
-// nova tentativa por lacuna (isGapRetry), que só roda quando não há pauta nova disponível.
-export function nextQuery(): string | null {
+// nova tentativa por lacuna (isGapRetry), que só roda quando não há pauta nova disponível; e de assunto diferente da
+// última pauta iniciada, quando houver outra (escolherPorAssunto).
+export function proximaPauta(): { query: string | null; adiada: string | null } {
   const path = join(DATA, 'queue.json');
-  if (!existsSync(path)) return null;
+  if (!existsSync(path)) return { query: null, adiada: null };
   const q = Queue.parse(JSON.parse(readFileSync(path, 'utf8')));
   const topics = new Map(loadTopics().map((t) => [t.slug, t]));
   const approved = new Set(loadPages().filter((p) => p.status !== 'draft').map((p) => p.slug));
@@ -183,7 +231,8 @@ export function nextQuery(): string | null {
   const pending = new Set((process.env.BEM_PENDING_SLUGS ?? '').split(',').filter(Boolean));
   const planFails = readState<Record<string, number>>('plan-failures.json', {});
   const written = new Set(loadPages().map((p) => p.slug));
-  let retry: string | null = null;
+  const kinds = kindsDoNicho();
+  const cands: { query: string; retry: boolean; assuntos: string[]; retomada?: boolean }[] = [];
   for (const item of q.items) {
     if ((planFails[item.query] ?? 0) >= 2) continue;
     const slug = slugOf(item.query);
@@ -192,10 +241,13 @@ export function nextQuery(): string | null {
     if (t && t.researched_source_ids.length > 0 && (t.improve_attempts >= MAX_IMPROVE_ATTEMPTS || exhausted(t, written) || retryOff(t.product_kinds))) continue;
     if (lacksMakers(item.query, t)) continue;
     if (isDeferred(slug)) continue;
-    if (!isGapRetry(t, written.has(slug))) return item.query;
-    retry ??= item.query;
+    const retry = isGapRetry(t, written.has(slug));
+    cands.push({ query: item.query, retry, assuntos: assuntosDaPauta(item.query, t?.product_kinds, kinds), retomada: !retry && !!t && t.researched_source_ids.length > 0 });
   }
-  return retry;
+  return escolherPorAssunto(cands, ultimoAssunto());
+}
+export function nextQuery(): string | null {
+  return proximaPauta().query;
 }
 
 // Situação de cada pauta da fila, pela mesma regra do nextQuery (para o painel mostrar o que anda e o que não).
@@ -221,8 +273,11 @@ export function queueStatus(pendingSlugs: Set<string>): { query: string; state: 
     else state = 'na fila';
     return { query: item.query, state, retry: isGapRetry(t, !!page) };
   });
-  // A mesma escolha do nextQuery: a primeira pauta nova; sem nenhuma, a primeira nova tentativa.
-  const next = rows.find((r) => r.state === 'na fila' && !r.retry) ?? rows.find((r) => r.state === 'na fila');
+  // A mesma escolha do nextQuery: a primeira pauta nova; sem nenhuma, a primeira nova tentativa; de assunto diferente
+  // da última pauta iniciada quando houver outra.
+  const kinds = kindsDoNicho();
+  const escolha = escolherPorAssunto(rows.filter((r) => r.state === 'na fila').map((r) => { const t = topics.get(slugOf(r.query)); return { query: r.query, retry: r.retry, assuntos: assuntosDaPauta(r.query, t?.product_kinds, kinds), retomada: !r.retry && !!t && t.researched_source_ids.length > 0 }; }), ultimoAssunto());
+  const next = rows.find((r) => r.query === escolha.query);
   if (next) next.state = 'próxima';
   return rows.map(({ query, state }) => ({ query, state }));
 }
@@ -465,18 +520,40 @@ async function maintainGsc(steps: string[]): Promise<boolean> {
 // curta e o "Como decidir" de uma página no ar por ciclo, com as evidências que ela já tem (~2–3 créditos).
 // Sai como resultado para o editor aceitar; tentativa no máximo 1x por semana por página.
 export const SUMMARY_FIX = 'Reescreva a resposta curta e o "Como decidir" para quem vai comprar, em palavras simples: a resposta curta em até 3 frases, começando pela resposta prática (o que escolher ou conferir), sem abrir com norma ou regulador e sem "trechos citados".';
+// Trava de retrabalho do resumo (13/11, mesma ideia do tentativas.ts do Ferramenta Clara): reescrita recusada (regra
+// do site ou revisão pior) fica gravada com a impressão do texto da página; enquanto a página não muda, não tenta de
+// novo. pillow-top-o-que-e-e-vale-a-pena foi tentada e recusada em 05/11 (revisão pior) e de novo em 13/11 01h
+// ("repete a condição de como-decidir#1"), com o mesmo texto de partida. Falha técnica (saída inválida) não trava.
+export const SUMMARY_REFUSED_FILE = 'summary-fix-recusas.json';
+export type RecusaResumo = { at: string; fp: string; motivo: string };
+export const impressaoDaPagina = (p: Pick<PageSpec, 'title' | 'description' | 'verdict' | 'sections'>) =>
+  createHash('sha256').update(JSON.stringify([p.title, p.description, p.verdict, p.sections])).digest('hex').slice(0, 16);
+export function resumoJaRecusado(p: PageSpec, recusas: Record<string, RecusaResumo>): RecusaResumo | null {
+  const r = recusas[p.slug];
+  return r && r.fp === impressaoDaPagina(p) ? r : null;
+}
 async function maintainSummary(runId: string, steps: string[]): Promise<boolean> {
   const tried = readState<Record<string, string>>('summary-fix.json', {});
+  const recusas = readState<Record<string, RecusaResumo>>(SUMMARY_REFUSED_FILE, {});
   const weak = (p: PageSpec) => (p.provenance.review as { quick_answer?: boolean } | undefined)?.quick_answer === false || styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || /trechos citados/.test(i.msg));
   // Aprovação do editor depois da última mudança vale mais que a regra: não reescreve o que ele aprovou.
   const verdicts = loadVerdicts();
   const approvedByEditor = (p: PageSpec) => verdicts.some((v) => v.slug === p.slug && v.verdict === 'approve' && v.at.slice(0, 10) >= p.updated_at);
-  const page = loadPages().find((p) => p.status !== 'draft' && weak(p) && !approvedByEditor(p) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
+  const candidatas = loadPages().filter((p) => p.status !== 'draft' && weak(p) && !approvedByEditor(p) && !(tried[p.slug] && Date.now() - Date.parse(tried[p.slug]!) < 7 * 86_400_000));
+  // Só registra no ciclo a primeira travada que estaria na vez (evita uma linha por página a cada ciclo).
+  const travada = candidatas.find((p) => resumoJaRecusado(p, recusas));
+  const page = candidatas.find((p) => !resumoJaRecusado(p, recusas));
+  if (travada && (!page || candidatas.indexOf(travada) < candidatas.indexOf(page))) {
+    const r = resumoJaRecusado(travada, recusas)!;
+    steps.push(`resumo de ${travada.slug}: não repetido (mesma versão recusada em ${r.at.slice(0, 10)} por ${corte(r.motivo, 100)})`);
+  }
   if (!page || creditsLeft() < 10) return false;
   writeState('summary-fix.json', { ...tried, [page.slug]: new Date().toISOString() });
   try {
+    const fp = impressaoDaPagina(page);
     const msg = await adjustWithResearch(page.slug, SUMMARY_FIX, runId, undefined, { research: false, learn: false });
     steps.push(`resumo de ${page.slug}: ${msg.startsWith('texto ajustado') ? 'reescrito para leigo (confira na prévia antes de aceitar)' : corte(msg, 120)}`);
+    if (/ajuste (NÃO salvo|não aplicado)/.test(msg)) writeState(SUMMARY_REFUSED_FILE, { ...recusas, [page.slug]: { at: new Date().toISOString(), fp, motivo: msg.replace(/^.*?ajuste (NÃO salvo|não aplicado):?\s*/s, '') } });
     return msg.startsWith('texto ajustado');
   } catch (e) {
     steps.push(`resumo de ${page.slug}: falhou (${(e as Error).message.slice(0, 80)})`);
@@ -653,14 +730,17 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m7 = await maintainLinks(steps);
   const m9 = await maintainDuplicates(steps);
   const m10 = await maintainDomains(steps);
-  const pending = creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null;
+  const escolha = creditsLeft() >= PAGE_MIN_CREDITS ? proximaPauta() : { query: null, adiada: null };
+  const pending = escolha.query;
   const heavyFirst = pending ? false : await heavyMaintenance(runId, steps);
   heavyLater = !!pending;
   const maintained = m1 || m5 || m5b || m6 || m7 || m9 || m10 || heavyFirst;
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
-  const query = pending ?? (creditsLeft() >= PAGE_MIN_CREDITS ? nextQuery() : null);
+  const escolha2 = pending ? escolha : creditsLeft() >= PAGE_MIN_CREDITS ? proximaPauta() : { query: null, adiada: null };
+  const query = escolha2.query;
+  if (query && escolha2.adiada) steps.push(`pauta "${escolha2.adiada}" fica para depois: mesmo assunto da anterior (${ultimoAssunto().join(', ')}); vai "${query}"`);
   if (!query && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);
   if (!query) {
     const why = creditsLeft() < PAGE_MIN_CREDITS ? 'sem orçamento para página nova neste ciclo' : 'fila sem pauta pendente';
@@ -671,6 +751,7 @@ export async function runCycle(runId: string): Promise<CycleResult> {
 
   // Falha no planejamento (ex.: saída inválida do modelo) não derruba o ciclo: a pauta sai da vez após 2.
   let planned: Awaited<ReturnType<typeof planTopic>>;
+  registrarPautaIniciada(query, loadTopics().find((t) => t.slug === slugOf(query))?.product_kinds);
   try {
     planned = await planTopic(query);
   } catch (e) {

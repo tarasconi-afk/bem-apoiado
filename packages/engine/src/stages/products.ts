@@ -29,6 +29,8 @@ export interface ProductsReport {
   candidates: number;
   added: { asin: string; label: string; kind: string }[];
   skipped: { url: string; reason: string }[];
+  // Buscas feitas e quantos anúncios novos (com código de produto, fora do catálogo) cada uma trouxe (13/11).
+  queries?: { q: string; results: number; fresh: number }[];
 }
 
 export async function findProducts(slug: string, runId: string, opts: { max?: number } = {}, fetchImpl?: FetchLike, decide: Decider = jevDecide): Promise<ProductsReport> {
@@ -155,6 +157,7 @@ export function knownAsins(now = new Date()): Set<string> {
   return new Set([...loadProducts().map((p) => p.asin), ...retired]);
 }
 const loose = (t: string) => normalizeForMatch(t).replace(/-/g, ' ');
+const semAcento = (t: string) => loose(t).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 // Palavra que identifica OUTRO tipo do vocabulário aparecendo no nome do produto (ex.: "MISTO" num
 // produto classificado como espuma) → conflito: o leitor veria um nome que contradiz o tipo.
@@ -326,16 +329,42 @@ export async function findProductsFromAmazon(
     // Tipo cujo nome já contém os termos (tipo "Pillow top avulso", termo "pillow top"): busca pelo nome do tipo.
     const kl = labels.get(kind) ?? kind;
     const q = topic.listing_terms.length && !topic.listing_terms.every((t) => loose(kl).includes(loose(t))) ? `${topic.listing_terms.join(' ')} ${kl.split(' ')[0]}` : kl;
-    const hits = (await webSearch(q, { maxResults: 10, includeDomains: ['amazon.com.br'] }))
-      .filter((h) => ASIN_RE.test(h.url))
-      .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
-    for (const h of hits.slice(0, opts.listingsPerKind ?? 10)) {
-      if (added >= perKind || need <= 0) break;
-      if (await tryListing(ctx, h, kind)) { added++; need--; }
+    let tries = opts.listingsPerKind ?? 10;
+    const search = async (query: string, mustHave?: string) => {
+      const all = await webSearch(query, { maxResults: 10, includeDomains: ['amazon.com.br'] });
+      const hits = all
+        .filter((h) => ASIN_RE.test(h.url) && !known.has(ASIN_RE.exec(h.url)![1]!) && (!mustHave || semAcento(h.title).includes(semAcento(mustHave))))
+        .sort((a, b) => Number([...cited].some((c) => loose(b.title).includes(c))) - Number([...cited].some((c) => loose(a.title).includes(c))));
+      (report.queries ??= []).push({ q: query, results: all.length, fresh: hits.length });
+      for (const h of hits) {
+        if (added >= perKind || need <= 0 || tries <= 0) break;
+        tries--;
+        if (await tryListing(ctx, h, kind)) { added++; need--; }
+      }
+    };
+    await search(q);
+    // Busca pelo nome do tipo devolve sobretudo páginas de busca e de categoria da Amazon (13/11, "Toalha de banho":
+    // 6 de 10 resultados sem produto; em 12/11 16h, nenhum anúncio novo, e a página nova da toalha ficou sem
+    // exemplo). Sem exemplo suficiente, busca o tipo com o nome de fabricante do cadastro para esse tipo ("toalha de
+    // banho Karsten": 5 anúncios da marca) e só tenta anúncio com a marca no título. A marca continua sendo a que o
+    // anúncio declara: as travas de marca e de fabricante são as mesmas.
+    for (const m of brandQueries(kind, makers, usedBrands, cited, BRAND_QUERIES_PER_KIND)) {
+      if (added >= perKind || need <= 0 || tries <= 0) break;
+      await search(`${kl} ${m}`, m);
     }
   }
-  writeStage(runId, 'products-amazon', { ...report, credits: creditsSpent() });
+  // Uma página por arquivo: dois "produtos para" no mesmo ciclo (12/11, como-escolher-toalha-de-banho e
+  // toalha-que-enxuga-melhor) gravavam o mesmo products-amazon.json e o primeiro relatório se perdia.
+  writeStage(runId, `products-amazon-${slug}`, { ...report, credits: creditsSpent() });
   return report;
+}
+
+// Fabricantes do cadastro que fazem o tipo, para a busca por marca: os que a página cita primeiro, depois os demais
+// na ordem do cadastro; sem repetir marca que a página já mostra. Nomes como o cadastro escreve (Karsten, Döhler).
+export const BRAND_QUERIES_PER_KIND = 2;
+export function brandQueries(kind: string, makers: { publisher: string; kinds?: string[] }[], usedBrands: Set<string>, cited: Set<string>, max: number): string[] {
+  const names = [...new Set(makers.filter((m) => m.kinds?.includes(kind)).map((m) => m.publisher))].filter((n) => !usedBrands.has(loose(n)));
+  return [...names.filter((n) => cited.has(loose(n))), ...names.filter((n) => !cited.has(loose(n)))].slice(0, max);
 }
 
 const Listing = z.object({ brand: z.string(), model: z.string(), is_single_product: z.boolean() });
