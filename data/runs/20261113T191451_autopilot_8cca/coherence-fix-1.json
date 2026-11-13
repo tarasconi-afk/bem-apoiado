@@ -1,0 +1,22 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha pelo tamanho e altura do colchão: confira na ficha técnica do protetor se ele veste colchões com a profundidade do seu. O Protetor Malha Slim da Altenburg veste colchões de até 40 cm; em outros modelos, a altura indicada pode variar, então confira a ficha. Se vai lavar à máquina, escolha modelos que permitam isso; se for apenas à mão, procure fichas que indiquem esse cuidado.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_157430ce21b1",
+        "clm_140888248f5a",
+        "clm_263d4becba4d"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: MISATTRIBUTED"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "protetor-de-colchao-impermeavel-qual-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 33372,
+    "output_tokens": 15566,
+    "calls": 12
+  },
+  "credits": 34.0400808,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que todo protetor com elástico suporta colchões de até 40 cm, mas os trechos dão essa altura para modelos específicos, como o Protetor Malha Slim da Altenburg (verdict); Reescrever para atribuir o dado ao produto: “O Protetor Malha Slim "
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira se o protetor corresponde ao tamanho e à altura, ou profundidade, do colchão.",
+      "Para colchões de até 40 cm, há modelos com elástico e com zíper indicados para essa altura.",
+      "Prefira o modelo com elástico se quiser uma cobertura semelhante a um lençol ajustado.",
+      "Prefira a capa com zíper se quiser envolver todo o colchão.",
+      "Se a proteção contra líquidos e sujeira é prioridade, escolha um modelo cuja ficha declare impermeabilidade.",
+      "Se precisa lavar à máquina, confira se a ficha permite o processo e informa temperatura e ciclo adequados.",
+      "Se só pode lavar à mão, escolha um modelo cuja ficha permita esse cuidado.",
+      "Confira na ficha se o produto pode ir à secadora e se pode ser passado a ferro.",
+      "Se alergia é um critério, verifique se o fabricante declara propriedades como antialérgico ou hipoalergênico."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor pode entender que todo protetor com elástico suporta colchões de até 40 cm, mas os trechos dão essa altura para modelos específicos, como o Protetor Malha Slim da Altenburg (verdict); Reescrever para atribuir o dado ao produto: “O Protetor Malha Slim ",
+      "Tabela dos fabricantes com todas as faixas de altura e tamanhos disponíveis para cada modelo, especialmente os modelos com elástico.",
+      "Aviso de segurança do fabricante sobre crianças pequenas e risco de asfixia pelo material plástico.",
+      "Informações dos fabricantes sobre maciez, firmeza, sustentação, aumento de altura e perfil de uso de cada opção.",
+      "Instruções de lavagem, secagem e passadoria específicas para mais modelos, não apenas para os exemplos citados.",
+      "Declarações dos fabricantes sobre eventual troca de ar entre as camadas do material impermeável, caso existam."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde rapidamente que a escolha deve partir do tamanho e da altura do colchão, diferencia elástico de zíper e dá critérios práticos de impermeabilidade e cuidados de lavagem. Faltam dados completos de medidas, segurança e conforto, mas há orientação concreta suficiente para conferir a ficha e escolher um modelo.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "verdict",
+        "problem": "O leitor pode entender que todo protetor com elástico suporta colchões de até 40 cm, mas os trechos dão essa altura para modelos específicos, como o Protetor Malha Slim da Altenburg.",
+        "fix": "Reescrever para atribuir o dado ao produto: “O Protetor Malha Slim da Altenburg veste colchões de até 40 cm; em outros modelos, confira a altura indicada na ficha técnica.”"
+      }
+    ]
+  }
+}
