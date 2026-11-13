@@ -1,0 +1,81 @@
+{
+  "run_id": "20261113T070036_autopilot_daf5-dirigida",
+  "topic": "quando-trocar-a-toalha-de-banho",
+  "accepted": [
+    {
+      "claim_id": "clm_cacf3fea10ea",
+      "question_id": "q_etiqueta_inmetro",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a5c33e9ea06a",
+      "question_id": "q_etiqueta_inmetro",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_31e7cc641114",
+      "question_id": "q_composicao_fibra",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_643a6cb9912b",
+      "question_id": "q_etiqueta_inmetro",
+      "source_id": "src_3466efaad1b5",
+      "new": false
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_sinal_gramatura": 0,
+    "q_etiqueta_inmetro": 3,
+    "q_cuidado_lavagem": 0,
+    "q_uso_absorcao": 0,
+    "q_restricao_odor_textura": 0,
+    "q_composicao_fibra": 1
+  },
+  "unanswered": [
+    "q_sinal_gramatura",
+    "q_cuidado_lavagem",
+    "q_uso_absorcao",
+    "q_restricao_odor_textura"
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 587,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_ae34a24db0e0"
+  ],
+  "triage": [
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.37
+    },
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.63
+    },
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.06
+    },
+    {
+      "source_id": "src_ae34a24db0e0",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.41
+    }
+  ],
+  "credits": 14.615687520000003
+}
