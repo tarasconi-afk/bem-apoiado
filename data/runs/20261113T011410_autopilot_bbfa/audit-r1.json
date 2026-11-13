@@ -1,0 +1,96 @@
+{
+  "findings": [
+    {
+      "ref": "fio-penteado-vs-cardado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "fio-penteado-vs-cardado#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "primeira-lavagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a distinção entre fio penteado e cardado e recomendam lavar antes do primeiro uso, mas não dizem para conferir na etiqueta nem mencionam a composição da toalha como algo a ser verificado.",
+      "fix": "Confira as informações sobre fio penteado ou cardado conforme a explicação da Karsten. A Karsten afirma que o fio penteado remove fibras curtas e que o cardado as mantém. A Appel recomenda lavar a toalha antes do primeiro uso para assentar a felpa e remover fibras soltas."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho da Karsten lista gramaturas sob o título “Fio Cardado”, mas não afirma que esses valores correspondem a toalhas. Portanto, a formulação “toalhas de fio cardado variam de 350 g/m² a 500 g/m²” acrescenta a identificação do produto como toalha.",
+      "fix": "Na Karsten, a página sobre fio cardado lista gramaturas de 350 g/m² a 500 g/m². Os demais valores citados — 620 g/m² para a Florença, 600 g/m² para a Magna e 520 g/m² para a Atlas — estão expressos nos respectivos trechos."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a primeira lavagem tira o excesso de fibra solta no caso específico do pano de prato atoalhado, mas não dizem que lavar qualquer toalha reduz fibras soltas. O trecho sobre a toalha apenas menciona abrir a felpa e acomodar a retração natural do algodão.",
+      "fix": "Se quer reduzir fibras soltas no início do uso, lave o pano de prato atoalhado antes de usar. Segundo a Appel, a primeira lavagem assenta a felpa e tira o excesso de fibra solta da produção. Para a toalha citada, a Appel recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam a distinção entre fio penteado e cardado e recomendam lavar antes do primeiro uso, mas não dizem para conferir na etiqueta nem mencionam a composição da toalha como algo a ser verificado. Versão sustentável: Confira as informações sobre fio penteado ou cardado conforme a explicação da Karsten. A Karsten afirma que o fio penteado remove fibras curtas e que o cardado as mantém. A Appel recomenda lavar a toalha antes do primeiro uso para assentar a felpa e remover fibras soltas."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "msg": "UNSUPPORTED. O trecho da Karsten lista gramaturas sob o título “Fio Cardado”, mas não afirma que esses valores correspondem a toalhas. Portanto, a formulação “toalhas de fio cardado variam de 350 g/m² a 500 g/m²” acrescenta a identificação do produto como toalha. Versão sustentável: Na Karsten, a página sobre fio cardado lista gramaturas de 350 g/m² a 500 g/m². Os demais valores citados — 620 g/m² para a Florença, 600 g/m² para a Magna e 520 g/m² para a Atlas — estão expressos nos respectivos trechos."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam que a primeira lavagem tira o excesso de fibra solta no caso específico do pano de prato atoalhado, mas não dizem que lavar qualquer toalha reduz fibras soltas. O trecho sobre a toalha apenas menciona abrir a felpa e acomodar a retração natural do algodão. Versão sustentável: Se quer reduzir fibras soltas no início do uso, lave o pano de prato atoalhado antes de usar. Segundo a Appel, a primeira lavagem assenta a felpa e tira o excesso de fibra solta da produção. Para a toalha citada, a Appel recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão."
+    }
+  ]
+}

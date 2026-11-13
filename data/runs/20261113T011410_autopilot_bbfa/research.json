@@ -1,0 +1,104 @@
+{
+  "run_id": "20261113T011410_autopilot_bbfa",
+  "topic": "toalha-que-nao-solta-pelo-como-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_d4deb5834cee",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_ae34a24db0e0",
+      "new": false
+    },
+    {
+      "claim_id": "clm_57eb05d7a67b",
+      "question_id": "q_dado_que_decide",
+      "source_id": "src_3fe645a97772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e40fdd98d666",
+      "question_id": "q_etiqueta_composicao",
+      "source_id": "src_3fe645a97772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8c1319f5bae3",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_3fe645a97772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_284003e86d70",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_3fe645a97772",
+      "new": true
+    },
+    {
+      "claim_id": "clm_57eb05d7a67b",
+      "question_id": "q_opcao_gramatura_fabricantes",
+      "source_id": "src_3fe645a97772",
+      "new": false
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_ae34a24db0e0",
+      "question_id": "q_etiqueta_composicao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Nome das fibras têxteis ou filamentos têxteis e seu conteúdo expresso em valor percentual (50% de algodão, 35% de poliéster, etc.)."
+    },
+    {
+      "source_id": "src_ae34a24db0e0",
+      "question_id": "q_cuidado_lavagem",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "São alcançados por essa obrigatoriedade os seguintes processos: lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional, que deverão ser informados na sequência descrita."
+    },
+    {
+      "source_id": "src_ae34a24db0e0",
+      "question_id": "q_restricao_inmetro_avaliacao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "As ações de fiscalização, realizadas pelo Inmetro e pelos órgãos delegados que compõem a Rede Brasileira de Metrologia Legal e Qualidade – RBMLQ-I, são feitas não só no comércio varejista, mas também "
+    },
+    {
+      "source_id": "src_3fe645a97772",
+      "question_id": "q_dado_que_decide",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Fio Cardado"
+    }
+  ],
+  "coverage": {
+    "q_dado_que_decide": 1,
+    "q_etiqueta_composicao": 1,
+    "q_cuidado_lavagem": 3,
+    "q_uso_tipo_fio": 0,
+    "q_restricao_inmetro_avaliacao": 0,
+    "q_opcao_gramatura_fabricantes": 1,
+    "q_restricao_leitor": 0
+  },
+  "unanswered": [
+    "q_uso_tipo_fio",
+    "q_restricao_inmetro_avaliacao",
+    "q_restricao_leitor"
+  ],
+  "usage": {
+    "input_tokens": 2812,
+    "output_tokens": 1407,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_ae34a24db0e0",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.78
+    },
+    {
+      "source_id": "src_3fe645a97772",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.93
+    }
+  ],
+  "credits": 12.5420634
+}

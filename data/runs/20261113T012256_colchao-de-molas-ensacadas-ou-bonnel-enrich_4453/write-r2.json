@@ -1,0 +1,388 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Molas ensacadas são indicadas para pessoas mais pesadas e casais, enquanto molas bonnel podem ser uma alternativa mais econômica, especialmente para quem dorme sozinho, segundo a Maxflex. A Probel informa que a duração normalmente varia de 5 anos no molejo bonnel a 10 anos nos demais molejos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2232cea82468",
+        "clm_ad751aa495ec"
+      ]
+    },
+    {
+      "ref": "como-cada-mola-funciona#0",
+      "action": "replace",
+      "text": "Molas ensacadas são envolvidas individualmente em sacos de tecido resistente dentro do colchão, segundo a Maxflex. Segundo a empresa, elas impedem que os movimentos de uma pessoa se propaguem pelo colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2518e62f2894"
+      ]
+    },
+    {
+      "ref": "como-cada-mola-funciona#1",
+      "action": "replace",
+      "text": "Molas bonnel têm formato bicônico, como uma ampulheta, e são dispostas paralelamente na estrutura interna do colchão, segundo a Maxflex. Por não serem ensacadas, não impedem a propagação de movimentos, segundo a Maxflex.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_ed627363ec7f"
+      ]
+    },
+    {
+      "ref": "diferenca-construcao#0",
+      "action": "replace",
+      "text": "Molas ensacadas têm revestimento individual de TNT de alta gramatura e são unidas por colagem (Hot Melt), sem conexão mecânica entre elas, segundo a Maxflex. O molejo bonnel tem formato bicônico, conforme a Probel.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d8faafc76fb7",
+        "clm_1b81a321a301"
+      ]
+    },
+    {
+      "ref": "para-quem-cada-tipo#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal com diferença de peso",
+          "claim_ids": [
+            "clm_ad4126e9715c"
+          ]
+        },
+        {
+          "text": "Segundo a Probel, cada mola se adapta individualmente e diminui a vibração de um lado para o outro",
+          "claim_ids": [
+            "clm_ad4126e9715c"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "para-quem-cada-tipo#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Pessoa mais pesada",
+          "claim_ids": [
+            "clm_8678b4270a49"
+          ]
+        },
+        {
+          "text": "Segundo a Maxflex, as molas ensacadas são indicadas por proporcionarem amortecimento mais eficiente",
+          "claim_ids": [
+            "clm_8678b4270a49"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "durabilidade-garantia#0",
+      "action": "replace",
+      "text": "A Probel informa que o molejo tradicional bonnel normalmente dura 5 anos e que os demais molejos podem durar até 10 anos. A Maxflex informa que colchões apenas de espuma duram em média 4 a 5 anos, enquanto os de molas Marshall podem durar até o dobro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_ad751aa495ec",
+        "clm_326d3b333287"
+      ]
+    },
+    {
+      "ref": "durabilidade-garantia#1",
+      "action": "replace",
+      "text": "O colchão Probel Excede Premium tem garantia de 12 meses para molas e espuma e de 3 meses para o tecido, segundo a Probel. O colchão Gazin Provence tem garantia de 1 ano, segundo a Gazin.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_07658b32a1fe",
+        "clm_0045332d3fc4"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você é casal com diferença de peso, prefira molas ensacadas: segundo a Probel, cada mola se adapta melhor às curvas do corpo e a menor interação entre as molas diminui a vibração de um lado para o outro; a Maxflex as considera ideais para casais com diferença acentuada de peso.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_ad4126e9715c",
+        "clm_0a0521b00293"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você dorme sozinho e quer economizar, as molas bonnel podem ser uma alternativa mais em conta, segundo a Maxflex.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2232cea82468"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se durabilidade é sua prioridade, observe que, segundo a Probel, colchões de molas normalmente duram de 5 anos no molejo bonnel a 10 anos nos demais molejos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_ad751aa495ec"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Molas ensacadas ou bonnel: qual escolher",
+    "description": "Compare molas ensacadas e bonnel pelo peso, número de pessoas, durabilidade, garantia e construção para escolher o colchão certo.",
+    "verdict": {
+      "text": "Molas ensacadas são indicadas para pessoas mais pesadas e casais, enquanto molas bonnel podem ser uma alternativa mais econômica, especialmente para quem dorme sozinho, segundo a Maxflex. A Probel informa que a duração normalmente varia de 5 anos no molejo bonnel a 10 anos nos demais molejos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_2232cea82468",
+        "clm_ad751aa495ec"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-cada-mola-funciona",
+        "heading": "Como cada tipo de mola funciona",
+        "blocks": [
+          {
+            "text": "Molas ensacadas são envolvidas individualmente em sacos de tecido resistente dentro do colchão, segundo a Maxflex. Segundo a empresa, elas impedem que os movimentos de uma pessoa se propaguem pelo colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2518e62f2894"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Molas bonnel têm formato bicônico, como uma ampulheta, e são dispostas paralelamente na estrutura interna do colchão, segundo a Maxflex. Por não serem ensacadas, não impedem a propagação de movimentos, segundo a Maxflex.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ed627363ec7f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "diferenca-construcao",
+        "heading": "Diferenças na construção",
+        "blocks": [
+          {
+            "text": "Molas ensacadas têm revestimento individual de TNT de alta gramatura e são unidas por colagem (Hot Melt), sem conexão mecânica entre elas, segundo a Maxflex. O molejo bonnel tem formato bicônico, conforme a Probel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d8faafc76fb7",
+              "clm_1b81a321a301"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Um exemplo de mola ensacada é o modelo pocket pró, com 196 molas por metro quadrado, feitas em aço carbono temperado de 2 mm de bitola e 23 cm de altura, segundo a Probel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_305e295b0070"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "para-quem-cada-tipo",
+        "heading": "Para quem cada tipo é indicado",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Indicação de tipo de mola conforme o uso, segundo fabricantes",
+            "columns": [
+              "Situação",
+              "Razão"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": [
+                      "clm_2bfe0b0f071c"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Simmons, evita transferência de movimento entre pessoas",
+                    "claim_ids": [
+                      "clm_2bfe0b0f071c"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal com diferença de peso",
+                    "claim_ids": [
+                      "clm_ad4126e9715c"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, cada mola se adapta individualmente e diminui a vibração de um lado para o outro",
+                    "claim_ids": [
+                      "clm_ad4126e9715c"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Pessoa que dorme sozinha",
+                    "claim_ids": [
+                      "clm_2232cea82468"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Maxflex, mais econômica",
+                    "claim_ids": [
+                      "clm_2232cea82468"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Pessoa mais pesada",
+                    "claim_ids": [
+                      "clm_8678b4270a49"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Maxflex, as molas ensacadas são indicadas por proporcionarem amortecimento mais eficiente",
+                    "claim_ids": [
+                      "clm_8678b4270a49"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "durabilidade-garantia",
+        "heading": "Durabilidade e garantia",
+        "blocks": [
+          {
+            "text": "A Probel informa que o molejo tradicional bonnel normalmente dura 5 anos e que os demais molejos podem durar até 10 anos. A Maxflex informa que colchões apenas de espuma duram em média 4 a 5 anos, enquanto os de molas Marshall podem durar até o dobro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ad751aa495ec",
+              "clm_326d3b333287"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O colchão Probel Excede Premium tem garantia de 12 meses para molas e espuma e de 3 meses para o tecido, segundo a Probel. O colchão Gazin Provence tem garantia de 1 ano, segundo a Gazin.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_07658b32a1fe",
+              "clm_0045332d3fc4"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se você é casal, escolha molas ensacadas: elas evitam que os movimentos de uma pessoa interfiram no sono da outra, segundo a Ortobom e a Simmons.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0522b96db922",
+              "clm_2bfe0b0f071c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você é casal com diferença de peso, prefira molas ensacadas: segundo a Probel, cada mola se adapta melhor às curvas do corpo e a menor interação entre as molas diminui a vibração de um lado para o outro; a Maxflex as considera ideais para casais com diferença acentuada de peso.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_ad4126e9715c",
+              "clm_0a0521b00293"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você dorme sozinho e quer economizar, as molas bonnel podem ser uma alternativa mais em conta, segundo a Maxflex.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2232cea82468"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se durabilidade é sua prioridade, observe que, segundo a Probel, colchões de molas normalmente duram de 5 anos no molejo bonnel a 10 anos nos demais molejos.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_ad751aa495ec"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ao comprar colchão de molas, verifique se o selo do Inmetro está afixado no produto, garantindo que foi fabricado conforme as especificações de qualidade, segundo a Maxflex.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8130fa45b4fe"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que a Maxflex indica molas ensacadas para pessoas mais pesadas e casais, e que molas Bonnell são uma alternativa mais econômica, especialmente para solteiros. Porém, não dizem que as ensacadas evitam transferência de movimento, que custam mais, nem que duram até o dobro das Bonnell. A Probel apenas informa uma faixa geral de duração entre o molejo Bonnell e os demais, sem especificar molas ensacadas; além disso, a recomendação de maior durabilidade não é diretamente sustentada. Versão sustentável: Molas ensacadas são indicadas para pessoas mais pesadas e casais, enquanto molas Bonnell podem ser uma alternativa mais econômica, especialmente para quem dorme sozinho, segundo a Maxflex. A Probel informa que a duração normalmente varia de 5 anos no molejo Bonnell a 10 anos nos demais molejos."
+    },
+    {
+      "ref": "como-cada-mola-funciona#0",
+      "msg": "OVERSTATED. Os trechos sustentam que as molas são envolvidas individualmente em sacos de tecido resistente e que impedem a propagação dos movimentos, mas não afirmam explicitamente que cada mola funciona de forma independente. Versão sustentável: Molas ensacadas são envolvidas individualmente em sacos de tecido resistente dentro do colchão, segundo a Maxflex. Segundo a empresa, elas impedem que os movimentos de uma pessoa se propaguem pelo colchão."
+    },
+    {
+      "ref": "como-cada-mola-funciona#1",
+      "msg": "UNSUPPORTED. O trecho não diz que as molas bonnel são ligadas mecanicamente umas às outras. Ele apenas afirma que são dispostas paralelamente, produzidas em aço e têm formato bicônico. A parte sobre a propagação dos movimentos por não serem ensacadas é sustentada. Versão sustentável: Molas bonnel têm formato bicônico, como uma ampulheta, e são dispostas paralelamente na estrutura interna do colchão, segundo a Maxflex. Por não serem ensacadas, não impedem a propagação de movimentos, segundo a Maxflex."
+    },
+    {
+      "ref": "diferenca-construcao#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam que as molas ensacadas têm invólucros de TNT de alta gramatura e são coladas por Hot Melt sem conexão mecânica, além de que o molejo Bonnel tem formato bicônico. Porém, nenhum trecho afirma que as molas Bonnel são interligadas mecanicamente. Versão sustentável: Molas ensacadas têm revestimento individual de TNT de alta gramatura e são unidas por colagem (Hot Melt), sem conexão mecânica entre elas, segundo a Maxflex. O molejo Bonnel tem formato bicônico, conforme a Probel."
+    },
+    {
+      "ref": "para-quem-cada-tipo#0.r1",
+      "msg": "OVERSTATED. Os trechos sustentam casais com diferença acentuada ou pesos diferentes, mas não estabelecem o limite específico de mais de 20 kg. Versão sustentável: Situação: Casal com diferença de peso | Razão: Segundo a Probel, cada mola se adapta individualmente e diminui a vibração de um lado para o outro."
+    },
+    {
+      "ref": "para-quem-cada-tipo#0.r3",
+      "msg": "OVERSTATED. O trecho menciona pessoas mais pesadas e pessoas obesas, mas não define o limite específico de 80 kg. Versão sustentável: Situação: Pessoa mais pesada | Razão: Segundo a Maxflex, as molas ensacadas são indicadas por proporcionarem amortecimento mais eficiente."
+    },
+    {
+      "ref": "durabilidade-garantia#0",
+      "msg": "OVERSTATED. Os trechos não afirmam diretamente que colchões de molas ensacadas duram mais que os de Bonnell. A Probel compara Bonnell tradicional com “demais molejos”, sem especificar molas ensacadas, e a Maxflex fala especificamente de molas Marshall em comparação com colchões apenas de espuma, não de todos os colchões de molas nem de Bonnell. A frase também atribui à Maxflex uma comparação mais ampla do que o trecho sustenta. Versão sustentável: A Probel informa que o molejo tradicional Bonnell normalmente dura 5 anos e que os demais molejos podem durar até 10 anos. A Maxflex informa que colchões apenas de espuma duram em média 4 a 5 anos, enquanto os de molas Marshall podem durar até o dobro."
+    },
+    {
+      "ref": "durabilidade-garantia#1",
+      "msg": "MISATTRIBUTED. O trecho da Probel confirma a garantia do Probel Excede Premium, mas não diz nada sobre o colchão Gazin Provence. A garantia de 1 ano do Gazin Provence é informada apenas pelo trecho da garzin; portanto, não pode ser apresentada como conforme a Probel e a garzin. Versão sustentável: O Probel Excede Premium tem garantia de 12 meses para molas e espuma e de 3 meses para o tecido, segundo a Probel. O Gazin Provence tem garantia de 1 ano, segundo a garzin."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos recomendam molas ensacadas para casais com pesos diferentes ou com diferença acentuada de peso, mas não estabelecem o corte específico de 20 kg. Versão sustentável: Se você é casal com diferença de peso, prefira molas ensacadas: segundo a Probel, cada mola se adapta melhor às curvas do corpo e a menor interação entre as molas diminui a vibração de um lado para o outro; a Maxflex as considera ideais para casais com diferença acentuada de peso."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho sustenta que molas Bonnell são uma alternativa mais em conta, principalmente para solteiros que querem economizar, mas não afirma que sejam suficientes nem que sejam adequadas para uso individual. Versão sustentável: Se você dorme sozinho e quer economizar, as molas Bonnell podem ser uma alternativa mais em conta, segundo a Maxflex."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. A fonte informa durabilidade normalmente de 5 anos para o molejo Bonnell e de 10 anos para os demais molejos, mas não identifica especificamente as molas ensacadas como as que duram o dobro. Também não há trecho citado sobre conferir ficha técnica, tempo de garantia ou variação entre fabricantes. Versão sustentável: Se durabilidade é sua prioridade, observe que, segundo a Probel, colchões de molas normalmente duram de 5 anos no molejo Bonnell a 10 anos nos demais molejos."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1498
+  }
+}

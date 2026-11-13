@@ -1,0 +1,48 @@
+{
+  "slug": "colchao-de-molas-ensacadas-ou-bonnel",
+  "status": "PASS",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 66695,
+    "output_tokens": 24175,
+    "calls": 31
+  },
+  "credits": 68.25263111999998,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "para-quem-cada-tipo#0.r0",
+      "para-quem-cada-tipo#0.r1",
+      "para-quem-cada-tipo#0.r2",
+      "para-quem-cada-tipo#0.r3",
+      "como-decidir#0",
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Para casal, escolher molas ensacadas para reduzir a transferência dos movimentos entre os lados da cama.",
+      "Para casal com grande diferença de peso, preferir molas ensacadas pela adaptação individual e menor vibração de um lado para o outro.",
+      "Para quem dorme sozinho e quer gastar menos, considerar molas bonnel como alternativa mais econômica.",
+      "Para pessoas mais pesadas, considerar molas ensacadas pelo amortecimento mais eficiente declarado pelo fabricante.",
+      "Se a prioridade for durabilidade, comparar a expectativa declarada de cerca de 5 anos para bonnel com até 10 anos para outros molejos, sem tratar esses prazos como garantia.",
+      "No anúncio ou produto, conferir o tipo de molejo, as especificações da construção e a presença do selo do Inmetro."
+    ],
+    "missing": [
+      "Faixas de peso, capacidade de uso ou limite por pessoa declarados pelos fabricantes para modelos ensacados e bonnel.",
+      "Explicação mais completa do que a certificação do Inmetro e as normas da ABNT exigem especificamente para cada tipo de colchão.",
+      "Dados comparáveis sobre densidade e espessura das camadas de conforto entre modelos ensacados e bonnel.",
+      "Comparação de garantias de modelos equivalentes de cada tipo de mola, separando garantia do molejo, espuma e revestimento.",
+      "Declarações de durabilidade ou resistência específicas para modelos bonnel e ensacados, além da estimativa geral de anos."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde diretamente que molas ensacadas tendem a servir melhor para casais, diferenças de peso e pessoas mais pesadas, enquanto bonnel pode atender quem dorme sozinho e busca economia. Também oferece critérios práticos para comparar o anúncio, como tipo de molejo, construção, durabilidade declarada e selo do Inmetro. Há repetição entre a tabela de indicações e o bloco “Como decidir”, e faltam faixas objetivas de peso e comparações técnicas mais amplas, mas isso não impede a decisão principal.",
+    "filler_ratio": 0.5,
+    "model_opinion": true
+  }
+}

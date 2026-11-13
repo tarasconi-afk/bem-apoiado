@@ -1,0 +1,48 @@
+{
+  "slug": "toalha-que-nao-solta-pelo-como-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 98621,
+    "output_tokens": 29637,
+    "calls": 48
+  },
+  "credits": 36.4483668,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página promete uma toalha que não solta pelo, mas os trechos só sustentam reduzir fibras curtas ou o excesso de fibras soltas na primeira lavagem, sem garantir que a toalha não soltará pelo (verdict); Trocar a promessa para algo que a página sustenta, como “"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Prefira uma toalha cujo fabricante declare fio penteado se quiser reduzir a presença de fibras curtas, pois esse processo remove essas fibras; o fio cardado as mantém.",
+      "Confira na ficha técnica ou na etiqueta a composição e o percentual de cada fibra antes de comprar.",
+      "Lave a toalha antes do primeiro uso para assentar a felpa, acomodar a retração natural do algodão e remover fibras soltas da produção.",
+      "Confira as instruções de lavagem, alvejamento e secagem na etiqueta, especialmente se pretende usar secadora.",
+      "Evite excesso de amaciante e prefira secagem à sombra ou ciclo suave, conforme as orientações dos fabricantes citados.",
+      "Use a gramatura declarada apenas como informação de densidade do modelo; a página não estabelece uma faixa que garanta menor soltura de fiapos."
+    ],
+    "missing": [
+      "Para o leitor leigo: A página promete uma toalha que não solta pelo, mas os trechos só sustentam reduzir fibras curtas ou o excesso de fibras soltas na primeira lavagem, sem garantir que a toalha não soltará pelo (verdict); Trocar a promessa para algo que a página sustenta, como “",
+      "Uma fonte primária relacionando explicitamente faixas de gramatura e tipo de fio à menor soltura de fiapos.",
+      "Uma orientação do fabricante sobre quanto tempo ou após quantas lavagens a soltura de fibras tende a diminuir.",
+      "Uma comparação direta entre modelos de fio penteado e cardado em relação à soltura de fiapos durante o uso."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página dá uma regra prática — priorizar fio penteado, conferir composição e cuidados na etiqueta e lavar antes do primeiro uso. Também orienta sobre secagem e amaciante, embora não consiga indicar uma gramatura que, por si só, garanta menor soltura de fiapos.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "promessa_do_titulo",
+        "ref": "verdict",
+        "problem": "A página promete uma toalha que não solta pelo, mas os trechos só sustentam reduzir fibras curtas ou o excesso de fibras soltas na primeira lavagem, sem garantir que a toalha não soltará pelo.",
+        "fix": "Trocar a promessa para algo que a página sustenta, como “Como escolher uma toalha que solte menos fibras”, e ajustar a resposta curta para falar em reduzir fibras soltas, não em eliminá-las."
+      }
+    ]
+  }
+}
