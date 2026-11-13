@@ -1,0 +1,66 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira se o protetor corresponde ao tamanho e à altura, ou profundidade, do colchão.",
+      "Para colchões de até 40 cm, há modelos com elástico e com zíper indicados para essa altura.",
+      "Prefira o modelo com elástico se quiser uma cobertura semelhante a um lençol ajustado.",
+      "Prefira a capa com zíper se quiser envolver todo o colchão.",
+      "Se a proteção contra líquidos e sujeira é prioridade, escolha um modelo cuja ficha declare impermeabilidade.",
+      "Se precisa lavar à máquina, confira se a ficha permite o processo e informa temperatura e ciclo adequados.",
+      "Se só pode lavar à mão, escolha um modelo cuja ficha permita esse cuidado.",
+      "Confira na ficha se o produto pode ir à secadora e se pode ser passado a ferro.",
+      "Se alergia é um critério, verifique se o fabricante declara propriedades como antialérgico ou hipoalergênico."
+    ],
+    "missing": [
+      "Tabela dos fabricantes com todas as faixas de altura e tamanhos disponíveis para cada modelo, especialmente os modelos com elástico.",
+      "Aviso de segurança do fabricante sobre crianças pequenas e risco de asfixia pelo material plástico.",
+      "Informações dos fabricantes sobre maciez, firmeza, sustentação, aumento de altura e perfil de uso de cada opção.",
+      "Instruções de lavagem, secagem e passadoria específicas para mais modelos, não apenas para os exemplos citados.",
+      "Declarações dos fabricantes sobre eventual troca de ar entre as camadas do material impermeável, caso existam."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde rapidamente que a escolha deve partir do tamanho e da altura do colchão, diferencia elástico de zíper e dá critérios práticos de impermeabilidade e cuidados de lavagem. Faltam dados completos de medidas, segurança e conforto, mas há orientação concreta suficiente para conferir a ficha e escolher um modelo.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira se o protetor corresponde ao tamanho da cama e à altura do colchão; há modelos indicados para até 35 cm ou até 40 cm.",
+      "Escolha o modelo com elástico se quiser uma cobertura semelhante a um lençol ajustado; escolha a capa com zíper se quiser envolver todo o colchão.",
+      "Se precisa proteger contra líquidos e sujeira, confirme na ficha técnica que o modelo é declarado impermeável.",
+      "Se o colchão tem 35 cm de altura, o modelo da Ortobom indicado para essa profundidade é uma opção compatível.",
+      "Para lavar à máquina, escolha um modelo cuja ficha permita esse processo; o protetor Percal 180 fios da Altenburg permite lavagem a até 40 °C em ciclo delicado e secagem em temperatura baixa.",
+      "Se só pode lavar à mão, confira essa instrução na ficha; o modelo Malha Impermeável 35 cm da Ortobom permite lavagem manual a até 40 °C.",
+      "Confira na ficha a possibilidade de usar secadora, passar a ferro e usar alvejante, pois esses cuidados variam entre modelos.",
+      "Se alergia for um critério, confira se o fabricante declara propriedades como antialérgica ou hipoalergênica para o modelo escolhido."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma comparação mais clara de quando escolher elástico ou zíper conforme o uso, como facilidade de colocar, proteção integral ou necessidade de retirar com frequência.",
+      "Declarações dos fabricantes sobre maciez, firmeza, sustentação e alteração da altura do colchão para cada opção.",
+      "Aviso de segurança do fabricante sobre uso por crianças pequenas ou risco de asfixia com material plástico.",
+      "Informação de fabricante sobre troca de ar entre as camadas do material impermeável, caso exista em alguma ficha.",
+      "Mais modelos com suas respectivas medidas e alturas máximas para ampliar a regra de escolha além dos exemplos de 35 cm e 40 cm."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página dá uma regra prática para conferir tamanho, altura, impermeabilidade e cuidados de lavagem, além de exemplos concretos de modelos. A resposta curta, porém, é genérica e não indica uma opção com base em um dado do leitor; pode ser melhorada com uma regra comparando elástico e zíper e com critérios de uso.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "score_before": 4,
+  "score_after": 3
+}

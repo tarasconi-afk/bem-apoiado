@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "verdict",
+      "problem": "O leitor pode entender que todo protetor com elástico suporta colchões de até 40 cm, mas os trechos dão essa altura para modelos específicos, como o Protetor Malha Slim da Altenburg.",
+      "fix": "Reescrever para atribuir o dado ao produto: “O Protetor Malha Slim da Altenburg veste colchões de até 40 cm; em outros modelos, confira a altura indicada na ficha técnica.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 15279,
+    "output_tokens": 2769,
+    "calls": 3
+  }
+}
