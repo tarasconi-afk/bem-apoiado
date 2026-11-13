@@ -3,15 +3,16 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Cobertor mais quente: como escolher pela gramatura",
-  "description": "Como escolher um cobertor mais quente pela gramatura declarada na ficha: o que ela indica e o que conferir no anúncio antes de comprar.",
+  "description": "Escolha cobertor pela gramatura e composição: 250 g/m² para meia-estação, 350 g/m² para aquecimento. Confira na etiqueta a fibra e o percentual.",
   "primary_query": "cobertor mais quente: como escolher",
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-12",
   "verdict": {
-    "text": "A Döhler descreve um cobertor de 350 g/m² como oferecendo aquecimento sem perder leveza, e um de 250 g/m² como adequado para meia-estação ou como camada complementar em dias mais frios.",
-    "basis": "evidence",
+    "text": "Nos modelos citados pela Döhler, o de 250 g/m² é apresentado pela fabricante como leve e adequado para meia-estação ou como camada complementar, enquanto o de 350 g/m² é apresentado como capaz de aquecer sem perder leveza. Confira na etiqueta a composição das fibras e seus percentuais.",
+    "basis": "reasoning",
     "claim_ids": [
+      "clm_6440f47401e0",
       "clm_23f8010fb15b",
-      "clm_6440f47401e0"
+      "clm_1a9fa3a6c7bf"
     ]
   },
   "sections": [
@@ -198,29 +199,69 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir pelo aquecimento",
+      "heading": "Como escolher pela gramatura e composição",
       "blocks": [
         {
+          "kind": "paragraph",
+          "text": "Se você quer um cobertor mais leve para meia-estação ou para camadas complementares em dias frios, confira gramatura de 250 g/m²: segundo a Döhler, essa medida oferece conforto térmico com leveza.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_6440f47401e0"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se você busca aquecimento sem abrir mão da leveza no dia a dia, procure por gramatura de 350 g/m²: a Döhler descreve esse peso como ideal para garantir aquecimento necessário mantendo a praticidade.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_23f8010fb15b"
+          ]
+        },
+        {
           "kind": "table",
-          "caption": "Gramatura declarada e uso conforme o fabricante",
+          "caption": "Exemplos de gramatura e composição informados por fabricantes",
           "columns": [
-            "Gramatura (g/m²)",
-            "Composição típica"
+            "Produto",
+            "Gramatura",
+            "Composição"
           ],
           "rows": [
             {
               "cells": [
                 {
-                  "text": "250",
+                  "text": "Cobertor Eva da Döhler (queen)",
+                  "claim_ids": []
+                },
+                {
+                  "text": "350 g/m²",
+                  "claim_ids": [
+                    "clm_23f8010fb15b"
+                  ]
+                },
+                {
+                  "text": "100% poliéster microfibra",
+                  "claim_ids": [
+                    "clm_5bae51fde01a"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Cobertor Elise da Döhler (king)",
+                  "claim_ids": []
+                },
+                {
+                  "text": "250 g/m²",
                   "claim_ids": [
                     "clm_6440f47401e0"
                   ]
                 },
                 {
-                  "text": "Segundo a Andreza Enxovais, 100% poliéster (microfibra ou flanela)",
+                  "text": "100% poliéster microfibra",
                   "claim_ids": [
-                    "clm_25edb77f0904",
-                    "clm_1ae977ab120a"
+                    "clm_ed579e83b6fc"
                   ]
                 }
               ]
@@ -228,50 +269,19 @@
             {
               "cells": [
                 {
-                  "text": "280 a 300",
+                  "text": "Cobertor Intense da Buddemeyer",
+                  "claim_ids": []
+                },
+                {
+                  "text": "350 g/m²",
                   "claim_ids": [
-                    "clm_232a27049f3d",
-                    "clm_25edb77f0904"
+                    "clm_02b6826043f5"
                   ]
                 },
                 {
-                  "text": "Segundo a Kacyumara e a Andreza Enxovais, 100% poliéster (microfibra ou flanela)",
+                  "text": "100% poliéster",
                   "claim_ids": [
-                    "clm_6566a6168fcc",
-                    "clm_25edb77f0904"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "350",
-                  "claim_ids": [
-                    "clm_23f8010fb15b"
-                  ]
-                },
-                {
-                  "text": "Segundo a Döhler, microfibra flanelada 100% poliéster",
-                  "claim_ids": [
-                    "clm_23f8010fb15b"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "400",
-                  "claim_ids": [
-                    "clm_8cc5a0db620c",
-                    "clm_9d2c2b00058b"
-                  ]
-                },
-                {
-                  "text": "Segundo a Andreza Enxovais, 100% poliéster (flanela)",
-                  "claim_ids": [
-                    "clm_8cc5a0db620c"
+                    "clm_3bebdfa74640"
                   ]
                 }
               ]
@@ -280,36 +290,24 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer um cobertor que, segundo a Döhler, ofereça o aquecimento necessário sem perder a leveza, considere a descrição de um modelo de 350 g/m².",
+          "text": "Confira o nome das fibras ou filamentos têxteis e seus percentuais em massa.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_23f8010fb15b"
+            "clm_1a9fa3a6c7bf"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer um cobertor para meia-estação ou para usar junto com outra coberta nos dias mais frios, confira gramatura de 250 g/m²: a Döhler descreve essa medida como ideal para esse uso.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_6440f47401e0"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Quando informados na descrição do produto, confira a gramatura em g/m² e a composição percentual. Nos exemplos citados, há produtos de 250 g/m² e 350 g/m², sendo um deles descrito como 100% poliéster.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_23f8010fb15b",
-            "clm_6440f47401e0",
-            "clm_5bae51fde01a"
-          ]
+          "text": "A seguir, veja como consultar a gramatura informada para os produtos.",
+          "basis": "framing",
+          "claim_ids": []
         }
       ]
     }
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261102T070703_autopilot_efaa+editor:20261103T130132_cobertor-mais-quente-como-escolher-ajuste_8aee+reaudit:20261105T070935_autopilot_eb21",
+    "run_id": "20261102T070703_autopilot_efaa+editor:20261103T130132_cobertor-mais-quente-como-escolher-ajuste_8aee+reaudit:20261105T070935_autopilot_eb21+editor:20261112T191136_autopilot_8e58",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
