@@ -950,6 +950,22 @@ export async function readyOrResearch(slug: string, runId: string, steps: string
       return false;
     }
   }
+  // Lados da decisão (stages/lados.ts, 13/11): "A ou B" com um lado sem nenhuma evidência da pauta não vai ao redator.
+  // As regras acima podem passar com um produto fazendo o papel do lado que falta (pillow top da Luuna como "topper").
+  {
+    const { ladosSemEvidencia } = await import('./lados.ts');
+    const { buildIndex } = await import('../store.ts');
+    const { claimsForTopic } = await import('./draft-schema.ts');
+    const t = loadTopic(slug);
+    const falta = ladosSemEvidencia(t.primary_query, claimsForTopic(t, buildIndex().claims.values()).map((c) => c.quote));
+    if (falta.length) {
+      const lacunas = falta.map((l) => `Evidência primária sobre "${l}" (o lado da comparação que nenhuma fonte da pauta menciona): o que é, como se usa e o que a ficha declara.`);
+      writeJson(join(DATA, 'topics', `${slug}.json`), TopicBrief.parse({ ...t, evidence_gaps: [...new Set([...lacunas, ...t.evidence_gaps])].slice(0, 5) }));
+      writeState(DEFERRED_FILE, { ...readState<Record<string, string>>(DEFERRED_FILE, {}), [slug]: new Date().toISOString() });
+      steps.push(`pauta adiada antes da redação: nenhuma evidência da pauta fala de ${falta.map((l) => `"${l}"`).join(' e ')}; escrever agora seria comparar um lado só`);
+      return false;
+    }
+  }
   saveRules(slug, loadTopic(slug), r.rules);
   steps.push(`checagem antes de escrever: ${r.rules.length} regras de escolha sustentadas`);
   return r.rules;

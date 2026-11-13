@@ -348,6 +348,9 @@ export async function findProductsFromAmazon(
     // exemplo). Sem exemplo suficiente, busca o tipo com o nome de fabricante do cadastro para esse tipo ("toalha de
     // banho Karsten": 5 anúncios da marca) e só tenta anúncio com a marca no título. A marca continua sendo a que o
     // anúncio declara: as travas de marca e de fabricante são as mesmas.
+    // Cota própria (13/11, 10h: "como escolher lençol" gastou as 10 tentativas do tipo em 10 anúncios "Genérico" e a
+    // busca por marca nem rodou; 1 consulta no relatório, 0 produto). A busca pelo tipo não pode esgotar a da marca.
+    tries = tentativasDaBuscaPorMarca(tries);
     for (const m of brandQueries(kind, makers, usedBrands, cited, BRAND_QUERIES_PER_KIND)) {
       if (added >= perKind || need <= 0 || tries <= 0) break;
       await search(`${kl} ${m}`, m);
@@ -362,6 +365,8 @@ export async function findProductsFromAmazon(
 // Fabricantes do cadastro que fazem o tipo, para a busca por marca: os que a página cita primeiro, depois os demais
 // na ordem do cadastro; sem repetir marca que a página já mostra. Nomes como o cadastro escreve (Karsten, Döhler).
 export const BRAND_QUERIES_PER_KIND = 2;
+export const BRAND_LISTING_TRIES = 4;
+export const tentativasDaBuscaPorMarca = (restantes: number) => Math.max(restantes, BRAND_LISTING_TRIES);
 export function brandQueries(kind: string, makers: { publisher: string; kinds?: string[] }[], usedBrands: Set<string>, cited: Set<string>, max: number): string[] {
   const names = [...new Set(makers.filter((m) => m.kinds?.includes(kind)).map((m) => m.publisher))].filter((n) => !usedBrands.has(loose(n)));
   return [...names.filter((n) => cited.has(loose(n))), ...names.filter((n) => !cited.has(loose(n)))].slice(0, max);

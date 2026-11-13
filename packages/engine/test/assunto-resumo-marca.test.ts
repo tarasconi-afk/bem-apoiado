@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { assuntosDaPauta, escolherPorAssunto, impressaoDaPagina, resumoJaRecusado, type RecusaResumo } from '../src/stages/autopilot.ts';
-import { brandQueries } from '../src/stages/products.ts';
+import { BRAND_LISTING_TRIES, brandQueries, tentativasDaBuscaPorMarca } from '../src/stages/products.ts';
 
 const KINDS = [
   { id: 'espuma', label: 'Colchão de espuma' },
@@ -68,5 +68,12 @@ describe('busca de anúncio por marca do cadastro', () => {
     expect(brandQueries('toalha', makers, new Set(['teka']), new Set(['döhler']), 2)).toEqual(['Döhler', 'Karsten']);
     expect(brandQueries('toalha', makers, new Set(), new Set(), 5)).toEqual(['Karsten', 'Döhler', 'Teka']);
     expect(brandQueries('espuma', makers, new Set(['probel']), new Set(), 2)).toEqual([]);
+  });
+});
+
+describe('busca por marca tem cota própria (13/11, lençol)', () => {
+  it('a busca pelo tipo que gastou todas as tentativas não impede a busca por marca', () => {
+    expect(tentativasDaBuscaPorMarca(0)).toBe(BRAND_LISTING_TRIES);
+    expect(tentativasDaBuscaPorMarca(7)).toBe(7);
   });
 });
