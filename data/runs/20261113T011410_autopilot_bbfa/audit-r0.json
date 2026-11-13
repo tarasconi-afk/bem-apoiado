@@ -1,0 +1,108 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam que o processo de penteação remove fibras curtas e que o fio cardado as mantém, mas não dizem que isso reduz a chance de fibras soltas. Além disso, nenhum trecho citado sustenta a recomendação de conferir os cuidados de lavagem na etiqueta, nem atribui à Appel a afirmação específica sobre o fio cardado.",
+      "fix": "A Karsten informa que o fio penteado passa por uma etapa que remove fibras curtas, enquanto o fio cardado as mantém. Confira na etiqueta a composição do produto."
+    },
+    {
+      "ref": "fio-penteado-vs-cardado#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "fio-penteado-vs-cardado#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado da Appel não declara que o modelo Combinatto tem 420 g/m²; ele apenas traz instruções de lavagem e conservação. A gramatura aparece no título do documento, mas não no trecho literal reproduzido como evidência.",
+      "fix": "Na Appel, o trecho citado sustenta apenas orientações de lavagem e conservação. Para manter a afirmação sobre 420 g/m², cite um trecho literal da página que declare essa gramatura; caso contrário, remova essa parte."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o nome das fibras deve vir acompanhado do percentual em massa, em ordem decrescente e com igual destaque. Porém, não mostram expressamente que essa informação deve estar “na etiqueta” nem que a regra se aplica a todos os produtos têxteis destinados à comercialização com caráter obrigatório.",
+      "fix": "Segundo o Inmetro, o nome das fibras têxteis deve vir acompanhado de seu percentual de participação em massa, informado em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "primeira-lavagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Appel não identifica explicitamente o processo como fio penteado; essa relação está dita no trecho da Karsten. Além disso, os trechos falam em remoção ou manutenção de fibras curtas, não diretamente em reduzir a chance de fibras soltas no uso.",
+      "fix": "Diga: \"A Karsten explica que o fio penteado remove fibras mais curtas, enquanto o cardado as mantém; por isso, confira na ficha técnica qual tipo de fio o fabricante declara.\""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a secagem e os demais tratamentos de conservação devem ser informados, mas não dizem que a etiqueta informa se o tratamento é permitido nem em qual temperatura.",
+      "fix": "Diga: \"Se você pretende usar secadora, confira na etiqueta as informações sobre o tratamento de secagem. A etiqueta deve informar lavagem, alvejamento, secagem, passadoria e limpeza profissional.\""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "A afirmação sobre remover fibra solta da produção aparece para um pano de prato específico, não para toalhas em geral. O trecho sobre a toalha apenas recomenda lavar antes do primeiro uso e menciona abrir a felpa e acomodar a retração.",
+      "fix": "Diga: \"A Appel recomenda lavar o pano de prato antes do primeiro uso e afirma que isso tira o excesso de fibra solta da produção. Para a toalha citada, recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão.\""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam que o processo de penteação remove fibras curtas e que o fio cardado as mantém, mas não dizem que isso reduz a chance de fibras soltas. Além disso, nenhum trecho citado sustenta a recomendação de conferir os cuidados de lavagem na etiqueta, nem atribui à Appel a afirmação específica sobre o fio cardado. Versão sustentável: A Karsten informa que o fio penteado passa por uma etapa que remove fibras curtas, enquanto o fio cardado as mantém. Confira na etiqueta a composição do produto."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "msg": "UNSUPPORTED. O trecho citado da Appel não declara que o modelo Combinatto tem 420 g/m²; ele apenas traz instruções de lavagem e conservação. A gramatura aparece no título do documento, mas não no trecho literal reproduzido como evidência. Versão sustentável: Na Appel, o trecho citado sustenta apenas orientações de lavagem e conservação. Para manter a afirmação sobre 420 g/m², cite um trecho literal da página que declare essa gramatura; caso contrário, remova essa parte."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o nome das fibras deve vir acompanhado do percentual em massa, em ordem decrescente e com igual destaque. Porém, não mostram expressamente que essa informação deve estar “na etiqueta” nem que a regra se aplica a todos os produtos têxteis destinados à comercialização com caráter obrigatório. Versão sustentável: Segundo o Inmetro, o nome das fibras têxteis deve vir acompanhado de seu percentual de participação em massa, informado em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. O trecho da Appel não identifica explicitamente o processo como fio penteado; essa relação está dita no trecho da Karsten. Além disso, os trechos falam em remoção ou manutenção de fibras curtas, não diretamente em reduzir a chance de fibras soltas no uso. Versão sustentável: Diga: \"A Karsten explica que o fio penteado remove fibras mais curtas, enquanto o cardado as mantém; por isso, confira na ficha técnica qual tipo de fio o fabricante declara.\""
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam que a secagem e os demais tratamentos de conservação devem ser informados, mas não dizem que a etiqueta informa se o tratamento é permitido nem em qual temperatura. Versão sustentável: Diga: \"Se você pretende usar secadora, confira na etiqueta as informações sobre o tratamento de secagem. A etiqueta deve informar lavagem, alvejamento, secagem, passadoria e limpeza profissional.\""
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. A afirmação sobre remover fibra solta da produção aparece para um pano de prato específico, não para toalhas em geral. O trecho sobre a toalha apenas recomenda lavar antes do primeiro uso e menciona abrir a felpa e acomodar a retração. Versão sustentável: Diga: \"A Appel recomenda lavar o pano de prato antes do primeiro uso e afirma que isso tira o excesso de fibra solta da produção. Para a toalha citada, recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão.\""
+    }
+  ]
+}

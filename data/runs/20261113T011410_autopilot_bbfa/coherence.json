@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "A página promete uma toalha que não solta pelo, mas os trechos só sustentam reduzir fibras curtas ou o excesso de fibras soltas na primeira lavagem, sem garantir que a toalha não soltará pelo.",
+      "fix": "Trocar a promessa para algo que a página sustenta, como “Como escolher uma toalha que solte menos fibras”, e ajustar a resposta curta para falar em reduzir fibras soltas, não em eliminá-las."
+    }
+  ],
+  "usage": {
+    "input_tokens": 20608,
+    "output_tokens": 4532,
+    "calls": 3
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Toalha que solta menos fibras: escolha fio penteado e lave antes do primeiro uso. Segundo a Karsten, o fio penteado remove fibras curtas, diferenciando-se do cardado; a Appel recomenda lavar antes do primeiro uso para acomodar a retração natural do algodão e assentar a felpa.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_634c96d244f5",
+        "clm_38ced81cd6ad",
+        "clm_6e04eb1d583a",
+        "clm_83cef42acbbb"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: OVERSTATED"
+  ]
+}

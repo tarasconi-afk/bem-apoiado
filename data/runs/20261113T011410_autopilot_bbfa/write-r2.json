@@ -1,0 +1,218 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Confira as informações sobre fio penteado ou cardado conforme a explicação da Karsten. A Karsten afirma que o fio penteado remove fibras curtas e que o cardado as mantém. A Appel recomenda lavar a toalha antes do primeiro uso para assentar a felpa e remover fibras soltas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_634c96d244f5",
+        "clm_38ced81cd6ad",
+        "clm_6e04eb1d583a"
+      ]
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "action": "replace",
+      "text": "Na Karsten, a página sobre fio cardado lista gramaturas de 350 g/m² a 500 g/m². Nos modelos de fio penteado consultados, a Döhler declara 620 g/m² na Florença e 520 g/m² na Atlas; a Karsten declara 600 g/m² na Magna.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0d00b84d09e3",
+        "clm_1118397a1e5a",
+        "clm_28c16bf86493"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se quer reduzir fibras soltas no início do uso, lave antes de usar. Segundo a Appel, a primeira lavagem de um pano de prato atoalhado assenta a felpa e tira o excesso de fibra solta da produção. Para a toalha de banho, a Appel recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_83cef42acbbb",
+        "clm_6e04eb1d583a"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Toalha que não solta pelo: como escolher",
+    "description": "Escolha pela tipo de fio e gramatura declarados na ficha. Confira a composição e os cuidados de lavagem na etiqueta antes de comprar.",
+    "verdict": {
+      "text": "Confira as informações sobre fio penteado ou cardado conforme a explicação da Karsten. A Karsten afirma que o fio penteado remove fibras curtas e que o cardado as mantém. A Appel recomenda lavar a toalha antes do primeiro uso para assentar a felpa e remover fibras soltas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_634c96d244f5",
+        "clm_38ced81cd6ad",
+        "clm_6e04eb1d583a"
+      ]
+    },
+    "sections": [
+      {
+        "id": "fio-penteado-vs-cardado",
+        "heading": "Fio penteado ou cardado: qual a diferença",
+        "blocks": [
+          {
+            "text": "O fio penteado passa por uma etapa extra que remove fibras curtas e impurezas do algodão, resultando em um tecido mais macio, resistente e uniforme, segundo a Appel. Já o fio cardado mantém essas fibras curtas, conferindo ao tecido um toque mais encorpado, segundo a Karsten.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5168c75bf4dc",
+              "clm_634c96d244f5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Appel declara que o fio penteado não contém fibras curtas, diferenciando-se por essa característica. A Karsten explica que o fio cardado é produzido por cardagem de fibras desembaraçadas e alinhadas, mas sem a etapa de penteação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_47834bd26d73",
+              "clm_38ced81cd6ad"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "gramatura-declarada",
+        "heading": "Gramatura: o que os fabricantes declaram",
+        "blocks": [
+          {
+            "text": "Na Karsten, a página sobre fio cardado lista gramaturas de 350 g/m² a 500 g/m². Nos modelos de fio penteado consultados, a Döhler declara 620 g/m² na Florença e 520 g/m² na Atlas; a Karsten declara 600 g/m² na Magna.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0d00b84d09e3",
+              "clm_1118397a1e5a",
+              "clm_28c16bf86493"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-etiqueta",
+        "heading": "O que a etiqueta deve informar sobre composição",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, o nome das fibras têxteis deve vir acompanhado de seu percentual de participação em massa, informado em ordem decrescente e com igual destaque.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_055cf59ece8e",
+              "clm_0e5f8661d994"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nos modelos consultados: no Florença Creme da Döhler, 100% algodão; na toalha Mêmphis da Appel, 100% algodão; na toalha Felpuda Eva da Döhler, 94% algodão, 5% poliéster e 1% viscose; e na toalha Fio Cardado Provence da Karsten, 99% algodão e 1% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_090ca8ad096c",
+              "clm_01bffa5ae828",
+              "clm_018d8ef273b5",
+              "clm_e40fdd98d666"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-lavagem",
+        "heading": "Instruções de lavagem e secagem na etiqueta",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a etiqueta deve informar obrigatoriamente os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional. Esses tratamentos devem estar descritos conforme a norma NM-ISO 3758:2013.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_29960a788266",
+              "clm_239219755069"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Nos modelos consultados, os fabricantes indicam: na toalha Florença da Döhler, lavar em processo suave a máximo 60°C, proibir alvejante e lavagem a seco, permitir secagem em máquina a máximo 60°C e passar a ferro a máximo 150°C. Na Appel, a recomendação é lavar em água fria ou morna e evitar amaciante em excesso, secando à sombra. A Karsten recomenda evitar amaciantes em excesso e secar à sombra ou em ciclo suave de secadora.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5d0dc1a2d598",
+              "clm_1b986c350f92",
+              "clm_094f05e59a60"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "primeira-lavagem",
+        "heading": "Primeira lavagem: retirada de fibras soltas",
+        "blocks": [
+          {
+            "text": "A Appel recomenda lavar antes do primeiro uso para assentar a felpa e remover fibra solta acumulada na produção. O fabricante também informa que a primeira lavagem abre a felpa e acomoda a retração natural do algodão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_83cef42acbbb",
+              "clm_6e04eb1d583a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se quer reduzir a presença de fibras curtas, confira na ficha técnica qual tipo de fio o fabricante declara, segundo a Karsten. Segundo a Karsten, o fio penteado remove fibras mais curtas, enquanto o cardado as mantém.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_634c96d244f5",
+              "clm_38ced81cd6ad"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a página do produto não informar a composição da toalha, confira a etiqueta antes de comprar ou escolha outro modelo. Segundo o Inmetro, o percentual das fibras deve ser informado no produto têxtil.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0e5f8661d994",
+              "clm_055cf59ece8e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pretende usar secadora, confira na etiqueta as informações sobre o tratamento de secagem. Segundo o Inmetro, a etiqueta deve informar lavagem, alvejamento, secagem, passadoria e limpeza profissional.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_29960a788266",
+              "clm_239219755069"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se quer reduzir fibras soltas no início do uso, lave antes de usar, segundo a Appel. Segundo a Appel, a primeira lavagem de um pano de prato atoalhado assenta a felpa e tira o excesso de fibra solta da produção. Para a toalha de banho, a Appel recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_83cef42acbbb",
+              "clm_6e04eb1d583a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam a distinção entre fio penteado e cardado e recomendam lavar antes do primeiro uso, mas não dizem para conferir na etiqueta nem mencionam a composição da toalha como algo a ser verificado. Versão sustentável: Confira as informações sobre fio penteado ou cardado conforme a explicação da Karsten. A Karsten afirma que o fio penteado remove fibras curtas e que o cardado as mantém. A Appel recomenda lavar a toalha antes do primeiro uso para assentar a felpa e remover fibras soltas."
+    },
+    {
+      "ref": "gramatura-declarada#0",
+      "msg": "UNSUPPORTED. O trecho da Karsten lista gramaturas sob o título “Fio Cardado”, mas não afirma que esses valores correspondem a toalhas. Portanto, a formulação “toalhas de fio cardado variam de 350 g/m² a 500 g/m²” acrescenta a identificação do produto como toalha. Versão sustentável: Na Karsten, a página sobre fio cardado lista gramaturas de 350 g/m² a 500 g/m². Os demais valores citados — 620 g/m² para a Florença, 600 g/m² para a Magna e 520 g/m² para a Atlas — estão expressos nos respectivos trechos."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam que a primeira lavagem tira o excesso de fibra solta no caso específico do pano de prato atoalhado, mas não dizem que lavar qualquer toalha reduz fibras soltas. O trecho sobre a toalha apenas menciona abrir a felpa e acomodar a retração natural do algodão. Versão sustentável: Se quer reduzir fibras soltas no início do uso, lave o pano de prato atoalhado antes de usar. Segundo a Appel, a primeira lavagem assenta a felpa e tira o excesso de fibra solta da produção. Para a toalha citada, a Appel recomenda lavar antes do primeiro uso para abrir a felpa e acomodar a retração natural do algodão."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 541
+  }
+}
