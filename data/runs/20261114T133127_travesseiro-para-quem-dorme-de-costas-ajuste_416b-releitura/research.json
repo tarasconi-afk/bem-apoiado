@@ -1,0 +1,201 @@
+{
+  "run_id": "20261114T133127_travesseiro-para-quem-dorme-de-costas-ajuste_416b-releitura",
+  "topic": "travesseiro-para-quem-dorme-de-costas",
+  "accepted": [
+    {
+      "claim_id": "clm_19797dff375f",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_36ebf60b87ba",
+      "question_id": "q_firmeza_suporte",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ba522946bbff",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2fba6f94dd8e",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ca19914443a8",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ceadf4fad2bc",
+      "question_id": "q_restricao_leitor",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_264deb60bb31",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_dfac74076754",
+      "question_id": "q_firmeza_suporte",
+      "source_id": "src_811d97f063f5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7ef93227698e",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_811d97f063f5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_83aa4cff80e8",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_1e349a2ab65b",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_c46b51849f69",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f906a420e6b9",
+      "question_id": "q_firmeza_suporte",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dd6a63c93e20",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_040d170f6500",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_c4646ba147cb",
+      "new": false
+    },
+    {
+      "claim_id": "clm_0297cb0cf150",
+      "question_id": "q_opcao_pluma",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c67c25427fc4",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b4b65f8eb739",
+      "question_id": "q_restricao_leitor",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_c4646ba147cb",
+      "question_id": "q_enchimento_avisos",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Na hora da compra, é importante verificar se o produto possui proteção antimicrobiana, pois o material é propenso a ácaros e não pode ser lavado."
+    },
+    {
+      "source_id": "src_c4646ba147cb",
+      "question_id": "q_restricao_leitor",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Mantenha-o arejado: evite deixar o travesseiro em ambientes úmidos e, sempre que possível, deixe-o respirar em local bem ventilado"
+    }
+  ],
+  "coverage": {
+    "q_altura_perfil_costas": 4,
+    "q_firmeza_suporte": 3,
+    "q_opcao_espuma": 4,
+    "q_opcao_pluma": 1,
+    "q_enchimento_avisos": 2,
+    "q_lavagem_secagem": 2,
+    "q_restricao_leitor": 2,
+    "q_ajuste_1d1d81d9": 0
+  },
+  "unanswered": [
+    "q_ajuste_1d1d81d9"
+  ],
+  "usage": {
+    "input_tokens": 6235,
+    "output_tokens": 2916,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_2dcccfbb1253"
+  ],
+  "triage": [
+    {
+      "source_id": "src_52c14b3e29f6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_811d97f063f5",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.09
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.21
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_c4646ba147cb",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.79
+    }
+  ],
+  "credits": 5.44748328
+}
