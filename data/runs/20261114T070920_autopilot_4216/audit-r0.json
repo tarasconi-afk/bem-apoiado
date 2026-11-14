@@ -1,0 +1,146 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os valores de espessura e densidade são atribuídos à Ortobom, mas os trechos que trazem esses números são do Inmetro; os trechos da Ortobom não informam essas medidas. Além disso, o trecho citado só mostra a faixa de 4 a 8 cm para colchonetes, não as espessuras de colchões de 5 a 7 cm, nem afirma que colchões são para dormir continuamente ou que colchonetes são para uso eventual.",
+      "fix": "O Inmetro estabelece, nos trechos citados, 4 a 8 cm para colchonetes e densidade mínima de 28 kg/m³ para colchões auxiliares, 18 kg/m³ para colchões infantis e 20 kg/m³ para os demais colchões e colchonetes. A Ortobom descreve um colchonete para exercícios e um colchão voltado à experiência de sono, sem que esses trechos sustentem a distinção entre uso contínuo e eventual."
+    },
+    {
+      "ref": "espessura-e-estrutura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espessura-e-estrutura#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam valores de espessura em uma tabela, mas não deixam explícito, nos recortes fornecidos, que 5 cm e 7 cm sejam mínimos nem que 12 cm seja um limite superior para colchões de uso geral.",
+      "fix": "A tabela citada indica 5 cm para colchão auxiliar, 7 cm para colchão infantil, 12 cm para colchão geral e 4 a 8 cm para colchonete."
+    },
+    {
+      "ref": "espessura-e-estrutura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espessura-e-estrutura#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos estabelecem as densidades mínimas para as lâminas de espuma convencional dos colchões e colchonetes, não necessariamente para o produto inteiro de forma geral. O bloco omite essa condição e apresenta os valores como exigências gerais do produto.",
+      "fix": "As lâminas de espuma convencional devem ter densidade mínima de 20 kg/m³ para os demais colchões e colchonetes, de 28 kg/m³ para colchões auxiliares, box conjugados e mistos, e de 18 kg/m³ para colchões infantis."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos indicam que cuidados mínimos para conservação estão entre as informações obrigatórias, mas não dizem que devem constar especificamente na etiqueta do colchão e do colchonete.",
+      "fix": "O Inmetro inclui os cuidados mínimos para conservação entre as informações obrigatórias do produto e da embalagem de colchões e colchonetes."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que a lavagem à mão ou em ciclo suave é preferencial, enquanto o bloco apresenta essas opções simplesmente como permitidas, sem preservar essa preferência.",
+      "fix": "No colchão Smart da Ortobom, a capa removível pode ser lavada conforme as instruções da etiqueta, preferencialmente à mão ou em ciclo suave."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela é apresentada como sendo “segundo a Ortobom”, mas todos os trechos citados são do Inmetro. Os valores aparecem nas fontes, porém a atribuição à Ortobom não.",
+      "fix": "Trocar o título para “segundo o Inmetro” ou remover a atribuição à Ortobom."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela é apresentada como sendo “segundo a Ortobom”, mas o trecho citado é do Inmetro. A classificação das densidades está sustentada, mas a fonte foi atribuída incorretamente.",
+      "fix": "Trocar o título para “segundo o Inmetro” ou remover a atribuição à Ortobom."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos tratam de produtos específicos da Ortobom: um colchonete indicado para determinadas atividades e um colchão descrito para uso diário. Eles não sustentam uma regra geral sobre todo colchão e todo colchonete, nem afirmam literalmente que o colchão é para uso contínuo na cama.",
+      "fix": "Restringir a tabela aos produtos citados, por exemplo: “No All Day, a Ortobom indica exercícios, yoga, alongamentos, abdominais e meditação; no Novo Ouro Spring, descreve uso diário e noites de sono.”"
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os valores de espessura e densidade são atribuídos à Ortobom, mas os trechos que trazem esses números são do Inmetro; os trechos da Ortobom não informam essas medidas. Além disso, o trecho citado só mostra a faixa de 4 a 8 cm para colchonetes, não as espessuras de colchões de 5 a 7 cm, nem afirma que colchões são para dormir continuamente ou que colchonetes são para uso eventual. Versão sustentável: O Inmetro estabelece, nos trechos citados, 4 a 8 cm para colchonetes e densidade mínima de 28 kg/m³ para colchões auxiliares, 18 kg/m³ para colchões infantis e 20 kg/m³ para os demais colchões e colchonetes. A Ortobom descreve um colchonete para exercícios e um colchão voltado à experiência de sono, sem que esses trechos sustentem a distinção entre uso contínuo e eventual."
+    },
+    {
+      "ref": "espessura-e-estrutura#1",
+      "msg": "OVERSTATED. Os trechos citam valores de espessura em uma tabela, mas não deixam explícito, nos recortes fornecidos, que 5 cm e 7 cm sejam mínimos nem que 12 cm seja um limite superior para colchões de uso geral. Versão sustentável: A tabela citada indica 5 cm para colchão auxiliar, 7 cm para colchão infantil, 12 cm para colchão geral e 4 a 8 cm para colchonete."
+    },
+    {
+      "ref": "densidade#1",
+      "msg": "OVERSTATED. Os trechos estabelecem as densidades mínimas para as lâminas de espuma convencional dos colchões e colchonetes, não necessariamente para o produto inteiro de forma geral. O bloco omite essa condição e apresenta os valores como exigências gerais do produto. Versão sustentável: As lâminas de espuma convencional devem ter densidade mínima de 20 kg/m³ para os demais colchões e colchonetes, de 28 kg/m³ para colchões auxiliares, box conjugados e mistos, e de 18 kg/m³ para colchões infantis."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos indicam que cuidados mínimos para conservação estão entre as informações obrigatórias, mas não dizem que devem constar especificamente na etiqueta do colchão e do colchonete. Versão sustentável: O Inmetro inclui os cuidados mínimos para conservação entre as informações obrigatórias do produto e da embalagem de colchões e colchonetes."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "OVERSTATED. O trecho diz que a lavagem à mão ou em ciclo suave é preferencial, enquanto o bloco apresenta essas opções simplesmente como permitidas, sem preservar essa preferência. Versão sustentável: No colchão Smart da Ortobom, a capa removível pode ser lavada conforme as instruções da etiqueta, preferencialmente à mão ou em ciclo suave."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. A tabela é apresentada como sendo “segundo a Ortobom”, mas todos os trechos citados são do Inmetro. Os valores aparecem nas fontes, porém a atribuição à Ortobom não. Versão sustentável: Trocar o título para “segundo o Inmetro” ou remover a atribuição à Ortobom."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. A tabela é apresentada como sendo “segundo a Ortobom”, mas o trecho citado é do Inmetro. A classificação das densidades está sustentada, mas a fonte foi atribuída incorretamente. Versão sustentável: Trocar o título para “segundo o Inmetro” ou remover a atribuição à Ortobom."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. Os trechos tratam de produtos específicos da Ortobom: um colchonete indicado para determinadas atividades e um colchão descrito para uso diário. Eles não sustentam uma regra geral sobre todo colchão e todo colchonete, nem afirmam literalmente que o colchão é para uso contínuo na cama. Versão sustentável: Restringir a tabela aos produtos citados, por exemplo: “No All Day, a Ortobom indica exercícios, yoga, alongamentos, abdominais e meditação; no Novo Ouro Spring, descreve uso diário e noites de sono.”"
+    }
+  ]
+}

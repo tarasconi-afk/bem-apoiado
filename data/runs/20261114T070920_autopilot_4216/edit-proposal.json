@@ -1,0 +1,30 @@
+{
+  "edits": [
+    {
+      "ref": "verdict",
+      "action": "rewrite",
+      "text": "Para exercícios, alongamentos, yoga ou meditação, escolha um colchonete com indicação explícita para essas atividades, como o All Day da Ortobom; ele não substitui um colchão de cama. Para dormir todas as noites, escolha um colchão cuja ficha indique uso diário, como o Novo Ouro Spring da Ortobom.",
+      "claim_ids": [
+        "clm_236e8653cdaf",
+        "clm_24fecb6e5460",
+        "clm_fc30de0ee1ff"
+      ],
+      "reason": "Texto original repetia quase integralmente o conteúdo dos blocos de raciocínio da seção 'Como decidir'; versão mais curta mantém o mesmo sentido."
+    },
+    {
+      "ref": "espessura-e-estrutura#1",
+      "action": "remove",
+      "reason": "Os mesmos valores de espessura já aparecem na tabela da seção 'Como decidir' (como-decidir#0.r0), tornando a repetição desnecessária."
+    },
+    {
+      "ref": "densidade#1",
+      "action": "remove",
+      "reason": "Os mesmos valores de densidade mínima já aparecem na tabela da seção 'Como decidir' (como-decidir#0.r1), tornando a repetição desnecessária."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 4420
+  }
+}
