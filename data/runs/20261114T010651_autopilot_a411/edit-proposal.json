@@ -1,0 +1,28 @@
+{
+  "edits": [
+    {
+      "ref": "etiqueta-material-avisos#0",
+      "action": "remove",
+      "reason": "Repete informações de composição (espuma viscoelástica do Viscopur e fibra siliconada do King Premium) já apresentadas em firmeza-espuma#0 e firmeza-espuma#1, sem acrescentar nada novo para a decisão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "remove",
+      "reason": "Repete, quase palavra por palavra, a informação do Viscopur (altura média, indicação para dormir de costas, firmeza firme) já mostrada na tabela como-decidir#0.r0 e na seção altura-para-dormir-de-costas#1."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Se você dorme de costas, confira na ficha se o travesseiro é baixo ou médio e indicado para essa posição, critério usado pela Duoflex.",
+      "claim_ids": [
+        "clm_166e9af8e75e"
+      ],
+      "reason": "Encurta a frase mantendo a orientação prática, sem repetir por extenso a explicação já dada na seção acima sobre altura."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 5780
+  }
+}
