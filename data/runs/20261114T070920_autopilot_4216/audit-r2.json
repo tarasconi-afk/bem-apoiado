@@ -1,0 +1,130 @@
+{
+  "findings": [
+    {
+      "ref": "espessura-e-estrutura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espessura-e-estrutura#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "espessura-e-estrutura#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 4–8 cm para colchonetes e mostram espessuras específicas de 5 cm, 7 cm e 12 cm para certos tipos de colchão, mas não sustentam que todos os colchões medem entre 5 e 12 cm. A descrição da Ortobom é de produtos específicos, não de todos os colchões, e a evidência do Inmetro distingue densidade mínima exigida de densidade nominal a ser informada na etiqueta.",
+      "fix": "Colchonetes têm espessura de 4 a 8 cm. O Inmetro informa espessuras específicas para diferentes tipos de colchão, como 5 cm para colchão auxiliar, 7 cm para infantil e 12 cm para geral. A Ortobom indica seu colchonete para exercícios e descreve seu colchão citado como adequado ao uso noturno e diário. A identificação deve informar o tipo, a densidade nominal da espuma e os cuidados de conservação; as densidades mínimas são 20 kg/m³ para os demais colchões e colchonetes e 28 kg/m³ para colchões auxiliares e mistos."
+    },
+    {
+      "ref": "espessura-e-estrutura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados são do Inmetro, não da Ortobom, portanto a indicação “segundo a Ortobom” não é sustentada. Além disso, os trechos mostram 12 cm para colchão geral, mas não dizem que esse valor é um limite “até”.",
+      "fix": "[tabela: Diferenças entre colchão e colchonete segundo o Inmetro] Característica: Espessura | Colchão: 5 cm (auxiliar), 7 cm (infantil), 12 cm (geral) | Colchonete: 4 a 8 cm"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela é apresentada como sendo “segundo a Ortobom”, mas o único trecho citado é do Inmetro. Os valores, porém, são sustentados pelo trecho regulatório.",
+      "fix": "[tabela: Diferenças entre colchão e colchonete segundo o Inmetro] Característica: Densidade mínima de espuma convencional | Colchão: 18 kg/m³ (infantil), 20 kg/m³ (demais colchões), 28 kg/m³ (auxiliar, box conjugado e misto) | Colchonete: 20 kg/m³"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O título diz “segundo o Inmetro”, mas os trechos citados são declarações da Ortobom sobre produtos específicos. Eles sustentam os usos descritos, mas não uma atribuição ao Inmetro.",
+      "fix": "[tabela: Usos descritos pela Ortobom] Característica: Usos descritos pelos fabricantes | Colchão: no Novo Ouro Spring da Ortobom, uso para dormir todas as noites | Colchonete: no All Day da Ortobom, exercícios, treinamento funcional, pilates, yoga, alongamentos, abdominais e meditação"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam 4–8 cm para colchonetes e mostram espessuras específicas de 5 cm, 7 cm e 12 cm para certos tipos de colchão, mas não sustentam que todos os colchões medem entre 5 e 12 cm. A descrição da Ortobom é de produtos específicos, não de todos os colchões, e a evidência do Inmetro distingue densidade mínima exigida de densidade nominal a ser informada na etiqueta. Versão sustentável: Colchonetes têm espessura de 4 a 8 cm. O Inmetro informa espessuras específicas para diferentes tipos de colchão, como 5 cm para colchão auxiliar, 7 cm para infantil e 12 cm para geral. A Ortobom indica seu colchonete para exercícios e descreve seu colchão citado como adequado ao uso noturno e diário."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. Os trechos citados são do Inmetro, não da Ortobom, portanto a indicação “segundo a Ortobom” não é sustentada. Além disso, os trechos mostram 12 cm para colchão geral, mas não dizem que esse valor é um limite “até”. Versão sustentável: [tabela: Diferenças entre colchão e colchonete segundo o Inmetro] Característica: Espessura | Colchão: 5 cm (auxiliar), 7 cm (infantil), 12 cm (geral) | Colchonete: 4 a 8 cm"
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. A tabela é apresentada como sendo “segundo a Ortobom”, mas o único trecho citado é do Inmetro. Os valores, porém, são sustentados pelo trecho regulatório. Versão sustentável: [tabela: Diferenças entre colchão e colchonete segundo o Inmetro] Característica: Densidade mínima de espuma convencional | Colchão: 18 kg/m³ (infantil), 20 kg/m³ (demais colchões), 28 kg/m³ (auxiliar, box conjugado e misto) | Colchonete: 20 kg/m³"
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. O título diz “segundo o Inmetro”, mas os trechos citados são declarações da Ortobom sobre produtos específicos. Eles sustentam os usos descritos, mas não uma atribuição ao Inmetro. Versão sustentável: [tabela: Usos descritos pela Ortobom] Característica: Usos descritos pelos fabricantes | Colchão: no Novo Ouro Spring da Ortobom, uso para dormir todas as noites | Colchonete: no All Day da Ortobom, exercícios, treinamento funcional, pilates, yoga, alongamentos, abdominais e meditação"
+    }
+  ]
+}
