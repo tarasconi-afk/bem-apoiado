@@ -1,0 +1,33 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor pode entender que o King Premium é uma opção para dormir de costas, mas os trechos citados só informam que ele permite ajustar a altura e não dizem que é indicado para essa posição.",
+      "fix": "Apresentar o King Premium apenas como um modelo com duas alturas ajustáveis, sem tratá-lo como solução para quem dorme de costas; ou tirar essa indicação."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "densidade-viscoelastica-latex#0",
+      "problem": "A seção promete informações sobre a densidade de travesseiros de espuma viscoelástica, mas o bloco não informa nenhuma densidade.",
+      "fix": "Mudar o título para algo como \"Documentos consultados sobre travesseiros de espuma viscoelástica\"."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "enchimento-pena-pluma#0",
+      "problem": "A seção promete explicar a altura ou o volume de travesseiros com pena ou pluma, mas o bloco só informa material, tipo de enchimento e conforto do Pluma de Ganso Plus.",
+      "fix": "Mudar o título para algo como \"Material e conforto do travesseiro com plumas de ganso\"."
+    },
+    {
+      "check": "produto_como_solucao",
+      "ref": "como-decidir#3",
+      "problem": "A seção sugere o King Premium para quem quer ajustar a altura, mas a característica de ter duas alturas não comprova que o modelo seja indicado para dormir de costas.",
+      "fix": "Reescrever como uma informação sobre o ajuste de altura do modelo, deixando claro que os trechos não confirmam sua indicação para quem dorme de costas; ou tirar o bloco."
+    }
+  ],
+  "usage": {
+    "input_tokens": 29298,
+    "output_tokens": 6540,
+    "calls": 3
+  }
+}

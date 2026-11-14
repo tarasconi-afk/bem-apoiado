@@ -1,0 +1,461 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "altura-para-dormir-de-costas#0",
+      "action": "replace",
+      "text": "Segundo a Duoflex, quem dorme de costas deve usar um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca, para evitar a hiperflexão do pescoço.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_166e9af8e75e"
+      ]
+    },
+    {
+      "ref": "altura-para-dormir-de-costas#2",
+      "action": "remove"
+    },
+    {
+      "ref": "densidade-viscoelastica-latex#0",
+      "action": "replace",
+      "text": "Os documentos consultados sobre travesseiros de espuma viscoelástica não informam valores de densidade em quilogramas por metro cúbico (kg/m³).",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "enchimento-pena-pluma#0",
+      "action": "remove"
+    },
+    {
+      "ref": "enchimento-pena-pluma#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, o Pluma de Ganso Plus tem tecido 100% algodão percal, enchimento 100% de plumas de ganso e nível de conforto declarado como macio.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_318e915da7a7",
+        "clm_e3a8c1e7db71"
+      ]
+    },
+    {
+      "ref": "etiqueta-material-avisos#0",
+      "action": "replace",
+      "text": "A Ortobom informa a composição do Viscopur em revestimento de tecido 100% algodão e enchimento em espuma viscoelástica 100% poliuretano. No King Premium da Ortobom, o enchimento é fibra siliconada 100% poliéster.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_26f753cc96f9",
+        "clm_73c024f27c7f"
+      ]
+    },
+    {
+      "ref": "etiqueta-material-avisos#2",
+      "action": "replace",
+      "text": "A Ortobom declara que o King Premium possui tratamento antiácaro e antialérgico; o Inmetro não avalia essa propriedade. A Ortobom também informa que o Pluma de Ganso Plus é garantido sem cheiro, pois as plumas são esterilizadas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_19b9222c490b",
+        "clm_fc8c1f6731dd"
+      ]
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#1",
+      "action": "replace",
+      "text": "Exemplos de instrução de lavagem nos modelos King Premium e Hug da Ortobom: a temperatura máxima de lavagem é 40 °C em processo suave, sem alvejamento; a secagem em tambor é permitida até 60 °C; a passadoria é permitida até 110 °C sem vapor; e a limpeza a seco é proibida, segundo a Ortobom.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_63e80c6ec9d4",
+        "clm_3fb7b71e5656"
+      ]
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#2",
+      "action": "replace",
+      "text": "No Viscopur da Ortobom, a lavagem e a passadoria são proibidas; a secagem é permitida apenas na horizontal à sombra; e é permitida limpeza a úmido profissional muito suave.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_233c77b08db0"
+      ]
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#3",
+      "action": "replace",
+      "text": "No modelo Pluma de Ganso da Ortobom, a lavagem e a secagem em tambor são proibidas; é permitida a secagem apenas na horizontal à sombra e a limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_439eebde3cf1"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King Premium, Ortobom",
+          "claim_ids": [
+            "clm_6d248cc5b27a"
+          ]
+        },
+        {
+          "text": "Ajustável em duas alturas (placa removível)",
+          "claim_ids": [
+            "clm_6d248cc5b27a"
+          ]
+        },
+        {
+          "text": "Fibra siliconada 100% poliéster com placa de espuma viscoelástica",
+          "claim_ids": [
+            "clm_73c024f27c7f"
+          ]
+        },
+        {
+          "text": "Médio",
+          "claim_ids": [
+            "clm_3bf495ba0a1c"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você quer ajustar a altura, o King Premium da Ortobom permite duas alturas diferentes por meio de uma placa removível de espuma viscoelástica e tem conforto médio.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6d248cc5b27a",
+        "clm_3bf495ba0a1c"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Antes de comprar, confira as instruções de cuidado do modelo: o Viscopur da Ortobom tem lavagem proibida, enquanto o King Premium permite lavagem no máximo a 40 °C em processo suave, segundo as fichas da Ortobom.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_233c77b08db0",
+        "clm_63e80c6ec9d4"
+      ]
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Travesseiro para quem dorme de costas: altura e firmeza",
+    "description": "Escolha travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca.",
+    "verdict": {
+      "text": "Se você dorme de costas, escolha um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca, sem elevar demais a cabeça, segundo a Duoflex. No Viscopur da Ortobom, a marca informa altura média indicada para essa posição; se quiser ajustar a altura, o King Premium da Ortobom permite duas alturas diferentes com placa removível.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_166e9af8e75e",
+        "clm_264deb60bb31",
+        "clm_7f1ae5aa5fc7",
+        "clm_6d248cc5b27a",
+        "clm_93924a7b5e57"
+      ]
+    },
+    "sections": [
+      {
+        "id": "altura-para-dormir-de-costas",
+        "heading": "Qual altura de travesseiro para quem dorme de costas",
+        "blocks": [
+          {
+            "text": "Segundo a Duoflex, quem dorme de costas deve usar um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca, para evitar a hiperflexão do pescoço.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_166e9af8e75e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Viscopur da Ortobom, o fabricante declara altura média e indica o modelo especificamente para quem dorme de costas ou de bruços.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_264deb60bb31",
+              "clm_7f1ae5aa5fc7"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "firmeza-espuma",
+        "heading": "Firmeza de travesseiros de espuma para posição de costas",
+        "blocks": [
+          {
+            "text": "No Viscopur da Ortobom, a marca descreve o nível de conforto como firme e o material como espuma viscoelástica (100% poliuretano).",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5e055dd1e8c3",
+              "clm_f609e033f12b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No King Premium da Ortobom, o nível de conforto é declarado como médio, com enchimento de fibra siliconada (100% poliéster) e placa removível de espuma viscoelástica que permite ajustar a altura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3bf495ba0a1c",
+              "clm_73c024f27c7f",
+              "clm_6d248cc5b27a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "densidade-viscoelastica-latex",
+        "heading": "Densidade de travesseiros de espuma viscoelástica",
+        "blocks": [
+          {
+            "text": "Os documentos consultados sobre travesseiros de espuma viscoelástica não informam valores de densidade em quilogramas por metro cúbico (kg/m³).",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "enchimento-pena-pluma",
+        "heading": "Altura ou volume de travesseiros com pena ou pluma",
+        "blocks": [
+          {
+            "text": "Segundo a Ortobom, o Pluma de Ganso Plus tem tecido 100% algodão percal, enchimento 100% de plumas de ganso e nível de conforto declarado como macio.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_318e915da7a7",
+              "clm_e3a8c1e7db71"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-material-avisos",
+        "heading": "O que a etiqueta do travesseiro informa sobre material e avisos de uso",
+        "blocks": [
+          {
+            "text": "A Ortobom informa a composição do Viscopur em revestimento de tecido 100% algodão e enchimento em espuma viscoelástica 100% poliuretano. No King Premium da Ortobom, o enchimento é fibra siliconada 100% poliéster.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_26f753cc96f9",
+              "clm_73c024f27c7f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Avisos de uso aparecem nas instruções de cuidado, segundo a Ortobom. No Viscopur da Ortobom, é proibida lavagem e alvejamento; a secagem permitida é apenas na horizontal à sombra, sem passadoria, permitindo apenas limpeza a úmido profissional muito suave. No Pluma de Ganso da Ortobom, também é proibida lavagem e secagem em tambor, permitindo apenas secagem na horizontal à sombra e limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_233c77b08db0",
+              "clm_439eebde3cf1"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom declara que o King Premium possui tratamento antiácaro e antialérgico; o Inmetro não avalia essa propriedade. A Ortobom também informa que o Pluma de Ganso Plus é garantido sem cheiro, pois as plumas são esterilizadas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_19b9222c490b",
+              "clm_fc8c1f6731dd"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-lavagem-secagem",
+        "heading": "Instruções de lavagem e secagem conforme as normas de etiquetagem",
+        "blocks": [
+          {
+            "text": "A etiqueta têxtil deve informar pelo menos os cinco principais tratamentos de conservação (lavagem, alvejamento, secagem, passadoria e limpeza a seco) por símbolos e/ou texto, conforme a norma NM-ISO 3758:2013, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_28e1007029ee"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Exemplos de instrução de lavagem nos modelos King Premium e Hug da Ortobom: a temperatura máxima de lavagem é 40 °C em processo suave, sem alvejamento; a secagem em tambor é permitida até 60 °C; a passadoria é permitida até 110 °C sem vapor; e a limpeza a seco é proibida, segundo a Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_63e80c6ec9d4",
+              "clm_3fb7b71e5656"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir ao comprar travesseiro para dormir de costas",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Travesseiros indicados para quem dorme de costas: altura, material e firmeza (segundo a Ortobom)",
+            "columns": [
+              "Modelo e marca",
+              "Altura indicada",
+              "Material do enchimento",
+              "Firmeza ou conforto declarado"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Viscopur, Ortobom",
+                    "claim_ids": [
+                      "clm_7f1ae5aa5fc7"
+                    ]
+                  },
+                  {
+                    "text": "Média",
+                    "claim_ids": [
+                      "clm_264deb60bb31"
+                    ]
+                  },
+                  {
+                    "text": "Espuma viscoelástica 100% poliuretano",
+                    "claim_ids": [
+                      "clm_f609e033f12b"
+                    ]
+                  },
+                  {
+                    "text": "Firme",
+                    "claim_ids": [
+                      "clm_5e055dd1e8c3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King Premium, Ortobom",
+                    "claim_ids": [
+                      "clm_6d248cc5b27a"
+                    ]
+                  },
+                  {
+                    "text": "Ajustável em duas alturas (placa removível)",
+                    "claim_ids": [
+                      "clm_6d248cc5b27a"
+                    ]
+                  },
+                  {
+                    "text": "Fibra siliconada 100% poliéster com placa de espuma viscoelástica",
+                    "claim_ids": [
+                      "clm_73c024f27c7f"
+                    ]
+                  },
+                  {
+                    "text": "Médio",
+                    "claim_ids": [
+                      "clm_3bf495ba0a1c"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você dorme de costas, busque um travesseiro de altura baixa ou média que preencha o espaço entre a cervical e a nuca, segundo a Duoflex. Confira na ficha se o modelo é indicado para essa posição.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_166e9af8e75e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer um modelo pronto para dormir de costas, o Viscopur da Ortobom declara altura média e é indicado especificamente para essa posição, com firmeza firme.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_264deb60bb31",
+              "clm_7f1ae5aa5fc7",
+              "clm_5e055dd1e8c3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer ajustar a altura, o King Premium da Ortobom permite duas alturas diferentes por meio de uma placa removível de espuma viscoelástica e tem conforto médio.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6d248cc5b27a",
+              "clm_3bf495ba0a1c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Antes de comprar, confira as instruções de cuidado do modelo: o Viscopur da Ortobom tem lavagem proibida, enquanto o King Premium permite lavagem no máximo a 40 °C em processo suave, segundo as fichas da Ortobom.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_233c77b08db0",
+              "clm_63e80c6ec9d4"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "altura-para-dormir-de-costas#0",
+      "msg": "UNSUPPORTED. O trecho sustenta evitar a hiperflexão do pescoço, mas não diz que a cabeça se incline para trás. Essa direção específica não aparece na evidência citada. Versão sustentável: Segundo a Duoflex, quem dorme de costas deve usar um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca, para evitar a hiperflexão do pescoço."
+    },
+    {
+      "ref": "altura-para-dormir-de-costas#2",
+      "msg": "FACT_IN_FRAMING. Embora esteja em um bloco de framing, o texto afirma um fato sobre as evidências consultadas — que elas não informam valores em centímetros — sem trechos citados que permitam verificar essa ausência. Versão sustentável: Não há trechos citados neste bloco para sustentar uma afirmação sobre valores em centímetros."
+    },
+    {
+      "ref": "densidade-viscoelastica-latex#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, afirma um fato sobre os documentos consultados — que eles não informam valores de densidade — sem citar qualquer trecho que sustente essa conclusão. Versão sustentável: A seguir, veja os trechos consultados sobre densidade de travesseiros de espuma viscoelástica para quem dorme de costas."
+    },
+    {
+      "ref": "enchimento-pena-pluma#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora tenha basis de framing, afirma um fato sobre o conteúdo dos documentos — que eles não informam altura ou volume para esse público — sem trechos citados que sustentem essa verificação. Versão sustentável: Os documentos consultados não permitem concluir, com base nos trechos apresentados, se há ou não informação sobre altura ou volume de enchimento para pessoas que dormem de costas."
+    },
+    {
+      "ref": "enchimento-pena-pluma#1",
+      "msg": "MISATTRIBUTED. Os trechos mostram declarações da Ortobom sobre o produto, mas o bloco as apresenta diretamente como fatos, sem atribuição ao fabricante. Versão sustentável: Segundo a Ortobom, o Pluma de Ganso Plus tem tecido 100% algodão percal, enchimento 100% de plumas de ganso e nível de conforto declarado como macio."
+    },
+    {
+      "ref": "etiqueta-material-avisos#0",
+      "msg": "OVERSTATED. Os trechos mostram a composição informada pela Ortobom para dois produtos, mas não dizem que a etiqueta deve obrigatoriamente informar o material de enchimento e revestimento. Versão sustentável: A Ortobom informa o revestimento e o enchimento do Viscopur; no King Premium, informa enchimento em fibra siliconada 100% poliéster."
+    },
+    {
+      "ref": "etiqueta-material-avisos#2",
+      "msg": "SAFETY_CLAIM. O bloco reproduz a declaração de propriedade antialérgica e antiácaro sem informar que o Inmetro não avalia essa propriedade. Além disso, os trechos citam apenas a Ortobom, não sustentando a generalização para “algumas marcas”. Versão sustentável: A Ortobom declara que o King Premium possui tratamento antiácaro e antialérgico; o Inmetro não avalia essa propriedade. A Ortobom também declara que o Pluma de Ganso Plus não tem cheiro, segundo a descrição do fabricante."
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as instruções de cuidado para os modelos King Premium e Hug, mas não dizem que esses travesseiros são de espuma. Versão sustentável: Exemplos de instrução de lavagem nos modelos King Premium e Hug da Ortobom: a temperatura máxima de lavagem é 40 °C em processo suave, sem alvejamento; a secagem em tambor é permitida até 60 °C; a passadoria é permitida até 110 °C sem vapor; e a limpeza a seco é proibida, segundo a Ortobom."
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#2",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom sustenta as instruções do modelo Viscopur, mas não sustenta a generalização de que travesseiros de espuma viscoelástica têm restrições maiores. A comparação também não aparece na evidência. Versão sustentável: No Viscopur da Ortobom, a lavagem e a passadoria são proibidas; a secagem é permitida na horizontal à sombra; e é permitida limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#3",
+      "msg": "MISATTRIBUTED. A evidência sustenta as instruções do modelo Pluma de Ganso da Ortobom, mas não sustenta a generalização de que travesseiros de pena ou pluma têm restrições ainda maiores. A comparação não aparece no trecho. Versão sustentável: No modelo Pluma de Ganso da Ortobom, a lavagem e a secagem em tambor são proibidas; é permitida a secagem na horizontal à sombra e a limpeza a seco."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a altura ajustável, o material, a placa removível e o conforto médio, mas não dizem que o modelo é indicado para quem dorme de costas. Versão sustentável: Remova a indicação de uso para quem dorme de costas ou escreva apenas: \"King Premium, Ortobom: altura ajustável em duas alturas, fibra siliconada 100% poliéster com placa de espuma viscoelástica e conforto médio\"."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos dizem que a altura pode ser ajustada em duas opções por meio de placa removível, mas não relacionam esse ajuste à estrutura corporal do usuário. Versão sustentável: Se você quer ajustar a altura, o King Premium da Ortobom permite duas alturas diferentes por meio de uma placa removível de espuma viscoelástica e tem conforto médio."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. Os trechos mostram instruções de cuidado de dois modelos específicos, não uma regra geral para todos os travesseiros de espuma viscoelástica, fibra siliconada ou algodão. Além disso, o trecho do Viscopur não sustenta que travesseiros de algodão permitam lavagem em água morna. Versão sustentável: Antes de comprar, confira as instruções de cuidado do modelo: o Viscopur tem lavagem proibida, enquanto o King Premium permite lavagem a no máximo 40 °C em processo suave, segundo as fichas da Ortobom."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "FACT_IN_FRAMING. O bloco em basis de framing afirma fatos sobre o que o Inmetro avalia e sobre declarações de fabricantes, mas não há nenhum trecho citado que os sustente. Versão sustentável: Use uma transição sem afirmações factuais, como: \"A seguir, veja como conferir na ficha do modelo as propriedades declaradas pelo fabricante.\""
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1666
+  }
+}

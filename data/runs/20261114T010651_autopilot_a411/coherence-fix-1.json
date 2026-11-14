@@ -1,0 +1,28 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se você dorme de costas, escolha um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca, segundo a Duoflex. No Viscopur da Ortobom, a marca informa altura média indicada para essa posição.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_166e9af8e75e",
+        "clm_264deb60bb31",
+        "clm_7f1ae5aa5fc7"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "remove"
+    }
+  ],
+  "kept": true,
+  "audited": [
+    "verdict",
+    "como-decidir#0.r0",
+    "como-decidir#1",
+    "como-decidir#2",
+    "como-decidir#3"
+  ],
+  "still": []
+}
