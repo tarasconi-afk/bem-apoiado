@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete dizer qual escolher entre molas e espuma, mas a página apenas descreve características e cuidados de conferência, sem concluir em que situação o leitor deve escolher cada opção.",
+      "fix": "Reescrever o título e a resposta curta para prometer diferenças e pontos de conferência, por exemplo: \"Colchão de molas ou espuma: diferenças e o que conferir antes de comprar\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 29272,
+    "output_tokens": 5031,
+    "calls": 3
+  }
+}

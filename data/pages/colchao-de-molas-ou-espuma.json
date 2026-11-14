@@ -3,27 +3,27 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "Colchão de molas ou espuma: qual escolher",
-  "description": "Molas ensacadas reduzem movimento entre pessoas; espuma permite escolher firmeza pelo peso. Saiba quando usar cada uma.",
+  "description": "Diferenças entre molas (Bonnel, ensacadas) e espuma, transferência de movimento, densidade, durabilidade.",
   "primary_query": "colchão de molas ou espuma",
-  "updated_at": "2026-11-04",
+  "updated_at": "2026-11-14",
   "verdict": {
-    "text": "Se você divide a cama, escolha molas ensacadas: segundo fabricantes como Ortobom, Simmons e Probel, cada mola trabalha independentemente e reduz a transferência de movimento. Se você prefere uma superfície mais firme conforme seu peso, a espuma permite escolher densidade conforme necessário, segundo a Probel.",
-    "basis": "reasoning",
+    "text": "Colchões de espuma geralmente são mais firmes que os de mola, segundo a Probel. Molas ensacadas individualmente reduzem a transferência de movimento entre pessoas, sendo recomendadas para casais, segundo a Ortobom e a Simmons. O nível de conforto depende de como os materiais são montados na composição, segundo a Simmons.",
+    "basis": "evidence",
     "claim_ids": [
+      "clm_3ba326bc3f68",
       "clm_0522b96db922",
       "clm_2bfe0b0f071c",
-      "clm_3659f2b0d80a",
-      "clm_34f341d76049"
+      "clm_6b31ea67e2ea"
     ]
   },
   "sections": [
     {
-      "id": "tipos-construcao",
-      "heading": "Tipos de colchão: como são construídos",
+      "id": "como-cada-tipo-funciona",
+      "heading": "Como cada tipo de colchão é construído",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Colchões de espuma são feitos principalmente de blocos de espuma flexível de poliuretano (entre 70% e 100% da composição), devidamente revestidos.",
+          "text": "Colchão de espuma é constituído majoritariamente, entre 70% e 100% do volume, por bloco ou partes de espuma flexível de poliuretano, devidamente revestido.",
           "basis": "evidence",
           "claim_ids": [
             "clm_57e4e2f3a06f",
@@ -32,10 +32,17 @@
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Probel, um molejo de molas ensacadas pode ter 196 molas por m², confeccionadas em aço carbono temperado, com bitola de 2 mm e 23 cm de altura. Colchões mistos combinam chapa dura ou camadas com materiais distintos da espuma de poliuretano, sobrepostos por lâminas de espuma nas faces e laterais, segundo o Inmetro.",
+          "text": "A Probel informa que seu molejo de molas ensacadas, também chamado pocket pró, tem 196 molas por metro quadrado, confeccionadas em aço carbono temperado, com bitola de 2 mm e 23 cm de altura.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_305e295b0070",
+            "clm_305e295b0070"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Colchão misto combina uma chapa dura (de madeira ou materiais similares) ou elementos como componentes magnéticos e massageadores com camadas de espuma de poliuretano nas faces e laterais.",
+          "basis": "evidence",
+          "claim_ids": [
             "clm_3d12c19ee7b0"
           ]
         }
@@ -43,97 +50,55 @@
     },
     {
       "id": "transferencia-movimento",
-      "heading": "Transferência de movimento entre pessoas",
+      "heading": "Transferência de movimento entre duas pessoas",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você divide a cama, molas ensacadas minimizam o incômodo dos movimentos do parceiro, segundo fabricantes como Ortobom, Simmons e Probel como Ortobom, Simmons e Probel como Ortobom, Simmons e Probel. Segundo fabricantes como Ortobom, Simmons e Probel como Ortobom, Simmons e Probel, molas ensacadas individualmente reduzem a transferência de movimentos e vibrações entre pessoas. A Probel acrescenta que, por não estarem interligadas, a pessoa ao lado praticamente não sente a ondulação quando alguém se move.",
+          "text": "Molas ensacadas individuais diminuem vibrações e evitam que os movimentos de uma pessoa interfiram no sono da outra, segundo a Ortobom e a Simmons. Por não estarem interligadas, as molas ensacadas fazem com que a pessoa ao lado praticamente não sinta a ondulação quando alguém se move, segundo a Probel.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0522b96db922",
             "clm_2bfe0b0f071c",
-            "clm_34f341d76049",
+            "clm_d97f00bfdc62"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Segundo Ortobom, Simmons e Probel, molas ensacadas individualmente reduzem ou evitam a transferência de movimento entre as pessoas na cama. A Probel contrasta esse efeito com colchões que não possuem essa característica, nos quais a ondulação pode ser mais percebida.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_0522b96db922",
+            "clm_2bfe0b0f071c",
             "clm_d97f00bfdc62"
           ]
         }
       ]
     },
     {
-      "id": "densidade-espuma",
-      "heading": "Densidade da espuma e sua relação com peso",
+      "id": "densidade-e-certificacao",
+      "heading": "Densidade da espuma e avaliação obrigatória",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A densidade (D) da espuma indica firmeza e suporte, segundo a Probel. Segundo a Probel, ela deve ser escolhida conforme o peso e preferência pessoal: densidades variam de D18 (crianças) até D60 ou AG60 (pessoas com maior peso ou que preferem superfícies mais firmes).",
+          "text": "O Inmetro estabelece densidade mínima de 28 kg/m³ para colchões auxiliares, box conjugados e mistos, de 18 kg/m³ para colchões infantis e de 20 kg/m³ para os demais colchões e colchonetes. Para espumas de aglomerado, a densidade mínima é de 65 kg/m³.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_3659f2b0d80a"
+            "clm_a85a0cccebe4",
+            "clm_086d520fd395"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Probel, colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza, atendendo a diferentes preferências e tipos de corpo.",
+          "text": "Colchões e colchonetes de espuma estão sujeitos à certificação compulsória, com base nas normas ABNT NBR 13579-1 e 13579-2, relativas ao bloco de espuma e ao revestimento. A certificação é realizada mediante avaliação de requisitos de desempenho por organismo de certificação de produto acreditado pelo Inmetro.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_4eb3cc64856d"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "firmeza-composicao",
-      "heading": "Firmeza e conforto dependem da composição completa",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Simmons, a quantidade e a forma como os materiais são montados na composição do colchão determinam seu nível de conforto final.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_6b31ea67e2ea"
+            "clm_100325e3f984",
+            "clm_1878dca29850"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Probel, colchões de espuma são geralmente mais firmes que os de mola. Segundo a Ortobom, seus produtos oferecem estabilidade, conforto, resiliência e durabilidade.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_3ba326bc3f68",
-            "clm_cb33a03f402a"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "durabilidade-declarada",
-      "heading": "O que fabricantes declaram sobre durabilidade",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Ortobom, estruturas de madeira de reflorestamento tratadas com agentes bactericidas impedem a proliferação de fungos, cupins e brocas e geram maior qualidade e durabilidade.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_19181b30b18f"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "certificacao-inmetro",
-      "heading": "O que a certificação obrigatória avalia",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A Portaria nº 35/2021 aprova o regulamento para colchões e colchonetes de espuma flexível de poliuretano. Colchões de molas, pneumáticos, elétricos, de água e de látex estão excluídos dos requisitos desse regulamento; os colchões de molas também aparecem em um programa de avaliação da conformidade distinto.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_12cadc22b5f0",
-            "clm_0e570f4c735f",
-            "clm_169ebeb22fb8"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Para colchões de espuma, a certificação avalia a qualidade da espuma flexível de poliuretano, do revestimento e da chapa dura. Outras propriedades declaradas pelo fabricante, como funcionalidades terapêuticas ou ortopédicas, não são avaliadas.",
+          "text": "O Inmetro não avalia as possíveis propriedades terapêuticas anunciadas pelos fabricantes. O Selo de Identificação da Conformidade refere-se somente às avaliações da espuma flexível de poliuretano, do revestimento e da chapa dura.",
           "basis": "evidence",
           "claim_ids": [
             "clm_2cc56e363292",
@@ -142,80 +107,117 @@
         },
         {
           "kind": "paragraph",
-          "text": "Para colchões de molas, o Inmetro exige certificação compulsória de desempenho realizada por Organismo de Certificação acreditado, com vigilância de mercado do órgão.",
+          "text": "Colchões com indicação de uso para prevenção, tratamento ou reabilitação em seres humanos ficam sob competência da ANVISA, não do Inmetro.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1878dca29850",
-            "clm_18cdff18fe38"
+            "clm_5ecd83851e80"
           ]
         }
       ]
     },
     {
-      "id": "etiqueta-embalagem",
+      "id": "firmeza-composicao-durabilidade",
+      "heading": "Firmeza, composição e durabilidade",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Probel afirma que colchões de molas, quando bem cuidados, podem durar anos sem se deformar com o peso do corpo. A Probel também afirma que colchões de molas ensacadas são mais resistentes, especialmente em comparação aos de espuma.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_cdb4ca8202db",
+            "clm_8da961e49556"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A Ortobom declara que uma estrutura de madeiras de reflorestamento tratada com agentes bactericidas impede a proliferação de fungos, cupins e brocas, gerando maior qualidade e durabilidade.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_19181b30b18f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "informacoes-etiqueta-embalagem",
       "heading": "Informações obrigatórias na etiqueta e embalagem",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A etiqueta do colchão de espuma deve ter no mínimo 150 cm², ser durável e indelével, fixada em local visível mesmo quando embalado. Deve informar nome e CNPJ do fabricante ou importador, marca, modelo, dimensões e tipo de colchão (espuma tradicional, box conjugado, auxiliar, misto ou colchonete).",
+          "text": "A etiqueta do colchão deve ter no mínimo 150 cm², em material durável e indelével, fixada permanentemente no revestimento em local visível mesmo quando embalado. Deve conter: nome, razão social e CNPJ do fabricante; marca e modelo; dimensões (altura × comprimento × largura, sem pés, com tolerâncias); tipo de colchão (espuma tradicional, box conjugado, auxiliar, misto ou colchonete); composição qualitativa dos componentes; classificação; uso (geral, infantil, hospitalar); tipo(s) de espuma e densidade(s) nominal(is) em kg/m³.",
           "basis": "evidence",
           "claim_ids": [
             "clm_2714549236fe",
-            "clm_6f3a4f0d8702",
+            "clm_634d14fe73b3",
+            "clm_42c54d31b579",
             "clm_03f4e6488b5d"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Para colchões de espuma com mais de uma camada, a etiqueta deve indicar a densidade nominal e espessura de cada lâmina individualmente. É proibido identificar o colchão com densidade diferente daquela apresentada pelas espumas que o constituem.",
+          "text": "Em colchões mistos ou compostos, todas as lâminas de espuma devem ter suas densidades nominais e espessuras descritas individualmente na etiqueta.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_29c33cfe9a2e",
-            "clm_4c3e09f4fda7",
-            "clm_7883a2e39175"
+            "clm_4c3e09f4fda7"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Colchões mistos com declaração voluntária de funcionalidades, como as terapêuticas ou ortopédicas, devem trazer no manual o aviso de que essas funcionalidades não foram avaliadas pelo processo de certificação. A embalagem deve informar que o colchão foi avaliado somente quanto à espuma e ao revestimento, e não quanto às demais propriedades declaradas.",
+          "text": "O Inmetro proíbe nomenclaturas enganosas: não é permitido usar numerais de densidade divergentes das densidades nominais reais das lâminas de espuma, nem usar o termo 'látex' quando o produto não for constituído integralmente de látex ou sua composição for inferior a 70% de látex.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_890b15b7e995",
-            "clm_72880258ff40"
+            "clm_6614b5906a66"
           ]
         }
       ]
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir entre molas e espuma",
+      "heading": "Como decidir",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você divide a cama com um parceiro: considere colchões de molas ensacadas individualmente. Segundo Ortobom, Simmons e Probel, esse tipo de colchão reduz ou minimiza a transferência de movimento entre as pessoas.",
+          "text": "A Ortobom e a Simmons descrevem molas ensacadas como reduzindo a transferência de movimentos entre as partes do colchão, oferecendo maior isolamento de movimento.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0522b96db922",
-            "clm_2bfe0b0f071c",
-            "clm_34f341d76049"
+            "clm_2bfe0b0f071c"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer escolher pela firmeza conforme seu peso: colchões de espuma permitem essa seleção pela densidade, segundo a Probel. Segundo a Probel, densidades variam de D18 (crianças) até D60 ou AG60 (pessoas com maior peso ou que preferem superfície mais firme). Para colchões de molas, segundo a Probel, estão disponíveis em diversos níveis de firmeza.",
+          "text": "A Probel informa que colchões de molas ensacadas podem ser encontrados em diversos níveis de firmeza, capazes de suportar diversos tipos de corpos.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_3659f2b0d80a",
             "clm_4eb3cc64856d"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você busca durabilidade: segundo a Probel, colchões de molas ensacadas são mais resistentes que os de espuma e, quando bem cuidados, podem durar anos sem se deformar com o peso do corpo.",
+          "text": "O Inmetro exige que a densidade de espuma declarada pelo fabricante na etiqueta corresponda à densidade efetivamente oferecida no produto. Confira a etiqueta para identificar a densidade nominal em kg/m³.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_8da961e49556",
-            "clm_cdb4ca8202db"
+            "clm_0b73d73fc633",
+            "clm_42c54d31b579"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Segundo a Simmons, o nível de conforto depende da quantidade e da forma como os materiais são montados na composição do colchão.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_6b31ea67e2ea"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Antes de comprar, verifique se o produto tem o Selo de Identificação da Conformidade do Inmetro, que continua sendo exigido. Confira a densidade nominal declarada na etiqueta e as informações sobre composição, classificação, uso, tipos de espuma e dimensões. Desconfie de numerais no nome do produto que divergem das densidades nominais das lâminas de espuma e do uso do termo \"látex\" quando o produto não é integralmente de látex ou tem composição inferior a 70% de látex.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_3d9da75d7683",
+            "clm_42c54d31b579",
+            "clm_634d14fe73b3",
+            "clm_6614b5906a66"
           ]
         }
       ]
@@ -223,7 +225,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261104T070711_colchao-de-molas-ou-espuma-enrich_23ba+editor:20261104T071244_colchao-de-molas-ou-espuma-autocorrecao_3665",
+    "run_id": "20261114T191923_colchao-de-molas-ou-espuma-enrich_9fa7",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
@@ -232,7 +234,7 @@
       "concrete_guidance": true,
       "reader_fit": true,
       "quick_answer": true,
-      "filler_ratio": 0.1111111111111111,
+      "filler_ratio": 0.15,
       "criteria": 7,
       "rule_publishable": true
     }

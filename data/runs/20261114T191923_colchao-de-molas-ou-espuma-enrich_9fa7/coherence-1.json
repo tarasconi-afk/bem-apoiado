@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "“Qual escolher” promete uma recomendação entre colchão de molas e de espuma, mas a página apresenta características e um critério específico para casais sem concluir qual opção escolher em cada caso.",
+      "fix": "Trocar o título e a resposta curta para prometer apenas uma comparação de características, como “Colchão de molas ou espuma: diferenças de firmeza, movimento e composição”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14602,
+    "output_tokens": 2491,
+    "calls": 2
+  }
+}
