@@ -1,0 +1,41 @@
+{
+  "slug": "colchao-ou-colchonete-diferenca",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 102003,
+    "output_tokens": 30676,
+    "calls": 44
+  },
+  "credits": 44.986718519999975,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Para exercícios, alongamentos, abdominais, yoga ou meditação, escolher um colchonete cuja ficha indique explicitamente essas atividades.",
+      "Para dormir continuamente na cama, escolher um colchão cuja ficha indique uso diário ou noturno.",
+      "Conferir na etiqueta se o produto está classificado como colchão ou colchonete, conforme as categorias do Inmetro.",
+      "Comparar a espessura declarada: colchonetes têm de 4 a 8 cm; colchões têm faixas diferentes conforme o tipo, como 5 cm para auxiliares, 7 cm para infantis e até 12 cm para uso geral.",
+      "Conferir a densidade nominal da espuma em kg/m³ e a espessura de cada lâmina, especialmente em produtos compostos ou mistos.",
+      "Verificar na ficha ou etiqueta as instruções de lavagem, secagem e limpeza da capa.",
+      "Não tratar alegações como antialérgico, antibacteriano, terapêutico ou ortopédico como propriedades avaliadas pelo Inmetro."
+    ],
+    "missing": [
+      "Uma comparação baseada em fichas técnicas de pelo menos um colchão e um colchonete, informando espessura, densidade e estrutura interna de cada produto.",
+      "Uma explicação mais explícita de que espessura, densidade e presença de molas não são, isoladamente, a regra completa para distinguir colchão de colchonete.",
+      "Informações de fabricante ou órgão regulador sobre retenção de calor, cheiro, ruído e cuidados de segurança, caso existam em fonte primária."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente à diferença prática: colchonete para atividades físicas e uso eventual; colchão para dormir continuamente na cama. Também oferece dados concretos de classificação, espessura, densidade, conservação e limites da avaliação do Inmetro. Há repetição entre o veredito e os itens 1 e 2 de “Como decidir”, mas isso não compromete a utilidade; basta remover essa duplicação em uma revisão editorial.",
+    "filler_ratio": 0.1111111111111111,
+    "model_opinion": true
+  }
+}
