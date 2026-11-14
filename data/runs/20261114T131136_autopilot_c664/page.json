@@ -1,0 +1,44 @@
+{
+  "slug": "edredom-mais-quente-como-escolher",
+  "status": "PASS",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 113848,
+    "output_tokens": 29969,
+    "calls": 39
+  },
+  "credits": 36.40311132000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "lavagem-secagem#2",
+      "como-decidir#4",
+      "construcao-edredom#1"
+    ],
+    "decision_criteria": [
+      "Para inverno ou regiões frias, escolher um edredom térmico, mais encorpado e com gramatura de enchimento maior.",
+      "Para regiões quentes ou quem sente calor, escolher um edredom leve com gramatura menor.",
+      "Conferir na ficha a gramatura do enchimento em g/m²; os modelos citados apresentam faixas de 112 a 200 g/m² para poliéster ou microfibra e de 130 a 180 g/m² para microfibra.",
+      "Escolher plumas ou penas quando a prioridade for aquecimento intenso e textura suave.",
+      "Escolher poliéster quando a prioridade for leveza, retenção de calor e facilidade de lavagem.",
+      "Escolher microfibra quando a prioridade for conforto e manutenção fácil.",
+      "Conferir na etiqueta o tipo e o percentual das fibras do enchimento e do tecido externo.",
+      "Verificar as instruções específicas de lavagem e secagem, especialmente em edredons com enchimento natural."
+    ],
+    "missing": [
+      "Uma tabela de fabricante relacionando faixas de gramatura em g/m² a níveis de aquecimento ou temperaturas de uso.",
+      "Valores de gramatura declarados para edredons de plumas e penas, permitindo comparação direta com os modelos de fibras sintéticas.",
+      "Informação do fabricante sobre se a construção, o número de camadas ou o matelassê altera de forma relevante o aquecimento.",
+      "Ficha de fabricante de edredons dupla-face informando a composição e a gramatura de cada lado."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde à dúvida com uma regra clara — para mais aquecimento, procurar maior gramatura e um modelo mais encorpado — e orienta a conferir o tipo de enchimento, a composição e os cuidados na ficha. Ela não traz uma faixa universal de g/m² para definir o edredom mais quente nem compara diretamente todas as construções e tipos de enchimento, mas oferece critérios concretos suficientes para a decisão de compra.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  }
+}

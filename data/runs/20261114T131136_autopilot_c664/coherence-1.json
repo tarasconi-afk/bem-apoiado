@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "lavagem-secagem#0",
+      "problem": "O título promete orientar a lavagem e a secagem conforme o tipo de enchimento, mas este bloco apenas reúne instruções de modelos específicos e não relaciona os cuidados ao tipo de enchimento.",
+      "fix": "Mudar o título da seção para “Instruções de lavagem e secagem dos modelos citados”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 17760,
+    "output_tokens": 2414,
+    "calls": 3
+  }
+}

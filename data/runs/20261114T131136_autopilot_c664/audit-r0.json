@@ -1,0 +1,168 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a gramatura maior está associada a mais volume e aquecimento, e descrevem as características de poliéster, microfibra e plumas/penas. Porém, não dizem que essa informação deve ser observada especificamente na ficha técnica nem que a composição deve ser verificada na etiqueta; o trecho do Inmetro apenas menciona nomes e percentuais em massa das fibras, sem mostrar esse contexto. Além disso, o trecho fala em plumas e penas, não apenas plumas.",
+      "fix": "A gramatura maior está associada a mais volume e aquecimento, segundo a Altenburg. A Appel descreve o poliéster como leve, com retenção de calor e fácil de lavar; a microfibra como confortável e de fácil manutenção; e plumas e penas como associadas a aquecimento intenso e textura suave. A composição deve informar o nome das fibras e seu percentual em massa."
+    },
+    {
+      "ref": "gramatura-enchimento#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que a gramatura indica a quantidade de enchimento por metro quadrado, mas não informa que a medida é expressa em gramas (g/m²).",
+      "fix": "Gramatura é a quantidade de enchimento por metro quadrado, segundo a Altenburg. Gramaturas menores resultam em edredons mais leves, e as maiores, em mais volume e aquecimento, segundo a Altenburg."
+    },
+    {
+      "ref": "gramatura-enchimento#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado relaciona edredons leves a menor volume, mas não afirma que eles têm gramatura menor. As demais indicações de uso e características são sustentadas.",
+      "fix": "Edredons leves têm menor volume e são indicados para o verão e regiões quentes; edredons médios equilibram leveza e aquecimento e funcionam bem na meia estação; edredons térmicos são mais encorpados e indicados para o inverno e regiões frias, segundo a Altenburg."
+    },
+    {
+      "ref": "tipos-enchimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-enchimento#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado sustenta que o enchimento de poliéster proporciona volume e conforto e não entra em contato com a pele, mas mostra apenas a composição de um edredom, não que o poliéster seja usado em muitos edredons.",
+      "fix": "O enchimento de poliéster proporciona volume e conforto e não entra em contato direto com a pele, segundo a Karsten."
+    },
+    {
+      "ref": "construcao-edredom#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A descrição do acabamento matelassê e de seu efeito de charme e sofisticação vem da Döhler para um produto específico, mas o bloco a apresenta como afirmação geral, sem atribuição à marca.",
+      "fix": "A Döhler descreve um edredom com acabamento matelassê costurado que une as camadas de tecido e, segundo a marca, acrescenta charme e sofisticação à peça."
+    },
+    {
+      "ref": "construcao-edredom#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados sustentam a variação de cor, estampa e visual, mas não dizem que, na maioria dos modelos, não há diferença de enchimento entre os lados.",
+      "fix": "Edredons dupla face têm cada lado com uma cor ou estampa diferente, permitindo mudar o visual da cama sem trocar de peça, segundo a Altenburg. A Döhler também afirma que esse tipo permite variar o visual da cama e renovar a decoração."
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-secagem#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam instruções de modelos específicos, e não edredons de microfibra ou poliéster sintético em geral. Além disso, o modelo da Trussardi é de 100% algodão. A generalização para esses materiais e para a categoria inteira excede as evidências.",
+      "fix": "Nos modelos citados, as instruções indicam lavagem a 40°C, sem alvejante e sem secagem em tambor; o modelo da Appel orienta secar pendurado e o da Trussardi, em varal."
+    },
+    {
+      "ref": "lavagem-secagem#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A segunda frase transforma as instruções de um modelo específico da Teka em uma afirmação geral sobre alguns modelos de algodão, sem atribuí-la à Teka. O trecho sustenta a descrição daquele modelo, não uma regra geral nem necessariamente a expressão 'quando em casa'.",
+      "fix": "A Appel recomenda preferir lavanderias, especialmente para edredons com enchimentos naturais. No modelo de algodão da Teka citado, as instruções são lavar à mão, com cores similares, sem alvejante, sem secar em tambor e sem passar."
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco seja apresentado como framing, ele afirma fatos sobre o mundo: que os cuidados variam conforme o enchimento e o tecido externo e que a ficha técnica do fabricante informa esses cuidados. Não há trechos citados para sustentar essas afirmações.",
+      "fix": "Confira as instruções de lavagem do seu edredom específico."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos comprovam o tipo de enchimento e a descrição da Appel sobre plumas e penas, mas não dizem que a gramatura não foi declarada.",
+      "fix": "Tipo de enchimento: plumas de ganso; gramatura: não informada no trecho citado; segundo a Appel, plumas e penas proporcionam aquecimento intenso e textura suave."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Nenhum trecho citado menciona enchimento siliconizado. Além disso, os trechos incluem um modelo Appel com 200 g/m², portanto a faixa de 112 a 180 g/m² não representa todos os valores citados.",
+      "fix": "Tipo de enchimento: poliéster thermobonder ou microfibra 100% poliéster, conforme os modelos citados; gramaturas citadas: de 112 a 200 g/m². A Appel relaciona seu modelo a leveza e aquecimento, e a Teka menciona volume elegante."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Altenburg apenas define o que é gramatura e relaciona gramaturas maiores a volume e aquecimento; ela não sustenta a orientação sobre conferir fibra, percentual e gramatura na etiqueta ou ficha técnica. O trecho do Inmetro citado exige nome das fibras e percentual em massa, mas não mostra exigência de informar a gramatura do enchimento.",
+      "fix": "O trecho do Inmetro exige o nome das fibras têxteis e seu conteúdo em percentual de massa. A Altenburg explica que a gramatura indica a quantidade de enchimento por metro quadrado e se relaciona a volume e aquecimento; não atribua ao Inmetro, com base nesses trechos, uma exigência sobre a gramatura."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que a gramatura maior está associada a mais volume e aquecimento, e descrevem as características de poliéster, microfibra e plumas/penas. Porém, não dizem que essa informação deve ser observada especificamente na ficha técnica nem que a composição deve ser verificada na etiqueta; o trecho do Inmetro apenas menciona nomes e percentuais em massa das fibras, sem mostrar esse contexto. Além disso, o trecho fala em plumas e penas, não apenas plumas. Versão sustentável: A gramatura maior está associada a mais volume e aquecimento, segundo a Altenburg. A Appel descreve o poliéster como leve, com retenção de calor e fácil de lavar; a microfibra como confortável e de fácil manutenção; e plumas e penas como associadas a aquecimento intenso e textura suave. A composição deve informar o nome das fibras e seu percentual em massa."
+    },
+    {
+      "ref": "gramatura-enchimento#0",
+      "msg": "OVERSTATED. O trecho diz que a gramatura indica a quantidade de enchimento por metro quadrado, mas não informa que a medida é expressa em gramas (g/m²). Versão sustentável: Gramatura é a quantidade de enchimento por metro quadrado, segundo a Altenburg. Gramaturas menores resultam em edredons mais leves, e as maiores, em mais volume e aquecimento, segundo a Altenburg."
+    },
+    {
+      "ref": "gramatura-enchimento#1",
+      "msg": "UNSUPPORTED. O trecho citado relaciona edredons leves a menor volume, mas não afirma que eles têm gramatura menor. As demais indicações de uso e características são sustentadas. Versão sustentável: Edredons leves têm menor volume e são indicados para o verão e regiões quentes; edredons médios equilibram leveza e aquecimento e funcionam bem na meia estação; edredons térmicos são mais encorpados e indicados para o inverno e regiões frias, segundo a Altenburg."
+    },
+    {
+      "ref": "tipos-enchimento#1",
+      "msg": "OVERSTATED. O trecho citado sustenta que o enchimento de poliéster proporciona volume e conforto e não entra em contato com a pele, mas mostra apenas a composição de um edredom, não que o poliéster seja usado em muitos edredons. Versão sustentável: O enchimento de poliéster proporciona volume e conforto e não entra em contato direto com a pele, segundo a Karsten."
+    },
+    {
+      "ref": "construcao-edredom#0",
+      "msg": "MISATTRIBUTED. A descrição do acabamento matelassê e de seu efeito de charme e sofisticação vem da Döhler para um produto específico, mas o bloco a apresenta como afirmação geral, sem atribuição à marca. Versão sustentável: A Döhler descreve um edredom com acabamento matelassê costurado que une as camadas de tecido e, segundo a marca, acrescenta charme e sofisticação à peça."
+    },
+    {
+      "ref": "construcao-edredom#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam a variação de cor, estampa e visual, mas não dizem que, na maioria dos modelos, não há diferença de enchimento entre os lados. Versão sustentável: Edredons dupla face têm cada lado com uma cor ou estampa diferente, permitindo mudar o visual da cama sem trocar de peça, segundo a Altenburg. A Döhler também afirma que esse tipo permite variar o visual da cama e renovar a decoração."
+    },
+    {
+      "ref": "lavagem-secagem#0",
+      "msg": "OVERSTATED. Os trechos citam instruções de modelos específicos, e não edredons de microfibra ou poliéster sintético em geral. Além disso, o modelo da Trussardi é de 100% algodão. A generalização para esses materiais e para a categoria inteira excede as evidências. Versão sustentável: Nos modelos citados, as instruções indicam lavagem a 40°C, sem alvejante e sem secagem em tambor; o modelo da Appel orienta secar pendurado e o da Trussardi, em varal."
+    },
+    {
+      "ref": "lavagem-secagem#1",
+      "msg": "MISATTRIBUTED. A segunda frase transforma as instruções de um modelo específico da Teka em uma afirmação geral sobre alguns modelos de algodão, sem atribuí-la à Teka. O trecho sustenta a descrição daquele modelo, não uma regra geral nem necessariamente a expressão 'quando em casa'. Versão sustentável: A Appel recomenda preferir lavanderias, especialmente para edredons com enchimentos naturais. No modelo de algodão da Teka citado, as instruções são lavar à mão, com cores similares, sem alvejante, sem secar em tambor e sem passar."
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "msg": "FACT_IN_FRAMING. Embora o bloco seja apresentado como framing, ele afirma fatos sobre o mundo: que os cuidados variam conforme o enchimento e o tecido externo e que a ficha técnica do fabricante informa esses cuidados. Não há trechos citados para sustentar essas afirmações. Versão sustentável: Confira as instruções de lavagem do seu edredom específico."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. Os trechos comprovam o tipo de enchimento e a descrição da Appel sobre plumas e penas, mas não dizem que a gramatura não foi declarada. Versão sustentável: Tipo de enchimento: plumas de ganso; gramatura: não informada no trecho citado; segundo a Appel, plumas e penas proporcionam aquecimento intenso e textura suave."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "UNSUPPORTED. Nenhum trecho citado menciona enchimento siliconizado. Além disso, os trechos incluem um modelo Appel com 200 g/m², portanto a faixa de 112 a 180 g/m² não representa todos os valores citados. Versão sustentável: Tipo de enchimento: poliéster thermobonder ou microfibra 100% poliéster, conforme os modelos citados; gramaturas citadas: de 112 a 200 g/m². A Appel relaciona seu modelo a leveza e aquecimento, e a Teka menciona volume elegante."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "MISATTRIBUTED. A Altenburg apenas define o que é gramatura e relaciona gramaturas maiores a volume e aquecimento; ela não sustenta a orientação sobre conferir fibra, percentual e gramatura na etiqueta ou ficha técnica. O trecho do Inmetro citado exige nome das fibras e percentual em massa, mas não mostra exigência de informar a gramatura do enchimento. Versão sustentável: O trecho do Inmetro exige o nome das fibras têxteis e seu conteúdo em percentual de massa. A Altenburg explica que a gramatura indica a quantidade de enchimento por metro quadrado e se relaciona a volume e aquecimento; não atribua ao Inmetro, com base nesses trechos, uma exigência sobre a gramatura."
+    }
+  ]
+}

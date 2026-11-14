@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "tipos-enchimento#0",
+      "problem": "A seção promete explicar como cada tipo de enchimento retém calor, mas o bloco só relaciona a retenção de calor ao poliéster; para microfibra, informa apenas conforto e manutenção, e para plumas e penas, aquecimento intenso.",
+      "fix": "Mudar o título para “Tipos de enchimento e suas características” ou retirar da promessa a explicação sobre como cada tipo retém calor."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "construcao-edredom#0",
+      "problem": "A seção promete mostrar a relação entre a construção do edredom e o aquecimento, mas os blocos apenas descrevem o edredom tradicional, o acabamento matelassê e a variação visual da dupla face, sem relacioná-los ao aquecimento.",
+      "fix": "Mudar o título para “Tipos de construção e acabamento do edredom” ou retirar da promessa a relação com o aquecimento."
+    }
+  ],
+  "usage": {
+    "input_tokens": 17808,
+    "output_tokens": 3121,
+    "calls": 3
+  }
+}

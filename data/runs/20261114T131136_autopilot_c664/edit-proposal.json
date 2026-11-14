@@ -1,0 +1,43 @@
+{
+  "edits": [
+    {
+      "ref": "tipos-enchimento#0",
+      "action": "rewrite",
+      "text": "Segundo a Appel, fibra de poliéster é leve, retém calor e é fácil de lavar; microfibra é confortável e de fácil manutenção; plumas e penas oferecem aquecimento intenso e textura suave.",
+      "claim_ids": [
+        "clm_f958639841c3"
+      ],
+      "reason": "Reordena a frase (leve para mais quente) e remove repetição de atribuição, deixando a leitura mais fluida sem perder informação."
+    },
+    {
+      "ref": "construcao-edredom#0",
+      "action": "rewrite",
+      "text": "Edredons tradicionais têm o enchimento costurado entre dois tecidos, prontos para usar, segundo a Altenburg. A Döhler usa acabamento matelassê costurado que une as camadas de tecido, criando um padrão acolchoado.",
+      "claim_ids": [
+        "clm_94bc3896ab68",
+        "clm_3bd62b79d46b"
+      ],
+      "reason": "Remove frase de marketing vaga ('acrescenta charme e sofisticação') que não ajuda a decidir."
+    },
+    {
+      "ref": "construcao-edredom#1",
+      "action": "rewrite",
+      "text": "Edredons dupla face têm cores ou estampas diferentes em cada lado, permitindo mudar o visual da cama sem trocar de peça, segundo a Altenburg e a Döhler.",
+      "claim_ids": [
+        "clm_9067fe30a250",
+        "clm_26ae3f17385f"
+      ],
+      "reason": "Une duas frases que repetem a mesma ideia (Altenburg e Döhler dizendo o mesmo) em uma única frase mais curta."
+    },
+    {
+      "ref": "lavagem-secagem#2",
+      "action": "remove",
+      "reason": "Frase de framing vaga e redundante com os exemplos já dados nos blocos anteriores."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 3071
+  }
+}
