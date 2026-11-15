@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete explicar quanto dura um colchão conforme o tipo, mas a página só traz uma vida útil declarada para colchões Luuna e uma garantia de um modelo de molas da Probel, sem comparar a duração dos tipos de colchão.",
+      "fix": "Reescrever o título para prometer apenas o que a página entrega, por exemplo: \"Quanto tempo dura um colchão: o que dizem as fontes sobre densidade, cuidados e garantia\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 23840,
+    "output_tokens": 4489,
+    "calls": 3
+  }
+}
