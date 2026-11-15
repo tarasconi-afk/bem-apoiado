@@ -1,0 +1,176 @@
+{
+  "run_id": "20261115T010505_autopilot_0db1",
+  "topic": "euro-pillow-e-pillow-top-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_912efb40a0b8",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_09f5af73df29",
+      "new": true
+    },
+    {
+      "claim_id": "clm_94db5b6721a0",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_09f5af73df29",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ffe62ff6c9d9",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_09f5af73df29",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7b2bd664da79",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_09f5af73df29",
+      "new": true
+    },
+    {
+      "claim_id": "clm_abe2555424ff",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_09f5af73df29",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cfeca2267a75",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_046bdf301c3b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2583f0d971e8",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_046bdf301c3b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_34afc4973fda",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_046bdf301c3b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7638da6e995a",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_046bdf301c3b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_70f72dc6b875",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_046bdf301c3b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2dafad1e43a9",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_78f351682827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_83336abd1748",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_78f351682827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d69ac9cc9b69",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_78f351682827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e3e5ccefd698",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_78f351682827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8767c2500f85",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_78f351682827",
+      "new": true
+    },
+    {
+      "claim_id": "clm_41d49b793ad1",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_c26c9b9deae2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_86270daae2b9",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_c26c9b9deae2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3874ebda0aa8",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_c26c9b9deae2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ddfefb790713",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_c26c9b9deae2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f68810d66762",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_c26c9b9deae2",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_construcao_altura": 0,
+    "q_opcao_pillow_top": 8,
+    "q_opcao_euro_pillow": 0,
+    "q_sensacao_firmeza": 8,
+    "q_propriedade_declarada": 0,
+    "q_cuidado_capa": 4,
+    "q_restricao_leitor": 0
+  },
+  "unanswered": [
+    "q_construcao_altura",
+    "q_opcao_euro_pillow",
+    "q_propriedade_declarada",
+    "q_restricao_leitor"
+  ],
+  "usage": {
+    "input_tokens": 9697,
+    "output_tokens": 2555,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_09f5af73df29",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_046bdf301c3b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_78f351682827",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_c26c9b9deae2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 10.831151880000002
+}
