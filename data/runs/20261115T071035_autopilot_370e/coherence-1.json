@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "o-que-significa-densidade#0",
+      "problem": "O título promete explicar cada densidade D23, D28, D33 e D45, mas o bloco só traz um exemplo do modelo Elite D33/D28 e uma afirmação geral sobre densidade.",
+      "fix": "Mudar o título para algo como “Exemplo de densidade no colchão Elite D33/D28 e relação com firmeza”, sem prometer explicar todas as densidades."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18279,
+    "output_tokens": 1636,
+    "calls": 3
+  }
+}

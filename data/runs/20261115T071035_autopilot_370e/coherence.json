@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "o-que-significa-densidade#0",
+      "problem": "A seção promete explicar cada densidade — D23, D28, D33 e D45 — mas o bloco só traz um dado específico sobre a espuma D33 e uma afirmação geral sobre densidade.",
+      "fix": "Mudar o título para algo como “O que significa uma densidade maior, como a D33”."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "o-que-significa-densidade#0",
+      "problem": "A densidade média de 33 kg/m³ foi informada na ficha do modelo Elite D33/D28, mas o texto a apresenta como se fosse uma característica geral de toda espuma D33.",
+      "fix": "Reescrever como “No modelo Elite D33/D28 da Castor, a espuma D33 tem densidade média de 33 kg/m³”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 24364,
+    "output_tokens": 4413,
+    "calls": 3
+  }
+}
