@@ -1,0 +1,30 @@
+{
+  "edits": [
+    {
+      "ref": "verdict",
+      "action": "rewrite",
+      "text": "Escolha a cadeira considerando seu peso e o tempo de uso diário. Prefira um modelo cuja capacidade suportada seja pelo menos 20 kg acima do seu peso. Para mais de 4 horas por dia sem ar-condicionado, dê preferência a tela (mesh); para uso de até 6 horas, o revestimento e a ventilação têm menos impacto.",
+      "claim_ids": [
+        "clm_5e346b1411f9",
+        "clm_1c0394081af2",
+        "clm_0511027dea9a"
+      ],
+      "reason": "Resume o veredito sem repetir literalmente os mesmos detalhes já explicados em peso-suportado e revestimento-e-limpeza."
+    },
+    {
+      "ref": "revestimento-e-limpeza#0",
+      "action": "rewrite",
+      "text": "Segundo a ergocadeiras, o revestimento em tela (mesh) é recomendado para uso de trabalho acima de 4 horas diárias sem ar-condicionado, pois deixa o ar passar. A Flexform destaca que a tela no assento ajuda quem transpira muito sentado.",
+      "claim_ids": [
+        "clm_1c0394081af2",
+        "clm_22a98cd74c24"
+      ],
+      "reason": "Corrige erro de digitação ('costurar' por 'sentado') e deixa a frase mais clara, sem alterar o sentido das fontes."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 4,
+    "output_tokens": 7273
+  }
+}

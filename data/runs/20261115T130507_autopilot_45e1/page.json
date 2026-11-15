@@ -1,0 +1,45 @@
+{
+  "slug": "cadeira-para-costureira-qual-escolher",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 122435,
+    "output_tokens": 49361,
+    "calls": 57
+  },
+  "credits": 67.45360068000002,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Confira seu peso e escolha uma cadeira cuja capacidade declarada seja pelo menos 20 kg superior ao seu peso.",
+      "Para trabalho acima de 4 horas diárias sem ar-condicionado, prefira revestimento em tela para melhorar a ventilação.",
+      "Se você transpira muito, considere tela também no assento.",
+      "Se a prioridade for higienização fácil ou uso compartilhado, prefira uma superfície lisa.",
+      "Em ambientes quentes, evite PU se a retenção de calor e umidade puder atrapalhar o conforto.",
+      "Confira se o modelo tem regulagem de altura do assento, apoio lombar ajustável, profundidade do assento regulável e mecanismo com tensão ajustável ou sincronizado.",
+      "Verifique na ficha a faixa de inclinação e as posições de trava do encosto.",
+      "Confira as características dos rodízios, como compatibilidade com o piso e resistência a deslocamentos involuntários.",
+      "Não confunda peso máximo suportado com peso recomendado para uso ótimo."
+    ],
+    "missing": [
+      "Tabela ou ficha de fabricantes relacionando a altura do usuário à faixa de regulagem da cadeira.",
+      "Medidas declaradas de largura e profundidade do assento e faixa de ajuste do apoio lombar para cada modelo.",
+      "Capacidade de peso, peso recomendado e faixa de ajustes de modelos específicos indicados para costura.",
+      "Informações dos fabricantes sobre estabilidade, travamento e tipo de rodízio de cada opção.",
+      "Orientações de limpeza e conservação do revestimento fornecidas pelos fabricantes dos modelos comparados.",
+      "Comparação explícita entre modelos de cadeiras para diferentes perfis de costureira, como uso doméstico, trabalho diário prolongado e maior peso."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde à dúvida com regras práticas baseadas em peso, duração do uso, ventilação, revestimento e ajustes, e orienta o que conferir na ficha técnica. A resposta curta é rápida e concreta. Faltam medidas e especificações de modelos de fabricantes, mas isso limita o detalhamento da comparação, não impede a decisão inicial.",
+    "filler_ratio": 0.05555555555555555,
+    "model_opinion": true
+  }
+}
