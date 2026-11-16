@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-16T07:16:34.919Z",
+  "instruction": "Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: 1) Se você pesa até 50 kg, escolha espuma D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; e de 71 a 80 kg, D33 2) Se você pesa de 81 a 100 kg, escolha densidade entre D33 e D45 conforme a firmeza desejada; acima de 100 kg, escolha D45 ou maior 3) Se o espaço disponível no acampamento comporta uma medida específica, escolha o tamanho correspondente: solteiro de 0,88 x 1,88 m, solteiro king de 1,00 x 2,00 m ou casal de 1,38 x 1,88 m. Resolva também: a) A página usa recomendações de densidade e medidas de colch",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Escolha colchão de espuma para acampamento pela densidade (seu peso), tamanho disponível e medidas dobradas.",
+      "after": "Escolha colchão de acampamento pela densidade e peso: até 50 kg D23, até 80 kg até D33, até 100 kg até D45. Compare medidas com seu espaço."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior, segundo a Castor. Para o tamanho, compare as medidas disponíveis com o espaço da barraca: segundo a Castor, solteiro mede 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m.",
+      "after": "Escolha a densidade conforme seu peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior, segundo a Castor. Para o tamanho, compare as medidas disponíveis com o espaço da barraca: segundo a Castor, solteiro mede 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m."
+    },
+    {
+      "where": "Como decidir pela densidade e tamanho · bloco 1",
+      "before": "Densidade recomendada pela Castor para cada faixa de peso · Até 50 kg | D23 / 51 a 60 kg | D26 / 61 a 70 kg | D28 / 71 a 80 kg | D33 / 81 a 100 kg | D33 a D45, conforme sua preferência por firmeza / Acima de 100 kg | D45 ou maior",
+      "after": "Se você pesa até 80 kg, a Castor indica densidades diferentes conforme sua faixa de peso: até 50 kg escolha D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33. Veja a tabela abaixo para localizar sua faixa."
+    },
+    {
+      "where": "Como decidir pela densidade e tamanho · bloco 3",
+      "before": "Se você pesa entre 81 e 100 kg, a Castor indica densidade de D33 a D45, variando conforme sua preferência por firmeza.",
+      "after": "Se você pesa entre 81 e 100 kg, a Castor indica densidade de D33 a D45, variando conforme sua preferência por firmeza. Se pesa acima de 100 kg, escolha D45 ou maior para evitar que o colchão afunde demais e dure mais tempo, segundo a Castor."
+    },
+    {
+      "where": "Como decidir pela densidade e tamanho · bloco 4",
+      "before": "Se você pesa acima de 100 kg, segundo a Castor, a densidade deve ser D45 ou maior para evitar que o colchão afunde demais e dure mais tempo.",
+      "after": "Para o tamanho, compare as medidas disponíveis com o espaço do seu acampamento: segundo a Castor, solteiro mede 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m. A Gazin também oferece colchão casal de 138 × 188 cm e solteiro de 88 × 188 cm."
+    },
+    {
+      "where": "Como decidir pela densidade e tamanho · bloco 5",
+      "before": "Tamanhos de colchão disponíveis segundo a Castor · Solteiro | 0,88 × 1,88 m / Solteiro king | 1,00 × 2,00 m / Casal | 1,38 × 1,88 m",
+      "after": "Na marcação do produto ou da embalagem, confira a densidade nominal em kg/m³ e, para colchões compostos, as espessuras de cada lâmina de espuma."
+    },
+    {
+      "where": "Como decidir pela densidade e tamanho · bloco 6",
+      "before": "A Castor lista as seguintes medidas: 0,88 × 1,88 m para solteiro, 1,00 × 2,00 m para solteiro king e 1,38 × 1,88 m para casal. Compare essas medidas com o espaço disponível na barraca.",
+      "after": "(removido)"
+    }
+  ]
+}

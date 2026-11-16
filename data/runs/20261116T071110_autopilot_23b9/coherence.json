@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que basta escolher um colchão de espuma para acampamento pela densidade indicada para seu peso, mas os trechos só relacionam densidade a firmeza e suporte de colchões em geral; não mostram que essa recomendação atende ao uso em acampamento.",
+      "fix": "Reescrever para limitar a orientação ao que os trechos sustentam: a densidade pode ser consultada conforme o peso e o tamanho deve ser comparado ao espaço da barraca, sem apresentar essa combinação como suficiente para escolher um colchão de acampamento."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16878,
+    "output_tokens": 2774,
+    "calls": 3
+  }
+}

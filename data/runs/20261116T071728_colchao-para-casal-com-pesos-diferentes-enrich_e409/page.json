@@ -1,0 +1,60 @@
+{
+  "slug": "colchao-para-casal-com-pesos-diferentes",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 119975,
+    "output_tokens": 35216,
+    "calls": 46
+  },
+  "credits": 59.54253143999998,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O texto transforma a densidade indicada para o peso mais alto em uma solução para os dois, mas o trecho da Castor só relaciona cada faixa de peso à densidade correspondente e não afirma que a densidade do mais pesado atende também ao mais leve (densidade-por-p",
+      "A seção promete diferenças entre tipos de mola, mas o primeiro bloco só explica como funcionam as molas ensacadas e não compara esse tipo com outro (tipos-mola#0); Mudar o título para algo como \"Como funcionam as molas ensacadas\" ou tirar da promessa a compara"
+    ],
+    "filler_refs": [
+      "peso-maximo#1"
+    ],
+    "decision_criteria": [
+      "Em colchões de espuma, use a densidade indicada para a pessoa mais pesada; por exemplo, 70 kg exige no mínimo D33 quando a outra pessoa pesa 85 kg.",
+      "Para casais com pesos diferentes e que se incomodam com movimentos, prefira molas ensacadas individualmente, que reduzem a transferência de movimento.",
+      "Confira se a ficha técnica indica que o modelo atende casais com biotipos ou pesos diferentes.",
+      "Verifique o peso máximo suportado por pessoa na ficha técnica do modelo, sem confundir esse limite com a densidade da espuma.",
+      "Em modelos dupla face, confira a firmeza e o limite de peso de cada lado; D33 é mais firme que D28 nos exemplos citados.",
+      "Para pessoas acima de 100 kg, procure densidade D45 ou maior quando essa recomendação se aplicar ao modelo de espuma."
+    ],
+    "missing": [
+      "Para o leitor leigo: O texto transforma a densidade indicada para o peso mais alto em uma solução para os dois, mas o trecho da Castor só relaciona cada faixa de peso à densidade correspondente e não afirma que a densidade do mais pesado atende também ao mais leve (densidade-por-p",
+      "Para o leitor leigo: A seção promete diferenças entre tipos de mola, mas o primeiro bloco só explica como funcionam as molas ensacadas e não compara esse tipo com outro (tipos-mola#0); Mudar o título para algo como \"Como funcionam as molas ensacadas\" ou tirar da promessa a compara",
+      "Uma regra do fabricante para escolher colchões mistos de espuma e molas quando os ocupantes têm pesos diferentes.",
+      "Uma declaração do fabricante sobre a transmissão de movimento em molas Bonnel para casais com pesos diferentes.",
+      "Modelos dupla face com indicação explícita de qual lado serve para cada faixa de peso do casal.",
+      "Uma explicação do fabricante sobre quando o limite informado por pessoa também deve ser comparado à soma dos pesos dos dois ocupantes.",
+      "Uma regra mais clara para relacionar a densidade da espuma ao peso de cada pessoa em colchões de molas ou modelos mistos."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde diretamente como começar a escolha — usar a faixa de densidade do mais pesado em colchões de espuma — e acrescenta critérios práticos sobre molas ensacadas, peso máximo, modelos dupla face e ficha técnica. Há alguma repetição entre os blocos sobre transferência de movimento, mas ela não impede a decisão nem compromete a resposta rápida.",
+    "filler_ratio": 0.047619047619047616,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "densidade-por-peso#1",
+        "problem": "O texto transforma a densidade indicada para o peso mais alto em uma solução para os dois, mas o trecho da Castor só relaciona cada faixa de peso à densidade correspondente e não afirma que a densidade do mais pesado atende também ao mais leve.",
+        "fix": "Reescrever para dizer apenas que a tabela da Castor indica a densidade correspondente ao peso de cada pessoa; tirar a afirmação de que o colchão deve ter no mínimo a densidade do mais pesado."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "tipos-mola#0",
+        "problem": "A seção promete diferenças entre tipos de mola, mas o primeiro bloco só explica como funcionam as molas ensacadas e não compara esse tipo com outro.",
+        "fix": "Mudar o título para algo como \"Como funcionam as molas ensacadas\" ou tirar da promessa a comparação entre tipos de mola."
+      }
+    ]
+  }
+}

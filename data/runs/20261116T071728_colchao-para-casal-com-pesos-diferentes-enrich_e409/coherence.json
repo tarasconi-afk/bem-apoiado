@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "densidade-por-peso#1",
+      "problem": "O texto transforma a densidade indicada para o peso mais alto em uma solução para os dois, mas o trecho da Castor só relaciona cada faixa de peso à densidade correspondente e não afirma que a densidade do mais pesado atende também ao mais leve.",
+      "fix": "Reescrever para dizer apenas que a tabela da Castor indica a densidade correspondente ao peso de cada pessoa; tirar a afirmação de que o colchão deve ter no mínimo a densidade do mais pesado."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "tipos-mola#0",
+      "problem": "A seção promete diferenças entre tipos de mola, mas o primeiro bloco só explica como funcionam as molas ensacadas e não compara esse tipo com outro.",
+      "fix": "Mudar o título para algo como \"Como funcionam as molas ensacadas\" ou tirar da promessa a comparação entre tipos de mola."
+    }
+  ],
+  "usage": {
+    "input_tokens": 34492,
+    "output_tokens": 4721,
+    "calls": 3
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "peso-maximo#1"
+    ],
+    "decision_criteria": [
+      "Use a tabela de densidade da Castor conforme o peso de cada pessoa: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Para casais com diferença de peso ou biotipo, procure modelos cuja ficha técnica indique essa finalidade, como alguns modelos da Probel e da Duoflex.",
+      "Se o movimento de uma pessoa atrapalha a outra, prefira molas ensacadas individualmente, que reduzem a transferência de movimento.",
+      "Confira o peso máximo suportado por pessoa na ficha técnica do modelo, sem confundir esse limite com a densidade da espuma.",
+      "Considere colchões dupla face quando um lado mais firme, como D33, e outro mais macio, como D28, puderem atender às preferências ou aos pesos do casal.",
+      "Para pessoas acima de 100 kg, procure densidade D45 ou maior ou um modelo cuja ficha indique suporte compatível.",
+      "Verifique se o fabricante informa suporte para cada pessoa e se o modelo é adequado aos dois usuários, inclusive ao mais leve."
+    ],
+    "missing": [
+      "Uma regra do fabricante para escolher um único colchão quando as faixas de densidade recomendadas para cada pessoa são diferentes, incluindo se deve prevalecer o peso maior.",
+      "Ficha técnica de modelos mistos de espuma e molas explicando como o suporte se comporta para pessoas com pesos diferentes.",
+      "Informação do fabricante sobre o peso máximo total do casal e se o limite por pessoa deve ser somado.",
+      "Indicação do fabricante sobre a transmissão de movimento em colchões de molas Bonnel quando os pesos dos ocupantes são diferentes.",
+      "Mais especificações de modelos dupla face relacionando cada lado à faixa de peso de cada pessoa."
+    ],
+    "publishable": true,
+    "summary": "Publicável, pois oferece faixas concretas de densidade, orienta a procurar molas ensacadas e ensina a conferir suporte por pessoa na ficha técnica. A resposta é apenas parcial porque não explica qual densidade ou configuração escolher quando as recomendações dos dois ocupantes são diferentes, nem informa limites totais para o casal.",
+    "filler_ratio": 0.047619047619047616,
+    "model_opinion": true
+  },
+  "usage": {
+    "input_tokens": 13413,
+    "output_tokens": 4338
+  }
+}

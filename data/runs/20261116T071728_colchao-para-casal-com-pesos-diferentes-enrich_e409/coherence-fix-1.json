@@ -1,0 +1,29 @@
+{
+  "patches": [
+    {
+      "ref": "densidade-por-peso#1",
+      "action": "replace",
+      "text": "Confira na tabela acima a densidade que a Castor indica para o peso de cada um de vocês. Quem pesa mais precisará de uma densidade mais alta; quem pesa menos, de uma mais baixa.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_1205fed30228",
+        "clm_85a0052e1579"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "densidade-por-peso#0.r0",
+    "densidade-por-peso#0.r1",
+    "densidade-por-peso#0.r2",
+    "densidade-por-peso#0.r3",
+    "densidade-por-peso#0.r4",
+    "densidade-por-peso#0.r5",
+    "densidade-por-peso#1",
+    "densidade-por-peso#2"
+  ],
+  "still": [
+    "densidade-por-peso#1: MISATTRIBUTED"
+  ]
+}
