@@ -186,12 +186,17 @@ export function wantedImages(
 
 const BriefOut = z.object({ alt: z.string().min(10).max(160), prompt: z.string().min(60).max(900) });
 
+export const imagemFalhaPassageira = (e: Error) => /HTTP 5\d\d|HTTP 429|terminated|fetch failed|ECONNRESET|ETIMEDOUT|socket hang up|timeout|upstream/i.test(e.message);
+
 export async function ensureImages(
   root: string,
   kinds: { id: string; label: string }[],
   pages: CoverPage[],
   writeBrief: (subject: string) => Promise<{ alt: string; prompt: string }>,
-  opts: GenerateOptions & { max?: number; products?: { asin: string; kind: string; brand: string; label: string }[]; skip?: Set<string> } = {},
+  opts: GenerateOptions & {
+    max?: number; products?: { asin: string; kind: string; brand: string; label: string }[]; skip?: Set<string>;
+    onFail?: (id: string, e: Error) => void; retryDelayMs?: number;
+  } = {},
 ): Promise<ImageRecord[]> {
   // skip: imagens já geradas que esperam o aceite num resultado pendente (fora do main): não gerar de novo.
   const todo = wantedImages(root, kinds, pages, opts.products).filter((w) => !opts.skip?.has(w.id)).slice(0, opts.max ?? 2);
@@ -203,7 +208,20 @@ export async function ensureImages(
     const ready = briefs.find((x) => x.id === w.id);
     const b = ready ?? Brief.parse({ id: w.id, kind: w.kind, ...(await writeBrief(w.subject)) });
     writeFileSync(briefsFile, JSON.stringify([...briefs.filter((x) => x.id !== b.id), b], null, 2) + '\n');
-    done.push(await generateImage(b, root, opts));
+    // 13/11, travesseiro para quem dorme de costas: "HTTP 503 upstream connect error" derrubou a capa e, com ela, as
+    // outras imagens da vez. Falha passageira do provedor ganha uma segunda chance depois de uma pausa; falha que
+    // persiste fica registrada (onFail) e não impede as demais imagens.
+    try {
+      done.push(await generateImage(b, root, opts));
+    } catch (e) {
+      if (!imagemFalhaPassageira(e as Error)) { opts.onFail?.(w.id, e as Error); continue; }
+      await new Promise((r) => setTimeout(r, opts.retryDelayMs ?? 30_000));
+      try {
+        done.push(await generateImage(b, root, opts));
+      } catch (e2) {
+        opts.onFail?.(w.id, e2 as Error);
+      }
+    }
   }
   return done;
 }

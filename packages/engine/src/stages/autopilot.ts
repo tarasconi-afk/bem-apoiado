@@ -137,6 +137,25 @@ export function isDeferred(slug: string, now = new Date()): boolean {
   const at = readState<Record<string, string>>(DEFERRED_FILE, {})[slug];
   return !!at && now.getTime() - Date.parse(at) < DEFER_DAYS * 86_400_000;
 }
+// Pausa de páginas novas (16/11, dono): com muitos resultados esperando decisão, cada página nova só aumenta a pilha
+// (9 ramos em 16/11, ~210 créditos/dia em páginas que ninguém tinha lido). A partir do limite, o ciclo faz só
+// manutenção (imagens, re-auditoria, lacunas, enriquecimento, produtos) até o dono decidir os ramos.
+export const MAX_PENDING_BRANCHES = 5;
+export function pendentesNoAmbiente(env = process.env.BEM_PENDING_SLUGS): number {
+  return new Set((env ?? '').split(',').map((x) => x.trim()).filter(Boolean)).size;
+}
+export function pausaDePaginasNovas(n: number): string | null {
+  return n >= MAX_PENDING_BRANCHES ? `pausa de páginas novas: ${n} ramos esperando você (limite ${MAX_PENDING_BRANCHES}); o ciclo faz só manutenção até você decidir` : null;
+}
+
+// Pesquisa própria sem nenhuma evidência (16/11, colchão de espuma para acampamento: discover 0 fontes, research
+// 0 evidências; a checagem passou só com evidência emprestada de pautas vizinhas e a redação gastou 75,7 créditos
+// num rascunho com 67% de enchimento). Sem evidência própria não há redação: a pauta é adiada e o que ela pergunta
+// vira lacuna, para a próxima tentativa ir atrás disso (caminho do improve), e não direto para a redação.
+export function semEvidenciaPropria(aceitas: number): boolean {
+  return aceitas === 0;
+}
+
 export function lacksMakers(query: string, topic?: TopicBrief): boolean {
   try {
     return lacksMakersOrThrow(query, topic);
@@ -316,9 +335,23 @@ async function maintainImages(steps: string[]): Promise<boolean> {
     // ciclo gerava de novo a mesma capa (24/10: a do baú 4 vezes, ~15 créditos à toa). Vale 14 dias.
     const recent = readState<Record<string, string>>('images-made.json', {});
     const skip = new Set(Object.entries(recent).filter(([, at]) => Date.now() - Date.parse(at) < 14 * 86_400_000).map(([id]) => id));
-    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, { max: 2, products: loadProducts(), skip });
+    // Imagem que falhou volta nos ciclos seguintes, até IMAGE_MAX_ATTEMPTS vezes em IMAGE_FAIL_WINDOW_DAYS (16/11).
+    const falhas = readState<Record<string, { n: number; at: string; erro: string }>>(IMAGE_FAILS_FILE, {});
+    for (const id of imagensDesistidas(falhas)) skip.add(id);
+    const novasFalhas: string[] = [];
+    const made = await ensureImages(ROOT, loadNiche().product_kinds, loadPages(), writeBrief, {
+      max: 2, products: loadProducts(), skip,
+      onFail: (id, e) => {
+        const antes = falhas[id] && Date.now() - Date.parse(falhas[id]!.at) < IMAGE_FAIL_WINDOW_DAYS * 86_400_000 ? falhas[id]!.n : 0;
+        falhas[id] = { n: antes + 1, at: new Date().toISOString(), erro: e.message.slice(0, 120) };
+        novasFalhas.push(`${id} falhou (${e.message.slice(0, 60)}); tentativa ${antes + 1} de ${IMAGE_MAX_ATTEMPTS}${antes + 1 < IMAGE_MAX_ATTEMPTS ? ', volta no próximo ciclo' : ', desisto por ' + IMAGE_FAIL_WINDOW_DAYS + ' dias'}`);
+      },
+    });
+    for (const m of made) delete falhas[m.id];
+    if (novasFalhas.length || made.length) writeState(IMAGE_FAILS_FILE, falhas);
     if (made.length) writeState('images-made.json', { ...recent, ...Object.fromEntries(made.map((m) => [m.id, new Date().toISOString()])) });
     if (made.length) steps.push(`imagens: ${made.map((m) => m.id).join(', ')} (~${made.reduce((t, m) => t + m.credits, 0).toFixed(1)} créditos)`);
+    if (novasFalhas.length) steps.push(`imagens: ${novasFalhas.join('; ')}`);
     return made.length > 0;
   } catch (e) {
     steps.push(`imagens: falhou (${(e as Error).message.slice(0, 80)})`);
@@ -326,6 +359,12 @@ async function maintainImages(steps: string[]): Promise<boolean> {
   }
 }
 const IMAGE_MIN_CREDITS = 15;
+export const IMAGE_FAILS_FILE = 'images-failed.json';
+export const IMAGE_MAX_ATTEMPTS = 3;
+export const IMAGE_FAIL_WINDOW_DAYS = 7;
+export function imagensDesistidas(falhas: Record<string, { n: number; at: string }>, now = Date.now()): string[] {
+  return Object.entries(falhas).filter(([, f]) => f.n >= IMAGE_MAX_ATTEMPTS && now - Date.parse(f.at) < IMAGE_FAIL_WINDOW_DAYS * 86_400_000).map(([id]) => id);
+}
 
 // Re-auditoria: uma página publicada por ciclo (auditor trocado ou mais de 30 dias). Com o Luna custa
 // ~1 crédito; o remendo, quando há, é do redator. Página corrigida só vai ao ar depois do aceite humano.
@@ -730,7 +769,9 @@ export async function runCycle(runId: string): Promise<CycleResult> {
   const m7 = await maintainLinks(steps);
   const m9 = await maintainDuplicates(steps);
   const m10 = await maintainDomains(steps);
-  const escolha = creditsLeft() >= PAGE_MIN_CREDITS ? proximaPauta() : { query: null, adiada: null };
+  const pausa = pausaDePaginasNovas(pendentesNoAmbiente());
+  if (pausa) steps.push(pausa);
+  const escolha = !pausa && creditsLeft() >= PAGE_MIN_CREDITS ? proximaPauta() : { query: null, adiada: null };
   const pending = escolha.query;
   const heavyFirst = pending ? false : await heavyMaintenance(runId, steps);
   heavyLater = !!pending;
@@ -738,12 +779,12 @@ export async function runCycle(runId: string): Promise<CycleResult> {
 
   // Página nova custa ~8–12 créditos com o Haiku (até ~25 se escalar para o Sonnet): sem isso sobrando, deixa para o próximo ciclo em vez de parar no
   // meio da redação (gasto perdido). A manutenção já feita sai normalmente.
-  const escolha2 = pending ? escolha : creditsLeft() >= PAGE_MIN_CREDITS ? proximaPauta() : { query: null, adiada: null };
+  const escolha2 = pending || pausa ? escolha : creditsLeft() >= PAGE_MIN_CREDITS ? proximaPauta() : { query: null, adiada: null };
   const query = escolha2.query;
   if (query && escolha2.adiada) steps.push(`pauta "${escolha2.adiada}" fica para depois: mesmo assunto da anterior (${ultimoAssunto().join(', ')}); vai "${query}"`);
-  if (!query && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);
+  if (!query && !pausa && creditsLeft() < PAGE_MIN_CREDITS) steps.push(`página nova adiada para o próximo ciclo (restam ${creditsLeft().toFixed(0)} créditos no teto)`);
   if (!query) {
-    const why = creditsLeft() < PAGE_MIN_CREDITS ? 'sem orçamento para página nova neste ciclo' : 'fila sem pauta pendente';
+    const why = pausa ? 'página nova em pausa: ramos esperando você' : creditsLeft() < PAGE_MIN_CREDITS ? 'sem orçamento para página nova neste ciclo' : 'fila sem pauta pendente';
     if (maintained) return done({ status: 'MAINTENANCE', slug: 'manutencao', steps: [...steps, why] });
     recordCredits(creditsSpent()); // tentativa de produtos sem resultado também gasta
     return { status: 'NOTHING_TO_DO', steps: [...steps, 'fila vazia ou todas as pautas resolvidas/esgotadas'], credits: creditsSpent() };
@@ -804,6 +845,13 @@ export async function runCycle(runId: string): Promise<CycleResult> {
         if (d.added.length === 0 && loadTopics().find((t) => t.slug === topic.slug)!.source_ids.length === 0) return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, 'sem fontes aceitas'] });
         r = await research(topic.slug, runId);
         steps.push(`research: ${r.accepted.length} evidências, ${r.unanswered.length} perguntas sem resposta`);
+        if (semEvidenciaPropria(r.accepted.length)) {
+          const t0 = loadTopic(topic.slug);
+          const gaps = t0.evidence_gaps.length ? t0.evidence_gaps : t0.questions.filter((q) => !r.unanswered.length || r.unanswered.includes(q.id)).map((q) => q.text).slice(0, 5);
+          writeJson(join(DATA, 'topics', `${topic.slug}.json`), TopicBrief.parse({ ...t0, evidence_gaps: gaps }));
+          writeState(DEFERRED_FILE, { ...readState<Record<string, string>>(DEFERRED_FILE, {}), [topic.slug]: new Date().toISOString() });
+          return done({ status: 'STOPPED', slug: topic.slug, query, steps: [...steps, `pauta adiada antes da redação: a pesquisa própria não trouxe nenhuma evidência (${d.added.length} fonte(s) nova(s)); sem redação com evidência só emprestada. Volta em ${DEFER_DAYS} dias indo atrás das ${gaps.length} lacuna(s)`] });
+        }
       }
       // Só escreve com regra de escolha sustentada; senão, uma busca dirigida ao que falta e nova checagem; ainda
       // sem regra, a pauta é adiada com o que falta como lacuna (sem gastar redação nem o tempo do editor).

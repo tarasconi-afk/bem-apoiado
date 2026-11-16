@@ -14,7 +14,7 @@ import { lessonId, lessonsNearCap, loadEditorLessons, MAX_LESSONS } from './edit
 import { loadNiche } from './niche.ts';
 import { gitChanges, normalizeExcluded, plainOutcome, type ChangeItem } from './changes.ts';
 import { cardSubject, CARTAO_CSS, costLine, costSummary, learningLine, textHint, whatBlock, type CartaoCtx } from './cartao.ts';
-import { creditsToday, DAILY_CREDIT_CAP, lacksMakers, queueStatus, slugOf } from './stages/autopilot.ts';
+import { creditsToday, DAILY_CREDIT_CAP, lacksMakers, pausaDePaginasNovas, queueStatus, slugOf } from './stages/autopilot.ts';
 import { editableBlocks } from './stages/manual-edit.ts';
 import { loadClaims } from './store.ts';
 import { mkdirSync } from 'node:fs';
@@ -229,6 +229,12 @@ const fmt = (iso: string) => new Date(iso).toLocaleString('pt-BR', { timeZone: '
 const form = (acao: string, fields: Record<string, string>, button: string, cls = '', confirm?: string) =>
   `<form method="post" action="acao" class="inline"${confirm ? ` onsubmit="return confirm('${esc(confirm)}')"` : ''}><input type="hidden" name="acao" value="${acao}">${Object.entries(fields).map(([k, v]) => `<input type="hidden" name="${k}" value="${esc(v)}">`).join('')}<button class="${cls}">${button}</button></form>`;
 
+// Aviso do limite de ramos (16/11): o dono vê por que o motor parou de abrir páginas novas e o que destrava.
+export function pausaHtml(n: number): string {
+  const msg = pausaDePaginasNovas(n);
+  return msg ? `<p class="flash">${esc(msg.charAt(0).toUpperCase() + msg.slice(1))}. Decida os cartões abaixo para o motor voltar a escrever.</p>` : '';
+}
+
 function adminHtml(msg: string | null): string {
   const pages = loadPages();
   const branches = pendingBranches();
@@ -239,6 +245,7 @@ function adminHtml(msg: string | null): string {
 ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 
 ${dockHtml()}
+${pausaHtml(pendingSlugs.size)}
 ${boardHtml(pages, branches)}
 
 <h2>Páginas no ar</h2>
