@@ -1,0 +1,298 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "o-que-significa-densidade#0",
+      "action": "replace",
+      "text": "Segundo a Castor, a espuma D33 tem densidade média de 33 kg/m³, e quanto maior a densidade, mais firme e resistente é o colchão.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0468e47e6472",
+        "clm_7c1c46269fac"
+      ]
+    },
+    {
+      "ref": "alturas-disponiveis#0",
+      "action": "replace",
+      "text": "A Plumatex informa colchões com alturas de 12, 14, 16, 17, 18, 20 e 25 cm, além de opções de 18, 22, 24 e 29 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_fd1381c6643e",
+        "clm_1a39384863b2"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você é mais pesado e precisa evitar que o colchão afunde, considere uma densidade maior, conforme a orientação da Castor. A Castor também afirma que uma densidade muito alta para o biotipo pode deixar o colchão excessivamente firme e causar desconforto e pontos de pressão dolorosos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04fb4b3f25b0",
+        "clm_b184a236cd51"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher colchão de espuma pela densidade e peso",
+    "description": "Saiba qual densidade de espuma escolher conforme seu peso, o que a etiqueta exige, cuidados com a capa e alturas disponíveis.",
+    "verdict": {
+      "text": "Escolha a densidade pelo seu peso: até 50 kg, densidade D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme sua preferência por firmeza; acima de 100 kg, D45 ou maior, segundo a Castor. Quem prefere mais maciez em sua faixa de peso pode escolher uma densidade menor; quem tende a afundar ou quer mais suporte pode escolher uma densidade maior.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_7ec3827e91ba",
+        "clm_714dac28f044",
+        "clm_7c1c46269fac",
+        "clm_b184a236cd51"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-significa-densidade",
+        "heading": "O que significa cada densidade (D23, D28, D33, D45)",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a espuma D33 tem densidade média de 33 kg/m³, e quanto maior a densidade, mais firme e resistente é o colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0468e47e6472",
+              "clm_7c1c46269fac"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-fabricante-informa-sobre-odor",
+        "heading": "Odor inicial da espuma nova: como lidar",
+        "blocks": [
+          {
+            "text": "Segundo a Apolospuma, ao desembalar o colchão, mantenha-o em local arejado durante alguns dias para dispersar eventual odor inicial.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3a03f7f3b56f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Luuna informa que o colchão expandirá para 90% a 95% do tamanho e altura originais após desembalagem, atingindo 100% da altura dentro de 48 a 72 horas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3cff8152fdea"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-com-capa",
+        "heading": "Como lavar, secar e conservar a capa",
+        "blocks": [
+          {
+            "text": "Segundo a Luuna, a capa é removível e lavável. Recomenda-se lavar a cada 6 meses à mão ou em máquina no ciclo delicado com água fria, e secar pendurada no ar, segundo a Luuna.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_05fb4440ab00"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Apolospuma recomenda higienizar mensalmente por aspiração, escovação seca e ventilação. Não utilize álcool, solventes ou produtos químicos de limpeza, pois podem danificar o revestimento e a estrutura do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ddbe617c36c2"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "alturas-disponiveis",
+        "heading": "Alturas (espessura total) de colchões de espuma",
+        "blocks": [
+          {
+            "text": "A Plumatex informa colchões com alturas de 12, 14, 16, 17, 18, 20 e 25 cm, além de opções de 18, 22, 24 e 29 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fd1381c6643e",
+              "clm_1a39384863b2"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "requisitos-norma-abnt",
+        "heading": "Requisitos mínimos de densidade segundo a norma ABNT",
+        "blocks": [
+          {
+            "text": "Segundo o Inmetro, a norma ABNT NBR 13579-1 e 13579-2 estabelecem os critérios que fundamentam os requisitos de avaliação da conformidade para colchões e colchonetes de espuma flexível de poliuretano. Para colchões de uso geral, a espuma convencional deve ter densidade mínima de 20 kg/m³. Para colchões auxiliares, box conjugados e mistos, a espuma convencional deve ter densidade mínima de 28 kg/m³. Espumas de alta resiliência e viscoelástica devem ter densidade mínima de 30 kg/m³, e espumas de aglomerado devem ter densidade mínima de 65 kg/m³.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fd5a71e0b935",
+              "clm_6072a2fb6dbd",
+              "clm_90b19ff134de",
+              "clm_086d520fd395"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela densidade",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Seu peso",
+              "Densidade indicada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "De 51 a 60 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "De 61 a 70 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "De 71 a 80 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "De 81 a 100 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45, conforme sua preferência por firmeza",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você prefere um colchão mais macio dentro da sua faixa de peso, escolha uma densidade menor compatível com seu peso, segundo a Castor. Segundo a Castor, densidades menores oferecem colchões mais macios e confortáveis.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_714dac28f044"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você é mais pesado e precisa evitar que o colchão afunde, considere uma densidade maior, conforme a orientação da Castor. A Castor também afirma que uma densidade muito alta para o biotipo pode deixar o colchão excessivamente firme e causar desconforto e pontos de pressão dolorosos.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04fb4b3f25b0",
+              "clm_b184a236cd51"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na etiqueta a densidade nominal de cada lâmina de espuma, em kg/m³, e, para colchões compostos ou mistos, as respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "o-que-significa-densidade#0",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam apenas que a espuma D33 tem densidade média de 33 kg/m³ e que, segundo a Castor, quanto maior a densidade, mais firme e resistente é o colchão. Eles não dizem que densidade é a quantidade de quilos por metro cúbico nem informam os valores D23 = 23 kg/m³, D28 = 28 kg/m³ e D45 = 45 kg/m³. Versão sustentável: Segundo a Castor, a espuma D33 tem densidade média de 33 kg/m³, e quanto maior a densidade, mais firme e resistente é o colchão."
+    },
+    {
+      "ref": "alturas-disponiveis#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas que a Plumatex informa duas listas de alturas: 12, 14, 16, 17, 18, 20 e 25 cm, e 18, 22, 24 e 29 cm. Eles não dizem que fabricantes, no plural, oferecem colchões nessas diferentes alturas, não identificam essas listas como pertencentes a modelos diferentes e não afirmam que a altura varia conforme a composição de espumas e camadas. Versão sustentável: A Plumatex informa colchões com alturas de 12, 14, 16, 17, 18, 20 e 25 cm, além de opções de 18, 22, 24 e 29 cm."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos dizem que pessoas mais pesadas precisam de densidades maiores para evitar que o colchão afunde e que uma densidade muito alta para o biotipo pode causar firmeza excessiva e pontos de pressão dolorosos. O bloco generaliza isso para qualquer pessoa que tenda a afundar e afirma, sem a condição do biotipo, que densidades muito altas podem causar esses efeitos. Versão sustentável: Se você é mais pesado e precisa evitar que o colchão afunde, considere uma densidade maior, conforme a orientação da Castor. A Castor também afirma que uma densidade muito alta para o biotipo pode deixar o colchão excessivamente firme e causar desconforto e pontos de pressão dolorosos."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 426
+  }
+}
