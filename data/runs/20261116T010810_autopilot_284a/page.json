@@ -1,0 +1,43 @@
+{
+  "slug": "protetor-de-colchao-ou-pillow-top",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 103018,
+    "output_tokens": 28673,
+    "calls": 35
+  },
+  "credits": 41.47258187999999,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "pillow-top-composicao#0"
+    ],
+    "decision_criteria": [
+      "Para proteger o colchão contra líquidos e umidade, escolha um protetor impermeável.",
+      "Para acrescentar uma camada e mudar a sensação de conforto ou o suporte, escolha um pillow top.",
+      "Confira a espessura, a densidade e o tipo de espuma do pillow top; o modelo citado tem 5 cm e densidade de 50 kg/m³.",
+      "Se pretende lavar o produto em casa, escolha um protetor cuja ficha permita lavagem; o modelo citado permite lavagem à mão até 40 °C, enquanto o pillow top citado proíbe lavagem.",
+      "No protetor, confira a altura indicada, o material impermeável, a composição da capa e o sistema de fixação, como elástico ou abas.",
+      "No pillow top, confira a composição e a gramatura da capa, o tipo de espuma e as instruções de limpeza.",
+      "Compare as medidas de fixação do protetor com a altura do colchão, pois os modelos citados têm abas ou laterais de 35 cm a 40 cm.",
+      "Para buscar uma sensação mais fresca, confira se o pillow top declara recursos como partículas de gel e a composição da capa."
+    ],
+    "missing": [
+      "Uma comparação de fabricantes que declare explicitamente quanto cada modelo altera a firmeza ou a maciez do colchão existente.",
+      "Informação do fabricante sobre o sistema de fixação do pillow top avulso, além da menção a elástico nas laterais.",
+      "Mais opções de pillow top com diferentes espessuras, densidades e materiais para relacionar cada configuração a diferentes preferências de conforto.",
+      "Dados de fabricantes sobre retenção de calor do protetor impermeável para compará-lo diretamente com o pillow top.",
+      "Uma tabela de medidas de abas, elásticos ou zíper por tamanho e por modelo."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente que o protetor impermeável serve para barrar líquidos e que o pillow top acrescenta uma camada para mudar o conforto, além de orientar o leitor a conferir espessura, densidade, composição, fixação e cuidados de lavagem. A evidência é mais forte para os modelos citados do que para todos os produtos da categoria, mas há critérios práticos suficientes para a decisão.",
+    "filler_ratio": 0.05,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "edits": [
+    {
+      "ref": "pillow-top-composicao#0",
+      "action": "remove",
+      "reason": "Repete o mesmo conteúdo de protetor-de-colchao-composicao#0 (definição de pillow top segundo a Ortobom)."
+    },
+    {
+      "ref": "verdict",
+      "action": "rewrite",
+      "text": "Para proteger o colchão contra líquidos, escolha um protetor impermeável. Para mudar o conforto, escolha um pillow top. Se for lavar em casa, confira a ficha: os protetores citados permitem lavagem à mão, os pillow tops citados não.",
+      "reason": "Texto mais curto, sem repetir o que já aparece em 'Como decidir'."
+    },
+    {
+      "ref": "cuidados-de-lavagem#0",
+      "action": "rewrite",
+      "text": "O Protetor Colchão Malha Impermeável da Ortobom permite lavagem à mão até 40°C, proíbe alvejamento e limpeza a seco, permite secagem em varal à sombra e proíbe passadoria.",
+      "claim_ids": [
+        "clm_140888248f5a"
+      ],
+      "reason": "Remove introdução redundante ('confira na ficha') e deixa a informação direta."
+    },
+    {
+      "ref": "cuidados-de-lavagem#1",
+      "action": "rewrite",
+      "text": "O Pillow Top HR Gel da Ortobom proíbe lavagem, alvejamento, secagem em tambor e passadoria; permite secagem na horizontal à sombra e limpeza a úmido profissional muito suave.",
+      "claim_ids": [
+        "clm_ca262f12976e"
+      ],
+      "reason": "Remove introdução redundante ('confira na ficha') e deixa a informação direta."
+    },
+    {
+      "ref": "protetor-de-colchao-fixacao#0",
+      "action": "rewrite",
+      "text": "O protetor de colchão da Altenburg usa elástico misto; outro modelo da marca tem material lateral de malha 100% poliéster com elástico.",
+      "claim_ids": [
+        "clm_ae08026f775d",
+        "clm_73ba038eaef7"
+      ],
+      "reason": "Frase mais curta e direta, mantendo as duas informações sem repetição desnecessária."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 4,
+    "output_tokens": 8326
+  }
+}
