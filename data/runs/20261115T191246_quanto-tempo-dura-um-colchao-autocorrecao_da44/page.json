@@ -1,0 +1,106 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que qualquer colchão dura até 10 anos, mas o trecho da Luuna declara esse prazo para o colchão apresentado na página da marca (verdict); Restringir a afirmação ao produto citado: “No colchão da Luuna citado, a vida útil média declarada é",
+      "O colchão Provence é citado com garantia de 1 ano, mas a seção “Como decidir” não orienta o que conferir ou considerar especificamente nesse modelo (verdict); Remover a menção ao Provence do verdict ou incluir uma orientação sustentada pelos trechos, como conf",
+      "O título promete abordar o “tipo” de colchão, mas a página não compara tipos nem explica como o tipo de núcleo altera a duração; ela traz apenas uma declaração de vida útil da Luuna e dados de densidade e garantia (verdict); Ajustar o título para o que a págin"
+    ],
+    "filler_refs": [
+      "densidade-espuma-duracao#1",
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3",
+      "como-decidir#4",
+      "como-decidir#5"
+    ],
+    "decision_criteria": [
+      "Considere até 10 anos como a vida útil média declarada pela Luuna, desde que o uso seja normal e os cuidados recomendados sejam seguidos.",
+      "Se a pessoa for mais pesada, confira densidades maiores para reduzir o afundamento e favorecer a durabilidade, segundo a Castor.",
+      "Use a tabela da Castor para relacionar o peso à densidade: até 50 kg, D23; 51 a 60 kg, D26; 61 a 70 kg, D28; 71 a 80 kg, D33; 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+      "Confira na etiqueta ou embalagem a densidade nominal da espuma em kg/m³ e, em colchões mistos, a espessura de cada lâmina.",
+      "Compare a garantia informada para cada parte: há modelos com 12 meses para espuma e molas e prazo menor para o tecido.",
+      "Considere que um odor inicial pode ser normal após desembalar e desaparecer em alguns dias.",
+      "Siga os cuidados da etiqueta e do manual, evitando sol e, em revestimentos plastificados ou emborrachados, álcool e solventes orgânicos."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando o tipo de núcleo ou a densidade da espuma a uma vida útil declarada.",
+      "Prazos de vida útil específicos para colchões de espuma, molas ensacadas e molas interligadas.",
+      "Informação dos fabricantes sobre perda de firmeza, sustentação ou deformação durante o período de uso.",
+      "Orientação primária sobre virar ou rodiziar o colchão e a frequência desse procedimento.",
+      "Detalhamento, por fabricante e modelo, do que a garantia cobre ou exclui em casos de afundamento e deformação.",
+      "Uma distinção mais clara entre vida útil esperada e prazo de garantia."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde diretamente que a vida útil média pode chegar a 10 anos em condições normais e oferece regras concretas de densidade por peso, cuidados e conferência da etiqueta. Ela ajuda na compra, embora tenha evidências limitadas sobre tipos de molas, perda de firmeza e cobertura da garantia, além de repetir parte da tabela e das orientações.",
+    "filler_ratio": 0.3157894736842105,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "verdict",
+        "problem": "O leitor pode entender que qualquer colchão dura até 10 anos, mas o trecho da Luuna declara esse prazo para o colchão apresentado na página da marca.",
+        "fix": "Restringir a afirmação ao produto citado: “No colchão da Luuna citado, a vida útil média declarada é de até 10 anos em condições normais de uso e com os cuidados recomendados.”"
+      },
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "verdict",
+        "problem": "O colchão Provence é citado com garantia de 1 ano, mas a seção “Como decidir” não orienta o que conferir ou considerar especificamente nesse modelo.",
+        "fix": "Remover a menção ao Provence do verdict ou incluir uma orientação sustentada pelos trechos, como conferir na ficha do produto as condições e o prazo de garantia informado pelo fabricante."
+      },
+      {
+        "check": "promessa_do_titulo",
+        "ref": "verdict",
+        "problem": "O título promete abordar o “tipo” de colchão, mas a página não compara tipos nem explica como o tipo de núcleo altera a duração; ela traz apenas uma declaração de vida útil da Luuna e dados de densidade e garantia.",
+        "fix": "Ajustar o título para o que a página entrega, por exemplo: “Quanto tempo dura um colchão: densidade e garantia”."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0.r0",
+      "como-decidir#0.r1",
+      "como-decidir#0.r2",
+      "como-decidir#0.r3",
+      "como-decidir#0.r4",
+      "como-decidir#0.r5",
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3",
+      "como-decidir#4",
+      "como-decidir#5"
+    ],
+    "decision_criteria": [
+      "Considere até 10 anos como a vida útil média declarada pela Luuna em condições normais de uso e com os cuidados recomendados.",
+      "Para colchões de espuma, confira a densidade nominal na etiqueta: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior, segundo a Castor.",
+      "Pessoas mais pesadas devem buscar densidades maiores para reduzir o afundamento e favorecer a durabilidade, segundo a Castor.",
+      "Confira na etiqueta ou na embalagem a densidade em kg/m³ e, em colchões compostos ou mistos, a espessura de cada lâmina de espuma.",
+      "Verifique o prazo de garantia informado para cada parte do produto: no modelo Probel citado, são 12 meses para mola e espuma e 3 meses para o tecido.",
+      "Siga os cuidados da etiqueta e do manual; não exponha o colchão ao sol e não use álcool ou solventes orgânicos em revestimentos plastificados ou emborrachados.",
+      "Um odor inicial após desembalar pode desaparecer em alguns dias, segundo a Luuna."
+    ],
+    "missing": [
+      "Uma tabela de fabricantes relacionando tipo de núcleo ou densidade da espuma à vida útil declarada.",
+      "Prazos de vida útil declarados especificamente para colchões de espuma, molas ensacadas e molas interligadas.",
+      "Informações dos fabricantes sobre perda de firmeza, sustentação ou deformação durante o período de uso declarado.",
+      "Orientações específicas do fabricante sobre virar ou rodiziar o colchão e outros cuidados que prolonguem sua vida útil.",
+      "Detalhamento do que a garantia de cada fabricante cobre ou exclui em casos de deformação, afundamento e perda de sustentação.",
+      "Uma distinção clara entre vida útil esperada e prazo de garantia, para evitar que o leitor interprete a garantia de 12 meses como duração do colchão."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde parcialmente à dúvida com uma referência concreta de até 10 anos e dá critérios práticos de compra, como densidade por peso, etiqueta, cuidados e garantia. Ela não apresenta uma comparação completa da duração por tipo de colchão nem explica cobertura de deformações, mas não é apenas genérica ou promocional.",
+    "filler_ratio": 0.5789473684210527,
+    "model_opinion": true
+  }
+}

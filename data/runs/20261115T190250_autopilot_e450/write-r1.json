@@ -1,0 +1,418 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "A Castor relaciona densidades maiores a maior durabilidade para pessoas mais pesadas. A Luuna declara que seus colchões usam espumas de alta densidade e têm vida útil média de até 10 anos em condições normais de uso e com os cuidados recomendados. Em um modelo de colchão de mola ensacada da Probel, a garantia para mola e espuma é de 12 meses.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04fb4b3f25b0",
+        "clm_a084d7449d3f",
+        "clm_5cc917777e7b",
+        "clm_07658b32a1fe"
+      ]
+    },
+    {
+      "ref": "densidade-espuma-duracao#0",
+      "action": "replace",
+      "text": "A Castor indica as seguintes densidades conforme a faixa de peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03538692a465"
+      ]
+    },
+    {
+      "ref": "densidade-espuma-duracao#2",
+      "action": "replace",
+      "text": "A Luuna declara que seus colchões têm vida útil média de até 10 anos em condições normais de uso e com os cuidados recomendados.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5cc917777e7b"
+      ]
+    },
+    {
+      "ref": "molas-garantia#0",
+      "action": "replace",
+      "text": "A Probel declara garantia de 12 meses para mola e espuma e de 3 meses para o tecido.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_07658b32a1fe"
+      ]
+    },
+    {
+      "ref": "odor-inicial#0",
+      "action": "replace",
+      "text": "A Luuna informa que é normal que seu colchão desprenda um aroma, que desaparecerá em alguns dias, e declara que ele é livre de substâncias tóxicas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5a2bf7bbb5de"
+      ]
+    },
+    {
+      "ref": "manutencao-duracao#1",
+      "action": "replace",
+      "text": "Para revestimentos plastificados ou emborrachados, o Inmetro exige que o manual alerte que não se deve usar álcool ou qualquer solvente orgânico na limpeza, pois eles podem danificar o revestimento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_084fcd7b230e"
+      ]
+    },
+    {
+      "ref": "o-que-conferir#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, considere o peso e a altura de quem usará o colchão. Para o modelo de molas ensacadas citado pela Probel, verifique a garantia: 12 meses para mola e espuma e 3 meses para o tecido.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_11e2aebdb8ec",
+        "clm_07658b32a1fe"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você pesa até 70 kg, a Castor relaciona as faixas de peso às densidades D23 a D28. Segundo a marca, pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo e obter maior durabilidade.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_04fb4b3f25b0"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Para 71 a 80 kg, a Castor indica D33; para 81 a 100 kg, indica densidade de D33 a D45, conforme a preferência por firmeza. A marca também relaciona densidades maiores a menor afundamento e maior durabilidade.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_04fb4b3f25b0"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "No modelo Probel Excede Premium citado, a garantia para mola e espuma é de 12 meses, e a garantia para tecido é de 3 meses.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_07658b32a1fe"
+      ]
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "Segundo o Inmetro, devem constar no produto e na embalagem as densidades nominais das lâminas de espuma e, em colchões compostos ou mistos, as respectivas espessuras. Confira essas informações no produto ou na embalagem.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0a61647d4d99"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Quanto tempo dura um colchão: densidade, tipo e garantia",
+    "description": "Vida útil de colchões de espuma e molas conforme densidade e tipo de núcleo. Confira garantia, densidade e cuidados para manter durabilidade.",
+    "verdict": {
+      "text": "A Castor relaciona densidades maiores a maior durabilidade para pessoas mais pesadas. A Luuna declara que seus colchões usam espumas de alta densidade e têm vida útil média de até 10 anos em condições normais de uso e com os cuidados recomendados. Em um modelo de colchão de mola ensacada da Probel, a garantia para mola e espuma é de 12 meses.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04fb4b3f25b0",
+        "clm_a084d7449d3f",
+        "clm_5cc917777e7b",
+        "clm_07658b32a1fe"
+      ]
+    },
+    "sections": [
+      {
+        "id": "densidade-espuma-duracao",
+        "heading": "Densidade de espuma e duração declarada",
+        "blocks": [
+          {
+            "text": "Segundo Castor, densidades maiores ajudam a evitar que o colchão afunde demais e favorecem a durabilidade, especialmente para pessoas mais pesadas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_04fb4b3f25b0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Luuna declara que seus colchões têm vida útil média de até 10 anos em condições normais de uso e com os cuidados recomendados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5cc917777e7b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "molas-garantia",
+        "heading": "Garantia em colchões de molas",
+        "blocks": [
+          {
+            "text": "A Probel declara garantia de 12 meses para mola e espuma e de 3 meses para o tecido.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_07658b32a1fe"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "odor-inicial",
+        "heading": "Odor nos primeiros dias após desembalo",
+        "blocks": [
+          {
+            "text": "A Luuna informa que é normal que seu colchão desprenda um aroma, que desaparecerá em alguns dias, e declara que ele é livre de substâncias tóxicas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5a2bf7bbb5de"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "manutencao-duracao",
+        "heading": "Cuidados para manter a vida útil declarada",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que a etiqueta informe cuidados mínimos para conservação do produto. A Duoflex orienta não expor o colchão ao sol por causa da proliferação de ácaros e oxidação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_06281792169b",
+              "clm_00e5a57201d3"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para revestimentos plastificados ou emborrachados, o Inmetro exige que o manual alerte que não se deve usar álcool ou qualquer solvente orgânico na limpeza, pois eles podem danificar o revestimento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_084fcd7b230e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "o-que-conferir",
+        "heading": "O que conferir na etiqueta antes de comprar",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que conste na etiqueta a densidade nominal da espuma em kg/m³. Para colchões compostos ou mistos, também devem aparecer as espessuras de cada lâmina.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade de espuma recomendada pela Castor conforme faixa de peso",
+            "columns": [
+              "Faixa de peso",
+              "Densidade indicada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45 (conforme preferência por firmeza)",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_03538692a465"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa até 70 kg, a Castor relaciona as faixas de peso às densidades D23 a D28. Segundo a marca, pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo e obter maior durabilidade.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_04fb4b3f25b0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para 71 a 80 kg, a Castor indica D33; para 81 a 100 kg, indica densidade de D33 a D45, conforme a preferência por firmeza. A marca também relaciona densidades maiores a menor afundamento e maior durabilidade.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_04fb4b3f25b0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pesa acima de 100 kg, prefira D45 ou superior para garantir suporte adequado e maior durabilidade, segundo Castor.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_03538692a465",
+              "clm_04fb4b3f25b0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No modelo Probel Excede Premium citado, a garantia para mola e espuma é de 12 meses, e a garantia para tecido é de 3 meses.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_07658b32a1fe"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo o Inmetro, devem constar no produto e na embalagem as densidades nominais das lâminas de espuma e, em colchões compostos ou mistos, as respectivas espessuras. Confira essas informações no produto ou na embalagem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que a Castor relaciona densidades maiores a maior durabilidade para pessoas mais pesadas e que a Luuna declara vida útil média de até 10 anos em condições normais. Porém, não dizem que a vida útil depende do tipo de molas, não mostram que a Luuna recomenda densidades D33 a D45 para pessoas de 71 kg em diante, nem afirmam que essa faixa oferece melhor durabilidade. A garantia de 12 meses é informada para mola e espuma de um modelo específico da Probel, não necessariamente para todas as molas ensacadas. Versão sustentável: A Castor relaciona densidades maiores a maior durabilidade para pessoas mais pesadas. A Luuna declara que seus colchões usam espumas de alta densidade e têm vida útil média de até 10 anos em condições normais de uso e com os cuidados recomendados. Em um modelo de colchão de mola ensacada da Probel, a garantia para mola e espuma é de 12 meses."
+    },
+    {
+      "ref": "densidade-espuma-duracao#0",
+      "msg": "MISATTRIBUTED. O trecho citado sustenta a recomendação da Castor, mas não permite afirmar que fabricantes no plural indicam essas faixas. Versão sustentável: A Castor indica as seguintes densidades conforme a faixa de peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior."
+    },
+    {
+      "ref": "densidade-espuma-duracao#2",
+      "msg": "OVERSTATED. O trecho atribui a vida útil aos colchões Luuna, desenvolvidos com espumas de alta densidade, mas não sustenta uma afirmação geral sobre colchões de espuma como categoria. Versão sustentável: A Luuna declara que seus colchões têm vida útil média de até 10 anos em condições normais de uso e com os cuidados recomendados."
+    },
+    {
+      "ref": "molas-garantia#0",
+      "msg": "OVERSTATED. O trecho citado sustenta os períodos declarados pela Probel, mas não sustenta a afirmação no plural de que fabricantes, em geral, declaram períodos diferentes. Além disso, a fonte fala em “mola e espuma”, não apenas em “molejo”. Versão sustentável: A Probel declara garantia de 12 meses para mola e espuma e de 3 meses para o tecido."
+    },
+    {
+      "ref": "odor-inicial#0",
+      "msg": "OVERSTATED. O trecho fala especificamente do colchão da Luuna, não de colchões de espuma em geral, e não menciona que isso ocorre após o desembalo. A atribuição de que o produto é livre de substâncias tóxicas está sustentada. Versão sustentável: A Luuna informa que é normal que seu colchão desprenda um aroma, que desaparecerá em alguns dias, e declara que ele é livre de substâncias tóxicas."
+    },
+    {
+      "ref": "manutencao-duracao#1",
+      "msg": "OVERSTATED. O trecho citado exige que o manual alerte o consumidor para não usar álcool ou solventes orgânicos; ele não afirma diretamente que o Inmetro proíbe o uso. Versão sustentável: Para revestimentos plastificados ou emborrachados, o Inmetro exige que o manual alerte que não se deve usar álcool ou qualquer solvente orgânico na limpeza, pois eles podem danificar o revestimento."
+    },
+    {
+      "ref": "o-que-conferir#1",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom recomenda considerar peso e altura, mas não menciona escolher a densidade nem comparar com nome comercial ou categoria. O trecho da Probel trata apenas dos prazos de garantia e não sustenta a recomendação sobre escolha da densidade. A parte sobre verificar a garantia é sustentada, embora o trecho cite garantia de mola e espuma por 12 meses e de tecido por 3 meses. Versão sustentável: Segundo a Ortobom, considere o peso e a altura de quem usará o colchão. Para o modelo de molas ensacadas citado pela Probel, verifique a garantia: 12 meses para mola e espuma e 3 meses para o tecido."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos sustentam as faixas D23 a D28 e relacionam densidades maiores a maior peso, suporte e durabilidade, mas não afirmam que as densidades menores oferecerão duração adequada especificamente para essa faixa de peso. Versão sustentável: Se você pesa até 70 kg, a Castor relaciona as faixas de peso às densidades D23 a D28. Segundo a marca, pessoas mais pesadas precisam de densidades maiores para evitar afundamento excessivo e obter maior durabilidade."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. A fonte indica D33 para 71 a 80 kg, enquanto D33 a D45 se aplica a 81 a 100 kg, com variação conforme a preferência por firmeza. Portanto, dizer que toda pessoa entre 71 e 100 kg deve escolher livremente entre D33 e D45 generaliza a recomendação. Versão sustentável: Para 71 a 80 kg, a Castor indica D33; para 81 a 100 kg, indica densidade de D33 a D45, conforme a preferência por firmeza. A marca também relaciona densidades maiores a menor afundamento e maior durabilidade."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. O trecho citado informa a garantia de um modelo específico da Probel: 12 meses para mola e espuma e 3 meses para tecido. Ele não afirma que o prazo deve constar na ficha técnica para colchões de molas ensacadas em geral, nem que 12 meses representa um período maior de cobertura sem comparação. Versão sustentável: No modelo Probel Excede Premium citado, a garantia para mola e espuma é de 12 meses, e a garantia para tecido é de 3 meses."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "MISATTRIBUTED. A recomendação sobre densidade nominal e espessuras é sustentada pelo trecho do Inmetro, não pelo trecho da Ortobom, que apenas menciona considerar o peso e a altura do usuário. Além disso, os trechos não dizem para sempre conferir na etiqueta nem estabelecem a comparação com o nome comercial. Versão sustentável: Segundo o Inmetro, devem constar no produto e na embalagem as densidades nominais das lâminas de espuma e, em colchões compostos ou mistos, as respectivas espessuras. Confira essas informações no produto ou na embalagem."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1459
+  }
+}

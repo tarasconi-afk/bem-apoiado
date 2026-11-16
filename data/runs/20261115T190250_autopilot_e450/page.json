@@ -1,0 +1,57 @@
+{
+  "slug": "quanto-tempo-dura-um-colchao",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 87529,
+    "output_tokens": 27078,
+    "calls": 37
+  },
+  "credits": 35.8332594,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O título promete explicar quanto dura um colchão conforme o tipo, mas a página só traz uma vida útil declarada para colchões Luuna e uma garantia de um modelo de molas da Probel, sem comparar a duração dos tipos de colchão (verdict); Reescrever o título para p"
+    ],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2",
+      "como-decidir#3",
+      "como-decidir#4",
+      "como-decidir#5"
+    ],
+    "decision_criteria": [
+      "Considere até 10 anos como a vida útil média declarada pela Luuna para uso normal e com os cuidados recomendados.",
+      "Para colchões de espuma, confira a densidade indicada para o seu peso: a Castor recomenda D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Segundo a Castor, densidades maiores ajudam a reduzir o afundamento e favorecem a durabilidade de pessoas mais pesadas.",
+      "Confira na etiqueta ou na embalagem a densidade nominal da espuma e, em colchões com várias lâminas, a espessura de cada uma.",
+      "Não confunda garantia com vida útil: no modelo Probel citado, a garantia é de 12 meses para mola e espuma e de 3 meses para o tecido.",
+      "Considere que um odor inicial pode desaparecer em alguns dias após desembalar o colchão.",
+      "Siga os cuidados da etiqueta e do manual; evite expor o colchão ao sol e não use álcool ou solventes orgânicos em revestimentos plastificados ou emborrachados."
+    ],
+    "missing": [
+      "Para o leitor leigo: O título promete explicar quanto dura um colchão conforme o tipo, mas a página só traz uma vida útil declarada para colchões Luuna e uma garantia de um modelo de molas da Probel, sem comparar a duração dos tipos de colchão (verdict); Reescrever o título para p",
+      "Uma comparação, baseada em fichas técnicas de vários fabricantes, da vida útil declarada para colchões de espuma, molas ensacadas e molas interligadas.",
+      "Informação dos fabricantes sobre perda de firmeza, sustentação ou deformação ao longo da vida útil declarada.",
+      "Prazos de garantia por componente e as exclusões relacionadas a afundamento, deformação e perda de sustentação.",
+      "Orientação dos fabricantes sobre virar ou rodiziar cada tipo de colchão e outros cuidados específicos para prolongar a vida útil.",
+      "Uma regra mais clara distinguindo vida útil esperada, garantia e sinais práticos de que é hora de trocar o colchão."
+    ],
+    "publishable": false,
+    "summary": "Publicável, mas responde apenas parcialmente à pergunta: oferece o dado concreto de até 10 anos da Luuna, relaciona densidade ao peso e informa uma garantia da Probel. A página dá critérios úteis para conferir no anúncio, na etiqueta e no manual, porém não reúne prazos de vida útil por tipo de colchão nem esclarece suficientemente que garantia não equivale à duração do produto.",
+    "filler_ratio": 0.2631578947368421,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "promessa_do_titulo",
+        "ref": "verdict",
+        "problem": "O título promete explicar quanto dura um colchão conforme o tipo, mas a página só traz uma vida útil declarada para colchões Luuna e uma garantia de um modelo de molas da Probel, sem comparar a duração dos tipos de colchão.",
+        "fix": "Reescrever o título para prometer apenas o que a página entrega, por exemplo: \"Quanto tempo dura um colchão: o que dizem as fontes sobre densidade, cuidados e garantia\"."
+      }
+    ]
+  }
+}

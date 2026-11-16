@@ -1,0 +1,210 @@
+{
+  "run_id": "20261115T190250_autopilot_e450",
+  "topic": "quanto-tempo-dura-um-colchao",
+  "accepted": [
+    {
+      "claim_id": "clm_cca8a3954a76",
+      "question_id": "q_vida_util_espuma",
+      "source_id": "src_25fedbd52914",
+      "new": true
+    },
+    {
+      "claim_id": "clm_cca8a3954a76",
+      "question_id": "q_vida_util_molas",
+      "source_id": "src_25fedbd52914",
+      "new": false
+    },
+    {
+      "claim_id": "clm_e9a2076588de",
+      "question_id": "q_odor_inicial_seguranca",
+      "source_id": "src_25fedbd52914",
+      "new": true
+    },
+    {
+      "claim_id": "clm_394203e0617b",
+      "question_id": "q_cuidado_rodizio_manual",
+      "source_id": "src_25fedbd52914",
+      "new": true
+    },
+    {
+      "claim_id": "clm_35b751d566cb",
+      "question_id": "q_vida_util_espuma",
+      "source_id": "src_58ba9b4bf069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9a6eb8750dd6",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "source_id": "src_58ba9b4bf069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2f4eecc6b8b7",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "source_id": "src_58ba9b4bf069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_eaef9f69685e",
+      "question_id": "q_odor_inicial_seguranca",
+      "source_id": "src_58ba9b4bf069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c2ee6ad69ebd",
+      "question_id": "q_cuidado_rodizio_manual",
+      "source_id": "src_58ba9b4bf069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_06d71fc8417b",
+      "question_id": "q_densidade_tipo_vida_util",
+      "source_id": "src_58ba9b4bf069",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c55691c1188c",
+      "question_id": "q_vida_util_espuma",
+      "source_id": "src_8cde917f9df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_de17523b8c1a",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "source_id": "src_8cde917f9df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5a2bf7bbb5de",
+      "question_id": "q_odor_inicial_seguranca",
+      "source_id": "src_8cde917f9df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a084d7449d3f",
+      "question_id": "q_densidade_tipo_vida_util",
+      "source_id": "src_8cde917f9df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5cc917777e7b",
+      "question_id": "q_vida_util_espuma",
+      "source_id": "src_6cea99d1c4ab",
+      "new": true
+    },
+    {
+      "claim_id": "clm_58f5b786ae5c",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "source_id": "src_6cea99d1c4ab",
+      "new": true
+    },
+    {
+      "claim_id": "clm_639a9994bbbb",
+      "question_id": "q_odor_inicial_seguranca",
+      "source_id": "src_6cea99d1c4ab",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e6239d1a6e30",
+      "question_id": "q_densidade_tipo_vida_util",
+      "source_id": "src_6cea99d1c4ab",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_25fedbd52914",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "A garantia cobre: Deformações na espuma, Defeitos de fabricação. Se identificado algum problema, fazemos a troca sem custo."
+    },
+    {
+      "source_id": "src_58ba9b4bf069",
+      "question_id": "q_cuidado_rodizio_manual",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Como devo cuidar do meu colchão Luuna?\n\nSó precisa aspirar as espumas e a capa.\n1. Abra a capa e retire a parte superior.\n2. Aspire o interior e a parte superior do colchão.\n3. Não use líquidos direta"
+    },
+    {
+      "source_id": "src_8cde917f9df2",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Adicionalmente, seu colchão Luuna tem pelo menos 10 anos de garantia total. Se notar alguma deformação ou defeito, trocaremos seu produto"
+    },
+    {
+      "source_id": "src_8cde917f9df2",
+      "question_id": "q_cuidado_rodizio_manual",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Certifique-se de que as ripas não estejam separadas por mais de 10 cm. Isso ajuda a evitar deformações e prolonga a vida útil do colchão."
+    },
+    {
+      "source_id": "src_8cde917f9df2",
+      "question_id": "q_cuidado_rodizio_manual",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Como devo cuidar do meu colchão Luuna? Só precisa aspirar as espumas e a capa. 1. Abra a capa e retire a parte superior. 2. Aspire o interior e a parte superior do colchão. 3. Não use líquidos diretam"
+    },
+    {
+      "source_id": "src_6cea99d1c4ab",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Adicionalmente, seu colchão Luuna tem pelo menos 10 anos de garantia total. Se notar alguma deformação ou defeito, trocaremos seu produto"
+    },
+    {
+      "source_id": "src_6cea99d1c4ab",
+      "question_id": "q_cuidado_rodizio_manual",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Certifique-se de que as ripas não estejam separadas por mais de 10 cm. Isso ajuda a evitar deformações e prolonga a vida útil do colchão."
+    },
+    {
+      "source_id": "src_6cea99d1c4ab",
+      "question_id": "q_cuidado_rodizio_manual",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Como devo cuidar do meu colchão Luuna? Só precisa aspirar as espumas e a capa. 1. Abra a capa e retire a parte superior. 2. Aspire o interior e a parte superior do colchão. 3. Não use líquidos diretam"
+    }
+  ],
+  "coverage": {
+    "q_densidade_tipo_vida_util": 3,
+    "q_vida_util_espuma": 4,
+    "q_vida_util_molas": 1,
+    "q_perda_firmeza_uso": 0,
+    "q_odor_inicial_seguranca": 4,
+    "q_cuidado_rodizio_manual": 2,
+    "q_garantia_cobertura_exclusao": 4
+  },
+  "unanswered": [
+    "q_perda_firmeza_uso"
+  ],
+  "usage": {
+    "input_tokens": 12,
+    "output_tokens": 3507,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_25fedbd52914",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.95
+    },
+    {
+      "source_id": "src_58ba9b4bf069",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_8cde917f9df2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_6cea99d1c4ab",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    }
+  ],
+  "credits": 17.124569400000002
+}
