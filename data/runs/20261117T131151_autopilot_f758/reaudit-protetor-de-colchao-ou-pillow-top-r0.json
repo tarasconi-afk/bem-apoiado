@@ -1,0 +1,119 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Luuna sustentam que o protetor tem camada impermeável que protege contra líquidos e umidade, e os da Ortobom sustentam que o pillow top é uma camada extra de conforto. Porém, nenhum trecho mostra que o pillow top não é apresentado como barreira contra líquidos, nem que essa ausência seja uma afirmação da Luuna e da Ortobom. As orientações sobre lavagem estão sustentadas pelos trechos citados.",
+      "fix": "Se sua prioridade é ter uma camada cuja descrição do fabricante menciona proteção contra líquidos e umidade, considere o protetor impermeável da Luuna. O material da Ortobom descreve o pillow top como uma camada extra de conforto. Antes de comprar, confira os cuidados: o protetor citado permite lavagem à mão, enquanto o pillow top citado proíbe a lavagem."
+    },
+    {
+      "ref": "protetor-de-colchao-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "protetor-de-colchao-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "protetor-de-colchao-composicao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "protetor-de-colchao-composicao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "protetor-de-colchao-composicao#4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado sustenta que a Ortobom declara tratamento antiácaro e antifungo, mas não diz que, segundo a Ortobom, o Inmetro não avalia propriedades como antialérgica, antiácaro ou antibacteriana. A nota sobre a não avaliação do Inmetro pode ser incluída, mas não deve ser atribuída à Ortobom com base neste trecho.",
+      "fix": "O Inmetro não avalia propriedades como antialérgica, antiácaro ou antibacteriana. A Ortobom declara tratamento antiácaro e antifungo em seu protetor; em caso de dúvidas, procure um profissional de saúde."
+    },
+    {
+      "ref": "protetor-de-colchao-fixacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-composicao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-lavagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-lavagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-lavagem#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A frase atribui à Luuna e à Ortobom a recomendação de escolher um protetor para proteger contra líquidos e umidade, mas os trechos da Ortobom citados apenas descrevem o pillow top como uma camada extra de conforto; essa função de proteção é afirmada nos trechos da Luuna.",
+      "fix": "Se sua prioridade é proteger o colchão contra líquidos e umidade, escolha um protetor impermeável, segundo a Luuna. Os trechos citados da Ortobom descrevem o pillow top como uma camada extra de conforto, não como proteção contra líquidos e umidade."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

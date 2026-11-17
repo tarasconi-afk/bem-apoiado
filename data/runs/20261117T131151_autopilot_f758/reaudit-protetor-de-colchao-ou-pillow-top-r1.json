@@ -1,0 +1,46 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se sua prioridade é ter uma camada cuja descrição do fabricante menciona proteção contra líquidos e umidade, considere o protetor impermeável, segundo a Luuna. A Ortobom descreve o pillow top como uma camada extra de conforto. Antes de comprar, confira os cuidados: o protetor da Ortobom citado permite lavagem à mão, enquanto o pillow top citado proíbe a lavagem.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_bbbe2b6f43c5",
+        "clm_cbaa58174f1c",
+        "clm_070d1e8dcda0",
+        "clm_ca262f12976e"
+      ]
+    },
+    {
+      "ref": "protetor-de-colchao-composicao#4",
+      "action": "replace",
+      "text": "O Inmetro não avalia propriedades como antialérgica, antiácaro ou antibacteriana. A Ortobom declara tratamento antiácaro e antifungo em seu protetor; em caso de dúvidas, procure um profissional de saúde.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_020888105127"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se sua prioridade é proteger o colchão contra líquidos e umidade, escolha um protetor impermeável, segundo a Luuna. A Ortobom descreve o pillow top como uma camada extra de conforto, não como proteção contra líquidos e umidade.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_bbbe2b6f43c5",
+        "clm_cbaa58174f1c",
+        "clm_070d1e8dcda0"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos não citam um protetor da Ortobom nem dizem que ele permite lavagem à mão. A informação sobre lavagem à mão é atribuída indevidamente à Ortobom; o trecho da Ortobom citado trata apenas do pillow top e proíbe lavagem. Versão sustentável: Se sua prioridade é uma camada cuja descrição da Luuna menciona proteção contra líquidos e umidade, considere o protetor impermeável. A Ortobom descreve o pillow top como uma camada extra de conforto, e o pillow top citado tem lavagem proibida. Os trechos citados não informam lavagem à mão para um protetor."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos da Luuna sustentam a afirmação sobre a camada impermeável proteger contra líquidos e umidade. Porém, o trecho da Ortobom apenas descreve o pillow top como camada extra de conforto e menciona elástico nas laterais; não afirma que ele não oferece proteção contra líquidos e umidade. Além disso, a recomendação de escolha é uma conclusão prática, não uma afirmação expressa da Luuna. Versão sustentável: Se sua prioridade é proteger o colchão contra líquidos e umidade, considere um protetor impermeável: a Luuna afirma que sua camada impermeável protege contra líquidos e umidade. A Ortobom descreve o pillow top como uma camada extra de conforto e menciona elástico nas laterais."
+    }
+  ]
+}

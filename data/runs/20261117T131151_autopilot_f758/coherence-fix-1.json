@@ -1,0 +1,33 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha a densidade pelo seu peso: até 50 kg, opte por D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; acima de 100 kg, D45 ou maior, segundo a Castor. Se comprou um colchão Luuna e acha muito duro, você tem 100 noites para devolvê-lo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_03538692a465",
+        "clm_396d2216f5e6"
+      ]
+    },
+    {
+      "ref": "pillow-top#0",
+      "action": "replace",
+      "text": "Pillow top é uma camada extra de conforto com elástico nas laterais que se coloca sobre o colchão, segundo a Ortobom. No modelo HR Gel King da marca, o revestimento é de tecido de malha com 98% poliéster e 2% elastano, de 450 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_070d1e8dcda0",
+        "clm_098b733c8906"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "pillow-top#0",
+    "pillow-top#1"
+  ],
+  "still": [
+    "pillow-top#0: UNSUPPORTED"
+  ]
+}

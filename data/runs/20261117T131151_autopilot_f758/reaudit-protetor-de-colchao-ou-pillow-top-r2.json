@@ -1,0 +1,55 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se sua prioridade é proteger o colchão contra líquidos e umidade, considere um protetor impermeável: a Luuna afirma que sua camada impermeável protege contra líquidos e umidade. A Ortobom descreve o pillow top como uma camada extra de conforto. Confira os cuidados na ficha antes de comprar: no pillow top citado da Ortobom, a lavagem é proibida.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_bbbe2b6f43c5",
+        "clm_cbaa58174f1c",
+        "clm_070d1e8dcda0",
+        "clm_ca262f12976e"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Protetor impermeável",
+          "claim_ids": [
+            "clm_bbbe2b6f43c5",
+            "clm_cbaa58174f1c"
+          ]
+        },
+        {
+          "text": "Segundo a Luuna, protege contra líquidos e umidade",
+          "claim_ids": [
+            "clm_bbbe2b6f43c5",
+            "clm_cbaa58174f1c"
+          ]
+        },
+        {
+          "text": "Confira na ficha do produto escolhido",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Ortobom e Altenburg, altura indicada, material impermeável e composição da capa; confira instruções de lavagem na ficha",
+          "claim_ids": [
+            "clm_03825c676133",
+            "clm_0a4c823683c4",
+            "clm_157430ce21b1",
+            "clm_11c2120f6bba"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos da Luuna sustentam a afirmação sobre a camada impermeável proteger contra líquidos e umidade. Porém, o trecho da Ortobom apenas descreve o pillow top como camada extra de conforto e menciona elástico nas laterais; não afirma que ele não oferece proteção contra líquidos e umidade. Além disso, a recomendação de escolha é uma conclusão prática, não uma afirmação expressa da Luuna. Versão sustentável: Se sua prioridade é proteger o colchão contra líquidos e umidade, considere um protetor impermeável: a Luuna afirma que sua camada impermeável protege contra líquidos e umidade. A Ortobom descreve o pillow top como uma camada extra de conforto e menciona elástico nas laterais."
+    }
+  ]
+}
