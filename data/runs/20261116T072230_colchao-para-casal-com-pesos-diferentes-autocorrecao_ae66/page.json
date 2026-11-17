@@ -1,0 +1,76 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que escolher a densidade indicada para cada pessoa resolve a diferença de pesos, mas os trechos apenas apresentam recomendações de densidade por faixa de peso e não explicam como aplicá-las ao mesmo colchão do casal (verdict); Reescrever"
+    ],
+    "filler_refs": [
+      "peso-maximo#1"
+    ],
+    "decision_criteria": [
+      "Use a tabela de densidade da Castor conforme o peso de cada pessoa: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Para casais com diferença de peso ou biotipo, procure modelos cuja ficha técnica indique essa finalidade, como alguns modelos da Probel e da Duoflex.",
+      "Se o movimento de uma pessoa atrapalha a outra, prefira molas ensacadas individualmente, que reduzem a transferência de movimento.",
+      "Confira o peso máximo suportado por pessoa na ficha técnica do modelo, sem confundir esse limite com a densidade da espuma.",
+      "Considere colchões dupla face quando um lado mais firme, como D33, e outro mais macio, como D28, puderem atender às preferências ou aos pesos do casal.",
+      "Para pessoas acima de 100 kg, procure densidade D45 ou maior ou um modelo cuja ficha indique suporte compatível.",
+      "Verifique se o fabricante informa suporte para cada pessoa e se o modelo é adequado aos dois usuários, inclusive ao mais leve."
+    ],
+    "missing": [
+      "Uma regra do fabricante para escolher um único colchão quando as faixas de densidade recomendadas para cada pessoa são diferentes, incluindo se deve prevalecer o peso maior.",
+      "Ficha técnica de modelos mistos de espuma e molas explicando como o suporte se comporta para pessoas com pesos diferentes.",
+      "Informação do fabricante sobre o peso máximo total do casal e se o limite por pessoa deve ser somado.",
+      "Indicação do fabricante sobre a transmissão de movimento em colchões de molas Bonnel quando os pesos dos ocupantes são diferentes.",
+      "Mais especificações de modelos dupla face relacionando cada lado à faixa de peso de cada pessoa."
+    ],
+    "publishable": false,
+    "summary": "Publicável, pois oferece faixas concretas de densidade, orienta a procurar molas ensacadas e ensina a conferir suporte por pessoa na ficha técnica. A resposta é apenas parcial porque não explica qual densidade ou configuração escolher quando as recomendações dos dois ocupantes são diferentes, nem informa limites totais para o casal.",
+    "filler_ratio": 0.047619047619047616,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor pode entender que escolher a densidade indicada para cada pessoa resolve a diferença de pesos, mas os trechos apenas apresentam recomendações de densidade por faixa de peso e não explicam como aplicá-las ao mesmo colchão do casal.",
+        "fix": "Reescrever a resposta curta para dizer que a tabela da Castor serve como referência de densidade para o peso de cada pessoa e que é preciso conferir na ficha técnica se o modelo escolhido atende aos dois usuários."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "tipos-mola#0",
+      "como-decidir#1",
+      "peso-maximo#1"
+    ],
+    "decision_criteria": [
+      "Considere a densidade indicada para a faixa de peso do ocupante mais pesado; a Castor recomenda D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Se os movimentos de uma pessoa atrapalham o sono da outra, prefira molas ensacadas individualmente, que reduzem a transferência de movimento entre os lados.",
+      "Confira na ficha técnica se o modelo é indicado para casais com biotipos ou pesos diferentes.",
+      "Em modelos de dupla face, confira a firmeza de cada lado, a faixa de peso indicada e o limite por pessoa.",
+      "Não confunda densidade recomendada com peso máximo suportado: confira ambos na ficha técnica do modelo.",
+      "Para pessoas acima de 100 kg, procure densidade D45 ou maior ou um modelo cuja ficha técnica informe suporte adequado ao peso."
+    ],
+    "missing": [
+      "Uma recomendação do fabricante sobre como escolher um único colchão quando os dois ocupantes caem em faixas de densidade diferentes, além de simplesmente usar a faixa do mais pesado.",
+      "Informação do fabricante esclarecendo se o peso máximo informado por pessoa deve ser somado para obter o limite do casal.",
+      "Mais modelos com firmeza diferente em cada lado e indicação explícita de faixa de peso para cada lado.",
+      "Indicação do fabricante sobre como colchões mistos de espuma e molas distribuem o suporte para ocupantes com pesos diferentes.",
+      "Comparação direta, em ficha técnica, entre molas ensacadas e Bonnel para casais com diferença de peso."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente à dúvida com uma regra de escolha pela faixa de peso do mais pesado e orienta a conferir molas ensacadas, firmeza por lado e peso máximo na ficha técnica. Há alguma repetição sobre redução de movimento e peso máximo, mas os blocos restantes oferecem critérios concretos de compra.",
+    "filler_ratio": 0.14285714285714285,
+    "model_opinion": true
+  }
+}

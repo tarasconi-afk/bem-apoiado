@@ -1,0 +1,148 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as faixas de densidade e as três medidas, mas não dizem que o tamanho depende do espaço na barraca. Eles apenas listam medidas de colchões.",
+      "fix": "Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior. A Castor lista estas medidas: solteiro 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas que a densidade tem relação direta com a firmeza do colchão. Não sustenta que a densidade seja medida em quilos por metro cúbico nem os exemplos D23 = 23 kg/m³ e D26 = 26 kg/m³.",
+      "fix": "Segundo a Castor, a densidade do colchão tem relação direta com sua firmeza."
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho exige a informação nas marcações do produto e da embalagem, mas não especifica que ela deva estar na etiqueta. O bloco atribui ao Inmetro uma exigência localizada especificamente na etiqueta.",
+      "fix": "O Inmetro exige que o produto ou a embalagem informe a densidade nominal da espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras de cada lâmina."
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho informa o tipo de colchão como uma marcação obrigatória, mas não diz que essa informação deve estar especificamente na etiqueta. O bloco atribui essa localização à fonte sem que ela apareça no trecho citado.",
+      "fix": "Entre as informações obrigatórias, deve constar o tipo de colchão: espuma tradicional, box conjugado, auxiliar, misto ou colchonete."
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho cita cuidados mínimos para conservação como informação obrigatória, mas não especifica que sejam informados na etiqueta. Essa localização foi atribuída à fonte sem apoio no trecho citado.",
+      "fix": "Os cuidados mínimos para conservação do produto estão entre as informações obrigatórias exigidas pelo Inmetro."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco esteja marcado como framing, ele afirma fatos sobre o mundo e sobre o conteúdo das evidências — que as instruções devem constar na etiqueta e que não há informações específicas — sem trechos citados que os sustentem.",
+      "fix": "A seguir, veja as informações disponíveis nesta página sobre cuidados e conservação."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados apenas listam medidas e os respectivos tipos de colchão; não dizem que se deve escolher o tamanho conforme o espaço disponível em uma barraca nem apresentam essa orientação como recomendação da Castor.",
+      "fix": "A Castor lista as seguintes medidas: 0,88 × 1,88 m para solteiro, 1,00 × 2,00 m para solteiro king e 1,38 × 1,88 m para casal. Compare essas medidas com o espaço disponível na barraca."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as faixas de densidade e as três medidas, mas não dizem que o tamanho depende do espaço na barraca. Eles apenas listam medidas de colchões. Versão sustentável: Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior. A Castor lista estas medidas: solteiro 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que a densidade tem relação direta com a firmeza do colchão. Não sustenta que a densidade seja medida em quilos por metro cúbico nem os exemplos D23 = 23 kg/m³ e D26 = 26 kg/m³. Versão sustentável: Segundo a Castor, a densidade do colchão tem relação direta com sua firmeza."
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "msg": "MISATTRIBUTED. O trecho exige a informação nas marcações do produto e da embalagem, mas não especifica que ela deva estar na etiqueta. O bloco atribui ao Inmetro uma exigência localizada especificamente na etiqueta. Versão sustentável: O Inmetro exige que o produto ou a embalagem informe a densidade nominal da espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras de cada lâmina."
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "msg": "MISATTRIBUTED. O trecho informa o tipo de colchão como uma marcação obrigatória, mas não diz que essa informação deve estar especificamente na etiqueta. O bloco atribui essa localização à fonte sem que ela apareça no trecho citado. Versão sustentável: Entre as informações obrigatórias, deve constar o tipo de colchão: espuma tradicional, box conjugado, auxiliar, misto ou colchonete."
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "msg": "MISATTRIBUTED. O trecho cita cuidados mínimos para conservação como informação obrigatória, mas não especifica que sejam informados na etiqueta. Essa localização foi atribuída à fonte sem apoio no trecho citado. Versão sustentável: Os cuidados mínimos para conservação do produto estão entre as informações obrigatórias exigidas pelo Inmetro."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja marcado como framing, ele afirma fatos sobre o mundo e sobre o conteúdo das evidências — que as instruções devem constar na etiqueta e que não há informações específicas — sem trechos citados que os sustentem. Versão sustentável: A seguir, veja as informações disponíveis nesta página sobre cuidados e conservação."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "UNSUPPORTED. Os trechos citados apenas listam medidas e os respectivos tipos de colchão; não dizem que se deve escolher o tamanho conforme o espaço disponível em uma barraca nem apresentam essa orientação como recomendação da Castor. Versão sustentável: A Castor lista as seguintes medidas: 0,88 × 1,88 m para solteiro, 1,00 × 2,00 m para solteiro king e 1,38 × 1,88 m para casal. Compare essas medidas com o espaço disponível na barraca."
+    }
+  ]
+}

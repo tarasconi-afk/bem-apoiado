@@ -1,0 +1,60 @@
+{
+  "slug": "colchao-de-espuma-para-acampamento-qual-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 79102,
+    "output_tokens": 18419,
+    "calls": 30
+  },
+  "credits": 22.50588371999999,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página usa recomendações de densidade e medidas de colchões da Castor, mas não mostra se esses critérios se aplicam a colchões próprios para acampamento.",
+      "Faltam informações essenciais para o uso em acampamento, como espessura para dormir no chão, peso e volume transportado."
+    ],
+    "filler_refs": [
+      "como-decidir#0.r0",
+      "como-decidir#0.r1",
+      "como-decidir#0.r2",
+      "como-decidir#0.r3",
+      "como-decidir#0.r4",
+      "como-decidir#0.r5",
+      "como-decidir#1",
+      "como-decidir#4.r0",
+      "como-decidir#4.r1",
+      "como-decidir#4.r2",
+      "como-decidir#5",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Escolha D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg e D33 de 71 a 80 kg, segundo a tabela da Castor.",
+      "Entre 81 e 100 kg, considere D33 a D45 conforme a preferência por firmeza.",
+      "Acima de 100 kg, escolha D45 ou maior, segundo a Castor.",
+      "Compare as medidas abertas do colchão com o espaço disponível na barraca: solteiro, solteiro king ou casal.",
+      "Confira no anúncio ou na ficha a densidade nominal em kg/m³ e, em colchões mistos, a espessura de cada lâmina.",
+      "Verifique na etiqueta o tipo de colchão e as orientações de conservação exigidas pelo Inmetro."
+    ],
+    "missing": [
+      "Para o leitor leigo: A página usa recomendações de densidade e medidas de colchões da Castor, mas não mostra se esses critérios se aplicam a colchões próprios para acampamento.",
+      "Para o leitor leigo: Faltam informações essenciais para o uso em acampamento, como espessura para dormir no chão, peso e volume transportado.",
+      "Tabela de fabricante de colchão próprio para acampamento relacionando peso do usuário, densidade e espessura mínima.",
+      "Indicação de espessura adequada para uso direto no chão, na grama ou dentro da barraca.",
+      "Peso do produto e medidas abertas e dobradas ou enroladas para avaliar o transporte e o espaço na mochila ou no carro.",
+      "Comparação entre modelos dobráveis e enroláveis, incluindo volume quando guardados.",
+      "Informações do fabricante sobre isolamento do frio e conforto em superfícies irregulares.",
+      "Orientações sobre segurança do material, inflamabilidade, ventilação e odor inicial.",
+      "Instruções de limpeza, lavagem e secagem da capa, quando houver.",
+      "Confirmação de que as recomendações da Castor para colchões convencionais também valem para colchões de espuma destinados a acampamento."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma regra concreta de densidade por peso e medidas abertas, mas responde apenas parcialmente à dúvida sobre colchão de espuma para acampamento. Faltam os critérios decisivos para esse uso — espessura, peso, volume transportado, medidas guardadas e adequação ao chão — e as recomendações apresentadas não são demonstradas como específicas para produtos de camping. Deve ser complementada com fontes primárias de fabricantes de colchões de acampamento antes da publicação.",
+    "filler_ratio": 0.6666666666666666,
+    "model_opinion": false
+  }
+}

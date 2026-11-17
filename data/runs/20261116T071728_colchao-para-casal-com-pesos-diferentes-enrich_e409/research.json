@@ -1,0 +1,102 @@
+{
+  "run_id": "20261116T071728_colchao-para-casal-com-pesos-diferentes-enrich_e409",
+  "topic": "colchao-para-casal-com-pesos-diferentes",
+  "accepted": [
+    {
+      "claim_id": "clm_51449d880f00",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_f2e8f6dbb51b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_27556f95a957",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_f2e8f6dbb51b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e43567560f71",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_5b28e41f56a4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7be62d6794b9",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_23afe5bde888",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2f3b33803d22",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_00fcef6d9ab4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b322c55e7be9",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_00fcef6d9ab4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_66dbf6c35b65",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_3c5565f7f4a8",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade_faixa": 0,
+    "q_molas_ensacadas_suporte": 1,
+    "q_dupla_face_firmeza": 0,
+    "q_misto_camadas": 0,
+    "q_peso_maximo_casal": 6,
+    "q_molas_interligadas_diferenca": 0
+  },
+  "unanswered": [
+    "q_peso_densidade_faixa",
+    "q_dupla_face_firmeza",
+    "q_misto_camadas",
+    "q_molas_interligadas_diferenca"
+  ],
+  "usage": {
+    "input_tokens": 6302,
+    "output_tokens": 847,
+    "calls": 5
+  },
+  "errors": [
+    {
+      "source_id": "src_f2e8f6dbb51b",
+      "error": "triagem indisponível, usando filtro por termos: Jev HTTP 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure"
+    }
+  ],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_5b28e41f56a4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.89
+    },
+    {
+      "source_id": "src_23afe5bde888",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_00fcef6d9ab4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.59
+    },
+    {
+      "source_id": "src_3c5565f7f4a8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    }
+  ],
+  "credits": 32.207538839999984
+}

@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que as recomendações de densidade e os tamanhos de colchão da Castor resolvem a escolha de um colchão para acampamento, mas os trechos só sustentam a relação entre densidade e peso e as medidas de colchões comuns, sem dizer que atendem ao uso em barraca.",
+      "fix": "Reescrever o veredicto para apresentar apenas o que as fontes sustentam: usar a tabela da Castor como referência de densidade pelo peso e conferir se uma das medidas listadas cabe na barraca, sem afirmar que esse colchão é uma solução específica para acampamento."
+    }
+  ],
+  "usage": {
+    "input_tokens": 16920,
+    "output_tokens": 2500,
+    "calls": 3
+  }
+}

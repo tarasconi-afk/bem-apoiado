@@ -1,0 +1,343 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior, segundo a Castor. A Castor lista estas medidas: solteiro 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_007a1311f7ce"
+      ]
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "action": "replace",
+      "text": "Segundo a Castor, a densidade do colchão tem relação direta com sua firmeza.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03ace15ced38"
+      ]
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "action": "replace",
+      "text": "O Inmetro exige que o produto ou a embalagem informe a densidade nominal da espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras de cada lâmina.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_02cbe4b5e0bf",
+        "clm_0a61647d4d99"
+      ]
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "action": "replace",
+      "text": "Entre as informações obrigatórias, deve constar o tipo de colchão: espuma tradicional, box conjugado, auxiliar, misto ou colchonete.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03f4e6488b5d"
+      ]
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "action": "replace",
+      "text": "Os cuidados mínimos para conservação do produto estão entre as informações obrigatórias exigidas pelo Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_06281792169b"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "remove"
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "A Castor lista as seguintes medidas: 0,88 × 1,88 m para solteiro, 1,00 × 2,00 m para solteiro king e 1,38 × 1,88 m para casal. Compare essas medidas com o espaço disponível na barraca.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_007a1311f7ce"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão de espuma para acampamento: qual densidade e tamanho escolher",
+    "description": "Escolha colchão de espuma para acampamento pela densidade (seu peso), tamanho disponível e medidas dobradas.",
+    "verdict": {
+      "text": "Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior, segundo a Castor. A Castor lista estas medidas: solteiro 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_007a1311f7ce"
+      ]
+    },
+    "sections": [
+      {
+        "id": "densidade-e-firmeza",
+        "heading": "O que significa densidade em colchão de espuma",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a densidade do colchão tem relação direta com sua firmeza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03ace15ced38"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-inmetro",
+        "heading": "O que a etiqueta deve trazer",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que o produto ou a embalagem informe a densidade nominal da espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras de cada lâmina.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_02cbe4b5e0bf",
+              "clm_0a61647d4d99"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Entre as informações obrigatórias, deve constar o tipo de colchão: espuma tradicional, box conjugado, auxiliar, misto ou colchonete.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_03f4e6488b5d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Os cuidados mínimos para conservação do produto estão entre as informações obrigatórias exigidas pelo Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_06281792169b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela densidade e tamanho",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Seu peso",
+              "Densidade indicada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D33 a D45, conforme sua preferência por firmeza",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você pesa até 80 kg, a Castor indica densidades diferentes conforme sua faixa de peso: veja na tabela acima qual é a recomendação para o seu intervalo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pesa entre 81 e 100 kg, a Castor indica densidade de D33 a D45, variando conforme sua preferência por firmeza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1205fed30228"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pesa acima de 100 kg, segundo a Castor, a densidade deve ser D45 ou maior para evitar que o colchão afunde demais e dure mais tempo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1205fed30228",
+              "clm_04fb4b3f25b0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Tamanhos de colchão disponíveis segundo a Castor",
+            "columns": [
+              "Tamanho",
+              "Medidas (largura × comprimento)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "0,88 × 1,88 m",
+                    "claim_ids": [
+                      "clm_007a1311f7ce"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro king",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "1,00 × 2,00 m",
+                    "claim_ids": [
+                      "clm_007a1311f7ce"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "1,38 × 1,88 m",
+                    "claim_ids": [
+                      "clm_007a1311f7ce"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "A Castor lista as seguintes medidas: 0,88 × 1,88 m para solteiro, 1,00 × 2,00 m para solteiro king e 1,38 × 1,88 m para casal. Compare essas medidas com o espaço disponível na barraca.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_007a1311f7ce"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as faixas de densidade e as três medidas, mas não dizem que o tamanho depende do espaço na barraca. Eles apenas listam medidas de colchões. Versão sustentável: Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior. A Castor lista estas medidas: solteiro 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m."
+    },
+    {
+      "ref": "densidade-e-firmeza#0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que a densidade tem relação direta com a firmeza do colchão. Não sustenta que a densidade seja medida em quilos por metro cúbico nem os exemplos D23 = 23 kg/m³ e D26 = 26 kg/m³. Versão sustentável: Segundo a Castor, a densidade do colchão tem relação direta com sua firmeza."
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "msg": "MISATTRIBUTED. O trecho exige a informação nas marcações do produto e da embalagem, mas não especifica que ela deva estar na etiqueta. O bloco atribui ao Inmetro uma exigência localizada especificamente na etiqueta. Versão sustentável: O Inmetro exige que o produto ou a embalagem informe a densidade nominal da espuma em kg/m³ e, para colchões compostos ou mistos, as respectivas espessuras de cada lâmina."
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "msg": "MISATTRIBUTED. O trecho informa o tipo de colchão como uma marcação obrigatória, mas não diz que essa informação deve estar especificamente na etiqueta. O bloco atribui essa localização à fonte sem que ela apareça no trecho citado. Versão sustentável: Entre as informações obrigatórias, deve constar o tipo de colchão: espuma tradicional, box conjugado, auxiliar, misto ou colchonete."
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "msg": "MISATTRIBUTED. O trecho cita cuidados mínimos para conservação como informação obrigatória, mas não especifica que sejam informados na etiqueta. Essa localização foi atribuída à fonte sem apoio no trecho citado. Versão sustentável: Os cuidados mínimos para conservação do produto estão entre as informações obrigatórias exigidas pelo Inmetro."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja marcado como framing, ele afirma fatos sobre o mundo e sobre o conteúdo das evidências — que as instruções devem constar na etiqueta e que não há informações específicas — sem trechos citados que os sustentem. Versão sustentável: A seguir, veja as informações disponíveis nesta página sobre cuidados e conservação."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "UNSUPPORTED. Os trechos citados apenas listam medidas e os respectivos tipos de colchão; não dizem que se deve escolher o tamanho conforme o espaço disponível em uma barraca nem apresentam essa orientação como recomendação da Castor. Versão sustentável: A Castor lista as seguintes medidas: 0,88 × 1,88 m para solteiro, 1,00 × 2,00 m para solteiro king e 1,38 × 1,88 m para casal. Compare essas medidas com o espaço disponível na barraca."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 824
+  }
+}

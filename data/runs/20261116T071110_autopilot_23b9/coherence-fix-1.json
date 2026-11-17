@@ -1,0 +1,19 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha a densidade conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme preferência; acima de 100 kg, D45 ou maior, segundo a Castor. Para o tamanho, compare as medidas disponíveis com o espaço da barraca: segundo a Castor, solteiro mede 0,88 × 1,88 m, solteiro king 1,00 × 2,00 m e casal 1,38 × 1,88 m.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1205fed30228",
+        "clm_007a1311f7ce"
+      ]
+    }
+  ],
+  "kept": true,
+  "audited": [
+    "verdict"
+  ],
+  "still": []
+}
