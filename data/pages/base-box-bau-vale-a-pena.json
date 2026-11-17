@@ -3,12 +3,12 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Base box baú: capacidade, medidas e garantia",
-  "description": "Como escolher base box baú pela capacidade de peso, medidas internas e mecanismo de abertura da tampa.",
+  "description": "Escolha uma base box baú pela capacidade de peso declarada e confira se inclui o colchão. Veja as medidas internas para guardar objetos.",
   "primary_query": "base box baú vale a pena",
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-17",
   "verdict": {
-    "text": "Escolha pela capacidade de peso que o fabricante declara e confira se ela inclui ou não o peso do colchão. Se vai guardar objetos, verifique as medidas internas do baú: segundo a Castor, elas são 10 cm menores em largura e comprimento que as externas, com 25 cm de profundidade.",
-    "basis": "evidence",
+    "text": "Escolha pela capacidade declarada pelo fabricante e verifique especificamente a condição informada: a Probel declara 150 kg por pessoa desde que haja um colchão sobre a base, enquanto a Ortobom declara 150 kg além do peso do colchão. Para guardar objetos, a Castor informa que a largura e o comprimento internos são 10 cm menores que os externos e que a profundidade é 25 cm.",
+    "basis": "reasoning",
     "claim_ids": [
       "clm_0a6ef01c4834",
       "clm_286a835dbfa3",
@@ -146,11 +146,10 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você pesa até 150 kg (ou menos de 150 kg por pessoa em casal), confira na ficha se a base suporta esse peso. Segundo a Probel, alguns modelos suportam 150 kg por pessoa com colchão sobre a base, enquanto outros suportam apenas 120 kg por pessoa. Segundo a Ortobom, a capacidade é de 150 kg além do peso do colchão: leia bem para entender se o limite é só para você ou se inclui o colchão.",
+          "text": "Se você pesa até 150 kg ou dorme em casal com pesos similares, confira na ficha se a base suporta esse peso. A Probel declara 150 kg por pessoa, desde que haja um colchão sobre a base, e a Ortobom declara 150 kg além do peso do colchão. A capacidade pode variar conforme o modelo e incluir ou não o peso do colchão.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0a6ef01c4834",
-            "clm_e05fce5db49d",
             "clm_286a835dbfa3"
           ]
         },
@@ -160,7 +159,7 @@
           "columns": [
             "Fabricante e modelo",
             "Capacidade declarada",
-            "Inclui peso do colchão?"
+            "Observação"
           ],
           "rows": [
             {
@@ -178,28 +177,32 @@
                   ]
                 },
                 {
-                  "text": "Não informado nas fontes",
-                  "claim_ids": []
+                  "text": "Sim, apenas com colchão sobre a base",
+                  "claim_ids": [
+                    "clm_0a6ef01c4834"
+                  ]
                 }
               ]
             },
             {
               "cells": [
                 {
-                  "text": "Probel, Kit Box Baú Bipartido Queen + Colchão Mola Ensacada Probel Cairo Ultra Gel",
+                  "text": "Ortobom, Bellona Kit Completo",
                   "claim_ids": [
-                    "clm_e05fce5db49d"
+                    "clm_286a835dbfa3"
                   ]
                 },
                 {
-                  "text": "120 kg por pessoa",
+                  "text": "150 kg",
                   "claim_ids": [
-                    "clm_e05fce5db49d"
+                    "clm_286a835dbfa3"
                   ]
                 },
                 {
-                  "text": "Não informado nas fontes",
-                  "claim_ids": []
+                  "text": "Além do peso do colchão",
+                  "claim_ids": [
+                    "clm_286a835dbfa3"
+                  ]
                 }
               ]
             },
@@ -229,7 +232,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você precisa guardar objetos sob a cama, confira as medidas internas do baú na ficha do modelo, pois diferem das externas. Segundo a Castor, a largura e o comprimento internos são 10 cm menores que as medidas externas, e a profundidade é de 25 cm.",
+          "text": "Se você precisa guardar objetos sob a cama, confira as medidas internas do baú na ficha do modelo, segundo a Castor. Segundo a Castor, a largura e o comprimento internos são 10 cm menores que as medidas externas, e a profundidade é de 25 cm.",
           "basis": "evidence",
           "claim_ids": [
             "clm_652c0dc6bab2"
@@ -237,16 +240,17 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer facilitar a abertura e o fechamento da tampa, confira se o modelo tem pistões pneumáticos ou a gás. Segundo a Probel, em um modelo com pistões pneumáticos, a tampa permanece aberta sem precisar segurá-la. Segundo a Simmons, os pistões a gás facilitam a abertura e o fechamento sem necessidade de lubrificação adicional.",
+          "text": "Se você quer facilitar a abertura e o fechamento da tampa, confira se o modelo tem pistões pneumáticos ou a gás, segundo a Probel e a Simmons. Segundo a Probel, em modelos com pistões pneumáticos, a tampa fica aberta sem precisar segurá-la. Segundo a Simmons, os pistões a gás facilitam a abertura e o fechamento sem necessidade de lubrificação adicional.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_60551ab10db0",
-            "clm_26aaeab1b561"
+            "clm_21c0192b8f9b",
+            "clm_26aaeab1b561",
+            "clm_60551ab10db0"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se você dorme com outra pessoa e quer dividir o espaço interno do baú, procure modelos bipartidos. A Probel oferece bases bipartidas com dois volumes; a Simmons descreve uma base bipartida com divisória central que separa o espaço interno.",
+          "text": "Se você dorme com outra pessoa e quer dividir o espaço interno do baú, procure modelos bipartidos, segundo a Probel e a Simmons. A Probel oferece bases bipartidas com dois volumes separados; a Simmons descreve uma base bipartida com divisória central que separa o espaço interno.",
           "basis": "evidence",
           "claim_ids": [
             "clm_e15a2bf3563d",
@@ -258,7 +262,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261023T181008_autopilot_437f+editor:20261023T181825_base-box-bau-vale-a-pena-autocorrecao_4eb8+editor:20261026T121635_base-box-bau-vale-a-pena-ajuste_0556+editor:20261026T191217_autopilot_9411+editor:20261027T170332_base-box-bau-vale-a-pena-ajuste_3703+editor:20261105T092302_base-box-bau-vale-a-pena-ajuste_07d4",
+    "run_id": "20261023T181008_autopilot_437f+editor:20261023T181825_base-box-bau-vale-a-pena-autocorrecao_4eb8+editor:20261026T121635_base-box-bau-vale-a-pena-ajuste_0556+editor:20261026T191217_autopilot_9411+editor:20261027T170332_base-box-bau-vale-a-pena-ajuste_3703+editor:20261105T092302_base-box-bau-vale-a-pena-ajuste_07d4+editor:20261117T071031_autopilot_04dd",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
