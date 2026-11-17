@@ -58,7 +58,11 @@ async function accessToken(k: ServiceKey, f: typeof fetch, scope = READ): Promis
 }
 
 export const GscRow = z.object({ page: z.string(), query: z.string(), clicks: z.number(), impressions: z.number(), ctr: z.number(), position: z.number() });
-export const GscSnapshot = z.object({ site: z.string(), start: z.string(), end: z.string(), fetched_at: z.string(), rows: z.array(GscRow) });
+// 17/11: totais por página (pedido só com 'page'). Com 'query' o Google omite as buscas raras e a página some ou fica
+// subcontada (lencol-200-ou-400-fios: 69 impressões no total, nenhuma linha no retrato page+query). Opcional: retratos
+// antigos continuam válidos.
+export const GscPageTotal = z.object({ page: z.string(), clicks: z.number(), impressions: z.number(), ctr: z.number(), position: z.number() });
+export const GscSnapshot = z.object({ site: z.string(), start: z.string(), end: z.string(), fetched_at: z.string(), rows: z.array(GscRow), pages: z.array(GscPageTotal).optional() });
 export type GscSnapshot = z.infer<typeof GscSnapshot>;
 
 // Últimos 28 dias até 3 dias atrás (o Search Console consolida com atraso).
@@ -77,7 +81,20 @@ export async function fetchSnapshot(f: typeof fetch = fetch, now = new Date()): 
   if (!r.ok) throw new Error(`GSC consulta: HTTP ${r.status} ${(await r.text()).slice(0, 200)}`);
   const body = (await r.json()) as { rows?: { keys: [string, string]; clicks: number; impressions: number; ctr: number; position: number }[] };
   const rows = (body.rows ?? []).map((x) => ({ page: x.keys[0], query: x.keys[1], clicks: x.clicks, impressions: x.impressions, ctr: x.ctr, position: x.position }));
-  const snap = GscSnapshot.parse({ site: GSC_SITE, start, end, fetched_at: now.toISOString(), rows });
+  // Segundo pedido, só por página: os totais reais (sem o corte das buscas raras). Falha aqui não perde o retrato.
+  let pages: z.infer<typeof GscPageTotal>[] | undefined;
+  try {
+    const rp = await f(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ startDate: start, endDate: end, dimensions: ['page'], rowLimit: 1000 }),
+    });
+    if (rp.ok) {
+      const bp = (await rp.json()) as { rows?: { keys: [string]; clicks: number; impressions: number; ctr: number; position: number }[] };
+      pages = (bp.rows ?? []).map((x) => ({ page: x.keys[0], clicks: x.clicks, impressions: x.impressions, ctr: x.ctr, position: x.position }));
+    }
+  } catch { /* fica sem totais por página; pageStats usa as linhas page+query */ }
+  const snap = GscSnapshot.parse({ site: GSC_SITE, start, end, fetched_at: now.toISOString(), rows, ...(pages ? { pages } : {}) });
   writeJson(join(GSC_DIR(), `${now.toISOString().slice(0, 10)}.json`), snap);
   return snap;
 }
@@ -102,8 +119,10 @@ export function lastTwoSnapshots(): { atual: GscSnapshot; anterior: GscSnapshot 
 // mesmo peso a uma busca com 1 impressão e a outra com 200.
 export function snapshotTotals(s: GscSnapshot): { clicks: number; impressions: number; position: number; pages: number } {
   let clicks = 0, impressions = 0, pos = 0;
-  for (const r of s.rows) { clicks += r.clicks; impressions += r.impressions; pos += r.position * r.impressions; }
-  return { clicks, impressions, position: impressions ? pos / impressions : 0, pages: new Set(s.rows.map((r) => r.page)).size };
+  // Com totais por página (17/11), soma eles: as linhas page+query omitem as buscas raras.
+  const fonte = s.pages?.length ? s.pages : s.rows;
+  for (const r of fonte) { clicks += r.clicks; impressions += r.impressions; pos += r.position * r.impressions; }
+  return { clicks, impressions, position: impressions ? pos / impressions : 0, pages: new Set(fonte.map((r) => r.page)).size };
 }
 
 export interface PageStats { slug: string; clicks: number; impressions: number; ctr: number; position: number; queries: { query: string; impressions: number; position: number }[] }
@@ -120,6 +139,13 @@ export function pageStats(s: GscSnapshot): Map<string, PageStats> {
     p.clicks += r.clicks;
     p.impressions += r.impressions;
     p.queries.push({ query: r.query, impressions: r.impressions, position: r.position });
+    out.set(slug, p);
+  }
+  // Totais por página, quando o retrato tem: valem no lugar da soma das buscas (que omite as raras).
+  for (const t of s.pages ?? []) {
+    const slug = slugOfUrl(t.page);
+    const p = out.get(slug) ?? { slug, clicks: 0, impressions: 0, ctr: 0, position: 0, queries: [] };
+    if (t.impressions >= p.impressions) Object.assign(p, { clicks: t.clicks, impressions: t.impressions, position: t.position });
     out.set(slug, p);
   }
   for (const p of out.values()) {

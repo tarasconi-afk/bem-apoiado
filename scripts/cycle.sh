@@ -65,6 +65,17 @@ git fetch -q --prune origin '+refs/heads/pagina/*:refs/remotes/origin/pagina/*' 
 export BEM_PENDING_SLUGS=$(git branch -r --no-merged origin/main --list 'origin/pagina/*' \
   | sed -E 's#^ *origin/pagina/##; s#-[0-9]{8}-[0-9]{4}$##' | sort -u | paste -sd, -)
 [ -n "$BEM_PENDING_SLUGS" ] && echo "aguardando merge: $BEM_PENDING_SLUGS"
+# Para a pausa de páginas novas (17/11): só ramos que trazem página que ainda não existe no main (página nova ou
+# rascunho). Ramo só de manutenção não conta.
+BEM_PENDING_PAGES=""
+for ref in $(git branch -r --no-merged origin/main --list 'origin/pagina/*'); do
+  s=$(printf '%s' "${ref#origin/pagina/}" | sed -E 's/-[0-9]{8}-[0-9]{4}$//')
+  if git cat-file -e "$ref:data/pages/$s.json" 2>/dev/null && ! git cat-file -e "origin/main:data/pages/$s.json" 2>/dev/null; then
+    BEM_PENDING_PAGES="${BEM_PENDING_PAGES:+$BEM_PENDING_PAGES,}$s"
+  fi
+done
+export BEM_PENDING_PAGES
+[ -n "$BEM_PENDING_PAGES" ] && echo "páginas novas esperando você: $BEM_PENDING_PAGES"
 
 # Avisa o dono do que ele não tem como adivinhar, com a linha "BLOQUEADO|serviço|veredito|detalhe|o que fazer"
 # que o motor imprime. 28/10: o roteador recusou por falta de crédito e o ciclo virou "nada a publicar" — o

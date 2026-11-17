@@ -72,3 +72,45 @@ describe('imagem que falhou volta nos ciclos seguintes, com limite', () => {
     delete process.env.NEXOS_API_KEY;
   });
 });
+
+// 17/11: a pausa se realimentava (os ramos pagina/manutencao-* que ela gera contavam), o enriquecimento esperava por uma
+// fila que não roda na pausa e o retrato page+query escondia páginas inteiras do passo de título/descrição.
+describe('correções de 17/11', () => {
+  it('ramo de manutenção não conta para a pausa; BEM_PENDING_PAGES vale no lugar de BEM_PENDING_SLUGS', () => {
+    expect(auto.pendentesNoAmbiente('manutencao,a,b')).toBe(2);
+    const antes = { s: process.env.BEM_PENDING_SLUGS, p: process.env.BEM_PENDING_PAGES };
+    try {
+      process.env.BEM_PENDING_SLUGS = 'a,b,c,d,e,manutencao';
+      process.env.BEM_PENDING_PAGES = 'a,b';
+      expect(auto.pendentesNoAmbiente()).toBe(2);
+      expect(auto.pausaDePaginasNovas(auto.pendentesNoAmbiente())).toBe(null);
+    } finally {
+      if (antes.s === undefined) delete process.env.BEM_PENDING_SLUGS; else process.env.BEM_PENDING_SLUGS = antes.s;
+      if (antes.p === undefined) delete process.env.BEM_PENDING_PAGES; else process.env.BEM_PENDING_PAGES = antes.p;
+    }
+  });
+  it('o painel conta só página que o main ainda não tem e que o ramo traz', async () => {
+    const { paginasNovasPendentes } = await import('../src/admin.ts');
+    const pend = new Set(['manutencao', 'nova', 'no-ar', 'parada-sem-pagina']);
+    expect(paginasNovasPendentes(pend, [{ slug: 'no-ar' }], new Set(['nova', 'no-ar']))).toBe(1);
+  });
+  it('totais por página do Search Console valem no lugar da soma das buscas', async () => {
+    const { pageStats, snapshotTotals } = await import('../src/gsc.ts');
+    const snap = {
+      site: 'x', start: '2026-10-18', end: '2026-11-15', fetched_at: '2026-11-17T00:00:00Z',
+      rows: [{ page: 'https://bemapoiado.com/a/', query: 'q', clicks: 0, impressions: 5, ctr: 0, position: 9 }],
+      pages: [
+        { page: 'https://bemapoiado.com/a/', clicks: 0, impressions: 40, ctr: 0, position: 8 },
+        { page: 'https://bemapoiado.com/lencol-200-ou-400-fios-diferenca/', clicks: 0, impressions: 69, ctr: 0, position: 7.8 },
+      ],
+    };
+    const st = pageStats(snap);
+    expect(st.get('a')?.impressions).toBe(40);
+    expect(st.get('a')?.queries).toHaveLength(1);
+    expect(st.get('lencol-200-ou-400-fios-diferenca')?.impressions).toBe(69);
+    expect(snapshotTotals(snap).impressions).toBe(109);
+    const { pickSnippetPage } = await import('../src/stages/snippet.ts');
+    const pg = (slug: string) => ({ slug, status: 'approved' }) as never;
+    expect(pickSnippetPage(snap, [pg('a'), pg('lencol-200-ou-400-fios-diferenca')], {}, new Set())?.page.slug).toBe('lencol-200-ou-400-fios-diferenca');
+  });
+});

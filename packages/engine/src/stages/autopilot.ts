@@ -141,8 +141,10 @@ export function isDeferred(slug: string, now = new Date()): boolean {
 // (9 ramos em 16/11, ~210 créditos/dia em páginas que ninguém tinha lido). A partir do limite, o ciclo faz só
 // manutenção (imagens, re-auditoria, lacunas, enriquecimento, produtos) até o dono decidir os ramos.
 export const MAX_PENDING_BRANCHES = 5;
-export function pendentesNoAmbiente(env = process.env.BEM_PENDING_SLUGS): number {
-  return new Set((env ?? '').split(',').map((x) => x.trim()).filter(Boolean)).size;
+// 17/11: conta só ramos com página nova ou rascunho (BEM_PENDING_PAGES, do cycle.sh). Ramo só de manutenção (inclusive
+// os pagina/manutencao-* que a própria pausa gera) não conta: com eles a pausa se realimentava (6 ramos em 16–17/11).
+export function pendentesNoAmbiente(env = process.env.BEM_PENDING_PAGES ?? process.env.BEM_PENDING_SLUGS): number {
+  return new Set((env ?? '').split(',').map((x) => x.trim()).filter((x) => x && x !== 'manutencao')).size;
 }
 export function pausaDePaginasNovas(n: number): string | null {
   return n >= MAX_PENDING_BRANCHES ? `pausa de páginas novas: ${n} ramos esperando você (limite ${MAX_PENDING_BRANCHES}); o ciclo faz só manutenção até você decidir` : null;
@@ -400,7 +402,9 @@ async function maintainEnrich(runId: string, steps: string[]): Promise<boolean> 
   // 03–04/11: dois ciclos seguidos gastaram 57 de 60 créditos reescrevendo páginas no ar (uma reprovada) e a pauta
   // da fila esperou as duas vezes, porque a manutenção roda antes e a página nova precisa de 15. Com pauta
   // esperando, enriquecer só uma vez a cada 24 h: um ciclo por dia melhora o que está no ar, os outros escrevem.
-  if (enrichWaits(attempts, Date.now(), () => nextQuery() !== null)) {
+  // 17/11: com a pausa de páginas novas a fila não roda, então "há pauta na fila" não é motivo para esperar
+  // (16–17/11: quatro ciclos seguidos de manutenção que não enriqueceram nada).
+  if (enrichWaits(attempts, Date.now(), () => !pausaDePaginasNovas(pendentesNoAmbiente()) && nextQuery() !== null)) {
     steps.push(`enriquecimento de ${page.slug} fica para depois: já houve um nas últimas 24 h e há pauta na fila`);
     return false;
   }

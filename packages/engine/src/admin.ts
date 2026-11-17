@@ -29,6 +29,7 @@ import { loadTopics } from './store.ts';
 import { DATA, loadPages, loadProducts, readState, ROOT } from './store.ts';
 import { clicksByAsin, trafficSummary } from './hits.ts';
 import { loadAnnounce } from './announce.ts';
+import { pendingPageSlugs } from './stages/snippet.ts';
 
 // Painel admin: o painel de status + ações. Escuta só em 127.0.0.1 atrás do Caddy (HTTPS). A senha
 // é conferida aqui (hash scrypt em STATE, fora do git), para o dono poder trocá-la pelo próprio painel.
@@ -230,6 +231,12 @@ const form = (acao: string, fields: Record<string, string>, button: string, cls 
   `<form method="post" action="acao" class="inline"${confirm ? ` onsubmit="return confirm('${esc(confirm)}')"` : ''}><input type="hidden" name="acao" value="${acao}">${Object.entries(fields).map(([k, v]) => `<input type="hidden" name="${k}" value="${esc(v)}">`).join('')}<button class="${cls}">${button}</button></form>`;
 
 // Aviso do limite de ramos (16/11): o dono vê por que o motor parou de abrir páginas novas e o que destrava.
+// 17/11: mesma regra do ciclo (cycle.sh, BEM_PENDING_PAGES): só conta ramo que traz página que o main ainda não tem.
+export function paginasNovasPendentes(pendingSlugs: Set<string>, pages: { slug: string }[], noRamo: Set<string> = pendingPageSlugs()): number {
+  const noMain = new Set(pages.map((p) => p.slug));
+  return [...pendingSlugs].filter((s) => s !== 'manutencao' && !noMain.has(s) && noRamo.has(s)).length;
+}
+
 export function pausaHtml(n: number): string {
   const msg = pausaDePaginasNovas(n);
   return msg ? `<p class="flash">${esc(msg.charAt(0).toUpperCase() + msg.slice(1))}. Decida os cartões abaixo para o motor voltar a escrever.</p>` : '';
@@ -245,7 +252,7 @@ function adminHtml(msg: string | null): string {
 ${msg ? `<p class="flash">${esc(msg)}</p>` : ''}
 
 ${dockHtml()}
-${pausaHtml(pendingSlugs.size)}
+${pausaHtml(paginasNovasPendentes(pendingSlugs, pages))}
 ${boardHtml(pages, branches)}
 
 <h2>Páginas no ar</h2>
