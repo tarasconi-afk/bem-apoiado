@@ -1,0 +1,196 @@
+{
+  "run_id": "20261117T114257_travesseiro-para-quem-dorme-de-costas-ajuste_6119-releitura",
+  "topic": "travesseiro-para-quem-dorme-de-costas",
+  "accepted": [
+    {
+      "claim_id": "clm_19797dff375f",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_52c14b3e29f6",
+      "new": false
+    },
+    {
+      "claim_id": "clm_36ebf60b87ba",
+      "question_id": "q_firmeza_suporte",
+      "source_id": "src_52c14b3e29f6",
+      "new": false
+    },
+    {
+      "claim_id": "clm_fcdf49ef7f92",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2fba6f94dd8e",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_52c14b3e29f6",
+      "new": false
+    },
+    {
+      "claim_id": "clm_aadba76d7d7e",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_52c14b3e29f6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_baf2ba0de4d8",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_52c14b3e29f6",
+      "new": false
+    },
+    {
+      "claim_id": "clm_264deb60bb31",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_dfac74076754",
+      "question_id": "q_firmeza_suporte",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_83aa4cff80e8",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_83aa4cff80e8",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_1e349a2ab65b",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_811d97f063f5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_c46b51849f69",
+      "question_id": "q_altura_perfil_costas",
+      "source_id": "src_c4646ba147cb",
+      "new": false
+    },
+    {
+      "claim_id": "clm_8d3e5dd62fac",
+      "question_id": "q_firmeza_suporte",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1cb6b0468e8d",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a041c927801c",
+      "question_id": "q_opcao_espuma",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0297cb0cf150",
+      "question_id": "q_opcao_pluma",
+      "source_id": "src_c4646ba147cb",
+      "new": false
+    },
+    {
+      "claim_id": "clm_d79aea652094",
+      "question_id": "q_enchimento_avisos",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c67c25427fc4",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_c4646ba147cb",
+      "new": false
+    },
+    {
+      "claim_id": "clm_13b7ae73c659",
+      "question_id": "q_restricao_leitor",
+      "source_id": "src_c4646ba147cb",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_altura_perfil_costas": 3,
+    "q_firmeza_suporte": 3,
+    "q_opcao_espuma": 4,
+    "q_opcao_pluma": 1,
+    "q_enchimento_avisos": 5,
+    "q_lavagem_secagem": 2,
+    "q_restricao_leitor": 1,
+    "q_ajuste_1d1d81d9": 0,
+    "q_ajuste_5a86db3b": 0
+  },
+  "unanswered": [
+    "q_ajuste_1d1d81d9",
+    "q_ajuste_5a86db3b"
+  ],
+  "usage": {
+    "input_tokens": 6639,
+    "output_tokens": 2831,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_2dcccfbb1253"
+  ],
+  "triage": [
+    {
+      "source_id": "src_52c14b3e29f6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_811d97f063f5",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.09
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.2
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.01
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_2dcccfbb1253",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_c4646ba147cb",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.78
+    }
+  ],
+  "credits": 7.840408200000001
+}

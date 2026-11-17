@@ -1,0 +1,42 @@
+{
+  "slug": "travesseiro-para-quem-dorme-de-costas",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 126549,
+    "output_tokens": 36379,
+    "calls": 50
+  },
+  "credits": 37.469021399999995,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "densidade-viscoelastica-latex#0"
+    ],
+    "decision_criteria": [
+      "Para dormir de costas, escolher travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca.",
+      "Conferir na ficha do produto se o modelo é indicado para dormir de costas.",
+      "O Viscopur da Ortobom é uma opção de altura média, firme e indicada para quem dorme de costas ou de bruços.",
+      "Quem prefere conforto médio pode considerar o King Premium, que tem placa removível de espuma viscoelástica para ajustar a altura.",
+      "Conferir o material do enchimento na ficha: espuma viscoelástica, fibra siliconada ou plumas de ganso, por exemplo.",
+      "Verificar as instruções de conservação antes da compra: o Viscopur não pode ser lavado, enquanto o King Premium permite lavagem suave a até 40 °C.",
+      "Para o modelo de plumas, conferir se a ficha declara conforto macio, composição de plumas e instruções específicas de secagem e limpeza."
+    ],
+    "missing": [
+      "Medidas em centímetros que relacionem altura baixa, média ou alta aos travesseiros indicados para quem dorme de costas.",
+      "Uma regra mais ampla de firmeza ou suporte para a posição, além dos níveis declarados para modelos específicos.",
+      "Altura ou densidade declarada por fabricantes para travesseiros de látex ou viscoelástica destinados a quem dorme de costas.",
+      "Volume ou quantidade de enchimento dos travesseiros de pena ou pluma indicados para essa posição.",
+      "Informações comparativas de fabricantes sobre retenção de calor, cheiro, ruído e cuidados de segurança entre os materiais."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde diretamente que quem dorme de costas deve buscar travesseiro baixo ou médio e oferece critérios práticos para conferir indicação, altura, firmeza, material e cuidados no anúncio. Faltam medidas em centímetros e informações comparativas sobre outros materiais e características, mas há uma regra de escolha concreta e exemplos de produtos suficientes para orientar a compra.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true
+  }
+}

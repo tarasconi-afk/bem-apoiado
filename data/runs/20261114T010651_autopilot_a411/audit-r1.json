@@ -1,0 +1,126 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-para-dormir-de-costas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-espuma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-espuma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-material-avisos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-para-dormir-de-costas#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "Embora o trecho citado sustente a recomendação e a atribuição à Duoflex, o bloco afirma que o travesseiro serve para evitar a hiperflexão do pescoço, sugerindo um resultado de proteção à saúde, o que é proibido pela regra do site mesmo quando atribuído ao fabricante.",
+      "fix": "Segundo a Duoflex, quem dorme de costas deve usar um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca."
+    },
+    {
+      "ref": "densidade-viscoelastica-latex#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora a base seja “framing”, o bloco afirma um fato sobre os documentos consultados — que nenhum informa valores de densidade — sem citar qualquer trecho que sustente essa verificação.",
+      "fix": "Os documentos consultados sobre travesseiros de espuma viscoelástica são apresentados a seguir."
+    },
+    {
+      "ref": "enchimento-pena-pluma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-material-avisos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-material-avisos#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-lavagem-secagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as duas alturas, o material e o conforto médio, mas não dizem que o modelo é indicado para quem dorme de costas.",
+      "fix": "Travesseiro King Premium, da Ortobom: altura ajustável em duas opções por placa removível, enchimento de fibra siliconada 100% poliéster com placa de espuma viscoelástica e nível de conforto médio."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "altura-para-dormir-de-costas#0",
+      "msg": "SAFETY_CLAIM. Embora o trecho citado sustente a recomendação e a atribuição à Duoflex, o bloco afirma que o travesseiro serve para evitar a hiperflexão do pescoço, sugerindo um resultado de proteção à saúde, o que é proibido pela regra do site mesmo quando atribuído ao fabricante. Versão sustentável: Segundo a Duoflex, quem dorme de costas deve usar um travesseiro baixo ou médio que preencha o espaço entre a cervical e a nuca."
+    },
+    {
+      "ref": "densidade-viscoelastica-latex#0",
+      "msg": "FACT_IN_FRAMING. Embora a base seja “framing”, o bloco afirma um fato sobre os documentos consultados — que nenhum informa valores de densidade — sem citar qualquer trecho que sustente essa verificação. Versão sustentável: Os documentos consultados sobre travesseiros de espuma viscoelástica são apresentados a seguir."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as duas alturas, o material e o conforto médio, mas não dizem que o modelo é indicado para quem dorme de costas. Versão sustentável: Travesseiro King Premium, da Ortobom: altura ajustável em duas opções por placa removível, enchimento de fibra siliconada 100% poliéster com placa de espuma viscoelástica e nível de conforto médio."
+    }
+  ]
+}
