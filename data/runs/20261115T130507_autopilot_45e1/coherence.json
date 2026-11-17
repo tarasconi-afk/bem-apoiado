@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "regulagem-do-encosto#0",
+      "problem": "O título promete informações sobre altura e inclinação do encosto, mas os blocos só trazem faixas e características de inclinação; não explicam a regulagem de altura.",
+      "fix": "Mudar o título para “Regulagem do encosto: faixa de inclinação e movimento coordenado”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 14913,
+    "output_tokens": 3015,
+    "calls": 3
+  }
+}

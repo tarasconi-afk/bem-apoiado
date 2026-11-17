@@ -1,0 +1,330 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha considerando seu peso e tempo de uso diário. Verifique a capacidade de peso e prefira pelo menos 20 kg acima do seu peso, segundo a ergocadeiras. Para trabalho acima de 4 horas sem ar-condicionado, a ergocadeiras recomenda tela; para uso de até 6 horas, as diferenças de suporte lombar, ventilação e formato do assento são menos impactantes.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5e346b1411f9",
+        "clm_1c0394081af2",
+        "clm_0511027dea9a"
+      ]
+    },
+    {
+      "ref": "regulagem-do-encosto#1",
+      "action": "replace",
+      "text": "Segundo a ergocadeiras, quando você se recosta, o encosto se inclina mais do que o assento, que também se move um pouco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_244a2291309d"
+      ]
+    },
+    {
+      "ref": "peso-suportado#0",
+      "action": "replace",
+      "text": "Confira o \"Peso Máximo Suportado\" e escolha um modelo cuja capacidade seja pelo menos 20 kg acima do seu peso, para que o pistão a gás não fique sobrecarregado, segundo a ergocadeiras.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5e346b1411f9"
+      ]
+    },
+    {
+      "ref": "peso-suportado#1",
+      "action": "replace",
+      "text": "A ergocadeiras cita a DT3 Sports Rhino como exemplo de modelo que declara 200 kg de peso máximo suportado e 160 kg de peso recomendado para uso ótimo, valores diferentes.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0fb77bc938c2"
+      ]
+    },
+    {
+      "ref": "revestimento-e-limpeza#1",
+      "action": "replace",
+      "text": "Segundo a ergocadeiras, a maioria das cadeiras gamer usa revestimento em PU (couro sintético), que retém calor e umidade em sessões longas. Em climas quentes sem ar-condicionado, o PU pode comprometer o conforto e a concentração; a climatização adequada ou o revestimento em tecido são alternativas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0c697bd87ab1",
+        "clm_275de81cf81c"
+      ]
+    },
+    {
+      "ref": "revestimento-e-limpeza#2",
+      "action": "replace",
+      "text": "A ergocadeiras afirma que uma superfície lisa é fácil de higienizar, o que é ótimo para uso compartilhado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0c67a7b2bc39"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você trabalha acima de 4 horas sem ar-condicionado, a ergocadeiras recomenda mesh. Em ambiente climatizado ou para uso de até 6 horas, considere as condições de ventilação e o revestimento da cadeira, conforme as orientações citadas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1c0394081af2",
+        "clm_275de81cf81c",
+        "clm_0511027dea9a"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você transpira muito enquanto está sentado, considere tela no assento, pois ela deixa o ar passar por baixo. Se a prioridade for higienização fácil, considere uma superfície lisa, conforme as fontes citadas.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_22a98cd74c24",
+        "clm_0c67a7b2bc39"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Para conferir os principais recursos de ajuste de uma cadeira, verifique regulagem de altura do assento, apoio lombar ajustável, profundidade do assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_04a5e310b9f4"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Cadeira para costureira: qual escolher",
+    "description": "Escolha pela altura, regulagem, peso suportado e revestimento. Confira na ficha técnica as medidas do assento, faixas de ajuste e capacidade de carga.",
+    "verdict": {
+      "text": "Escolha considerando seu peso e tempo de uso diário, segundo a ergocadeiras. Verifique a capacidade de peso e prefira pelo menos 20 kg acima do seu peso, segundo a ergocadeiras. Para trabalho acima de 4 horas sem ar-condicionado, a ergocadeiras recomenda tela; para uso de até 6 horas, as diferenças de suporte lombar, ventilação e formato do assento são menos impactantes.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5e346b1411f9",
+        "clm_1c0394081af2",
+        "clm_0511027dea9a"
+      ]
+    },
+    "sections": [
+      {
+        "id": "dimensoes-do-assento",
+        "heading": "Dimensões do assento: o que conferir na ficha",
+        "blocks": [
+          {
+            "text": "Em um edital de compras públicas, a altura do assento ao piso é indicada como regulável entre 42 cm e 52 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_01476db5c52a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira se a ficha oferece regulagem de profundidade do assento, segundo a ergocadeiras. Segundo a ergocadeiras, o assento deslizante permite ajustar a profundidade efetiva movendo o assento para frente ou para trás em relação ao encosto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_091dcde9cf02"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "regulagem-do-encosto",
+        "heading": "Regulagem do encosto: altura e inclinação",
+        "blocks": [
+          {
+            "text": "Nos modelos consultados, o encosto varia de 115° a 150° com 3 posições de trava fixas, segundo a ergocadeiras, ou de 90° a 135°, segundo a ThunderX3. Confira na ficha técnica qual é a faixa de regulagem do modelo que está analisando.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a5ea663b950",
+              "clm_1b75326122e6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, quando você se recosta, o encosto se inclina mais do que o assento, que também se move um pouco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_244a2291309d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "peso-suportado",
+        "heading": "Capacidade de peso: como conferir",
+        "blocks": [
+          {
+            "text": "Confira o \"Peso Máximo Suportado\" e escolha um modelo cuja capacidade seja pelo menos 20 kg acima do seu peso, para que o pistão a gás não fique sobrecarregado, segundo a ergocadeiras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5e346b1411f9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A ergocadeiras cita a DT3 Sports Rhino como exemplo de modelo que declara 200 kg de peso máximo suportado e 160 kg de peso recomendado para uso ótimo, valores diferentes.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0fb77bc938c2"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "revestimento-e-limpeza",
+        "heading": "Revestimento: tela, tecido ou couro",
+        "blocks": [
+          {
+            "text": "Segundo a ergocadeiras, o revestimento em tela (mesh) é recomendado para uso de trabalho acima de 4 horas diárias sem ar-condicionado, pois deixa o ar passar. A tela no assento é especialmente útil para quem transpira muito ao costurar, segundo a Flexform.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1c0394081af2",
+              "clm_22a98cd74c24"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a ergocadeiras, a maioria das cadeiras gamer usa revestimento em PU (couro sintético), que retém calor e umidade em sessões longas. Em climas quentes sem ar-condicionado, o PU pode comprometer o conforto e a concentração; a climatização adequada ou o revestimento em tecido são alternativas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0c697bd87ab1",
+              "clm_275de81cf81c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A ergocadeiras afirma que uma superfície lisa é fácil de higienizar, o que é ótimo para uso compartilhado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0c67a7b2bc39"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para tecidos, não use pano úmido na limpeza, pois isso pode transferir fibras, formar bolinhas (pilling) e desbotar a cor, segundo Cavaletti.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_326841248e4a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "estabilidade-e-rodizios",
+        "heading": "Estabilidade e rodízios",
+        "blocks": [
+          {
+            "text": "Para postos de teleatendimento ou telemarketing, o Anexo II da NR 17 prevê que a cadeira tenha apoio em 5 pés com rodízios cuja resistência evite deslocamentos involuntários e que não comprometam a estabilidade do assento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_826440f1a0d0"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Alguns modelos declaram rodas de silicone que não riscam o piso, segundo a ergocadeiras, ou rodízios para todos os tipos de piso, segundo a Flexform. Consulte a ficha do modelo para verificar quais informações sobre os rodízios são declaradas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_311e0c6b00b4",
+              "clm_0e6eddde84cc"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para manutenção, limpe os rodízios mensalmente, segundo Cavaletti. A sujeira presente no chão pode aderir e, com o atrito, poderá manchar o chão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_60f7a3fa5206"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se você trabalha acima de 4 horas sem ar-condicionado, a ergocadeiras recomenda mesh. Em ambiente climatizado ou para uso de até 6 horas, considere as condições de ventilação e o revestimento da cadeira, conforme as orientações citadas, segundo a ergocadeiras.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1c0394081af2",
+              "clm_275de81cf81c",
+              "clm_0511027dea9a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você transpira muito enquanto está sentado, considere tela no assento, pois ela deixa o ar passar por baixo, segundo a Flexform e a ergocadeiras. Se a prioridade for higienização fácil, considere uma superfície lisa, conforme a Flexform e a ergocadeiras.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_22a98cd74c24",
+              "clm_0c67a7b2bc39"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você pesa mais, escolha um modelo cuja capacidade declarada seja pelo menos 20 kg superior ao seu peso, segundo a ergocadeiras. Confira na ficha o peso máximo suportado, não apenas o recomendado, segundo a ergocadeiras.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_5e346b1411f9",
+              "clm_0fb77bc938c2"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para conferir os principais recursos de ajuste de uma cadeira, verifique regulagem de altura do assento, apoio lombar ajustável, profundidade do assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_04a5e310b9f4"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam a preferência por pelo menos 20 kg acima do peso e a recomendação de tela para trabalho acima de 4 horas sem ar-condicionado. Porém, não dizem que tecido ou PU “funcionam bem” em ambientes climatizados ou em qualquer uso de até 6 horas: afirmam apenas que, abaixo de 6 horas, certas diferenças são menos impactantes, e que a climatização adequada ou o tecido são condições relevantes. A conclusão sobre PU funcionar bem generaliza além dos trechos. Versão sustentável: Escolha considerando seu peso e tempo de uso diário, segundo a ergocadeiras. Verifique a capacidade de peso e prefira pelo menos 20 kg acima do seu peso. Para trabalho acima de 4 horas sem ar-condicionado, a ergocadeiras recomenda tela; para uso de até 6 horas, as diferenças de suporte lombar, ventilação e formato do assento são menos impactantes."
+    },
+    {
+      "ref": "regulagem-do-encosto#1",
+      "msg": "SAFETY_CLAIM. O bloco atribui ao mecanismo uma ajuda para manter o “ângulo ideal do corpo”, sugerindo um benefício relacionado à postura. Além disso, os trechos não informam que se trata de um “mecanismo sincronizado” presente em “algumas cadeiras”. Versão sustentável: Segundo a ergocadeiras, quando você se recosta, o encosto se inclina mais do que o assento, que também se move um pouco."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "msg": "MISATTRIBUTED. O trecho citado sustenta conferir o peso máximo suportado, mas não diz que essa informação está em uma “ficha técnica”. Essa localização da informação não aparece na evidência. Versão sustentável: Confira o “Peso Máximo Suportado” e escolha um modelo cuja capacidade seja pelo menos 20 kg acima do seu peso, para que o pistão a gás não fique sobrecarregado, segundo a ergocadeiras."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "msg": "OVERSTATED. A evidência apresenta um exemplo específico, a DT3 Sports Rhino, mas o bloco generaliza para “alguns modelos”. Além disso, o trecho não recomenda expressamente usar o peso máximo suportado como referência para a decisão. Versão sustentável: A ergocadeiras cita a DT3 Sports Rhino como exemplo de modelo que declara 200 kg de peso máximo suportado e 160 kg de peso recomendado para uso ótimo, valores diferentes."
+    },
+    {
+      "ref": "revestimento-e-limpeza#1",
+      "msg": "OVERSTATED. Os trechos sustentam que a maioria das cadeiras gamer usa PU, que retém calor e umidade em sessões longas, e que, em climas quentes sem ar-condicionado, o PU pode comprometer o conforto e a concentração. Porém, não dizem que, em ambiente climatizado, ambos os revestimentos funcionam bem; apenas apresentam climatização adequada ou revestimento em tecido como alternativas. Versão sustentável: Segundo a ergocadeiras, a maioria das cadeiras gamer usa revestimento em PU, que retém calor e umidade em sessões longas. Em climas quentes sem ar-condicionado, o PU pode comprometer o conforto e a concentração; a climatização adequada ou o revestimento em tecido são alternativas."
+    },
+    {
+      "ref": "revestimento-e-limpeza#2",
+      "msg": "MISATTRIBUTED. O trecho afirma que a superfície lisa é fácil de higienizar e adequada para uso compartilhado, mas não diz que a ergocadeiras recomenda considerar esse revestimento. O bloco atribui à fonte uma recomendação que o trecho não apresenta. Versão sustentável: A ergocadeiras afirma que uma superfície lisa é fácil de higienizar, o que é ótimo para uso compartilhado."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. O trecho sustenta a recomendação de mesh para trabalho acima de 4 horas sem ar-condicionado e menciona climatização, tecido e limite de 6 horas, mas não sustenta especificamente conferir opções com tecido ou PU nessas condições. Também não menciona costura. Versão sustentável: Se você trabalha acima de 4 horas sem ar-condicionado, a ergocadeiras recomenda mesh. Em ambiente climatizado ou para uso de até 6 horas, considere as condições de ventilação e o revestimento da cadeira, conforme as orientações citadas."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam que a tela no assento deixa o ar passar e que uma superfície lisa é fácil de higienizar, mas não dizem que essa superfície seja especificamente de couro ou corino. Versão sustentável: Se você transpira muito enquanto está sentado, considere tela no assento, pois ela deixa o ar passar por baixo. Se a prioridade for higienização fácil, considere uma superfície lisa, conforme as fontes citadas."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. A Flexform lista esses mecanismos e ajustes em uma cadeira tecnicamente completa, mas o trecho não relaciona as regulagens especificamente à posição de costura nem afirma que elas sejam necessárias para ajustar a cadeira a essa atividade. Versão sustentável: Para conferir os principais recursos de ajuste de uma cadeira, verifique regulagem de altura do assento, apoio lombar ajustável, profundidade do assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1218
+  }
+}

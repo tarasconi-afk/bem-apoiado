@@ -1,0 +1,206 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam escolher uma capacidade de peso pelo menos 20 kg acima do peso e recomendam mesh para trabalho acima de 4 horas sem ar-condicionado. Porém, não sustentam considerar a altura, verificar a faixa de regulagem do assento, nem a afirmação específica de que tecido e couro são adequados para ambientes climatizados. Também não há suporte para atribuir todo esse conjunto à Flexform; o trecho da Flexform apenas menciona a passagem de ar pela tela no assento.",
+      "fix": "Escolha considerando o peso e o tempo de uso: verifique a capacidade suportada e prefira pelo menos 20 kg acima do seu peso. Para trabalho acima de 4 horas sem ar-condicionado, o trecho recomenda revestimento em mesh; em ambientes climatizados, considere uma cadeira com climatização adequada ou revestimento em tecido."
+    },
+    {
+      "ref": "dimensoes-do-assento#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não dizem que largura e profundidade do assento aparecem na ficha técnica. Eles mencionam profundidade regulável, mas não largura nem uma ficha técnica específica. Além disso, a formulação “deve ser ajustável” apresenta como exigência geral algo que os trechos descrevem como característica de uma cadeira ou categoria.",
+      "fix": "Os trechos sustentam: “As fontes citam regulagem de altura por pistão a gás, apoio lombar regulável em altura e, em alguns modelos ou categorias, regulagem de profundidade do assento e do apoio lombar.”"
+    },
+    {
+      "ref": "dimensoes-do-assento#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado sustenta a faixa de 420 mm a 520 mm, mas não mostra que se trata de legislação nem que a regra se aplica especificamente a postos de atendimento. Atribuir o requisito à legislação para esse setor excede o trecho apresentado.",
+      "fix": "“Em um edital disponibilizado pelo Comprasnet, a altura do assento ao piso é indicada como regulável entre 42 cm e 52 cm.”"
+    },
+    {
+      "ref": "dimensoes-do-assento#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados dizem que o assento deslizante permite ajustar a profundidade efetiva e que um modelo declara regulagem de profundidade, mas não dizem que se deve sentar com as costas encostadas deixando alguns centímetros atrás dos joelhos. Também não atribuem essa orientação conjuntamente à ergocadeiras e à Flexform.",
+      "fix": "“Confira se a ficha oferece regulagem de profundidade: os trechos citados indicam que o assento deslizante permite ajustar a profundidade efetiva, movendo o assento para frente ou para trás em relação ao encosto.”"
+    },
+    {
+      "ref": "regulagem-do-encosto#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a regulagem de altura como exigência de um edital e mostram faixas de reclinação em dois modelos específicos, mas não sustentam que todo encosto deva ser ajustável em altura e inclinação nem atribuem essa exigência conjuntamente à ergocadeiras e à ThunderX3.",
+      "fix": "Um edital citado exige regulagem de altura do encosto. Nas páginas dos modelos citados, a ergocadeiras informa reclinação de 115° a 150° e a ThunderX3 informa ajuste de 90° a 135°."
+    },
+    {
+      "ref": "regulagem-do-encosto#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho explica a coordenação entre encosto e assento e seus efeitos descritos, mas não afirma que alguns modelos específicos trazem um mecanismo sincronizado. Essa apresentação acrescenta uma generalização sobre modelos.",
+      "fix": "Segundo a ergocadeiras, ao recostar, o encosto se inclina mais que o assento, que também se move um pouco; essa coordenação ajuda a manter o ângulo ideal do corpo e evita que a lombar escorregue para frente."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho recomenda conferir o peso máximo suportado e escolher uma cadeira com pelo menos 20 kg acima do peso, mas não afirma que a ficha técnica deve informar esse dado. A explicação de que o pistão a gás é o cilindro que sustenta o assento também não aparece no trecho citado.",
+      "fix": "A ergocadeiras recomenda conferir o \"Peso Máximo Suportado\" e escolher uma cadeira que aguente pelo menos 20 kg a mais do que o seu peso, para que o pistão a gás não fique sobrecarregado."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram exemplos de produtos com valores de peso máximo suportado e peso recomendado, mas não dizem que esses valores são, respectivamente, um \"limite técnico\" e um parâmetro de \"uso confortável\", nem recomendam usar o segundo para a decisão.",
+      "fix": "A ergocadeiras apresenta exemplos em que aparecem os valores \"Peso Máximo Suportado\" e \"Peso Recomendado\" ou recomendado para \"uso ótimo\", com valores diferentes."
+    },
+    {
+      "ref": "revestimento-e-limpeza#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a mesh é recomendada para trabalho acima de 4 horas sem ar-condicionado e que sua respirabilidade ajuda a manter a temperatura agradável. Porém, não sustentam que a escolha do revestimento dependa de hábitos de limpeza, nem especificam climas quentes; além disso, o trecho da ThunderX3 não afirma que a escolha depende do ambiente ou dos hábitos.",
+      "fix": "A ergocadeiras recomenda a mesh para uso de trabalho acima de 4 horas sem ar-condicionado, e a ThunderX3 descreve sua malha como respirável e capaz de manter a temperatura agradável durante o uso."
+    },
+    {
+      "ref": "revestimento-e-limpeza#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos não dizem que tecido de poliéster ou PU funcionam bem em ambientes climatizados, e não há trecho da Flexform citado. O trecho da ergocadeiras sustenta que o PU retém calor e umidade em sessões longas e que, em climas quentes sem ar-condicionado, o tecido pode ser uma alternativa, mas não atribui essa conclusão à Flexform.",
+      "fix": "Segundo a ergocadeiras, a maioria das cadeiras gamer usa PU, que retém calor e umidade em sessões longas; em climas quentes sem ar-condicionado, o PU pode comprometer o conforto e a concentração, enquanto o tecido é apresentado como alternativa."
+    },
+    {
+      "ref": "revestimento-e-limpeza#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Flexform sustenta que a tela no assento deixa o ar passar por baixo e que isso é relevante para quem transpira sentado, mas não menciona costura. O trecho da ergocadeiras sustenta que uma superfície lisa é fácil de higienizar, porém não identifica essa superfície como couro ou corino. Também não há base para atribuir ambos os pontos conjuntamente a Flexform e ergocadeiras.",
+      "fix": "Para quem transpira sentado, a Flexform afirma que a tela no assento deixa o ar passar por baixo, onde o calor mais incomoda. Para facilitar a higienização, a ergocadeiras recomenda considerar uma superfície lisa."
+    },
+    {
+      "ref": "estabilidade-e-rodizios#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos fazem essa exigência especificamente no Anexo II da NR 17, para trabalho em teleatendimento/telemarketing. O bloco a apresenta como regra geral da legislação para postos de trabalho.",
+      "fix": "Para postos de teleatendimento ou telemarketing, o Anexo II da NR 17 prevê apoio em 5 pés e rodízios cuja resistência evite deslocamentos involuntários sem comprometer a estabilidade do assento."
+    },
+    {
+      "ref": "estabilidade-e-rodizios#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A ergocadeiras cita rodas de silicone que, segundo o trecho, não riscam o piso. A Flexform apenas menciona rodízios para todos os tipos de piso; ela não sustenta a afirmação sobre rodas de silicone nem sobre não riscar o piso. A adequação específica a madeira, cerâmica ou carpete também não aparece nos trechos.",
+      "fix": "A ergocadeiras cita um modelo com rodas de silicone que, segundo o texto, não riscam o piso. A Flexform menciona rodízios para todos os tipos de piso. Consulte a ficha do modelo para verificar quais informações sobre os rodízios são declaradas."
+    },
+    {
+      "ref": "estabilidade-e-rodizios#2",
+      "verdict": "OVERSTATED",
+      "problem": "Cavaletti orienta limpar os rodízios mensalmente e diz que a sujeira pode aderir e, com o atrito, poderá manchar o chão. O bloco transforma essa possibilidade em um resultado certo ao dizer que a limpeza evita que a sujeira adira e cause manchas.",
+      "fix": "Para manutenção, Cavaletti orienta limpar os rodízios mensalmente, pois a sujeira presente no chão pode aderir e, com o atrito, poderá manchar o chão."
+    },
+    {
+      "ref": "cuidados-com-o-revestimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-com-o-revestimento#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados limitam a exigência ao Anexo II da NR 17, para trabalho em teleatendimento/telemarketing e para superfícies estofadas onde ocorre contato corporal. Eles não sustentam a generalização para postos de trabalho em geral nem a afirmação de que a regra vale especificamente para tela, tecido e couro.",
+      "fix": "No Anexo II da NR 17, para trabalho em teleatendimento/telemarketing, as superfícies estofadas onde ocorre contato corporal devem ser revestidas de material que permita a perspiração."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mencionam revestimento em tecido e PU, mas não dizem que o tecido é poliéster. Também não afirmam que tecido ou PU sejam as opções recomendadas para um ambiente climatizado.",
+      "fix": "Segundo a ergocadeiras, em ambiente climatizado ou para uso de até 6 horas, confira na ficha o material exato do revestimento; em clima quente sem ar-condicionado, o PU pode comprometer o conforto e a concentração."
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta que uma superfície lisa é fácil de higienizar, mas não identifica couro ou corino como os materiais correspondentes nem recomenda especificamente esses revestimentos.",
+      "fix": "Se preferir limpeza fácil, confira se o revestimento tem superfície lisa, pois ela é fácil de higienizar, segundo a ergocadeiras."
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam escolher uma capacidade de peso pelo menos 20 kg acima do peso e recomendam mesh para trabalho acima de 4 horas sem ar-condicionado. Porém, não sustentam considerar a altura, verificar a faixa de regulagem do assento, nem a afirmação específica de que tecido e couro são adequados para ambientes climatizados. Também não há suporte para atribuir todo esse conjunto à Flexform; o trecho da Flexform apenas menciona a passagem de ar pela tela no assento. Versão sustentável: Escolha considerando o peso e o tempo de uso: verifique a capacidade suportada e prefira pelo menos 20 kg acima do seu peso. Para trabalho acima de 4 horas sem ar-condicionado, o trecho recomenda revestimento em mesh; em ambientes climatizados, considere uma cadeira com climatização adequada ou revestimento em tecido."
+    },
+    {
+      "ref": "dimensoes-do-assento#0",
+      "msg": "UNSUPPORTED. Os trechos não dizem que largura e profundidade do assento aparecem na ficha técnica. Eles mencionam profundidade regulável, mas não largura nem uma ficha técnica específica. Além disso, a formulação “deve ser ajustável” apresenta como exigência geral algo que os trechos descrevem como característica de uma cadeira ou categoria. Versão sustentável: Os trechos sustentam: “As fontes citam regulagem de altura por pistão a gás, apoio lombar regulável em altura e, em alguns modelos ou categorias, regulagem de profundidade do assento e do apoio lombar.”"
+    },
+    {
+      "ref": "dimensoes-do-assento#1",
+      "msg": "MISATTRIBUTED. O trecho citado sustenta a faixa de 420 mm a 520 mm, mas não mostra que se trata de legislação nem que a regra se aplica especificamente a postos de atendimento. Atribuir o requisito à legislação para esse setor excede o trecho apresentado. Versão sustentável: “Em um edital disponibilizado pelo Comprasnet, a altura do assento ao piso é indicada como regulável entre 42 cm e 52 cm.”"
+    },
+    {
+      "ref": "dimensoes-do-assento#2",
+      "msg": "UNSUPPORTED. Os trechos citados dizem que o assento deslizante permite ajustar a profundidade efetiva e que um modelo declara regulagem de profundidade, mas não dizem que se deve sentar com as costas encostadas deixando alguns centímetros atrás dos joelhos. Também não atribuem essa orientação conjuntamente à ergocadeiras e à Flexform. Versão sustentável: “Confira se a ficha oferece regulagem de profundidade: os trechos citados indicam que o assento deslizante permite ajustar a profundidade efetiva, movendo o assento para frente ou para trás em relação ao encosto.”"
+    },
+    {
+      "ref": "regulagem-do-encosto#0",
+      "msg": "OVERSTATED. Os trechos sustentam a regulagem de altura como exigência de um edital e mostram faixas de reclinação em dois modelos específicos, mas não sustentam que todo encosto deva ser ajustável em altura e inclinação nem atribuem essa exigência conjuntamente à ergocadeiras e à ThunderX3. Versão sustentável: Um edital citado exige regulagem de altura do encosto. Nas páginas dos modelos citados, a ergocadeiras informa reclinação de 115° a 150° e a ThunderX3 informa ajuste de 90° a 135°."
+    },
+    {
+      "ref": "regulagem-do-encosto#1",
+      "msg": "OVERSTATED. O trecho explica a coordenação entre encosto e assento e seus efeitos descritos, mas não afirma que alguns modelos específicos trazem um mecanismo sincronizado. Essa apresentação acrescenta uma generalização sobre modelos. Versão sustentável: Segundo a ergocadeiras, ao recostar, o encosto se inclina mais que o assento, que também se move um pouco; essa coordenação ajuda a manter o ângulo ideal do corpo e evita que a lombar escorregue para frente."
+    },
+    {
+      "ref": "peso-suportado#0",
+      "msg": "OVERSTATED. O trecho recomenda conferir o peso máximo suportado e escolher uma cadeira com pelo menos 20 kg acima do peso, mas não afirma que a ficha técnica deve informar esse dado. A explicação de que o pistão a gás é o cilindro que sustenta o assento também não aparece no trecho citado. Versão sustentável: A ergocadeiras recomenda conferir o \"Peso Máximo Suportado\" e escolher uma cadeira que aguente pelo menos 20 kg a mais do que o seu peso, para que o pistão a gás não fique sobrecarregado."
+    },
+    {
+      "ref": "peso-suportado#1",
+      "msg": "OVERSTATED. Os trechos mostram exemplos de produtos com valores de peso máximo suportado e peso recomendado, mas não dizem que esses valores são, respectivamente, um \"limite técnico\" e um parâmetro de \"uso confortável\", nem recomendam usar o segundo para a decisão. Versão sustentável: A ergocadeiras apresenta exemplos em que aparecem os valores \"Peso Máximo Suportado\" e \"Peso Recomendado\" ou recomendado para \"uso ótimo\", com valores diferentes."
+    },
+    {
+      "ref": "revestimento-e-limpeza#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a mesh é recomendada para trabalho acima de 4 horas sem ar-condicionado e que sua respirabilidade ajuda a manter a temperatura agradável. Porém, não sustentam que a escolha do revestimento dependa de hábitos de limpeza, nem especificam climas quentes; além disso, o trecho da ThunderX3 não afirma que a escolha depende do ambiente ou dos hábitos. Versão sustentável: A ergocadeiras recomenda a mesh para uso de trabalho acima de 4 horas sem ar-condicionado, e a ThunderX3 descreve sua malha como respirável e capaz de manter a temperatura agradável durante o uso."
+    },
+    {
+      "ref": "revestimento-e-limpeza#1",
+      "msg": "MISATTRIBUTED. Os trechos não dizem que tecido de poliéster ou PU funcionam bem em ambientes climatizados, e não há trecho da Flexform citado. O trecho da ergocadeiras sustenta que o PU retém calor e umidade em sessões longas e que, em climas quentes sem ar-condicionado, o tecido pode ser uma alternativa, mas não atribui essa conclusão à Flexform. Versão sustentável: Segundo a ergocadeiras, a maioria das cadeiras gamer usa PU, que retém calor e umidade em sessões longas; em climas quentes sem ar-condicionado, o PU pode comprometer o conforto e a concentração, enquanto o tecido é apresentado como alternativa."
+    },
+    {
+      "ref": "revestimento-e-limpeza#2",
+      "msg": "OVERSTATED. O trecho da Flexform sustenta que a tela no assento deixa o ar passar por baixo e que isso é relevante para quem transpira sentado, mas não menciona costura. O trecho da ergocadeiras sustenta que uma superfície lisa é fácil de higienizar, porém não identifica essa superfície como couro ou corino. Também não há base para atribuir ambos os pontos conjuntamente a Flexform e ergocadeiras. Versão sustentável: Para quem transpira sentado, a Flexform afirma que a tela no assento deixa o ar passar por baixo, onde o calor mais incomoda. Para facilitar a higienização, a ergocadeiras recomenda considerar uma superfície lisa."
+    },
+    {
+      "ref": "estabilidade-e-rodizios#0",
+      "msg": "OVERSTATED. Os trechos fazem essa exigência especificamente no Anexo II da NR 17, para trabalho em teleatendimento/telemarketing. O bloco a apresenta como regra geral da legislação para postos de trabalho. Versão sustentável: Para postos de teleatendimento ou telemarketing, o Anexo II da NR 17 prevê apoio em 5 pés e rodízios cuja resistência evite deslocamentos involuntários sem comprometer a estabilidade do assento."
+    },
+    {
+      "ref": "estabilidade-e-rodizios#1",
+      "msg": "MISATTRIBUTED. A ergocadeiras cita rodas de silicone que, segundo o trecho, não riscam o piso. A Flexform apenas menciona rodízios para todos os tipos de piso; ela não sustenta a afirmação sobre rodas de silicone nem sobre não riscar o piso. A adequação específica a madeira, cerâmica ou carpete também não aparece nos trechos. Versão sustentável: A ergocadeiras cita um modelo com rodas de silicone que, segundo o texto, não riscam o piso. A Flexform menciona rodízios para todos os tipos de piso. Consulte a ficha do modelo para verificar quais informações sobre os rodízios são declaradas."
+    },
+    {
+      "ref": "estabilidade-e-rodizios#2",
+      "msg": "OVERSTATED. Cavaletti orienta limpar os rodízios mensalmente e diz que a sujeira pode aderir e, com o atrito, poderá manchar o chão. O bloco transforma essa possibilidade em um resultado certo ao dizer que a limpeza evita que a sujeira adira e cause manchas. Versão sustentável: Para manutenção, Cavaletti orienta limpar os rodízios mensalmente, pois a sujeira presente no chão pode aderir e, com o atrito, poderá manchar o chão."
+    },
+    {
+      "ref": "cuidados-com-o-revestimento#1",
+      "msg": "OVERSTATED. Os trechos citados limitam a exigência ao Anexo II da NR 17, para trabalho em teleatendimento/telemarketing e para superfícies estofadas onde ocorre contato corporal. Eles não sustentam a generalização para postos de trabalho em geral nem a afirmação de que a regra vale especificamente para tela, tecido e couro. Versão sustentável: No Anexo II da NR 17, para trabalho em teleatendimento/telemarketing, as superfícies estofadas onde ocorre contato corporal devem ser revestidas de material que permita a perspiração."
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "msg": "UNSUPPORTED. Os trechos mencionam revestimento em tecido e PU, mas não dizem que o tecido é poliéster. Também não afirmam que tecido ou PU sejam as opções recomendadas para um ambiente climatizado. Versão sustentável: Segundo a ergocadeiras, em ambiente climatizado ou para uso de até 6 horas, confira na ficha o material exato do revestimento; em clima quente sem ar-condicionado, o PU pode comprometer o conforto e a concentração."
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "msg": "UNSUPPORTED. O trecho sustenta que uma superfície lisa é fácil de higienizar, mas não identifica couro ou corino como os materiais correspondentes nem recomenda especificamente esses revestimentos. Versão sustentável: Se preferir limpeza fácil, confira se o revestimento tem superfície lisa, pois ela é fácil de higienizar, segundo a ergocadeiras."
+    }
+  ]
+}
