@@ -1,0 +1,127 @@
+{
+  "run_id": "20261117T114257_travesseiro-para-quem-dorme-de-costas-ajuste_6119",
+  "topic": "travesseiro-para-quem-dorme-de-costas",
+  "accepted": [],
+  "rejected": [
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_altura_perfil_costas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO PARA ADULTO, medindo 60cm de largura x 40cm de comprimento x 10cm de altura/espessura, espuma soft inteiriça"
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_altura_perfil_costas",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO, Capa em tecido 33% algodão, 67% poliéster, medindo no mínimo 30 cm de largura x 40 cm de comprimento x 10 cm de altura, enchimento composto de 100% fibra poliéster"
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_opcao_espuma",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO PARA ADULTO, medindo 60cm de largura x 40cm de comprimento x 10cm de altura/espessura, espuma soft inteiriça, antialérgico, inodoro, revestimento em napa de cor azul; Densidade +/- 10% de "
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_enchimento_avisos",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "TRAVESSEIRO INFANTIL ANTI-REFLUXO, confeccionado em bloco de espuma 100% poliuretano, antialérgica, antimofo, anticaro, macia e confortável em formato triangular"
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_enchimento_avisos",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED,QUOTE_NOT_IN_SOURCE",
+      "quote": "Cada travesseiro deverá apresentar etiqueta costurada em sua capa removível contendo: Nome do fabricante, CNPJ, Composição do tecido e espuma, Medidas e informações de lavagem e conservação conforme n"
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_lavagem_secagem",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED,QUOTE_NOT_IN_SOURCE",
+      "quote": "Conter etiqueta de acordo com a Resolução da Conmetro N. 02 de 06/05/2008"
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_lavagem_secagem",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED,QUOTE_NOT_IN_SOURCE",
+      "quote": "Etiqueta de Acordo Com a Resolução da Conmetro N. 02 de 06/05/2008Garantia mínima de 03 meses"
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "question_id": "q_enchimento_avisos",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "enchimento composto de 100% fibra poliéster, antialérgico, inodoro e anti-mofo"
+    }
+  ],
+  "coverage": {
+    "q_altura_perfil_costas": 0,
+    "q_firmeza_suporte": 0,
+    "q_opcao_espuma": 0,
+    "q_opcao_pluma": 0,
+    "q_enchimento_avisos": 0,
+    "q_lavagem_secagem": 0,
+    "q_restricao_leitor": 0,
+    "q_ajuste_1d1d81d9": 0,
+    "q_ajuste_5a86db3b": 0
+  },
+  "unanswered": [
+    "q_altura_perfil_costas",
+    "q_firmeza_suporte",
+    "q_opcao_espuma",
+    "q_opcao_pluma",
+    "q_enchimento_avisos",
+    "q_lavagem_secagem",
+    "q_restricao_leitor",
+    "q_ajuste_1d1d81d9",
+    "q_ajuste_5a86db3b"
+  ],
+  "usage": {
+    "input_tokens": 9,
+    "output_tokens": 1527,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_ec44d94f8620",
+    "src_ea7da8a2550c",
+    "src_23e152693010"
+  ],
+  "triage": [
+    {
+      "source_id": "src_5179be1a5959",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.76
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.72
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "chunk": 2,
+      "keep": true,
+      "p_useful": 0.74
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "chunk": 3,
+      "keep": true,
+      "p_useful": 0.74
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "chunk": 4,
+      "keep": true,
+      "p_useful": 0.63
+    },
+    {
+      "source_id": "src_5179be1a5959",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0
+    }
+  ],
+  "credits": 5.05819344
+}
