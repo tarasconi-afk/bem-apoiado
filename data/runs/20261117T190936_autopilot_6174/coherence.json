@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "etiqueta-e-ficha-tecnica#0",
+      "problem": "A seção promete orientar sobre a etiqueta e a ficha técnica, mas os blocos informam apenas o que deve constar na etiqueta e citam as normas de certificação.",
+      "fix": "Mudar o título para “O que a etiqueta informa e quais normas se aplicam”, retirando a promessa de orientação sobre a ficha técnica."
+    }
+  ],
+  "usage": {
+    "input_tokens": 22095,
+    "output_tokens": 1425,
+    "calls": 3
+  }
+}
