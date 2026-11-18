@@ -1,0 +1,69 @@
+{
+  "removed": [
+    "tipos-enchimento#3"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "tipos-enchimento#3"
+    ],
+    "decision_criteria": [
+      "Compare a altura informada na ficha: os modelos citados têm 12 cm ou 14 cm.",
+      "Para quem prefere maciez, considere um modelo classificado como Extra Macio, como o Realizações Hiper Soft.",
+      "Para quem prefere mais firmeza, considere um modelo classificado como Firme, como o Paz Viscoelástico D30 ou o Zone HR Gel D40.",
+      "Se a facilidade de lavagem for prioridade, confira se a capa é removível e tem zíper.",
+      "Em clima quente, considere um modelo com gel integrado, cuja ficha informe dissipação de calor.",
+      "Confira as dimensões do travesseiro e a fronha compatível; o Zone é informado como 40x60 cm para fronha de 50x70 cm.",
+      "Compare na ficha o material do enchimento, a altura, o nível de firmeza, a composição da capa e as instruções de lavagem.",
+      "Considere as características declaradas para cada material: fibra siliconada para maciez e leveza, viscoelástico para suporte e adaptação, HR Gel para retorno à forma e dissipação de calor e látex Talalay para durabilidade e textura uniforme."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma regra de altura relacionada à posição de dormir, largura dos ombros ou alinhamento da cabeça, em vez de apenas listar as alturas disponíveis.",
+      "Uma comparação clara entre espuma, fibra siliconada e látex, indicando para que perfil de comprador cada material é mais adequado.",
+      "Uma tabela cruzando modelos de pelo menos dois fabricantes com altura, firmeza, material, dimensões, fronha compatível e possibilidade de lavagem.",
+      "Dimensões e fronhas compatíveis dos modelos da Luuna e dos demais modelos citados, não apenas do Zone da Probel.",
+      "Critérios técnicos usados pelos fabricantes para classificar a firmeza como Extra Macio, Média ou Firme."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios concretos para conferir na ficha e escolher por maciez, firmeza, lavagem, calor e medidas, mas não responde bem à decisão principal de como escolher a altura nem compara os materiais para diferentes perfis. A resposta curta é vaga — “de acordo com os modelos disponíveis” — e não resolve sozinha a dúvida de um comprador leigo; por isso, deve ser revisada antes da publicação.",
+    "filler_ratio": 0.030303030303030304,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se prefere um travesseiro macio, considerar um modelo classificado como Extra Macio, como o Realizações Hiper Soft.",
+      "Se prefere mais firmeza, considerar um modelo classificado como Firme, como o Paz Viscoelástico D30 ou o Zone Espuma HR Gel D40.",
+      "Se a facilidade de lavar for prioridade, conferir se o travesseiro tem capa removível com zíper, como o Zone.",
+      "Se dorme em clima quente, considerar um modelo com gel integrado, cuja ficha informa dissipação de calor.",
+      "Conferir na ficha o material do enchimento, a altura em centímetros, o nível de firmeza, as dimensões e a fronha compatível.",
+      "Verificar as instruções de lavagem, pois alguns modelos permitem lavagem da capa e outros não permitem lavar ou alvejar o produto.",
+      "Comparar a garantia informada pelo fabricante, como 3 meses ou 90 dias nos modelos citados."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Regra de escolha da altura conforme posição de dormir, largura dos ombros ou preferência do usuário.",
+      "Orientação sobre qual material de enchimento serve melhor para cada perfil de comprador, comparando espuma, látex e fibra, por exemplo.",
+      "Tabela comparando modelos de pelo menos dois fabricantes com altura, firmeza, material, tamanho, fronha compatível e lavabilidade.",
+      "Explicação, em fonte do fabricante, dos critérios usados para classificar a firmeza como macia, média ou firme.",
+      "Dimensões e compatibilidade de fronhas para mais modelos, além do Zone da Probel.",
+      "Condições detalhadas de garantia e explicação do significado dos selos ou declarações de propriedades hipoalergênicas e antiácaros."
+    ],
+    "publishable": false,
+    "summary": "A página é útil e pode ser publicada com ressalvas: oferece critérios concretos por firmeza, calor, lavabilidade e ficha técnica, além de exemplos de altura, material e dimensões. Porém, responde apenas parcialmente à dúvida ampla, porque a resposta curta não orienta qual altura escolher para cada perfil e começa com uma regra pouco útil — escolher entre as alturas disponíveis. A resposta rápida também não resolve sozinha a decisão; seria melhor incluir uma regra de altura e uma comparação efetiva entre fabricantes.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

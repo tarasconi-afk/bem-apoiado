@@ -1,0 +1,898 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha a altura de acordo com seus modelos disponíveis: a Probel oferece travesseiros de 12 cm e 14 cm, e a Luuna oferece 14 cm. A firmeza varia de Extra Macio a Firme, conforme o material: a Probel descreve a espuma Hiper Soft como Extra Macia, viscoelástico D40 como Firme, e fibra siliconada com maciez e leveza; a Luuna classifica o Grid Tech com firmeza Média. Confira na ficha técnica o material do enchimento, altura em cm, nível de firmeza e as instruções de lavagem.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_37c35b13f8cb",
+        "clm_b5f1b45df429",
+        "clm_326cb93a8a41",
+        "clm_6fab0db51839",
+        "clm_5da11d7e6717",
+        "clm_4b33eb7f5234",
+        "clm_475bc75ad521"
+      ]
+    },
+    {
+      "ref": "tipos-enchimento#0",
+      "action": "replace",
+      "text": "A seguir, veja o que as fontes citadas dizem sobre alguns materiais usados em enchimentos de travesseiros.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "tipos-enchimento#1",
+      "action": "replace",
+      "text": "A Probel descreve a espuma Hiper Soft do Travesseiro Realizações como macia, de alta resiliência, com toque extra suave, moldagem delicada e conforto duradouro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1fe66c4066c9"
+      ]
+    },
+    {
+      "ref": "tipos-enchimento#2",
+      "action": "replace",
+      "text": "Segundo a Probel, a espuma viscoelástica D40 do modelo Plenitude Visco Gel proporciona suporte firme e excelente adaptação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5da11d7e6717"
+      ]
+    },
+    {
+      "ref": "tipos-enchimento#5",
+      "action": "replace",
+      "text": "Segundo a Luuna, o látex Talalay é fabricado por um processo especializado que busca uma textura mais suave e uniforme; a marca afirma que ele oferece maior durabilidade e conforto que o látex comum.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_932b9dcae76d"
+      ]
+    },
+    {
+      "ref": "altura-firmeza#0",
+      "action": "replace",
+      "text": "A Probel informa altura de 12 cm em um modelo e de 14 cm em outro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_37c35b13f8cb",
+        "clm_b5f1b45df429"
+      ]
+    },
+    {
+      "ref": "altura-firmeza#1",
+      "action": "replace",
+      "text": "A Probel classifica o Realizações Hiper Soft como Extra Macio e o Paz Viscoelástico D30 como Firme; a Luuna classifica o Grid Tech como de firmeza Média.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6fab0db51839",
+        "clm_17252de17b77",
+        "clm_475bc75ad521"
+      ]
+    },
+    {
+      "ref": "altura-firmeza#2",
+      "action": "replace",
+      "text": "A Probel classifica o modelo Zone Espuma HR Gel D40 como de firmeza Firme.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_34a4a4b47850"
+      ]
+    },
+    {
+      "ref": "etiqueta-ficha#2.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Material do enchimento",
+          "claim_ids": [
+            "clm_0515cc1b3841"
+          ]
+        },
+        {
+          "text": "Segundo a Probel, viscoelástico",
+          "claim_ids": [
+            "clm_0515cc1b3841"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "etiqueta-ficha#2.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Altura",
+          "claim_ids": [
+            "clm_b5f1b45df429"
+          ]
+        },
+        {
+          "text": "Segundo a Probel, altura de 14 cm",
+          "claim_ids": [
+            "clm_b5f1b45df429"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "etiqueta-ficha#2.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Nível de firmeza",
+          "claim_ids": [
+            "clm_34a4a4b47850"
+          ]
+        },
+        {
+          "text": "Segundo a Probel, Firme",
+          "claim_ids": [
+            "clm_34a4a4b47850"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "etiqueta-ficha#2.r7",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Garantia",
+          "claim_ids": [
+            "clm_35e06eb89d44"
+          ]
+        },
+        {
+          "text": "Segundo a Probel, garantia de 3 meses",
+          "claim_ids": [
+            "clm_35e06eb89d44"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-lavagem#0",
+      "action": "replace",
+      "text": "Para o Travesseiro Anatomic Visco, a Ortobom informa: lavagem a até 40°C, sem alvejamento, secagem em tambor a até 60°C, sem passadoria e sem limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e61133bf32b"
+      ]
+    },
+    {
+      "ref": "cuidados-lavagem#1",
+      "action": "replace",
+      "text": "Para o Conforto Regulável da Ortobom, as instruções são: lavagem a até 40°C em processo suave, sem alvejamento, secagem em tambor a até 60°C, sem passadoria e sem limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d302c7e983e4"
+      ]
+    },
+    {
+      "ref": "cuidados-lavagem#2",
+      "action": "replace",
+      "text": "No Travesseiro Zone da Probel, a capa de malha com zíper é fácil de remover e lavar; a fabricante afirma que ela contribui para um ambiente de sono mais saudável.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d393558b6f84"
+      ]
+    },
+    {
+      "ref": "cuidados-lavagem#3",
+      "action": "replace",
+      "text": "No Travesseiro Seis Estrelas da Ortobom, a lavagem e o alvejamento são proibidos; é permitida a secagem na horizontal à sombra e a limpeza profissional a úmido muito suave.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_7fd8b4659dea"
+      ]
+    },
+    {
+      "ref": "garantia-certificacoes#0",
+      "action": "replace",
+      "text": "A Probel informa garantia de 3 meses para o Travesseiro Zone Espuma HR Gel D40, e a Ortobom informa garantia de 90 dias para o Travesseiro Anatomic Visco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_35e06eb89d44",
+        "clm_5f320627cf05"
+      ]
+    },
+    {
+      "ref": "garantia-certificacoes#1",
+      "action": "replace",
+      "text": "A Dunlopillo declara que o Travesseiro Basic Flat tem propriedades hipoalergênicas e é resistente a ácaros; o Inmetro não avalia essas propriedades.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e8085d4dfdc9"
+      ]
+    },
+    {
+      "ref": "garantia-certificacoes#2",
+      "action": "replace",
+      "text": "Se alergia pesar na escolha, procure um profissional de saúde e verifique se o fabricante declara propriedades especiais na ficha do modelo que vai comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_e8085d4dfdc9"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "A seguir, veja a tabela dos modelos apresentados e suas especificações.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "12 cm",
+          "claim_ids": [
+            "clm_37c35b13f8cb"
+          ]
+        },
+        {
+          "text": "Firme",
+          "claim_ids": [
+            "clm_17252de17b77"
+          ]
+        },
+        {
+          "text": "Viscoelástico D30",
+          "claim_ids": [
+            "clm_72535056a323"
+          ]
+        },
+        {
+          "text": "Não informado",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "14 cm",
+          "claim_ids": [
+            "clm_6beba7d12deb"
+          ]
+        },
+        {
+          "text": "Extra Macio",
+          "claim_ids": [
+            "clm_6fab0db51839"
+          ]
+        },
+        {
+          "text": "Espuma Hiper Soft",
+          "claim_ids": [
+            "clm_1fe66c4066c9"
+          ]
+        },
+        {
+          "text": "Não informado",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se você quer um travesseiro macio, considere um modelo classificado como Extra Macio, como o Realizações Hiper Soft da Probel.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_6fab0db51839",
+        "clm_1fe66c4066c9"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você prefere mais firmeza, considere os modelos Paz Viscoelástico e Plenitude Visco Gel da Probel, descritos como firmes nos trechos citados.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_17252de17b77",
+        "clm_5da11d7e6717"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se a facilidade de lavar for prioridade, considere um modelo com capa removível e zíper, como o Zone Espuma HR Gel D40 da Probel.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_d393558b6f84"
+      ]
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "Se você dorme em clima quente, considere o Zone com gel integrado, que segundo a Probel é capaz de dissipar calor.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_58a9d5ed5e28"
+      ]
+    },
+    {
+      "ref": "como-decidir#6",
+      "action": "replace",
+      "text": "Antes de comprar, confira a ficha técnica do modelo. No Zone Espuma HR Gel D40 da Probel, as especificações informadas incluem dimensões de 40x60 cm compatíveis com fronhas de 50x70 cm e altura de 14 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_285b10d4fc62",
+        "clm_b5f1b45df429"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher travesseiro: altura, firmeza e material",
+    "description": "Escolha travesseiro pela altura em cm, firmeza (macio, médio, firme) e material do enchimento (espuma, viscoelástico, fibra, látex).",
+    "verdict": {
+      "text": "Escolha a altura de acordo com seus modelos disponíveis: a Probel oferece travesseiros de 12 cm e 14 cm, e a Luuna oferece 14 cm. A firmeza varia de Extra Macio a Firme, conforme o material: a Probel descreve a espuma Hiper Soft como Extra Macia, viscoelástico D40 como Firme, e fibra siliconada com maciez e leveza; a Luuna classifica o Grid Tech com firmeza Média. Confira na ficha técnica o material do enchimento, altura em cm, nível de firmeza e as instruções de lavagem.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_37c35b13f8cb",
+        "clm_b5f1b45df429",
+        "clm_326cb93a8a41",
+        "clm_6fab0db51839",
+        "clm_5da11d7e6717",
+        "clm_4b33eb7f5234",
+        "clm_475bc75ad521"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tipos-enchimento",
+        "heading": "Quais materiais de enchimento um travesseiro pode ter",
+        "blocks": [
+          {
+            "text": "A Probel descreve a espuma Hiper Soft do Travesseiro Realizações como macia, de alta resiliência, com toque extra suave, moldagem delicada e conforto duradouro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1fe66c4066c9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Probel, a espuma viscoelástica D40 do modelo Plenitude Visco Gel proporciona suporte firme e excelente adaptação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5da11d7e6717"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Espuma com tecnologia HR Gel combina suporte duradouro com dissipação de calor, segundo a Probel. Segundo a Probel, a espuma High Resilience Gel oferece rápido retorno à forma original, adaptando-se aos contornos do corpo e mantendo frescor durante a noite pelo gel integrado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_58a9d5ed5e28"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Fibra siliconada proporciona maciez e leveza, segundo a Probel. A Probel descreve a fibra como oferecendo maciez e leveza com toque suave e agradável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4b33eb7f5234"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Luuna, o látex Talalay é fabricado por um processo especializado que busca uma textura mais suave e uniforme; a marca afirma que ele oferece maior durabilidade e conforto que o látex comum.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_932b9dcae76d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "altura-firmeza",
+        "heading": "Altura e firmeza: o que procurar",
+        "blocks": [
+          {
+            "text": "A Probel informa altura de 12 cm em um modelo e de 14 cm em outro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_37c35b13f8cb",
+              "clm_b5f1b45df429"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel classifica o Realizações Hiper Soft como Extra Macio e o Paz Viscoelástico D30 como Firme; a Luuna classifica o Grid Tech como de firmeza Média.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_6fab0db51839",
+              "clm_17252de17b77",
+              "clm_475bc75ad521"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel classifica o modelo Zone Espuma HR Gel D40 como de firmeza Firme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_34a4a4b47850"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-ficha",
+        "heading": "O que a etiqueta e a ficha técnica devem informar",
+        "blocks": [
+          {
+            "text": "Travesseiros são classificados como produtos têxteis e devem atender às exigências do Regulamento Técnico da Portaria Inmetro nº 118, de 2021.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Na ficha técnica do fabricante, procure estas informações:",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "O que procurar na ficha técnica antes de comprar um travesseiro",
+            "columns": [
+              "Informação",
+              "O que você encontra"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Material do enchimento",
+                    "claim_ids": [
+                      "clm_0515cc1b3841"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, viscoelástico",
+                    "claim_ids": [
+                      "clm_0515cc1b3841"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Dimensões (comprimento e largura)",
+                    "claim_ids": [
+                      "clm_285b10d4fc62"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, medidas como 40x60 cm, compatíveis com fronhas de 50x70 cm",
+                    "claim_ids": [
+                      "clm_285b10d4fc62"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Altura",
+                    "claim_ids": [
+                      "clm_b5f1b45df429"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, altura de 14 cm",
+                    "claim_ids": [
+                      "clm_b5f1b45df429"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Nível de firmeza",
+                    "claim_ids": [
+                      "clm_34a4a4b47850"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, Firme",
+                    "claim_ids": [
+                      "clm_34a4a4b47850"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Composição detalhada",
+                    "claim_ids": [
+                      "clm_91c0d608633f"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, percentual e tipo de fibras, capa em algodão ou poliéster",
+                    "claim_ids": [
+                      "clm_91c0d608633f"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Capa lavável",
+                    "claim_ids": [
+                      "clm_955a4d34f980"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, se a capa é removível e tem zíper para lavar",
+                    "claim_ids": [
+                      "clm_955a4d34f980"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Instruções de lavagem",
+                    "claim_ids": [
+                      "clm_0e61133bf32b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, temperatura máxima, se permite tambor, se proíbe passar",
+                    "claim_ids": [
+                      "clm_0e61133bf32b"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Garantia",
+                    "claim_ids": [
+                      "clm_35e06eb89d44"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, garantia de 3 meses",
+                    "claim_ids": [
+                      "clm_35e06eb89d44"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cuidados-lavagem",
+        "heading": "Como manter seu travesseiro: lavagem e conservação",
+        "blocks": [
+          {
+            "text": "Para o Travesseiro Anatomic Visco, a Ortobom informa: lavagem a até 40°C, sem alvejamento, secagem em tambor a até 60°C, sem passadoria e sem limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e61133bf32b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para o Conforto Regulável da Ortobom, as instruções são: lavagem a até 40°C em processo suave, sem alvejamento, secagem em tambor a até 60°C, sem passadoria e sem limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d302c7e983e4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Travesseiro Zone da Probel, a capa de malha com zíper é fácil de remover e lavar; a fabricante afirma que ela contribui para um ambiente de sono mais saudável.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d393558b6f84"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Travesseiro Seis Estrelas da Ortobom, a lavagem e o alvejamento são proibidos; é permitida a secagem na horizontal à sombra e a limpeza profissional a úmido muito suave.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7fd8b4659dea"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "garantia-certificacoes",
+        "heading": "Garantia e certificações declaradas",
+        "blocks": [
+          {
+            "text": "A Probel informa garantia de 3 meses para o Travesseiro Zone Espuma HR Gel D40, e a Ortobom informa garantia de 90 dias para o Travesseiro Anatomic Visco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_35e06eb89d44",
+              "clm_5f320627cf05"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Dunlopillo declara que o Travesseiro Basic Flat tem propriedades hipoalergênicas e é resistente a ácaros; o Inmetro não avalia essas propriedades.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e8085d4dfdc9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se alergia pesar na escolha, procure um profissional de saúde e verifique se o fabricante declara propriedades especiais na ficha do modelo que vai comprar, segundo a Dunlopillo.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_e8085d4dfdc9"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir qual travesseiro comprar",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Modelos de travesseiro por altura, firmeza e material (confira especificações completas na ficha antes de comprar) (segundo a Probel)",
+            "columns": [
+              "Altura (cm)",
+              "Firmeza",
+              "Material"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "12 cm",
+                    "claim_ids": [
+                      "clm_37c35b13f8cb"
+                    ]
+                  },
+                  {
+                    "text": "Firme",
+                    "claim_ids": [
+                      "clm_17252de17b77"
+                    ]
+                  },
+                  {
+                    "text": "Viscoelástico D30",
+                    "claim_ids": [
+                      "clm_72535056a323"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "14 cm",
+                    "claim_ids": [
+                      "clm_b5f1b45df429"
+                    ]
+                  },
+                  {
+                    "text": "Firme",
+                    "claim_ids": [
+                      "clm_34a4a4b47850"
+                    ]
+                  },
+                  {
+                    "text": "Espuma HR Gel D40",
+                    "claim_ids": [
+                      "clm_a05a011a9368"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "14 cm",
+                    "claim_ids": [
+                      "clm_6beba7d12deb"
+                    ]
+                  },
+                  {
+                    "text": "Extra Macio",
+                    "claim_ids": [
+                      "clm_6fab0db51839"
+                    ]
+                  },
+                  {
+                    "text": "Espuma Hiper Soft",
+                    "claim_ids": [
+                      "clm_1fe66c4066c9"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você quer um travesseiro macio, considere um modelo classificado como Extra Macio, como o Realizações Hiper Soft da Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_6fab0db51839",
+              "clm_1fe66c4066c9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere mais firmeza, considere os modelos Paz Viscoelástico e Plenitude Visco Gel da Probel, descritos como firmes nos trechos citados.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_17252de17b77",
+              "clm_5da11d7e6717"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a facilidade de lavar for prioridade, considere um modelo com capa removível e zíper, como o Zone Espuma HR Gel D40 da Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_d393558b6f84"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você dorme em clima quente, considere o Zone com gel integrado, que segundo a Probel é capaz de dissipar calor.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_58a9d5ed5e28"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Antes de comprar, confira a ficha técnica do modelo, segundo a Probel. No Zone Espuma HR Gel D40 da Probel, as especificações informadas incluem dimensões de 40x60 cm compatíveis com fronhas de 50x70 cm e altura de 14 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_285b10d4fc62",
+              "clm_b5f1b45df429"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos não sustentam que a altura de travesseiros padrão varie de 12 a 14 cm, que isso seja uma preferência de escolha, nem que a classificação de firmeza Macio/Médio/Firme dependa genericamente do material. Também não sustentam que D30 seja mais firme, que o látex Talalay tenha firmeza média e suporte, nem a recomendação de conferir na ficha técnica todos os itens mencionados. Os trechos sustentam apenas exemplos de alturas de 12 e 14 cm, Hiper Soft extra macio, D40 com suporte firme, fibra siliconada com maciez e leveza e um modelo Luuna com firmeza média. Versão sustentável: Os trechos citados mostram exemplos de travesseiros de 12 cm e 14 cm, um modelo Hiper Soft descrito como extra macio, um Visco D40 descrito como de suporte firme, fibra siliconada associada a maciez e leveza e um modelo Luuna com firmeza média."
+    },
+    {
+      "ref": "tipos-enchimento#0",
+      "msg": "FACT_IN_FRAMING. O bloco afirma como fato geral que existem cinco tipos principais de material, mas não cita nenhuma evidência para essa classificação ou quantidade. Versão sustentável: A seguir, veja o que as fontes citadas dizem sobre alguns materiais usados em enchimentos de travesseiros."
+    },
+    {
+      "ref": "tipos-enchimento#1",
+      "msg": "UNSUPPORTED. Os trechos não dizem que espuma comum é o material mais básico, nem fazem essa afirmação sobre a Probel. Eles apenas descrevem a espuma Hiper Soft do modelo citado como macia, de alta resiliência, com toque suave, moldagem delicada e conforto duradouro. Versão sustentável: A Probel descreve a espuma Hiper Soft do Travesseiro Realizações como macia, de alta resiliência, com toque extra suave, moldagem delicada e conforto duradouro."
+    },
+    {
+      "ref": "tipos-enchimento#2",
+      "msg": "OVERSTATED. O trecho informa que a espuma viscoelástica D40 proporciona excelente adaptação, mas não especifica que ela se adapta ao corpo. A identificação do material como espuma e o suporte firme estão sustentados. Versão sustentável: Segundo a Probel, a espuma viscoelástica D40 do modelo Plenitude Visco Gel proporciona suporte firme e excelente adaptação."
+    },
+    {
+      "ref": "tipos-enchimento#5",
+      "msg": "OVERSTATED. O trecho não diz literalmente que o látex Talalay é um material especial; diz que ele é fabricado por um processo especializado e que, devido à sua alta qualidade, oferece maior durabilidade e conforto que o látex comum. Versão sustentável: Segundo a Luuna, o látex Talalay é fabricado por um processo especializado que busca uma textura mais suave e uniforme; a marca afirma que ele oferece maior durabilidade e conforto que o látex comum."
+    },
+    {
+      "ref": "altura-firmeza#0",
+      "msg": "OVERSTATED. Os trechos sustentam apenas que a Probel informa alturas de 12 cm e 14 cm em dois modelos. Não dizem que a altura é uma das principais especificações da ficha técnica nem sustentam a generalização para fabricantes no plural. Versão sustentável: A Probel informa altura de 12 cm em um modelo e de 14 cm em outro."
+    },
+    {
+      "ref": "altura-firmeza#1",
+      "msg": "MISATTRIBUTED. Os trechos não mostram que os fabricantes adotam três níveis gerais de firmeza nem apresentam a categoria “Macio”. Além disso, o trecho da Luuna só classifica o Grid Tech como de firmeza Média; não sustenta a afirmação de que a Luuna também classifica o modelo Paz Viscoelástico D30 como Firme. Versão sustentável: A Probel classifica o Realizações Hiper Soft como Extra Macio e o Paz Viscoelástico D30 como Firme; a Luuna classifica o Grid Tech como de firmeza Média."
+    },
+    {
+      "ref": "altura-firmeza#2",
+      "msg": "UNSUPPORTED. O trecho apenas informa que o modelo tem nível de firmeza Firme. Não afirma que a firmeza geralmente está ligada ao material e à densidade nem que a densidade D40 contribui para essa classificação. Versão sustentável: A Probel classifica o modelo Zone Espuma HR Gel D40 como de firmeza Firme."
+    },
+    {
+      "ref": "etiqueta-ficha#2.r0",
+      "msg": "OVERSTATED. O trecho citado confirma apenas que o tipo de enchimento é viscoelástico; não sustenta a lista de fibra siliconada, espuma, látex Talalay ou outros tipos como informações encontradas segundo a Probel. Versão sustentável: O que você encontra: Segundo a Probel, viscoelástico."
+    },
+    {
+      "ref": "etiqueta-ficha#2.r2",
+      "msg": "OVERSTATED. O trecho citado informa apenas altura de 14 cm, não exemplos como 12 cm. Versão sustentável: O que você encontra: Segundo a Probel, altura de 14 cm."
+    },
+    {
+      "ref": "etiqueta-ficha#2.r3",
+      "msg": "OVERSTATED. O trecho citado informa apenas nível de firmeza Firme; não sustenta as categorias extra macio, macio ou médio. Versão sustentável: O que você encontra: Segundo a Probel, firme."
+    },
+    {
+      "ref": "etiqueta-ficha#2.r7",
+      "msg": "OVERSTATED. O trecho citado informa o prazo de garantia de 3 meses, mas não informa o que a garantia cobre nem menciona defeitos de fabricação. Versão sustentável: O que você encontra: Segundo a Probel, garantia de 3 meses."
+    },
+    {
+      "ref": "cuidados-lavagem#0",
+      "msg": "UNSUPPORTED. O trecho citado não afirma que as instruções variam conforme o material nem apresenta essa informação como uma afirmação da Ortobom; ele só traz as instruções do modelo Anatomic Visco. Versão sustentável: Para o Travesseiro Anatomic Visco, a Ortobom informa: lavagem a até 40°C, sem alvejamento, secagem em tambor a até 60°C, sem passadoria e sem limpeza a seco."
+    },
+    {
+      "ref": "cuidados-lavagem#1",
+      "msg": "UNSUPPORTED. O trecho sustenta as instruções de cuidado do Conforto Regulável, mas não permite afirmar que elas são “semelhantes”, pois não traz comparação com outro modelo. Versão sustentável: Para o Conforto Regulável da Ortobom, as instruções são: lavagem a até 40°C em processo suave, sem alvejamento, secagem em tambor a até 60°C, sem passadoria e sem limpeza a seco."
+    },
+    {
+      "ref": "cuidados-lavagem#2",
+      "msg": "OVERSTATED. A evidência trata especificamente da capa do Travesseiro Zone, mas o texto generaliza para “modelos com capa removível”. Além disso, a fonte diz que a capa contribui para um ambiente de sono mais saudável, não que permite “maior higiene”. Versão sustentável: No Travesseiro Zone da Probel, a capa de malha com zíper é fácil de remover e lavar; a fabricante afirma que ela contribui para um ambiente de sono mais saudável."
+    },
+    {
+      "ref": "cuidados-lavagem#3",
+      "msg": "OVERSTATED. O trecho citado não sustenta a generalização de que “alguns modelos têm restrições maiores”, nem a palavra “apenas”, que sugere que essas seriam as únicas formas permitidas de cuidado. Também diz apenas “proibido lavagem”, sem especificar “lavagem total”. Versão sustentável: No Travesseiro Seis Estrelas da Ortobom, a lavagem e o alvejamento são proibidos; é permitida a secagem na horizontal à sombra e a limpeza profissional a úmido muito suave."
+    },
+    {
+      "ref": "garantia-certificacoes#0",
+      "msg": "OVERSTATED. Os trechos sustentam garantia de 3 meses para os dois modelos citados, mas não sustentam que isso ocorra na maioria dos modelos dos fabricantes consultados. Versão sustentável: A Probel informa garantia de 3 meses para o Travesseiro Zone Espuma HR Gel D40, e a Ortobom informa garantia de 90 dias para o Travesseiro Anatomic Visco."
+    },
+    {
+      "ref": "garantia-certificacoes#1",
+      "msg": "SAFETY_CLAIM. O bloco repete propriedades relacionadas a alergias e ácaros atribuídas ao fabricante, mas não informa que o Inmetro não avalia essas propriedades, como exige a regra do site. Além disso, apenas a Dunlopillo é citada, embora o texto diga 'alguns fabricantes'. Versão sustentável: A Dunlopillo declara que o Travesseiro Basic Flat tem propriedades hipoalergênicas e é resistente a ácaros; o Inmetro não avalia essas propriedades."
+    },
+    {
+      "ref": "garantia-certificacoes#2",
+      "msg": "MISATTRIBUTED. O trecho citado não menciona o Inmetro nem diz que ele não avalia propriedades hipoalergênicas, antiácaro ou antialérgicas. Portanto, essa afirmação não pode ser atribuída à Dunlopillo. A recomendação de procurar um profissional de saúde é permitida, mas também não decorre do trecho citado. Versão sustentável: A Dunlopillo declara propriedades hipoalergênicas e resistência a ácaros para o modelo Basic Flat. O Inmetro não avalia essas propriedades; se alergia pesar na escolha, procure um profissional de saúde e verifique a declaração do fabricante na ficha do modelo."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "FACT_IN_FRAMING. O bloco recomenda critérios de escolha e afirma que há modelos disponíveis na tabela, mas não cita evidência para essas afirmações; em um bloco de framing, isso introduz fatos ou recomendações sobre o mundo além de uma simples transição da página. Versão sustentável: A seguir, veja a tabela dos modelos apresentados e suas especificações."
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "msg": "UNSUPPORTED. Os trechos sustentam altura, firmeza e densidade D30, mas não dizem que a capa não é removível. Versão sustentável: Remova o campo da capa ou escreva: \"Capa removível?: não informado nos trechos citados\"."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "msg": "UNSUPPORTED. Os trechos sustentam altura, firmeza e a composição Hiper Soft, mas não dizem que a capa não é removível. Versão sustentável: Remova o campo da capa ou escreva: \"Capa removível?: não informado nos trechos citados\"."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam a classificação Extra Macio e descrevem a espuma como macia, mas não apresentam uma categoria ou recomendação específica para modelos classificados simplesmente como \"Macio\". Versão sustentável: Se você quer um travesseiro macio, considere um modelo classificado como \"Extra Macio\", como o Realizações Hiper Soft da Probel."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos mostram que os modelos Paz e Plenitude citados são firmes e que o Plenitude usa visco D40, mas não sustentam uma regra geral de que travesseiros com viscoelástico D30 ou D40 tenham mais suporte e firmeza. Versão sustentável: Se você prefere mais firmeza, considere os modelos Paz Viscoelástico e Plenitude Visco Gel da Probel, descritos nos trechos como firmes."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "SAFETY_CLAIM. Ao recomendar o modelo para quem tem alergia a ácaros, o bloco sugere adequação relacionada a uma condição de saúde. Os trechos apenas mencionam que a capa pode ser removida e lavada; não sustentam benefício para alergia ou ácaros. Versão sustentável: Se a facilidade de lavar for prioridade, considere um modelo com capa removível e zíper, como o Zone Espuma HR Gel D40 da Probel."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "UNSUPPORTED. O trecho sobre o Zone sustenta que o gel integrado dissipa calor, mas o trecho sobre o Luuna Grid Tech não menciona látex Talalay nem tecnologia de dissipação de calor ou frescor. Versão sustentável: Se você dorme em clima quente, considere o Zone com gel integrado, que, segundo a Probel, é descrito como capaz de dissipar calor."
+    },
+    {
+      "ref": "como-decidir#6",
+      "msg": "UNSUPPORTED. Os trechos não sustentam a lista de material do enchimento, nível de firmeza, instruções de lavagem, temperatura máxima, secagem em tambor ou garantia em meses, nem uma regra geral para todos os modelos. Apenas há evidência de altura e dimensões compatíveis com fronhas para o Zone citado. Versão sustentável: Antes de comprar, confira a ficha do modelo. No Zone citado, os trechos informam dimensões de 40x60 cm compatíveis com fronhas 50x70 cm e altura de 14 cm."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 3358
+  }
+}
