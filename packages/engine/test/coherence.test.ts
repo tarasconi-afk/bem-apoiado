@@ -30,6 +30,7 @@ describe('lista fechada de problemas (27/10)', () => {
     const { COHERENCE_CHECKS, CHECK_LABEL } = await import('../src/stages/coherence.ts');
     expect(COHERENCE_CHECKS).toContain('secao_nao_entrega');
     expect(COHERENCE_CHECKS).toContain('promessa_do_titulo');
+    expect(COHERENCE_CHECKS).toContain('dado_contraditorio'); // 18/11: mesmo modelo com dois valores (caso real no FC)
     for (const c of COHERENCE_CHECKS) expect(CHECK_LABEL[c].length).toBeGreaterThan(10);
   });
 
