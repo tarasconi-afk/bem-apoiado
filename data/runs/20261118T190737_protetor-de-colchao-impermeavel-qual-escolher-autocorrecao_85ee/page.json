@@ -1,0 +1,77 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela promete comparar modelos por altura do colchão e tipo de fixação, mas os blocos só informam a altura e os modelos; não indicam o tipo de fixação (como-decidir#0.r0); Mudar o título da tabela para algo como \"Modelos de protetor impermeável por altura d"
+    ],
+    "filler_refs": [
+      "cuidados-de-lavagem#1",
+      "como-decidir#0.r3"
+    ],
+    "decision_criteria": [
+      "Confira a altura do colchão e escolha um protetor cuja faixa ou limite declarado seja compatível: 30 cm, 35 cm ou até 40 cm, conforme o modelo.",
+      "Para cobertura completa e retirada da capa, escolha um modelo com zíper; o Protetor Jacquard da Andreza Enxovais veste colchões de até 40 cm e informa abertura de 1,93 m x 2,03 m no tamanho king.",
+      "Se pretende usar secadora, confira a ficha: o Protetor Casal Percal 180 Fios da Altenburg permite secagem em máquina em temperatura baixa, enquanto o Queen Impermeável Toque Acetinado não permite secagem em tambor.",
+      "Confira a composição da camada impermeável na ficha do produto, pois os fabricantes consultados usam poliuretano ou outros materiais e não há uma especificação única.",
+      "Verifique as instruções de lavagem, secagem e passadoria na etiqueta ou ficha; nos modelos consultados, não é permitida a passagem a ferro."
+    ],
+    "missing": [
+      "Uma tabela mais completa do fabricante relacionando cada tamanho do protetor à altura máxima do colchão, especialmente nos modelos com elástico.",
+      "A altura máxima declarada para os modelos com elástico nas pontas.",
+      "Medidas de abertura e limites de altura para outros modelos com zíper, além do Protetor Jacquard king da Andreza Enxovais.",
+      "Declarações dos fabricantes sobre maciez, firmeza, sustentação e aumento de altura no uso de cada opção.",
+      "Declaração específica dos fabricantes sobre troca de ar ou transpirabilidade entre as camadas impermeáveis.",
+      "Avisos de segurança do fabricante ou da embalagem sobre crianças pequenas e risco de asfixia pelo material plástico."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde à dúvida com uma regra prática: medir a altura do colchão e escolher um modelo compatível, além de orientar sobre zíper, material e uso de secadora. Ela não compara bem maciez, firmeza ou perfil de uso, e faltam dados de altura máxima dos modelos com elástico, mas ainda entrega critérios concretos para conferir no anúncio ou na ficha técnica.",
+    "filler_ratio": 0.14285714285714285,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "como-decidir#0.r0",
+        "problem": "A tabela promete comparar modelos por altura do colchão e tipo de fixação, mas os blocos só informam a altura e os modelos; não indicam o tipo de fixação.",
+        "fix": "Mudar o título da tabela para algo como \"Modelos de protetor impermeável por altura do colchão\"."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0.r3",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Confira a altura do colchão e escolha um protetor cuja faixa declarada seja compatível: 30 cm, 35 cm ou 40 cm, conforme o modelo.",
+      "Para colchões de até 30 cm, a página lista o Protetor Impermeável 30 cm 18 Queen da Ortobom.",
+      "Para colchões de até 35 cm, a página lista o Protetor Colchão Malha Impermeável 35 cm da Ortobom.",
+      "Para colchões de até 40 cm, a página lista modelos da Altenburg e o Protetor Jacquard da Andreza Enxovais.",
+      "Se o uso de secadora for importante, confira a ficha: há modelos que permitem secagem em máquina em baixa temperatura e outros que exigem secagem pendurada à sombra.",
+      "Confira na etiqueta ou ficha as instruções de lavagem, secagem e passadoria; os modelos consultados não permitem passar a ferro.",
+      "No modelo Jacquard da Andreza Enxovais, a capa com zíper cobre o colchão e é declarada para colchões de até 40 cm."
+    ],
+    "missing": [
+      "Tabela completa relacionando cada tamanho do colchão, como solteiro, casal, queen e king, às medidas do protetor e à altura máxima compatível.",
+      "Informação do fabricante sobre a altura máxima suportada pelos modelos com elástico nas pontas.",
+      "Medidas de abertura e altura compatível dos modelos com zíper além do Protetor Jacquard king da Andreza Enxovais.",
+      "Comparação declarada pelos fabricantes sobre maciez, firmeza, sustentação e altura adicionada por cada material ou tipo de protetor.",
+      "Informações dos fabricantes sobre troca de ar ou comportamento do material impermeável entre as camadas.",
+      "Avisos específicos da embalagem ou manual sobre uso por crianças pequenas e risco de asfixia pelo material plástico."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde rapidamente que a escolha deve começar pela altura do colchão e oferece faixas concretas de 30, 35 e 40 cm, além de orientar a conferência da ficha de cuidados. Ela ainda poderia ser mais útil com medidas completas por tamanho, limites dos modelos com elástico e diferenças de uso entre materiais e tipos de fixação.",
+    "filler_ratio": 0.13333333333333333,
+    "model_opinion": true
+  }
+}
