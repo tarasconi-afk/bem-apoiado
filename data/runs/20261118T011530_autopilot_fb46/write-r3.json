@@ -1,0 +1,276 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Até 50 kg",
+          "claim_ids": [
+            "clm_47deb0916a91"
+          ]
+        },
+        {
+          "text": "D20",
+          "claim_ids": [
+            "clm_47deb0916a91"
+          ]
+        }
+      ],
+      "caption": "Densidade recomendada pela Gazin e Probel para cada faixa de peso",
+      "columns": [
+        "Faixa de peso por pessoa",
+        "Densidade indicada"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "De 51 a 80 kg",
+          "claim_ids": [
+            "clm_47deb0916a91"
+          ]
+        },
+        {
+          "text": "D28",
+          "claim_ids": [
+            "clm_47deb0916a91",
+            "clm_0e08ee9f8173"
+          ]
+        }
+      ],
+      "caption": "Densidade recomendada pela Gazin e Probel para cada faixa de peso",
+      "columns": [
+        "Faixa de peso por pessoa",
+        "Densidade indicada"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Acima de 70 kg",
+          "claim_ids": [
+            "clm_47deb0916a91",
+            "clm_08c3164e90f9"
+          ]
+        },
+        {
+          "text": "D33",
+          "claim_ids": [
+            "clm_47deb0916a91",
+            "clm_08c3164e90f9"
+          ]
+        }
+      ],
+      "caption": "Densidade recomendada pela Gazin e Probel para cada faixa de peso",
+      "columns": [
+        "Faixa de peso por pessoa",
+        "Densidade indicada"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão de espuma para casal: qual densidade escolher",
+    "description": "Escolha a densidade de espuma pelo peso de cada pessoa e preferência de firmeza. Confira na ficha técnica a capacidade de suporte e as medidas.",
+    "verdict": {
+      "text": "Se cada pessoa pesar até 80 kg, a Gazin indica D28; para usuários acima de 70 kg que necessitam de sustentação firme, a Gazin recomenda D33, segundo a garzin e a Probel. A Probel descreve D45 como de suporte extra firme, D23 como de firmeza intermediária e D28 como equilíbrio entre conforto e suporte. No modelo D23 da Probel citado, o suporte é de 60 kg por pessoa; confirme a capacidade específica do modelo escolhido.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_47deb0916a91",
+        "clm_08c3164e90f9",
+        "clm_be1287f26e41",
+        "clm_94b513766262",
+        "clm_0e08ee9f8173",
+        "clm_612320f8238a"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-densidade-significa",
+        "heading": "O que significam as densidades D23, D28, D33 e D45",
+        "blocks": [
+          {
+            "text": "Segundo a Castor, a espuma D33 tem densidade média de 33 kg/m³, e a densidade tem relação direta com a firmeza do colchão.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0468e47e6472",
+              "clm_03ace15ced38"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel descreve D33 como espuma de alta densidade que proporciona suporte firme, e D45 como densidade elevada que oferece suporte extra firme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_64c09d86f8bf",
+              "clm_be1287f26e41"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-padrao-casal",
+        "heading": "Qual a medida padrão do colchão casal",
+        "blocks": [
+          {
+            "text": "A Castor informa 1,38 × 1,88 m como medida de colchão de casal; a Gazin também informa essa mesma medida.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_007a1311f7ce",
+              "clm_0222495f509f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "altura-espessura",
+        "heading": "Qual altura (espessura) escolher",
+        "blocks": [
+          {
+            "text": "Nos quatro modelos de colchão casal de espuma da Probel citados, a altura declarada é de 12, 17, 20 ou 28 cm. Confira a altura informada na página do modelo escolhido.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_b264d8eb7219",
+              "clm_488b44d5104d",
+              "clm_9e64c99a002b",
+              "clm_d2beb65a514f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "certificacao-inmetro",
+        "heading": "O que a certificação Inmetro garante",
+        "blocks": [
+          {
+            "text": "O regulamento do Inmetro estabelece a certificação compulsória para colchões e colchonetes de espuma, com base nas normas ABNT NBR 13579-1, relativa ao bloco de espuma, e 13579-2, relativa ao revestimento.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_100325e3f984"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro indica a informação da densidade nominal das lâminas de espuma em kg/m³ e, para colchões compostos ou mistos, das respectivas espessuras.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_02cbe4b5e0bf"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-uso",
+        "heading": "Como virar, girar e limpar a capa",
+        "blocks": [
+          {
+            "text": "Segundo a Probel, recomenda-se girar e virar o colchão a cada 15 dias ou uma vez por mês para manter sua forma e conforto, facilitando a manutenção.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d67e6f9ea9f1",
+              "clm_f9169ef9a80f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira a documentação do fabricante: o colchão da Simmons citado foi desenvolvido para ser utilizado apenas de um lado e não precisa ter a face trocada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_7d2357e6474e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pela densidade",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Gazin e Probel para cada faixa de peso (segundo a garzin)",
+            "columns": [
+              "Faixa de peso por pessoa",
+              "Densidade indicada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 70 kg",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a garzin, d33",
+                    "claim_ids": [
+                      "clm_08c3164e90f9",
+                      "clm_47deb0916a91"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se cada pessoa pesa até 80 kg, a Gazin informa que D28 atende essa faixa; a Probel descreve a espuma D28 como oferecendo equilíbrio entre conforto e suporte.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_47deb0916a91",
+              "clm_0e08ee9f8173"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se algum de vocês pesa mais de 70 kg ou necessita de suporte mais rígido, a Gazin recomenda D33, segundo a garzin.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_08c3164e90f9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se alguém pesa mais de 60 kg, não escolha o D23 cuja ficha limita o suporte a 60 kg por pessoa; confira o D28 ou outro modelo cuja ficha declare capacidade para o peso de cada usuário, segundo a Probel e a garzin.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_612320f8238a",
+              "clm_47deb0916a91",
+              "clm_2556a5f88a24"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para escolher, considere o D45 se preferir suporte extra firme; o D23 é descrito como de firmeza intermediária e oferece suporte de 60 kg por pessoa, e o D28 como oferecendo equilíbrio entre conforto e suporte, segundo a Probel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_be1287f26e41",
+              "clm_94b513766262",
+              "clm_0e08ee9f8173",
+              "clm_612320f8238a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#0",
+      "msg": "tabela com uma linha só não compara nada: traga uma linha por opção (com o dado de cada uma) ou passe o dado para o texto."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 559
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "colchao-de-espuma-para-casal-qual-escolher",
+  "status": "SAFE_STOP",
+  "reason": "AUDIT_NOT_CONVERGED",
+  "open_issues": [
+    "como-decidir#0: tabela com uma linha só não compara nada: traga uma linha por opção (com o dado de cada uma) ou passe o dado para o texto.",
+    "verdict: MISATTRIBUTED. O trecho da Probel não sustenta a recomendação de D33 para usuários acima de 70 kg; essa recomendação aparece apenas no material da Gazin. Portanto, dizer que ela é feita “segundo a Gazin e a Probel” atribui à Probel uma afirmação que ela não fez.",
+    "medidas-padrao-casal#0: MISATTRIBUTED. O primeiro trecho sustenta a informação da Castor, mas o segundo é da Gazin, não da Simmons. Portanto, atribuir “Casal 138x188” à Simmons é uma atribuição incorreta.",
+    "como-decidir#0.r0: MISATTRIBUTED. Os trechos citados sustentam a indicação do D33 pela Gazin para usuários acima de 70 kg, mas não mostram nenhuma recomendação da Probel. Portanto, atribuir a tabela à Gazin e à Probel excede a evidência disponível."
+  ],
+  "usage": {
+    "input_tokens": 66135,
+    "output_tokens": 30446,
+    "calls": 41
+  },
+  "credits": 42.32712947999999
+}

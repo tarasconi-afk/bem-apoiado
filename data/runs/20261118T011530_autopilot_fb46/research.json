@@ -1,0 +1,326 @@
+{
+  "run_id": "20261118T011530_autopilot_fb46",
+  "topic": "colchao-de-espuma-para-casal-qual-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_e1eee987a9da",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8e04857d7c98",
+      "question_id": "q_medida_nbr",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ec00872bfbcb",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_935a971bb080",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_67234c584cf4",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f2e86aa3347b",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b25178e32064",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_ac0073933afe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4e66b89fafee",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_3dda61c2bb8c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a58d3c77a933",
+      "question_id": "q_odor_ventilacao",
+      "source_id": "src_3dda61c2bb8c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b264d8eb7219",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_9440a6286d03",
+      "new": true
+    },
+    {
+      "claim_id": "clm_94b513766262",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_9440a6286d03",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d67e6f9ea9f1",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_9440a6286d03",
+      "new": true
+    },
+    {
+      "claim_id": "clm_612320f8238a",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_9440a6286d03",
+      "new": true
+    },
+    {
+      "claim_id": "clm_488b44d5104d",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_299caceefd6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_64c09d86f8bf",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_299caceefd6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b115da510647",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_299caceefd6d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9e64c99a002b",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_9547373f5170",
+      "new": true
+    },
+    {
+      "claim_id": "clm_be1287f26e41",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_9547373f5170",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f9169ef9a80f",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_9547373f5170",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d2beb65a514f",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_135b7929f8bb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6ce30469daee",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_135b7929f8bb",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7e4f327ab364",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_f966ff83286a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2441abb7c611",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_f966ff83286a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_087dee645575",
+      "question_id": "q_medida_nbr",
+      "source_id": "src_f966ff83286a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d2357e6474e",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_f966ff83286a",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_ac0073933afe",
+      "question_id": "q_medida_nbr",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "SOLTEIRO PADR�O ABNT NBR 8537:2015"
+    },
+    {
+      "source_id": "src_3dda61c2bb8c",
+      "question_id": "q_altura_modelo",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Altura: 30 cm"
+    },
+    {
+      "source_id": "src_9440a6286d03",
+      "question_id": "q_medida_nbr",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 138 cm\nComprimento: 188 cm"
+    },
+    {
+      "source_id": "src_299caceefd6d",
+      "question_id": "q_cuidado_capa",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Manutenção: Girar e virar o colchão a cada 15 dias ou uma vez por mês"
+    },
+    {
+      "source_id": "src_299caceefd6d",
+      "question_id": "q_medida_nbr",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 138 cm\nComprimento: 188 cm"
+    },
+    {
+      "source_id": "src_9547373f5170",
+      "question_id": "q_medida_nbr",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 138 cm, Comprimento: 188 cm"
+    },
+    {
+      "source_id": "src_135b7929f8bb",
+      "question_id": "q_medida_nbr",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 138 cm\nComprimento: 188 cm"
+    },
+    {
+      "source_id": "src_135b7929f8bb",
+      "question_id": "q_inmetro_certificacao",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Certificação Inmetro: Fábrica GO - 014303/2024, Fábrica MS - 013279/2024, Fábrica MT - 010909/2024, Fábrica PB - 012016/2024"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade": 3,
+    "q_inmetro_certificacao": 1,
+    "q_altura_modelo": 8,
+    "q_firmeza_densidade": 7,
+    "q_odor_ventilacao": 1,
+    "q_cuidado_capa": 3,
+    "q_medida_nbr": 2
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 16323,
+    "output_tokens": 4130,
+    "calls": 9
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_4b1d4ff58b7f",
+    "src_09ab459a2a88",
+    "src_d02ff22b298f"
+  ],
+  "triage": [
+    {
+      "source_id": "src_ac0073933afe",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_ac0073933afe",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.66
+    },
+    {
+      "source_id": "src_3dda61c2bb8c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_9440a6286d03",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_299caceefd6d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_9547373f5170",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_135b7929f8bb",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_f966ff83286a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_4b1d4ff58b7f",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.37
+    },
+    {
+      "source_id": "src_4b1d4ff58b7f",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.48
+    },
+    {
+      "source_id": "src_4b1d4ff58b7f",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.38
+    },
+    {
+      "source_id": "src_4b1d4ff58b7f",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0.4
+    },
+    {
+      "source_id": "src_4b1d4ff58b7f",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0.41
+    },
+    {
+      "source_id": "src_4b1d4ff58b7f",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0.27
+    },
+    {
+      "source_id": "src_09ab459a2a88",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.46
+    },
+    {
+      "source_id": "src_6aa4546a0db8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.62
+    }
+  ],
+  "credits": 17.98447908
+}
