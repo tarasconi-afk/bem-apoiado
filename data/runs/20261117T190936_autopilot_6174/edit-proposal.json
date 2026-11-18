@@ -1,0 +1,52 @@
+{
+  "edits": [
+    {
+      "ref": "o-que-densidade-significa#0",
+      "action": "rewrite",
+      "text": "A densidade indica a quantidade de espuma por metro cúbico do colchão: D23 significa 23 kg de espuma por m³, D28 significa 28 kg por m³, e assim por diante. Segundo a Castor, quanto maior a densidade, mais firme e resistente é o colchão.",
+      "claim_ids": [
+        "clm_6ac68e3b0f80",
+        "clm_03ace15ced38",
+        "clm_a28130b21a57"
+      ],
+      "absorbs": [
+        "o-que-densidade-significa#1"
+      ],
+      "reason": "As duas frases falam da mesma relação densidade-firmeza; unidas ficam mais curtas sem perder informação."
+    },
+    {
+      "ref": "firmeza-e-peso#0",
+      "action": "rewrite",
+      "text": "Segundo a Castor, pessoas mais leves podem usar densidades menores, mais macias e confortáveis; pessoas mais pesadas precisam de densidades maiores, que evitam que o colchão afunde e garantem suporte adequado e maior durabilidade.",
+      "claim_ids": [
+        "clm_34fc88003db8",
+        "clm_04fb4b3f25b0"
+      ],
+      "absorbs": [
+        "firmeza-e-peso#1"
+      ],
+      "reason": "O segundo bloco repete a mesma ideia do primeiro com outras palavras."
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "rewrite",
+      "text": "Se você é mais leve, prefira as densidades menores da faixa indicada para seu peso; se é mais pesado ou precisa de mais sustentação, prefira as maiores, pois densidades maiores tendem a ser mais firmes, resistentes e oferecem melhor suporte, segundo a Castor.",
+      "claim_ids": [
+        "clm_34fc88003db8",
+        "clm_04fb4b3f25b0",
+        "clm_a28130b21a57"
+      ],
+      "absorbs": [
+        "como-decidir#2"
+      ],
+      "reason": "Os dois blocos repetem a mesma orientação sobre peso e densidade; unidos evitam redundância."
+    }
+  ],
+  "refused": [
+    "como-decidir#1: reescrita sem texto ou citando evidência que o bloco não tinha"
+  ],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 4330
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "As faixas de peso e densidade estão nos trechos e são atribuídas à Castor, mas nenhum trecho menciona pessoas que dormem de lado nem uma superfície que alivie a pressão em ombros e quadris.",
+      "fix": "Segundo a Castor, até 50 kg recomenda-se D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; e acima de 100 kg, D45 ou maior."
+    },
+    {
+      "ref": "o-que-densidade-significa#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-densidade-significa#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-peso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "firmeza-e-peso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citados sustentam a verificação da espuma flexível de poliuretano e dos parâmetros listados, mas não dizem que a certificação é compulsória nem mencionam a avaliação do revestimento e da chapa dura.",
+      "fix": "O regulamento verifica a espuma flexível de poliuretano e exige que ela atenda a parâmetros de desempenho como densidade, força de indentação (dureza), fator de conforto, fadiga dinâmica, deformação permanente à compressão, resiliência e teor de cinzas."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-ficha-tecnica#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-e-ficha-tecnica#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado não diz que a ficha técnica do fabricante deve informar a densidade, nem que a ABNT NBR 13579 estabelece métodos de ensaio. Ele apenas afirma que a certificação compulsória se baseia nas normas ABNT NBR 13579-1 e 13579-2.",
+      "fix": "O Inmetro informa que a certificação compulsória de colchões e colchonetes de espuma se baseia nas normas ABNT NBR 13579-1 e 13579-2."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados listam cuidados e proibições, mas não afirmam que a etiqueta do colchão deve informar esses cuidados nem que se trata de cuidados mínimos de conservação.",
+      "fix": "A Ortobom informa que são proibidos a lavagem, o alvejamento, a secagem em tambor, a passadoria e a limpeza a seco; permite a secagem na horizontal à sombra e a limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados apenas apresentam densidades por faixa de peso e não mencionam dormir de lado, pressão em ombros ou quadris, nem uma superfície que minimize essa pressão. Portanto, a conclusão prática não decorre diretamente das evidências citadas.",
+      "fix": "Segundo a Castor, pessoas mais pesadas precisam de densidades maiores para obter suporte adequado; a tabela citada relaciona faixas de peso a densidades específicas."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. As faixas de peso e densidade estão nos trechos e são atribuídas à Castor, mas nenhum trecho menciona pessoas que dormem de lado nem uma superfície que alivie a pressão em ombros e quadris. Versão sustentável: Até 50 kg recomenda-se D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; e acima de 100 kg, D45 ou maior, segundo a Castor."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. Os trechos citados sustentam a verificação da espuma flexível de poliuretano e dos parâmetros listados, mas não dizem que a certificação é compulsória nem mencionam a avaliação do revestimento e da chapa dura. Versão sustentável: O regulamento verifica a espuma flexível de poliuretano e exige que ela atenda a parâmetros de desempenho como densidade, força de indentação (dureza), fator de conforto, fadiga dinâmica, deformação permanente à compressão, resiliência e teor de cinzas."
+    },
+    {
+      "ref": "etiqueta-e-ficha-tecnica#1",
+      "msg": "UNSUPPORTED. O trecho citado não diz que a ficha técnica do fabricante deve informar a densidade, nem que a ABNT NBR 13579 estabelece métodos de ensaio. Ele apenas afirma que a certificação compulsória se baseia nas normas ABNT NBR 13579-1 e 13579-2. Versão sustentável: O Inmetro informa que a certificação compulsória de colchões e colchonetes de espuma se baseia nas normas ABNT NBR 13579-1 e 13579-2."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "UNSUPPORTED. Os trechos citados listam cuidados e proibições, mas não afirmam que a etiqueta do colchão deve informar esses cuidados nem que se trata de cuidados mínimos de conservação. Versão sustentável: A Ortobom informa que são proibidos a lavagem, o alvejamento, a secagem em tambor, a passadoria e a limpeza a seco; permite a secagem na horizontal à sombra e a limpeza a úmido profissional muito suave."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos citados apenas apresentam densidades por faixa de peso e não mencionam dormir de lado, pressão em ombros ou quadris, nem uma superfície que minimize essa pressão. Portanto, a conclusão prática não decorre diretamente das evidências citadas. Versão sustentável: Segundo a Castor, pessoas mais pesadas precisam de densidades maiores para obter suporte adequado; a tabela citada relaciona faixas de peso a densidades específicas."
+    }
+  ]
+}

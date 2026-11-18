@@ -1,0 +1,40 @@
+{
+  "slug": "qual-densidade-de-colchao-de-espuma-escolher",
+  "status": "PASS",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 94453,
+    "output_tokens": 15309,
+    "calls": 31
+  },
+  "credits": 33.947457,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Até 50 kg, escolher D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33.",
+      "Entre 81 e 100 kg, escolher D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior.",
+      "Pessoas mais leves podem escolher densidades menores para uma sensação mais macia; pessoas mais pesadas devem buscar densidades maiores para evitar afundamento excessivo e obter mais sustentação.",
+      "Densidade é a quantidade de espuma por metro cúbico: D23 corresponde a 23 kg/m³, D28 a 28 kg/m³ e assim por diante.",
+      "Conferir na etiqueta a densidade nominal de cada lâmina de espuma e, em colchões compostos ou mistos, as espessuras das lâminas.",
+      "Verificar se a densidade declarada corresponde ao produto certificado pelo Inmetro, cuja certificação se baseia nas normas ABNT NBR 13579-1 e 13579-2."
+    ],
+    "missing": [
+      "Orientação do fabricante relacionando densidade e firmeza às posições de dormir de lado, de costas ou de bruços.",
+      "Explicação do método ou da norma específica usada para medir a densidade declarada na ficha técnica.",
+      "Informações do fabricante sobre odor inicial e outras características de segurança da espuma após a compra.",
+      "Orientações mais completas do fabricante sobre conservação, como uso de capa, rotação do colchão e cuidados com umidade."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde diretamente qual densidade escolher com uma tabela objetiva por faixa de peso, explica o significado de D23, D33 e D45 e orienta o que conferir na etiqueta. Os trechos sobre Inmetro e conservação complementam a compra; faltam apenas informações sobre posição de dormir, odor, método de medição e cuidados completos, que não impedem a resposta à dúvida principal.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  }
+}
