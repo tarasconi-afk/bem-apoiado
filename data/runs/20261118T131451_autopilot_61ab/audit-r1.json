@@ -1,0 +1,226 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "A Castor indica D23 para até 50 kg e D26 para 51 a 60 kg; o bloco transforma essas recomendações específicas em uma faixa contínua de D23 a D26 para todas as pessoas até 60 kg, incluindo densidades intermediárias não mencionadas. As demais faixas de peso e a relação entre D28, D40 e D45 estão sustentadas pelos trechos.",
+      "fix": "Escolha D23 para pessoas de até 50 kg e D26 para pessoas de 51 a 60 kg; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; e acima de 100 kg, D45 ou maior, segundo a Castor. A Probel descreve a D28 como oferecendo equilíbrio entre conforto e suporte e os modelos D40 e D45 como opções de maior sustentação."
+    },
+    {
+      "ref": "o-que-densidade-significa#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado apenas informa que a densidade nominal da espuma deve ser indicada em kg/m³. Não sustenta a definição como massa por metro cúbico, os exemplos D23 e D28, nem a relação entre maior densidade, firmeza e durabilidade.",
+      "fix": "O Inmetro exige que a densidade nominal da espuma seja informada em kg/m³."
+    },
+    {
+      "ref": "o-que-densidade-significa#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sobre equilíbrio entre conforto e suporte é da Probel, não da Castor. Além disso, os trechos não dizem que D28 é adequado para diferentes biotipos nem que é ideal para quem busca conforto e firmeza na medida certa.",
+      "fix": "Segundo a Probel, uma espuma de densidade 28 kg/m³ oferece equilíbrio entre conforto e suporte; em um produto da marca, a firmeza intermediária é descrita como um nível médio de conforto entre macio e firme."
+    },
+    {
+      "ref": "o-que-densidade-significa#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sobre D40 menciona primeiro toque firme, sustentação de alta qualidade e durabilidade, mas não fala em sustentação da pressão exercida na superfície. O trecho sobre D45 sustenta suporte extra firme, porém não menciona maior estabilidade.",
+      "fix": "Segundo a Probel, a composição que inclui espuma D40 proporciona primeiro toque firme, sustentação de alta qualidade e durabilidade. A Probel descreve a espuma D45 como proporcionando suporte extra firme."
+    },
+    {
+      "ref": "o-que-densidade-significa#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-padrao#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado sustenta apenas que, para um conjunto box casal específico da Probel, a altura do colchão é 24 cm. Não sustenta a variação entre 12, 17, 20, 24, 26 e 28 cm, nem a generalização para fabricantes e modelos, nem a recomendação de sempre conferir a ficha técnica.",
+      "fix": "A Probel informa, para o conjunto box casal Sigma Plus citado, que a altura do colchão é de 24 cm; a página também lista separadamente as alturas da base, dos pés e do conjunto."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que a certificação compulsória se baseia nas normas ABNT NBR 13579-1 e 13579-2, relativas ao bloco de espuma e ao revestimento. Não dizem que as normas avaliam especificamente segurança e qualidade, nem que a certificação garante o atendimento a esses requisitos.",
+      "fix": "A certificação compulsória do Inmetro para colchões de espuma é baseada nas normas ABNT NBR 13579-1 e 13579-2, relativas ao bloco de espuma e ao revestimento."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta a obrigatoriedade da informação sobre densidade nominal e, em colchões compostos ou mistos, sobre as espessuras das camadas, mas não especifica que esses dados devem constar na etiqueta nem recomenda conferi-los na ficha antes da compra.",
+      "fix": "Entre as informações obrigatórias estão a densidade nominal da espuma, em kg/m³, e, para colchões compostos ou mistos, as respectivas espessuras de cada camada."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Como o bloco tem basis framing, ele deve apenas introduzir ou descrever a própria página. Em vez disso, afirma fatos sobre o que o Inmetro avalia e sobre declarações de fabricantes, sem trechos de evidência citados.",
+      "fix": "A seguir, veja orientações sobre como interpretar declarações de fabricantes relativas a propriedades como antialérgica, hipoalergênica ou antiácaro."
+    },
+    {
+      "ref": "cuidados-uso-manutencao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-uso-manutencao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sustenta apenas que um sistema chamado No Turn dispensa virar o colchão. Não identifica o Orthotel Superluxo, não diz que alguns modelos possuem esse sistema e não orienta conferir a ficha técnica.",
+      "fix": "Segundo a Ortobom, colchões com sistema No Turn não precisam ser virados. Verifique na ficha técnica do modelo se esse sistema é informado."
+    },
+    {
+      "ref": "cuidados-uso-manutencao#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta a orientação de não expor o colchão ao sol por causa da proliferação de ácaros e da oxidação, mas não traz instruções sobre limpeza da capa conforme o material.",
+      "fix": "Segundo a Duoflex, não exponha o colchão ao sol, devido à proliferação de ácaros e à oxidação."
+    },
+    {
+      "ref": "odor-inicial-ventilacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho recomenda arejar o colchão para dispersar eventual odor após desembalá-lo, mas não afirma que é comum espumas novas apresentarem odor.",
+      "fix": "A Apolospuma recomenda que, ao desembalar o colchão, ele seja mantido em local arejado durante alguns dias para a dispersão de eventual odor."
+    },
+    {
+      "ref": "odor-inicial-ventilacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta a orientação de arejar o colchão mensalmente, mas não diz que isso ajuda a manter a espuma em bom estado.",
+      "fix": "A Plumatex orienta que o colchão seja arejado mensalmente durante o uso."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "A faixa de 61 a 80 kg não corresponde toda à densidade D28: o trecho da Castor indica D28 para 61 a 70 kg e D33 para 71 a 80 kg. Além disso, o trecho da Probel descreve equilíbrio entre conforto e suporte para espuma D28, mas não recomenda essa densidade para toda a faixa de 61 a 80 kg.",
+      "fix": "Se o peso estiver entre 61 e 70 kg, a Castor indica D28; entre 71 e 80 kg, indica D33. A Probel descreve sua espuma D28 como oferecendo equilíbrio entre conforto e suporte."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "A indicação de D28 a D33 para pessoas entre 61 e 80 kg decorre da Castor, mas a Probel citada não sustenta essa faixa de peso nem a densidade D33. Também não há trecho que diga que D33 oferece equilíbrio entre firmeza e conforto; essa descrição é feita pela Probel para um modelo D28.",
+      "fix": "Diga que, segundo a Castor, a faixa de 61 a 70 kg corresponde a D28 e a de 71 a 80 kg a D33. Para 81 a 100 kg, a Castor indica D33 a D45 conforme a preferência por firmeza. A Probel descreve D28 como intermediário e D40/D45 como opções associadas a firmeza e sustentação em modelos específicos."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Castor sustenta D45 ou maior para pessoas acima de 100 kg, mas os trechos da Probel e da Ortobom citados não fazem essa recomendação. Eles apenas informam capacidades de peso de modelos específicos; portanto, a orientação não pode ser atribuída conjuntamente a Castor, Probel e Ortobom.",
+      "fix": "Diga: \"Se um de vocês pesa mais de 100 kg, a Castor indica densidade D45 ou maior. Para a capacidade por pessoa, confira a informação declarada no modelo; se ela for inferior ao peso da pessoa, escolha outro modelo com capacidade compatível.\""
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#6",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Castor, Apolospuma e Gazin citam 138 × 188 cm para casal, mas os trechos não mostram Castor ou Apolospuma declarando a medida king de 193 × 203 cm. Essa medida king aparece nos trechos da Gazin e da Probel.",
+      "fix": "Diga: \"Castor, Apolospuma e Gazin declaram 138 × 188 cm para casal. Gazin e Probel indicam 193 × 203 cm para king. Confira largura e comprimento na ficha antes de comprar.\""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. A Castor indica D23 para até 50 kg e D26 para 51 a 60 kg; o bloco transforma essas recomendações específicas em uma faixa contínua de D23 a D26 para todas as pessoas até 60 kg, incluindo densidades intermediárias não mencionadas. As demais faixas de peso e a relação entre D28, D40 e D45 estão sustentadas pelos trechos. Versão sustentável: Escolha D23 para pessoas de até 50 kg e D26 para pessoas de 51 a 60 kg; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45; e acima de 100 kg, D45 ou maior, segundo a Castor. A Probel descreve a D28 como oferecendo equilíbrio entre conforto e suporte e os modelos D40 e D45 como opções de maior sustentação."
+    },
+    {
+      "ref": "o-que-densidade-significa#0",
+      "msg": "UNSUPPORTED. O trecho citado apenas informa que a densidade nominal da espuma deve ser indicada em kg/m³. Não sustenta a definição como massa por metro cúbico, os exemplos D23 e D28, nem a relação entre maior densidade, firmeza e durabilidade. Versão sustentável: O Inmetro exige que a densidade nominal da espuma seja informada em kg/m³."
+    },
+    {
+      "ref": "o-que-densidade-significa#1",
+      "msg": "MISATTRIBUTED. O trecho sobre equilíbrio entre conforto e suporte é da Probel, não da Castor. Além disso, os trechos não dizem que D28 é adequado para diferentes biotipos nem que é ideal para quem busca conforto e firmeza na medida certa. Versão sustentável: Segundo a Probel, uma espuma de densidade 28 kg/m³ oferece equilíbrio entre conforto e suporte; em um produto da marca, a firmeza intermediária é descrita como um nível médio de conforto entre macio e firme."
+    },
+    {
+      "ref": "o-que-densidade-significa#2",
+      "msg": "UNSUPPORTED. O trecho sobre D40 menciona primeiro toque firme, sustentação de alta qualidade e durabilidade, mas não fala em sustentação da pressão exercida na superfície. O trecho sobre D45 sustenta suporte extra firme, porém não menciona maior estabilidade. Versão sustentável: Segundo a Probel, a composição que inclui espuma D40 proporciona primeiro toque firme, sustentação de alta qualidade e durabilidade. A Probel descreve a espuma D45 como proporcionando suporte extra firme."
+    },
+    {
+      "ref": "medidas-padrao#0",
+      "msg": "OVERSTATED. O trecho citado sustenta apenas que, para um conjunto box casal específico da Probel, a altura do colchão é 24 cm. Não sustenta a variação entre 12, 17, 20, 24, 26 e 28 cm, nem a generalização para fabricantes e modelos, nem a recomendação de sempre conferir a ficha técnica. Versão sustentável: A Probel informa, para o conjunto box casal Sigma Plus citado, que a altura do colchão é de 24 cm; a página também lista separadamente as alturas da base, dos pés e do conjunto."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "msg": "OVERSTATED. Os trechos sustentam que a certificação compulsória se baseia nas normas ABNT NBR 13579-1 e 13579-2, relativas ao bloco de espuma e ao revestimento. Não dizem que as normas avaliam especificamente segurança e qualidade, nem que a certificação garante o atendimento a esses requisitos. Versão sustentável: A certificação compulsória do Inmetro para colchões de espuma é baseada nas normas ABNT NBR 13579-1 e 13579-2, relativas ao bloco de espuma e ao revestimento."
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "msg": "OVERSTATED. O trecho sustenta a obrigatoriedade da informação sobre densidade nominal e, em colchões compostos ou mistos, sobre as espessuras das camadas, mas não especifica que esses dados devem constar na etiqueta nem recomenda conferi-los na ficha antes da compra. Versão sustentável: Entre as informações obrigatórias estão a densidade nominal da espuma, em kg/m³, e, para colchões compostos ou mistos, as respectivas espessuras de cada camada."
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "msg": "FACT_IN_FRAMING. Como o bloco tem basis framing, ele deve apenas introduzir ou descrever a própria página. Em vez disso, afirma fatos sobre o que o Inmetro avalia e sobre declarações de fabricantes, sem trechos de evidência citados. Versão sustentável: A seguir, veja orientações sobre como interpretar declarações de fabricantes relativas a propriedades como antialérgica, hipoalergênica ou antiácaro."
+    },
+    {
+      "ref": "cuidados-uso-manutencao#1",
+      "msg": "MISATTRIBUTED. O trecho sustenta apenas que um sistema chamado No Turn dispensa virar o colchão. Não identifica o Orthotel Superluxo, não diz que alguns modelos possuem esse sistema e não orienta conferir a ficha técnica. Versão sustentável: Segundo a Ortobom, colchões com sistema No Turn não precisam ser virados. Verifique na ficha técnica do modelo se esse sistema é informado."
+    },
+    {
+      "ref": "cuidados-uso-manutencao#2",
+      "msg": "UNSUPPORTED. O trecho citado sustenta a orientação de não expor o colchão ao sol por causa da proliferação de ácaros e da oxidação, mas não traz instruções sobre limpeza da capa conforme o material. Versão sustentável: Segundo a Duoflex, não exponha o colchão ao sol, devido à proliferação de ácaros e à oxidação."
+    },
+    {
+      "ref": "odor-inicial-ventilacao#0",
+      "msg": "OVERSTATED. O trecho recomenda arejar o colchão para dispersar eventual odor após desembalá-lo, mas não afirma que é comum espumas novas apresentarem odor. Versão sustentável: A Apolospuma recomenda que, ao desembalar o colchão, ele seja mantido em local arejado durante alguns dias para a dispersão de eventual odor."
+    },
+    {
+      "ref": "odor-inicial-ventilacao#1",
+      "msg": "UNSUPPORTED. O trecho sustenta a orientação de arejar o colchão mensalmente, mas não diz que isso ajuda a manter a espuma em bom estado. Versão sustentável: A Plumatex orienta que o colchão seja arejado mensalmente durante o uso."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. A faixa de 61 a 80 kg não corresponde toda à densidade D28: o trecho da Castor indica D28 para 61 a 70 kg e D33 para 71 a 80 kg. Além disso, o trecho da Probel descreve equilíbrio entre conforto e suporte para espuma D28, mas não recomenda essa densidade para toda a faixa de 61 a 80 kg. Versão sustentável: Se o peso estiver entre 61 e 70 kg, a Castor indica D28; entre 71 e 80 kg, indica D33. A Probel descreve sua espuma D28 como oferecendo equilíbrio entre conforto e suporte."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. A indicação de D28 a D33 para pessoas entre 61 e 80 kg decorre da Castor, mas a Probel citada não sustenta essa faixa de peso nem a densidade D33. Também não há trecho que diga que D33 oferece equilíbrio entre firmeza e conforto; essa descrição é feita pela Probel para um modelo D28. Versão sustentável: Diga que, segundo a Castor, a faixa de 61 a 70 kg corresponde a D28 e a de 71 a 80 kg a D33. Para 81 a 100 kg, a Castor indica D33 a D45 conforme a preferência por firmeza. A Probel descreve D28 como intermediário e D40/D45 como opções associadas a firmeza e sustentação em modelos específicos."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "MISATTRIBUTED. O trecho da Castor sustenta D45 ou maior para pessoas acima de 100 kg, mas os trechos da Probel e da Ortobom citados não fazem essa recomendação. Eles apenas informam capacidades de peso de modelos específicos; portanto, a orientação não pode ser atribuída conjuntamente a Castor, Probel e Ortobom. Versão sustentável: Diga: \"Se um de vocês pesa mais de 100 kg, a Castor indica densidade D45 ou maior. Para a capacidade por pessoa, confira a informação declarada no modelo; se ela for inferior ao peso da pessoa, escolha outro modelo com capacidade compatível.\""
+    },
+    {
+      "ref": "como-decidir#6",
+      "msg": "MISATTRIBUTED. Castor, Apolospuma e Gazin citam 138 × 188 cm para casal, mas os trechos não mostram Castor ou Apolospuma declarando a medida king de 193 × 203 cm. Essa medida king aparece nos trechos da Gazin e da Probel. Versão sustentável: Diga: \"Castor, Apolospuma e Gazin declaram 138 × 188 cm para casal. Gazin e Probel indicam 193 × 203 cm para king. Confira largura e comprimento na ficha antes de comprar.\""
+    }
+  ]
+}
