@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "adaptacao-colchao#0",
+      "problem": "A seção promete explicar quanto tempo o colchão leva para se acomodar, mas o bloco só informa sobre o odor após o desempacotamento e seu desaparecimento.",
+      "fix": "Mudar o título para algo como \"Odor após desembalar o colchão\"; não prometer informações sobre o tempo de acomodação."
+    },
+    {
+      "check": "produto_como_solucao",
+      "ref": "pillow-top#0",
+      "problem": "O pillow top é apresentado como solução para deixar o colchão muito duro mais macio, mas os trechos apenas o descrevem como uma camada extra de conforto e informam o tecido de um modelo.",
+      "fix": "Mudar o título para \"Pillow top: camada extra de conforto\" e retirar a promessa de que ele adiciona maciez ao colchão duro."
+    },
+    {
+      "check": "resposta_abre_pela_fonte",
+      "ref": "verdict",
+      "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+      "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+    }
+  ],
+  "usage": {
+    "input_tokens": 19156,
+    "output_tokens": 4758,
+    "calls": 3
+  }
+}

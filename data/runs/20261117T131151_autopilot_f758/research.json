@@ -1,0 +1,139 @@
+{
+  "run_id": "20261117T131151_autopilot_f758",
+  "topic": "colchao-muito-duro-o-que-fazer",
+  "accepted": [
+    {
+      "claim_id": "clm_10f618c46ee6",
+      "question_id": "q_periodo_adaptacao",
+      "source_id": "src_60cb60255105",
+      "new": true
+    },
+    {
+      "claim_id": "clm_789f1d71f6ae",
+      "question_id": "q_odor_novo",
+      "source_id": "src_60cb60255105",
+      "new": true
+    },
+    {
+      "claim_id": "clm_396d2216f5e6",
+      "question_id": "q_politica_troca_conforto",
+      "source_id": "src_60cb60255105",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e5b7f5da2e97",
+      "question_id": "q_firmeza_peso",
+      "source_id": "src_2acbdfcf42f2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_369e597d7e8b",
+      "question_id": "q_firmeza_peso",
+      "source_id": "src_2acbdfcf42f2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e10993797fcd",
+      "question_id": "q_periodo_adaptacao",
+      "source_id": "src_ebaf3e619aed",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e76b6f484ada",
+      "question_id": "q_politica_troca_conforto",
+      "source_id": "src_ebaf3e619aed",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e971e3ea1553",
+      "question_id": "q_periodo_adaptacao",
+      "source_id": "src_e8739ff4745c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_78994d408d2e",
+      "question_id": "q_politica_troca_conforto",
+      "source_id": "src_e8739ff4745c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ee5a1be5d3cc",
+      "question_id": "q_odor_novo",
+      "source_id": "src_92980409deb2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_203de526eb74",
+      "question_id": "q_periodo_adaptacao",
+      "source_id": "src_92980409deb2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e4c07a68233e",
+      "question_id": "q_politica_troca_conforto",
+      "source_id": "src_92980409deb2",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_firmeza_peso": 2,
+    "q_periodo_adaptacao": 4,
+    "q_politica_troca_conforto": 4,
+    "q_pillow_top_espessura": 0,
+    "q_cuidado_pillow_top": 0,
+    "q_odor_novo": 2
+  },
+  "unanswered": [
+    "q_pillow_top_espessura",
+    "q_cuidado_pillow_top"
+  ],
+  "usage": {
+    "input_tokens": 10408,
+    "output_tokens": 1889,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_e4f3da892c07"
+  ],
+  "triage": [
+    {
+      "source_id": "src_60cb60255105",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_2acbdfcf42f2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.62
+    },
+    {
+      "source_id": "src_ebaf3e619aed",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.92
+    },
+    {
+      "source_id": "src_e8739ff4745c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_92980409deb2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e4f3da892c07",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.49
+    }
+  ],
+  "credits": 13.455623400000002
+}

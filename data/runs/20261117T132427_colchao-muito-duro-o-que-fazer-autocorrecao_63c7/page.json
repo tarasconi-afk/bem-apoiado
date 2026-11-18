@@ -1,0 +1,87 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor pode entender que esperar de 24 a 72 horas resolve a dureza do colchão, mas o trecho da Luuna só informa que as espumas podem atingir a altura final nesse período (verdict); Dizer apenas que esse é o prazo para a espuma atingir a altura final e retira",
+      "A página apresenta o pillow top como opção para o colchão muito duro, mas os trechos só dizem que ele é uma camada extra de conforto e não afirmam que suaviza um colchão duro (pillow-top#0); Remover o pillow top da promessa de solução e deixar a seção apenas c"
+    ],
+    "filler_refs": [
+      "adaptacao-colchao#0",
+      "pillow-top#0",
+      "pillow-top#1",
+      "como-decidir#2",
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Espere de 24 a 72 horas após desembalar para que a espuma atinja a altura final antes de avaliar a firmeza.",
+      "Confira a densidade indicada na ficha ou etiqueta de acordo com o peso: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg.",
+      "Se o modelo firme continuar desconfortável, procure uma opção Plush, mais macia, ou Intermediária, entre maciez e sustentação.",
+      "Se o colchão Luuna continuar duro durante o teste, verifique a possibilidade de devolução dentro das 100 noites."
+    ],
+    "missing": [
+      "Uma orientação de fonte primária sobre como amaciar ou adaptar um colchão que permaneceu duro após o período inicial.",
+      "Condições completas da política de devolução ou troca por conforto, incluindo prazo, custos, estado do produto e procedimento.",
+      "Uma recomendação específica de pillow top ou topper, com espessura, densidade e compatibilidade, para suavizar a superfície.",
+      "Informação sobre o período de adaptação da firmeza, distinta do prazo para a espuma atingir a altura final.",
+      "Instruções de limpeza e secagem do pillow top, caso ele seja apresentado como solução."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde rapidamente o que fazer ao esperar a expansão, relacionar a densidade ao peso, buscar uma firmeza mais macia e usar o período de teste. A orientação é concreta e ajuda na compra, embora os blocos sobre pillow top tragam detalhes que não explicam como usá-lo para resolver o colchão duro e faltem condições completas de troca e adaptação.",
+    "filler_ratio": 0.3333333333333333,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor pode entender que esperar de 24 a 72 horas resolve a dureza do colchão, mas o trecho da Luuna só informa que as espumas podem atingir a altura final nesse período.",
+        "fix": "Dizer apenas que esse é o prazo para a espuma atingir a altura final e retirar a ideia de que esperar corrige a firmeza, ou tirar essa orientação."
+      },
+      {
+        "check": "produto_como_solucao",
+        "ref": "pillow-top#0",
+        "problem": "A página apresenta o pillow top como opção para o colchão muito duro, mas os trechos só dizem que ele é uma camada extra de conforto e não afirmam que suaviza um colchão duro.",
+        "fix": "Remover o pillow top da promessa de solução e deixar a seção apenas como definição e descrição do produto, ou reescrever a descrição para prometer somente a apresentação do que é um pillow top."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "pillow-top#0",
+      "pillow-top#1",
+      "como-decidir#0.r0",
+      "como-decidir#0.r1",
+      "como-decidir#0.r2",
+      "como-decidir#0.r3",
+      "como-decidir#0.r4",
+      "como-decidir#0.r5"
+    ],
+    "decision_criteria": [
+      "Confira seu peso e compare com a densidade indicada: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência; acima de 100 kg, D45 ou maior.",
+      "Se o colchão de espuma acabou de ser desembalado, aguarde de 24 a 72 horas para a espuma atingir a altura final.",
+      "Se a superfície Firme ficou desconfortável, procure um modelo Plush; para um meio-termo, confira a opção Intermediário na ficha do produto.",
+      "Se comprou um colchão Luuna, use o período de teste de 100 noites e devolva o produto se ele continuar desconfortável."
+    ],
+    "missing": [
+      "Uma orientação do fabricante relacionando diretamente os níveis de firmeza macio, médio e firme às faixas de peso.",
+      "Condições completas da política de troca ou devolução por desconforto, incluindo eventuais exigências e modelos abrangidos.",
+      "Espessura e densidade do pillow top avulso, caso ele seja apresentado como solução para um colchão duro.",
+      "Instruções de lavagem e secagem do pillow top.",
+      "Prazo declarado pelo fabricante para o odor do colchão ou do pillow top desaparecer."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde diretamente o que fazer com um colchão muito duro e oferece critérios concretos de peso, densidade, período de estabilização, firmeza alternativa e devolução. Os blocos sobre pillow top não trazem uma solução prática para o problema e as linhas da tabela repetem a orientação já apresentada; podem ser removidos ou substituídos por informações sobre um topper realmente indicado como alternativa.",
+    "filler_ratio": 0.5333333333333333,
+    "model_opinion": true
+  }
+}

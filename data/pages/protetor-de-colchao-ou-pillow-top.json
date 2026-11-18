@@ -5,17 +5,14 @@
   "title": "Protetor de colchão ou pillow top: qual escolher",
   "description": "Diferenças entre protetor impermeável e pillow top: espessura, composição, fixação ao colchão e cuidados de lavagem para sua decisão de compra.",
   "primary_query": "protetor de colchão ou pillow top",
-  "updated_at": "2026-11-16",
+  "updated_at": "2026-11-17",
   "verdict": {
-    "text": "Se sua prioridade é proteger o colchão contra líquidos e umidade, escolha um protetor impermeável; o pillow top não é apresentado nessas fichas como barreira contra líquidos, segundo a Luuna e a Ortobom. Se quer acrescentar uma camada para mudar o conforto, escolha um pillow top. Se precisa lavar o produto em casa, confira os cuidados na ficha antes de comprar: o protetor citado permite lavagem à mão, enquanto o pillow top citado proíbe a lavagem.",
+    "text": "Se sua prioridade é proteger o colchão contra líquidos e umidade, considere um protetor impermeável: a Luuna afirma que sua camada impermeável protege contra líquidos e umidade. A Ortobom descreve o pillow top como uma camada extra de conforto. Confira os cuidados na ficha antes de comprar: no pillow top citado da Ortobom, a lavagem é proibida.",
     "basis": "reasoning",
     "claim_ids": [
       "clm_bbbe2b6f43c5",
       "clm_cbaa58174f1c",
       "clm_070d1e8dcda0",
-      "clm_7baac518624e",
-      "clm_b829d0840dc4",
-      "clm_140888248f5a",
       "clm_ca262f12976e"
     ]
   },
@@ -64,7 +61,7 @@
         {
           "kind": "callout",
           "tone": "info",
-          "text": "O Inmetro não avalia propriedades como antialérgico, antiácaro ou antibacteriano, segundo a Ortobom. A Ortobom declara tratamento antiácaro e antifungo nos Protetor Impermeável; confira se essa propriedade influencia sua escolha, e procure um profissional de saúde se tiver dúvidas.",
+          "text": "O Inmetro não avalia propriedades como antialérgica, antiácaro ou antibacteriana. A Ortobom declara tratamento antiácaro e antifungo em seu protetor; em caso de dúvidas, procure um profissional de saúde.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_020888105127"
@@ -229,7 +226,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se sua prioridade é proteger o colchão contra líquidos e umidade, escolha um protetor impermeável, segundo a Luuna e a Ortobom. O protetor tem uma camada impermeável que funciona como barreira; o pillow top não é descrito nessas fichas com essa função.",
+          "text": "Se sua prioridade é proteger o colchão contra líquidos e umidade, considere um protetor impermeável: a Luuna afirma que sua camada impermeável protege contra líquidos e umidade. A Ortobom descreve o pillow top como uma camada extra de conforto e menciona elástico nas laterais.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_bbbe2b6f43c5",
@@ -271,17 +268,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261116T010810_autopilot_284a+edit:20261116T010810_autopilot_284a",
+    "run_id": "20261116T010810_autopilot_284a+edit:20261116T010810_autopilot_284a+reaudit:20261117T131151_autopilot_f758",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.05,
       "criteria": 8,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }

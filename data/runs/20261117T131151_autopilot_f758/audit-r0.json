@@ -1,0 +1,130 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam as faixas de densidade indicadas pela Castor e o período de 100 noites da Luuna para devolução se o produto não atender às expectativas. Porém, não dizem que, quando o colchão está muito duro, deve-se escolher um modelo mais macio; a Castor apenas relaciona densidade ao peso e menciona preferência por firmeza em uma faixa.",
+      "fix": "A Castor indica densidade D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg. Para um Luuna, há 100 noites para experimentar o produto e devolvê-lo se ele não atender às expectativas."
+    },
+    {
+      "ref": "firmeza-e-peso#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas a tabela de densidades por faixa de peso e a variação entre D33 e D45 conforme a preferência por firmeza para pessoas de 81 a 100 kg. Eles não dizem que, ao achar um colchão novo de espuma muito duro, a pessoa deve escolher outro modelo conforme seu peso corporal.",
+      "fix": "Remova a primeira frase. Uma versão sustentada é: \"Segundo a Castor, a densidade indicada varia conforme a faixa de peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior.\""
+    },
+    {
+      "ref": "adaptacao-colchao#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta que as espumas podem atingir a altura final em 24 a 72 horas, mas não afirma que a firmeza atinge um estado final nem que, nesse período, a sensação de firmeza pode não ser a esperada.",
+      "fix": "O colchão pode levar algum tempo para atingir sua altura final após ser desempacotado. Segundo a Luuna, as espumas atingem sua altura final de 24 a 72 horas após o desempacotamento."
+    },
+    {
+      "ref": "adaptacao-colchao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "opcoes-troca#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sobre o revestimento refere-se ao modelo HR Gel King, mas o bloco o atribui ao HR Gel solteiro. Além disso, os trechos citados não informam lâmina de espuma de alta resiliência, densidade de 50 kg/m³ nem altura de 5,0 cm.",
+      "fix": "Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais que se coloca sobre o colchão. Na página citada do modelo HR Gel King, a marca informa revestimento de tecido de malha com 98% poliéster e 2% elastano, de 450 g/m²."
+    },
+    {
+      "ref": "pillow-top#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "A garantia de 90 dias é sustentada, mas o único trecho citado não permite concluir que a ficha do produto não informa um método específico de limpeza; ele apenas não contém essa informação no excerto fornecido.",
+      "fix": "O trecho citado informa que o Pillow Top HR Gel Solteiro tem garantia Ortobom de 90 dias. O excerto fornecido não informa método de limpeza."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz apenas que às vezes as espumas atingem a altura final entre 24 e 72 horas. Ele não afirma que a firmeza esperada só é atingida após a expansão completa, nem que se deve aguardar esse prazo antes de decidir.",
+      "fix": "Segundo a Luuna, às vezes as espumas atingem a altura final entre 24 e 72 horas; por isso, pode ser prudente considerar esse período antes de avaliar o colchão."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho citado menciona 100 noites e a possibilidade de devolução se o produto não agradar, mas não afirma que a devolução não tem custo. Além disso, a evidência está apresentada para o colchão Supreme, enquanto o bloco generaliza para qualquer colchão Luuna.",
+      "fix": "Se você comprou o colchão Supreme Luuna e não ficou satisfeito durante as 100 noites, a Luuna informa que é possível devolvê-lo."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam as faixas de densidade indicadas pela Castor e o período de 100 noites da Luuna para devolução se o produto não atender às expectativas. Porém, não dizem que, quando o colchão está muito duro, deve-se escolher um modelo mais macio; a Castor apenas relaciona densidade ao peso e menciona preferência por firmeza em uma faixa. Versão sustentável: A Castor indica densidade D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg, D33 a D45 de 81 a 100 kg e D45 ou maior acima de 100 kg. Para um Luuna, há 100 noites para experimentar o produto e devolvê-lo se ele não atender às expectativas."
+    },
+    {
+      "ref": "firmeza-e-peso#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas a tabela de densidades por faixa de peso e a variação entre D33 e D45 conforme a preferência por firmeza para pessoas de 81 a 100 kg. Eles não dizem que, ao achar um colchão novo de espuma muito duro, a pessoa deve escolher outro modelo conforme seu peso corporal. Versão sustentável: Remova a primeira frase. Uma versão sustentada é: \"Segundo a Castor, a densidade indicada varia conforme a faixa de peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior.\""
+    },
+    {
+      "ref": "adaptacao-colchao#0",
+      "msg": "OVERSTATED. O trecho sustenta que as espumas podem atingir a altura final em 24 a 72 horas, mas não afirma que a firmeza atinge um estado final nem que, nesse período, a sensação de firmeza pode não ser a esperada. Versão sustentável: O colchão pode levar algum tempo para atingir sua altura final após ser desempacotado. Segundo a Luuna, as espumas atingem sua altura final de 24 a 72 horas após o desempacotamento."
+    },
+    {
+      "ref": "pillow-top#0",
+      "msg": "MISATTRIBUTED. O trecho sobre o revestimento refere-se ao modelo HR Gel King, mas o bloco o atribui ao HR Gel solteiro. Além disso, os trechos citados não informam lâmina de espuma de alta resiliência, densidade de 50 kg/m³ nem altura de 5,0 cm. Versão sustentável: Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais que se coloca sobre o colchão. Na página citada do modelo HR Gel King, a marca informa revestimento de tecido de malha com 98% poliéster e 2% elastano, de 450 g/m²."
+    },
+    {
+      "ref": "pillow-top#1",
+      "msg": "UNSUPPORTED. A garantia de 90 dias é sustentada, mas o único trecho citado não permite concluir que a ficha do produto não informa um método específico de limpeza; ele apenas não contém essa informação no excerto fornecido. Versão sustentável: O trecho citado informa que o Pillow Top HR Gel Solteiro tem garantia Ortobom de 90 dias. O excerto fornecido não informa método de limpeza."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho diz apenas que às vezes as espumas atingem a altura final entre 24 e 72 horas. Ele não afirma que a firmeza esperada só é atingida após a expansão completa, nem que se deve aguardar esse prazo antes de decidir. Versão sustentável: Segundo a Luuna, às vezes as espumas atingem a altura final entre 24 e 72 horas; por isso, pode ser prudente considerar esse período antes de avaliar o colchão."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. O trecho citado menciona 100 noites e a possibilidade de devolução se o produto não agradar, mas não afirma que a devolução não tem custo. Além disso, a evidência está apresentada para o colchão Supreme, enquanto o bloco generaliza para qualquer colchão Luuna. Versão sustentável: Se você comprou o colchão Supreme Luuna e não ficou satisfeito durante as 100 noites, a Luuna informa que é possível devolvê-lo."
+    }
+  ]
+}
