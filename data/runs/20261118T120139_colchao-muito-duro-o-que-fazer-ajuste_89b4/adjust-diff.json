@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-18T12:02:27.437Z",
+  "instruction": "Corrija só estes blocos, sem acrescentar fato novo:\n1. pillow-top#1: tire a frase \"O excerto fornecido da ficha não informa método de limpeza\" (é linguagem de auditoria, não é texto para o leitor) e a garantia de 90 dias, que não ajuda a decidir o que fazer com um colchão duro. Se o bloco ficar vazio, remova-o.\n2. adaptacao-colchao#0: corrija \"despreender\" para \"desprender\" e cite a Luuna uma vez só no bloco.\n3. como-decidir#2 e como-decidir#3: repetem o prazo de 24 a 72 horas e o teste de 100 noites, que já estão na resposta curta e na seção de troca. Remova os dois blocos.\n4. opcoes-troca#0:",
+  "diffs": [
+    {
+      "where": "Odor após desembalar o colchão · bloco 1",
+      "before": "É comum o colchão novo despreender um aroma após o desempacotamento, segundo a Luuna. Segundo a Luuna, esse odor temporário desaparece em alguns dias e não contém substâncias tóxicas.",
+      "after": "É normal o colchão despreender um aroma; ele desaparece em alguns dias e, segundo a Luuna, é livre de substâncias tóxicas."
+    },
+    {
+      "where": "Trocar o colchão se continuar muito duro · bloco 1",
+      "before": "Se você comprou um colchão Luuna e ele continua muito duro para você, aproveite o período de teste. A Luuna oferece 100 noites para dormir no colchão em casa; se durante esse período você não estiver completamente satisfeito ou o produto não for o que você esperava, pode devolvê-lo sem problema.",
+      "after": "Se você comprou um colchão Luuna e ele continua muito duro para você, aproveite o período de teste dessa marca. A Luuna oferece 100 noites para dormir no colchão em casa; se durante esse período você não estiver completamente satisfeito ou o produto não for o que você esperava, pode devolvê-lo sem problema."
+    },
+    {
+      "where": "Pillow top: camada extra de conforto · bloco 1",
+      "before": "Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais que se coloca sobre o colchão. Na página do modelo HR Gel King da Ortobom, a marca informa revestimento de tecido de malha com 98% poliéster e 2% elastano, de 450 g/m².",
+      "after": "Segundo a Ortobom, pillow top é uma camada extra de conforto com elástico nas laterais. Na página do modelo HR Gel King, a marca informa revestimento de tecido de malha com 98% poliéster e 2% elastano, de 450 g/m²."
+    },
+    {
+      "where": "Como decidir · bloco 2",
+      "before": "Se você acha o colchão Firme muito duro, procure um modelo Plush, mais macio e acolhedor, segundo a Simmons. Se quiser um meio-termo entre maciez e sustentação, confira a opção Intermediário na ficha do produto, segundo a Simmons.",
+      "after": "A Simmons descreve o Plush como mais macio e acolhedor, o Intermediário como equilíbrio entre suporte e maciez e o Firme como de maior sustentação estrutural."
+    },
+    {
+      "where": "Pillow top: camada extra de conforto · bloco 2",
+      "before": "O Pillow Top HR Gel Solteiro da Ortobom tem garantia de 90 dias. O excerto fornecido da ficha não informa método de limpeza.",
+      "after": "(removido)"
+    },
+    {
+      "where": "Como decidir · bloco 3",
+      "before": "Segundo a Luuna, às vezes as espumas atingem sua altura final em 24 a 72 horas.",
+      "after": "(removido)"
+    },
+    {
+      "where": "Como decidir · bloco 4",
+      "before": "Se você comprou um colchão Supreme Luuna e não ficou satisfeito durante as 100 noites de teste, a Luuna informa que é possível devolvê-lo.",
+      "after": "(removido)"
+    }
+  ]
+}
