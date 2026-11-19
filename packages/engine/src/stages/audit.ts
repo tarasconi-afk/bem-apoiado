@@ -122,11 +122,24 @@ export async function auditDraft(
     // vezes; aprovado por 2 de 3 vale como aprovado. O cache guarda o resultado da maioria, não o primeiro voto.
     const failed = group.filter((u) => first.get(u.ref)!.verdict !== 'SUPPORTED');
     const extra = AUDIT_MAJORITY && failed.length ? await Promise.all([ask(failed), ask(failed)]) : [];
+    // RESPOSTA CURTA PRECISA DE DUAS APROVAÇÕES (19/11, trazido do FC). A maioria acima só revê o bloco REPROVADO: um
+    // "sustentado" no 1º voto valia sozinho. No FC isso aprovou três versões da resposta curta da serra mármore com
+    // número trocado entre modelos, e uma 2ª opinião pegou na hora. É o bloco mais lido: um 2º voto custa pouco;
+    // discordando, um 3º desempata (2 de 3 aprovam). Sem teto para o voto extra, fica o 1º (o ciclo já está parando).
+    const conferir = AUDIT_MAJORITY ? group.filter((u) => u.ref === 'verdict' && first.get(u.ref)!.verdict === 'SUPPORTED') : [];
+    const votar = async () => { try { return await ask(conferir); } catch (e) { if (/BUDGET|teto/i.test(String((e as Error)?.message ?? e))) return null; throw e; } };
+    const segundo = conferir.length ? await votar() : null;
+    const terceiro = segundo && conferir.some((u) => segundo.get(u.ref)?.verdict !== 'SUPPORTED') ? await votar() : null;
     for (const u of group) {
       let f = first.get(u.ref)!;
       if (extra.length && f.verdict !== 'SUPPORTED') {
         const ok = extra.filter((m) => m.get(u.ref)?.verdict === 'SUPPORTED').length;
         if (ok >= 2) f = { verdict: 'SUPPORTED', problem: '', fix: '' };
+      }
+      const s2 = segundo?.get(u.ref);
+      if (s2 && s2.verdict !== 'SUPPORTED') {
+        const s3 = terceiro?.get(u.ref);
+        if (!s3 || s3.verdict !== 'SUPPORTED') f = s3 && s3.verdict !== 'SUPPORTED' && s3.fix ? s3 : s2;
       }
       findings.push({ ref: u.ref, ...f });
       cache.set(auditKey(u), f);
