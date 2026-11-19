@@ -1,0 +1,50 @@
+{
+  "slug": "pillow-top-o-que-e-e-vale-a-pena",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 87647,
+    "output_tokens": 30026,
+    "calls": 43
+  },
+  "credits": 35.64380244000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se quer mais conforto no colchão atual, considere um pillow top avulso, como o modelo da Americanflex, que é colocado sobre o colchão.",
+      "Se a cama, o baú ou o lençol têm pouca folga, confira o acréscimo de altura: 5 cm nos modelos Ortobom citados e 7 cm na capa Simmons.",
+      "Confira no anúncio se o produto é avulso ou integrado ao colchão e verifique o tamanho compatível.",
+      "Compare a densidade e o material da espuma entre os modelos: a Ortobom informa 50 kg/m³ no HR Gel, enquanto a Castor informa densidade 26 na parte inferior do Vitagel.",
+      "Considere o prazo de garantia específico do pillow top: 90 dias no modelo Ortobom citado e 30 dias na Luuna.",
+      "Os elásticos laterais dos modelos Ortobom ajudam a manter o pillow top preso aos cantos do colchão."
+    ],
+    "missing": [
+      "Para o leitor leigo: a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de",
+      "Uma indicação mais clara, baseada em fabricante, de para quem o pillow top é recomendado e para quem não é, além da limitação de altura.",
+      "Uma tabela de fabricantes relacionando peso corporal à densidade ou espessura mais adequada do pillow top.",
+      "A especificação individual de quais modelos são fixos ou removíveis, em vez da explicação geral de que podem existir nas duas formas.",
+      "A espessura do modelo avulso da Americanflex, para permitir comparar sua altura com os modelos Ortobom e Simmons.",
+      "Informação mais explícita sobre como conferir o tamanho do pillow top em relação ao colchão existente."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página explica o que é pillow top e oferece uma regra prática de escolha baseada no objetivo de obter mais conforto e na folga de altura da cama, do baú ou do lençol. A resposta curta é concreta e encaminha o leitor para conferir espessura, formato avulso ou integrado, tamanho, material e garantia; faltam apenas critérios mais completos por peso e indicações específicas de uso.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "resposta_abre_pela_fonte",
+        "ref": "verdict",
+        "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+        "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+      }
+    ]
+  }
+}

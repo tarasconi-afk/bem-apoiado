@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "rule": "Se você escolher uma manta, confira na ficha as dimensões, a composição e a gramatura: há mantas de poliéster com 200 g/m² e 300 g/m², além de modelos com medidas próprias, como a Manta Queen Prades da Karsten, de 2,40 m x 2,30 m.",
+      "claim_ids": [
+        "clm_58ae0da2cf04",
+        "clm_4595631f2215",
+        "clm_775890862e4b"
+      ]
+    },
+    {
+      "rule": "Se você escolher um cobertor para noites frias, confira a gramatura, a composição e as dimensões do modelo: fabricantes informam, por exemplo, cobertores de 350 g/m² e 400 g/m², geralmente em poliéster, com medidas que variam conforme o tamanho.",
+      "claim_ids": [
+        "clm_066765a5cdc9",
+        "clm_1e224f2cddda",
+        "clm_6452d7a6e43b",
+        "clm_8cc5a0db620c"
+      ]
+    }
+  ],
+  "ready": false,
+  "missing": [
+    "Fonte primária que compare explicitamente manta e cobertor quanto à indicação de uso, aquecimento e espessura, permitindo dizer quando escolher cada categoria."
+  ],
+  "queries": [
+    "site: fabricante manta ou cobertor diferença indicação de uso aquecimento",
+    "site: fabricante diferença entre manta e cobertor roupa de cama",
+    "site: gov.br manta cobertor definição produto têxtil"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "resposta_abre_pela_fonte",
+      "ref": "verdict",
+      "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+      "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+    }
+  ],
+  "usage": {
+    "input_tokens": 10322,
+    "output_tokens": 1978,
+    "calls": 2
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "run_id": "20261119T071436_autopilot_d8fd",
+  "topic": "cobertor-ou-manta-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_775890862e4b",
+      "question_id": "q_ficha_manta",
+      "source_id": "src_c257ef3323fc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bade57f4163f",
+      "question_id": "q_ficha_manta",
+      "source_id": "src_c257ef3323fc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d70ddcf44610",
+      "question_id": "q_ficha_manta",
+      "source_id": "src_c257ef3323fc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fa60b0690964",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_c257ef3323fc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9072cc5aa733",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_c257ef3323fc",
+      "new": true
+    },
+    {
+      "claim_id": "clm_95d2a749bc68",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_a9f78bbdfdd6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d97b3cf7c5b",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_a9f78bbdfdd6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2ec29a25980f",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_a9f78bbdfdd6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_83e3443a75bc",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_9a2f85cc5f14",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1c7fed36f90f",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_9a2f85cc5f14",
+      "new": true
+    },
+    {
+      "claim_id": "clm_78a66944c658",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_9a2f85cc5f14",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ae2086a7f057",
+      "question_id": "q_cuidado_conservacao",
+      "source_id": "src_9a2f85cc5f14",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a560db22d1ba",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2ff7b925581d",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f66ab776e491",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f0d9eac1c2a2",
+      "question_id": "q_ficha_cobertor",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3f593ea693e9",
+      "question_id": "q_ficha_manta",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fef05002ebd4",
+      "question_id": "q_ficha_manta",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    },
+    {
+      "claim_id": "clm_05b4df407058",
+      "question_id": "q_ficha_manta",
+      "source_id": "src_44353d0e67ee",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_criterio_classificacao": 0,
+    "q_ficha_cobertor": 9,
+    "q_ficha_manta": 6,
+    "q_cuidado_conservacao": 4,
+    "q_peso_medidas_guardado": 0
+  },
+  "unanswered": [
+    "q_criterio_classificacao",
+    "q_peso_medidas_guardado"
+  ],
+  "usage": {
+    "input_tokens": 8608,
+    "output_tokens": 2248,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_c257ef3323fc",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_a9f78bbdfdd6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.77
+    },
+    {
+      "source_id": "src_9a2f85cc5f14",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_44353d0e67ee",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.67
+    }
+  ],
+  "credits": 4.706066759999999
+}
