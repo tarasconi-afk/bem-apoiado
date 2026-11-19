@@ -1,0 +1,174 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-do-enchimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-do-enchimento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-do-enchimento#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta a indicação do nome genérico das fibras, seus percentuais, a ordem decrescente e o igual destaque, mas não especifica que isso deve constar na etiqueta nem limita a regra a edredons.",
+      "fix": "A composição deve indicar o nome genérico das fibras têxteis acompanhado de seu percentual em massa, em ordem decrescente e com igual destaque, conforme o trecho citado."
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho exige que as informações constem na embalagem, mas não diz que elas podem ser apenas visualizáveis através dela.",
+      "fix": "Para produtos de cama embalados, a composição têxtil, o país de origem e as dimensões de cada componente devem constar na embalagem, segundo o trecho citado."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as instruções do edredom Karsten citado, mas não afirmam que as instruções variam entre modelos nem que essa é uma afirmação da Karsten.",
+      "fix": "No edredom Karsten Solteiro 200 Fios 100% Algodão, a etiqueta informa lavação a 40°C, proibição de alvejante, secagem em tambor até 60°C, ferro até 110°C e proibição de lavagem a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sobre lavagem e secagem referem-se ao edredom Döhler Solteiro Dupla Face Angelo Bege, mas o trecho sobre passar a ferro até 110°C sem vapor refere-se a outro produto, o edredom Dupla Face Otto Malu. Portanto, essa instrução foi atribuída indevidamente ao modelo Angelo Bege.",
+      "fix": "No edredom Döhler Solteiro Dupla Face Angelo Bege, a etiqueta informa lavagem em processo suave, a no máximo 30°C, e proibição de secagem em tambor. No edredom Döhler Dupla Face Otto Malu, a instrução é passar a ferro a no máximo 110°C, sem vapor."
+    },
+    {
+      "ref": "leveza-respirabilidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "leveza-respirabilidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "leveza-respirabilidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-alergicas#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "Embora atribua as declarações à Karsten, o bloco apresenta a propriedade “hipoalergênico” sem informar que o Inmetro não avalia essa propriedade. Além disso, os trechos citados identificam um produto Casal, não o modelo Solteiro mencionado no texto.",
+      "fix": "Karsten declara que o algodão do edredom Casal 200 Fios 100% Algodão Ivy Verde Campo é hipoalergênico, respirável e delicado ao toque; no edredom Casal Infantil 100% Algodão Coral, declara que o algodão é hipoalergênico e suave. O Inmetro não avalia a propriedade hipoalergênica."
+    },
+    {
+      "ref": "propriedades-alergicas#1",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O trecho sustenta que a Karsten declara o modelo hipoalergênico, mas o bloco não informa que o Inmetro não avalia essa propriedade, como exigido para essa alegação.",
+      "fix": "Karsten declara o modelo hipoalergênico. O Inmetro não avalia essa propriedade."
+    },
+    {
+      "ref": "propriedades-alergicas#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Como o bloco tem base “framing”, ele apresenta afirmações factuais sobre o Inmetro e sobre certificação, em vez de apenas introduzir o conteúdo da página. Além disso, não há trechos citados para sustentar a afirmação adicional de que essas declarações não são certificadas pelo órgão regulador.",
+      "fix": "A seguir, são apresentadas as declarações dos fabricantes sobre propriedades como hipoalergênico, antialérgico e antiácaro. O Inmetro não avalia essas propriedades."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos dizem que tecidos de algodão ou malha respiram mais, não que todos os modelos leves tenham essa propriedade. Além disso, a fonte fala em modelos leves, mas não apresenta a relação como uma regra geral para qualquer modelo leve.",
+      "fix": "Estação: Verão | Gramatura: menor | Função: modelos leves, especialmente de algodão ou malha, são indicados pela Altenburg."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho afirma que modelos térmicos retêm mais calor no inverno, mas não diz que eles têm gramatura maior. A tabela acrescenta essa relação específica entre tipo de modelo e gramatura.",
+      "fix": "Estação: Inverno | Modelo: térmico | Função: modelos térmicos retêm mais calor no inverno, segundo a Altenburg."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "composicao-etiqueta#0",
+      "msg": "OVERSTATED. O trecho sustenta a indicação do nome genérico das fibras, seus percentuais, a ordem decrescente e o igual destaque, mas não especifica que isso deve constar na etiqueta nem limita a regra a edredons. Versão sustentável: A composição deve indicar o nome genérico das fibras têxteis acompanhado de seu percentual em massa, em ordem decrescente e com igual destaque, conforme o trecho citado."
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "msg": "OVERSTATED. O trecho exige que as informações constem na embalagem, mas não diz que elas podem ser apenas visualizáveis através dela. Versão sustentável: Para produtos de cama embalados, a composição têxtil, o país de origem e as dimensões de cada componente devem constar na embalagem, segundo o trecho citado."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam as instruções do edredom Karsten citado, mas não afirmam que as instruções variam entre modelos nem que essa é uma afirmação da Karsten. Versão sustentável: No edredom Karsten Solteiro 200 Fios 100% Algodão, a etiqueta informa lavação a 40°C, proibição de alvejante, secagem em tambor até 60°C, ferro até 110°C e proibição de lavagem a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "MISATTRIBUTED. Os trechos sobre lavagem e secagem referem-se ao edredom Döhler Solteiro Dupla Face Angelo Bege, mas o trecho sobre passar a ferro até 110°C sem vapor refere-se a outro produto, o edredom Dupla Face Otto Malu. Portanto, essa instrução foi atribuída indevidamente ao modelo Angelo Bege. Versão sustentável: No edredom Döhler Solteiro Dupla Face Angelo Bege, a etiqueta informa lavagem em processo suave, a no máximo 30°C, e proibição de secagem em tambor. No edredom Döhler Dupla Face Otto Malu, a instrução é passar a ferro a no máximo 110°C, sem vapor."
+    },
+    {
+      "ref": "propriedades-alergicas#0",
+      "msg": "SAFETY_CLAIM. Embora atribua as declarações à Karsten, o bloco apresenta a propriedade “hipoalergênico” sem informar que o Inmetro não avalia essa propriedade. Além disso, os trechos citados identificam um produto Casal, não o modelo Solteiro mencionado no texto. Versão sustentável: Karsten declara que o algodão do edredom Casal 200 Fios 100% Algodão Ivy Verde Campo é hipoalergênico, respirável e delicado ao toque; no edredom Casal Infantil 100% Algodão Coral, declara que o algodão é hipoalergênico e suave. O Inmetro não avalia a propriedade hipoalergênica."
+    },
+    {
+      "ref": "propriedades-alergicas#1",
+      "msg": "SAFETY_CLAIM. O trecho sustenta que a Karsten declara o modelo hipoalergênico, mas o bloco não informa que o Inmetro não avalia essa propriedade, como exigido para essa alegação. Versão sustentável: Karsten declara o modelo hipoalergênico. O Inmetro não avalia essa propriedade."
+    },
+    {
+      "ref": "propriedades-alergicas#2",
+      "msg": "FACT_IN_FRAMING. Como o bloco tem base “framing”, ele apresenta afirmações factuais sobre o Inmetro e sobre certificação, em vez de apenas introduzir o conteúdo da página. Além disso, não há trechos citados para sustentar a afirmação adicional de que essas declarações não são certificadas pelo órgão regulador. Versão sustentável: A seguir, são apresentadas as declarações dos fabricantes sobre propriedades como hipoalergênico, antialérgico e antiácaro. O Inmetro não avalia essas propriedades."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. Os trechos dizem que tecidos de algodão ou malha respiram mais, não que todos os modelos leves tenham essa propriedade. Além disso, a fonte fala em modelos leves, mas não apresenta a relação como uma regra geral para qualquer modelo leve. Versão sustentável: Estação: Verão | Gramatura: menor | Função: modelos leves, especialmente de algodão ou malha, são indicados pela Altenburg."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. O trecho afirma que modelos térmicos retêm mais calor no inverno, mas não diz que eles têm gramatura maior. A tabela acrescenta essa relação específica entre tipo de modelo e gramatura. Versão sustentável: Estação: Inverno | Modelo: térmico | Função: modelos térmicos retêm mais calor no inverno, segundo a Altenburg."
+    }
+  ]
+}
