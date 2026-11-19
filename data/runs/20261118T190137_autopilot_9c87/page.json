@@ -1,0 +1,69 @@
+{
+  "slug": "protetor-de-colchao-impermeavel-qual-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 31351,
+    "output_tokens": 12977,
+    "calls": 13
+  },
+  "credits": 25.193524560000007,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que todos os modelos com elástico vestem colchões de 30 a 40 cm, mas os trechos só mostram alturas de modelos específicos (verdict); Diga que foram encontrados modelos específicos para 30, 35 e 40 cm, identificando cada produto, em vez de atri",
+      "A seção promete organizar os modelos por altura e tipo de fixação, mas a tabela só informa a altura e os modelos, sem indicar o tipo de fixação (como-decidir#0.r0); Mude o título da seção para algo como “Modelos de protetor impermeável por altura do colchão”",
+      "O leitor entende que o modelo da Ortobom resolve o caso de um colchão de 30 cm e usa elástico, mas o trecho citado só informa a altura de 30 cm (como-decidir#1); Reescreva para dizer apenas que o modelo tem altura informada de 30 cm; retire a indicação de uso "
+    ],
+    "filler_refs": [
+      "como-decidir#0.r3"
+    ],
+    "decision_criteria": [
+      "Escolha o protetor pela altura do colchão: há modelos consultados para 30, 35 e 40 cm.",
+      "Para colchão de 30 cm, o modelo Ortobom citado usa elástico nas pontas.",
+      "Para cobertura completa e retirada total, escolha um modelo com zíper; o modelo Andreza citado veste colchões de até 40 cm.",
+      "Confira na ficha técnica a altura máxima suportada pelo modelo, pois ela varia entre os produtos.",
+      "Se pretende usar secadora, escolha apenas um modelo cuja ficha permita secagem em máquina; as fichas consultadas divergem nesse ponto.",
+      "Confira as instruções de lavagem, alvejamento, secagem e passadoria antes da compra."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que todos os modelos com elástico vestem colchões de 30 a 40 cm, mas os trechos só mostram alturas de modelos específicos (verdict); Diga que foram encontrados modelos específicos para 30, 35 e 40 cm, identificando cada produto, em vez de atri",
+      "Para o leitor leigo: A seção promete organizar os modelos por altura e tipo de fixação, mas a tabela só informa a altura e os modelos, sem indicar o tipo de fixação (como-decidir#0.r0); Mude o título da seção para algo como “Modelos de protetor impermeável por altura do colchão”",
+      "Para o leitor leigo: O leitor entende que o modelo da Ortobom resolve o caso de um colchão de 30 cm e usa elástico, mas o trecho citado só informa a altura de 30 cm (como-decidir#1); Reescreva para dizer apenas que o modelo tem altura informada de 30 cm; retire a indicação de uso ",
+      "Tabela completa dos fabricantes relacionando cada modelo ao tipo de fixação, altura mínima e altura máxima do colchão.",
+      "Declaração dos fabricantes sobre a altura máxima suportada pelos modelos com elástico.",
+      "Medidas de abertura e faixa de altura para mais modelos com zíper, além do exemplo king apresentado.",
+      "Comparação baseada em ficha técnica sobre maciez, firmeza, sustentação e altura final de cada opção, com indicação do perfil de uso.",
+      "Informação específica do fabricante sobre troca de ar ou comportamento entre as camadas do material impermeável.",
+      "Avisos de segurança específicos do protetor sobre crianças pequenas e risco de asfixia, caso existam na embalagem ou no manual."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde à dúvida com uma regra prática baseada na altura do colchão e no tipo de fechamento, além de orientar o leitor a conferir altura máxima e cuidados de lavagem na ficha técnica. A cobertura de modelos, faixas de altura e perfis de uso ainda é limitada, mas há critérios concretos suficientes para apoiar a compra.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "verdict",
+        "problem": "O leitor entende que todos os modelos com elástico vestem colchões de 30 a 40 cm, mas os trechos só mostram alturas de modelos específicos.",
+        "fix": "Diga que foram encontrados modelos específicos para 30, 35 e 40 cm, identificando cada produto, em vez de atribuir essa faixa aos modelos com elástico em geral."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "como-decidir#0.r0",
+        "problem": "A seção promete organizar os modelos por altura e tipo de fixação, mas a tabela só informa a altura e os modelos, sem indicar o tipo de fixação.",
+        "fix": "Mude o título da seção para algo como “Modelos de protetor impermeável por altura do colchão”."
+      },
+      {
+        "check": "produto_como_solucao",
+        "ref": "como-decidir#1",
+        "problem": "O leitor entende que o modelo da Ortobom resolve o caso de um colchão de 30 cm e usa elástico, mas o trecho citado só informa a altura de 30 cm.",
+        "fix": "Reescreva para dizer apenas que o modelo tem altura informada de 30 cm; retire a indicação de uso e a informação sobre elástico, ou use uma fonte que sustente essas características."
+      }
+    ]
+  }
+}

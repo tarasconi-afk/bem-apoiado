@@ -1,0 +1,66 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha o protetor conforme a altura do seu colchão. Foram encontrados modelos para 30, 35 e 40 cm de altura: a Ortobom oferece protetor impermeável de 30 cm e modelos de 35 cm com elástico; a Altenburg e a Andreza Enxovais têm modelos de 40 cm. Confira na ficha técnica a altura máxima que cada modelo suporta antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_dda9189ea331",
+        "clm_03825c676133",
+        "clm_140888248f5a",
+        "clm_157430ce21b1",
+        "clm_11c2120f6bba"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "30 cm",
+          "claim_ids": [
+            "clm_dda9189ea331"
+          ]
+        },
+        {
+          "text": "Protetor Impermeável 30 cm 18 Queen da Ortobom",
+          "claim_ids": [
+            "clm_dda9189ea331"
+          ]
+        }
+      ],
+      "caption": "Modelos de protetor impermeável encontrados por altura de colchão",
+      "columns": [
+        "Altura do colchão",
+        "Modelos encontrados"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se seu colchão tem 35 cm de altura, a Ortobom oferece o Protetor Colchão Malha Impermeável 35 cm. Se tem 40 cm, procure modelos da Altenburg (Protetor de Colchão Impermeável Malha Slim) ou da Andreza Enxovais (Protetor Jacquard). Confira sempre a altura máxima informada na ficha antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_03825c676133",
+        "clm_157430ce21b1",
+        "clm_11c2120f6bba"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "como-decidir#0.r0",
+    "como-decidir#0.r1",
+    "como-decidir#0.r2",
+    "como-decidir#0.r3",
+    "como-decidir#1",
+    "como-decidir#2"
+  ],
+  "still": [
+    "verdict: OVERSTATED",
+    "como-decidir#0.r2: UNSUPPORTED",
+    "como-decidir#1: UNSUPPORTED"
+  ]
+}
