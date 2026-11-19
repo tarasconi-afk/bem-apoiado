@@ -1,0 +1,186 @@
+{
+  "run_id": "20261119T131452_autopilot_2b04",
+  "topic": "colchao-de-espuma-para-casal-qual-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_927b8e81e330",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_04265bbd3365",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c40e4af6d561",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_04265bbd3365",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6c7d79c7e2f6",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_2b8b53e417b4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_36336520f483",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_2b8b53e417b4",
+      "new": true
+    },
+    {
+      "claim_id": "clm_130459952c96",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_a60b5445ad46",
+      "new": true
+    },
+    {
+      "claim_id": "clm_29e9fac8ce7e",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_a60b5445ad46",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5c4fd1d4e1a6",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_a60b5445ad46",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2e602fb5d70a",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_a60b5445ad46",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a923a5fbb685",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_e6039334db61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b57e730bbf18",
+      "question_id": "q_firmeza_densidade",
+      "source_id": "src_e6039334db61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c55d53c269c8",
+      "question_id": "q_altura_modelo",
+      "source_id": "src_e6039334db61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4bd92452aab9",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_e6039334db61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1d37f4a08657",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_e6039334db61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2d869b1b7ccd",
+      "question_id": "q_medida_nbr",
+      "source_id": "src_e6039334db61",
+      "new": true
+    },
+    {
+      "claim_id": "clm_660cc3b8ac51",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_ede190e5e36b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f2f39284a241",
+      "question_id": "q_inmetro_certificacao",
+      "source_id": "src_ede190e5e36b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_55c075f246d3",
+      "question_id": "q_odor_ventilacao",
+      "source_id": "src_ede190e5e36b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a25cc42a4271",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_ede190e5e36b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_23e811e67cbe",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_ede190e5e36b",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_a60b5445ad46",
+      "question_id": "q_medida_nbr",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 138 cm\nComprimento: 188 cm"
+    },
+    {
+      "source_id": "src_a60b5445ad46",
+      "question_id": "q_firmeza_densidade",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Espuma do Estofamento 1\nD28\n\nNível de Firmeza\nIntermediário"
+    }
+  ],
+  "coverage": {
+    "q_peso_densidade": 3,
+    "q_inmetro_certificacao": 2,
+    "q_altura_modelo": 4,
+    "q_firmeza_densidade": 3,
+    "q_odor_ventilacao": 1,
+    "q_cuidado_capa": 5,
+    "q_medida_nbr": 1
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 8166,
+    "output_tokens": 2580,
+    "calls": 5
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_8eda91ae8078"
+  ],
+  "triage": [
+    {
+      "source_id": "src_04265bbd3365",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_2b8b53e417b4",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_a60b5445ad46",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_e6039334db61",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_ede190e5e36b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    }
+  ],
+  "credits": 5.93371104
+}

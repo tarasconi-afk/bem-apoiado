@@ -3,15 +3,14 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Altura e medidas de base cama box: o que conferir",
-  "description": "Veja como conferir altura, peso suportado e medidas da base box na ficha técnica. Saiba se precisa de baú ou modelo fixo antes de comprar.",
+  "description": "Compare altura, peso suportado e espaço interno das bases box antes de comprar: confira se a medida cabe no quarto e se o modelo tem baú para guardar itens.",
   "primary_query": "base para cama box: o que conferir",
-  "updated_at": "2026-11-18",
+  "updated_at": "2026-11-19",
   "verdict": {
-    "text": "Confira o peso suportado e a altura na ficha técnica de cada modelo. Segundo a King Koil, uma base com baú suporta até 150 kg por lado e tem 43,5 cm de altura total sem colchão; a Probel informa que sua Base Box Queen suporta 150 kg por pessoa desde que haja colchão sobre a base e mede 26 cm de altura. Se precisa guardar itens, procure modelos com compartimento interno; se quer altura mais baixa, compare as medidas de cada base antes de comprar.",
-    "basis": "evidence",
+    "text": "Confira na ficha técnica as medidas e o suporte de peso do modelo específico. A King Koil informa 43,5 cm de altura total sem colchão para seu Box Baú; a Probel informa suporte de 150 kg por pessoa desde que haja um colchão sobre a base. Para guardar itens, procure modelos com baú; para uma altura mais baixa, compare as medidas antes de comprar.",
+    "basis": "reasoning",
     "claim_ids": [
       "clm_2e2ed191bc33",
-      "clm_7e7c46a24f29",
       "clm_6acbb2c3e377",
       "clm_0a6ef01c4834"
     ]
@@ -188,7 +187,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você escolhe pela altura: segundo a King Koil, uma base com baú tem altura de 37 cm mais pés de 6,5 cm, totalizando 43,5 cm sem colchão. A Probel informa que sua Base Box Queen Luxo Jacquard mede 26 cm de altura. Confira na ficha técnica do modelo que pretende comprar a medida exata e a altura total com pés, para saber se encaixa no espaço do seu quarto.",
+          "text": "Se você escolhe pela altura: a King Koil informa que uma base tem 37 cm de altura na base mais 6,5 cm de pés, totalizando 43,5 cm sem colchão. A Probel informa que sua base mede 26 cm de altura. Confira na ficha técnica do modelo que pretende comprar a medida exata e a altura total com pés, para saber se encaixa no espaço do seu quarto.",
           "basis": "evidence",
           "claim_ids": [
             "clm_2e2ed191bc33",
@@ -197,7 +196,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você precisa guardar roupas ou itens extras na cama: segundo a King Koil, um baú com altura interna de 25 cm pode acomodar enxovais volumosos, travesseiros extras ou itens que não precisam estar visíveis. Verifique na ficha técnica de cada modelo se há compartimento de armazenamento e qual é a altura útil dele.",
+          "text": "Se você precisa guardar roupas ou itens extras na cama: segundo a King Koil, uma base com baú interno de 25 cm de altura pode acomodar enxovais volumosos, travesseiros extras ou itens que não precisam estar visíveis. Verifique na ficha técnica de cada modelo se há compartimento de armazenamento e qual é a altura útil dele.",
           "basis": "evidence",
           "claim_ids": [
             "clm_6acbb2c3e377"
@@ -205,10 +204,9 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você vai usar a base com colchão e quer saber o peso máximo: segundo a King Koil, uma base com baú suporta até 150 kg por lado. A Probel informa 150 kg por pessoa desde que haja colchão sobre a base. Consulte a ficha técnica do modelo específico para confirmar qual é o limite de peso e se ele inclui ou exclui o peso do colchão.",
+          "text": "Se você vai usar a base com colchão e quer saber o peso máximo: a Probel informa suporte de 150 kg por pessoa, desde que haja um colchão sobre a base. Consulte a ficha técnica do modelo específico para confirmar qual é o limite de peso e se ele inclui ou exclui o peso do colchão.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_7e7c46a24f29",
             "clm_0a6ef01c4834"
           ]
         },
@@ -225,7 +223,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir+editor:correcao-queen-casal+editor:20261027T150419_base-para-cama-box-o-que-conferir-ajuste_e802+editor:20261029T010500_autopilot_296c+snippet:20261118T011530_autopilot_fb46",
+    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir+editor:correcao-queen-casal+editor:20261027T150419_base-para-cama-box-o-que-conferir-ajuste_e802+editor:20261029T010500_autopilot_296c+snippet:20261118T011530_autopilot_fb46+editor:20261119T131452_autopilot_2b04",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
