@@ -1,0 +1,41 @@
+{
+  "edits": [
+    {
+      "ref": "altura-assento-ajustes#1",
+      "action": "remove",
+      "reason": "Lista genérica de recursos já detalhados em outros blocos (pistão, profundidade de assento, mecanismo), não acrescenta nada acionável."
+    },
+    {
+      "ref": "mecanismo-reclinacao#0",
+      "action": "rewrite",
+      "text": "Existem três tipos de mecanismo de inclinação, segundo a Flexform. O datilo inclina apenas o encosto, com tensão fixa, indicado para jornadas de até 8 horas com variação postural moderada. O relax inclina encosto e assento, com tensão ajustável ao peso do usuário, indicado para 8 horas ou mais. O sincronizado inclina encosto e assento de forma coordenada, mantendo o ângulo do quadril em cerca de 120 graus na reclinação total, também indicado para jornadas de 8 horas ou mais.",
+      "claim_ids": [
+        "clm_13ca6086aab0",
+        "clm_2cefb39e1ca6"
+      ],
+      "absorbs": [
+        "mecanismo-reclinacao#1"
+      ],
+      "reason": "Os blocos #0 e #1 repetem a mesma informação sobre os mecanismos relax e sincronizado (coordenação, ângulo de 120 graus e jornada de 8h+); unificados em um único bloco mais curto."
+    },
+    {
+      "ref": "revestimento-ventilacao#0",
+      "action": "rewrite",
+      "text": "Segundo a ergocadeiras, mesh e tecido ventilam melhor em jornadas longas, enquanto courino e PU retêm calor e umidade, podendo tornar o assento desconfortável e prejudicar o conforto e a concentração em ambientes quentes sem ar-condicionado.",
+      "claim_ids": [
+        "clm_2e4c2eb101e7",
+        "clm_0c697bd87ab1",
+        "clm_275de81cf81c"
+      ],
+      "absorbs": [
+        "revestimento-ventilacao#2"
+      ],
+      "reason": "Os blocos #0 e #2 tratam do mesmo ponto (materiais que retêm calor/umidade vs. os que ventilam melhor), apenas com exemplos diferentes de revestimento; combinados em um único bloco."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 4073
+  }
+}

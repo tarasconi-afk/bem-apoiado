@@ -1,0 +1,208 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam verificar altura do assento, capacidade de carga, mecanismos e revestimento conforme o peso, a jornada e o clima, mas não dizem para conferir especificamente os ajustes disponíveis. Além disso, a recomendação de mecanismo relax ou sincronizado “com tensão ajustável” excede a evidência: a tensão ajustável é mencionada para o mecanismo relax, não para o sincronizado. Os trechos também não sustentam de forma geral que tecido deva ser escolhido em vez de courino; mencionam tecido como opção para clima quente e apontam vantagem do mesh sobre o courino.",
+      "fix": "Escolha considerando o peso do usuário, a altura necessária do assento, a jornada e o ambiente. Confira na ficha técnica a altura mínima e máxima do assento e a capacidade de carga. Para jornadas de 8 horas ou mais, a Flexform considera adequados os mecanismos relax e sincronizado; o mecanismo relax tem tensão ajustável por peso. Em climas quentes, a ergocadeiras aponta o mesh como mais confortável que o courino, que retém mais calor e umidade."
+    },
+    {
+      "ref": "altura-assento-ajustes#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz para considerar pistão, base e assento; o bloco substitui “assento” por “estofado”, especificação que não aparece no trecho citado.",
+      "fix": "A altura do assento deve permitir que os cotovelos fiquem em aproximadamente 90 graus, com os ombros relaxados e os pés no chão, segundo a Flexform. Para isso, confira na ficha técnica a altura mínima e máxima do assento, considerando pistão, base e assento juntos."
+    },
+    {
+      "ref": "altura-assento-ajustes#1",
+      "verdict": "OVERSTATED",
+      "problem": "A fonte afirma que uma cadeira com especificação técnica mais completa “pode reunir” esses recursos. O bloco transforma essa possibilidade em característica necessária ou garantida.",
+      "fix": "Uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform."
+    },
+    {
+      "ref": "altura-assento-ajustes#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-assento-ajustes#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "mecanismo-reclinacao#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho diz que o mecanismo datilo é adequado para jornadas de 8 horas, enquanto o bloco amplia isso para jornadas de até 8 horas. Além disso, a afirmação sobre o ângulo de aproximadamente 120 graus combina o trecho que diz “ideal” com outro que traz o valor aproximado, mas esse valor é explicitamente associado à reclinação total apenas no segundo trecho.",
+      "fix": "Existem três tipos de mecanismo de inclinação, segundo a Flexform. O mecanismo datilo inclina apenas o encosto, tem tensão fixa e é adequado para jornadas de 8 horas com variação postural moderada. O mecanismo relax inclina encosto e assento, com tensão ajustável ao peso do usuário, e é adequado para jornadas de 8 horas ou mais. O mecanismo sincronizado inclina encosto e assento em proporção coordenada; na reclinação total, a Flexform menciona um ângulo de quadril de aproximadamente 120 graus."
+    },
+    {
+      "ref": "mecanismo-reclinacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "mecanismo-reclinacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "A evidência trata especificamente de mecanismos sincronizados, mas o bloco generaliza para “a tensão do mecanismo”. Além disso, o trecho diz que o ajuste permite calibrar a resistência e apresenta a calibração como necessária para usuários de pesos diferentes; não formula uma exigência geral para todo mecanismo.",
+      "fix": "Nos mecanismos sincronizados, o ajuste de tensão permite calibrar a resistência da mola de acordo com o peso do usuário; segundo a Flexform, usuários de pesos diferentes precisam de tensões diferentes para que a reclinação seja controlada e confortável."
+    },
+    {
+      "ref": "mecanismo-reclinacao#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "revestimento-ventilacao#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho diz que o mesh é mais confortável em jornadas longas e que o courino retém calor e umidade, mas não afirma que o mesh oferece melhor ventilação.",
+      "fix": "Segundo a ergocadeiras, o mesh é mais confortável em jornadas longas, enquanto o courino retém calor e umidade, tornando o assento desagradável após algumas horas."
+    },
+    {
+      "ref": "revestimento-ventilacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta o uso para trabalho de até 6 horas e que certas diferenças são menos impactantes abaixo desse limite, mas não menciona revestimento em PU nem assento tipo caçamba, nem afirma que esses tipos de cadeira servem para trabalho.",
+      "fix": "Para uso de trabalho de até 6 horas por dia, as diferenças de suporte lombar, ventilação e formato do assento são menos impactantes, segundo a ergocadeiras."
+    },
+    {
+      "ref": "revestimento-ventilacao#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o PU retém calor e umidade em sessões longas e que, em climas quentes sem ar-condicionado, pode comprometer o conforto e a concentração. Não dizem expressamente que essa característica é menos determinante em ambientes climatizados nem que o tecido é preferível.",
+      "fix": "O PU retém calor e umidade em sessões longas. Em climas quentes sem ar-condicionado, o revestimento em PU pode comprometer o conforto e a concentração; o trecho também menciona como alternativa um ambiente climatizado ou uma cadeira com revestimento em tecido."
+    },
+    {
+      "ref": "revestimento-ventilacao#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho afirma que uma superfície lisa é fácil de higienizar e útil para uso compartilhado, mas não identifica essa superfície como sendo de couro ou corino.",
+      "fix": "Uma superfície lisa é fácil de higienizar, o que é útil para uso compartilhado, segundo a ergocadeiras."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam verificar se a capacidade declarada cobre o peso com margem e mencionam pessoas altas que tendem a ter mais massa corporal, mas não definem expressamente capacidade de carga como “peso máximo suportado” nem generalizam a orientação para todas as pessoas com mais massa corporal.",
+      "fix": "A Flexform orienta verificar, em quilogramas, se a capacidade de carga declarada cobre o peso do usuário com margem; o trecho menciona especificamente que pessoas altas tendem a ter mais massa corporal."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Classe 4 diz que o pistão suporta até 150 kg, não “150 kg ou mais”.",
+      "fix": "O fabricante declara: Classe 1, 100 kg; Classe 2, 120 kg; Classe 3, 150 kg; e Classe 4, até 150 kg."
+    },
+    {
+      "ref": "capacidade-carga#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados pela ergocadeiras relatam valores para modelos específicos, dizendo que um modelo indica 200 kg suportados e 160 kg recomendados e que outro tem valores “conforme alguns canais”. Eles não sustentam a formulação geral de que alguns fabricantes declaram essas categorias, nem qualificam o peso suportado como limite estrutural.",
+      "fix": "A ergocadeiras cita modelos com valores diferentes de peso recomendado e peso máximo suportado: no DT3 Sports Rhino, 160 kg para uso ótimo e 200 kg suportados; na ThunderX3 TGC12, 120 kg recomendados e 150 kg suportados, conforme alguns canais."
+    },
+    {
+      "ref": "apoios-bracos-cabeca#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que um apoio 4D+ pode posicionar o antebraço com precisão durante a digitação e que uma cadeira tem braços 4D. Não sustentam que os apoios oferecem diferentes níveis de regulagem, que isso permite posicionar melhor o antebraço durante o trabalho em geral, nem que a Flexform menciona regulagens por altura, profundidade e largura.",
+      "fix": "A ergocadeiras afirma que o apoio de braço 4D+ permite posicionar o antebraço com precisão durante a digitação; a Flexform lista uma cadeira com braços 4D."
+    },
+    {
+      "ref": "apoios-bracos-cabeca#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas que o apoio de cabeça é 3D, com 7 níveis de altura e 4 ângulos de ajuste. Ele não menciona regulagem 2D nem que ela permita ajustar altura e inclinação. A ideia de maior flexibilidade é uma conclusão possível, mas a afirmação sobre 2D não tem apoio no trecho.",
+      "fix": "Segundo a ergocadeiras, o apoio de cabeça 3D tem 7 níveis de altura e 4 ângulos de ajuste."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a preferência por mesh ou tecido em ambientes quentes e dizem que o courino retém calor e umidade, mas não afirmam que todo revestimento de PU retém calor e umidade nem que mesh ou tecido deve estar necessariamente tanto no assento quanto no encosto.",
+      "fix": "Se o ambiente é quente ou não tem ar-condicionado constante, prefira mesh ou tecido, especialmente em jornadas longas; o courino pode reter calor e umidade, enquanto o PU pode prejudicar o conforto e a concentração."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam conferir a capacidade de carga declarada e verificar se ela cobre o peso com margem, mas não sustentam a orientação de não comparar apenas a classe do pistão. O trecho da ergocadeiras apenas compara a capacidade de carga com classes 2 e 3.",
+      "fix": "Se você pesa mais, confira a capacidade de carga declarada na ficha técnica e escolha um modelo cuja capacidade cubra seu peso com margem, segundo a Flexform e a ergocadeiras."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam verificar altura do assento, capacidade de carga, mecanismos e revestimento conforme o peso, a jornada e o clima, mas não dizem para conferir especificamente os ajustes disponíveis. Além disso, a recomendação de mecanismo relax ou sincronizado “com tensão ajustável” excede a evidência: a tensão ajustável é mencionada para o mecanismo relax, não para o sincronizado. Os trechos também não sustentam de forma geral que tecido deva ser escolhido em vez de courino; mencionam tecido como opção para clima quente e apontam vantagem do mesh sobre o courino. Versão sustentável: Escolha considerando o peso do usuário, a altura necessária do assento, a jornada e o ambiente. Confira na ficha técnica a altura mínima e máxima do assento e a capacidade de carga. Para jornadas de 8 horas ou mais, a Flexform considera adequados os mecanismos relax e sincronizado; o mecanismo relax tem tensão ajustável por peso."
+    },
+    {
+      "ref": "altura-assento-ajustes#0",
+      "msg": "OVERSTATED. O trecho diz para considerar pistão, base e assento; o bloco substitui “assento” por “estofado”, especificação que não aparece no trecho citado. Versão sustentável: A altura do assento deve permitir que os cotovelos fiquem em aproximadamente 90 graus, com os ombros relaxados e os pés no chão, segundo a Flexform. Para isso, confira na ficha técnica a altura mínima e máxima do assento, considerando pistão, base e assento juntos."
+    },
+    {
+      "ref": "altura-assento-ajustes#1",
+      "msg": "OVERSTATED. A fonte afirma que uma cadeira com especificação técnica mais completa “pode reunir” esses recursos. O bloco transforma essa possibilidade em característica necessária ou garantida. Versão sustentável: Uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform."
+    },
+    {
+      "ref": "mecanismo-reclinacao#0",
+      "msg": "OVERSTATED. O trecho diz que o mecanismo datilo é adequado para jornadas de 8 horas, enquanto o bloco amplia isso para jornadas de até 8 horas. Além disso, a afirmação sobre o ângulo de aproximadamente 120 graus combina o trecho que diz “ideal” com outro que traz o valor aproximado, mas esse valor é explicitamente associado à reclinação total apenas no segundo trecho. Versão sustentável: Existem três tipos de mecanismo de inclinação, segundo a Flexform. O mecanismo datilo inclina apenas o encosto, tem tensão fixa e é adequado para jornadas de 8 horas com variação postural moderada. O mecanismo relax inclina encosto e assento, com tensão ajustável ao peso do usuário, e é adequado para jornadas de 8 horas ou mais. O mecanismo sincronizado inclina encosto e assento em proporção coordenada; na reclinação total, a Flexform menciona um ângulo de quadril de aproximadamente 120 graus."
+    },
+    {
+      "ref": "mecanismo-reclinacao#2",
+      "msg": "OVERSTATED. A evidência trata especificamente de mecanismos sincronizados, mas o bloco generaliza para “a tensão do mecanismo”. Além disso, o trecho diz que o ajuste permite calibrar a resistência e apresenta a calibração como necessária para usuários de pesos diferentes; não formula uma exigência geral para todo mecanismo. Versão sustentável: Nos mecanismos sincronizados, o ajuste de tensão permite calibrar a resistência da mola de acordo com o peso do usuário; segundo a Flexform, usuários de pesos diferentes precisam de tensões diferentes para que a reclinação seja controlada e confortável."
+    },
+    {
+      "ref": "revestimento-ventilacao#0",
+      "msg": "UNSUPPORTED. O trecho diz que o mesh é mais confortável em jornadas longas e que o courino retém calor e umidade, mas não afirma que o mesh oferece melhor ventilação. Versão sustentável: Segundo a ergocadeiras, o mesh é mais confortável em jornadas longas, enquanto o courino retém calor e umidade, tornando o assento desagradável após algumas horas."
+    },
+    {
+      "ref": "revestimento-ventilacao#1",
+      "msg": "UNSUPPORTED. O trecho sustenta o uso para trabalho de até 6 horas e que certas diferenças são menos impactantes abaixo desse limite, mas não menciona revestimento em PU nem assento tipo caçamba, nem afirma que esses tipos de cadeira servem para trabalho. Versão sustentável: Para uso de trabalho de até 6 horas por dia, as diferenças de suporte lombar, ventilação e formato do assento são menos impactantes, segundo a ergocadeiras."
+    },
+    {
+      "ref": "revestimento-ventilacao#2",
+      "msg": "OVERSTATED. Os trechos sustentam que o PU retém calor e umidade em sessões longas e que, em climas quentes sem ar-condicionado, pode comprometer o conforto e a concentração. Não dizem expressamente que essa característica é menos determinante em ambientes climatizados nem que o tecido é preferível. Versão sustentável: O PU retém calor e umidade em sessões longas. Em climas quentes sem ar-condicionado, o revestimento em PU pode comprometer o conforto e a concentração; o trecho também menciona como alternativa um ambiente climatizado ou uma cadeira com revestimento em tecido."
+    },
+    {
+      "ref": "revestimento-ventilacao#3",
+      "msg": "UNSUPPORTED. O trecho afirma que uma superfície lisa é fácil de higienizar e útil para uso compartilhado, mas não identifica essa superfície como sendo de couro ou corino. Versão sustentável: Uma superfície lisa é fácil de higienizar, o que é útil para uso compartilhado, segundo a ergocadeiras."
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "msg": "OVERSTATED. Os trechos sustentam verificar se a capacidade declarada cobre o peso com margem e mencionam pessoas altas que tendem a ter mais massa corporal, mas não definem expressamente capacidade de carga como “peso máximo suportado” nem generalizam a orientação para todas as pessoas com mais massa corporal. Versão sustentável: A Flexform orienta verificar, em quilogramas, se a capacidade de carga declarada cobre o peso do usuário com margem; o trecho menciona especificamente que pessoas altas tendem a ter mais massa corporal."
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "msg": "OVERSTATED. O trecho da Classe 4 diz que o pistão suporta até 150 kg, não “150 kg ou mais”. Versão sustentável: O fabricante declara: Classe 1, 100 kg; Classe 2, 120 kg; Classe 3, 150 kg; e Classe 4, até 150 kg."
+    },
+    {
+      "ref": "capacidade-carga#2",
+      "msg": "MISATTRIBUTED. Os trechos citados pela ergocadeiras relatam valores para modelos específicos, dizendo que um modelo indica 200 kg suportados e 160 kg recomendados e que outro tem valores “conforme alguns canais”. Eles não sustentam a formulação geral de que alguns fabricantes declaram essas categorias, nem qualificam o peso suportado como limite estrutural. Versão sustentável: A ergocadeiras cita modelos com valores diferentes de peso recomendado e peso máximo suportado: no DT3 Sports Rhino, 160 kg para uso ótimo e 200 kg suportados; na ThunderX3 TGC12, 120 kg recomendados e 150 kg suportados, conforme alguns canais."
+    },
+    {
+      "ref": "apoios-bracos-cabeca#0",
+      "msg": "OVERSTATED. Os trechos sustentam que um apoio 4D+ pode posicionar o antebraço com precisão durante a digitação e que uma cadeira tem braços 4D. Não sustentam que os apoios oferecem diferentes níveis de regulagem, que isso permite posicionar melhor o antebraço durante o trabalho em geral, nem que a Flexform menciona regulagens por altura, profundidade e largura. Versão sustentável: A ergocadeiras afirma que o apoio de braço 4D+ permite posicionar o antebraço com precisão durante a digitação; a Flexform lista uma cadeira com braços 4D."
+    },
+    {
+      "ref": "apoios-bracos-cabeca#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que o apoio de cabeça é 3D, com 7 níveis de altura e 4 ângulos de ajuste. Ele não menciona regulagem 2D nem que ela permita ajustar altura e inclinação. A ideia de maior flexibilidade é uma conclusão possível, mas a afirmação sobre 2D não tem apoio no trecho. Versão sustentável: Segundo a ergocadeiras, o apoio de cabeça 3D tem 7 níveis de altura e 4 ângulos de ajuste."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam a preferência por mesh ou tecido em ambientes quentes e dizem que o courino retém calor e umidade, mas não afirmam que todo revestimento de PU retém calor e umidade nem que mesh ou tecido deve estar necessariamente tanto no assento quanto no encosto. Versão sustentável: Se o ambiente é quente ou não tem ar-condicionado constante, prefira mesh ou tecido, especialmente em jornadas longas; o courino pode reter calor e umidade, enquanto o PU pode prejudicar o conforto e a concentração."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "UNSUPPORTED. Os trechos sustentam conferir a capacidade de carga declarada e verificar se ela cobre o peso com margem, mas não sustentam a orientação de não comparar apenas a classe do pistão. O trecho da ergocadeiras apenas compara a capacidade de carga com classes 2 e 3. Versão sustentável: Se você pesa mais, confira a capacidade de carga declarada na ficha técnica e escolha um modelo cuja capacidade cubra seu peso com margem, segundo a Flexform e a ergocadeiras."
+    }
+  ]
+}
