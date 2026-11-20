@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "enchimento-tipos#0",
+      "problem": "A seção promete explicar o que a pluma e o enchimento sintético oferecem, mas os blocos não comparam esses dois tipos nem descrevem o que o sintético oferece.",
+      "fix": "Mudar o título para algo como \"Como é o enchimento do edredom e exemplos de gramatura\", sem prometer uma comparação entre pluma e sintético."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18165,
+    "output_tokens": 3848,
+    "calls": 3
+  }
+}

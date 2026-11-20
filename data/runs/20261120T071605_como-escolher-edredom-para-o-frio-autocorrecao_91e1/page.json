@@ -1,0 +1,79 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "Quem procura um edredom para o frio não recebe, nesta seção, uma orientação direta sobre qual gramatura priorizar; o bloco apenas lista exemplos de produtos e suas descrições (como-decidir#0); Acrescentar que, para frio intenso, o leitor deve priorizar maior g"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para frio intenso, escolher um edredom mais encorpado e com maior gramatura, pois a Altenburg relaciona maior gramatura a mais volume e calor.",
+      "Para meia-estação ou regiões quentes, preferir menor gramatura para reduzir o risco de aquecer demais.",
+      "Conferir a gramatura na ficha técnica: os exemplos citados incluem 180 g/m² na Teka e 200 g/m² na Appel, associados a volume e maior conforto térmico, enquanto 130 g/m² na Döhler é descrito como adequado para todas as estações.",
+      "Escolher o tamanho do edredom de acordo com a medida da cama e confirmar as dimensões do produto na ficha técnica.",
+      "Para uma cama king de 1,93 m x 2,03 m, conferir se o edredom tem aproximadamente 2,80 m x 2,50 m.",
+      "Se alergia for uma preocupação, verificar se o fabricante declara tratamento antialérgico, sem tratar essa declaração como validação do Inmetro.",
+      "Conferir na etiqueta a composição das fibras, as dimensões, o país de origem e os símbolos de lavagem, alvejamento, secagem, passadoria e limpeza a seco."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Tabela de gramatura ou peso de enchimento relacionada explicitamente a verão, meia-estação e inverno, com valores declarados pelos fabricantes.",
+      "Comparação em ficha técnica entre retenção de calor de enchimentos de pluma ou penas e de poliéster ou microfibra.",
+      "Mais exemplos de fabricantes que declarem propriedades antialérgicas ou hipoalergênicas.",
+      "Indicação mais clara de quais modelos são destinados especificamente a frio intenso, em vez de apenas exemplos de gramatura e conforto térmico.",
+      "Orientações dos fabricantes sobre o comportamento de cada tipo de enchimento no uso e o perfil de usuário indicado."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque dá uma regra prática de escolha: para frio, procurar maior gramatura e mais volume; para calor, escolher menor gramatura, além de orientar a conferência de medidas, composição e etiqueta. A resposta curta, porém, não traz um valor de gramatura ou outro dado concreto e por isso não resolve sozinha a decisão tão rapidamente quanto poderia.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "caso_sem_orientacao",
+        "ref": "como-decidir#0",
+        "problem": "Quem procura um edredom para o frio não recebe, nesta seção, uma orientação direta sobre qual gramatura priorizar; o bloco apenas lista exemplos de produtos e suas descrições.",
+        "fix": "Acrescentar que, para frio intenso, o leitor deve priorizar maior gramatura ou um modelo encorpado, pois a Altenburg relaciona maior gramatura a mais volume e calor."
+      }
+    ]
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta usa “gramatura” como principal critério sem explicar claramente que é o peso do enchimento por metro quadrado; também não informa uma faixa numérica objetiva para o frio intenso."
+    ],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Para frio intenso, escolher um edredom mais encorpado e com maior gramatura.",
+      "Para meia-estação ou regiões quentes, preferir menor gramatura para reduzir o aquecimento.",
+      "Usar a gramatura declarada na ficha técnica para comparar opções: os exemplos citam 130 g/m², 180 g/m² e 200 g/m², com descrições diferentes dos fabricantes.",
+      "Para cama king de 1,93 m x 2,03 m, procurar um edredom king próximo de 2,80 m x 2,50 m e conferir as dimensões no anúncio.",
+      "Conferir se o tamanho do edredom corresponde à medida da cama: solteiro, casal, queen ou king.",
+      "Verificar na etiqueta a composição e os percentuais das fibras, as dimensões, o país de origem e as instruções de lavagem, alvejamento, secagem, passadoria e limpeza a seco.",
+      "Se alergia for uma preocupação, conferir se o fabricante declara tratamento antialérgico, sem interpretar isso como uma validação do Inmetro."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta usa “gramatura” como principal critério sem explicar claramente que é o peso do enchimento por metro quadrado; também não informa uma faixa numérica objetiva para o frio intenso.",
+      "Uma faixa numérica de gramatura ou peso de enchimento que os fabricantes indiquem especificamente para frio intenso, inverno e meia-estação.",
+      "Uma tabela de correspondência entre gramatura e estação de uso baseada em fichas técnicas dos fabricantes.",
+      "Comparação direta, em fonte de fabricante, da retenção de calor entre enchimento de plumas ou penas e enchimento sintético.",
+      "Mais medidas declaradas pelos próprios fabricantes para cada combinação de tamanho de cama e tamanho de edredom.",
+      "Explicação simples de que gramatura é o peso do enchimento por metro quadrado."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque dá uma regra útil: quanto maior a gramatura, mais encorpado e quente tende a ser o edredom, além de orientar a conferência do tamanho, da ficha técnica e da etiqueta. Porém, a resposta curta não traz uma faixa numérica específica para o frio e usa “gramatura” sem explicação clara, o que prejudica a compreensão rápida por leigos.",
+    "filler_ratio": 0.13333333333333333,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "enchimento-tipos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "enchimento-tipos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos não dizem que o edredom Teka de 180 g/m² é um modelo encorpado ou indicado para frio intenso, nem que os produtos Karsten de 112 g/m² e Döhler de 130 g/m² são modelos leves ou indicados para meia-estação/regiões quentes. Eles apenas informam as gramaturas; a Döhler também associa 130 g/m² a todas as estações.",
+      "fix": "Separe as categorias climáticas da Altenburg dos exemplos de gramatura: apresente os modelos encorpados como ideais para frio intenso e os leves como indicados para meia-estação ou regiões quentes, e liste 180 g/m² (Teka), 112 g/m² (Karsten) e 130 g/m² (Döhler) apenas como gramaturas dos produtos, sem vinculá-las a essas categorias climáticas."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O título atribui a recomendação à Altenburg, mas os trechos citados são da Döhler e descrevem 130 g/m² como oferecendo equilíbrio entre leveza e conforto térmico para todas as estações. Não há trecho da Altenburg sustentando essa recomendação específica.",
+      "fix": "Use um título como \"Gramatura descrita pela Döhler para todas as estações\" e mantenha a indicação de 130 g/m² e o nome do produto segundo a Döhler."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. Os trechos não dizem que o edredom Teka de 180 g/m² é um modelo encorpado ou indicado para frio intenso, nem que os produtos Karsten de 112 g/m² e Döhler de 130 g/m² são modelos leves ou indicados para meia-estação/regiões quentes. Eles apenas informam as gramaturas; a Döhler também associa 130 g/m² a todas as estações. Versão sustentável: Separe as categorias climáticas da Altenburg dos exemplos de gramatura: apresente os modelos encorpados como ideais para frio intenso e os leves como indicados para meia-estação ou regiões quentes, e liste 180 g/m² (Teka), 112 g/m² (Karsten) e 130 g/m² (Döhler) apenas como gramaturas dos produtos, sem vinculá-las a essas categorias climáticas."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. O título atribui a recomendação à Altenburg, mas os trechos citados são da Döhler e descrevem 130 g/m² como oferecendo equilíbrio entre leveza e conforto térmico para todas as estações. Não há trecho da Altenburg sustentando essa recomendação específica. Versão sustentável: Use um título como \"Gramatura descrita pela Döhler para todas as estações\" e mantenha a indicação de 130 g/m² e o nome do produto segundo a Döhler."
+    }
+  ]
+}

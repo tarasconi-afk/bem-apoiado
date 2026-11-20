@@ -1,0 +1,136 @@
+{
+  "findings": [
+    {
+      "ref": "tamanhos-medidas#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tamanhos-medidas#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "enchimento-tipos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "enchimento-tipos#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam um edredom específico da Döhler e um modelo específico da Appel, mas o bloco generaliza para “edredons” e “modelos” dessas fabricantes. A associação com conforto térmico está atribuída corretamente às fabricantes.",
+      "fix": "No edredom Summer da Plumasul, o revestimento é 100% algodão percal com tratamento Downproof, e o enchimento é 100% plumas de ganso. No produto Otto Poppi citado, da Döhler, a gramatura é de 130 g/m², descrita pela fabricante como associada à leveza e ao conforto térmico. No modelo Queen Plush Flannel Confort citado, da Appel, a gramatura é de 170 g/m², descrita pela fabricante como oferecendo conforto térmico equilibrado."
+    },
+    {
+      "ref": "tamanhos-medidas#1",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco afirma como fato que as medidas variam entre fabricantes e recomenda conferir a ficha técnica, mas não há trechos citados que sustentem essas afirmações. Como a base é framing, o conteúdo não pode incluir fatos sobre produtos sem evidência.",
+      "fix": "A seguir, veja as informações apresentadas sobre medidas e dimensões."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Altenburg sustenta que modelos leves são indicados para meia-estação ou regiões quentes, mas os trechos da Karsten e da Döhler apenas informam as gramaturas de 112 g/m² e 130 g/m². Eles não dizem que essas gramaturas são recomendações da Altenburg para essa situação climática.",
+      "fix": "Situação: meia-estação ou região quente | Recomendação da Altenburg: modelos leves | Exemplos de gramatura citados, sem atribuí-los à recomendação climática da Altenburg: 112 g/m² na Karsten e 130 g/m² na Döhler."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam as gramaturas e as descrições dos produtos Teka e Appel, mas não dizem que 180 g/m² ou 200 g/m² são adequados ou recomendados para clima frio intenso. Além disso, o trecho da Döhler diz que 130 g/m² serve para todas as estações, sem afirmar que é especificamente adequado para clima mais ameno.",
+      "fix": "Para comparar produtos, consulte a gramatura do enchimento na ficha. Os exemplos citados incluem 180 g/m² na Teka, descrito pela fabricante como oferecendo volume e aconchego, e 200 g/m² na Appel, descrito pela fabricante como volumoso e de alto conforto térmico. A Döhler descreve 130 g/m² como adequado para todas as estações."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "enchimento-tipos#1",
+      "msg": "OVERSTATED. Os trechos citam um edredom específico da Döhler e um modelo específico da Appel, mas o bloco generaliza para “edredons” e “modelos” dessas fabricantes. A associação com conforto térmico está atribuída corretamente às fabricantes. Versão sustentável: No edredom Summer da Plumasul, o revestimento é 100% algodão percal com tratamento Downproof, e o enchimento é 100% plumas de ganso. No produto Otto Poppi citado, da Döhler, a gramatura é de 130 g/m², descrita pela fabricante como associada à leveza e ao conforto térmico. No modelo Queen Plush Flannel Confort citado, da Appel, a gramatura é de 170 g/m², descrita pela fabricante como oferecendo conforto térmico equilibrado."
+    },
+    {
+      "ref": "tamanhos-medidas#1",
+      "msg": "FACT_IN_FRAMING. O bloco afirma como fato que as medidas variam entre fabricantes e recomenda conferir a ficha técnica, mas não há trechos citados que sustentem essas afirmações. Como a base é framing, o conteúdo não pode incluir fatos sobre produtos sem evidência. Versão sustentável: A seguir, veja as informações apresentadas sobre medidas e dimensões."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. O trecho da Altenburg sustenta que modelos leves são indicados para meia-estação ou regiões quentes, mas os trechos da Karsten e da Döhler apenas informam as gramaturas de 112 g/m² e 130 g/m². Eles não dizem que essas gramaturas são recomendações da Altenburg para essa situação climática. Versão sustentável: Situação: meia-estação ou região quente | Recomendação da Altenburg: modelos leves | Exemplos de gramatura citados, sem atribuí-los à recomendação climática da Altenburg: 112 g/m² na Karsten e 130 g/m² na Döhler."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos informam as gramaturas e as descrições dos produtos Teka e Appel, mas não dizem que 180 g/m² ou 200 g/m² são adequados ou recomendados para clima frio intenso. Além disso, o trecho da Döhler diz que 130 g/m² serve para todas as estações, sem afirmar que é especificamente adequado para clima mais ameno. Versão sustentável: Para comparar produtos, consulte a gramatura do enchimento na ficha. Os exemplos citados incluem 180 g/m² na Teka, descrito pela fabricante como oferecendo volume e aconchego, e 200 g/m² na Appel, descrito pela fabricante como volumoso e de alto conforto térmico. A Döhler descreve 130 g/m² como adequado para todas as estações."
+    }
+  ]
+}

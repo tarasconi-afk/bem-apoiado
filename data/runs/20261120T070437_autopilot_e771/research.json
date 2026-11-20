@@ -1,0 +1,197 @@
+{
+  "run_id": "20261120T070437_autopilot_e771",
+  "topic": "como-escolher-edredom-para-o-frio",
+  "accepted": [
+    {
+      "claim_id": "clm_63308ee14919",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_3edfd31ac601",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f5fc83f515b4",
+      "question_id": "q_composicao_fibras",
+      "source_id": "src_3edfd31ac601",
+      "new": true
+    },
+    {
+      "claim_id": "clm_211c4024ccd8",
+      "question_id": "q_composicao_fibras",
+      "source_id": "src_3edfd31ac601",
+      "new": true
+    },
+    {
+      "claim_id": "clm_40218c5b7071",
+      "question_id": "q_tamanho_cama",
+      "source_id": "src_3edfd31ac601",
+      "new": true
+    },
+    {
+      "claim_id": "clm_69860368c62a",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_3edfd31ac601",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4092153ec116",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_74d2218d2f29",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d58cfa7086e1",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_fd94ba921c4d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f4267f336c7f",
+      "question_id": "q_composicao_fibras",
+      "source_id": "src_fd94ba921c4d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ac08e8de887b",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_fd94ba921c4d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1da56cf0ae72",
+      "question_id": "q_tamanho_cama",
+      "source_id": "src_fd94ba921c4d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_355fcf8f4315",
+      "question_id": "q_tamanho_cama",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_606001e77067",
+      "question_id": "q_tamanho_cama",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_17a0af15cd58",
+      "question_id": "q_tamanho_cama",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c491b85b399d",
+      "question_id": "q_uso_leitor",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4c8861e46210",
+      "question_id": "q_uso_leitor",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_906210a61fab",
+      "question_id": "q_declaracao_antialergico",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4bf198815495",
+      "question_id": "q_declaracao_antialergico",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f0ec8975c863",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_07b382516012",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5f176a1b73c7",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_1596488613ba",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7c3338df1118",
+      "question_id": "q_tamanho_cama",
+      "source_id": "src_1596488613ba",
+      "new": true
+    },
+    {
+      "claim_id": "clm_17e5c4217ee6",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_158fc93eac67",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e2ada63f4dcd",
+      "question_id": "q_composicao_fibras",
+      "source_id": "src_158fc93eac67",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_gramatura_estacao": 6,
+    "q_pluma_sintetico_calor": 0,
+    "q_declaracao_antialergico": 2,
+    "q_cuidado_lavagem": 2,
+    "q_composicao_fibras": 4,
+    "q_tamanho_cama": 6,
+    "q_uso_leitor": 2
+  },
+  "unanswered": [
+    "q_pluma_sintetico_calor"
+  ],
+  "usage": {
+    "input_tokens": 12032,
+    "output_tokens": 2583,
+    "calls": 6
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_3edfd31ac601",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_74d2218d2f29",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    },
+    {
+      "source_id": "src_fd94ba921c4d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_07b382516012",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    },
+    {
+      "source_id": "src_1596488613ba",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    },
+    {
+      "source_id": "src_158fc93eac67",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.96
+    }
+  ],
+  "credits": 13.7668956
+}
