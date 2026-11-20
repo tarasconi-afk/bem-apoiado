@@ -1,0 +1,256 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos não sustentam que cadeiras operacionais sirvam para até 8 horas, nem descrevem cadeiras presidentes como oferecendo conforto visual com menos ajustes. Também não há base explícita para atribuir essas afirmações conjuntamente à Flexform e à ergocadeiras. Os trechos sustentam a existência de regulagens, o uso de cadeiras gamers por até 6 horas e a necessidade de considerar suporte lombar, ventilação e revestimento em climas quentes.",
+      "fix": "Escolha considerando as regulagens disponíveis. Para cadeiras gamers, a ergocadeiras indica uso de trabalho de até 6 horas e recomenda considerar suporte lombar, ventilação e o revestimento em climas quentes. Para quem trabalha por períodos longos, dê preferência a modelos com ajuste de altura, apoio lombar regulável e braços ajustáveis, conforme as características citadas nas fontes."
+    },
+    {
+      "ref": "cadeira-operacional#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam apenas a faixa de regulagem de 420 mm a 520 mm, a densidade mínima de 40 kg/m³ e a carga mínima de 120 kg. Eles não dizem que a cadeira é dimensionada pela NBR 13962, que se destina a trabalho intenso ou que a faixa cobre diferentes estaturas.",
+      "fix": "Os trechos informam regulagem de altura do assento de 420 mm a 520 mm, espuma com densidade mínima de 40 kg/m³ e estrutura dimensionada para suportar carga estática e dinâmica mínima de 120 kg."
+    },
+    {
+      "ref": "cadeira-operacional#1",
+      "verdict": "OVERSTATED",
+      "problem": "A Flexform diz que uma cadeira com especificação técnica mais completa pode reunir esses recursos. O bloco transforma essa possibilidade em uma característica afirmativa de toda cadeira operacional com especificação completa.",
+      "fix": "Segundo a Flexform, uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado."
+    },
+    {
+      "ref": "cadeira-operacional#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cadeira-operacional#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado informa apenas que a altura do assento pode ser regulada de 420 mm a 520 mm. Ele não identifica essa faixa como estabelecida pela NBR 13962 nem afirma que ela serve para a maioria dos adultos.",
+      "fix": "Confira na ficha técnica se a regulagem de altura do assento alcança a faixa de 420 mm a 520 mm."
+    },
+    {
+      "ref": "cadeira-gamer#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos dizem que quatro cadeiras Flexform declaram suporte de 136 kg, mas não identificam esses quatro modelos pelos nomes Delta Vasco, Sigma Pro Vasco, Delta Santos e Alpha Pro Santos.",
+      "fix": "As quatro cadeiras gamer Flexform declaram suporte de peso de 136 kg. A ThunderX3 TGC12 declara peso máximo recomendado de 120 kg e peso máximo suportado de 150 kg, conforme alguns canais."
+    },
+    {
+      "ref": "cadeira-gamer#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Nenhum trecho citado informa que a ficha não especifica a profundidade e a largura do assento. Os demais dados do bloco são sustentados pelos trechos.",
+      "fix": "Na Flexform Alpha Pro Santos, o assento tem inclinação de 11° e espuma de densidade controlada. A XT Racer Platinum W Style usa tecido 100% poliéster premium no assento e no encosto."
+    },
+    {
+      "ref": "cadeira-gamer#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam foco em ergonomia, ajustes e suporte lombar para trabalho, além de mencionarem o limite de seis horas e o comprometimento do conforto causado pelo PU em ambientes quentes sem ar-condicionado. Não sustentam que cadeiras de PU servem para trabalho até esse limite, nem mencionam mesh ou afirmam expressamente que tecido ou mesh são preferíveis.",
+      "fix": "Para trabalho, a ThunderX3 orienta priorizar ergonomia, ajustes e suporte lombar. A ergocadeiras menciona uso de trabalho de até 6 horas por dia e afirma que, em climas quentes sem ar-condicionado, o revestimento em PU pode comprometer o conforto e a concentração; o tecido é apresentado como alternativa."
+    },
+    {
+      "ref": "cadeira-gamer#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho recomenda suporte lombar regulável em altura e profundidade, mas não diz que o encosto deve oferecer regulagem de altura. A formulação desloca a regulagem de altura do suporte lombar para o encosto.",
+      "fix": "O design concha pode limitar o movimento dos ombros de algumas pessoas, segundo a ergocadeiras. Confira se a cadeira oferece suporte lombar regulável em altura e profundidade."
+    },
+    {
+      "ref": "revestimentos-limpeza#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos não dizem que tecido, mesh e PU são os revestimentos mais comuns, nem mencionam a condição de ambientes sem climatização. O trecho sobre PU apenas afirma retenção de calor e umidade em sessões longas.",
+      "fix": "Segundo a ergocadeiras, o mesh permite circulação livre de ar e é descrito como o material mais respirável; tecido e poliéster ficam em posição intermediária, enquanto o PU retém calor e umidade em sessões longas."
+    },
+    {
+      "ref": "revestimentos-limpeza#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho sobre ventilação diz apenas que “este material” proporciona melhor ventilação natural e não identifica, no recorte citado, que se trata da linha Cavaletti Air. A lista de revestimentos é atribuída à página da linha Air, mas não comprova que a afirmação sobre ventilação se refira especificamente a ela.",
+      "fix": "A Cavaletti declara que determinado material proporciona melhor ventilação natural durante o uso. A página da linha Air lista revestimentos em poliéster, politex, mescla, grid, space, haven, CEC - Stilo, vinil e couro natural."
+    },
+    {
+      "ref": "revestimentos-limpeza#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A instrução de limpeza é sustentada pelo trecho da Móveis Schuster, mas não há trecho da ergocadeiras sobre essa instrução. Além disso, o recorte da ergocadeiras identifica o revestimento da DT3 Frost como Mesh DT3 Vintex-F, mas não usa a expressão “mesh de alta performance”.",
+      "fix": "A ficha técnica da Móveis Schuster especifica limpeza com pano levemente umedecido e flanela apenas para remover pó. Sobre a DT3 Frost, a ergocadeiras declara que o revestimento Mesh DT3 Vintex-F tem certificações de resistência à abrasão e desgaste, desbotamento, inflamabilidade e desfiamento."
+    },
+    {
+      "ref": "revestimentos-limpeza#3",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora apresentado como framing, o bloco afirma fatos e recomendações sobre fichas técnicas e revestimentos sem citar qualquer evidência. A afirmação de que diferentes revestimentos exigem cuidados distintos não está sustentada por trecho citado.",
+      "fix": "Remova a afirmação factual ou acrescente evidência. Com os trechos atuais, não é possível sustentar que diferentes revestimentos exigem cuidados distintos nem a recomendação específica de contatar o fabricante."
+    },
+    {
+      "ref": "requisitos-nbr-13962#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os requisitos de altura, base, borda e encosto aparecem no trecho principal, mas a exigência de material que permita a perspiração está no Anexo II, voltado ao trabalho em teleatendimento/telemarketing. O bloco a apresenta como regra geral para todos os assentos e também reduz a regra a “revestimento”, enquanto o trecho fala de superfícies de contato corporal estofadas e revestidas.",
+      "fix": "Segundo a NR-17, os assentos devem ter altura ajustável, pouca ou nenhuma conformação na base, borda frontal arredondada e encosto levemente adaptado ao corpo para proteção lombar. Para trabalho em teleatendimento/telemarketing, o trecho citado exige que as superfícies de contato corporal sejam estofadas e revestidas com material que permita a perspiração."
+    },
+    {
+      "ref": "requisitos-nbr-13962#1",
+      "verdict": "OVERSTATED",
+      "problem": "O único trecho citado é de um edital específico. Ele sustenta os valores de 500 mm ±10 mm e 460 mm ±10 mm nesse edital, mas não sustenta que esses valores sejam especificados em licitações públicas de modo geral nem que sejam referências para cadeiras de escritório.",
+      "fix": "Em um edital do Compras.gov.br, foram especificadas largura do assento de 500 mm ±10 mm e profundidade de 460 mm ±10 mm."
+    },
+    {
+      "ref": "pessoas-altas-biotipos-grandes#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pessoas-altas-biotipos-grandes#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pessoas-altas-biotipos-grandes#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a recomendação de escolher uma cadeira com capacidade pelo menos 20 kg acima do peso e os dados da DT3 Sports Rhino, mas não dizem que essa orientação se aplica especificamente a quem pesa acima de 100 kg ou procura uma cadeira para biotipo grande.",
+      "fix": "Diga: \"Segundo a ergocadeiras, o melhor é escolher uma cadeira que aguente pelo menos 20 kg a mais do que o seu peso. A DT3 Sports Rhino indica 200 kg como peso máximo suportado, 160 kg como peso recomendado e altura máxima recomendada de 2,00 m.\""
+    },
+    {
+      "ref": "pessoas-altas-biotipos-grandes#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado fala sobre a capacidade dos pistões das classes 4 e 3, mas não sustenta a orientação para conferir separadamente peso máximo e peso recomendado na ficha técnica nem afirma que o peso recomendado oferece margem para evitar sobrecarga do pistão.",
+      "fix": "Diga: \"Segundo a ergocadeiras, o pistão Classe 4 é descrito como capaz de suportar até 150 kg ou mais com segurança, enquanto a Classe 3 suporta até 120 kg.\""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "A expressão “trabalho até 8 horas com postura adequada” sugere um resultado de saúde/postura atribuído ao produto, o que não é permitido. Além disso, os trechos não sustentam o limite de 8 horas nem identificam o requisito de 120 kg como norma NBR 13962; o trecho citado apenas menciona uma especificação de carga mínima. A fonte sobre cadeiras ergonômicas também não afirma esse uso por 8 horas.",
+      "fix": "Apresente apenas os dados sustentados: “Carga mínima indicada: 120 kg; altura do assento: 420 mm a 520 mm; requisitos citados incluem altura ajustável e encosto adaptado à região lombar. A ergocadeiras menciona suporte lombar regulável e assento deslizante.” Remova a promessa de postura adequada e o limite de 8 horas."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Não há trechos citados para sustentar nenhuma das informações da linha, incluindo tipo, peso, altura, regulagens, ambientes executivos ou uso moderado.",
+      "fix": "Remova a linha ou acrescente evidências específicas para cada informação. Sem novas fontes, não é possível afirmar mais do que “não especificado nos trechos citados”."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Flexform sustenta 136 kg, e a ergocadeiras menciona 150 kg suportados, mas o trecho não sustenta regulagens de altura, reclinação do encosto e braços segundo a Flexform. Também não há evidência citada para “ambientes climatizados” nem para a ausência de especificação de altura em ficha técnica. A afirmação de trabalho até 6 horas é sustentada pela ergocadeiras.",
+      "fix": "Restrinja a linha a: “Peso: 136 kg em modelos citados pela Flexform e 150 kg como peso máximo suportado em um modelo citado pela ergocadeiras; uso de trabalho indicado pela ergocadeiras: até 6 horas.” Remova as regulagens atribuídas à Flexform, os ambientes climatizados e a afirmação sobre a ficha técnica, salvo com novas evidências."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam a importância de ajustes ao corpo e listam altura, apoio lombar, braços e encosto reclinável, mas não dizem para escolher especificamente uma cadeira operacional nem estabelecem a condição de trabalhar por muitas horas. A atribuição conjunta não sustenta essas duas partes.",
+      "fix": "“Ao escolher uma cadeira, confira regulagem de altura do assento, apoio lombar, braços e encosto reclinável, priorizando ajustes ao corpo, segundo as fontes citadas.”"
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "A fonte sustenta que, até 6 horas, diferenças de suporte lombar, ventilação e formato do assento são menos impactantes, e que o PU retém calor e umidade em sessões longas. Ela não afirma diretamente que revestimento PU ou formato bucket “pode atender”, nem que se deve escolher uma alternativa específica para jornadas maiores. A fonte ThunderX3 fala em foco em ergonomia, ajustes e suporte lombar para trabalho, mas não sustenta toda a recomendação formulada.",
+      "fix": "“Para trabalho de até 6 horas, a ergocadeiras considera menos impactantes as diferenças de suporte lombar, ventilação e formato do assento. Em sessões longas, o PU pode reter calor e umidade; para trabalho, a ThunderX3 destaca ergonomia, ajustes e suporte lombar.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a faixa de 52 cm a 55 cm para pessoas com mais de 1,85 m e os critérios de apoiar a coluna e não pressionar a parte de trás dos joelhos. Não há trecho que recomende especificamente escolher uma cadeira “alta ou XXL”.",
+      "fix": "“Se você tem mais de 1,85 m, confira se o assento fica aproximadamente entre 52 cm e 55 cm, se o encosto apoia toda a coluna e se o assento não pressiona a parte de trás dos joelhos, segundo a ergocadeiras.”"
+    },
+    {
+      "ref": "como-decidir#5",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos não sustentam que cadeiras operacionais sirvam para até 8 horas, nem descrevem cadeiras presidentes como oferecendo conforto visual com menos ajustes. Também não há base explícita para atribuir essas afirmações conjuntamente à Flexform e à ergocadeiras. Os trechos sustentam a existência de regulagens, o uso de cadeiras gamers por até 6 horas e a necessidade de considerar suporte lombar, ventilação e revestimento em climas quentes. Versão sustentável: Escolha considerando as regulagens disponíveis. Para cadeiras gamers, a ergocadeiras indica uso de trabalho de até 6 horas e recomenda considerar suporte lombar, ventilação e o revestimento em climas quentes. Para quem trabalha por períodos longos, dê preferência a modelos com ajuste de altura, apoio lombar regulável e braços ajustáveis, conforme as características citadas nas fontes."
+    },
+    {
+      "ref": "cadeira-operacional#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam apenas a faixa de regulagem de 420 mm a 520 mm, a densidade mínima de 40 kg/m³ e a carga mínima de 120 kg. Eles não dizem que a cadeira é dimensionada pela NBR 13962, que se destina a trabalho intenso ou que a faixa cobre diferentes estaturas. Versão sustentável: Os trechos informam regulagem de altura do assento de 420 mm a 520 mm, espuma com densidade mínima de 40 kg/m³ e estrutura dimensionada para suportar carga estática e dinâmica mínima de 120 kg."
+    },
+    {
+      "ref": "cadeira-operacional#1",
+      "msg": "OVERSTATED. A Flexform diz que uma cadeira com especificação técnica mais completa pode reunir esses recursos. O bloco transforma essa possibilidade em uma característica afirmativa de toda cadeira operacional com especificação completa. Versão sustentável: Segundo a Flexform, uma cadeira com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado."
+    },
+    {
+      "ref": "cadeira-operacional#3",
+      "msg": "UNSUPPORTED. O trecho citado informa apenas que a altura do assento pode ser regulada de 420 mm a 520 mm. Ele não identifica essa faixa como estabelecida pela NBR 13962 nem afirma que ela serve para a maioria dos adultos. Versão sustentável: Confira na ficha técnica se a regulagem de altura do assento alcança a faixa de 420 mm a 520 mm."
+    },
+    {
+      "ref": "cadeira-gamer#0",
+      "msg": "UNSUPPORTED. Os trechos dizem que quatro cadeiras Flexform declaram suporte de 136 kg, mas não identificam esses quatro modelos pelos nomes Delta Vasco, Sigma Pro Vasco, Delta Santos e Alpha Pro Santos. Versão sustentável: As quatro cadeiras gamer Flexform declaram suporte de peso de 136 kg. A ThunderX3 TGC12 declara peso máximo recomendado de 120 kg e peso máximo suportado de 150 kg, conforme alguns canais."
+    },
+    {
+      "ref": "cadeira-gamer#1",
+      "msg": "UNSUPPORTED. Nenhum trecho citado informa que a ficha não especifica a profundidade e a largura do assento. Os demais dados do bloco são sustentados pelos trechos. Versão sustentável: Na Flexform Alpha Pro Santos, o assento tem inclinação de 11° e espuma de densidade controlada. A XT Racer Platinum W Style usa tecido 100% poliéster premium no assento e no encosto."
+    },
+    {
+      "ref": "cadeira-gamer#2",
+      "msg": "OVERSTATED. Os trechos sustentam foco em ergonomia, ajustes e suporte lombar para trabalho, além de mencionarem o limite de seis horas e o comprometimento do conforto causado pelo PU em ambientes quentes sem ar-condicionado. Não sustentam que cadeiras de PU servem para trabalho até esse limite, nem mencionam mesh ou afirmam expressamente que tecido ou mesh são preferíveis. Versão sustentável: Para trabalho, a ThunderX3 orienta priorizar ergonomia, ajustes e suporte lombar. A ergocadeiras menciona uso de trabalho de até 6 horas por dia e afirma que, em climas quentes sem ar-condicionado, o revestimento em PU pode comprometer o conforto e a concentração; o tecido é apresentado como alternativa."
+    },
+    {
+      "ref": "cadeira-gamer#3",
+      "msg": "OVERSTATED. O trecho recomenda suporte lombar regulável em altura e profundidade, mas não diz que o encosto deve oferecer regulagem de altura. A formulação desloca a regulagem de altura do suporte lombar para o encosto. Versão sustentável: O design concha pode limitar o movimento dos ombros de algumas pessoas, segundo a ergocadeiras. Confira se a cadeira oferece suporte lombar regulável em altura e profundidade."
+    },
+    {
+      "ref": "revestimentos-limpeza#0",
+      "msg": "OVERSTATED. Os trechos não dizem que tecido, mesh e PU são os revestimentos mais comuns, nem mencionam a condição de ambientes sem climatização. O trecho sobre PU apenas afirma retenção de calor e umidade em sessões longas. Versão sustentável: Segundo a ergocadeiras, o mesh permite circulação livre de ar e é descrito como o material mais respirável; tecido e poliéster ficam em posição intermediária, enquanto o PU retém calor e umidade em sessões longas."
+    },
+    {
+      "ref": "revestimentos-limpeza#1",
+      "msg": "MISATTRIBUTED. O trecho sobre ventilação diz apenas que “este material” proporciona melhor ventilação natural e não identifica, no recorte citado, que se trata da linha Cavaletti Air. A lista de revestimentos é atribuída à página da linha Air, mas não comprova que a afirmação sobre ventilação se refira especificamente a ela. Versão sustentável: A Cavaletti declara que determinado material proporciona melhor ventilação natural durante o uso. A página da linha Air lista revestimentos em poliéster, politex, mescla, grid, space, haven, CEC - Stilo, vinil e couro natural."
+    },
+    {
+      "ref": "revestimentos-limpeza#2",
+      "msg": "MISATTRIBUTED. A instrução de limpeza é sustentada pelo trecho da Móveis Schuster, mas não há trecho da ergocadeiras sobre essa instrução. Além disso, o recorte da ergocadeiras identifica o revestimento da DT3 Frost como Mesh DT3 Vintex-F, mas não usa a expressão “mesh de alta performance”. Versão sustentável: A ficha técnica da Móveis Schuster especifica limpeza com pano levemente umedecido e flanela apenas para remover pó. Sobre a DT3 Frost, a ergocadeiras declara que o revestimento Mesh DT3 Vintex-F tem certificações de resistência à abrasão e desgaste, desbotamento, inflamabilidade e desfiamento."
+    },
+    {
+      "ref": "revestimentos-limpeza#3",
+      "msg": "FACT_IN_FRAMING. Embora apresentado como framing, o bloco afirma fatos e recomendações sobre fichas técnicas e revestimentos sem citar qualquer evidência. A afirmação de que diferentes revestimentos exigem cuidados distintos não está sustentada por trecho citado. Versão sustentável: Remova a afirmação factual ou acrescente evidência. Com os trechos atuais, não é possível sustentar que diferentes revestimentos exigem cuidados distintos nem a recomendação específica de contatar o fabricante."
+    },
+    {
+      "ref": "requisitos-nbr-13962#0",
+      "msg": "OVERSTATED. Os requisitos de altura, base, borda e encosto aparecem no trecho principal, mas a exigência de material que permita a perspiração está no Anexo II, voltado ao trabalho em teleatendimento/telemarketing. O bloco a apresenta como regra geral para todos os assentos e também reduz a regra a “revestimento”, enquanto o trecho fala de superfícies de contato corporal estofadas e revestidas. Versão sustentável: Segundo a NR-17, os assentos devem ter altura ajustável, pouca ou nenhuma conformação na base, borda frontal arredondada e encosto levemente adaptado ao corpo para proteção lombar. Para trabalho em teleatendimento/telemarketing, o trecho citado exige que as superfícies de contato corporal sejam estofadas e revestidas com material que permita a perspiração."
+    },
+    {
+      "ref": "requisitos-nbr-13962#1",
+      "msg": "OVERSTATED. O único trecho citado é de um edital específico. Ele sustenta os valores de 500 mm ±10 mm e 460 mm ±10 mm nesse edital, mas não sustenta que esses valores sejam especificados em licitações públicas de modo geral nem que sejam referências para cadeiras de escritório. Versão sustentável: Em um edital do Compras.gov.br, foram especificadas largura do assento de 500 mm ±10 mm e profundidade de 460 mm ±10 mm."
+    },
+    {
+      "ref": "pessoas-altas-biotipos-grandes#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam a recomendação de escolher uma cadeira com capacidade pelo menos 20 kg acima do peso e os dados da DT3 Sports Rhino, mas não dizem que essa orientação se aplica especificamente a quem pesa acima de 100 kg ou procura uma cadeira para biotipo grande. Versão sustentável: Diga: \"Segundo a ergocadeiras, o melhor é escolher uma cadeira que aguente pelo menos 20 kg a mais do que o seu peso. A DT3 Sports Rhino indica 200 kg como peso máximo suportado, 160 kg como peso recomendado e altura máxima recomendada de 2,00 m.\""
+    },
+    {
+      "ref": "pessoas-altas-biotipos-grandes#3",
+      "msg": "UNSUPPORTED. O trecho citado fala sobre a capacidade dos pistões das classes 4 e 3, mas não sustenta a orientação para conferir separadamente peso máximo e peso recomendado na ficha técnica nem afirma que o peso recomendado oferece margem para evitar sobrecarga do pistão. Versão sustentável: Diga: \"Segundo a ergocadeiras, o pistão Classe 4 é descrito como capaz de suportar até 150 kg ou mais com segurança, enquanto a Classe 3 suporta até 120 kg.\""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "SAFETY_CLAIM. A expressão “trabalho até 8 horas com postura adequada” sugere um resultado de saúde/postura atribuído ao produto, o que não é permitido. Além disso, os trechos não sustentam o limite de 8 horas nem identificam o requisito de 120 kg como norma NBR 13962; o trecho citado apenas menciona uma especificação de carga mínima. A fonte sobre cadeiras ergonômicas também não afirma esse uso por 8 horas. Versão sustentável: Apresente apenas os dados sustentados: “Carga mínima indicada: 120 kg; altura do assento: 420 mm a 520 mm; requisitos citados incluem altura ajustável e encosto adaptado à região lombar. A ergocadeiras menciona suporte lombar regulável e assento deslizante.” Remova a promessa de postura adequada e o limite de 8 horas."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Não há trechos citados para sustentar nenhuma das informações da linha, incluindo tipo, peso, altura, regulagens, ambientes executivos ou uso moderado. Versão sustentável: Remova a linha ou acrescente evidências específicas para cada informação. Sem novas fontes, não é possível afirmar mais do que “não especificado nos trechos citados”."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "MISATTRIBUTED. A Flexform sustenta 136 kg, e a ergocadeiras menciona 150 kg suportados, mas o trecho não sustenta regulagens de altura, reclinação do encosto e braços segundo a Flexform. Também não há evidência citada para “ambientes climatizados” nem para a ausência de especificação de altura em ficha técnica. A afirmação de trabalho até 6 horas é sustentada pela ergocadeiras. Versão sustentável: Restrinja a linha a: “Peso: 136 kg em modelos citados pela Flexform e 150 kg como peso máximo suportado em um modelo citado pela ergocadeiras; uso de trabalho indicado pela ergocadeiras: até 6 horas.” Remova as regulagens atribuídas à Flexform, os ambientes climatizados e a afirmação sobre a ficha técnica, salvo com novas evidências."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos sustentam a importância de ajustes ao corpo e listam altura, apoio lombar, braços e encosto reclinável, mas não dizem para escolher especificamente uma cadeira operacional nem estabelecem a condição de trabalhar por muitas horas. A atribuição conjunta não sustenta essas duas partes. Versão sustentável: “Ao escolher uma cadeira, confira regulagem de altura do assento, apoio lombar, braços e encosto reclinável, priorizando ajustes ao corpo, segundo as fontes citadas.”"
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. A fonte sustenta que, até 6 horas, diferenças de suporte lombar, ventilação e formato do assento são menos impactantes, e que o PU retém calor e umidade em sessões longas. Ela não afirma diretamente que revestimento PU ou formato bucket “pode atender”, nem que se deve escolher uma alternativa específica para jornadas maiores. A fonte ThunderX3 fala em foco em ergonomia, ajustes e suporte lombar para trabalho, mas não sustenta toda a recomendação formulada. Versão sustentável: “Para trabalho de até 6 horas, a ergocadeiras considera menos impactantes as diferenças de suporte lombar, ventilação e formato do assento. Em sessões longas, o PU pode reter calor e umidade; para trabalho, a ThunderX3 destaca ergonomia, ajustes e suporte lombar.”"
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. Os trechos sustentam a faixa de 52 cm a 55 cm para pessoas com mais de 1,85 m e os critérios de apoiar a coluna e não pressionar a parte de trás dos joelhos. Não há trecho que recomende especificamente escolher uma cadeira “alta ou XXL”. Versão sustentável: “Se você tem mais de 1,85 m, confira se o assento fica aproximadamente entre 52 cm e 55 cm, se o encosto apoia toda a coluna e se o assento não pressiona a parte de trás dos joelhos, segundo a ergocadeiras.”"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha considerando as regulagens disponíveis, o tempo de uso diário e o material do revestimento. Para cadeiras gamers com uso de trabalho de até 6 horas, segundo a ergocadeiras, as diferenças de suporte lombar, ventilação e formato do assento são menos impactantes. Uma cadeira ergonômica deve ter ajuste de altura do assento, apoio lombar regulável, braços com ajuste de altura e encosto reclinável com trava.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0511027dea9a",
+        "clm_628749d96ce7",
+        "clm_0eee973d6c42"
+      ]
+    },
+    {
+      "ref": "cadeira-operacional#0",
+      "action": "replace",
+      "text": "Em editais consultados via Compras.gov.br, a altura do assento é regulável de 420 mm a 520 mm, o assento é fabricado em espuma de alta resistência com densidade mínima de 40 kg/m³ ou tecnologia equivalente, e a estrutura deve suportar carga estática/dinâmica mínima de 120 kg.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_01476db5c52a",
+        "clm_0e998ebf8065"
+      ]
+    },
+    {
+      "ref": "requisitos-nbr-13962#0",
+      "action": "replace",
+      "text": "Requisitos da NR-17 e especificações em editais de compra",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Como decidir entre operacional e gamer",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "kept": false,
+  "blocked": [
+    "requisitos-nbr-13962#0: FRAMING_HAS_NUMBER Requisitos da NR-17 e especificações em editais de compra"
+  ]
+}
