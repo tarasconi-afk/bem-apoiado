@@ -1,0 +1,128 @@
+{
+  "slug": "cobertor-tamanho-king-ou-queen-qual-e-maior",
+  "primary_query": "cobertor tamanho king ou queen: qual é maior",
+  "page_type": "decision_compare",
+  "questions": [
+    {
+      "id": "q_medidas_king_queen",
+      "text": "Quais são as medidas (largura x comprimento) que os fabricantes declaram na ficha técnica para cobertores tamanho king e queen?"
+    },
+    {
+      "id": "q_medida_king",
+      "text": "Qual é a medida exata (largura x comprimento) do cobertor king declarada na ficha técnica do fabricante?"
+    },
+    {
+      "id": "q_medida_queen",
+      "text": "Qual é a medida exata (largura x comprimento) do cobertor queen declarada na ficha técnica do fabricante?"
+    },
+    {
+      "id": "q_indicacao_cama",
+      "text": "Para qual tamanho de cama (casal, queen, king) o fabricante indica o uso de cada tamanho de cobertor?"
+    },
+    {
+      "id": "q_composicao_fibra",
+      "text": "O que a etiqueta ou a ficha do fabricante informa sobre a composição da fibra (ex.: microfibra, lã, acrílico) usada no cobertor king e no queen?"
+    },
+    {
+      "id": "q_uso_leitor",
+      "text": "Em \"cobertor tamanho king ou queen: qual é maior\", o que os fabricantes declaram sobre como cada opção se comporta no uso (maciez, firmeza, sustentação, altura) e para qual perfil de uso indicam cada uma?"
+    },
+    {
+      "id": "q_restricao_leitor",
+      "text": "Em \"cobertor tamanho king ou queen: qual é maior\", o que fabricantes, Inmetro ou órgãos de defesa do consumidor informam por escrito sobre retenção de calor, cheiro, ruído ou cuidados de segurança de cada opção?"
+    }
+  ],
+  "source_ids": [
+    "src_02c92f34819a",
+    "src_8b3e43ce2947",
+    "src_fbae570610c6",
+    "src_3403ce896a97",
+    "src_9a2f85cc5f14",
+    "src_968dec860ed9",
+    "src_5eb683c5cfca",
+    "src_3e2dc9c6e8aa",
+    "src_016e0362b457",
+    "src_7a3af601ce2c",
+    "src_d61172a11ddb",
+    "src_b0f0155ae4c5",
+    "src_22616fbb983c",
+    "src_7c9c513e4e43",
+    "src_fbba90445ae1",
+    "src_2e1e8c84cc38",
+    "src_ee39048fb5c5",
+    "src_21a903e799e9",
+    "src_b72f9fe6b01c",
+    "src_06bd921eb5e5",
+    "src_3f24e8318b7e",
+    "src_ca451d5537a7",
+    "src_05b9eab4b8cd",
+    "src_d334d2cbedb8",
+    "src_d8c9cafffcfd",
+    "src_9860ada36aca",
+    "src_53447acdd2a0",
+    "src_e01bfdd35df8",
+    "src_f96e42166ebd",
+    "src_18b16c81ec7d",
+    "src_3e0d25a7c468"
+  ],
+  "editorial_notes": [
+    "Comparar apenas os tamanhos king e queen citados no título; não usar exemplos de outros tamanhos (solteiro, casal) como referência de medida.",
+    "Se a ficha do fabricante não trouxer a medida de um dos tamanhos, informar a ausência em vez de estimar ou comparar com outro tamanho.",
+    "Não vincular a medida do cobertor a benefícios de conforto térmico ou saúde; tratar composição da fibra apenas como dado declarado pelo fabricante.",
+    "Repetir instrução de lavagem apenas na seção de cuidado; não duplicar na seção de composição ou na tabela comparativa.",
+    "Regra de decisão sustentada: Se você quer o cobertor maior entre as duas opções, escolha o king: nas tabelas de fabricantes, ele aparece com medidas maiores que o queen, como 2,80 m x 2,60 m contra 2,40 m x 2,60 m. (evidências: clm_04e2bb347daf, clm_0e4444df0771)",
+    "Regra de decisão sustentada: Se sua cama é queen, escolha um cobertor queen e confira as medidas na ficha; se sua cama é king, escolha um cobertor king, pois os fabricantes associam cada tamanho à respectiva cama. (evidências: clm_0ba24704c19b, clm_77f3a22bc929, clm_9fa82c497bbf)"
+  ],
+  "focus_terms": [
+    "king",
+    "queen",
+    "medidas",
+    "cobertor",
+    "etiqueta",
+    "composição",
+    "lavagem",
+    "secagem"
+  ],
+  "evidence_gaps": [],
+  "researched_source_ids": [
+    "src_02c92f34819a",
+    "src_8b3e43ce2947",
+    "src_fbae570610c6",
+    "src_3403ce896a97",
+    "src_9a2f85cc5f14",
+    "src_968dec860ed9",
+    "src_5eb683c5cfca",
+    "src_3e2dc9c6e8aa",
+    "src_016e0362b457",
+    "src_7a3af601ce2c",
+    "src_d61172a11ddb",
+    "src_b0f0155ae4c5",
+    "src_22616fbb983c",
+    "src_7c9c513e4e43",
+    "src_fbba90445ae1",
+    "src_2e1e8c84cc38",
+    "src_ee39048fb5c5",
+    "src_21a903e799e9",
+    "src_b72f9fe6b01c",
+    "src_06bd921eb5e5",
+    "src_3f24e8318b7e",
+    "src_ca451d5537a7",
+    "src_05b9eab4b8cd",
+    "src_d334d2cbedb8",
+    "src_d8c9cafffcfd",
+    "src_9860ada36aca",
+    "src_53447acdd2a0",
+    "src_e01bfdd35df8",
+    "src_f96e42166ebd",
+    "src_18b16c81ec7d",
+    "src_3e0d25a7c468"
+  ],
+  "improve_attempts": 0,
+  "product_kinds": [
+    "cobertor"
+  ],
+  "listing_terms": [
+    "king",
+    "queen"
+  ]
+}

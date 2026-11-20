@@ -1,0 +1,154 @@
+{
+  "run_id": "20261120T192755_tamanhos-de-jogo-de-cama-enrich_c9c8",
+  "topic": "tamanhos-de-jogo-de-cama",
+  "accepted": [
+    {
+      "claim_id": "clm_a573424762f3",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fe6b43059924",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bb62377cb70a",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_cf63ef1915a8",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_8a1d978c6fb2",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_014ad425f567",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": true
+    },
+    {
+      "claim_id": "clm_28d07b587785",
+      "question_id": "q_etiqueta_composicao_cuidado",
+      "source_id": "src_3466efaad1b5",
+      "new": false
+    },
+    {
+      "claim_id": "clm_83d818242179",
+      "question_id": "q_medida_colchao_por_tamanho",
+      "source_id": "src_1f9a9995068e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d54dbf708174",
+      "question_id": "q_medida_colchao_por_tamanho",
+      "source_id": "src_1f9a9995068e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_956895250ef2",
+      "question_id": "q_medida_colchao_por_tamanho",
+      "source_id": "src_1f9a9995068e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_198ac4f64b13",
+      "question_id": "q_medida_colchao_por_tamanho",
+      "source_id": "src_1f9a9995068e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_83d818242179",
+      "question_id": "q_altura_maxima_elastico",
+      "source_id": "src_1f9a9995068e",
+      "new": false
+    },
+    {
+      "claim_id": "clm_d54dbf708174",
+      "question_id": "q_altura_maxima_elastico",
+      "source_id": "src_1f9a9995068e",
+      "new": false
+    },
+    {
+      "claim_id": "clm_956895250ef2",
+      "question_id": "q_altura_maxima_elastico",
+      "source_id": "src_1f9a9995068e",
+      "new": false
+    },
+    {
+      "claim_id": "clm_198ac4f64b13",
+      "question_id": "q_altura_maxima_elastico",
+      "source_id": "src_1f9a9995068e",
+      "new": false
+    },
+    {
+      "claim_id": "clm_340b1179320d",
+      "question_id": "q_medidas_lencol_cima_fronha",
+      "source_id": "src_1f9a9995068e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a06a820ef0a5",
+      "question_id": "q_diferenca_queen_casal_king",
+      "source_id": "src_1f9a9995068e",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_medida_colchao_por_tamanho": 4,
+    "q_altura_maxima_elastico": 4,
+    "q_medidas_lencol_cima_fronha": 1,
+    "q_pecas_incluidas": 0,
+    "q_etiqueta_composicao_cuidado": 7,
+    "q_diferenca_queen_casal_king": 1
+  },
+  "unanswered": [
+    "q_pecas_incluidas"
+  ],
+  "usage": {
+    "input_tokens": 1811,
+    "output_tokens": 2517,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.81
+    },
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 1,
+      "keep": true,
+      "p_useful": 0.77
+    },
+    {
+      "source_id": "src_3466efaad1b5",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0.07
+    },
+    {
+      "source_id": "src_1f9a9995068e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 50.00347308
+}

@@ -1,0 +1,67 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha solteiro para colchão de 0,88 m × 1,88 m.",
+      "Escolha casal para colchão de 1,38 m × 1,88 m.",
+      "Escolha queen para colchão de aproximadamente 1,58 m × 1,98 m e confira se o lençol mede 1,60 m × 2,00 m.",
+      "Escolha king para colchão de 1,93 m × 2,03 m.",
+      "Confira a altura máxima do lençol com elástico: os modelos citados suportam 30 cm no solteiro e casal e 40 cm no queen e king.",
+      "Se o colchão tiver mais de 30 cm de altura, procure na ficha um lençol com elástico de 40 cm ou outra medida compatível.",
+      "Confira na ficha do produto as medidas de cada peça, a quantidade de peças, a composição e as instruções de lavagem.",
+      "Use a medida declarada na etiqueta para diferenciar casal, queen e king; queen é cerca de 22 cm mais largo que casal e king, 33 cm mais largo que queen."
+    ],
+    "missing": [
+      "Medidas e altura máxima do lençol com elástico para o tamanho solteirão, além da medida de colchão correspondente.",
+      "Medidas do lençol de cima e das fronhas para todos os tamanhos, especialmente queen e king.",
+      "Quantidade de peças e número de fronhas dos jogos queen e king, além da confirmação para os demais tamanhos.",
+      "Tabela de um fabricante relacionando cada tamanho a uma faixa ou altura máxima de colchão, em vez de medidas pontuais de modelos diferentes.",
+      "Esclarecimento do motivo pelo qual a medida do colchão queen aparece como 1,58 m × 1,98 m, enquanto o lençol é informado como 1,60 m × 2,00 m."
+    ],
+    "publishable": true,
+    "summary": "Publicável, mas responde apenas parcialmente ao conjunto de tamanhos: dá uma regra clara para comprar solteiro, casal, queen e king e informa alturas máximas úteis. Falta o tamanho solteirão e faltam medidas de fronhas, quantidade de peças e detalhes completos dos jogos queen e king; essas lacunas reduzem a completude, mas não anulam a utilidade para a dúvida principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Meça a largura e o comprimento do colchão e escolha o jogo correspondente: solteiro, casal, queen ou king.",
+      "Para colchão de 0,88 m × 1,88 m, escolha o tamanho solteiro.",
+      "Para colchão de 1,38 m × 1,88 m, escolha o tamanho casal.",
+      "Para colchão de cerca de 1,58 m × 1,98 m, escolha o tamanho queen.",
+      "Para colchão de 1,93 m × 2,03 m, escolha o tamanho king.",
+      "Confira a altura máxima do lençol com elástico: os modelos citados suportam 30 cm no solteiro e casal e 40 cm no queen e king.",
+      "Se o colchão tiver mais de 30 cm de altura, procure na ficha um lençol com elástico de 40 cm ou a medida compatível.",
+      "Confira na ficha as medidas do lençol de cima, das fronhas e a quantidade de peças, pois elas variam conforme o fabricante.",
+      "Leia a etiqueta para verificar composição, dimensões, país de origem e instruções de lavagem e secagem."
+    ],
+    "missing": [
+      "Medida de colchão e altura máxima do lençol com elástico para o tamanho solteirão.",
+      "Regra ou tabela de fabricante que diferencie claramente solteiro de solteirão.",
+      "Medidas do lençol de cima e das fronhas para todos os tamanhos, especialmente solteirão, queen e king.",
+      "Quantidade de peças e de fronhas dos jogos queen, king e solteirão.",
+      "Conciliação da diferença entre a medida do colchão queen de 1,58 m × 1,98 m e o lençol informado como 1,60 m × 2,00 m.",
+      "Tabela única de fabricante relacionando cada tamanho do jogo às medidas do colchão e à altura máxima suportada."
+    ],
+    "publishable": true,
+    "summary": "Publicável, porque oferece uma regra prática de compra: medir o colchão, escolher o tamanho correspondente e conferir a altura do lençol com elástico na ficha. A resposta curta é direta e a tabela ajuda na decisão, mas a página responde apenas parcialmente à pauta por omitir o solteirão e não informar a composição dos jogos, as medidas das fronhas e a quantidade de peças para todos os tamanhos.",
+    "filler_ratio": 0.0625,
+    "model_opinion": true
+  }
+}

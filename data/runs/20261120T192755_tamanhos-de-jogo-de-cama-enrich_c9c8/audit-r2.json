@@ -1,0 +1,122 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram medidas de lençóis com elástico de 30 cm em Corttex e Bouton e de 40 cm em Plumasul, mas não dizem que essa medida é a profundidade máxima nem formulam explicitamente uma regra para colchões acima de 30 cm. A conclusão de conferir a medida é razoável, porém a formulação sobre “profundidade máxima” excede o que foi citado.",
+      "fix": "Escolha o tamanho do jogo de cama pela medida do colchão: solteiro para 0,88 m × 1,88 m, casal para 1,38 m × 1,88 m, queen para 1,58 m × 1,98 m e king para 1,93 m × 2,03 m. Como as medidas citadas para a altura de lençóis com elástico variam entre produtos — 30 cm em Corttex e Bouton e 40 cm em Plumasul —, confira a medida indicada na ficha antes de comprar."
+    },
+    {
+      "ref": "medidas-lencol-de-cima-e-fronhas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-de-pecas#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-de-pecas#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-entre-tamanhos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-entre-tamanhos#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam dimensões de 30 cm e 40 cm, mas não dizem que se trata da altura das abas nem que o lençol suporta até essas medidas.",
+      "fix": "Nas medidas citadas, o lençol com elástico para casal aparece com 30 cm, enquanto os modelos queen e king da Plumasul aparecem com 40 cm, segundo Bouton e Plumasul."
+    },
+    {
+      "ref": "informacoes-etiqueta#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta os nomes genéricos das fibras com percentuais em massa, em ordem decrescente e com igual destaque, mas não especifica que essa informação deve estar na etiqueta nem limita a regra a um jogo de cama.",
+      "fix": "A informação deve apresentar os nomes genéricos das fibras ou filamentos e seus respectivos percentuais em massa, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "informacoes-etiqueta#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": "Manter o texto: o trecho citado sustenta a informação sobre composição têxtil, país de origem e dimensões de cada componente na embalagem ou em meio interno visível através dela, para produtos embalados."
+    },
+    {
+      "ref": "informacoes-etiqueta#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-de-lavagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam que o lençol com elástico mede 88 cm x 1,88 m x 30 cm, mas não dizem que 30 cm é a altura máxima.",
+      "fix": "Use “Lençol com elástico: segundo a Corttex, 88 cm x 1,88 m x 30 cm”, sem qualificar os 30 cm como altura máxima."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam lençóis com elástico de 40 cm para queen e king, mas não dizem que esses tamanhos “suportam até 40 cm” nem que a medida seja uma profundidade máxima.",
+      "fix": "Se seu colchão tem mais de 30 cm de altura, confira a medida do lençol com elástico na ficha do jogo; os fabricantes citados informam modelos queen e king com 40 cm nessa dimensão."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos mostram medidas de lençóis com elástico de 30 cm em Corttex e Bouton e de 40 cm em Plumasul, mas não dizem que essa medida é a profundidade máxima nem formulam explicitamente uma regra para colchões acima de 30 cm. A conclusão de conferir a medida é razoável, porém a formulação sobre “profundidade máxima” excede o que foi citado. Versão sustentável: Escolha o tamanho do jogo de cama pela medida do colchão: solteiro para 0,88 m × 1,88 m, casal para 1,38 m × 1,88 m, queen para 1,58 m × 1,98 m e king para 1,93 m × 2,03 m. Como as medidas citadas para a altura de lençóis com elástico variam entre produtos, 30 cm em Corttex e Bouton e 40 cm em Plumasul, , confira a medida indicada na ficha antes de comprar."
+    },
+    {
+      "ref": "diferenca-entre-tamanhos#1",
+      "msg": "OVERSTATED. Os trechos informam dimensões de 30 cm e 40 cm, mas não dizem que se trata da altura das abas nem que o lençol suporta até essas medidas. Versão sustentável: Nas medidas citadas, o lençol com elástico para casal aparece com 30 cm, enquanto os modelos queen e king da Plumasul aparecem com 40 cm, segundo Bouton e Plumasul."
+    },
+    {
+      "ref": "informacoes-etiqueta#0",
+      "msg": "OVERSTATED. O trecho sustenta os nomes genéricos das fibras com percentuais em massa, em ordem decrescente e com igual destaque, mas não especifica que essa informação deve estar na etiqueta nem limita a regra a um jogo de cama. Versão sustentável: A informação deve apresentar os nomes genéricos das fibras ou filamentos e seus respectivos percentuais em massa, em ordem decrescente e com igual destaque."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. Os trechos informam que o lençol com elástico mede 88 cm x 1,88 m x 30 cm, mas não dizem que 30 cm é a altura máxima. Versão sustentável: Use “Lençol com elástico: segundo a Corttex, 88 cm x 1,88 m x 30 cm”, sem qualificar os 30 cm como altura máxima."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos informam lençóis com elástico de 40 cm para queen e king, mas não dizem que esses tamanhos “suportam até 40 cm” nem que a medida seja uma profundidade máxima. Versão sustentável: Se seu colchão tem mais de 30 cm de altura, confira a medida do lençol com elástico na ficha do jogo; os fabricantes citados informam modelos queen e king com 40 cm nessa dimensão."
+    }
+  ]
+}
