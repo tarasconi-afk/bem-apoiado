@@ -1,0 +1,28 @@
+{
+  "refs": [
+    "como-decidir#0",
+    "como-decidir#0.r0",
+    "como-decidir#0.r1",
+    "como-decidir#0.r2"
+  ],
+  "findings": [
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O exemplo de edredom encorpado indicado para frio intenso é atribuído corretamente à Altenburg, mas o rótulo da tabela diz que a gramatura foi descrita pela Döhler, algo que o trecho citado da Altenburg não afirma nem documenta.",
+      "fix": "Remover a referência à Döhler e usar: \"Situação: Frio intenso | Exemplo de produto: Segundo a Altenburg, modelos encorpados são ideais para o frio intenso.\""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que os produtos têm 180, 200 e 170 g/m² e trazem descrições de volume ou conforto térmico, mas não dizem que os modelos de 180 g/m² e 200 g/m² são adequados especificamente para frio intenso. O trecho de 170 g/m² fala em clima frio e temperaturas mais amenas, não em frio intenso. Além disso, o título atribui a descrição à Döhler, embora as evidências sejam de Altenburg, Teka e Appel.",
+      "fix": "Usar uma formulação mais estreita, sem a atribuição à Döhler nem a classificação geral como frio intenso: \"Exemplos: Teka Florença, 180 g/m², com volume e aconchego; Appel Bordare Premium, 200 g/m², com conforto térmico; Appel Plush Flannel, 170 g/m², indicado pela Appel para clima frio e temperaturas mais amenas.\""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

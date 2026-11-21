@@ -1,0 +1,521 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Para frio intenso, escolha um edredom encorpado; para meia-estação ou regiões quentes, prefira um modelo de gramatura leve, segundo a Altenburg. Quanto maior a gramatura, mais volumoso e quente será o edredom, segundo a Altenburg. Para uma cama king de 1,93 m x 2,03 m, procure um edredom king de aproximadamente 2,80 m x 2,50 m para cobrir as laterais, conforme a Altenburg.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c491b85b399d",
+        "clm_f0ec8975c863",
+        "clm_17a0af15cd58",
+        "clm_606001e77067"
+      ]
+    },
+    {
+      "ref": "enchimento-tipos#0",
+      "action": "replace",
+      "text": "Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, associada a volume e retenção de calor.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0ca225e97b69"
+      ]
+    },
+    {
+      "ref": "enchimento-tipos#1",
+      "action": "replace",
+      "text": "No edredom Summer da Plumasul, o revestimento é 100% algodão percal com tratamento Downproof, e o enchimento é 100% plumas de ganso. A Döhler informa edredons com gramatura de 130 g/m², e a Appel oferece modelos com 170 g/m², ambas associadas pelas fabricantes a descrições de conforto térmico.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e86ea4ea87b",
+        "clm_5fbf97f0fe55",
+        "clm_028a55254d48"
+      ]
+    },
+    {
+      "ref": "tamanhos-medidas#1",
+      "action": "replace",
+      "text": "As medidas variam entre fabricantes. Confira na ficha técnica do edredom que você escolher as dimensões exatas antes de comprar.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "action": "replace",
+      "text": "Produtos têxteis devem informar o nome das fibras e seus percentuais em massa na etiqueta, em ordem decrescente e com igual destaque, segundo o Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e5f8661d994",
+        "clm_055cf59ece8e",
+        "clm_1a9fa3a6c7bf"
+      ]
+    },
+    {
+      "ref": "composicao-etiqueta#2",
+      "action": "replace",
+      "text": "Quanto ao cuidado de conservação, a etiqueta deve informar sobre lavagem, alvejamento, secagem, passadoria a ferro e limpeza a seco, nessa ordem.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1ed51f1b07b3",
+        "clm_29960a788266"
+      ]
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "action": "replace",
+      "text": "A Altenburg declara que seus modelos têm tratamentos antialérgicos e antimicrobianos. O Inmetro não avalia propriedades antialérgicas, hipoalergênicas ou antimicrobianas em edredons.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_906210a61fab",
+        "clm_4bf198815495"
+      ]
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "action": "replace",
+      "text": "Se alergia for uma preocupação, verifique se o fabricante declara o edredom como antialérgico; a Altenburg declara tratamentos antialérgicos em seus modelos. O Inmetro não valida essa propriedade. Para recomendações específicas, procure um profissional de saúde.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_906210a61fab",
+        "clm_4bf198815495"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Frio intenso",
+          "claim_ids": [
+            "clm_c491b85b399d"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, modelos encorpados",
+          "claim_ids": [
+            "clm_c491b85b399d"
+          ]
+        },
+        {
+          "text": "Edredom encorpado",
+          "claim_ids": [
+            "clm_c491b85b399d"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Meia-estação ou região quente",
+          "claim_ids": [
+            "clm_c491b85b399d"
+          ]
+        },
+        {
+          "text": "Segundo a Altenburg, modelos leves; exemplos citados: 112 g/m² (Karsten) e 130 g/m² (Döhler)",
+          "claim_ids": [
+            "clm_c491b85b399d",
+            "clm_478f2dc44e78",
+            "clm_5fbf97f0fe55"
+          ]
+        },
+        {
+          "text": "Edredom leve",
+          "claim_ids": [
+            "clm_c491b85b399d"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você dorme em clima frio intenso, compare a gramatura do enchimento na ficha: alguns exemplos citados incluem 180 g/m² na Teka, descrito como oferecendo volume e aconchego, e 200 g/m² na Appel, descrito como volumoso e de alto conforto térmico. Para clima mais ameno, a Döhler descreve 130 g/m² como adequado para todas as estações.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_63308ee14919",
+        "clm_17e5c4217ee6",
+        "clm_5fbf97f0fe55"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher edredom para o frio: gramatura e enchimento",
+    "description": "Escolha edredom para frio pela gramatura do enchimento e pelo tipo de fibra.",
+    "verdict": {
+      "text": "Para frio intenso, escolha um edredom encorpado; para meia-estação ou regiões quentes, prefira um modelo de gramatura leve, segundo a Altenburg. Quanto maior a gramatura, mais volumoso e quente será o edredom, segundo a Altenburg. Para uma cama king de 1,93 m x 2,03 m, procure um edredom king de aproximadamente 2,80 m x 2,50 m para cobrir as laterais, conforme a Altenburg.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c491b85b399d",
+        "clm_f0ec8975c863",
+        "clm_17a0af15cd58",
+        "clm_606001e77067"
+      ]
+    },
+    "sections": [
+      {
+        "id": "enchimento-tipos",
+        "heading": "Pluma ou sintético: o que cada um oferece",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, associada a volume e retenção de calor.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ca225e97b69"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No edredom Summer da Plumasul, o revestimento é 100% algodão percal com tratamento Downproof, e o enchimento é 100% plumas de ganso. A Döhler informa edredons com gramatura de 130 g/m², e a Appel oferece modelos com 170 g/m², ambas associadas pelas fabricantes a descrições de conforto térmico.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e86ea4ea87b",
+              "clm_5fbf97f0fe55",
+              "clm_028a55254d48"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "tamanhos-medidas",
+        "heading": "Qual tamanho escolher para sua cama",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas de edredom por tamanho de cama (referência de fabricantes)",
+            "columns": [
+              "Tamanho do edredom",
+              "Medida típica",
+              "Para cama de"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 1,80 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 0,88 m x 1,88 m",
+                    "claim_ids": [
+                      "clm_087a7f33bba2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 2,20 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 1,38 m x 1,88 m",
+                    "claim_ids": [
+                      "clm_087a7f33bba2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 2,40 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 1,58 m x 1,98 m",
+                    "claim_ids": [
+                      "clm_087a7f33bba2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 2,80 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_606001e77067"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, 1,93 m x 2,03 m",
+                    "claim_ids": [
+                      "clm_17a0af15cd58"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "As medidas variam entre fabricantes. Confira na ficha técnica do edredom que você escolher as dimensões exatas antes de comprar.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-etiqueta",
+        "heading": "O que a etiqueta deve informar",
+        "blocks": [
+          {
+            "text": "Produtos têxteis devem informar o nome das fibras e seus percentuais em massa na etiqueta, em ordem decrescente e com igual destaque, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e5f8661d994",
+              "clm_055cf59ece8e",
+              "clm_1a9fa3a6c7bf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta também deve trazer as dimensões do edredom e informações de país de origem. Essas informações podem estar na embalagem ou em meio visualizável no interior da embalagem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_15be5fa33779",
+              "clm_186e0a4a8d35"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quanto ao cuidado de conservação, a etiqueta deve informar sobre lavagem, alvejamento, secagem, passadoria a ferro e limpeza a seco, nessa ordem.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1ed51f1b07b3",
+              "clm_29960a788266"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "propriedades-declaradas",
+        "heading": "Propriedades antialérgicas: o que declaram os fabricantes",
+        "blocks": [
+          {
+            "text": "A Altenburg declara que seus modelos têm tratamentos antialérgicos e antimicrobianos. O Inmetro não avalia propriedades antialérgicas, hipoalergênicas ou antimicrobianas em edredons.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_906210a61fab",
+              "clm_4bf198815495"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se alergia for uma preocupação, verifique se o fabricante declara o edredom como antialérgico; a Altenburg declara tratamentos antialérgicos em seus modelos. O Inmetro não valida essa propriedade. Para recomendações específicas, procure um profissional de saúde.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_906210a61fab",
+              "clm_4bf198815495"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pelo frio da sua região",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Gramatura recomendada pela Altenburg conforme o clima",
+            "columns": [
+              "Situação",
+              "Gramatura indicada",
+              "Exemplo de modelo"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Frio intenso",
+                    "claim_ids": [
+                      "clm_c491b85b399d"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, modelos encorpados",
+                    "claim_ids": [
+                      "clm_c491b85b399d"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, edredom encorpado",
+                    "claim_ids": [
+                      "clm_c491b85b399d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Meia-estação ou região quente",
+                    "claim_ids": [
+                      "clm_c491b85b399d"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, modelos leves; exemplos citados: 112 g/m² (Karsten) e 130 g/m² (Döhler)",
+                    "claim_ids": [
+                      "clm_c491b85b399d",
+                      "clm_478f2dc44e78",
+                      "clm_5fbf97f0fe55"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Altenburg, edredom leve",
+                    "claim_ids": [
+                      "clm_c491b85b399d"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Todas as estações",
+                    "claim_ids": [
+                      "clm_5fbf97f0fe55",
+                      "clm_b9cea5288680"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 130 g/m²",
+                    "claim_ids": [
+                      "clm_5fbf97f0fe55",
+                      "clm_b9cea5288680"
+                    ]
+                  },
+                  {
+                    "text": "Edredom Dupla Face Otto Poppi (Döhler)",
+                    "claim_ids": [
+                      "clm_5fbf97f0fe55",
+                      "clm_b9cea5288680"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você dorme em clima frio intenso, compare a gramatura do enchimento na ficha: alguns exemplos citados incluem 180 g/m² na Teka, descrito como oferecendo volume e aconchego, e 200 g/m² na Appel, descrito como volumoso e de alto conforto térmico. Para clima mais ameno, a Döhler descreve 130 g/m² como adequado para todas as estações.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_63308ee14919",
+              "clm_17e5c4217ee6",
+              "clm_5fbf97f0fe55"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se sua cama é king size (1,93 m x 2,03 m), escolha um edredom king e confira as dimensões na ficha: uma medida de referência é cerca de 2,80 m x 2,50 m, que cobre as laterais e o pé sem deixar curto, segundo a Altenburg.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_17a0af15cd58",
+              "clm_606001e77067"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você quer reduzir a chance de aquecer demais, prefira edredons com gramatura menor, segundo a Altenburg. Segundo a Altenburg, quanto maior a gramatura, mais volumoso e quente será o edredom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_f0ec8975c863"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que edredons leves são indicados para meia-estação ou regiões quentes e que modelos encorpados são ideais para frio intenso, mas não informam os valores de 180 g/m², 112 g/m² ou 130 g/m². As afirmações sobre maior gramatura, volume e calor e sobre a medida geralmente indicada para edredom king são sustentadas. Versão sustentável: Para frio intenso, escolha um edredom encorpado; para meia-estação ou regiões quentes, prefira um modelo de gramatura leve, segundo a Altenburg. Quanto maior a gramatura, mais volumoso e quente será o edredom, segundo a Altenburg. Para uma cama king de 1,93 m x 2,03 m, procure um edredom king de aproximadamente 2,80 m x 2,50 m para cobrir as laterais, conforme a Altenburg."
+    },
+    {
+      "ref": "enchimento-tipos#0",
+      "msg": "UNSUPPORTED. O trecho da Altenburg sustenta a existência da camada interna e sua relação com volume e retenção de calor, mas não diz que a diferença entre os tipos é entre pluma como penas naturais e enchimento sintético de poliéster ou microfibra. Versão sustentável: Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, associada a volume e retenção de calor."
+    },
+    {
+      "ref": "enchimento-tipos#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam as especificações do edredom Summer da Plumasul e informam gramaturas e descrições de conforto térmico para produtos da Döhler e da Appel. Porém, não dizem que esses edredons sintéticos têm enchimento de poliéster ou microfibra, nem estabelecem que as gramaturas variam conforme o conforto térmico desejado. Versão sustentável: No edredom Summer da Plumasul, o revestimento é 100% algodão percal com tratamento Downproof, e o enchimento é 100% plumas de ganso. Nos produtos citados, a Döhler informa gramatura de 130 g/m² e a Appel, de 170 g/m², ambas associadas pelas fabricantes a descrições de conforto térmico."
+    },
+    {
+      "ref": "tamanhos-medidas#1",
+      "msg": "FACT_IN_FRAMING. Embora a orientação prática possa ser razoável, o bloco com base em framing afirma fatos sobre a variação das medidas entre fabricantes e sobre a cobertura da cama sem trechos citados que os sustentem. Versão sustentável: A seguir, veja as medidas apresentadas pelas fontes."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "msg": "OVERSTATED. Os trechos sustentam a indicação do nome das fibras e do percentual em massa, em ordem decrescente e com igual destaque, mas não especificam que isso deve ser informado separadamente para o enchimento e o tecido externo. Versão sustentável: Produtos têxteis devem informar o nome das fibras e seus percentuais em massa na etiqueta, em ordem decrescente e com igual destaque, segundo o Inmetro."
+    },
+    {
+      "ref": "composicao-etiqueta#2",
+      "msg": "UNSUPPORTED. Os trechos sustentam a obrigatoriedade e a sequência dos processos de conservação, mas não dizem que o consumidor deve ler a etiqueta antes da compra para confirmar compatibilidade com seu processo de limpeza. Versão sustentável: Quanto ao cuidado de conservação, a etiqueta deve informar sobre lavagem, alvejamento, secagem, passadoria a ferro e limpeza a seco, nessa ordem."
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "msg": "SAFETY_CLAIM. Embora atribuída à Altenburg, a frase repete uma alegação de resultado ligada à saúde: que os tratamentos reduzem a proliferação de ácaros e fungos. Essa alegação não pode ser publicada nessa forma pela regra de segurança do site. Versão sustentável: A Altenburg declara que seus modelos têm tratamentos antialérgicos e antimicrobianos. O Inmetro não avalia propriedades antialérgicas, hipoalergênicas ou antimicrobianas em edredons."
+    },
+    {
+      "ref": "propriedades-declaradas#1",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam a declaração da Altenburg sobre tratamentos antialérgicos, mas não mencionam produtos ou declarações hipoalergênicas, nem dizem que essas declarações ajudam na decisão. Portanto, essas partes excedem o conteúdo citado. Versão sustentável: Se alergia for uma preocupação, verifique se o fabricante declara o edredom como antialérgico; a Altenburg declara tratamentos antialérgicos em seus modelos. O Inmetro não valida essa propriedade. Para recomendações específicas, procure um profissional de saúde."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "OVERSTATED. O trecho da Altenburg relaciona modelos encorpados ao frio intenso, mas não informa o limite numérico de acima de 180 g/m². A tabela acrescenta essa gramatura como se fosse indicada pela fonte. Versão sustentável: Situação: Frio intenso | Gramatura indicada: Segundo a Altenburg, modelos encorpados | Exemplo de modelo: Edredom encorpado."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "OVERSTATED. Os trechos sustentam que a Altenburg indica edredons leves para meia-estação ou regiões quentes, e mostram exemplos de 112 g/m² da Karsten e 130 g/m² da Döhler. Porém, não sustentam que a faixa de 112 a 130 g/m² seja uma recomendação climática conjunta desses fabricantes, nem que a Altenburg tenha indicado esses números. Versão sustentável: Dizer: A Altenburg indica edredons leves para meia-estação ou regiões quentes; entre os exemplos citados, há modelos de 112 g/m² da Karsten e de 130 g/m² da Döhler."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos mostram exemplos isolados: 180 g/m² na Teka com volume e aconchego, 200 g/m² na Appel com descrição de volumoso e alto conforto térmico, e 180 g/m² na Döhler sem essa descrição. Eles não sustentam atribuir conjuntamente aos fabricantes nomeados a afirmação geral de que modelos de 180 a 200 g/m² são volumosos e têm maior conforto térmico. Da mesma forma, o modelo Karsten de 112 g/m² não é descrito no trecho como leve ou para todas as estações. Versão sustentável: Dizer: Alguns exemplos citados incluem 180 g/m² na Teka, descrito como oferecendo volume e aconchego, e 200 g/m² na Appel, descrito pela fabricante como volumoso e de alto conforto térmico. A Döhler descreve 130 g/m² como leve e adequado para todas as estações; a Karsten informa um modelo de 112 g/m², sem classificação climática no trecho."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1725
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete orientar a escolha pelo enchimento, mas a página apenas descreve tipos de enchimento e cita exemplos, sem dizer qual tipo é mais indicado para o frio.",
+      "fix": "Reescrever o título para algo como “Como escolher edredom para o frio pela gramatura”."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "tamanhos-medidas#0.r0",
+      "problem": "A medida de 1,80 m x 2,50 m vem da ficha de um edredom específico da Döhler, mas aparece como medida típica de todo edredom solteiro.",
+      "fix": "Reescrever como “O edredom solteiro Dupla Face Otto Poppi, da Döhler, mede 1,80 m x 2,50 m” ou retirar essa generalização."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "tamanhos-medidas#0.r1",
+      "problem": "A medida de 2,20 m x 2,50 m vem da ficha de um edredom específico da Döhler, mas aparece como medida típica de todo edredom casal.",
+      "fix": "Reescrever como “O edredom casal Dupla Face Otto Poppi, da Döhler, mede 2,20 m x 2,50 m” ou retirar essa generalização."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "tamanhos-medidas#0.r2",
+      "problem": "A medida de 2,40 m x 2,50 m vem da ficha de um edredom específico da Döhler, mas aparece como medida típica de todo edredom queen.",
+      "fix": "Reescrever como “O edredom queen Dupla Face Otto Poppi, da Döhler, mede 2,40 m x 2,50 m” ou retirar essa generalização."
+    }
+  ],
+  "usage": {
+    "input_tokens": 24280,
+    "output_tokens": 4739,
+    "calls": 3
+  }
+}
