@@ -1,0 +1,64 @@
+{
+  "run_id": "20261121T190131_autopilot_a802",
+  "topic": "edredom-para-verao-como-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_715f33819e77",
+      "question_id": "q_uso_leveza_calor",
+      "source_id": "src_3290863026d6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b03dc0829d39",
+      "question_id": "q_uso_leveza_calor",
+      "source_id": "src_3290863026d6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_19bd020881f7",
+      "question_id": "q_uso_leveza_calor",
+      "source_id": "src_3290863026d6",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_gramatura_estacao": 0,
+    "q_etiqueta_composicao": 0,
+    "q_cuidado_lavagem": 0,
+    "q_uso_leveza_calor": 3,
+    "q_restricao_antialergico": 0,
+    "q_uso_leitor": 0
+  },
+  "unanswered": [
+    "q_gramatura_estacao",
+    "q_etiqueta_composicao",
+    "q_cuidado_lavagem",
+    "q_restricao_antialergico",
+    "q_uso_leitor"
+  ],
+  "usage": {
+    "input_tokens": 2116,
+    "output_tokens": 295,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_d79ae1522f9c"
+  ],
+  "triage": [
+    {
+      "source_id": "src_3290863026d6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.68
+    },
+    {
+      "source_id": "src_d79ae1522f9c",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.22
+    }
+  ],
+  "credits": 3.93498588
+}
