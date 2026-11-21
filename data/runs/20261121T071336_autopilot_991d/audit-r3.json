@@ -1,0 +1,88 @@
+{
+  "findings": [
+    {
+      "ref": "como-escolher-pela-altura#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado confirma apenas o nome do produto e a altura de 30 cm; não informa que ele tenha elástico nas laterais.",
+      "fix": "Escreva: \"Altura do colchão: 30 cm | Protetor Impermeável 30 cm 18 Queen da Ortobom\"."
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho cita colchões de 40 cm em vários tamanhos, mas não informa que os modelos têm elástico nas laterais. Também não afirma disponibilidade atual; apenas lista produtos no catálogo.",
+      "fix": "Para colchões de 40 cm, o catálogo Altenburg lista modelos nos tamanhos solteiro, solteiro king, casal, queen e king."
+    },
+    {
+      "ref": "materiais-impermeaveis#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "materiais-impermeaveis#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "lavagem-e-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "aviso-seguranca#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco não apenas descreve a página: afirma que existem orientações de segurança do fabricante e recomenda consultá-las antes da compra, sem trecho citado que sustente essa afirmação ou recomendação.",
+      "fix": "A seguir, veja as orientações de segurança apresentadas nesta página."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho confirma apenas as dimensões de 1,93 m x 2,03 m x 40 cm. Não informa que o protetor tem zíper, nem traz instruções de lavagem ou recomenda conferir a etiqueta.",
+      "fix": "O trecho sustenta apenas: \"O Protetor Jacquard da Andreza Enxovais é anunciado nas dimensões de 1,93 m x 2,03 m x 40 cm.\""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-escolher-pela-altura#0.r0",
+      "msg": "UNSUPPORTED. O trecho citado confirma apenas o nome do produto e a altura de 30 cm; não informa que ele tenha elástico nas laterais. Versão sustentável: Escreva: \"Altura do colchão: 30 cm | Protetor Impermeável 30 cm 18 Queen da Ortobom\"."
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r2",
+      "msg": "UNSUPPORTED. O trecho cita colchões de 40 cm em vários tamanhos, mas não informa que os modelos têm elástico nas laterais. Também não afirma disponibilidade atual; apenas lista produtos no catálogo. Versão sustentável: Para colchões de 40 cm, o catálogo Altenburg lista modelos nos tamanhos solteiro, solteiro king, casal, queen e king."
+    },
+    {
+      "ref": "aviso-seguranca#0",
+      "msg": "FACT_IN_FRAMING. O bloco não apenas descreve a página: afirma que existem orientações de segurança do fabricante e recomenda consultá-las antes da compra, sem trecho citado que sustente essa afirmação ou recomendação. Versão sustentável: A seguir, veja as orientações de segurança apresentadas nesta página."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho confirma apenas as dimensões de 1,93 m x 2,03 m x 40 cm. Não informa que o protetor tem zíper, nem traz instruções de lavagem ou recomenda conferir a etiqueta. Versão sustentável: O trecho sustenta apenas: \"O Protetor Jacquard da Andreza Enxovais é anunciado nas dimensões de 1,93 m x 2,03 m x 40 cm.\""
+    }
+  ]
+}

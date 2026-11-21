@@ -1,0 +1,54 @@
+{
+  "slug": "protetor-de-colchao-impermeavel-qual-escolher",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 79946,
+    "output_tokens": 27125,
+    "calls": 46
+  },
+  "credits": 30.066282,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete avisos de segurança do fabricante, mas o bloco não apresenta nenhuma orientação de segurança (aviso-seguranca#0); Mudar o título para algo que corresponda ao único conteúdo disponível ou tirar a seção, pois os trechos não trazem avisos de segur"
+    ],
+    "filler_refs": [
+      "aviso-seguranca#0"
+    ],
+    "decision_criteria": [
+      "Meça a altura do colchão antes de escolher o protetor.",
+      "Para colchão de 30 cm, a página indica o modelo Ortobom de 30 cm.",
+      "Para colchão de 35 cm, a página indica o modelo Ortobom de 35 cm, com elástico em toda a volta.",
+      "Para colchão de até 40 cm e interesse em lavagem na máquina, a página indica o modelo Malha Slim da Altenburg.",
+      "Confira na ficha se o modelo informa a altura compatível e o tipo de fixação, como elástico nas laterais ou em toda a volta.",
+      "Compare as instruções de lavagem: os modelos Ortobom citados permitem lavagem à mão até 40 °C e não podem ser passados a ferro.",
+      "Para a opção da Andreza Enxovais, confira se as dimensões de 1,93 m x 2,03 m x 40 cm são compatíveis com o colchão."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção promete avisos de segurança do fabricante, mas o bloco não apresenta nenhuma orientação de segurança (aviso-seguranca#0); Mudar o título para algo que corresponda ao único conteúdo disponível ou tirar a seção, pois os trechos não trazem avisos de segur",
+      "Tabela completa dos fabricantes relacionando cada modelo à altura máxima ou à faixa de altura do colchão e às medidas de largura e comprimento.",
+      "Medidas de abertura e altura compatível do modelo com zíper ou capa total.",
+      "Declaração dos fabricantes sobre a troca de ar entre as camadas dos materiais impermeáveis, sem atribuir efeitos à saúde.",
+      "Aviso de segurança do fabricante sobre uso por crianças pequenas e risco de asfixia pelo material plástico.",
+      "Instruções completas de conservação, incluindo temperatura máxima, uso de secadora e possibilidade de passar a ferro para cada modelo.",
+      "Informações dos fabricantes sobre maciez, firmeza, sustentação, alteração de altura e perfil de uso de cada opção."
+    ],
+    "publishable": false,
+    "summary": "Publicável, mas com resposta parcial: a página dá uma regra prática baseada na altura do colchão e em uma preferência por lavagem na máquina, permitindo comparar alguns modelos. Ela não cobre, porém, modelos com zíper, limites completos de altura, comportamento no uso e várias instruções de segurança e conservação.",
+    "filler_ratio": 0.1111111111111111,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "aviso-seguranca#0",
+        "problem": "A seção promete avisos de segurança do fabricante, mas o bloco não apresenta nenhuma orientação de segurança.",
+        "fix": "Mudar o título para algo que corresponda ao único conteúdo disponível ou tirar a seção, pois os trechos não trazem avisos de segurança."
+      }
+    ]
+  }
+}

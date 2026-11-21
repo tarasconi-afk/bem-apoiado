@@ -1,0 +1,51 @@
+{
+  "run_id": "20261121T071336_autopilot_991d",
+  "topic": "protetor-de-colchao-impermeavel-qual-escolher",
+  "accepted": [
+    {
+      "claim_id": "clm_8c963e281120",
+      "question_id": "q_material_impermeavel",
+      "source_id": "src_176ac8648056",
+      "new": true
+    },
+    {
+      "claim_id": "clm_552af7230378",
+      "question_id": "q_lavagem",
+      "source_id": "src_176ac8648056",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_altura_colchao": 0,
+    "q_opcao_elastico": 0,
+    "q_opcao_ziper": 0,
+    "q_material_impermeavel": 1,
+    "q_aviso_seguranca": 0,
+    "q_lavagem": 1,
+    "q_uso_leitor": 0
+  },
+  "unanswered": [
+    "q_altura_colchao",
+    "q_opcao_elastico",
+    "q_opcao_ziper",
+    "q_aviso_seguranca",
+    "q_uso_leitor"
+  ],
+  "usage": {
+    "input_tokens": 1902,
+    "output_tokens": 221,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_176ac8648056",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.72
+    }
+  ],
+  "credits": 3.1200497999999994
+}

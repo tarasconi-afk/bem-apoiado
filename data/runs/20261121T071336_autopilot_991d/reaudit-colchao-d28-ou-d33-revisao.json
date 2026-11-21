@@ -1,0 +1,70 @@
+{
+  "score_before": 2.5,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-e-densidade#0",
+      "o-que-e-densidade#3",
+      "densidade-e-firmeza#2",
+      "etiqueta-e-inmetro#3",
+      "durabilidade#1",
+      "peso-e-altura#3"
+    ],
+    "decision_criteria": [
+      "D28 é apresentada pela Probel como indicada para até 90 kg por pessoa e com firmeza intermediária.",
+      "D33 é apresentada pela Probel como indicada para até 100 kg por pessoa e com firmeza firme.",
+      "Para casais com pesos ou biotipos diferentes, conferir se o modelo informa uso para esse perfil.",
+      "Considerar peso e altura do usuário, consultando a tabela do fabricante quando disponível.",
+      "Antes da compra, conferir na etiqueta ou embalagem a densidade nominal da espuma, a composição das camadas e o tipo de colchão."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma regra explícita de escolha entre D28 e D33 por faixa de peso e altura, preferencialmente em tabela do fabricante.",
+      "A indicação de firmeza e suporte do D33 na mesma fonte usada para comparar o D28.",
+      "Esclarecimento sobre qual opção escolher quando o usuário está próximo dos limites de 90 kg ou 100 kg.",
+      "Orientação mais clara para casais, relacionando o peso de cada pessoa ao modelo adequado."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios concretos, mas responde apenas parcialmente à dúvida: informa os limites de peso e a firmeza atribuídos pela Probel, sem transformar esses dados em uma regra clara de escolha entre D28 e D33. A resposta curta também não diz explicitamente qual opção serve para cada faixa de peso, e faltam dados equivalentes sobre a firmeza do D33 e uma tabela peso × altura. Deve ser ajustada antes da publicação.",
+    "filler_ratio": 0.25,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-e-densidade#0",
+      "densidade-e-firmeza#2",
+      "peso-e-altura#3",
+      "durabilidade#1"
+    ],
+    "decision_criteria": [
+      "Para até 90 kg por pessoa, a Probel indica D28 com firmeza intermediária.",
+      "Para até 100 kg por pessoa, a Probel indica D33 com firmeza firme.",
+      "Em casais com pesos ou biotipos diferentes, conferir no anúncio se o modelo é indicado para essa combinação.",
+      "Verificar no produto ou na embalagem a densidade nominal da espuma, o tipo e a composição dos componentes internos.",
+      "Considerar peso e altura do usuário, pois a Ortobom relaciona esses dados à escolha da densidade."
+    ],
+    "missing": [
+      "Tabela primária relacionando especificamente D28 e D33 ao peso e à altura do usuário.",
+      "Indicação primária de firmeza e limite de peso do D33 em mais modelos ou fabricantes.",
+      "Explicação de outros fatores que influenciam a sensação de firmeza além da densidade.",
+      "Dados primários que comparem durabilidade e deformação de D28 e D33 sem restringir a afirmação a modelos específicos da Probel."
+    ],
+    "publishable": true,
+    "summary": "Publicável: responde diretamente à comparação D28 ou D33 com limites concretos de peso, diferença de firmeza e orientação para casais, além de indicar o que conferir na etiqueta. A página poderia ficar mais útil com uma regra que cruzasse peso e altura e com dados comparativos mais completos, mas não é apenas genérica ou promocional.",
+    "filler_ratio": 0.16666666666666666,
+    "model_opinion": true
+  }
+}

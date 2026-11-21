@@ -2,10 +2,10 @@
   "slug": "colchao-para-casal-com-pesos-diferentes",
   "page_type": "decision_compare",
   "status": "approved",
-  "title": "Colchão para casal com pesos diferentes: como escolher",
-  "description": "Escolha o colchão conforme a densidade indicada para o peso de cada pessoa e o tipo de mola. Veja o que fabricantes declaram sobre suporte independente.",
+  "title": "Colchão para casal com pesos diferentes",
+  "description": "Veja qual densidade escolher conforme o peso de cada pessoa e como as molas ensacadas reduzem movimento na cama.",
   "primary_query": "colchão para casal com pesos diferentes",
-  "updated_at": "2026-11-16",
+  "updated_at": "2026-11-21",
   "verdict": {
     "text": "Para casal com pesos diferentes, escolha pela densidade indicada para cada pessoa: segundo a Castor, até 50 kg densidade 23, de 51 a 60 kg densidade 26, de 61 a 70 kg densidade 28, de 71 a 80 kg densidade 33, de 81 a 100 kg densidade 33 a 45, acima de 100 kg densidade 45 ou maior. Colchões de molas ensacadas reduzem a transferência de movimento entre vocês, segundo Ortobom e Simmons.",
     "basis": "reasoning",
@@ -300,17 +300,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261116T071728_colchao-para-casal-com-pesos-diferentes-enrich_e409+editor:20261116T072143_colchao-para-casal-com-pesos-diferentes-autocorrecao_d631+editor:20261116T072230_colchao-para-casal-com-pesos-diferentes-autocorrecao_ae66",
+    "run_id": "20261116T071728_colchao-para-casal-com-pesos-diferentes-enrich_e409+editor:20261116T072143_colchao-para-casal-com-pesos-diferentes-autocorrecao_d631+editor:20261116T072230_colchao-para-casal-com-pesos-diferentes-autocorrecao_ae66+snippet:20261121T071336_autopilot_991d",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
       "answers_primary_query": "partial",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": true,
       "filler_ratio": 0.047619047619047616,
       "criteria": 7,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": true
     }
   }

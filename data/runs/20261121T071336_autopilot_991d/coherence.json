@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "aviso-seguranca#0",
+      "problem": "A seção promete avisos de segurança do fabricante, mas o bloco não apresenta nenhuma orientação de segurança.",
+      "fix": "Mudar o título para algo que corresponda ao único conteúdo disponível ou tirar a seção, pois os trechos não trazem avisos de segurança."
+    }
+  ],
+  "usage": {
+    "input_tokens": 8116,
+    "output_tokens": 2105,
+    "calls": 1
+  }
+}
