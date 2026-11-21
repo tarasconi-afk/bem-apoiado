@@ -3,11 +3,11 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Cobertor mais quente: como escolher pela gramatura",
-  "description": "Escolha cobertor pela gramatura e composição: 250 g/m² para meia-estação, 350 g/m² para aquecimento. Confira na etiqueta a fibra e o percentual.",
+  "description": "Escolha gramatura e composição de cobertor ou edredom: 250 g/m² para meia-estação, 350 g/m² para uso diário. Confira a etiqueta.",
   "primary_query": "cobertor mais quente: como escolher",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-20",
   "verdict": {
-    "text": "Nos modelos citados pela Döhler, o de 250 g/m² é apresentado pela fabricante como leve e adequado para meia-estação ou como camada complementar, enquanto o de 350 g/m² é apresentado como capaz de aquecer sem perder leveza. Confira na etiqueta a composição das fibras e seus percentuais.",
+    "text": "Escolha a gramatura conforme as descrições da Döhler: 250 g/m² para meias-estações ou como camada complementar em dias mais frios; 350 g/m² para aquecimento sem perder leveza. Verifique na etiqueta os nomes das fibras e seus percentuais em massa.",
     "basis": "reasoning",
     "claim_ids": [
       "clm_6440f47401e0",
@@ -203,55 +203,40 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você quer um cobertor mais leve para meia-estação ou para camadas complementares em dias frios, confira gramatura de 250 g/m²: segundo a Döhler, essa medida oferece conforto térmico com leveza.",
+          "text": "A Döhler descreve 250 g/m² como oferecendo conforto térmico e leveza, adequado para meia-estação ou como camada complementar em dias mais frios. Para 350 g/m², a marca afirma que o peso garante o aquecimento necessário sem perder a leveza.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_6440f47401e0",
+            "clm_23f8010fb15b"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A etiqueta deve informar os nomes das fibras ou filamentos têxteis e seus percentuais em massa, segundo o Inmetro. A Karsten informa que, em seu edredom, o enchimento de poliéster proporciona volume e conforto e não entra em contato com a pele.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_1a9fa3a6c7bf",
+            "clm_0e195d1a8adf"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se você quer usar o cobertor ou edredom em meia-estação ou como camada complementar em dias mais frios, procure por gramatura de 250 g/m²: a Döhler descreve esse peso como adequado para conforto térmico com leveza.",
           "basis": "evidence",
           "claim_ids": [
             "clm_6440f47401e0"
           ]
         },
         {
-          "kind": "paragraph",
-          "text": "Se você busca aquecimento sem abrir mão da leveza no dia a dia, procure por gramatura de 350 g/m²: a Döhler descreve esse peso como ideal para garantir aquecimento necessário mantendo a praticidade.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_23f8010fb15b"
-          ]
-        },
-        {
           "kind": "table",
-          "caption": "Exemplos de gramatura e composição informados por fabricantes",
+          "caption": "Gramatura e uso recomendado segundo fabricantes (segundo a Döhler)",
           "columns": [
-            "Produto",
             "Gramatura",
-            "Composição"
+            "Uso recomendado"
           ],
           "rows": [
             {
               "cells": [
-                {
-                  "text": "Cobertor Eva da Döhler (queen)",
-                  "claim_ids": []
-                },
-                {
-                  "text": "350 g/m²",
-                  "claim_ids": [
-                    "clm_23f8010fb15b"
-                  ]
-                },
-                {
-                  "text": "100% poliéster microfibra",
-                  "claim_ids": [
-                    "clm_5bae51fde01a"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Cobertor Elise da Döhler (king)",
-                  "claim_ids": []
-                },
                 {
                   "text": "250 g/m²",
                   "claim_ids": [
@@ -259,9 +244,9 @@
                   ]
                 },
                 {
-                  "text": "100% poliéster microfibra",
+                  "text": "Meia-estação ou camada complementar em dias frios",
                   "claim_ids": [
-                    "clm_ed579e83b6fc"
+                    "clm_6440f47401e0"
                   ]
                 }
               ]
@@ -269,31 +254,19 @@
             {
               "cells": [
                 {
-                  "text": "Cobertor Intense da Buddemeyer",
-                  "claim_ids": []
-                },
-                {
                   "text": "350 g/m²",
                   "claim_ids": [
-                    "clm_02b6826043f5"
+                    "clm_23f8010fb15b"
                   ]
                 },
                 {
-                  "text": "100% poliéster",
+                  "text": "Aquecimento necessário sem perder a leveza, segundo a Döhler",
                   "claim_ids": [
-                    "clm_3bebdfa74640"
+                    "clm_23f8010fb15b"
                   ]
                 }
               ]
             }
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Confira o nome das fibras ou filamentos têxteis e seus percentuais em massa.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_1a9fa3a6c7bf"
           ]
         },
         {
@@ -307,7 +280,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261102T070703_autopilot_efaa+editor:20261103T130132_cobertor-mais-quente-como-escolher-ajuste_8aee+reaudit:20261105T070935_autopilot_eb21+editor:20261112T191136_autopilot_8e58",
+    "run_id": "20261102T070703_autopilot_efaa+editor:20261103T130132_cobertor-mais-quente-como-escolher-ajuste_8aee+reaudit:20261105T070935_autopilot_eb21+editor:20261112T191136_autopilot_8e58+editor:20261120T011137_autopilot_8082",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
