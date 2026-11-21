@@ -1,0 +1,340 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Meça a altura do colchão e compare-a com as medidas declaradas pelos fabricantes: a Ortobom lista modelos de 30 cm e 35 cm, a Altenburg lista opções de 40 cm e a Andreza Enxovais lista uma opção de 40 cm. No modelo Ortobom de 35 cm citado, há elástico em toda a volta.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dda9189ea331",
+        "clm_3a53e585327b",
+        "clm_b9b09c81bb8f",
+        "clm_157430ce21b1",
+        "clm_c0cb4f1f720e",
+        "clm_c3a7ee840e1d"
+      ]
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "30 cm",
+          "claim_ids": [
+            "clm_dda9189ea331"
+          ]
+        },
+        {
+          "text": "Protetor Impermeável 30 cm 18 Queen da Ortobom",
+          "claim_ids": [
+            "clm_dda9189ea331"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Até 40 cm",
+          "claim_ids": [
+            "clm_157430ce21b1"
+          ]
+        },
+        {
+          "text": "Modelos Altenburg disponíveis em vários tamanhos",
+          "claim_ids": [
+            "clm_157430ce21b1"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "elastico-ou-ziper#0",
+      "action": "replace",
+      "text": "A seguir, veja o que as fontes dizem sobre protetores com elástico e com zíper.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "materiais-impermeaveis#0",
+      "action": "replace",
+      "text": "No Protetor Impermeável 30 cm da Ortobom, o tecido é malha 100% poliéster com tratamento de poliuretano e aplicação de 0,02 m. No modelo de 35 cm, a malha é 100% algodão hipermeável e há elástico em toda a volta.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_d2c3ed447240",
+        "clm_3a53e585327b",
+        "clm_c3a7ee840e1d"
+      ]
+    },
+    {
+      "ref": "materiais-impermeaveis#1",
+      "action": "replace",
+      "text": "Na Altenburg, o tecido superior é 100% algodão e o inferior é 100% poliuretano. Na Andreza Enxovais, o forro é 100% poliuretano.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_de2a850e8814",
+        "clm_ce891497424e"
+      ]
+    },
+    {
+      "ref": "materiais-impermeaveis#2",
+      "action": "replace",
+      "text": "A seguir, veja as informações dos fabricantes sobre os materiais dos protetores impermeáveis.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "lavagem-e-cuidados#0",
+      "action": "replace",
+      "text": "Segundo a Altenburg, o Protetor de Colchão Impermeável Malha Slim pode ser lavado em máquina. A Ortobom informa que os modelos de 30 cm e 35 cm permitem lavagem à mão a até 40 °C e proíbem passadoria.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_315f9b89fa8c",
+        "clm_552af7230378",
+        "clm_38b7e3eef246",
+        "clm_140888248f5a"
+      ]
+    },
+    {
+      "ref": "aviso-seguranca#0",
+      "action": "replace",
+      "text": "Consulte as orientações de segurança do fabricante antes de comprar.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se o seu colchão tem 40 cm de altura, o Protetor Jacquard da Andreza Enxovais oferece opções em vários tamanhos. Confira a etiqueta para instruções de lavagem antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_11c2120f6bba",
+        "clm_42ac0691ec78",
+        "clm_24b7aa233855",
+        "clm_c0cb4f1f720e"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Protetor de colchão impermeável: qual escolher",
+    "description": "Como escolher protetor impermeável pela altura do colchão, tipo de fixação, materiais e cuidados de lavagem. Confira o que cada fabricante declara.",
+    "verdict": {
+      "text": "Meça a altura do colchão e compare-a com as medidas declaradas pelos fabricantes: a Ortobom lista modelos de 30 cm e 35 cm, a Altenburg lista opções de 40 cm e a Andreza Enxovais lista uma opção de 40 cm. No modelo Ortobom de 35 cm citado, há elástico em toda a volta.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dda9189ea331",
+        "clm_3a53e585327b",
+        "clm_b9b09c81bb8f",
+        "clm_157430ce21b1",
+        "clm_c0cb4f1f720e",
+        "clm_c3a7ee840e1d"
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-escolher-pela-altura",
+        "heading": "Como escolher pela altura do colchão",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Altura de colchão e modelos disponíveis por tipo de fixação",
+            "columns": [
+              "Altura do colchão",
+              "Com elástico nas laterais"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "30 cm",
+                    "claim_ids": [
+                      "clm_dda9189ea331"
+                    ]
+                  },
+                  {
+                    "text": "Protetor Impermeável 30 cm 18 Queen da Ortobom",
+                    "claim_ids": [
+                      "clm_dda9189ea331"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "35 cm",
+                    "claim_ids": [
+                      "clm_3a53e585327b"
+                    ]
+                  },
+                  {
+                    "text": "Protetor Colchão Malha Impermeável 35 cm da Ortobom (Queen e King)",
+                    "claim_ids": [
+                      "clm_3a53e585327b",
+                      "clm_b9b09c81bb8f"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Até 40 cm",
+                    "claim_ids": [
+                      "clm_157430ce21b1"
+                    ]
+                  },
+                  {
+                    "text": "Modelos Altenburg disponíveis em vários tamanhos",
+                    "claim_ids": [
+                      "clm_157430ce21b1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "materiais-impermeaveis",
+        "heading": "Materiais impermeáveis declarados pelos fabricantes",
+        "blocks": [
+          {
+            "text": "No Protetor Impermeável 30 cm da Ortobom, o tecido é malha 100% poliéster com tratamento de poliuretano e aplicação de 0,02 m. No modelo de 35 cm, a malha é 100% algodão hipermeável e há elástico em toda a volta, segundo a Ortobom.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d2c3ed447240",
+              "clm_3a53e585327b",
+              "clm_c3a7ee840e1d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Na Altenburg, o tecido superior é 100% algodão e o inferior é 100% poliuretano. Na Andreza Enxovais, o forro é 100% poliuretano.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_de2a850e8814",
+              "clm_ce891497424e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "lavagem-e-cuidados",
+        "heading": "Temperatura de lavagem, secadora e passadoria",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, o Protetor de Colchão Impermeável Malha Slim pode ser lavado em máquina. A Ortobom informa que os modelos de 30 cm e 35 cm permitem lavagem à mão a até 40 °C e proíbem passadoria.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_315f9b89fa8c",
+              "clm_552af7230378",
+              "clm_38b7e3eef246",
+              "clm_140888248f5a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "aviso-seguranca",
+        "heading": "Avisos de segurança do fabricante",
+        "blocks": [
+          {
+            "text": "Consulte as orientações de segurança do fabricante antes de comprar.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "callout",
+            "tone": "warning"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "text": "Se o seu colchão tem 30 cm de altura, escolha o Protetor Impermeável 30 cm 18 Queen da Ortobom, que informa essa altura na ficha e permite lavagem à mão até 40°C.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_dda9189ea331",
+              "clm_38b7e3eef246"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o seu colchão tem até 40 cm de altura e você quer lavar na máquina, escolha o Protetor de Colchão Impermeável Malha Slim da Altenburg, que a ficha informa ser lavável em máquina.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_157430ce21b1",
+              "clm_315f9b89fa8c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o seu colchão tem 40 cm de altura, o Protetor Jacquard da Andreza Enxovais oferece opções em vários tamanhos. Confira a etiqueta para instruções de lavagem antes de comprar.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_11c2120f6bba",
+              "clm_42ac0691ec78",
+              "clm_24b7aa233855",
+              "clm_c0cb4f1f720e"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos sustentam as medidas de 30 cm e 35 cm da Ortobom, 40 cm da Altenburg e 40 cm da Andreza, além de elástico em toda a volta em um modelo Ortobom de 35 cm. Porém, não dizem que os modelos da Ortobom têm elástico nas laterais, nem que o produto da Andreza tem zíper; também não mostram que as medidas significam explicitamente “cobrir” a altura do colchão. Versão sustentável: Meça a altura do colchão e compare-a com as medidas declaradas pelos fabricantes: a Ortobom lista modelos de 30 cm e 35 cm, a Altenburg lista opções de 40 cm e a Andreza Enxovais lista uma opção de 40 cm. No modelo Ortobom de 35 cm citado, há elástico em toda a volta."
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r0",
+      "msg": "UNSUPPORTED. O trecho citado confirma apenas o nome do produto e a altura de 30 cm; não informa que ele tenha elástico nas laterais. Versão sustentável: Escreva: \"Altura do colchão: 30 cm | Protetor Impermeável 30 cm 18 Queen da Ortobom\"."
+    },
+    {
+      "ref": "como-escolher-pela-altura#0.r2",
+      "msg": "UNSUPPORTED. O trecho confirma medidas de até 40 cm e vários tamanhos, mas não menciona elástico nas laterais, o nome \"Malha Slim\" nem que o produto seja impermeável. Versão sustentável: Escreva: \"Altura do colchão: até 40 cm | Modelos Altenburg disponíveis em vários tamanhos, com medidas de 40 cm de altura\"."
+    },
+    {
+      "ref": "elastico-ou-ziper#0",
+      "msg": "FACT_IN_FRAMING. O bloco está marcado como framing, mas afirma fatos sobre protetores com elástico e zíper e recomenda escolhas, sem nenhum trecho citado para sustentá-los. Versão sustentável: Remover as afirmações factuais ou citar evidências para elas. Uma formulação de transição aceitável seria: “A seguir, veja o que as fontes dizem sobre protetores com elástico e com zíper.”"
+    },
+    {
+      "ref": "materiais-impermeaveis#0",
+      "msg": "OVERSTATED. Os trechos informam “0,02m de aplicação”, não “0,02 mm”; além disso, “hipermeável” não é explicado no trecho como “permite troca de ar”. Versão sustentável: No Protetor Impermeável 30 cm da Ortobom, o tecido é malha 100% poliéster com tratamento de poliuretano e aplicação de 0,02 m, conforme o trecho citado. No modelo de 35 cm, a malha é 100% algodão hipermeável e há elástico em toda a volta."
+    },
+    {
+      "ref": "materiais-impermeaveis#1",
+      "msg": "OVERSTATED. Os trechos sustentam as composições dos tecidos, mas não dizem que o poliuretano é usado “para impermeabilidade”. No caso da Andreza, o trecho informa apenas “Forro: 100% Poliuretano” e não qualifica o forro como impermeável. Versão sustentável: Na Altenburg, o tecido superior é 100% algodão e o inferior é 100% poliuretano. Na Andreza Enxovais, o forro é 100% poliuretano."
+    },
+    {
+      "ref": "materiais-impermeaveis#2",
+      "msg": "FACT_IN_FRAMING. Embora o bloco tenha basis “framing”, ele afirma fatos sobre o que o Inmetro avalia e recomenda uma conduta de escolha, sem trechos citados que sustentem essas afirmações. Versão sustentável: A seguir, veja as informações dos fabricantes sobre os materiais dos protetores impermeáveis."
+    },
+    {
+      "ref": "lavagem-e-cuidados#0",
+      "msg": "MISATTRIBUTED. As permissões e proibições são apresentadas como fatos gerais sobre os produtos, embora os trechos sejam declarações dos fabricantes. Além disso, os trechos da Ortobom proíbem a passadoria, mas não informam que a secadora é proibida; os trechos da Altenburg não tratam de passadoria nem de secadora. Versão sustentável: Segundo a Altenburg, o Protetor de Colchão Impermeável Malha Slim pode ser lavado em máquina. A Ortobom informa que os modelos de 30 cm e 35 cm permitem lavagem à mão a até 40 °C e proíbem passadoria. Os trechos citados não informam sobre o uso de secadora."
+    },
+    {
+      "ref": "aviso-seguranca#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, afirma fatos sobre fabricantes, reguladores e materiais plásticos — incluindo que reguladores recomendam evitar esses materiais por risco de asfixia — sem citar qualquer trecho que os sustente. Versão sustentável: Consulte as orientações de segurança do fabricante antes de comprar."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. Os trechos não mencionam zíper integral nem que a capa envolva todo o colchão. Além disso, mostram opções com 40 cm de altura, mas não sustentam que o produto cubra qualquer altura de até 40 cm. Versão sustentável: Se o seu colchão tem 40 cm de altura, o Protetor Jacquard da Andreza Enxovais oferece opções em vários tamanhos. Confira a etiqueta para instruções de lavagem antes de comprar."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1349
+  }
+}
