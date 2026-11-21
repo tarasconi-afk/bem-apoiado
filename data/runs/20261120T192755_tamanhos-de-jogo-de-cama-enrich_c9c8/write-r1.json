@@ -1,0 +1,321 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "description",
+      "action": "replace",
+      "text": "Escolha o tamanho do jogo de cama pela medida do seu colchão e confira na ficha as dimensões exatas do lençol com elástico.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "medidas-lencol-de-cima-e-fronhas#1",
+      "action": "replace",
+      "text": "O lençol de cima varia conforme o tamanho do jogo. Nos modelos citados da Corttex, Bouton e Sultan, as medidas são: solteiro de 1,50 m × 2,20 m; casal de 2,00 m × 2,20 m a 2,20 m × 2,50 m; queen de 2,20 m × 2,40 m a 2,40 m × 2,20 m; king de 2,60 m × 2,80 m.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_5e00b2ad1e55",
+        "clm_e3b4c7eebf4b",
+        "clm_159b40723d5b",
+        "clm_0ee6690fb808",
+        "clm_059fb9ffbb4e"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se seu colchão mede 0,88 m × 1,88 m (solteiro) ou 1,38 m × 1,88 m (casal), confira na ficha do jogo se o lençol com elástico tem essas medidas, pois a altura máxima das abas é de 30 cm nesses tamanhos, segundo a Corttex e a Bouton.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1e0279a51aff",
+        "clm_117a9fbc38fc",
+        "clm_5e00b2ad1e55",
+        "clm_55f4b4b3129d",
+        "clm_889a29929821"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Tamanhos de jogo de cama: medidas de cada peça por tamanho",
+    "description": "Escolha o tamanho do jogo de cama pela medida do seu colchão e confira na ficha as dimensões exatas do lençol com elástico.",
+    "verdict": {
+      "text": "Escolha o tamanho do jogo de cama pela medida do colchão: solteiro para colchões de 0,88 m × 1,88 m, casal para 1,38 m × 1,88 m, queen para 1,58 m × 1,98 m e king para 1,93 m × 2,03 m, segundo fabricantes como Appel, Trussardi e Corttex. Se o colchão tem mais de 30 cm de altura, confira a profundidade máxima do lençol com elástico na ficha antes de comprar, pois varia entre marcas, conforme fabricantes como Appel, Trussardi e Corttex.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1e0279a51aff",
+        "clm_117a9fbc38fc",
+        "clm_0d5f8089b411",
+        "clm_2d0771a14d8d",
+        "clm_55f4b4b3129d",
+        "clm_889a29929821",
+        "clm_8a640f3e5431",
+        "clm_70d20b702351"
+      ]
+    },
+    "sections": [
+      {
+        "id": "medidas-lencol-de-cima-e-fronhas",
+        "heading": "Medidas do lençol de cima e das fronhas",
+        "blocks": [
+          {
+            "text": "O lençol de cima varia conforme o tamanho do jogo, segundo a Corttex e a Bouton. Para solteiro, a Corttex informa 1,50 m × 2,20 m; para casal, Bouton declara 2,20 m × 2,40 m; para queen, Corttex especifica 2,20 m × 2,40 m; para king, Bouton informa 2,60 m × 2,80 m.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5e00b2ad1e55",
+              "clm_e3b4c7eebf4b",
+              "clm_222c0ed127c3",
+              "clm_159b40723d5b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-de-pecas",
+        "heading": "Quantas peças compõem cada tamanho",
+        "blocks": [
+          {
+            "text": "O jogo solteiro inclui 3 peças: 1 lençol de baixo com elástico, 1 lençol de cima e 1 fronha, segundo a Plumasul.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_51de89352a45"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O jogo casal inclui 1 lençol de baixo com elástico, 1 lençol de cima e 1 fronha, conforme Bouton declara.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e3b4c7eebf4b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "diferenca-entre-tamanhos",
+        "heading": "Diferença de medida entre casal, queen e king",
+        "blocks": [
+          {
+            "text": "A largura aumenta de forma progressiva: casal tem 1,38 m de largura, queen tem 1,60 m (22 cm a mais) e king tem 1,93 m (33 cm a mais que queen), conforme Atlântica declara.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_a06a820ef0a5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Na altura das abas do lençol com elástico, o casal suporta até 30 cm, enquanto queen e king suportam até 40 cm, segundo a Bouton e a Plumasul.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_889a29929821",
+              "clm_8a640f3e5431",
+              "clm_70d20b702351"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "informacoes-etiqueta",
+        "heading": "O que a etiqueta deve informar",
+        "blocks": [
+          {
+            "text": "A etiqueta do jogo de cama deve informar o nome de cada fibra com seus percentuais em massa, em ordem decrescente e com igual destaque, segundo a regulação do Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_14318594c448"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A embalagem ou a etiqueta visível através dela deve conter a composição têxtil, o país de origem e as dimensões de cada componente do jogo de cama, conforme o Inmetro estabelece.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_28d07b587785"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A indicação de tamanho ou dimensão é obrigatória na etiqueta do produto têxtil, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2ebc5dbbf935"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-de-lavagem",
+        "heading": "Instruções de lavagem e secagem na etiqueta",
+        "blocks": [
+          {
+            "text": "As instruções de lavagem variam conforme o fabricante, segundo a Karsten e a Teka. A Karsten recomenda lavar a 40°C no máximo, não alvejar, secar em tambor a 60°C no máximo e passar a 150°C no máximo. A Teka especifica lavar a 60°C no máximo, permitindo alvejante, secar em tambor a 60°C no máximo e passar a 110°C no máximo. Leia a etiqueta de cada jogo antes de comprar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2a0adc0fd772",
+              "clm_0102678ce439"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir pelo tamanho certo",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas de colchão e lençol com elástico por tamanho de jogo de cama",
+            "columns": [
+              "Tamanho",
+              "Medida do colchão (largura × comprimento)",
+              "Lençol com elástico (largura × comprimento × altura máxima)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, 0,88 m × 1,88 m",
+                    "claim_ids": [
+                      "clm_1e0279a51aff"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Corttex, 88 cm × 1,88 m × 30 cm",
+                    "claim_ids": [
+                      "clm_5e00b2ad1e55"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, 1,38 m × 1,88 m",
+                    "claim_ids": [
+                      "clm_117a9fbc38fc"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Bouton, 1,38 m × 1,88 m × 30 cm",
+                    "claim_ids": [
+                      "clm_889a29929821"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Trussardi, 1,58 m × 1,98 m",
+                    "claim_ids": [
+                      "clm_0d5f8089b411"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Plumasul, 1,60 m × 2,00 m × 40 cm",
+                    "claim_ids": [
+                      "clm_8a640f3e5431"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, 1,93 m × 2,03 m",
+                    "claim_ids": [
+                      "clm_2d0771a14d8d"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Plumasul, 1,93 m × 2,03 m × 40 cm",
+                    "claim_ids": [
+                      "clm_70d20b702351"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se seu colchão mede cerca de 0,88 m × 1,88 m, escolha jogo de cama solteiro e confira na ficha se o lençol com elástico tem essas medidas, segundo a Appel e a Corttex.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1e0279a51aff",
+              "clm_5e00b2ad1e55"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se seu colchão mede 0,88 m × 1,88 m (solteiro) ou 1,38 m × 1,88 m (casal), confira na ficha do jogo se o lençol com elástico tem essas medidas, pois a altura máxima das abas é de 30 cm nesses tamanhos, segundo a Corttex e a Bouton.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1e0279a51aff",
+              "clm_117a9fbc38fc",
+              "clm_5e00b2ad1e55",
+              "clm_55f4b4b3129d",
+              "clm_889a29929821"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se seu colchão tem mais de 30 cm de altura, não escolha apenas pelo nome solteiro, casal, queen ou king: confira a profundidade máxima do lençol com elástico na ficha do jogo, segundo fabricantes como Corttex, Bouton e Plumasul.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_55f4b4b3129d",
+              "clm_889a29929821",
+              "clm_8a640f3e5431",
+              "clm_70d20b702351"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "description",
+      "msg": "a descrição para o Google afirma 0,88, 1,88, 1,38, 1,58, 1,98, 1,93, 2,03, que não está no título e não passa pelo auditor: diga o que o leitor decide e o que confere, sem número ou medida."
+    },
+    {
+      "ref": "medidas-lencol-de-cima-e-fronhas#1",
+      "msg": "chama de \"padrao\" um dado que vem só de fichas de produto: diga \"declarado nos modelos citados\" (com a marca) ou cite norma ou fabricante que defina a regra."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "repete a condição de como-decidir#1 (\"se seu colchao mede cerca de 1…\"): junte os dois blocos ou diga a outra situação."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "repete a condição de como-decidir#1 (\"se seu colchao mede cerca de 1…\"): junte os dois blocos ou diga a outra situação."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 606
+  }
+}

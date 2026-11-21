@@ -1,0 +1,68 @@
+{
+  "slug": "tamanhos-de-jogo-de-cama",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 81374,
+    "output_tokens": 24375,
+    "calls": 32
+  },
+  "credits": 73.81050108000007,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O título promete as medidas de cada peça em todos os tamanhos, mas a página não informa todas as peças nem todos os tamanhos (verdict); Reescrever o título para “Tamanhos de jogo de cama: medidas do colchão e do lençol com elástico”, que é o que a página conse",
+      "A seção promete as medidas do lençol de cima e das fronhas, mas os blocos apresentam apenas medidas do lençol de cima; as fronhas não são informadas para todos os tamanhos (medidas-lencol-de-cima-e-fronhas#0); Mudar o título para “Medidas do lençol de cima por",
+      "A seção promete informar quantas peças compõem cada tamanho, mas só traz a composição dos jogos solteiro e casal (composicao-de-pecas#0); Mudar o título para “Quantas peças compõem os jogos solteiro e casal”"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha solteiro para colchão de 0,88 m × 1,88 m.",
+      "Escolha casal para colchão de 1,38 m × 1,88 m.",
+      "Escolha queen para colchão próximo de 1,58 m × 1,98 m e confira a medida exata do lençol, que pode ser 1,60 m × 2,00 m.",
+      "Escolha king para colchão de 1,93 m × 2,03 m.",
+      "Confira na ficha a altura máxima do lençol com elástico: há modelos de 30 cm e de 40 cm.",
+      "Confira na ficha as medidas das peças, a quantidade de itens e o número de fronhas, pois a composição varia entre fabricantes.",
+      "Compare a largura declarada: queen é cerca de 22 cm mais larga que casal, e king cerca de 33 cm mais larga que queen.",
+      "Leia a etiqueta para verificar composição, dimensões e instruções de lavagem e secagem."
+    ],
+    "missing": [
+      "Para o leitor leigo: O título promete as medidas de cada peça em todos os tamanhos, mas a página não informa todas as peças nem todos os tamanhos (verdict); Reescrever o título para “Tamanhos de jogo de cama: medidas do colchão e do lençol com elástico”, que é o que a página conse",
+      "Para o leitor leigo: A seção promete as medidas do lençol de cima e das fronhas, mas os blocos apresentam apenas medidas do lençol de cima; as fronhas não são informadas para todos os tamanhos (medidas-lencol-de-cima-e-fronhas#0); Mudar o título para “Medidas do lençol de cima por",
+      "Para o leitor leigo: A seção promete informar quantas peças compõem cada tamanho, mas só traz a composição dos jogos solteiro e casal (composicao-de-pecas#0); Mudar o título para “Quantas peças compõem os jogos solteiro e casal”",
+      "Medida de colchão e altura máxima do lençol para o tamanho solteirão.",
+      "Uma tabela completa, de um ou mais fabricantes, relacionando cada tamanho às medidas do colchão e do lençol com elástico.",
+      "Medidas do lençol de cima e das fronhas para todos os tamanhos, especialmente solteirão e king.",
+      "Quantidade de peças e de fronhas para queen e king, além de exemplos de solteiro e casal.",
+      "Explicação da diferença entre a medida do colchão queen de 1,58 m × 1,98 m e o lençol de 1,60 m × 2,00 m, para o leitor saber se a folga é compatível."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde rapidamente que o tamanho deve ser escolhido pela medida do colchão e orienta conferir a altura do elástico na ficha. A tabela cobre os principais tamanhos e leva à compra, embora não trate do solteirão e deixe incompletas as medidas das fronhas, a composição dos jogos e alguns tamanhos.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "promessa_do_titulo",
+        "ref": "verdict",
+        "problem": "O título promete as medidas de cada peça em todos os tamanhos, mas a página não informa todas as peças nem todos os tamanhos.",
+        "fix": "Reescrever o título para “Tamanhos de jogo de cama: medidas do colchão e do lençol com elástico”, que é o que a página consegue entregar para solteiro, casal, queen e king."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "medidas-lencol-de-cima-e-fronhas#0",
+        "problem": "A seção promete as medidas do lençol de cima e das fronhas, mas os blocos apresentam apenas medidas do lençol de cima; as fronhas não são informadas para todos os tamanhos.",
+        "fix": "Mudar o título para “Medidas do lençol de cima por tamanho”."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "composicao-de-pecas#0",
+        "problem": "A seção promete informar quantas peças compõem cada tamanho, mas só traz a composição dos jogos solteiro e casal.",
+        "fix": "Mudar o título para “Quantas peças compõem os jogos solteiro e casal”."
+      }
+    ]
+  }
+}

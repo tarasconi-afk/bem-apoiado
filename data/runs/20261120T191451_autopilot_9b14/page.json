@@ -1,0 +1,37 @@
+{
+  "slug": "cobertor-tamanho-king-ou-queen-qual-e-maior",
+  "status": "PASS",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 60473,
+    "output_tokens": 22970,
+    "calls": 20
+  },
+  "credits": 27.139412759999992,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Escolha o cobertor queen para uma cama queen e o king para uma cama king.",
+      "Se a prioridade é escolher a maior opção entre as duas, prefira o king.",
+      "Confira as medidas de largura e comprimento na ficha do produto, porque elas variam entre fabricantes.",
+      "Compare a medida do cobertor com o tamanho da cama antes da compra."
+    ],
+    "missing": [
+      "Uma tabela padronizada ou uma fonte primária explicando as medidas mais comuns de cobertores queen e king, já que os fabricantes apresentam variações.",
+      "Orientação explícita sobre quanto de sobra lateral e nas extremidades o cobertor deve ter em relação ao colchão.",
+      "Indicação consistente das dimensões da cama queen e king para relacioná-las às medidas do cobertor."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente que o cobertor king é maior que o queen e dá uma regra prática de compra: combinar o tamanho do cobertor com o da cama e conferir as medidas na ficha técnica. As variações entre fabricantes estão apresentadas, embora a tabela pudesse explicar melhor que não existe uma medida única; o bloco como-decidir#2 apenas repete a conclusão.",
+    "filler_ratio": 0.1111111111111111,
+    "model_opinion": true
+  }
+}

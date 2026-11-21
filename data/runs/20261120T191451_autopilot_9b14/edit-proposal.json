@@ -1,0 +1,48 @@
+{
+  "edits": [
+    {
+      "ref": "composicao-das-fibras#0",
+      "action": "rewrite",
+      "text": "Segundo as fichas técnicas das marcas, cobertores king e queen costumam ser feitos de microfibra flanelada 100% poliéster, como mostram Döhler, Karsten, Corttex e Sultan. O Inmetro não avalia propriedades como antialérgico ou antiácaro que podem aparecer nos rótulos.",
+      "claim_ids": [
+        "clm_2c30db1ba9f2",
+        "clm_5b30b3770b69",
+        "clm_58308dcac160",
+        "clm_5dbec3e58fd1",
+        "clm_62fdee222867",
+        "clm_bb2c1065896b",
+        "clm_80180cc12666",
+        "clm_d3f47566b021"
+      ],
+      "absorbs": [
+        "composicao-das-fibras#1"
+      ],
+      "reason": "Os dois blocos repetiam a mesma informação (composição 100% poliéster em várias marcas); foram unidos em um único parágrafo mais curto."
+    },
+    {
+      "ref": "diferenca-entre-os-tamanhos#0",
+      "action": "rewrite",
+      "text": "Em geral, o king tem a primeira medida maior que o queen: Plumasul e Döhler registram 2,80 m no king contra 2,40 m no queen, e a Sultan registra 2,60 m x 2,40 m no king contra 2,40 m x 2,20 m no queen. A Döhler indica seu cobertor queen (2,60 m x 2,40 m) para camas queen e seu king (2,80 m x 2,40 m) para camas king.",
+      "claim_ids": [
+        "clm_0e4444df0771",
+        "clm_059fb9ffbb4e",
+        "clm_77f3a22bc929",
+        "clm_0ba24704c19b"
+      ],
+      "absorbs": [
+        "diferenca-entre-os-tamanhos#1"
+      ],
+      "reason": "O segundo bloco só repetia com outras palavras a comparação de medidas já feita no primeiro; foram unidos em um parágrafo único."
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "remove",
+      "reason": "Repete quase literalmente a conclusão já dada no veredito (king maior que queen, segundo Kacyumara, Plumasul e Sultan)."
+    }
+  ],
+  "refused": [],
+  "usage": {
+    "input_tokens": 2,
+    "output_tokens": 3298
+  }
+}

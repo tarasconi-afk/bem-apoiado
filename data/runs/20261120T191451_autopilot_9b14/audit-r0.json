@@ -1,0 +1,88 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-das-fibras#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 100% poliéster para modelos específicos: um king da Döhler e modelos queen da Döhler e da Karsten. O bloco generaliza para os cobertores king e queen oferecidos pelos fabricantes e sugere uma abrangência maior do que a demonstrada; além disso, o trecho da Karsten citado não mostra um modelo king.",
+      "fix": "Nos modelos citados, a Döhler informa microfibra flanelada 100% poliéster em um cobertor king e em modelos queen, enquanto a Karsten informa composição 100% poliéster em um cobertor queen."
+    },
+    {
+      "ref": "composicao-das-fibras#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 100% poliéster em produtos específicos da Corttex e em um catálogo da Sultan, mas não mostram que a composição vale para cobertores tanto king quanto queen nem para todas as linhas mencionadas. A observação sobre o Inmetro não é o problema, pois é uma nota exigida pela regra do site.",
+      "fix": "A Corttex informa 100% poliéster em cobertores apresentados nas páginas citadas, e a Sultan informa composição 100% poliéster no catálogo citado. O Inmetro não avalia propriedades como antialérgico ou antiácaro que possam aparecer em rótulos de produtos."
+    },
+    {
+      "ref": "diferenca-entre-os-tamanhos#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram king com 2,80 m na primeira medida em Plumasul e Döhler, mas no Sultan aparece 2,60 m x 2,40 m. Além disso, não sustentam que 2,60 m seja a largura queen: na Plumasul, o queen aparece como 2,40 m x 2,60 m, sem indicação explícita de qual medida é a largura. A conclusão sobre comprimento igual ou com pequena diferença é compatível com os exemplos, mas a formulação generaliza a partir de apenas três fabricantes.",
+      "fix": "Nos exemplos citados, Plumasul e Döhler apresentam king com 2,80 m na primeira medida e queen com 2,40 m; no catálogo Sultan, king aparece com 2,60 m x 2,40 m e queen com 2,40 m x 2,20 m. Nos modelos citados, as segundas medidas podem ser iguais ou diferir pouco."
+    },
+    {
+      "ref": "diferenca-entre-os-tamanhos#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Döhler associam especificamente os modelos queen e king a camas dos respectivos tamanhos e dizem que oferecem ótima cobertura, mas não sustentam a afirmação geral de que cada tamanho é indicado para uma cama específica. O trecho da Bouton apenas informa medidas de um conjunto king e não faz essa indicação. A palavra \"ideal\" também intensifica a formulação original da Döhler, que diz \"oferece ótima cobertura\".",
+      "fix": "A Döhler informa que o cobertor queen de 2,60 m x 2,40 m oferece ótima cobertura para camas Queen e que o cobertor king de 2,80 m x 2,40 m oferece ótima cobertura para camas King."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A tabela atribui à Döhler a medida king de 2,80 m × 2,40 m, mas o trecho citado informa 2,80 m × 2,50 m. Também atribui a Döhler a medida da cama king de 1,93 m × 2,03 m, embora essa dimensão apareça apenas no trecho da Altenburg. A medida da Sultan também foi transcrita como 2,80 m × 2,40 m, enquanto o trecho informa 2,60 m × 2,40 m.",
+      "fix": "Corrija a tabela para: Plumasul 2,80 m × 2,60 m; Döhler 2,80 m × 2,50 m; Sultan 2,60 m × 2,40 m; Corttex 2,20 m × 2,40 m. Diga que a Altenburg menciona cama king de 1,93 m × 2,03 m e não atribua essa dimensão à Döhler."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas atribuídas à Appel não correspondem aos trechos: eles informam 2,30 m × 2,50 m e 2,10 m × 2,30 m, não 2,40 m × 2,50 m e 2,20 m × 2,40 m. Além disso, a dimensão da cama queen de 1,58 m × 1,98 m aparece no trecho da Bouton, não no da Döhler; o trecho da Döhler apenas menciona cobertura ou adequação para camas queen.",
+      "fix": "Use para a Appel as medidas efetivamente citadas, 2,30 m × 2,50 m e 2,10 m × 2,30 m. Atribua a medida da cama queen de 1,58 m × 1,98 m somente à Bouton; para a Döhler, diga apenas que o produto é apresentado como adequado para camas queen."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos da Döhler sustentam a indicação de cobertores queen para camas queen e de cobertor king para camas king. Já o trecho da Appel apenas identifica um produto como Queen e informa sua medida; não diz expressamente que o tamanho é indicado para a cama correspondente. Portanto, a afirmação de que Döhler e Appel indicam cada tamanho para a cama correspondente excede a evidência.",
+      "fix": "Diga: \"Para uma cama queen, a Döhler apresenta cobertores queen como adequados, e a Appel lista um produto chamado Queen. Para uma cama king, a Döhler apresenta um cobertor king como adequado.\""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "composicao-das-fibras#0",
+      "msg": "OVERSTATED. Os trechos sustentam 100% poliéster para modelos específicos: um king da Döhler e modelos queen da Döhler e da Karsten. O bloco generaliza para os cobertores king e queen oferecidos pelos fabricantes e sugere uma abrangência maior do que a demonstrada; além disso, o trecho da Karsten citado não mostra um modelo king. Versão sustentável: Nos modelos citados, a Döhler informa microfibra flanelada 100% poliéster em um cobertor king e em modelos queen, enquanto a Karsten informa composição 100% poliéster em um cobertor queen."
+    },
+    {
+      "ref": "composicao-das-fibras#1",
+      "msg": "OVERSTATED. Os trechos sustentam 100% poliéster em produtos específicos da Corttex e em um catálogo da Sultan, mas não mostram que a composição vale para cobertores tanto king quanto queen nem para todas as linhas mencionadas. A observação sobre o Inmetro não é o problema, pois é uma nota exigida pela regra do site. Versão sustentável: A Corttex informa 100% poliéster em cobertores apresentados nas páginas citadas, e a Sultan informa composição 100% poliéster no catálogo citado. O Inmetro não avalia propriedades como antialérgico ou antiácaro que possam aparecer em rótulos de produtos."
+    },
+    {
+      "ref": "diferenca-entre-os-tamanhos#0",
+      "msg": "OVERSTATED. Os trechos mostram king com 2,80 m na primeira medida em Plumasul e Döhler, mas no Sultan aparece 2,60 m x 2,40 m. Além disso, não sustentam que 2,60 m seja a largura queen: na Plumasul, o queen aparece como 2,40 m x 2,60 m, sem indicação explícita de qual medida é a largura. A conclusão sobre comprimento igual ou com pequena diferença é compatível com os exemplos, mas a formulação generaliza a partir de apenas três fabricantes. Versão sustentável: Nos exemplos citados, Plumasul e Döhler apresentam king com 2,80 m na primeira medida e queen com 2,40 m; no catálogo Sultan, king aparece com 2,60 m x 2,40 m e queen com 2,40 m x 2,20 m. Nos modelos citados, as segundas medidas podem ser iguais ou diferir pouco."
+    },
+    {
+      "ref": "diferenca-entre-os-tamanhos#1",
+      "msg": "OVERSTATED. Os trechos da Döhler associam especificamente os modelos queen e king a camas dos respectivos tamanhos e dizem que oferecem ótima cobertura, mas não sustentam a afirmação geral de que cada tamanho é indicado para uma cama específica. O trecho da Bouton apenas informa medidas de um conjunto king e não faz essa indicação. A palavra \"ideal\" também intensifica a formulação original da Döhler, que diz \"oferece ótima cobertura\". Versão sustentável: A Döhler informa que o cobertor queen de 2,60 m x 2,40 m oferece ótima cobertura para camas Queen e que o cobertor king de 2,80 m x 2,40 m oferece ótima cobertura para camas King."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. A tabela atribui à Döhler a medida king de 2,80 m × 2,40 m, mas o trecho citado informa 2,80 m × 2,50 m. Também atribui a Döhler a medida da cama king de 1,93 m × 2,03 m, embora essa dimensão apareça apenas no trecho da Altenburg. A medida da Sultan também foi transcrita como 2,80 m × 2,40 m, enquanto o trecho informa 2,60 m × 2,40 m. Versão sustentável: Corrija a tabela para: Plumasul 2,80 m × 2,60 m; Döhler 2,80 m × 2,50 m; Sultan 2,60 m × 2,40 m; Corttex 2,20 m × 2,40 m. Diga que a Altenburg menciona cama king de 1,93 m × 2,03 m e não atribua essa dimensão à Döhler."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "MISATTRIBUTED. As medidas atribuídas à Appel não correspondem aos trechos: eles informam 2,30 m × 2,50 m e 2,10 m × 2,30 m, não 2,40 m × 2,50 m e 2,20 m × 2,40 m. Além disso, a dimensão da cama queen de 1,58 m × 1,98 m aparece no trecho da Bouton, não no da Döhler; o trecho da Döhler apenas menciona cobertura ou adequação para camas queen. Versão sustentável: Use para a Appel as medidas efetivamente citadas, 2,30 m × 2,50 m e 2,10 m × 2,30 m. Atribua a medida da cama queen de 1,58 m × 1,98 m somente à Bouton; para a Döhler, diga apenas que o produto é apresentado como adequado para camas queen."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos da Döhler sustentam a indicação de cobertores queen para camas queen e de cobertor king para camas king. Já o trecho da Appel apenas identifica um produto como Queen e informa sua medida; não diz expressamente que o tamanho é indicado para a cama correspondente. Portanto, a afirmação de que Döhler e Appel indicam cada tamanho para a cama correspondente excede a evidência. Versão sustentável: Diga: \"Para uma cama queen, a Döhler apresenta cobertores queen como adequados, e a Appel lista um produto chamado Queen. Para uma cama king, a Döhler apresenta um cobertor king como adequado.\""
+    }
+  ]
+}

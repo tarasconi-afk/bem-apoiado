@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete as medidas de cada peça em todos os tamanhos, mas a página não informa todas as peças nem todos os tamanhos.",
+      "fix": "Reescrever o título para “Tamanhos de jogo de cama: medidas do colchão e do lençol com elástico”, que é o que a página consegue entregar para solteiro, casal, queen e king."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "medidas-lencol-de-cima-e-fronhas#0",
+      "problem": "A seção promete as medidas do lençol de cima e das fronhas, mas os blocos apresentam apenas medidas do lençol de cima; as fronhas não são informadas para todos os tamanhos.",
+      "fix": "Mudar o título para “Medidas do lençol de cima por tamanho”."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "composicao-de-pecas#0",
+      "problem": "A seção promete informar quantas peças compõem cada tamanho, mas só traz a composição dos jogos solteiro e casal.",
+      "fix": "Mudar o título para “Quantas peças compõem os jogos solteiro e casal”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 24644,
+    "output_tokens": 5297,
+    "calls": 3
+  }
+}

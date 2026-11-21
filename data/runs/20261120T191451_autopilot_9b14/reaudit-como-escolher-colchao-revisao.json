@@ -1,0 +1,84 @@
+{
+  "score_before": 2.5,
+  "score_after": 2.5,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta trata apenas da densidade e não orienta a escolha da estrutura, do tamanho ou do que comparar no anúncio.",
+      "A diferença prática entre espuma, molas ensacadas e colchão misto não é explicada para o comprador; os exemplos de produtos da Ortobom não dizem para quem cada estrutura serve.",
+      "Termos como espuma HR, composição qualitativa, lâmina e colchão misto aparecem sem uma explicação simples de como influenciam a compra."
+    ],
+    "filler_refs": [
+      "densidade-espuma#1",
+      "componentes-influenciam#1"
+    ],
+    "decision_criteria": [
+      "Escolha a densidade da espuma conforme o peso: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior.",
+      "Pessoas altas podem precisar de densidades maiores para manter o suporte.",
+      "Escolha o tamanho conforme o espaço do quarto: casal mede 138 x 188 cm, queen 158 x 198 cm e king 193 x 203 cm.",
+      "Confira no anúncio ou na etiqueta a classificação do produto, a composição dos componentes internos, os tipos de espuma, a densidade nominal de cada lâmina em kg/m³ e a espessura das camadas em colchões compostos ou mistos.",
+      "A densidade é apresentada como quantidade de espuma por metro cúbico; números maiores indicam espuma mais firme e resistente, segundo a fonte citada."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta trata apenas da densidade e não orienta a escolha da estrutura, do tamanho ou do que comparar no anúncio.",
+      "Para o leitor leigo: A diferença prática entre espuma, molas ensacadas e colchão misto não é explicada para o comprador; os exemplos de produtos da Ortobom não dizem para quem cada estrutura serve.",
+      "Para o leitor leigo: Termos como espuma HR, composição qualitativa, lâmina e colchão misto aparecem sem uma explicação simples de como influenciam a compra.",
+      "Uma comparação baseada em fabricantes que explique, em linguagem simples, quando escolher espuma, molas ensacadas ou colchão misto.",
+      "Regra de escolha da estrutura conforme o perfil do comprador, como dormir sozinho, dividir a cama ou ter diferença de peso entre o casal.",
+      "Tabela completa de medidas padronizadas, incluindo solteiro, solteiro king, viúva, casal, queen e king, com orientação para conferir o espaço disponível.",
+      "Fonte primária com a certificação obrigatória do Inmetro, o que o selo garante e todas as informações obrigatórias da etiqueta ou ficha técnica.",
+      "Orientação sobre altura do colchão, limite de peso por pessoa, garantia e compatibilidade com a base ou cama.",
+      "Explicação simples de como tipo de espuma, espessura das camadas e núcleo alteram a sensação de firmeza."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma tabela concreta de densidade por peso e algumas medidas, além de itens para conferir na etiqueta, mas responde apenas parcialmente a uma dúvida ampla sobre como escolher colchão. A resposta curta não resolve a decisão sozinha e a estrutura do colchão não é comparada para leigos; falta a regra em três passos pedida, com estrutura, densidade e tamanho. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0.125,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [
+      "A página dá uma regra concreta para densidade, mas não explica para qual perfil ou uso escolher espuma, molas ensacadas ou colchão misto.",
+      "A resposta não apresenta as medidas completas dos tamanhos nem orienta a conferir o espaço disponível no quarto.",
+      "Usa termos como HR, núcleo, camada de sustentação e classificação do produto sem explicar claramente o que o comprador deve fazer com essas informações."
+    ],
+    "filler_refs": [
+      "densidade-espuma#1",
+      "componentes-influenciam#1",
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Escolha a densidade da espuma conforme o peso de quem dorme: até 50 kg, D23; de 51 a 60 kg, D26; de 61 a 70 kg, D28; de 71 a 80 kg, D33; de 81 a 100 kg, D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior.",
+      "Confira na etiqueta a densidade nominal de cada lâmina de espuma e, em colchões compostos ou mistos, a espessura de cada camada.",
+      "Escolha o tamanho conforme o espaço disponível no quarto: casal 138 x 188 cm, queen 158 x 198 cm e king 193 x 203 cm.",
+      "Verifique na etiqueta a classificação do produto, a composição dos componentes internos e os tipos de espuma usados.",
+      "Pessoas altas podem precisar de densidades maiores para manter o suporte, segundo a fonte citada."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Para o leitor leigo: A página dá uma regra concreta para densidade, mas não explica para qual perfil ou uso escolher espuma, molas ensacadas ou colchão misto.",
+      "Para o leitor leigo: A resposta não apresenta as medidas completas dos tamanhos nem orienta a conferir o espaço disponível no quarto.",
+      "Para o leitor leigo: Usa termos como HR, núcleo, camada de sustentação e classificação do produto sem explicar claramente o que o comprador deve fazer com essas informações.",
+      "Uma regra de escolha da estrutura — espuma, molas ensacadas ou misto — relacionada ao perfil de uso, como dormir sozinho, dormir em casal ou ter grande diferença de peso entre os parceiros.",
+      "Tabela completa de peso e densidade confirmada pelo fabricante, com explicação simples de que D23, D26, D33 e D45 representam kg/m³ de espuma.",
+      "Tabela completa de medidas padronizadas, incluindo solteiro e outros tamanhos relevantes, além de uma orientação para medir o espaço do quarto.",
+      "Informação de altura do colchão e garantia para comparação na ficha técnica.",
+      "Explicação, em linguagem leiga, do que a certificação e o selo do Inmetro significam e quais informações obrigatórias devem aparecer na etiqueta.",
+      "Indicação de como os diferentes materiais e espessuras das camadas alteram a firmeza e o suporte, sem apenas listar componentes."
+    ],
+    "publishable": true,
+    "summary": "A página é útil para escolher a densidade pelo peso e oferece alguns itens para conferir na etiqueta, mas responde apenas parcialmente a uma busca ampla por como escolher colchão. Falta transformar a descrição das estruturas em uma regra de escolha para o comprador, além de completar as medidas e explicar melhor as informações obrigatórias. Como a resposta principal não orienta sobre a estrutura nem conduz a uma compra comparável, não está pronta para publicação.",
+    "filler_ratio": 0.1875,
+    "model_opinion": false
+  }
+}
