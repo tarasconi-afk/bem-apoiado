@@ -89,3 +89,30 @@ describe('ciclo que não publicou: falta de pauta ou provedor recusando?', () =>
     expect(provedorNoTexto('erro: NEXOS_API_KEY ausente (ambiente ou /etc/bem-apoiado/env)')?.veredito).toBe('credencial');
   });
 });
+
+describe('soluço do roteador não cancela o ciclo (21/11)', () => {
+  const sequencia = (...status: number[]) => {
+    let i = 0;
+    return (async () => { const s = status[Math.min(i++, status.length - 1)]!; return new Response(s === 200 ? '{"usage":{"credits_charged":0}}' : '{}', { status: s }); }) as unknown as typeof fetch;
+  };
+  it('500 seguido de resposta normal: ciclo liberado, depois de esperar', async () => {
+    const { preflight } = await import('../src/preflight.ts');
+    const esperas: number[] = [];
+    const r = await preflight(sequencia(500, 200), new Date(), async (ms) => { esperas.push(ms); });
+    expect(r.checagens[0]!.veredito).toBe('ok');
+    expect(esperas).toEqual([45_000]);
+  });
+  it('fora do ar nas três tentativas: bloqueia', async () => {
+    const { preflight } = await import('../src/preflight.ts');
+    const r = await preflight(sequencia(500), new Date(), async () => {});
+    expect(r.checagens[0]!.veredito).toBe('fora_do_ar');
+    expect(r.ok).toBe(false);
+  });
+  it('sem crédito não é repetido', async () => {
+    const { preflight } = await import('../src/preflight.ts');
+    const esperas: number[] = [];
+    const r = await preflight(sequencia(402), new Date(), async (ms) => { esperas.push(ms); });
+    expect(r.checagens[0]!.veredito).toBe('sem_credito');
+    expect(esperas).toEqual([]);
+  });
+});

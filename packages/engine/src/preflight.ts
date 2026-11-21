@@ -139,8 +139,18 @@ export interface Retrato {
   checagens: Checagem[];
 }
 
-export async function preflight(fetchImpl: typeof fetch = fetch, now = new Date()): Promise<Retrato> {
-  const checagens = [await checarIa(fetchImpl), checarBusca()];
+// Falha passageira não cancela o ciclo (21/11): em 20/11 22:14 um único HTTP 500 do roteador bloqueou o ciclo e mandou
+// o alerta, e a checagem seguinte (vigia) já respondeu normalmente: perdeu-se um ciclo de 6 h por um soluço. Só
+// 'fora_do_ar' é repetido (crédito, chave e teto não passam sozinhos); duas novas tentativas espaçadas antes de bloquear.
+export const ESPERAS_FORA_DO_AR_MS = [45_000, 120_000]; // pior caso ~4 min (com 3 timeouts de 30 s): cabe no limite de 5 min do vigia
+export async function preflight(fetchImpl: typeof fetch = fetch, now = new Date(), esperar = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))): Promise<Retrato> {
+  let ia = await checarIa(fetchImpl);
+  for (const ms of ESPERAS_FORA_DO_AR_MS) {
+    if (ia.veredito !== 'fora_do_ar') break;
+    await esperar(ms);
+    ia = await checarIa(fetchImpl);
+  }
+  const checagens = [ia, checarBusca()];
   const r: Retrato = { at: now.toISOString(), ok: !impedeTrabalhar(checagens), checagens };
   try {
     writeState('preflight.json', r); // o painel mostra isto sem repetir a chamada
