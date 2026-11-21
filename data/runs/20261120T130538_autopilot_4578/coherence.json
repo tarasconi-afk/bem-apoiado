@@ -1,0 +1,33 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título e a descrição prometem comparar cadeiras operacional, presidente e gamer, mas a página só traz conteúdo sobre operacional e gamer; a cadeira presidente não é apresentada nem comparada.",
+      "fix": "Limitar a promessa a cadeiras operacional e gamer, por exemplo: “Cadeira operacional ou gamer: medidas, regulagens, revestimentos e cuidados”, e retirar a menção à cadeira presidente."
+    },
+    {
+      "check": "caso_sem_orientacao",
+      "ref": "como-decidir#0",
+      "problem": "Quem procura uma cadeira presidente é incluído na decisão anunciada, mas a seção não orienta o que conferir ou escolher nesse tipo de cadeira.",
+      "fix": "Tirar “presidente” do título da seção e da promessa da página, já que os trechos disponíveis só permitem orientar sobre cadeiras operacionais e gamers."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "requisitos-nbr-13962#0",
+      "problem": "A seção promete explicar o que a NBR 13962 estabelece, mas este bloco apresenta requisitos da NR-17, não da NBR 13962.",
+      "fix": "Mudar o título da seção para algo como “Requisitos da NR-17 e especificações encontradas em editais”, sem prometer conteúdo da NBR 13962."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "cadeira-operacional#0",
+      "problem": "A faixa de 420 mm a 520 mm e a capacidade mínima de 120 kg aparecem como características da cadeira operacional em geral, mas os trechos só trazem essas exigências em especificações de editais, sem sustentar que valham para toda a categoria.",
+      "fix": "Atribuir os valores aos editais ou às especificações citadas, por exemplo: “Em editais consultados, há exigência de altura regulável de 420 mm a 520 mm e capacidade mínima de 120 kg”, em vez de apresentá-los como regra das cadeiras operacionais."
+    }
+  ],
+  "usage": {
+    "input_tokens": 23076,
+    "output_tokens": 4236,
+    "calls": 3
+  }
+}

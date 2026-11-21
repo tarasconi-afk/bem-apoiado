@@ -1,0 +1,43 @@
+{
+  "slug": "tipos-de-cadeira",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 141254,
+    "output_tokens": 56993,
+    "calls": 53
+  },
+  "credits": 56.78310372000003,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Priorize regulagem de altura do assento, apoio lombar, braços ajustáveis e encosto reclinável ao comparar modelos.",
+      "Para trabalho de até 6 horas, a página considera menos decisivas as diferenças de suporte lombar, ventilação e formato do assento; em sessões longas, esses fatores ganham importância.",
+      "Em ambiente quente ou sem ar-condicionado, prefira mesh ou tecido e confira a ventilação informada na ficha, pois o PU tende a reter calor e umidade.",
+      "Para pessoas com mais de 1,85 m, confira se o assento alcança aproximadamente 52 cm a 55 cm, se o encosto apoia toda a coluna e se a borda não pressiona os joelhos.",
+      "Para biotipos grandes, escolha capacidade declarada pelo menos 20 kg acima do peso do usuário e diferencie peso máximo suportado de peso recomendado.",
+      "Confira a capacidade de peso, as dimensões do assento e do encosto, as regulagens disponíveis e o material do revestimento no anúncio ou na ficha técnica.",
+      "Na cadeira gamer, verifique se o formato concha limita o movimento dos ombros e se o apoio lombar é regulável.",
+      "Para limpeza, use pano levemente umedecido e flanela para remover pó, conforme a orientação citada para o revestimento."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma comparação direta entre cadeira operacional, presidente/executiva e gamer, explicando para qual perfil de uso cada tipo é mais indicado.",
+      "Uma regra de escolha que diga claramente qual tipo escolher conforme uso diário, tempo sentado, necessidade de regulagens, preferência de conforto e orçamento.",
+      "Dados de fabricante para cadeira presidente/executiva, incluindo capacidade de peso, altura do encosto e medidas da ficha técnica.",
+      "Medidas completas de assento, encosto e regulagens para cada tipo de cadeira, não apenas exemplos isolados de alguns modelos.",
+      "Orientações de limpeza e manutenção específicas para tecido, courino/PU, tela ou mesh de cada tipo ou modelo.",
+      "Fonte primária que relacione os requisitos da NBR 13962 às características que o comprador deve conferir na ficha do produto."
+    ],
+    "publishable": false,
+    "summary": "A página oferece critérios práticos sobre regulagens, capacidade, revestimento, altura do usuário e biotipo, mas não responde rapidamente qual tipo de cadeira escolher. A cadeira presidente/executiva praticamente não é tratada, e faltam uma comparação clara entre os três tipos e dados de ficha técnica por categoria; por isso, responde apenas parcialmente e não está pronta para publicação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
