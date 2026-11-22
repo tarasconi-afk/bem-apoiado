@@ -1,0 +1,89 @@
+{
+  "run_id": "20261122T190136_autopilot_83d1",
+  "topic": "como-escolher-edredom",
+  "accepted": [
+    {
+      "claim_id": "clm_4a77cc8de0f9",
+      "question_id": "q_tamanho_cama_medida_edredom",
+      "source_id": "src_8cc6e36e7605",
+      "new": true
+    },
+    {
+      "claim_id": "clm_08d0df386bd6",
+      "question_id": "q_dupla_face",
+      "source_id": "src_8cc6e36e7605",
+      "new": true
+    },
+    {
+      "claim_id": "clm_932b2a6d881e",
+      "question_id": "q_tamanho_cama_medida_edredom",
+      "source_id": "src_cc5b7be20e97",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7d20297fa8ef",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_cc5b7be20e97",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2da12bc20dc5",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_cc5b7be20e97",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7e8f474ef215",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_cc5b7be20e97",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f599492da79c",
+      "question_id": "q_dupla_face",
+      "source_id": "src_cc5b7be20e97",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_8cc6e36e7605",
+      "question_id": "q_lavagem_secagem",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Lavagem: Lavar em processo suave na máquina, com temperatura máxima de 40°C;\nProdutos Químicos: Proibido usar alvejante (cloro ou similares) e não realizar lavagem a seco;\nSecagem: Não seque em máquin"
+    }
+  ],
+  "coverage": {
+    "q_tamanho_cama_medida_edredom": 2,
+    "q_gramatura_estacao": 1,
+    "q_composicao_etiqueta": 1,
+    "q_lavagem_secagem": 1,
+    "q_peso_medidas_embalado": 0,
+    "q_dupla_face": 2
+  },
+  "unanswered": [
+    "q_peso_medidas_embalado"
+  ],
+  "usage": {
+    "input_tokens": 5149,
+    "output_tokens": 1447,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_8cc6e36e7605",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_cc5b7be20e97",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 4.81130136
+}
