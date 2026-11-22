@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "tipos-construcao#0",
+      "problem": "O título \"Como cada tipo é construído\" promete explicar a construção de cada tipo, mas a seção também traz classificações regulatórias e não explica como os colchões de molas são construídos.",
+      "fix": "Mudar o título da seção para algo como \"Definições e categorias de colchões segundo o Inmetro\", que corresponde ao conteúdo apresentado."
+    }
+  ],
+  "usage": {
+    "input_tokens": 39920,
+    "output_tokens": 3396,
+    "calls": 3
+  }
+}
