@@ -1,0 +1,102 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Appel informa dimensões de uma cama de solteiro king/solteirão, não de um lençol; portanto, não sustenta dizer que o lençol mede 1,00 m × 2,00 m. Além disso, a diferença entre 2,03 m e 1,88 m é de 0,15 m, não de 0,12 m. Os trechos de altura citam apenas dois modelos da Karsten, não Appel, Altenburg e Karsten em geral.",
+      "fix": "A Appel informa que a cama de solteiro king ou solteirão geralmente mede 1,00 m × 2,00 m. A Altenburg informa colchões de 0,96 m × 2,03 m para solteiro king e de 0,88 m × 1,88 m para solteiro padrão; essas medidas diferem em 0,08 m na largura e 0,15 m no comprimento. Nos dois modelos da Karsten citados, as alturas indicadas são 35 cm e 40 cm."
+    },
+    {
+      "ref": "medida-solteirao#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Appel informa geralmente as medidas da cama de solteiro king/solteirão, não do lençol. Portanto, atribuir à Appel que o lençol mede exatamente 1,00 m por 2,00 m também transforma uma informação apresentada como usual em medida definitiva.",
+      "fix": "A Appel informa que a cama de solteiro king, também chamada de solteirão, geralmente mede 1,00 m de largura por 2,00 m de comprimento. A Altenburg indica o uso para colchões de 0,96 m por 2,03 m."
+    },
+    {
+      "ref": "diferenca-solteiro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-solteiro#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-solteiro#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-elastico#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam as medidas ou a altura dos lençóis (35 cm e 40 cm), mas não dizem que se trata da altura máxima que o elástico suporta. Além disso, o trecho de 40 cm identifica o produto como lençol solteiro, sem mostrar que seja solteiro king. A conclusão sobre diferentes profundidades é plausível apenas para os dois produtos citados, não como uma afirmação geral sobre produtos com as mesmas medidas.",
+      "fix": "Confira na ficha técnica a altura informada para o modelo. Nos trechos citados, um lençol solteiro king mede 1,10 m x 2,00 m x 35 cm, enquanto outro lençol solteiro mede 1,10 m x 2,00 m x 40 cm; portanto, modelos com a mesma largura e comprimento podem apresentar alturas informadas diferentes."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram instruções de três modelos específicos de lençóis de algodão da Karsten, mas não sustentam a generalização de que os fabricantes declaram cuidados conforme o tipo de tecido nem que lençóis de algodão frequentemente seguem essas orientações. Além disso, os trechos citados indicam temperatura máxima de 150°C para passar, não uma faixa de 110°C a 150°C.",
+      "fix": "Nas páginas citadas, a Karsten orienta, conforme o modelo de lençol de algodão, lavar a 40°C ou 60°C, não alvejar, secar em tambor a no máximo 60°C, passar a no máximo 150°C e não lavar a seco. Sempre confira as instruções na etiqueta do modelo escolhido."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "O bloco, embora marcado como framing, apresenta a medição do colchão como orientação prática sem trechos citados que a sustentem.",
+      "fix": "Como frase sobre a própria página: \"Para ajudar na escolha, esta página começa sugerindo que você meça o colchão.\""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Karsten não sustentam a atribuição das medidas de 0,88 m × 1,88 m à marca; eles mostram produtos com 1,10 m × 2,00 m e alturas de 35 cm e 40 cm. Além disso, os trechos não dizem que 35 cm ou 40 cm sejam a altura máxima do colchão, apenas apresentam as dimensões dos produtos.",
+      "fix": "\"Segundo a Altenburg, colchões de 0,88 m × 1,88 m correspondem ao solteiro, e os de 0,96 m × 2,03 m correspondem ao solteiro king ou solteirão. Em páginas de produtos, a Karsten informa dimensões com 35 cm e 40 cm de altura; confira a medida indicada na ficha do produto.\""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O trecho da Appel informa dimensões de uma cama de solteiro king/solteirão, não de um lençol; portanto, não sustenta dizer que o lençol mede 1,00 m × 2,00 m. Além disso, a diferença entre 2,03 m e 1,88 m é de 0,15 m, não de 0,12 m. Os trechos de altura citam apenas dois modelos da Karsten, não Appel, Altenburg e Karsten em geral. Versão sustentável: A Appel informa que a cama de solteiro king ou solteirão geralmente mede 1,00 m × 2,00 m. A Altenburg informa colchões de 0,96 m × 2,03 m para solteiro king e de 0,88 m × 1,88 m para solteiro padrão; essas medidas diferem em 0,08 m na largura e 0,15 m no comprimento. Nos dois modelos da Karsten citados, as alturas indicadas são 35 cm e 40 cm."
+    },
+    {
+      "ref": "medida-solteirao#0",
+      "msg": "MISATTRIBUTED. O trecho da Appel informa geralmente as medidas da cama de solteiro king/solteirão, não do lençol. Portanto, atribuir à Appel que o lençol mede exatamente 1,00 m por 2,00 m também transforma uma informação apresentada como usual em medida definitiva. Versão sustentável: A Appel informa que a cama de solteiro king, também chamada de solteirão, geralmente mede 1,00 m de largura por 2,00 m de comprimento. A Altenburg indica o uso para colchões de 0,96 m por 2,03 m."
+    },
+    {
+      "ref": "altura-elastico#0",
+      "msg": "OVERSTATED. Os trechos informam as medidas ou a altura dos lençóis (35 cm e 40 cm), mas não dizem que se trata da altura máxima que o elástico suporta. Além disso, o trecho de 40 cm identifica o produto como lençol solteiro, sem mostrar que seja solteiro king. A conclusão sobre diferentes profundidades é plausível apenas para os dois produtos citados, não como uma afirmação geral sobre produtos com as mesmas medidas. Versão sustentável: Confira na ficha técnica a altura informada para o modelo. Nos trechos citados, um lençol solteiro king mede 1,10 m x 2,00 m x 35 cm, enquanto outro lençol solteiro mede 1,10 m x 2,00 m x 40 cm; portanto, modelos com a mesma largura e comprimento podem apresentar alturas informadas diferentes."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "OVERSTATED. Os trechos mostram instruções de três modelos específicos de lençóis de algodão da Karsten, mas não sustentam a generalização de que os fabricantes declaram cuidados conforme o tipo de tecido nem que lençóis de algodão frequentemente seguem essas orientações. Além disso, os trechos citados indicam temperatura máxima de 150°C para passar, não uma faixa de 110°C a 150°C. Versão sustentável: Nas páginas citadas, a Karsten orienta, conforme o modelo de lençol de algodão, lavar a 40°C ou 60°C, não alvejar, secar em tambor a no máximo 60°C, passar a no máximo 150°C e não lavar a seco. Sempre confira as instruções na etiqueta do modelo escolhido."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "FACT_IN_FRAMING. O bloco, embora marcado como framing, apresenta a medição do colchão como orientação prática sem trechos citados que a sustentem. Versão sustentável: Como frase sobre a própria página: \"Para ajudar na escolha, esta página começa sugerindo que você meça o colchão.\""
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. Os trechos da Karsten não sustentam a atribuição das medidas de 0,88 m × 1,88 m à marca; eles mostram produtos com 1,10 m × 2,00 m e alturas de 35 cm e 40 cm. Além disso, os trechos não dizem que 35 cm ou 40 cm sejam a altura máxima do colchão, apenas apresentam as dimensões dos produtos. Versão sustentável: \"Segundo a Altenburg, colchões de 0,88 m × 1,88 m correspondem ao solteiro, e os de 0,96 m × 2,03 m correspondem ao solteiro king ou solteirão. Em páginas de produtos, a Karsten informa dimensões com 35 cm e 40 cm de altura; confira a medida indicada na ficha do produto.\""
+    }
+  ]
+}
