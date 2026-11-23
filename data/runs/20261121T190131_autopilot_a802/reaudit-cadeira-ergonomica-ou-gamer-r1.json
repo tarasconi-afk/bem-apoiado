@@ -1,0 +1,121 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Flexform, uma cadeira gamer com apoio lombar ajustável, profundidade de assento regulável e mecanismo sincronizado pode funcionar bem em jornadas corporativas longas. Uma cadeira com especificação técnica completa pode reunir essas e outras características.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e8cc2dafbc8c",
+        "clm_3c8923e99ac3"
+      ]
+    },
+    {
+      "ref": "regulagens-o-que-muda#0",
+      "action": "replace",
+      "text": "Uma cadeira de escritório com especificação técnica mais completa pode reunir regulagem de altura por pistão a gás, apoio lombar ajustável em altura, profundidade de assento regulável e mecanismo com tensão ajustável ou sincronizado, segundo a Flexform.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3c8923e99ac3"
+      ]
+    },
+    {
+      "ref": "regulagens-o-que-muda#2",
+      "action": "replace",
+      "text": "A tensão do mecanismo é ajustável conforme o peso do usuário: um usuário de 60 kg e outro de 90 kg precisam de tensões diferentes para que a reclinação seja controlada, segundo a Flexform.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0ee7da27eecc"
+      ]
+    },
+    {
+      "ref": "o-que-a-nr17-pede#0",
+      "action": "replace",
+      "text": "Segundo a NR-17, a cadeira deve ter assento com altura ajustável à estatura e à natureza da função, borda frontal arredondada e encosto levemente adaptado ao corpo para proteção da região lombar. Para trabalho em teleatendimento e telemarketing, o apoio de braços deve ser regulável de 20 a 25 centímetros a partir do assento.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_11fcb7102cbd",
+        "clm_22c1d3abba51"
+      ]
+    },
+    {
+      "ref": "o-que-a-nr17-pede#1",
+      "action": "replace",
+      "text": "Para trabalho em teleatendimento e telemarketing, a altura da superfície superior deve ser ajustável entre 37 e 50 centímetros em relação ao piso. Procure essa faixa na ficha técnica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_41a4004759fb"
+      ]
+    },
+    {
+      "ref": "materialese-estrutura#0",
+      "action": "replace",
+      "text": "A Flexform afirma que espuma abaixo de 40 kg/m³ perde volume e firmeza em meses de uso intenso e que, para uso diário de 8 horas, a faixa de 45 a 55 kg/m³ é o mínimo para durabilidade compatível com garantia de 5 a 7 anos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_793039315aaf"
+      ]
+    },
+    {
+      "ref": "materialese-estrutura#1",
+      "action": "replace",
+      "text": "A Flexform Dot é descrita pela Flexform como tendo estruturas plásticas e tecidos de alta performance.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_385b9edcdd97"
+      ]
+    },
+    {
+      "ref": "garantia-o-que-cobre#0",
+      "action": "replace",
+      "text": "A Flexform Dot Graphite oferece 5 anos de garantia.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_845d4ec3b96a"
+      ]
+    },
+    {
+      "ref": "garantia-o-que-cobre#1",
+      "action": "replace",
+      "text": "Alguns fabricantes chegam a oferecer sete anos de garantia, mas a Funcional informa que esse período pode contemplar apenas peças plásticas ou metálicas com função estrutural que apresentem defeito de fabricação; outros problemas não seriam cobertos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_dde32c32b869"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se você trabalha muitas horas sentado, procure uma cadeira com apoio lombar ajustável em altura, profundidade do assento regulável e mecanismo sincronizado. Segundo a Flexform, uma cadeira gamer com essas características pode atender à NR-17 e funcionar bem em jornadas corporativas longas; o ajuste de tensão permite calibrar a resistência da mola ao seu peso.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_e8cc2dafbc8c",
+        "clm_0ee7da27eecc"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Segundo a Flexform, um modelo operativo pode possuir apenas regulagem de altura, sem apoio lombar ajustável, profundidade de assento regulável ou mecanismo com tensão ajustável.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_23f73d86cd89"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Na ficha técnica, procure valores declarados em centímetros para a altura mínima e máxima do assento, a profundidade do assento e a faixa de ajuste do apoio lombar, segundo a Flexform.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_832b248a7da8"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ]
+}
