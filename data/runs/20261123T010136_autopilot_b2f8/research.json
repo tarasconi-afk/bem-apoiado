@@ -1,0 +1,162 @@
+{
+  "run_id": "20261123T010136_autopilot_b2f8",
+  "topic": "cama-box-ou-cama-de-madeira-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_3043df9323aa",
+      "question_id": "q_medida_por_tamanho",
+      "source_id": "src_d7cb684bf86a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f00a82e4bbdf",
+      "question_id": "q_capacidade_peso_box",
+      "source_id": "src_d7cb684bf86a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_adf873d6c4ab",
+      "question_id": "q_material_acabamento",
+      "source_id": "src_d7cb684bf86a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3a013af21231",
+      "question_id": "q_material_acabamento",
+      "source_id": "src_d7cb684bf86a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b53216d73ece",
+      "question_id": "q_medida_por_tamanho",
+      "source_id": "src_d7cb684bf86a",
+      "new": true
+    },
+    {
+      "claim_id": "clm_95eaa9b26c8c",
+      "question_id": "q_capacidade_peso_box",
+      "source_id": "src_84e9fdb156e8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ed0c935c8c68",
+      "question_id": "q_conservacao_estrutura",
+      "source_id": "src_84e9fdb156e8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b91c74f7cae8",
+      "question_id": "q_conservacao_estrutura",
+      "source_id": "src_84e9fdb156e8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fb7d4d78b83c",
+      "question_id": "q_material_acabamento",
+      "source_id": "src_4f64e6a4d34e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8500f192c859",
+      "question_id": "q_medida_por_tamanho",
+      "source_id": "src_4f64e6a4d34e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b047af4e0999",
+      "question_id": "q_medida_por_tamanho",
+      "source_id": "src_18ce5bedca07",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d7546266a6f4",
+      "question_id": "q_capacidade_peso_box",
+      "source_id": "src_18ce5bedca07",
+      "new": true
+    },
+    {
+      "claim_id": "clm_29d0087b3c5c",
+      "question_id": "q_material_acabamento",
+      "source_id": "src_18ce5bedca07",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fd75aa0a8291",
+      "question_id": "q_material_acabamento",
+      "source_id": "src_18ce5bedca07",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_84e9fdb156e8",
+      "question_id": "q_medida_por_tamanho",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tamanho: Queen\nLargura: 158 cm\nComprimento: 198 cm\nAltura do Conjunto Box: 24 cm\nAltura da Base Box: 26 cm\nAltura dos Pés: 12 cm\nAltura do Conjunto: 62 cm"
+    },
+    {
+      "source_id": "src_84e9fdb156e8",
+      "question_id": "q_material_acabamento",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tecido Tampo: Malha\nGramatura Tecido: 170 g/m²\nEspuma Matelassê: D20 Cilíndrica\nEspuma do Estofamento 1: D28\nSistema de Molejo: Molas Ensacadas\nBase de Suporte do Colchão: EPS"
+    },
+    {
+      "source_id": "src_84e9fdb156e8",
+      "question_id": "q_material_acabamento",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Tecido Tampo: Malha branca com detalhes cinza"
+    },
+    {
+      "source_id": "src_18ce5bedca07",
+      "question_id": "q_material_acabamento",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Pés: PVC"
+    }
+  ],
+  "coverage": {
+    "q_medida_por_tamanho": 4,
+    "q_capacidade_peso_box": 3,
+    "q_capacidade_peso_madeira": 0,
+    "q_material_acabamento": 5,
+    "q_conservacao_estrutura": 2,
+    "q_peso_medidas_embalagem": 0
+  },
+  "unanswered": [
+    "q_capacidade_peso_madeira",
+    "q_peso_medidas_embalagem"
+  ],
+  "usage": {
+    "input_tokens": 7769,
+    "output_tokens": 2357,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_d7cb684bf86a",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_84e9fdb156e8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_4f64e6a4d34e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_18ce5bedca07",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 4.08301104
+}
