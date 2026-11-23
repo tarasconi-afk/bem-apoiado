@@ -1,0 +1,30 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se você quer facilitar a abertura e o fechamento, confira se o modelo tem pistões pneumáticos ou a gás. Segundo a Probel, na base citada, a tampa se mantém aberta sem necessidade de segurá-la; segundo a Simmons, os pistões a gás facilitam a abertura e o fechamento sem lubrificação adicional.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_60551ab10db0",
+        "clm_26aaeab1b561"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se você dorme com outra pessoa e quer dividir o espaço interno do baú, procure modelos bipartidos. A Probel apresenta uma base bipartida com dois volumes; a Simmons descreve uma base bipartida com divisória central que separa o espaço interno.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e15a2bf3563d",
+        "clm_bfb8181cb720"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "mecanismo-abertura#0",
+      "msg": "repete o bloco como-decidir#3 (81% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ]
+}

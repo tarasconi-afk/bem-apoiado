@@ -1,0 +1,113 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "capacidade-carga#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "mecanismo-abertura#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "mecanismo-abertura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "estrutura-revestimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "estrutura-revestimento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-montagem#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia-montagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Probel mostra que uma base específica com pistões pneumáticos mantém a tampa aberta sem segurá-la e facilita o manuseio. O bloco generaliza essa propriedade para modelos com pistões pneumáticos em geral.",
+      "fix": "Se você quer facilitar a abertura e o fechamento, confira se o modelo tem pistões pneumáticos ou a gás. Segundo a Probel, na base citada, a tampa se mantém aberta sem necessidade de segurá-la; segundo a Simmons, os pistões a gás facilitam a abertura e o fechamento sem lubrificação adicional."
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Probel documenta uma base bipartida específica com dois volumes, mas o bloco afirma que a Probel oferece bases bipartidas, no plural, como regra geral.",
+      "fix": "Se você dorme com outra pessoa e quer dividir o espaço interno do baú, procure modelos bipartidos. A Probel apresenta uma base bipartida com dois volumes; a Simmons descreve uma base bipartida com divisória central que separa o espaço interno."
+    }
+  ]
+}
