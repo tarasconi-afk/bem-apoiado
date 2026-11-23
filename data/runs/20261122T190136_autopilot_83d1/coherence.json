@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir#3",
+      "problem": "O leitor pode entender que qualquer edredom com gramatura de 130 g/m² oferece equilíbrio para todas as estações, mas esse dado e essa indicação são do modelo Casal Dupla Face Otto Poppi da Döhler.",
+      "fix": "Reescrever deixando a informação ligada ao modelo citado: “No modelo Casal Dupla Face Otto Poppi, a Döhler declara 130 g/m² e indica equilíbrio entre leveza e conforto térmico para todas as estações.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 24369,
+    "output_tokens": 3208,
+    "calls": 3
+  }
+}

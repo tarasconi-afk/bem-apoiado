@@ -1,0 +1,78 @@
+{
+  "removed": [
+    "como-decidir#2",
+    "como-decidir#0.r0",
+    "como-decidir#0.r1",
+    "como-decidir#0.r2",
+    "como-decidir#0.r3"
+  ],
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2",
+      "como-decidir#0.r0",
+      "como-decidir#0.r1",
+      "como-decidir#0.r2",
+      "como-decidir#0.r3"
+    ],
+    "decision_criteria": [
+      "Escolha a categoria de tamanho correspondente à cama e confira as medidas exatas na ficha, pois elas variam entre marcas e modelos.",
+      "Para clima frio ou ameno, procure a gramatura declarada de 170 g/m² no modelo citado da Appel.",
+      "Para uso em todas as estações, a gramatura de 130 g/m² declarada pela Döhler é uma referência apresentada na página.",
+      "Se preferir enchimento natural, escolha um produto cuja composição declare plumas de ganso; para enchimento sintético, procure poliéster ou microfibra.",
+      "Confira a composição têxtil e o percentual das fibras antes da compra.",
+      "Se não pretende usar secadora, escolha um edredom com instrução de secagem natural, como em varal.",
+      "Se quiser alternar o visual da cama, considere um modelo dupla face e verifique a composição e a gramatura de cada lado."
+    ],
+    "missing": [
+      "Uma referência de gramatura específica para clima quente ou verão, além da indicação de uso em todas as estações.",
+      "Uma explicação simples de que a gramatura é o peso do enchimento por metro quadrado e como ela se relaciona ao aquecimento.",
+      "Uma tabela consolidada por tamanho de cama com medidas de mais de um fabricante, destacando claramente a variação entre modelos."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página dá uma regra prática de escolha por tamanho, clima, composição e cuidados de lavagem, além de indicar o que conferir na ficha do produto. A resposta curta resolve a dúvida em poucas frases com medidas e gramaturas concretas. Há uma repetição entre a indicação de 170 g/m² da Appel e o bloco correspondente do Como decidir, mas isso não compromete a utilidade geral.",
+    "filler_ratio": 0.21739130434782608,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "O termo \"gramatura\" aparece na resposta curta sem explicar que se refere ao peso do enchimento por metro quadrado.",
+      "A página apresenta várias gramaturas de fabricantes, mas não deixa claro como interpretar os valores de 112 g/m² e 200 g/m² na escolha para verão ou inverno."
+    ],
+    "filler_refs": [
+      "edredom-dupla-face#1"
+    ],
+    "decision_criteria": [
+      "Escolha o tamanho do edredom conferindo as medidas exatas do produto, porque as dimensões variam entre fabricantes mesmo para a mesma medida de cama.",
+      "Para clima frio ou temperaturas amenas, o modelo Appel citado declara 170 g/m²; a Döhler associa 130 g/m² a todas as estações.",
+      "Confira na etiqueta ou embalagem o material do tecido externo e do enchimento, além do percentual de cada fibra.",
+      "Se não pretende usar secadora, escolha um edredom cuja etiqueta permita secagem natural, como em varal.",
+      "Confira as instruções de lavagem, temperatura máxima, uso de alvejante, secagem, passagem e limpeza a seco.",
+      "Em modelos dupla face, compare a gramatura e o material de cada lado para identificar qual oferece mais aquecimento ou qual textura prefere."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: O termo \"gramatura\" aparece na resposta curta sem explicar que se refere ao peso do enchimento por metro quadrado.",
+      "Para o leitor leigo: A página apresenta várias gramaturas de fabricantes, mas não deixa claro como interpretar os valores de 112 g/m² e 200 g/m² na escolha para verão ou inverno.",
+      "Uma explicação simples de que gramatura é o peso do enchimento em g/m².",
+      "Uma tabela do fabricante relacionando faixas de gramatura a verão, meia-estação e inverno, com uma regra clara de escolha.",
+      "O peso e as medidas da embalagem declarados pelo fabricante.",
+      "Informação do fabricante sobre como identificar na própria peça qual lado do edredom dupla face corresponde a cada gramatura.",
+      "Uma orientação mais clara sobre quando escolher enchimentos diferentes, como poliéster, microfibra ou plumas."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece critérios concretos para conferir medidas, gramatura, composição e cuidados antes da compra. Ela ainda precisa explicar \"gramatura\" para leigos e organizar melhor a relação entre os valores e as estações; sem isso, a resposta curta fica técnica e parcialmente difícil de aplicar.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": true
+  }
+}

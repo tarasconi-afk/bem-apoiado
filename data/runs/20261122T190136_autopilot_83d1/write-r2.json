@@ -1,0 +1,572 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se você já sabe o tamanho da cama, escolha o edredom correspondente e confira as medidas exatas na ficha, pois elas diferem entre os produtos citados, segundo Döhler e Andreza Enxovais. Um fabricante associa 170 g/m² a clima frio, enquanto a Döhler associa 130 g/m² a todas as estações. Antes de comprar, confira a composição informada do enchimento e do tecido externo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_12f63e7aa23f",
+        "clm_2ec25953b1d9",
+        "clm_028a55254d48",
+        "clm_5fbf97f0fe55",
+        "clm_0e5f8661d994",
+        "clm_055cf59ece8e"
+      ]
+    },
+    {
+      "ref": "tamanhos-medidas#0",
+      "action": "replace",
+      "text": "A seguir, veja as medidas informadas nas fontes citadas.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "tamanhos-medidas#2",
+      "action": "replace",
+      "text": "A seguir, considere as medidas informadas para cada modelo.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "gramatura-enchimento#0",
+      "action": "replace",
+      "text": "A seguir, veja o que as fontes dizem sobre a gramatura do enchimento.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "gramatura-enchimento#3",
+      "action": "replace",
+      "text": "A Karsten declara gramatura de 112 g/m², enquanto Plumasul e Appel informam gramatura de 200 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a21d4c53055",
+        "clm_5546bb24e026",
+        "clm_fd0d0fba6db9"
+      ]
+    },
+    {
+      "ref": "composicao-textil#1",
+      "action": "replace",
+      "text": "A Plumasul declara que o modelo Summer tem revestimento de tecido 100% algodão, percal de 233 fios, e enchimento de 100% plumas de ganso.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e86ea4ea87b"
+      ]
+    },
+    {
+      "ref": "composicao-textil#2",
+      "action": "replace",
+      "text": "A Altenburg declara enchimento de poliéster Thermobonder no edredom solteiro. A Döhler declara enchimento de microfibra, com gramatura de 130 g/m², no modelo Casal Dupla Face Otto Malva.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_08f9ec46112c",
+        "clm_7d20297fa8ef"
+      ]
+    },
+    {
+      "ref": "composicao-textil#3",
+      "action": "replace",
+      "text": "Em produtos de cama embalados, confira na embalagem — ou em meio de informação visível através dela — a composição têxtil e as dimensões de cada componente.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_15be5fa33779",
+        "clm_186e0a4a8d35"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "action": "replace",
+      "text": "A informação sobre os cuidados de conservação do produto é obrigatória e deve seguir a norma NM ISO 3758:2013.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1326bdf565cf"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "action": "replace",
+      "text": "No modelo Florença 180 Fios 100% Algodão da Teka, as instruções são lavar à mão, não alvejar, não secar em tambor, secar em varal na sombra, não passar e não lavar a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_060429a64aad"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "action": "replace",
+      "text": "Segundo a Appel, o edredom Plush Flannel Confort deve ser lavado a no máximo 40°C, sem alvejante, seco pendurado, passado a no máximo 110°C e não deve ser limpo a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_041564064caa"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "action": "replace",
+      "text": "Se a secagem em tambor não for permitida, procure um modelo cuja indicação de cuidados inclua símbolos correspondentes de secagem natural.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1d159ab88b4a"
+      ]
+    },
+    {
+      "ref": "edredom-dupla-face#0",
+      "action": "replace",
+      "text": "A seguir, veja como as fontes descrevem diferentes características de edredons dupla face.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "edredom-dupla-face#1",
+      "action": "replace",
+      "text": "No edredom King Dalia Marrom, a Döhler descreve um lado com Fleece de 180 g/m², toque aveludado e leve, e outro com Sherpa de 200 g/m² e textura ondulada.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_08d0df386bd6"
+      ]
+    },
+    {
+      "ref": "edredom-dupla-face#2",
+      "action": "replace",
+      "text": "A Appel e a Döhler descrevem modelos dupla face como opções que permitem alternar estilos ou variar o visual da cama.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1c9c4f3f0722",
+        "clm_26ae3f17385f"
+      ]
+    },
+    {
+      "ref": "edredom-dupla-face#3",
+      "action": "replace",
+      "text": "A seguir, veja o que as fontes informam sobre os materiais, as gramaturas e o design dos modelos citados.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você já sabe o tamanho da cama, escolha o edredom correspondente, solteiro, casal, queen ou king, e confira as medidas exatas na ficha, porque as dimensões podem variar entre marcas e modelos, segundo Döhler e Andreza Enxovais.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_12f63e7aa23f",
+        "clm_2ec25953b1d9",
+        "clm_4a77cc8de0f9"
+      ]
+    },
+    {
+      "ref": "como-decidir#4",
+      "action": "replace",
+      "text": "Se você prefere enchimento natural, escolha um modelo cuja ficha declare plumas de ganso; se prefere enchimento sintético, escolha um modelo que declare poliéster ou microfibra, segundo os fabricantes citados. Confira a composição declarada antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0e86ea4ea87b",
+        "clm_08f9ec46112c",
+        "clm_7d20297fa8ef",
+        "clm_0e5f8661d994",
+        "clm_055cf59ece8e"
+      ]
+    },
+    {
+      "ref": "como-decidir#5",
+      "action": "replace",
+      "text": "Se você não pretende usar secadora, confira os símbolos de conservação e escolha um edredom cuja instrução permita secagem em varal ou outra forma de secagem natural. Quando a secagem em tambor não for permitida, devem ser indicados um ou mais símbolos de secagem natural correspondentes.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_060429a64aad",
+        "clm_079a28a012d2",
+        "clm_1326bdf565cf",
+        "clm_1d159ab88b4a"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher edredom: tamanho, gramatura e composição",
+    "description": "Escolha edredom pelo tamanho da cama (solteiro, casal, queen, king).",
+    "verdict": {
+      "text": "Se você já sabe o tamanho da cama, escolha o edredom correspondente e confira as medidas exatas na ficha, pois elas diferem entre os produtos citados, segundo Döhler e Andreza Enxovais. Um fabricante associa 170 g/m² a clima frio, enquanto a Döhler associa 130 g/m² a todas as estações. Antes de comprar, confira a composição informada do enchimento e do tecido externo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_12f63e7aa23f",
+        "clm_2ec25953b1d9",
+        "clm_028a55254d48",
+        "clm_5fbf97f0fe55",
+        "clm_0e5f8661d994",
+        "clm_055cf59ece8e"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tamanhos-medidas",
+        "heading": "Tamanhos e medidas do edredom",
+        "blocks": [
+          {
+            "text": "As medidas exatas variam entre fabricantes, segundo a Döhler e a Plumasul. Segundo a Döhler, o edredom solteiro mede 1,80 m × 2,50 m; o casal, 2,20 m × 2,50 m; o queen, 2,40 m × 2,50 m; e o king, 2,80 m × 2,50 m. A Plumasul declara medidas diferentes para o modelo Soft Touch: solteiro 1,60 m × 2,20 m, casal 2,20 m × 2,40 m, queen 2,40 m × 2,60 m e king 2,80 m × 2,60 m.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12f63e7aa23f",
+              "clm_4a77cc8de0f9",
+              "clm_0e4444df0771"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "gramatura-enchimento",
+        "heading": "Gramatura do enchimento: qual escolher",
+        "blocks": [
+          {
+            "text": "Para clima frio e temperaturas amenas, o edredom Plush Flannel Confort da Appel declara 170 g/m² como adequado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_028a55254d48"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para uso em todas as estações, a Döhler indica gramatura de 130 g/m² como oferta equilíbrio entre leveza e conforto térmico, segundo seu modelo Dupla Face Otto Poppi.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5fbf97f0fe55"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Karsten declara gramatura de 112 g/m², enquanto Plumasul e Appel informam gramatura de 200 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a21d4c53055",
+              "clm_5546bb24e026",
+              "clm_fd0d0fba6db9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-textil",
+        "heading": "Composição têxtil: enchimento e tecido externo",
+        "blocks": [
+          {
+            "text": "A etiqueta de composição, regulada pelo Inmetro, deve informar o nome das fibras têxteis e seu percentual em massa, em ordem decrescente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e5f8661d994",
+              "clm_055cf59ece8e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Plumasul declara que o modelo Summer tem revestimento de tecido 100% algodão, percal de 233 fios, e enchimento de 100% plumas de ganso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e86ea4ea87b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Altenburg declara enchimento de poliéster Thermobonder no edredom solteiro. A Döhler declara enchimento de microfibra, com gramatura de 130 g/m², no modelo Casal Dupla Face Otto Malva.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_08f9ec46112c",
+              "clm_7d20297fa8ef"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Em produtos de cama embalados, confira na embalagem, ou em meio de informação visível através dela, a composição têxtil e as dimensões de cada componente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_15be5fa33779",
+              "clm_186e0a4a8d35"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Cuidados de conservação e lavagem",
+        "blocks": [
+          {
+            "text": "A informação sobre os cuidados de conservação do produto é obrigatória e deve seguir a norma NM ISO 3758:2013.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1326bdf565cf"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No modelo Florença 180 Fios 100% Algodão da Teka, as instruções são lavar à mão, não alvejar, não secar em tambor, secar em varal na sombra, não passar e não lavar a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_060429a64aad"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Appel, o edredom Plush Flannel Confort deve ser lavado a no máximo 40°C, sem alvejante, seco pendurado, passado a no máximo 110°C e não deve ser limpo a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_041564064caa"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a secagem em tambor não for permitida, procure um modelo cuja indicação de cuidados inclua símbolos correspondentes de secagem natural.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1d159ab88b4a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "edredom-dupla-face",
+        "heading": "Edredom dupla face: como funciona",
+        "blocks": [
+          {
+            "text": "No edredom King Dalia Marrom, a Döhler descreve um lado com Fleece de 180 g/m², toque aveludado e leve, e outro com Sherpa de 200 g/m² e textura ondulada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_08d0df386bd6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Appel e a Döhler descrevem modelos dupla face como opções que permitem alternar estilos ou variar o visual da cama.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1c9c4f3f0722",
+              "clm_26ae3f17385f"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas de edredom por tamanho de cama (segundo a Döhler)",
+            "columns": [
+              "Tamanho da cama",
+              "Medidas (largura × comprimento)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  },
+                  {
+                    "text": "1,80 m × 2,50 m",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  },
+                  {
+                    "text": "2,20 m × 2,50 m",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  },
+                  {
+                    "text": "2,40 m × 2,50 m",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  },
+                  {
+                    "text": "2,80 m × 2,50 m",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f",
+                      "clm_4a77cc8de0f9"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você já sabe o tamanho da cama, escolha o edredom correspondente, solteiro, casal, queen ou king, e confira as medidas exatas na ficha, porque as dimensões podem variar entre marcas e modelos, segundo Döhler e Andreza Enxovais.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12f63e7aa23f",
+              "clm_2ec25953b1d9",
+              "clm_4a77cc8de0f9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você vive em clima frio ou ameno, confira a gramatura do enchimento na ficha antes de escolher, segundo a Appel. No edredom Plush Flannel Confort da Appel, a gramatura de 170 g/m² é indicada para essas condições.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_028a55254d48"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere enchimento que funcione em todas as estações, busque um modelo com gramatura de 130 g/m², que oferece equilíbrio entre leveza e conforto térmico, segundo a Döhler.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_5fbf97f0fe55"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você prefere enchimento natural, escolha um modelo cuja ficha declare plumas de ganso; se prefere enchimento sintético, escolha um modelo que declare poliéster ou microfibra, segundo fabricantes como Plumasul, Altenburg e Döhler. Confira a composição declarada antes de comprar.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0e86ea4ea87b",
+              "clm_08f9ec46112c",
+              "clm_7d20297fa8ef",
+              "clm_0e5f8661d994",
+              "clm_055cf59ece8e"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se você não pretende usar secadora, confira os símbolos de conservação e escolha um edredom cuja instrução permita secagem em varal ou outra forma de secagem natural, segundo a Teka e a Trussardi. Quando a secagem em tambor não for permitida, devem ser indicados um ou mais símbolos de secagem natural correspondentes.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_060429a64aad",
+              "clm_079a28a012d2",
+              "clm_1326bdf565cf",
+              "clm_1d159ab88b4a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que há medidas diferentes entre produtos e que um fabricante associa 170 g/m² a clima frio e outro associa 130 g/m² a todas as estações. Porém, não sustentam o limite “170 g/m² ou maior”, nem que essa orientação venha de todos os fabricantes mencionados. Também mostram composições de produtos e exigência de informar fibras e percentuais, mas não dizem especificamente que o enchimento e o tecido externo devem ser conferidos na etiqueta. Versão sustentável: Se você já sabe o tamanho da cama, escolha o edredom correspondente e confira as medidas exatas na ficha, pois elas diferem entre os produtos citados. Um fabricante associa 170 g/m² a clima frio, enquanto um produto Döhler associa 130 g/m² a todas as estações. Antes de comprar, confira a composição informada do enchimento e do tecido externo."
+    },
+    {
+      "ref": "tamanhos-medidas#0",
+      "msg": "FACT_IN_FRAMING. O bloco afirma como fato que existem quatro tamanhos principais e que cada um corresponde a uma medida de cama, mas não cita evidências para essas afirmações. Versão sustentável: Apresente apenas uma transição sem afirmações factuais, como: \"A seguir, veja as medidas informadas nas fontes citadas.\""
+    },
+    {
+      "ref": "tamanhos-medidas#2",
+      "msg": "FACT_IN_FRAMING. O bloco recomenda sempre conferir a ficha técnica e afirma que isso garantirá um bom ajuste, mas não cita evidências para essa recomendação ou para a garantia de ajuste. Versão sustentável: Use uma transição sem afirmação factual, como: \"A seguir, considere as medidas informadas para cada modelo.\""
+    },
+    {
+      "ref": "gramatura-enchimento#0",
+      "msg": "FACT_IN_FRAMING. O bloco apresenta como fatos a definição de gramatura, sua influência no aquecimento e a relação entre gramatura e densidade, mas não cita nenhuma evidência. Versão sustentável: A seguir, veja o que as fontes dizem sobre a gramatura do enchimento."
+    },
+    {
+      "ref": "gramatura-enchimento#3",
+      "msg": "UNSUPPORTED. Os trechos informam apenas as gramaturas de 112 g/m² e 200 g/m². Eles não dizem que 112 g/m² oferece menos peso nem que 200 g/m² concentra mais enchimento. Versão sustentável: A Karsten declara gramatura de 112 g/m², enquanto Plumasul e Appel informam gramatura de 200 g/m²."
+    },
+    {
+      "ref": "composicao-textil#1",
+      "msg": "UNSUPPORTED. Os trechos confirmam apenas que o modelo Summer tem revestimento de algodão percal e enchimento de 100% plumas de ganso. Não dizem que o enchimento pode ser natural ou sintético, nem classificam as plumas de ganso como enchimento natural. Versão sustentável: A Plumasul declara que o modelo Summer tem revestimento de tecido 100% algodão, percal de 233 fios, e enchimento de 100% plumas de ganso."
+    },
+    {
+      "ref": "composicao-textil#2",
+      "msg": "UNSUPPORTED. Os trechos informam que os produtos têm enchimento de poliéster e de microfibra, mas não dizem que esses materiais são sintéticos. Além disso, a evidência da Döhler mostra um modelo específico, não vários modelos. Versão sustentável: A Altenburg declara enchimento de poliéster Thermobonder no edredom solteiro. A Döhler declara enchimento de microfibra, com gramatura de 130 g/m², no modelo Casal Dupla Face Otto Malva."
+    },
+    {
+      "ref": "composicao-textil#3",
+      "msg": "UNSUPPORTED. Os trechos não dizem que o tecido externo entra em contato com a pele, nem que ele pode ser algodão, poliéster ou microfibra. Eles apenas determinam que a composição têxtil, o país de origem e as dimensões de cada componente constem na embalagem ou em meio visível através dela. Versão sustentável: Em produtos de cama embalados, confira na embalagem — ou em meio de informação visível através dela — a composição têxtil e as dimensões de cada componente."
+    },
+    {
+      "ref": "cuidados-conservacao#0",
+      "msg": "OVERSTATED. Os trechos dizem que a informação sobre cuidados de conservação é obrigatória, mas não afirmam que ela esteja necessariamente em uma etiqueta nem enumeram especificamente lavar, secar, passar e tratar o edredom. Além disso, um dos trechos se refere a colchões e colchonetes. Versão sustentável: A informação sobre os cuidados de conservação do produto é obrigatória e deve seguir a norma NM ISO 3758:2013."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "OVERSTATED. O trecho da Teka sustenta as instruções do modelo Florença, mas não afirma que edredons 100% algodão, em geral, exijam cuidados mais rigorosos. Versão sustentável: No modelo Florença 180 Fios 100% Algodão da Teka, as instruções são lavar à mão, não alvejar, não secar em tambor, secar em varal na sombra, não passar e não lavar a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "msg": "OVERSTATED. O trecho sustenta as instruções específicas do edredom Plush Flannel Confort, mas não informa que edredons de poliéster e microfibra, em geral, permitam processos mais simples, nem identifica esses materiais no trecho citado. Versão sustentável: Segundo a Appel, o edredom Plush Flannel Confort deve ser lavado a no máximo 40°C, sem alvejante, seco pendurado, passado a no máximo 110°C e não deve ser limpo a seco."
+    },
+    {
+      "ref": "cuidados-conservacao#3",
+      "msg": "OVERSTATED. O trecho do Inmetro exige símbolos de secagem natural quando a secagem em tambor não é permitida, mas não especifica que o símbolo corresponderá necessariamente à secagem em varal. Também não diz expressamente que a informação esteja em uma etiqueta. Versão sustentável: Se a secagem em tambor não for permitida, procure um modelo cuja indicação de cuidados inclua símbolos correspondentes de secagem natural."
+    },
+    {
+      "ref": "edredom-dupla-face#0",
+      "msg": "FACT_IN_FRAMING. Embora a base seja framing, o bloco afirma fatos gerais sobre o que caracteriza um edredom dupla face e sobre possíveis diferenças de tecidos, enchimentos e estampas, sem trechos citados que os sustentem. Versão sustentável: A seguir, veja como as fontes descrevem diferentes características de edredons dupla face."
+    },
+    {
+      "ref": "edredom-dupla-face#1",
+      "msg": "OVERSTATED. A fonte sustenta que o modelo Dalia tem Fleece de 180 g/m² de um lado e Sherpa de 200 g/m² do outro, com as texturas descritas. Porém, não diz que cada lado é identificado por sua textura e pelo nome do material. Versão sustentável: No edredom King Dalia Marrom, a Döhler descreve um lado com Fleece de 180 g/m², toque aveludado e leve, e outro com Sherpa de 200 g/m² e textura ondulada."
+    },
+    {
+      "ref": "edredom-dupla-face#2",
+      "msg": "OVERSTATED. Os trechos sustentam que os modelos permitem variar o visual ou alternar entre dois estilos, mas não dizem que mantêm a mesma composição de enchimento nos dois lados. Também não sustentam a generalização para outros modelos dupla face. Versão sustentável: A Appel e a Döhler descrevem modelos dupla face como opções que permitem alternar estilos ou variar o visual da cama."
+    },
+    {
+      "ref": "edredom-dupla-face#3",
+      "msg": "FACT_IN_FRAMING. O bloco, embora baseado em framing, afirma uma orientação factual sobre a necessidade de verificar diferenças de gramatura e material ou apenas de design, sem trechos citados que sustentem essas possibilidades. Versão sustentável: A seguir, veja o que as fontes informam sobre os materiais, as gramaturas e o design dos modelos citados."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "MISATTRIBUTED. Os trechos de Karsten não tratam de variação de dimensões entre marcas ou modelos; essa conclusão é sustentada pelos trechos de Döhler e Andreza Enxovais, mas não por Karsten. Versão sustentável: Se você já sabe o tamanho da cama, escolha o edredom correspondente, solteiro, casal, queen ou king, e confira as medidas exatas na ficha, porque as dimensões podem variar entre marcas e modelos, segundo Döhler e Andreza Enxovais."
+    },
+    {
+      "ref": "como-decidir#4",
+      "msg": "OVERSTATED. Os trechos sustentam conferir a composição declarada e mostram exemplos de plumas de ganso, poliéster e microfibra, mas não dizem que essa informação deve ser conferida especificamente na etiqueta ou na embalagem. Versão sustentável: Se você prefere enchimento natural, escolha um modelo cuja ficha declare plumas de ganso; se prefere enchimento sintético, escolha um modelo que declare poliéster ou microfibra, segundo os fabricantes citados. Confira a composição declarada antes de comprar."
+    },
+    {
+      "ref": "como-decidir#5",
+      "msg": "OVERSTATED. Os trechos mostram instruções de secagem em varal e proibição de secagem em tambor em produtos específicos, além de exigirem informação de conservação e símbolos de secagem natural quando a secagem em tambor não é permitida. Eles não afirmam, porém, que toda etiqueta deve indicar exatamente a proibição da secadora e todas as alternativas permitidas. Versão sustentável: Se você não pretende usar secadora, confira os símbolos de conservação e escolha um edredom cuja instrução permita secagem em varal ou outra forma de secagem natural. Quando a secagem em tambor não for permitida, devem ser indicados um ou mais símbolos de secagem natural correspondentes."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 2325
+  }
+}
