@@ -1,0 +1,378 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se o casal tem pesos em faixas diferentes, procure um modelo cuja ficha declare indicação para casais com biotipos diferentes e confira se o suporte por pessoa atende ao mais pesado. A Probel apresenta exemplos com indicação para biotipos diferentes e suporte de até 150 kg por pessoa. Ortobom, Simmons e Probel afirmam que molas ensacadas individualmente reduzem ou isolam a transferência de movimento entre os parceiros.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_cd04855fe4e4",
+        "clm_d764d3890d66",
+        "clm_87b27d434320",
+        "clm_c1ce97ad6576",
+        "clm_0522b96db922",
+        "clm_2bfe0b0f071c",
+        "clm_fff8b0ccca00",
+        "clm_96d010e677f5"
+      ]
+    },
+    {
+      "ref": "capacidade-peso#0",
+      "action": "replace",
+      "text": "O suporte varia conforme o modelo: a Probel declara até 200 kg por pessoa para o colchão Robuste de casal com molas ensacadas e até 150 kg por pessoa para o colchão de espuma Firmpedic PróExtreme.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_2f5ab7b63a18",
+        "clm_87b27d434320"
+      ]
+    },
+    {
+      "ref": "dupla-face-dois-lados#0",
+      "action": "replace",
+      "text": "No Colchão Iso Dupla Face da Ortobom, é possível escolher entre dois lados com diferentes níveis de firmeza: um com espuma D33, que garante maior sustentação, e outro com espuma D28, que proporciona toque mais macio.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_fdf114a5b7ad"
+      ]
+    },
+    {
+      "ref": "dupla-face-dois-lados#1",
+      "action": "replace",
+      "text": "Segundo a Ortobom, o Iso Dupla Face tem dois lados com diferentes níveis de firmeza e suporta até 80 kg por pessoa em cada lado.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_fdf114a5b7ad",
+        "clm_0c43575ffa3b"
+      ]
+    },
+    {
+      "ref": "molas-bonnell-ensacadas#0",
+      "action": "replace",
+      "text": "Molas bonnell oferecem resistência progressiva, aumentando conforme o peso, segundo a Probel. Em um colchão de casal da Probel, as molas ensacadas são descritas como não transmitindo o movimento entre as pessoas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1b81a321a301",
+        "clm_df14a1cd1410"
+      ]
+    },
+    {
+      "ref": "molas-bonnell-ensacadas#1",
+      "action": "replace",
+      "text": "Para casais, fabricantes como Ortobom, Simmons e Castor recomendam ou descrevem molas ensacadas como capazes de reduzir a transferência de movimento. A Castor também afirma que as molas trabalham de forma independente e se adaptam melhor aos contornos do corpo.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_0522b96db922",
+        "clm_2bfe0b0f071c",
+        "clm_df2880298d16",
+        "clm_78163da83401"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Se o casal tem biotipos bem diferentes, procure um modelo cuja ficha técnica declare indicação para casais com biotipos diferentes, segundo a Probel. Consulte a ficha técnica para verificar se o limite de peso por pessoa atende a ambos.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_cd04855fe4e4",
+        "clm_d764d3890d66",
+        "clm_2a055dd30f43"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Colchão para casal com pesos diferentes: qual escolher",
+    "description": "Como escolher colchão para casal com biotipos diferentes: densidade recomendada por peso, molas ensacadas para isolar movimento.",
+    "verdict": {
+      "text": "Se o casal tem pesos em faixas diferentes, procure um modelo cuja ficha declare indicação para casais com biotipos diferentes e confira se o suporte por pessoa atende ao mais pesado, segundo fabricantes como Probel, Ortobom e Simmons. A Probel apresenta exemplos com indicação para biotipos diferentes e suporte de até 150 kg por pessoa. Ortobom, Simmons e Probel afirmam que molas ensacadas individualmente reduzem ou isolam a transferência de movimento entre os parceiros.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_cd04855fe4e4",
+        "clm_d764d3890d66",
+        "clm_87b27d434320",
+        "clm_c1ce97ad6576",
+        "clm_0522b96db922",
+        "clm_2bfe0b0f071c",
+        "clm_fff8b0ccca00",
+        "clm_96d010e677f5"
+      ]
+    },
+    "sections": [
+      {
+        "id": "molas-ensacadas-e-movimento",
+        "heading": "Molas ensacadas reduzem transferência de movimento",
+        "blocks": [
+          {
+            "text": "Molas ensacadas individualmente trabalham de forma independente, adaptando-se aos contornos do corpo e minimizando a transferência de movimento entre áreas do colchão, segundo a Castor.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_df2880298d16"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para casais, Ortobom e Simmons afirmam que molas ensacadas evitam que os movimentos de uma pessoa interfiram no sono da outra. Probel declara que quando um parceiro se movimenta, o outro não sente, graças ao isolamento de movimento das molas ensacadas individualmente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0522b96db922",
+              "clm_2bfe0b0f071c",
+              "clm_fff8b0ccca00"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "capacidade-peso",
+        "heading": "Peso máximo suportado por pessoa",
+        "blocks": [
+          {
+            "text": "O suporte varia conforme o modelo: a Probel declara até 200 kg por pessoa para o colchão Robuste de casal com molas ensacadas e até 150 kg por pessoa para o colchão de espuma Firmpedic PróExtreme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_2f5ab7b63a18",
+              "clm_87b27d434320"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para casais com pesos elevados, consulte a ficha técnica do modelo escolhido para verificar se o suporte declarado por pessoa cobre o peso de cada ocupante, segundo a Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_2f5ab7b63a18",
+              "clm_87b27d434320"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "dupla-face-dois-lados",
+        "heading": "Colchões dupla face: o que são e para quem servem",
+        "blocks": [
+          {
+            "text": "No Colchão Iso Dupla Face da Ortobom, é possível escolher entre dois lados com diferentes níveis de firmeza: um com espuma D33, que garante maior sustentação, e outro com espuma D28, que proporciona toque mais macio.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fdf114a5b7ad"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Ortobom, o Iso Dupla Face tem dois lados com diferentes níveis de firmeza e suporta até 80 kg por pessoa em cada lado.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_fdf114a5b7ad",
+              "clm_0c43575ffa3b"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "molas-bonnell-ensacadas",
+        "heading": "Molas bonnell vs. molas ensacadas para casais",
+        "blocks": [
+          {
+            "text": "Molas bonnell oferecem resistência progressiva, aumentando conforme o peso, segundo a Probel. Em um colchão de casal da Probel, as molas ensacadas são descritas como não transmitindo o movimento entre as pessoas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1b81a321a301",
+              "clm_df14a1cd1410"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Para casais, fabricantes como Ortobom, Simmons e Castor recomendam ou descrevem molas ensacadas como capazes de reduzir a transferência de movimento. A Castor também afirma que as molas trabalham de forma independente e se adaptam melhor aos contornos do corpo.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0522b96db922",
+              "clm_2bfe0b0f071c",
+              "clm_df2880298d16",
+              "clm_78163da83401"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Densidade recomendada pela Castor para cada faixa de peso",
+            "columns": [
+              "Faixa de peso",
+              "Densidade recomendada"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Até 50 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D23",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "51 a 60 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D26",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "61 a 70 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D28",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "71 a 80 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "81 a 100 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D33 a D45",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Acima de 100 kg",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  },
+                  {
+                    "text": "D45 ou maior",
+                    "claim_ids": [
+                      "clm_1205fed30228"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se um casal tem pesos em faixas diferentes, confira a densidade recomendada para cada pessoa e escolha um modelo cujo suporte declarado por pessoa atenda ao mais pesado, segundo a Castor e a Probel.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_1205fed30228",
+              "clm_87b27d434320",
+              "clm_c1ce97ad6576"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se um dorme e o outro se mexe durante a noite, escolha um colchão de molas ensacadas individualmente, segundo fabricantes como Ortobom, Simmons e Castor. Segundo Ortobom, essas molas evitam que os movimentos de uma pessoa interfiram no sono da outra.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_0522b96db922",
+              "clm_2bfe0b0f071c",
+              "clm_78163da83401",
+              "clm_96d010e677f5"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o casal tem biotipos bem diferentes, procure um modelo cuja ficha técnica declare indicação para casais com biotipos diferentes, segundo a Probel. Consulte a ficha técnica para verificar se o limite de peso por pessoa atende a ambos.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_cd04855fe4e4",
+              "clm_d764d3890d66",
+              "clm_2a055dd30f43"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que a Probel declara indicação para casais com biotipos diferentes e capacidade de 150 kg por pessoa, e que Ortobom, Simmons e Probel relacionam molas ensacadas à redução ou ao isolamento da transferência de movimento. Porém, não mostram que Ortobom e Simmons também declarem a indicação para biotipos diferentes ou o suporte por pessoa. A formulação agrupa os três fabricantes como respaldo para todas essas orientações. Versão sustentável: Se o casal tem pesos em faixas diferentes, procure um modelo cuja ficha declare indicação para casais com biotipos diferentes e confira se o suporte por pessoa atende ao mais pesado; a Probel apresenta exemplos com indicação para biotipos diferentes e suporte de 150 kg por pessoa. Ortobom, Simmons e Probel afirmam que molas ensacadas individualmente reduzem ou isolam a transferência de movimento entre os parceiros."
+    },
+    {
+      "ref": "capacidade-peso#0",
+      "msg": "OVERSTATED. Os trechos sustentam 200 kg por pessoa para um modelo específico de molas ensacadas e 150 kg por pessoa para um modelo específico de espuma, mas o bloco generaliza esses valores para os colchões de casal com molas ensacadas e para os modelos de espuma da Probel. Versão sustentável: O suporte varia conforme o modelo: a Probel declara até 200 kg por pessoa para o colchão Robuste de casal com molas ensacadas e até 150 kg por pessoa para o colchão de espuma Firmpedic PróExtreme."
+    },
+    {
+      "ref": "dupla-face-dois-lados#0",
+      "msg": "OVERSTATED. O trecho descreve especificamente o Colchão Iso Dupla Face da Ortobom, mas o texto generaliza a característica para qualquer colchão dupla face. As informações sobre as espumas D33 e D28 são sustentadas. Versão sustentável: No Colchão Iso Dupla Face da Ortobom, é possível escolher entre dois lados com diferentes níveis de firmeza: um com espuma D33, que garante maior sustentação, e outro com espuma D28, que proporciona toque mais macio."
+    },
+    {
+      "ref": "dupla-face-dois-lados#1",
+      "msg": "UNSUPPORTED. Os trechos não dizem que um casal escolhe a face virando o colchão, que ambos dormem no mesmo lado ou que ambos ficam na mesma firmeza. Apenas sustentam que o produto tem dois lados com diferentes níveis de firmeza e suporta até 80 kg por pessoa em cada lado. Versão sustentável: Segundo a Ortobom, o Iso Dupla Face tem dois lados com diferentes níveis de firmeza e suporta até 80 kg por pessoa em cada lado."
+    },
+    {
+      "ref": "molas-bonnell-ensacadas#0",
+      "msg": "OVERSTATED. Os trechos sustentam que as molas ensacadas reduzem ou impedem a transferência de movimento, mas não dizem que são indicadas para colchões de casal nem que cada mola trabalha independentemente. A segunda frase também apresenta uma recomendação mais ampla do que o trecho citado. Versão sustentável: Molas bonnell oferecem resistência progressiva, aumentando conforme o peso, segundo a Probel. Em um colchão de casal da Probel, as molas ensacadas são descritas como não transmitindo o movimento entre as pessoas."
+    },
+    {
+      "ref": "molas-bonnell-ensacadas#1",
+      "msg": "OVERSTATED. Os trechos citados não mencionam casais com biotipos ou pesos diferentes, nem dizem que cada lado se adapta independentemente ao peso e ao movimento de cada pessoa. Eles sustentam redução da transferência de movimento, trabalho independente das molas e, no caso da Simmons, que esse tipo é mais recomendado para casais, mas não a conclusão de que é a escolha mais adequada nessa situação específica. Versão sustentável: Para casais, fabricantes citados recomendam ou descrevem molas ensacadas como capazes de reduzir a transferência de movimento; a Castor também afirma que as molas trabalham de forma independente e se adaptam melhor aos contornos do corpo."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "MISATTRIBUTED. Os trechos citados mostram indicações da Probel, mas não mostram a Castor indicando modelos para casais com biotipos diferentes. Além disso, não há nos trechos citados um limite de peso por pessoa. Versão sustentável: A Probel declara que determinados modelos são indicados para casais com biotipos diferentes. Consulte a ficha técnica do modelo escolhido para verificar o limite de peso por pessoa."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1124
+  }
+}

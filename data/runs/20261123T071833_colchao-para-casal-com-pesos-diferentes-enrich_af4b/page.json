@@ -1,0 +1,41 @@
+{
+  "slug": "colchao-para-casal-com-pesos-diferentes",
+  "status": "PASS",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 121793,
+    "output_tokens": 28288,
+    "calls": 42
+  },
+  "credits": 32.50370796000001,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#3"
+    ],
+    "decision_criteria": [
+      "Confira se a ficha técnica declara suporte por pessoa suficiente para o ocupante mais pesado.",
+      "Use a tabela de densidade por peso da Castor para comparar a indicação individual de cada pessoa.",
+      "Para casais com diferença de peso ou quando um se mexe mais, prefira molas ensacadas individualmente, que reduzem a transferência de movimento.",
+      "Verifique se o modelo declara indicação para casais com biotipos diferentes.",
+      "Em modelos de espuma, confira a densidade indicada para o peso de cada pessoa e a capacidade declarada por pessoa.",
+      "No modelo Iso Dupla Face, compare os lados D33 e D28 e observe o limite de até 80 kg por pessoa."
+    ],
+    "missing": [
+      "Uma tabela do fabricante relacionando modelos específicos, peso de cada ocupante e suporte por pessoa.",
+      "Informação clara sobre a capacidade total do colchão de casal e se ela corresponde à soma dos dois ocupantes.",
+      "Indicação de fabricantes sobre colchões mistos de espuma e molas para casais com pesos diferentes.",
+      "Esclarecimento sobre se um colchão de dupla face permite que cada pessoa use simultaneamente um lado de firmeza diferente.",
+      "Informação específica do fabricante sobre a transmissão de movimento em colchões com molas bonnell quando os pesos são diferentes."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente à dúvida ao orientar o leitor a conferir o suporte declarado por pessoa, usando o peso do ocupante mais pesado como limite, e recomenda molas ensacadas para reduzir a transferência de movimento. Também oferece tabela de densidade e exemplos concretos de capacidade, embora repita parte desses critérios no bloco “Como decidir” e não esclareça capacidade total, colchões mistos ou o uso simultâneo de lados com firmezas diferentes.",
+    "filler_ratio": 0.05555555555555555,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "run_id": "20261123T071833_colchao-para-casal-com-pesos-diferentes-enrich_af4b",
+  "topic": "colchao-para-casal-com-pesos-diferentes",
+  "accepted": [
+    {
+      "claim_id": "clm_41e7e406bfe3",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_87c9418b4e03",
+      "new": true
+    },
+    {
+      "claim_id": "clm_405ee18fdd96",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_87c9418b4e03",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2522bb0df64d",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_3da51ca3548d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8d462f1fb45a",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_3da51ca3548d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0e03cbac4567",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_3da51ca3548d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_89ebc50e9002",
+      "question_id": "q_peso_densidade_faixa",
+      "source_id": "src_8eda91ae8078",
+      "new": true
+    },
+    {
+      "claim_id": "clm_efa118eb11e7",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_8eda91ae8078",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3dfd86c58688",
+      "question_id": "q_molas_ensacadas_suporte",
+      "source_id": "src_2078ee6c8d09",
+      "new": true
+    },
+    {
+      "claim_id": "clm_09d985d17683",
+      "question_id": "q_peso_maximo_casal",
+      "source_id": "src_2078ee6c8d09",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade_faixa": 1,
+    "q_molas_ensacadas_suporte": 5,
+    "q_dupla_face_firmeza": 0,
+    "q_misto_camadas": 0,
+    "q_peso_maximo_casal": 3,
+    "q_molas_interligadas_diferenca": 0
+  },
+  "unanswered": [
+    "q_dupla_face_firmeza",
+    "q_misto_camadas",
+    "q_molas_interligadas_diferenca"
+  ],
+  "usage": {
+    "input_tokens": 7499,
+    "output_tokens": 955,
+    "calls": 4
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_cb1813f4f549"
+  ],
+  "triage": [
+    {
+      "source_id": "src_cb1813f4f549",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.06
+    },
+    {
+      "source_id": "src_87c9418b4e03",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_3da51ca3548d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.91
+    },
+    {
+      "source_id": "src_8eda91ae8078",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.84
+    },
+    {
+      "source_id": "src_2078ee6c8d09",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.85
+    }
+  ],
+  "credits": 11.629181160000003
+}
