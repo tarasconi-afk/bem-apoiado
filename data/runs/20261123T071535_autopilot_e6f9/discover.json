@@ -1,0 +1,162 @@
+{
+  "run_id": "20261123T071535_autopilot_e6f9",
+  "topic": "lencol-para-o-calor-qual-tecido-escolher",
+  "queries": [
+    {
+      "q": "lençol algodão percal cetim contagem fios gramatura ficha técnica",
+      "include_domains": [
+        "karsten.com.br",
+        "dohler.com.br",
+        "appelhome.com.br",
+        "altenburg.com.br",
+        "trussardi.com.br"
+      ],
+      "results": 1
+    },
+    {
+      "q": "lençol linho viscose microfibra composição gramatura contagem fios respirabilidade",
+      "include_domains": [
+        "karsten.com.br",
+        "dohler.com.br",
+        "buddemeyer.com.br",
+        "teka.com.br",
+        "plumasul.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "etiqueta têxtil lençol cuidados conservação lavar secar Inmetro",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "etiquetagem produtos têxteis composição fibras lençol NBR Inmetro regulamento",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "lençol clima quente calor percal cetim respirável frescor fabricante",
+      "include_domains": [
+        "karsten.com.br",
+        "dohler.com.br",
+        "appelhome.com.br",
+        "corttex.com.br",
+        "sultan.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "lençol linho viscose cuidados lavagem secagem instruções fabricante",
+      "include_domains": [
+        "buddemeyer.com.br",
+        "teka.com.br",
+        "plumasul.com.br",
+        "andrezaenxovais.com.br",
+        "bouton.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "lençol para o calor: qual tecido escolher ficha técnica especificações",
+      "include_domains": [
+        "camesa.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "lençol para o calor: qual tecido escolher ficha técnica especificações",
+      "include_domains": [
+        "buettner.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "lençol para o calor: qual tecido escolher ficha técnica especificações",
+      "include_domains": [
+        "toalhasatlantica.com.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_ae34a24db0e0",
+      "url": "https://www.gov.br/inmetro/pt-br/centrais-de-conteudo/publicacoes/cartilhas/cartilha-produtos-texteis-2021.pdf",
+      "publisher": "Inmetro",
+      "source_class": "regulator",
+      "created": false
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 0,
+  "suggestions": [
+    {
+      "host": "www.irupi.es.gov.br",
+      "url": "https://www.irupi.es.gov.br/licitacoes/download/74824fc69cad3e029282a1b40f5142f5/65379472424897234",
+      "title": "ESTUDO TÉCNICO PRELIMINAR"
+    },
+    {
+      "host": "licitacoes1.caixa.gov.br",
+      "url": "https://licitacoes1.caixa.gov.br/sicve-web/rs/download?coProtocolo=cmVaeWNTQUFQS2dKWjFrODB6MVBDbG1FN0JRTjhpZnlrZ3Q0NnY4VW9jUndKQjZ1b1JaMFArYWczcWh6ZTk0YQ%3D%3D",
+      "title": "REDE E ED. ADM"
+    },
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/95594800000194/compras/2025/184/arquivos/1",
+      "title": "PROCESSO ADMINISTRATIVO Nº. 158/2025 PREGÃO ..."
+    }
+  ],
+  "snapshot_errors": [],
+  "tavily_credits_month": 1762,
+  "triage": [
+    {
+      "url": "https://www.altenburg.com.br",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.gov.br/inmetro/pt-br/centrais-de-conteudo/publicacoes/cartilhas/cartilha-produtos-texteis-2021.pdf",
+      "p_useful": 0.76,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC001905.pdf",
+      "p_useful": 0,
+      "keep": false
+    }
+  ],
+  "sitemaps": [
+    {
+      "host": "camesa.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "buettner.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "toalhasatlantica.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "kacyumara.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "lojaskacyumara.com.br",
+      "urls": 0,
+      "picked": []
+    }
+  ],
+  "llm_credits": 3.1403566800000005
+}

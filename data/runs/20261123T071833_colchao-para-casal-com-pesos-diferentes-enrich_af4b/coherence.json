@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "dupla-face-dois-lados#0",
+      "problem": "A seção promete explicar para quem os colchões dupla face servem, mas os blocos só descrevem os dois níveis de firmeza e o suporte do modelo Iso.",
+      "fix": "Mudar o título para algo como \"Colchão dupla face com dois níveis de firmeza\", retirando da promessa a explicação sobre para quem serve."
+    }
+  ],
+  "usage": {
+    "input_tokens": 21225,
+    "output_tokens": 2515,
+    "calls": 3
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Se a prioridade for conforto extra, a Ortobom recomenda seu Pillow Top HR Gel. Como o produto tem 5 cm de altura, verifique se esse acréscimo cabe na sua cama e roupa de cama. A Americanflex vende pillow tops avulsos; confira na página do produto suas medidas e como se fixam antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_7395e7a3b5f6",
+        "clm_067647993c88",
+        "clm_23e51663d557",
+        "clm_55023bc601fc"
+      ]
+    },
+    {
+      "ref": "o-que-e-pillow-top#1",
+      "action": "replace",
+      "text": "Alguns produtos pillow top combinam algodão nobre e fibra siliconada, conforme a Simmons. A Castor descreve o pillow top como uma camada extra posicionada sobre o colchão para deixar a cama mais macia e confortável.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1ad5d6ee4a23",
+        "clm_261629aa3474"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram que a Americanflex tem páginas de produtos de pillow top avulso e informam medidas nos títulos, mas não dizem como esses produtos se fixam. Portanto, a orientação para conferir o modo de fixação não é sustentada pelos trechos citados. Versão sustentável: Se a prioridade for conforto extra, a Ortobom recomenda seu Pillow Top HR Gel. Como o produto tem 5 cm de altura, verifique se esse acréscimo cabe na sua cama e roupa de cama. A Americanflex oferece pillow tops avulsos; confira na página do produto suas medidas antes de comprar."
+    }
+  ]
+}
