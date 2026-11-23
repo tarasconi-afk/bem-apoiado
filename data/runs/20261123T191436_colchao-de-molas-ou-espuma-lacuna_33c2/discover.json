@@ -1,0 +1,190 @@
+{
+  "run_id": "20261123T191436_colchao-de-molas-ou-espuma-lacuna_33c2",
+  "topic": "colchao-de-molas-ou-espuma",
+  "queries": [
+    {
+      "q": "colchão espuma molas tipo construção ficha técnica especificações",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "castor.ind.br",
+        "simmons.com.br",
+        "tempur.br.tempur.com"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão densidade D espuma peso faixa tabela recomendação transferência movimento",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "castor.ind.br",
+        "herval.com.br",
+        "luuna.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão certificação Inmetro espuma molas o que avalia durabilidade",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "colchão etiqueta obrigatória informações embalagem ortopédico terapêutico Inmetro Anvisa",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br",
+        "anvisa.gov.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "colchão de molas ou espuma ficha técnica especificações",
+      "include_domains": [
+        "br.tempur.com"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão de molas ou espuma ficha técnica especificações",
+      "include_domains": [
+        "duoflex.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão de molas ou espuma ficha técnica especificações",
+      "include_domains": [
+        "gazin.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão de molas ou espuma ficha técnica especificações",
+      "include_domains": [
+        "apolospuma.com.br"
+      ],
+      "results": 1
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_fe5790f61bd3",
+      "url": "http://www.inmetro.gov.br/colchao/",
+      "publisher": "Inmetro",
+      "source_class": "regulator",
+      "created": false
+    },
+    {
+      "source_id": "src_3b11e0f1dbb8",
+      "url": "https://www.apolospuma.com.br/downloads/1.0%20ApoloSpuma_Certificado_A3_V6.pdf",
+      "publisher": "Apolospuma",
+      "source_class": "manufacturer",
+      "created": false
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 1,
+  "suggestions": [
+    {
+      "host": "ric.cps.sp.gov.br",
+      "url": "https://ric.cps.sp.gov.br/bitstream/123456789/1245/1/20132S_BERTIEJuarez_TCCTX0278.pdf",
+      "title": "FACULDADE DE TECNOLOGIA DE AMERICANA"
+    },
+    {
+      "host": "pncp.gov.br",
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42572269000192/compras/2026/16/arquivos/4",
+      "title": "Estudo Técnico Preliminar 38/2026"
+    },
+    {
+      "host": "www.jaborandi.ba.gov.br",
+      "url": "https://www.jaborandi.ba.gov.br/uploads/licitacao/PERP-039-2023-6-PARTE.pdf",
+      "title": "PERP-039-2023 - 6ª PARTE"
+    },
+    {
+      "host": "ilhota.sc.gov.br",
+      "url": "https://ilhota.sc.gov.br/wp-content/uploads/2023/07/2548465_Orcamentos.pdf",
+      "title": "Colchão Casal Ecoflex New Power Plus 138x188"
+    },
+    {
+      "host": "ribasdoriopardo.ms.gov.br",
+      "url": "https://ribasdoriopardo.ms.gov.br/uploads/licitacao/5247/At6rVv8VTMOdVb_UgbuOqWm9KnePukFB.pdf",
+      "title": "estudo técnico preliminar"
+    },
+    {
+      "host": "www.pranchita.pr.gov.br",
+      "url": "https://www.pranchita.pr.gov.br/licitacoes/EDITAL-PREGAO-032025-MATERIAIS-MEDICO-HOSPITALARES-FHFdocx.pdf",
+      "title": "EDITAL DE PREGÃO ELETRÔNICO N° 03/2025 ..."
+    }
+  ],
+  "snapshot_errors": [
+    {
+      "url": "https://portaliq.mdic.gov.br/requisitos/colchoes-de-molas?layout=relatorio_item",
+      "error": "extração vazia para https://portaliq.mdic.gov.br/requisitos/colchoes-de-molas?layout=relatorio_item"
+    }
+  ],
+  "tavily_credits_month": 1788,
+  "triage": [
+    {
+      "url": "https://portaliq.mdic.gov.br/requisitos/colchoes-e-colchonetes-de-espuma-flexivel-de-poliuretano",
+      "p_useful": 0.43,
+      "keep": false
+    },
+    {
+      "url": "https://portaliq.mdic.gov.br/requisitos/colchoes-de-molas?layout=relatorio_item",
+      "p_useful": 0.94,
+      "keep": true
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "p_useful": 0.6,
+      "keep": true
+    },
+    {
+      "url": "http://www.comprasnet.gov.br/ConsultaLicitacoes/download/download_editais_detalhe.asp?coduasg=154045&modprp=5&numprp=842009",
+      "p_useful": 0.15,
+      "keep": false
+    },
+    {
+      "url": "https://www.apolospuma.com.br/downloads/1.0%20ApoloSpuma_Certificado_A3_V6.pdf",
+      "p_useful": 0.98,
+      "keep": true
+    }
+  ],
+  "sitemaps": [
+    {
+      "host": "br.tempur.com",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "duoflex.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "gazin.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "apolospuma.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "biflex.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "celiflex.com.br",
+      "urls": 0,
+      "picked": []
+    }
+  ],
+  "llm_credits": 3.4871758799999997
+}
