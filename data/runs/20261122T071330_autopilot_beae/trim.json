@@ -1,0 +1,66 @@
+{
+  "removed": [
+    "como-decidir#0"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta fala primeiro da medida da cama e do colchão, mas não informa de forma direta qual medida de lençol solteirão o leitor deve procurar.",
+      "As medidas apresentadas variam entre cama, colchão e lençol, sem deixar totalmente explícita a correspondência entre elas."
+    ],
+    "filler_refs": [
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Meça o colchão antes de comprar o lençol.",
+      "Para colchão solteirão ou solteiro king, confira medidas próximas de 0,96 m × 2,03 m na ficha do colchão.",
+      "Não confunda solteirão com solteiro padrão, indicado para colchões de 0,88 m × 1,88 m.",
+      "Confira na ficha técnica a largura e o comprimento do lençol; os modelos citados têm 1,10 m × 2,00 m.",
+      "Verifique a altura máxima do colchão suportada pelo elástico, pois há modelos de 35 cm e de 40 cm.",
+      "Confira na etiqueta a composição das fibras e os percentuais de cada uma.",
+      "Confira na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza a seco."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta fala primeiro da medida da cama e do colchão, mas não informa de forma direta qual medida de lençol solteirão o leitor deve procurar.",
+      "Para o leitor leigo: As medidas apresentadas variam entre cama, colchão e lençol, sem deixar totalmente explícita a correspondência entre elas.",
+      "Uma indicação direta, em fonte primária, da medida do lençol solteirão que o leitor deve comprar e do colchão compatível.",
+      "Uma tabela relacionando claramente a medida do lençol, a medida real do colchão e a altura máxima do elástico por modelo.",
+      "Uma explicação sobre a possível diferença entre a medida nominal do lençol e a medida do colchão, para evitar confusão entre 1,00 m × 2,00 m, 0,96 m × 2,03 m e 1,10 m × 2,00 m."
+    ],
+    "publishable": false,
+    "summary": "Publicável, mas com resposta apenas parcial à dúvida principal. A página traz medidas concretas, diferencia solteirão de solteiro e orienta conferir o tamanho do colchão e a altura do elástico, porém a resposta curta não diz diretamente qual medida de lençol solteirão procurar e mistura medidas de cama, colchão e lençol.",
+    "filler_ratio": 0.09090909090909091,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para colchão solteirão ou solteiro king, confira se a medida do colchão é aproximadamente 0,96 m por 2,03 m.",
+      "Não confunda com o solteiro padrão, indicado para colchão de 0,88 m por 1,88 m.",
+      "Confira a altura máxima do elástico na ficha técnica, pois modelos de 1,10 m por 2,00 m podem informar 35 cm ou 40 cm.",
+      "Verifique na etiqueta a composição das fibras e os percentuais de cada uma.",
+      "Confira na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza a seco."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma medida declarada pelo fabricante para o lençol solteirão, separada claramente da medida do colchão.",
+      "Uma explicação sobre por que o lençol aparece com 1,10 m por 2,00 m enquanto o colchão solteirão é informado como 0,96 m por 2,03 m.",
+      "Uma faixa de compatibilidade do elástico ou orientação para colchões com diferentes alturas."
+    ],
+    "publishable": false,
+    "summary": "A página é útil e publicável porque diferencia o colchão solteirão do solteiro, informa medidas de referência e orienta conferir a altura do elástico e a ficha técnica. Porém, responde apenas parcialmente à dúvida principal: mistura medidas de cama, colchão e lençol, e a resposta curta não deixa explícita qual medida de lençol o leitor deve comprar.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete uma medida exata para o lençol solteirão, mas a página apresenta medidas diferentes: 1,00 m × 2,00 m segundo a Appel e 0,96 m × 2,03 m para o colchão segundo a Altenburg.",
+      "fix": "Reescrever a promessa para algo como “Lençol solteirão: medidas informadas por fabricantes e o que conferir na etiqueta”."
+    },
+    {
+      "check": "caso_sem_orientacao",
+      "ref": "como-decidir#0",
+      "problem": "Quem busca a medida do lençol solteirão é orientado apenas a medir o colchão, sem dizer quais medidas devem ser escolhidas ou conferidas para decidir pelo lençol adequado.",
+      "fix": "Orientar o leitor a comparar as medidas de largura e comprimento do colchão com as medidas informadas na ficha do lençol e a conferir também a altura do colchão."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "altura-elastico#0",
+      "problem": "A seção promete a altura máxima que o colchão pode ter, mas os trechos apenas informam as dimensões de dois modelos de lençol e suas alturas de 35 cm e 40 cm.",
+      "fix": "Mudar o título para “Altura informada nos modelos de lençol com elástico”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 23557,
+    "output_tokens": 6147,
+    "calls": 3
+  }
+}

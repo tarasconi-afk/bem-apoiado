@@ -1,0 +1,77 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As recomendações e medidas vêm de fabricantes, mas o bloco as apresenta como orientação factual geral, sem atribuição. Além disso, os trechos da King Koil especificam dimensões de colchões, não necessariamente de camas.",
+      "fix": "A Probel recomenda medir o local da cama, incluindo o espaço para abrir portas e gavetas e circular, e considera ideal um quarto de pelo menos 3 × 3,5 m para uma cama king. A King Koil informa as medidas de 193 × 203 cm para o colchão king e de 158 × 198 cm para o colchão queen."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#0",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum. As instruções de medição, a dimensão de 3 × 3,5 m, a circulação e a preferência pela queen quando o espaço é insuficiente estão nos trechos citados e são atribuídas à Probel.",
+      "fix": "Manter o texto como está."
+    },
+    {
+      "ref": "como-decidir-pelo-espaco#1",
+      "verdict": "SUPPORTED",
+      "problem": "Nenhum. O trecho citado afirma os 35 cm adicionais de largura e o maior espaço individual para o casal, com atribuição explícita à King Koil.",
+      "fix": "Manter o texto como está."
+    },
+    {
+      "ref": "nomes-diferentes-mesma-medida#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-espessura-colchao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#2.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-conferir-na-ficha#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

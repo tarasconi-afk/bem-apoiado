@@ -1,0 +1,37 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O lençol solteirão varia em medida conforme o fabricante: a Appel informa 1,00 m de largura por 2,00 m de comprimento; a Altenburg, 0,96 m × 2,03 m para colchões solteiro king. Lençóis com elástico têm alturas diferentes na ficha técnica (entre 35 cm e 40 cm nos modelos citados), que indicam a profundidade máxima do colchão que suportam. Meça seu colchão e confira essas medidas na ficha antes de comprar.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_3a10d0b8fefc",
+        "clm_5c7508a7fa3f",
+        "clm_0006d1e0e18a",
+        "clm_530e51543437"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Se o lençol é com elástico, compare a largura e comprimento do seu colchão com as medidas informadas na ficha do lençol. Confira também a altura (ou profundidade) declarada na etiqueta: ela indica a espessura máxima do colchão que o elástico consegue prender.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5c7508a7fa3f",
+        "clm_0006d1e0e18a",
+        "clm_530e51543437"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "como-decidir#0",
+    "como-decidir#1"
+  ],
+  "still": [
+    "verdict: OVERSTATED",
+    "como-decidir#0: OVERSTATED"
+  ]
+}
