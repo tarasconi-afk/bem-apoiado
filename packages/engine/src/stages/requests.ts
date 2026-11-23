@@ -266,6 +266,11 @@ export function titleOnlyRefs(instruction: string): Set<string> {
   return out;
 }
 
+// Falhas de forma e de decisão nos blocos que o ajuste tocou: o que volta ao redator e o que barra o ajuste.
+export function issuesParaCorrigir(d: Draft, touched: Set<string>, claimType?: (id: string) => string | undefined) {
+  return [...styleIssues(d), ...decisionIssues(d, claimType)].filter((i) => i.ref && touched.has(i.ref));
+}
+
 export async function adjustWithResearch(slug: string, instruction: string, runId: string, fetchImpl?: FetchLike, opts: { research?: boolean; learn?: boolean; refs?: string[] } = {}): Promise<string> {
   const page = loadPages().find((p) => p.slug === slug);
   if (!page) return `página ${slug} não existe`;
@@ -432,8 +437,11 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
   let patched = applyPatches(base as never, p.data.patches) as Draft;
   // Regra de forma (parágrafo longo etc.) volta ao redator em vez de derrubar o ajuste (21/10: dois ajustes
   // com pesquisa perdidos por um parágrafo de 130 palavras).
+  // 23/11: as regras de decisão (condição repetida, "padrão" para dado de ficha) também voltam ao redator. Antes só a
+  // forma voltava; a decisão derrubava o ajuste na checagem final (cobertor king/queen 2x, lençol solteirão, tipos de broca).
+  const claimType = (id: string) => idx.claims.get(id)?.claim_type;
   for (let round = 0; round < FIX_ROUNDS; round++) {
-    const st = styleIssues(patched).filter((i) => i.ref && touched.has(i.ref));
+    const st = issuesParaCorrigir(patched, touched, claimType);
     if (!st.length) break;
     const p2 = await writePatches(topic, claimsForTopic(topic, idx.claims.values()), idx.sources, patched as never, st.map((i) => ({ ref: i.ref!, msg: i.msg })), fetchImpl);
     patched = applyPatches(patched as never, p2.data.patches) as Draft;
@@ -449,7 +457,7 @@ export async function adjustWithResearch(slug: string, instruction: string, runI
     else { const sec = patched.sections.find((x) => x.id === sid)!; const src2 = attributed.draft.sections.find((x) => x.id === sid)!; sec.blocks[Number(i)] = src2.blocks[Number(i)]!; }
   }
   const spec = PageSpec.parse({ ...page, ...patched });
-  const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...[...styleIssues(patched), ...decisionIssues(patched, (id) => idx.claims.get(id)?.claim_type)].filter((i) => i.ref && touched.has(i.ref)).map((i) => i.msg)];
+  const gate = [...checkPage(spec, idx).map((v) => `${v.where}: ${v.code}`), ...issuesParaCorrigir(patched, touched, claimType).map((i) => i.msg)];
   if (gate.length) return lessonNote + `ajuste NÃO salvo (regra do site): ${gate.slice(0, 3).join(' | ')}`;
   // Audita a seção inteira, não só os blocos escolhidos: bloco vizinho com o mesmo problema ("A base deve
   // ter 5 pés", do mesmo anexo) também entra na correção.
