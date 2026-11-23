@@ -1,0 +1,36 @@
+---
+// Página da Black Friday (23/11): o que conferir no anúncio, por tipo, com o guia ao lado e a busca com a tag. Sem preço,
+// desconto ou recomendação de produto. Fica no ar depois da data como guia de compra.
+import Base from '../layouts/Base.astro';
+import { BRAND, href } from '../lib/content';
+import { BF_DIA, gruposBF } from '../lib/blackfriday';
+const grupos = gruposBF();
+---
+<Base title={`Black Friday 2026: o que conferir antes de comprar colchão, travesseiro e roupa de cama | ${BRAND}`} description="Antes de aproveitar uma oferta de colchão, travesseiro, roupa de cama, toalha ou cadeira na Black Friday, confira estes pontos no anúncio, com o guia de cada um.">
+  <header class="page-hero">
+    <div class="wrap narrow">
+      <span class="chip">Black Friday 2026</span>
+      <h1>Black Friday: o que conferir antes de comprar</h1>
+      <p class="dek">A Black Friday é na sexta, {BF_DIA}. Oferta boa é a que serve para você: estes são os pontos do anúncio que mais confundem, com o guia que explica cada um.</p>
+    </div>
+  </header>
+  <article class="wrap narrow page">
+    <p>{grupos.map((g, i) => <>{i > 0 && ' · '}<a href={`#${g.id}`}>{g.rotulo}</a></>)}</p>
+    {grupos.map((g) => (
+      <section id={g.id}>
+        <h2>{g.rotulo}</h2>
+        <ul>{g.conferir.map((x) => <li>{x}</li>)}</ul>
+        {g.guias.length > 0 && <p>Guias: {g.guias.map((x, i) => <>{i > 0 && ' · '}<a href={href(`/${x.slug}/`)}>{x.title}</a></>)}</p>}
+        <p><a href={g.ofertas} target="_blank" rel="sponsored nofollow noopener">Ver ofertas de {g.rotulo.toLowerCase()} na Amazon ↗</a></p>
+      </section>
+    ))}
+    <h2>Preço e estoque</h2>
+    <p>Não mostramos preço nem desconto: eles mudam a toda hora durante a Black Friday. Confira no anúncio o preço final, o frete e se a medida é a da sua cama.</p>
+    <p><small>Links de afiliado: se você comprar por eles, o {BRAND} pode receber uma comissão da Amazon, sem custo extra para você. A comissão não muda o que os guias dizem.</small></p>
+  </article>
+</Base>
+<style>
+  .page-hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); padding: 3rem 0 2.2rem; }
+  .dek { color: var(--muted); font-size: 1.15rem; }
+  .page { padding-top: 0.5rem; }
+</style>

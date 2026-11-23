@@ -15,8 +15,10 @@ const jsonLd = [
   { '@context': 'https://schema.org', '@type': 'WebSite', name: BRAND, url: site, inLanguage: 'pt-BR' },
   { '@context': 'https://schema.org', '@type': 'Organization', name: BRAND, url: site, logo: new URL('/apple-touch-icon.png', site).href },
 ];
+import FaixaBlackFriday from '../components/FaixaBlackFriday.astro';
 ---
 <Base title={`${BRAND}: ${NICHE.category_label.toLowerCase()} explicado com fonte`} description={`Decisões de ${NICHE.scope}, explicadas com o que fabricantes, normas técnicas e órgãos reguladores publicam.`.slice(0, 158)} jsonLd={jsonLd}>
+  <FaixaBlackFriday />
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">

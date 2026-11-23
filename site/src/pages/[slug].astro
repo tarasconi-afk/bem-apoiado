@@ -4,6 +4,7 @@ import Cite from '../components/Cite.astro';
 import Linked from '../components/Linked.astro';
 import KindImage from '../components/KindImage.astro';
 import GuideCards from '../components/GuideCards.astro';
+import FaixaBlackFriday from '../components/FaixaBlackFriday.astro';
 import { BRAND, comparesKinds, itemFocus, categoryOf, fmtDate, href, imageFor, inlineLinks, citedLinksFor, searchLinksFor, relatedPages, THEME, footnotesFor, KIND_LABEL, kindsFor, NICHE, productsFor, publicPages, readingMinutes } from '../lib/content';
 import type { PageSpec } from '@bem-apoiado/core';
 import { citacaoSemAlegacao } from '@bem-apoiado/core';
@@ -63,6 +64,7 @@ const jsonLd = [
 ];
 ---
 <Base title={page.title} description={page.description} noindex={page.status === 'draft'} ogType="article" ogImage={`/og/${kinds[0] ?? 'default'}.jpg`} jsonLd={jsonLd}>
+  <FaixaBlackFriday page={page} />
   <header class="article-hero">
     <div class="wrap">
       <nav class="crumbs" aria-label="Você está em"><a href={href('/')}>Início</a> <span aria-hidden="true">›</span> {cat ? <a href={href(`/categoria/${cat.id}/`)}>{cat.label}</a> : <a href={href('/#guias')}>Guias</a>}</nav>

@@ -1,0 +1,24 @@
+---
+// Faixa da Black Friday (23/11): busca com a tag e a página do que conferir. Some depois de 30/11 (lib/blackfriday).
+import type { PageSpec } from '@bem-apoiado/core';
+import { href } from '../lib/content';
+import { BF_DIA, faixaAtiva, faixaDaPagina } from '../lib/blackfriday';
+interface Props { page?: PageSpec }
+const { page } = Astro.props;
+const f = faixaDaPagina(page);
+---
+{faixaAtiva() && (
+  <aside class="faixa-bf" aria-label="Black Friday">
+    <div class="wrap faixa-bf-in">
+      <p><strong>Black Friday {BF_DIA}.</strong> Antes de aproveitar uma oferta, <a href={href('/black-friday/')}>veja o que conferir no anúncio</a>.</p>
+      <a class="faixa-bf-cta" href={f.url} target="_blank" rel="sponsored nofollow noopener">Ver ofertas de {f.rotulo} na Amazon <span aria-hidden="true">↗</span></a>
+    </div>
+  </aside>
+)}
+<style>
+  .faixa-bf { background: var(--brand-ink); color: #fff; }
+  .faixa-bf-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.2rem; padding-block: .75rem; }
+  .faixa-bf p { margin: 0; font-size: .95rem; line-height: 1.5; }
+  .faixa-bf p a { color: #fff; text-underline-offset: 2px; }
+  .faixa-bf-cta { padding: .45rem .85rem; background: var(--amber); color: var(--ink); font-weight: 800; font-size: .9rem; text-decoration: none; border-radius: var(--radius); white-space: nowrap; }
+</style>
