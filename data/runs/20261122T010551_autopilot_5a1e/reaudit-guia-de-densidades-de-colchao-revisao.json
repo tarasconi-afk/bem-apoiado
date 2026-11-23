@@ -1,0 +1,70 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "densidade-e-firmeza#0"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: procurar D23.",
+      "De 51 a 60 kg: procurar D26.",
+      "De 61 a 70 kg: procurar D28.",
+      "De 71 a 80 kg: procurar D33.",
+      "De 81 a 100 kg: considerar D33 a D45 conforme a firmeza desejada.",
+      "Acima de 100 kg: procurar D45 ou maior.",
+      "Em colchões compostos ou mistos, conferir a densidade nominal e a espessura de cada lâmina de espuma na etiqueta ou ficha técnica.",
+      "Em colchões de molas, conferir características do molejo, como média de molas por metro quadrado e bitola do arame, em vez de procurar uma densidade para as molas.",
+      "Para escolher entre opções de espuma, usar o peso como primeiro filtro e a preferência por mais ou menos firmeza como segundo critério."
+    ],
+    "missing": [
+      "Tabela do fabricante relacionando também posição de dormir e altura à densidade recomendada.",
+      "Informação do fabricante sobre o peso máximo suportado por cada densidade e se o limite é para um ou dois usuários.",
+      "Explicação baseada em fonte primária sobre como a firmeza é declarada separadamente da densidade e se ambas aparecem juntas na etiqueta.",
+      "Orientação mais específica para decidir entre colchões de molas ensacadas ou interligadas, além das características técnicas do molejo.",
+      "Exemplos de fichas técnicas de mais fabricantes mostrando densidades e espessuras de todas as camadas de um colchão misto."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente ao guia de densidades com uma tabela de peso e D23 a D45, explica o que conferir na etiqueta e diferencia, ainda que brevemente, a especificação de colchões de molas. Falta aprofundar posição de dormir, capacidade de peso e a distinção entre densidade e firmeza, mas isso não impede a decisão principal de compra.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "densidade-e-firmeza#0"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23.",
+      "De 51 a 60 kg: conferir densidade D26.",
+      "De 61 a 70 kg: conferir densidade D28.",
+      "De 71 a 80 kg: conferir densidade D33.",
+      "De 81 a 100 kg: escolher entre D33 e D45 conforme a firmeza desejada.",
+      "Acima de 100 kg: conferir densidade D45 ou maior.",
+      "Em colchões de espuma, verificar na etiqueta a densidade nominal de cada lâmina em kg/m³.",
+      "Em colchões compostos ou mistos, conferir também a espessura de cada lâmina.",
+      "Para colchões de molas, verificar características como média de molas por metro quadrado e bitola do arame, em vez de procurar apenas uma densidade.",
+      "Para quem dorme de lado, buscar uma superfície que alivie a pressão em ombros e quadris."
+    ],
+    "missing": [
+      "Uma tabela do fabricante que combine peso, altura e posição de dormir para orientar a escolha da densidade.",
+      "Informação explícita sobre o peso máximo suportado por cada densidade e se o limite vale para uma ou duas pessoas.",
+      "Explicação do fabricante separando densidade nominal de firmeza declarada na etiqueta ou ficha técnica."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente ao guia de densidades com faixas de peso e códigos D23 a D45, além de ensinar o que conferir na etiqueta e como avaliar colchões mistos e de molas. Há uma pequena repetição entre os blocos sobre D28 e D33, mas ela não prejudica a decisão de compra.",
+    "filler_ratio": 0.05263157894736842,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "firmeza-conforto#0",
+      "problem": "O título promete explicar se a firmeza e o conforto dependem apenas do tipo ou da composição completa, mas os blocos apenas listam níveis de conforto da Simmons e descrevem os extremos.",
+      "fix": "Mudar o título para algo como \"Níveis de firmeza e conforto citados pela Simmons\", sem prometer uma explicação sobre o que determina a firmeza."
+    }
+  ],
+  "usage": {
+    "input_tokens": 29985,
+    "output_tokens": 3924,
+    "calls": 3
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "run_id": "20261122T010551_autopilot_5a1e",
+  "topic": "travesseiro-de-espuma-ou-de-fibra",
+  "accepted": [
+    {
+      "claim_id": "clm_e50578aee346",
+      "question_id": "q_fibra_especificacao",
+      "source_id": "src_207df1c7bfd1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ecfb60e6a392",
+      "question_id": "q_medidas_peso",
+      "source_id": "src_207df1c7bfd1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dec09c21d964",
+      "question_id": "q_dado_decisivo",
+      "source_id": "src_207df1c7bfd1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c986df717955",
+      "question_id": "q_fibra_especificacao",
+      "source_id": "src_207df1c7bfd1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8cd3f6797a1f",
+      "question_id": "q_fibra_especificacao",
+      "source_id": "src_64f44137ca04",
+      "new": true
+    },
+    {
+      "claim_id": "clm_2c4877e33433",
+      "question_id": "q_medidas_peso",
+      "source_id": "src_64f44137ca04",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_dado_decisivo": 1,
+    "q_espuma_especificacao": 0,
+    "q_fibra_especificacao": 3,
+    "q_conservacao_etiqueta": 0,
+    "q_medidas_peso": 2,
+    "q_escopo_regulacao": 0,
+    "q_ajuste_35f6be7a": 0
+  },
+  "unanswered": [
+    "q_espuma_especificacao",
+    "q_conservacao_etiqueta",
+    "q_escopo_regulacao",
+    "q_ajuste_35f6be7a"
+  ],
+  "usage": {
+    "input_tokens": 4104,
+    "output_tokens": 662,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_207df1c7bfd1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    },
+    {
+      "source_id": "src_64f44137ca04",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.87
+    }
+  ],
+  "credits": 4.806876240000002
+}

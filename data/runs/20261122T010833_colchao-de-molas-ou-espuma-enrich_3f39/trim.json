@@ -1,0 +1,67 @@
+{
+  "removed": [
+    "durabilidade#0"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "durabilidade#0"
+    ],
+    "decision_criteria": [
+      "Para casais, prefira molas ensacadas individualmente porque reduzem a transferência de movimento entre os lados da cama.",
+      "Na espuma, confira na etiqueta a densidade nominal em kg/m³ e as espessuras das lâminas quando o colchão for composto ou misto.",
+      "Em colchões de molas, confira a presença do Selo de Identificação da Conformidade do Inmetro.",
+      "Não escolha o produto apenas por alegações terapêuticas: o Inmetro não avalia essas propriedades.",
+      "Se a durabilidade for prioridade, considere modelos de dois lados, como os sistemas Double Face, desde que o fabricante informe o uso e o giro corretos.",
+      "A firmeza varia dentro da categoria de molas; há opções de extra firme a ultra macia."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Uma regra direta para escolher espuma ou molas conforme peso, posição de dormir, uso individual ou por casal e preferência de firmeza.",
+      "Tabela ou orientação de fabricante relacionando densidade da espuma ao peso do usuário, em vez de apenas listar D20 a D45.",
+      "Descrição da construção e comparação prática entre molas Bonnel, molas ensacadas, espuma e modelos híbridos.",
+      "Critério para escolher espuma quando o leitor dorme sozinho, busca economia ou prefere determinada firmeza.",
+      "Comparação de durabilidade entre espuma e os diferentes tipos de molas com períodos ou condições de uso claramente declarados por fabricantes.",
+      "Explicação de que a firmeza e o conforto dependem da composição completa, incluindo camadas, revestimento e estrutura, e não apenas de ser espuma ou mola."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios úteis para casais, conferência da etiqueta, selo do Inmetro e alegações terapêuticas, mas não responde diretamente qual opção escolher entre molas e espuma. A resposta curta não dá uma regra de decisão nem relaciona densidade a peso, e o Como decidir cobre principalmente molas ensacadas; falta comparação prática com espuma e com os demais tipos de molas.",
+    "filler_ratio": 0.02702702702702703,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se você dorme com outra pessoa, prefira molas ensacadas individualmente para reduzir a transferência de movimento.",
+      "Se a prioridade é escolher a espuma, confira na etiqueta a densidade nominal em kg/m³ e as espessuras das lâminas quando o colchão for composto ou misto.",
+      "Se você busca maior durabilidade, considere modelos de molas ensacadas ou tecnologias que permitam usar o colchão dos dois lados, mas confira as condições do fabricante.",
+      "Molas ensacadas podem oferecer diferentes níveis de firmeza; não é possível escolher a firmeza apenas pelo tipo de colchão.",
+      "Ao comprar um colchão de molas, verifique a presença do Selo de Identificação da Conformidade.",
+      "Não trate a certificação do Inmetro como comprovação de propriedades terapêuticas ou de todos os materiais e benefícios anunciados."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma regra comparativa mais direta para escolher espuma ou molas conforme peso, posição de dormir, orçamento, uso sozinho ou em casal e preferência de firmeza.",
+      "Uma tabela de densidade da espuma relacionada às faixas de peso, como a publicada na página sobre colchão firme ou macio.",
+      "Informação de fonte primária sobre quando molas Bonnel são preferíveis às ensacadas e como cada uma lida com a transferência de movimento.",
+      "Explicação mais clara de que a firmeza depende da composição completa do colchão, e não apenas de ser de espuma ou de molas.",
+      "Dados comparáveis de durabilidade entre espuma, Bonnel e molas ensacadas, em vez de afirmações isoladas de fabricantes."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios úteis para casais, densidade, selo e durabilidade, mas responde apenas parcialmente à dúvida principal. A resposta curta não diz diretamente qual opção escolher nem oferece uma regra concreta para casos além da transferência de movimento; faltam comparação prática e orientação por peso ou preferência de firmeza.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}
