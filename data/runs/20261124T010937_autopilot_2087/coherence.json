@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "altura-elastico-colchao#0",
+      "problem": "A seção promete informar a altura máxima de colchão que o elástico suporta, mas o bloco apenas anuncia que haverá informações e não traz essa altura.",
+      "fix": "Mudar o título para algo que não prometa a altura máxima, ou retirar essa seção."
+    },
+    {
+      "check": "promessa_do_titulo",
+      "ref": "verdict",
+      "problem": "O título promete a medida exata do lençol solteirão, mas a página reúne a medida de um modelo específico da Karsten e medidas de colchão associadas ao solteirão, além de outra medida geralmente usada pela Appel, sem estabelecer uma medida exata única para todo lençol solteirão.",
+      "fix": "Reescrever o título para prometer o que a página entrega, por exemplo: “Lençol solteirão: medidas do colchão e exemplo de produto”."
+    },
+    {
+      "check": "resposta_abre_pela_fonte",
+      "ref": "verdict",
+      "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+      "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+    }
+  ],
+  "usage": {
+    "input_tokens": 14550,
+    "output_tokens": 3250,
+    "calls": 3
+  }
+}

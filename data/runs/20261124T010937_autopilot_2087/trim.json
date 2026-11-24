@@ -1,0 +1,63 @@
+{
+  "removed": [
+    "altura-elastico-colchao#0",
+    "cuidados-lavagem#2.r0",
+    "cuidados-lavagem#2.r1"
+  ],
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "altura-elastico-colchao#0",
+      "cuidados-lavagem#2.r0",
+      "cuidados-lavagem#2.r1"
+    ],
+    "decision_criteria": [
+      "Para colchão de 0,88 m × 1,88 m, procure lençol solteiro.",
+      "Para colchão de 0,96 m × 2,03 m, procure lençol solteiro king, também chamado solteirão.",
+      "Confira no anúncio a medida do lençol, de 1,10 m × 2,00 m, e a altura indicada de 35 cm.",
+      "Compare a altura do elástico ou a altura máxima do colchão aceita pelo produto antes da compra.",
+      "Verifique na etiqueta a composição, os percentuais das fibras e os símbolos ou textos de conservação."
+    ],
+    "missing": [
+      "Uma ficha técnica de fabricante informando explicitamente a altura máxima do colchão compatível com o elástico de 35 cm.",
+      "Uma tabela do fabricante relacionando a medida do lençol de 1,10 m × 2,00 m ao colchão de 0,96 m × 2,03 m e esclarecendo a diferença entre medida do lençol e medida do colchão.",
+      "Uma fonte primária que padronize ou esclareça o uso do termo solteirão em relação a solteiro king, especialmente diante da referência de 1,00 m × 2,00 m."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A resposta curta informa a medida do lençol, a altura e a medida de colchão associada ao solteirão, enquanto o Como decidir orienta o leitor a comparar essas dimensões antes da compra. A única lacuna relevante é a falta de uma informação explícita sobre a altura máxima de colchão suportada pelo elástico; o bloco que apenas anuncia informações sobre altura é dispensável.",
+    "filler_ratio": 0.2,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "altura-elastico-colchao#0"
+    ],
+    "decision_criteria": [
+      "Para colchão de 0,88 m × 1,88 m, escolha o tamanho solteiro tradicional.",
+      "Para colchão de 0,96 m × 2,03 m, procure o tamanho solteiro king, também chamado de solteirão.",
+      "Confira no anúncio se o lençol mede 1,10 m × 2,00 m e se a altura indicada é de 35 cm.",
+      "Compare as medidas do lençol com a largura, o comprimento e a altura do colchão antes da compra.",
+      "Verifique na etiqueta a composição das fibras, os percentuais e os símbolos ou textos de conservação."
+    ],
+    "missing": [
+      "Uma fonte primária que esclareça se os 35 cm correspondem à altura máxima do colchão ou à altura total do lençol com elástico.",
+      "Uma explicação do fabricante relacionando diretamente a medida de 1,10 m × 2,00 m do lençol ao colchão de 0,96 m × 2,03 m.",
+      "As instruções completas de secagem, passadoria e demais cuidados específicos do modelo."
+    ],
+    "publishable": true,
+    "summary": "A página responde diretamente à dúvida: o solteirão costuma ser identificado como solteiro king e atende colchões maiores que o solteiro tradicional. Ela traz medidas concretas de fabricantes, diferencia os tamanhos e orienta o leitor a conferir largura, comprimento e altura no anúncio; só falta esclarecer melhor se os 35 cm são a altura máxima do colchão ou a altura do lençol.",
+    "filler_ratio": 0.07692307692307693,
+    "model_opinion": true
+  }
+}

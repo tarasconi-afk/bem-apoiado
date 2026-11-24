@@ -76,7 +76,14 @@
     "src_04a81739e045",
     "src_9dc0a6b69140",
     "src_75eb0d957d7e",
-    "src_b6454626d941"
+    "src_b6454626d941",
+    "src_b0f0155ae4c5",
+    "src_08511526841b",
+    "src_199b67efc069",
+    "src_836247ab87bb",
+    "src_5179be1a5959",
+    "src_5d7bd87cd02d",
+    "src_44fce8036942"
   ],
   "editorial_notes": [
     "Resposta curta deve começar pela medida exata do lençol solteirão (largura x comprimento), sem jargão, citando o fabricante.",
@@ -84,9 +91,9 @@
     "Comparar com lençol solteiro apenas para situar a medida do solteirão, sem tratar como pauta de comparação completa (A ou B).",
     "Checar se a etiqueta Inmetro de composição e cuidados está disponível nas fichas dos fabricantes pesquisados; se não estiver, informar a ausência em vez de supor.",
     "Editor recusou: Página sobre a medida de um tamanho só usa medidas de produtos identificados com esse tamanho. Aqui, lençóis \"Solteiro\" (1,80 × 2,40 m e 1,50 × 2,40 m) aparecem como se fossem do solteirão, e a descrição para o Google diz que o solteirão mede 1,50 × 2,40 m. A resposta deve separar a medida do colchão (1,00 × 2,00 m) da medida do lençol, com ficha de lençol solteirão; sem ela, diga o que conferir e o que falta.",
-    "Regra de decisão sustentada: Se o seu colchão mede 0,96 m de largura por 2,03 m de comprimento, procure lençol identificado como Solteiro King ou solteirão. (evidências: clm_5c7508a7fa3f, clm_7fe02f28578f, clm_8a4f5c90ff73)",
-    "Regra de decisão sustentada: Se o seu colchão mede 0,88 m por 1,88 m, escolha lençol Solteiro, não solteirão; essa é a medida associada ao solteiro padrão. (evidências: clm_0704b22751c0, clm_7fe02f28578f, clm_b65147000787)",
-    "Regra de decisão sustentada: Se for lençol com elástico, confira na ficha do modelo a largura, o comprimento e a altura máxima do colchão, pois produtos vendidos para solteiro king podem aparecer com medidas diferentes, como 1,10 m x 2,00 m x 35 cm ou 1,10 m x 2,00 m x 40 cm. (evidências: clm_0006d1e0e18a, clm_530e51543437)"
+    "Regra de decisão sustentada: Se o colchão mede 0,88 m por 1,88 m, escolha lençol de solteiro padrão; não o solteirão, que a Altenburg associa a colchões maiores. (evidências: clm_7fe02f28578f, clm_b65147000787)",
+    "Regra de decisão sustentada: Se o colchão mede 0,96 m por 2,03 m, procure lençol identificado como Solteiro King ou solteirão e confirme essas medidas na ficha do produto. (evidências: clm_5c7508a7fa3f, clm_7fe02f28578f, clm_8a4f5c90ff73)",
+    "Regra de decisão sustentada: Se você comprar o Lençol de Elástico Solteiro King Karsten 200 Fios Ivy, confira se o colchão tem no máximo 35 cm de altura, pois essa é a altura de elástico declarada para esse modelo. (evidências: clm_1e2ff32e9aee, clm_53d8a4ea5e2b)"
   ],
   "focus_terms": [
     "solteirão",
@@ -98,10 +105,12 @@
     "composição"
   ],
   "evidence_gaps": [
-    "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
-    "Uma medida declarada pelo fabricante para o lençol solteirão, separada claramente da medida do colchão.",
-    "Uma explicação sobre por que o lençol aparece com 1,10 m por 2,00 m enquanto o colchão solteirão é informado como 0,96 m por 2,03 m.",
-    "Uma faixa de compatibilidade do elástico ou orientação para colchões com diferentes alturas."
+    "Para o leitor leigo: A seção promete informar a altura máxima de colchão que o elástico suporta, mas o bloco apenas anuncia que haverá informações e não traz essa altura (altura-elastico-colchao#0); Mudar o título para algo que não prometa a altura máxima, ou retirar essa seção",
+    "Para o leitor leigo: O título promete a medida exata do lençol solteirão, mas a página reúne a medida de um modelo específico da Karsten e medidas de colchão associadas ao solteirão, além de outra medida geralmente usada pela Appel, sem estabelecer uma medida exata única para todo",
+    "Para o leitor leigo: a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de",
+    "Uma fonte primária que esclareça se os 35 cm correspondem à altura máxima do colchão ou à altura total do lençol com elástico.",
+    "Uma explicação do fabricante relacionando diretamente a medida de 1,10 m × 2,00 m do lençol ao colchão de 0,96 m × 2,03 m.",
+    "As instruções completas de secagem, passadoria e demais cuidados específicos do modelo."
   ],
   "researched_source_ids": [
     "src_dad70fa3df45",
@@ -155,9 +164,16 @@
     "src_04a81739e045",
     "src_9dc0a6b69140",
     "src_75eb0d957d7e",
-    "src_b6454626d941"
+    "src_b6454626d941",
+    "src_b0f0155ae4c5",
+    "src_08511526841b",
+    "src_199b67efc069",
+    "src_836247ab87bb",
+    "src_5179be1a5959",
+    "src_5d7bd87cd02d",
+    "src_44fce8036942"
   ],
-  "improve_attempts": 1,
+  "improve_attempts": 2,
   "product_kinds": [
     "jogo_de_cama"
   ],

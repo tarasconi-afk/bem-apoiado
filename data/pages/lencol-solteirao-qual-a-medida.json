@@ -3,172 +3,147 @@
   "page_type": "explainer",
   "status": "draft",
   "title": "Lençol solteirão: qual a medida exata",
-  "description": "Medidas de largura, comprimento e altura de elástico do lençol solteirão segundo fabricantes. Diferenças com o solteiro padrão e o que conferir na etiqueta.",
+  "description": "Medidas de largura e comprimento do lençol solteirão, altura máxima de colchão que suporta e cuidados de lavagem declarados pelo fabricante.",
   "primary_query": "lençol solteirão: qual a medida",
-  "updated_at": "2026-11-22",
+  "updated_at": "2026-11-24",
   "verdict": {
-    "text": "A cama de solteiro king ou solteirão geralmente mede 1,00 m de largura por 2,00 m de comprimento, segundo a Appel. A Altenburg informa colchões de 0,96 m × 2,03 m para solteiro king e de 0,88 m × 1,88 m para solteiro padrão; essas medidas diferem em 0,08 m na largura e 0,15 m no comprimento. Para lençol com elástico, confira na ficha técnica a altura informada: nos modelos citados da Karsten, variam entre 35 cm e 40 cm.",
-    "basis": "reasoning",
+    "text": "O solteiro king (ou solteirão) aparece com medidas de 0,96 m × 2,03 m ou 1,00 m × 2,00 m, conforme Altenburg e Appel. Para um lençol com elástico nesse tamanho, a Karsten informa medida de 1,10 m × 2,00 m × 35 cm. O solteiro padrão atende colchões de 0,88 m × 1,88 m, segundo a Altenburg.",
+    "basis": "evidence",
     "claim_ids": [
-      "clm_3a10d0b8fefc",
       "clm_5c7508a7fa3f",
-      "clm_7fe02f28578f",
-      "clm_0006d1e0e18a",
-      "clm_530e51543437"
+      "clm_3a10d0b8fefc",
+      "clm_1e2ff32e9aee",
+      "clm_53d8a4ea5e2b",
+      "clm_7fe02f28578f"
     ]
   },
   "sections": [
     {
-      "id": "medida-solteirao",
-      "heading": "Qual é a medida do lençol solteirão",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Segundo a Appel, a cama de solteiro king, também chamada de solteirão, geralmente mede 1,00 m de largura por 2,00 m de comprimento. A Altenburg indica que colchões de 0,96 m por 2,03 m de comprimento correspondem ao solteiro king ou solteirão.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_3a10d0b8fefc",
-            "clm_5c7508a7fa3f"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "diferenca-solteiro",
+      "id": "diferenca-solteiro-solteirao",
       "heading": "Diferença entre lençol solteiro e solteirão",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O lençol solteiro é indicado para colchões de 0,88 m de largura por 1,88 m de comprimento, segundo a Appel e a Altenburg. O solteirão (solteiro king) é indicado para colchões de 0,96 m de largura por 2,03 m de comprimento, sendo 0,08 m mais largo e 0,15 m mais comprido, segundo a Altenburg.",
+          "text": "O lençol solteiro atende colchões de 0,88 m de largura por 1,88 m de comprimento, segundo a Altenburg. O solteirão atende colchões de 0,96 m de largura por 2,03 m de comprimento: uma diferença de 0,08 m de largura e 0,15 m de comprimento, segundo a Altenburg.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_0704b22751c0",
-            "clm_7fe02f28578f",
-            "clm_5c7508a7fa3f"
+            "clm_7fe02f28578f"
           ]
         },
         {
-          "kind": "table",
-          "caption": "Medidas de colchão para cada tamanho de lençol (segundo Altenburg)",
-          "columns": [
-            "Tamanho do lençol",
-            "Largura do colchão",
-            "Comprimento do colchão"
-          ],
-          "rows": [
-            {
-              "cells": [
-                {
-                  "text": "Solteiro",
-                  "claim_ids": [
-                    "clm_7fe02f28578f"
-                  ]
-                },
-                {
-                  "text": "0,88 m",
-                  "claim_ids": [
-                    "clm_7fe02f28578f"
-                  ]
-                },
-                {
-                  "text": "1,88 m",
-                  "claim_ids": [
-                    "clm_7fe02f28578f"
-                  ]
-                }
-              ]
-            },
-            {
-              "cells": [
-                {
-                  "text": "Solteirão (solteiro king)",
-                  "claim_ids": [
-                    "clm_5c7508a7fa3f"
-                  ]
-                },
-                {
-                  "text": "0,96 m",
-                  "claim_ids": [
-                    "clm_5c7508a7fa3f"
-                  ]
-                },
-                {
-                  "text": "2,03 m",
-                  "claim_ids": [
-                    "clm_5c7508a7fa3f"
-                  ]
-                }
-              ]
-            }
+          "kind": "paragraph",
+          "text": "O catálogo da Altenburg indica um lençol solteiro com dimensão de 88 cm x 1,88 m x 30 cm, enquanto a Karsten informa altura de 35 cm para o lençol Solteiro King.",
+          "basis": "reasoning",
+          "claim_ids": [
+            "clm_7ea1ff6c6742",
+            "clm_53d8a4ea5e2b"
           ]
         }
       ]
     },
     {
-      "id": "altura-elastico",
-      "heading": "Altura máxima do colchão para lençol com elástico",
+      "id": "altura-elastico-colchao",
+      "heading": "Informações sobre altura de colchão",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Confira na ficha técnica a altura informada para o modelo que você escolher, segundo a Karsten. Nos modelos citados da Karsten, um lençol com medida 1,10 m × 2,00 m informa altura de 35 cm, enquanto outro da mesma marca com 1,10 m × 2,00 m informa altura de 40 cm; modelos com a mesma largura e comprimento podem apresentar alturas informadas diferentes.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_0006d1e0e18a",
-            "clm_530e51543437"
-          ]
+          "text": "A seguir, veja informações sobre a altura do colchão.",
+          "basis": "framing",
+          "claim_ids": []
         }
       ]
     },
     {
-      "id": "composicao-etiqueta",
+      "id": "etiqueta-composicao",
       "heading": "O que a etiqueta deve informar sobre composição",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A etiqueta do lençol deve informar obrigatoriamente o nome genérico das fibras e seus percentuais em massa, em ordem decrescente, segundo o Inmetro. Por exemplo, se o lençol é 100% algodão, isso deve constar na etiqueta. As fibras devem estar em igual destaque na etiqueta.",
+          "text": "A etiqueta do lençol solteirão deve informar o nome genérico das fibras e seus respectivos percentuais em massa, em ordem decrescente e com igual destaque, segundo o Inmetro.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_52a635e97b39",
             "clm_14318594c448"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se o lençol for uma mistura de fibras, como algodão e poliéster, a etiqueta deve indicar cada fibra e seu percentual em massa.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_1a9fa3a6c7bf"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Os caracteres na etiqueta devem ter altura não inferior a 2 mm e estar fixados de forma permanente em local de fácil visualização.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_014ad425f567"
           ]
         }
       ]
     },
     {
-      "id": "cuidados-conservacao",
-      "heading": "Cuidados de lavagem, secagem e passadoria indicados na etiqueta",
+      "id": "cuidados-lavagem",
+      "heading": "Cuidados de lavagem, secagem e passadoria indicados",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O Inmetro exige que a etiqueta informe obrigatoriamente os cuidados para conservação do lençol, incluindo instruções sobre lavagem, alvejamento, secagem, passadoria e limpeza a seco. Estas informações podem vir em forma de símbolos e/ou textos.",
+          "text": "O Inmetro exige informações sobre lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, indicadas por símbolos e/ou textos, conforme a opção do fabricante ou importador.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_d0e930280b39"
+            "clm_1ed51f1b07b3"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Nas páginas de produtos citadas, a Karsten orienta, conforme o modelo de lençol de algodão, lavar a 40°C ou 60°C, não alvejar, secar em tambor a no máximo 60°C, passar a no máximo 150°C e não lavar a seco. Sempre confira as instruções na etiqueta do modelo que você escolher.",
+          "text": "No Lençol de Elástico Solteiro King Karsten, o fabricante recomenda: lavar tipos de tecidos distintos separadamente, não misturar cores claras e escuras, usar ciclo leve/suave/delicado da lavadora, enxaguar com bastante água e usar quantidade mínima de amaciante e sabão.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1c69fb9cd2da",
-            "clm_2a0adc0fd772",
-            "clm_35d0a08fbed7"
+            "clm_838498d13c70"
           ]
         }
       ]
     },
     {
       "id": "como-decidir",
-      "heading": "Como decidir qual lençol solteirão escolher",
+      "heading": "Lençol solteirão: medidas do colchão e exemplo de produto",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Confira na etiqueta a composição (nome das fibras e percentuais) e os cuidados de lavagem, secagem e passadoria. Se o tecido é 100% algodão ou uma mistura, a etiqueta deve informar os percentuais de cada fibra.",
+          "text": "Se o colchão mede 0,88 m × 1,88 m, a Altenburg identifica essa medida como solteiro, em oposição ao solteiro King (solteirão). A Appel informa que essas são as medidas da cama de solteiro tradicional.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_52a635e97b39",
-            "clm_d0e930280b39"
+            "clm_7fe02f28578f",
+            "clm_1e0279a51aff"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Para colchões de 0,96 × 2,03 m, a Altenburg usa a identificação Solteiro King (solteirão). A Appel menciona, geralmente, o tamanho de 1,00 × 2,00 m para a cama de solteiro king/solteirão.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_5c7508a7fa3f",
+            "clm_3a10d0b8fefc"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se comprar esse modelo, confira a compatibilidade com o colchão: a Karsten informa para o produto a medida 1,10 m × 2,00 m × 35 cm e indica altura do lençol de 35 cm.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_1e2ff32e9aee",
+            "clm_53d8a4ea5e2b"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Antes de comprar, verifique as informações de composição, nomes genéricos das fibras e respectivos percentuais em massa, , os cuidados de conservação em texto ou símbolos e, quando aplicável, a indicação de tamanho ou dimensão.",
+          "basis": "reasoning",
+          "claim_ids": [
+            "clm_14318594c448",
+            "clm_1ed51f1b07b3",
+            "clm_6b18a74c7007"
           ]
         }
       ]
@@ -176,17 +151,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261122T071330_autopilot_beae",
+    "run_id": "20261124T010937_autopilot_2087+editor:20261124T011408_lencol-solteirao-qual-a-medida-autocorrecao_164b",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
-      "answers_primary_query": "partial",
+      "answers_primary_query": "yes",
       "concrete_guidance": true,
-      "reader_fit": true,
-      "quick_answer": false,
-      "filler_ratio": 0,
+      "filler_ratio": 0.07692307692307693,
       "criteria": 5,
+      "reader_fit": true,
+      "quick_answer": true,
       "rule_publishable": false
     }
   }
