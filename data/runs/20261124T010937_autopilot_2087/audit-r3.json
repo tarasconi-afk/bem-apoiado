@@ -1,0 +1,144 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos sustentam que a Karsten informa as medidas de 1,10 m × 2,00 m e altura de 35 cm, mas o trecho da Altenburg citado não menciona a altura de 35 cm. Portanto, essa informação não pode ser atribuída às duas marcas. Além disso, “o elástico suporta colchões” é uma formulação um pouco mais forte do que “altura do lençol: 35 cm”.",
+      "fix": "A Karsten informa que este lençol mede 1,10 m × 2,00 m e tem altura de 35 cm; a Altenburg associa o modelo solteiro king (solteirão) a colchões de 0,96 m × 2,03 m. Para um colchão de 0,88 m × 1,88 m, a Altenburg associa a categoria solteiro."
+    },
+    {
+      "ref": "medida-lencol-solteirao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-solteiro-solteirao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "diferenca-solteiro-solteirao#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam dimensões ou altura do lençol (30 cm e 35 cm), mas não dizem que esses valores são alturas máximas de colchão que os lençóis suportam.",
+      "fix": "O catálogo da Altenburg indica um lençol solteiro com dimensão de 88 cm x 1,88 m x 30 cm, enquanto a Karsten informa altura de 35 cm para o lençol Solteiro King."
+    },
+    {
+      "ref": "altura-elastico-colchao#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco esteja marcado como framing, ele afirma fatos sobre o ajuste de lençóis e a relação entre a altura do colchão e a capacidade do elástico, mas não há trechos citados que sustentem essas afirmações.",
+      "fix": "A seguir, veja informações sobre a altura do colchão."
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta a obrigatoriedade das informações de conservação e permite símbolos ou textos, mas não diz que a informação deve estar na etiqueta; menciona fabricante ou importador como responsável pela escolha entre símbolos e textos. Além disso, “lençol solteirão” não aparece no trecho citado.",
+      "fix": "O Inmetro exige informações sobre lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, indicadas por símbolos e/ou textos, conforme a opção do fabricante ou importador."
+    },
+    {
+      "ref": "cuidados-lavagem#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#2.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-lavagem#2.r1",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho sustenta não misturar cores claras e escuras no mesmo ciclo, mas não afirma que se deve lavar com cores similares.",
+      "fix": "Cuidado: Cores | Recomendação: Não lavar cores claras e escuras no mesmo ciclo."
+    },
+    {
+      "ref": "cuidados-lavagem#2.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A Altenburg relaciona explicitamente lençol solteiro à medida 0,88 × 1,88 m, mas o trecho da Appel fala sobre medidas de cama de solteiro, não sobre lençol nem sobre a escolha entre solteiro comum e solteirão. Atribuir à Appel que o lençol solteiro comum serve para essa medida excede o trecho citado.",
+      "fix": "Se o colchão mede 0,88 m × 1,88 m, a Altenburg identifica essa medida como solteiro, em oposição ao solteiro King (solteirão). A Appel informa que essas são as medidas da cama de solteiro tradicional."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos citam dois tamanhos específicos: 0,96 × 2,03 m na Altenburg e, geralmente, 1,00 × 2,00 m na Appel. Eles não sustentam que todo colchão dentro da faixa de 0,96 m a 1,00 m por 2,00 m a 2,03 m deva usar essa identificação, nem trazem a orientação de confirmar a medida na ficha antes da compra.",
+      "fix": "Para colchões de 0,96 × 2,03 m, a Altenburg usa a identificação Solteiro King (solteirão). A Appel menciona, geralmente, o tamanho de 1,00 × 2,00 m para a cama de solteiro king/solteirão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam que o produto tem altura do lençol de 35 cm e apresentam a medida 1,10 m × 2,00 m × 35 cm, mas não dizem que 35 cm é o limite máximo de altura do colchão compatível. “Altura do lençol” não equivale necessariamente, no trecho citado, a “altura máxima do colchão”.",
+      "fix": "Se comprar esse modelo, confira a compatibilidade com o colchão: a Karsten informa para o produto a medida 1,10 m × 2,00 m × 35 cm e indica altura do lençol de 35 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a indicação dos nomes genéricos das fibras com seus percentuais em massa, além dos cuidados de conservação em texto ou símbolos. O trecho sobre tamanho apenas exige a indicação de tamanho ou dimensão quando aplicável; não especifica que devem ser conferidas medidas exatas de largura × comprimento × altura de elástico, nem mostra no recorte que todas essas informações estejam na etiqueta do lençol.",
+      "fix": "Antes de comprar, verifique as informações de composição — nomes genéricos das fibras e respectivos percentuais em massa —, os cuidados de conservação em texto ou símbolos e, quando aplicável, a indicação de tamanho ou dimensão."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. Os trechos sustentam que a Karsten informa as medidas de 1,10 m × 2,00 m e altura de 35 cm, mas o trecho da Altenburg citado não menciona a altura de 35 cm. Portanto, essa informação não pode ser atribuída às duas marcas. Além disso, “o elástico suporta colchões” é uma formulação um pouco mais forte do que “altura do lençol: 35 cm”. Versão sustentável: A Karsten informa que este lençol mede 1,10 m × 2,00 m e tem altura de 35 cm; a Altenburg associa o modelo solteiro king (solteirão) a colchões de 0,96 m × 2,03 m. Para um colchão de 0,88 m × 1,88 m, a Altenburg associa a categoria solteiro."
+    },
+    {
+      "ref": "diferenca-solteiro-solteirao#1",
+      "msg": "OVERSTATED. Os trechos informam dimensões ou altura do lençol (30 cm e 35 cm), mas não dizem que esses valores são alturas máximas de colchão que os lençóis suportam. Versão sustentável: O catálogo da Altenburg indica um lençol solteiro com dimensão de 88 cm x 1,88 m x 30 cm, enquanto a Karsten informa altura de 35 cm para o lençol Solteiro King."
+    },
+    {
+      "ref": "altura-elastico-colchao#0",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja marcado como framing, ele afirma fatos sobre o ajuste de lençóis e a relação entre a altura do colchão e a capacidade do elástico, mas não há trechos citados que sustentem essas afirmações. Versão sustentável: A seguir, veja informações sobre a altura do colchão."
+    },
+    {
+      "ref": "cuidados-lavagem#0",
+      "msg": "OVERSTATED. O trecho sustenta a obrigatoriedade das informações de conservação e permite símbolos ou textos, mas não diz que a informação deve estar na etiqueta; menciona fabricante ou importador como responsável pela escolha entre símbolos e textos. Além disso, “lençol solteirão” não aparece no trecho citado. Versão sustentável: O Inmetro exige informações sobre lavagem, alvejamento à base de cloro, secagem, passadoria a ferro e limpeza a seco, indicadas por símbolos e/ou textos, conforme a opção do fabricante ou importador."
+    },
+    {
+      "ref": "cuidados-lavagem#2.r1",
+      "msg": "OVERSTATED. O trecho sustenta não misturar cores claras e escuras no mesmo ciclo, mas não afirma que se deve lavar com cores similares. Versão sustentável: Cuidado: Cores | Recomendação: Não lavar cores claras e escuras no mesmo ciclo."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. A Altenburg relaciona explicitamente lençol solteiro à medida 0,88 × 1,88 m, mas o trecho da Appel fala sobre medidas de cama de solteiro, não sobre lençol nem sobre a escolha entre solteiro comum e solteirão. Atribuir à Appel que o lençol solteiro comum serve para essa medida excede o trecho citado. Versão sustentável: Se o colchão mede 0,88 m × 1,88 m, a Altenburg identifica essa medida como solteiro, em oposição ao solteiro King (solteirão). A Appel informa que essas são as medidas da cama de solteiro tradicional."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. Os trechos citam dois tamanhos específicos: 0,96 × 2,03 m na Altenburg e, geralmente, 1,00 × 2,00 m na Appel. Eles não sustentam que todo colchão dentro da faixa de 0,96 m a 1,00 m por 2,00 m a 2,03 m deva usar essa identificação, nem trazem a orientação de confirmar a medida na ficha antes da compra. Versão sustentável: Para colchões de 0,96 × 2,03 m, a Altenburg usa a identificação Solteiro King (solteirão). A Appel menciona, geralmente, o tamanho de 1,00 × 2,00 m para a cama de solteiro king/solteirão."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos informam que o produto tem altura do lençol de 35 cm e apresentam a medida 1,10 m × 2,00 m × 35 cm, mas não dizem que 35 cm é o limite máximo de altura do colchão compatível. “Altura do lençol” não equivale necessariamente, no trecho citado, a “altura máxima do colchão”. Versão sustentável: Se comprar esse modelo, confira a compatibilidade com o colchão: a Karsten informa para o produto a medida 1,10 m × 2,00 m × 35 cm e indica altura do lençol de 35 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos sustentam a indicação dos nomes genéricos das fibras com seus percentuais em massa, além dos cuidados de conservação em texto ou símbolos. O trecho sobre tamanho apenas exige a indicação de tamanho ou dimensão quando aplicável; não especifica que devem ser conferidas medidas exatas de largura × comprimento × altura de elástico, nem mostra no recorte que todas essas informações estejam na etiqueta do lençol. Versão sustentável: Antes de comprar, verifique as informações de composição — nomes genéricos das fibras e respectivos percentuais em massa —, os cuidados de conservação em texto ou símbolos e, quando aplicável, a indicação de tamanho ou dimensão."
+    }
+  ]
+}

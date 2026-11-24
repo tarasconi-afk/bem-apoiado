@@ -1,0 +1,29 @@
+{
+  "patches": [
+    {
+      "ref": "altura-elastico-colchao#0",
+      "action": "remove"
+    },
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O lençol solteirão é feito para colchões de 0,96 m × 2,03 m, segundo a Altenburg; a Appel indica medidas de 1,00 m × 2,00 m. Um colchão de 0,88 m × 1,88 m usa lençol solteiro comum, não solteirão. Na altura do elástico, variam entre modelos: alguns suportam 30 cm, outros 35 cm ou 40 cm.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_5c7508a7fa3f",
+        "clm_3a10d0b8fefc",
+        "clm_7fe02f28578f",
+        "clm_7ea1ff6c6742",
+        "clm_530e51543437",
+        "clm_0d63bb15ce47"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: MISATTRIBUTED"
+  ]
+}
