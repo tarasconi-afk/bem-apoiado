@@ -1,0 +1,154 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo as páginas dos fabricantes, travesseiros de 40x60 cm são descritos como adequados para fronhas de 50x70 cm; um travesseiro Nasa da Duoflex é descrito para fronha de 45x65 cm e outro para fronha de 50x90 cm. As alturas informadas variam entre 12 cm e 17 cm conforme o modelo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17b180e27b6b",
+        "clm_cfe60c77d543",
+        "clm_20312febf2c6"
+      ]
+    },
+    {
+      "ref": "medidas-tamanho-padrao#0",
+      "action": "replace",
+      "text": "Os fabricantes informam modelos com medidas de 40x60 cm, 48x68 cm e 70x50 cm. Quanto à altura, as páginas dos produtos citam modelos com 12 cm e 14 cm.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17b180e27b6b",
+        "clm_4f674039062d",
+        "clm_b179984f18b1",
+        "clm_0373b10bfbe5",
+        "clm_4ced7397af94"
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "40 x 60",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        },
+        {
+          "text": "50 x 70",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "45 x 65",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "50 x 70",
+          "claim_ids": [
+            "clm_a172551eb0ba"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "50 x 90",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        },
+        {
+          "text": "Não informado nas fontes",
+          "claim_ids": []
+        }
+      ]
+    },
+    {
+      "ref": "altura-espessura#0",
+      "action": "replace",
+      "text": "As páginas dos produtos informam alturas de 12 cm para o Travesseiro NASA Paz da Probel, 14 cm para o Travesseiro Realizações Hiper Soft da Probel e 17 cm para um travesseiro Nasa da Duoflex, mostrando que a altura varia entre modelos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0373b10bfbe5",
+        "clm_4ced7397af94",
+        "clm_20312febf2c6"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "50 x 70 cm",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        },
+        {
+          "text": "40 x 60 cm",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        },
+        {
+          "text": "Probel (diversos modelos); Nasa da Duoflex",
+          "claim_ids": [
+            "clm_17b180e27b6b",
+            "clm_a172551eb0ba"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "45 x 65 cm",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "Conforme anúncio da Duoflex",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        },
+        {
+          "text": "Travesseiro Nasa da Duoflex",
+          "claim_ids": [
+            "clm_cfe60c77d543"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "msg": "célula da tabela sem dado (\"confira…\" ou \"não informado\"): traga o que a ficha daquele modelo informa, ou tire a linha ou a coluna. Dizer que a fonte não informa também é afirmação sem trecho. Uma coluna é um modelo só."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "esta linha diz o mesmo que a linha 1 (\"50 x 70 cm\"), mudando só a atribuição: deixe uma linha só, com a atribuição, e tire a outra."
+    },
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ]
+}

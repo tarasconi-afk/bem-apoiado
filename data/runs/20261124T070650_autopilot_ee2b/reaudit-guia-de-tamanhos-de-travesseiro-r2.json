@@ -1,0 +1,79 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Travesseiros de 40x60 cm combinam com fronhas de 50x70 cm, segundo a Probel e a Duoflex; um modelo da Duoflex é feito para fronha de 45x65 cm e outro para 50x90 cm. As alturas variam entre 12 cm e 17 cm conforme o modelo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_17b180e27b6b",
+        "clm_cfe60c77d543",
+        "clm_20312febf2c6",
+        "clm_0373b10bfbe5",
+        "clm_74cb6cace2dd"
+      ]
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "50 x 90",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        },
+        {
+          "text": "Para fronha 50x90 cm, conforme anúncio do modelo NASA King Alto da Duoflex",
+          "claim_ids": [
+            "clm_20312febf2c6"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "50 x 70 cm",
+          "claim_ids": [
+            "clm_17b180e27b6b",
+            "clm_5e838cea33c7",
+            "clm_7526417478e3",
+            "clm_a172551eb0ba"
+          ]
+        },
+        {
+          "text": "40 x 60 cm",
+          "claim_ids": [
+            "clm_17b180e27b6b"
+          ]
+        },
+        {
+          "text": "Probel (Nasa Paz, Life, Realizações, Prosperidade, Conect Comfort); NASA da Duoflex",
+          "claim_ids": [
+            "clm_17b180e27b6b",
+            "clm_5e838cea33c7",
+            "clm_7526417478e3",
+            "clm_a172551eb0ba"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que um modelo da Probel de 40x60 cm atende a fronhas de 50x70 cm, mas não dizem que a Duoflex tenha travesseiros de 40x60 cm compatíveis com essa fronha. Além disso, a evidência é específica a modelos, enquanto o texto generaliza para travesseiros de 40x60 cm. Versão sustentável: Um modelo da Probel de 40x60 cm é descrito como compatível com fronhas de 50x70 cm. Na Duoflex, os trechos citam modelos para fronhas de 45x65 cm, 50x90 cm e 50x70 cm. As alturas citadas são de 12 cm e 17 cm, conforme os modelos."
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "msg": "UNSUPPORTED. O trecho sustenta apenas que o Travesseiro Nasa é indicado para fronha 50x90 cm. Ele não informa que o travesseiro mede 50x90 cm nem identifica o modelo como “NASA King Alto”; portanto, essas partes da tabela não são sustentadas. Versão sustentável: Segundo a Duoflex, o Travesseiro Nasa é indicado para fronha 50x90 cm."
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "msg": "UNSUPPORTED. Os trechos sustentam 40 x 60 cm para fronha 50 x 70 cm nos modelos Probel Nasa Paz e Conect Comfort, e sustentam que o Nasa da Duoflex é indicado para fronha 50 x 70 cm. Porém, não citam os modelos Probel Life, Realizações ou Prosperidade, nem informam que o Nasa da Duoflex mede 40 x 60 cm. Também não dizem que essa é uma recomendação geral para qualquer travesseiro. Versão sustentável: Frase mais estreita: “Para fronha 50 x 70 cm, a Probel informa que os modelos Nasa Paz e Conect Comfort medem 40 x 60 cm; a Duoflex informa que seu modelo Nasa é para fronha 50 x 70 cm.”"
+    }
+  ]
+}
