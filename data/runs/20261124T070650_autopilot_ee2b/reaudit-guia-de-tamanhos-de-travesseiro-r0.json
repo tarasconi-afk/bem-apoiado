@@ -1,0 +1,83 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são especificações de fabricantes, mas o bloco as apresenta como regra geral de escolha. Além disso, os excertos não mostram os nomes “NASA X Cervical” nem “NASA King Alto”, apenas “Travesseiro Nasa”, e não sustentam que a altura, de modo geral, varie entre 12 cm e 17 cm conforme o modelo.",
+      "fix": "Segundo as páginas dos fabricantes citadas, travesseiros de 40x60 cm são descritos como adequados para fronhas de 50x70 cm; um Travesseiro Nasa é descrito para fronha de 45x65 cm e outro para fronha de 50x90 cm. As alturas mencionadas nos trechos são 12 cm e 17 cm."
+    },
+    {
+      "ref": "medidas-tamanho-padrao#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam medidas específicas, mas não sustentam a conversão geral para comprimento de 40 a 48 cm e largura de 60 a 70 cm. No caso da Luuna, a ordem explicitamente informada é largura x comprimento x altura (40 x 65 x 14 cm), incompatível com essa atribuição de largura e comprimento; nos casos da Probel e Altenburg, a ordem das dimensões não é indicada. Também não fica demonstrado que todos os fabricantes citados ofereçam a faixa completa.",
+      "fix": "Os fabricantes citados informam modelos com medidas de 40x60 cm, 40 x 65 x 14 cm (largura x comprimento x altura) e 48x68 cm; os trechos também mostram modelos com alturas de 12 cm e 14 cm."
+    },
+    {
+      "ref": "medidas-tamanho-queen-king#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A compatibilidade 40 x 60 com fronha 50 x 70 é declarada pela Probel, mas o bloco a apresenta como fato geral, sem atribuição ao fabricante.",
+      "fix": "Segundo a Probel, o travesseiro de 40 x 60 cm é compatível com fronha de 50 x 70 cm."
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Duoflex indica fronha de 45 x 65 cm para um travesseiro Nasa, mas não identifica a variante “NASA X Cervical”; além disso, a afirmação do fabricante é apresentada como fato geral, sem atribuição.",
+      "fix": "Segundo a Duoflex, o travesseiro Nasa citado é indicado para fronha de 45 x 65 cm."
+    },
+    {
+      "ref": "compatibilidade-fronha#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho identifica apenas um travesseiro Nasa com altura de 17 cm e não mostra que se trata especificamente do “NASA King Alto”. A indicação de fronha é do fabricante, mas o bloco a apresenta como fato geral, sem atribuição.",
+      "fix": "Segundo a Duoflex, o travesseiro Nasa de 17 cm citado é indicado para fronha de 50 x 90 cm."
+    },
+    {
+      "ref": "altura-espessura#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam as alturas de três modelos, mas não os classificam como baixos, médios ou altos, nem mostram que as páginas citadas sejam fichas técnicas. Além disso, há apenas um modelo Probel citado com 12 cm, não evidência de vários modelos nessa categoria.",
+      "fix": "As páginas citadas informam alturas de 12 cm para um modelo Probel, 14 cm para outro modelo Probel e 17 cm para um modelo Duoflex, mostrando que a altura varia entre modelos."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado identifica apenas o produto como “Travesseiro Nasa” da Duoflex e o descreve como anatômico cervical; não identifica o modelo “NASA X Cervical”.",
+      "fix": "Use “NASA da Duoflex” ou atribua explicitamente a indicação ao anúncio citado, sem nomear a variante “NASA X Cervical”."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado identifica apenas o produto como “Travesseiro Nasa” e informa altura de 17 cm para fronha 50 x 90 cm; não identifica o modelo “NASA King Alto”.",
+      "fix": "Use “Travesseiro Nasa da Duoflex” ou “modelo da Duoflex anunciado para fronha 50 x 90 cm”, sem atribuir ao trecho o nome “NASA King Alto”."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
