@@ -1,0 +1,20 @@
+{
+  "patches": [
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Segundo a Duoflex, quem dorme de lado pode usar um travesseiro mais alto, ajustado para preencher o espaço entre a cabeça e o colchão e formar um ângulo de 90 graus no pescoço; para dormir de costas, a altura deve ser intermediária; e para dormir de bruços, o modelo deve ser mais baixo, embora essa posição não seja a mais recomendada.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_bc02525ba76b",
+        "clm_c5267b077d94"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0",
+      "msg": "SAFETY_CLAIM. O bloco reproduz recomendações do fabricante sobre posição de dormir, altura do travesseiro e ângulo do pescoço, além de dizer que uma posição é mais recomendada. Isso sugere uma orientação de produto relacionada à postura/ao pescoço, o que a regra de segurança proíbe mesmo quando atribuído à Duoflex. Versão sustentável: Segundo a Duoflex, uma publicação da marca menciona travesseiros mais altos para quem dorme de lado, altura intermediária para quem dorme de costas e modelos mais baixos para quem dorme de bruços. Outra publicação da marca descreve, para quem dorme de lado, uma altura que se encaixe entre a cabeça e o colchão."
+    }
+  ]
+}
