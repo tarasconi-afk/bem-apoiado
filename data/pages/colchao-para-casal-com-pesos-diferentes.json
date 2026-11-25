@@ -5,7 +5,7 @@
   "title": "Colchão para casal com pesos diferentes",
   "description": "Veja qual densidade escolher conforme o peso de cada pessoa e como as molas ensacadas reduzem movimento na cama.",
   "primary_query": "colchão para casal com pesos diferentes",
-  "updated_at": "2026-11-21",
+  "updated_at": "2026-11-25",
   "verdict": {
     "text": "Para casal com pesos diferentes, escolha pela densidade indicada para cada pessoa: segundo a Castor, até 50 kg densidade 23, de 51 a 60 kg densidade 26, de 61 a 70 kg densidade 28, de 71 a 80 kg densidade 33, de 81 a 100 kg densidade 33 a 45, acima de 100 kg densidade 45 ou maior. Colchões de molas ensacadas reduzem a transferência de movimento entre vocês, segundo Ortobom e Simmons.",
     "basis": "reasoning",
@@ -155,7 +155,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Escolha um colchão de molas ensacadas individualmente, segundo fabricantes como Ortobom, Simmons e Castor. Segundo Ortobom, Simmons e Castor, esse tipo de mola reduz a transferência de movimento entre o casal, pois cada mola trabalha independentemente.",
+          "text": "Escolha um colchão de molas ensacadas individualmente, segundo fabricantes como Ortobom, Simmons e Castor. Segundo esses fabricantes, esse tipo de mola pode diminuir ou evitar a transferência de movimento entre o casal.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0522b96db922",
@@ -189,12 +189,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "O Iso Dupla Face da Ortobom tem espuma D33 de um lado e D28 do outro, e a Ortobom informa suporte de até 80 kg por pessoa em cada lado. No trecho citado, a Castor afirma que, no Elite, a densidade D33 é mais firme e adequada para peso médio a elevado, enquanto a D28 é mais macia e adequada para peso leve a médio.",
+          "text": "Segundo a Ortobom, no Iso Dupla Face, o lado com espuma D33 e o lado com D28 suportam até 80 kg por pessoa cada um.",
           "basis": "evidence",
           "claim_ids": [
             "clm_fdf114a5b7ad",
-            "clm_0c43575ffa3b",
-            "clm_ef14b707e1e9"
+            "clm_0c43575ffa3b"
           ]
         }
       ]
@@ -300,7 +299,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261116T071728_colchao-para-casal-com-pesos-diferentes-enrich_e409+editor:20261116T072143_colchao-para-casal-com-pesos-diferentes-autocorrecao_d631+editor:20261116T072230_colchao-para-casal-com-pesos-diferentes-autocorrecao_ae66+snippet:20261121T071336_autopilot_991d",
+    "run_id": "20261116T071728_colchao-para-casal-com-pesos-diferentes-enrich_e409+editor:20261116T072143_colchao-para-casal-com-pesos-diferentes-autocorrecao_d631+editor:20261116T072230_colchao-para-casal-com-pesos-diferentes-autocorrecao_ae66+snippet:20261121T071336_autopilot_991d+reaudit:20261125T131540_autopilot_5af2",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

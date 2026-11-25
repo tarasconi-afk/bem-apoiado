@@ -3,18 +3,16 @@
   "page_type": "decision_compare",
   "status": "approved",
   "title": "D28 ou D33: qual suporta mais peso e é mais firme",
-  "description": "Veja a diferença entre D28 e D33 em suporte de peso, firmeza e durabilidade. Tabela com orientações para casais com biotipos diferentes.",
+  "description": "Compare D28 e D33 pelo seu peso: D28 suporta até 90 kg por pessoa; D33, até 100 kg. Veja o que conferir na etiqueta antes de comprar.",
   "primary_query": "colchão D28 ou D33",
-  "updated_at": "2026-11-23",
+  "updated_at": "2026-11-25",
   "verdict": {
-    "text": "D28 e D33 diferem no suporte de peso e firmeza. Segundo a Probel, D28 suporta até 90 kg por pessoa com firmeza intermediária, enquanto D33 suporta até 100 kg por pessoa com firmeza firme. Se você dorme com alguém de peso diferente, confira se o modelo escolhido indica uso para casais com biotipos diferentes.",
+    "text": "D33 oferece mais firmeza e é adequado para pessoas de peso médio a elevado, enquanto D28 oferece suporte mais macio e é melhor para pessoas de peso leve a médio, segundo a Castor. Nos produtos citados da Probel, o D28 informa suporte de até 90 kg por pessoa e o D33, de até 100 kg por pessoa.",
     "basis": "evidence",
     "claim_ids": [
+      "clm_87dd96420cae",
       "clm_6bca363f18b4",
-      "clm_cc535a99581c",
-      "clm_a917fb3cfba7",
-      "clm_291c683c65bc",
-      "clm_78c1ea85ff79"
+      "clm_871e145a0fcb"
     ]
   },
   "sections": [
@@ -217,30 +215,34 @@
       "heading": "Como decidir entre D28 e D33",
       "blocks": [
         {
+          "kind": "paragraph",
+          "text": "A Probel informa suporte de até 90 kg por pessoa para o modelo citado, e a Castor descreve a densidade D28 como mais macia e adequada para pessoas de peso leve a médio.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_6bca363f18b4",
+            "clm_87dd96420cae"
+          ]
+        },
+        {
           "kind": "table",
-          "caption": "Comparação direta entre as densidades, segundo as fontes disponíveis",
+          "caption": "Suporte de peso por densidade, segundo a Probel",
           "columns": [
-            "Aspecto",
-            "D28",
-            "D33"
+            "Densidade",
+            "Suporte de peso por pessoa"
           ],
           "rows": [
             {
               "cells": [
                 {
-                  "text": "Quilos de espuma por m³",
+                  "text": "D28",
                   "claim_ids": [
-                    "clm_834ae54f95d5"
+                    "clm_6bca363f18b4"
                   ]
                 },
                 {
-                  "text": "Não indicado no trecho citado",
-                  "claim_ids": []
-                },
-                {
-                  "text": "33 kg/m³, segundo a Ortobom",
+                  "text": "Até 90 kg",
                   "claim_ids": [
-                    "clm_834ae54f95d5"
+                    "clm_6bca363f18b4"
                   ]
                 }
               ]
@@ -248,20 +250,16 @@
             {
               "cells": [
                 {
-                  "text": "Firmeza segundo a Probel",
+                  "text": "D33",
                   "claim_ids": [
-                    "clm_04789db60329"
+                    "clm_871e145a0fcb"
                   ]
                 },
                 {
-                  "text": "Intermediária",
+                  "text": "Até 100 kg",
                   "claim_ids": [
-                    "clm_04789db60329"
+                    "clm_871e145a0fcb"
                   ]
-                },
-                {
-                  "text": "Não indicado no trecho citado",
-                  "claim_ids": []
                 }
               ]
             }
@@ -269,25 +267,19 @@
         },
         {
           "kind": "paragraph",
-          "text": "Segundo as descrições citadas da Probel, um modelo D33 oferece suporte robusto, enquanto um modelo D28 tem firmeza intermediária. Uma descrição de modelo Probel também indica uso para casais com biotipos diferentes; confira essa indicação no anúncio.",
+          "text": "Se você dorme com alguém de biotipo diferente, verifique se o modelo escolhido é indicado para casais com biotipos diferentes; o modelo citado da Probel traz essa indicação.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_bef6a4951704",
-            "clm_04789db60329",
-            "clm_cc535a99581c",
-            "clm_78c1ea85ff79",
-            "clm_9396da81cc19"
+            "clm_78c1ea85ff79"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Antes de comprar, confira no produto ou na embalagem a densidade nominal da espuma, o tipo e a classificação do colchão e a composição dos componentes internos.",
+          "text": "Na compra, confira nas marcações obrigatórias do produto ou da embalagem a densidade nominal em kg/m³, a classificação como simples ou composto e a composição qualitativa dos componentes internos, conforme o Inmetro.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_23c3ec49c618",
-            "clm_03f4e6488b5d",
-            "clm_e982860c6405",
-            "clm_29c33cfe9a2e"
+            "clm_a1f44696e40e",
+            "clm_e982860c6405"
           ]
         }
       ]
@@ -295,7 +287,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261020T185119_colchao-d28-ou-d33-improve_bcec+editor:reescrita-colchao-d28-ou-d33+editor:20261027T134242_colchao-d28-ou-d33-ajuste_9c0c+reaudit:20261121T071336_autopilot_991d+snippet:20261123T191233_autopilot_a393",
+    "run_id": "20261020T185119_colchao-d28-ou-d33-improve_bcec+editor:reescrita-colchao-d28-ou-d33+editor:20261027T134242_colchao-d28-ou-d33-ajuste_9c0c+reaudit:20261121T071336_autopilot_991d+snippet:20261123T191233_autopilot_a393+editor:20261125T131540_autopilot_5af2",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass"
