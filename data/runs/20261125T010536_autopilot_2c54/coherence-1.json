@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "medidas-peso#0",
+      "problem": "A seção anuncia medidas e peso, mas o bloco traz apenas medidas por tamanho e não informa peso.",
+      "fix": "Mudar o título da seção para \"Medidas declaradas por tamanho\"."
+    }
+  ],
+  "usage": {
+    "input_tokens": 13341,
+    "output_tokens": 2206,
+    "calls": 3
+  }
+}

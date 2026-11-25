@@ -1,0 +1,69 @@
+{
+  "removed": [
+    "composicao-etiqueta#1"
+  ],
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "composicao-etiqueta#1"
+    ],
+    "decision_criteria": [
+      "Escolha 100% de plumas de ganso se você quer um enchimento de pluma pura e confirme essa composição na ficha do produto.",
+      "Escolha a mistura de 85% de penas e 15% de plumas de ganso se prefere um enchimento com predominância de penas.",
+      "Escolha fibra de poliéster se prefere um enchimento sintético e confira a gramatura informada para comparar a quantidade de material por área.",
+      "Confira na etiqueta os percentuais dos materiais, em ordem decrescente, antes de comparar os produtos.",
+      "Confira as medidas declaradas para verificar se o edredom corresponde ao tamanho da cama.",
+      "Consulte os símbolos de conservação da etiqueta antes da compra, especialmente para saber se a peça pode ser lavada, secada em tambor ou lavada a seco."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Gramatura dos edredons de pluma e de pena e indicação do nível de calor ou estação correspondente.",
+      "Indicação de estação ou nível de calor para os modelos de fibra de 100 g/m² e 200 g/m².",
+      "Identificação completa da fibra sintética e gramatura de cada modelo de fibra, em vez de apenas a informação geral de fibra de poliéster.",
+      "Instruções de lavagem, secagem e lavagem a seco declaradas para os edredons de pluma e de pena.",
+      "Peso total de cada edredom por tamanho.",
+      "Critérios práticos adicionais, como diferença de aquecimento, volume e manutenção entre pluma, pena e fibra, se houver fonte primária do fabricante."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página dá uma regra concreta para escolher entre pluma pura, mistura de penas e plumas ou fibra de poliéster, além de orientar o leitor a conferir composição, gramatura e medidas. A resposta rápida, porém, não diz diretamente qual opção escolher e apenas resume os produtos; faltam dados importantes da pauta, sobretudo gramatura por tipo, nível de calor, cuidados dos modelos de pluma e pena e peso por tamanho.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#1",
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Para pluma pura, conferir na ficha a composição de 100% plumas de ganso.",
+      "Para uma mistura de pena e pluma, conferir os percentuais declarados; o exemplo citado informa 85% de penas e 15% de plumas de ganso.",
+      "Para uma opção sintética, conferir se o enchimento é de fibra de poliéster.",
+      "Comparar a gramatura informada na ficha para avaliar a quantidade de fibra por área.",
+      "Conferir na etiqueta os símbolos ou textos de lavagem, alvejamento, secagem e lavagem a seco."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Regra relacionando tipo de enchimento e gramatura ao nível de calor ou à estação do ano.",
+      "Orientação prática sobre quando escolher pluma, pena ou fibra, considerando calor, volume, preço, alergias ou facilidade de manutenção.",
+      "Gramatura exata dos modelos de pluma e de pena e indicação do nível de calor de cada um.",
+      "Composição completa e gramatura de cada modelo de fibra, não apenas a informação de fibra de poliéster.",
+      "Instruções de conservação específicas para os edredons de pluma e de pena; a tabela apresentada cobre apenas um modelo de fibra.",
+      "Peso total por tamanho e indicação de qual medida pertence a cada tipo de edredom."
+    ],
+    "publishable": false,
+    "summary": "A página traz exemplos concretos de composição e orienta o leitor a conferir composição, gramatura e cuidados na ficha, mas responde apenas parcialmente à dúvida. A resposta curta não diz qual tipo escolher nem relaciona pluma, pena e fibra ao calor, à estação ou ao uso; além disso, os cuidados e as medidas ficam incompletos. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0.14285714285714285,
+    "model_opinion": false
+  }
+}
