@@ -1,0 +1,54 @@
+{
+  "run_id": "20261125T010536_autopilot_2c54",
+  "topic": "enchimento-de-edredom-pluma-pena-ou-fibra",
+  "accepted": [
+    {
+      "claim_id": "clm_9aac49cd1b2c",
+      "question_id": "q_pena_composicao",
+      "source_id": "src_5c1ea86ab89d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_db99608e06dd",
+      "question_id": "q_peso_medidas",
+      "source_id": "src_5c1ea86ab89d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_59f705eb3934",
+      "question_id": "q_cuidados_etiqueta",
+      "source_id": "src_5c1ea86ab89d",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_gramatura_estacao": 0,
+    "q_pluma_composicao": 0,
+    "q_pena_composicao": 1,
+    "q_fibra_composicao": 0,
+    "q_cuidados_etiqueta": 1,
+    "q_peso_medidas": 1
+  },
+  "unanswered": [
+    "q_gramatura_estacao",
+    "q_pluma_composicao",
+    "q_fibra_composicao"
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 484,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_5c1ea86ab89d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.97
+    }
+  ],
+  "credits": 5.257977
+}

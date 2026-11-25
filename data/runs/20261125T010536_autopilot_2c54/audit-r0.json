@@ -1,0 +1,150 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram apenas produtos específicos da Plumasul: um com 100% de plumas de ganso, um com 85% de penas e 15% de plumas e dois com manta de fibra de poliéster em gramaturas diferentes. Eles não sustentam generalizações sobre todos os edredons de pluma, pena ou fibra, não dizem que o poliéster é sintético nem apresentam indicação de estação pelo fabricante. A recomendação de escolher pela ficha também extrapola a evidência ao incluir a estação.",
+      "fix": "Nos produtos citados pela Plumasul, há um edredom com 100% de plumas de ganso, outro com 85% de penas e 15% de plumas e modelos com manta de fibra de poliéster de 200 g/m² e 100 g/m². A composição e a gramatura declaradas na ficha podem ser usadas para comparar esses produtos."
+    },
+    {
+      "ref": "composicao-etiqueta#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta apenas que devem constar os nomes das fibras ou filamentos têxteis e seus percentuais em massa. Não sustenta as regras específicas para edredons de pluma, pena ou fibra, nem o exemplo de poliéster.",
+      "fix": "A etiqueta deve informar os nomes das fibras ou filamentos têxteis e seus respectivos percentuais em massa."
+    },
+    {
+      "ref": "composicao-etiqueta#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora o bloco esteja marcado como framing, ele afirma fatos sobre a etiqueta e sobre o significado da gramatura, sem qualquer trecho citado que os sustente.",
+      "fix": "A seguir, veja outras informações que podem constar na etiqueta, conforme as fontes citadas."
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados informam apenas a composição de dois edredons e não mostram que as fichas consultadas não declararam temperaturas ou instruções de conservação. Portanto, a conclusão sobre a ausência dessas informações não é sustentada pelos excertos.",
+      "fix": "Os trechos citados informam que um produto tem enchimento 100% de plumas de ganso e que outro tem enchimento de 85% de penas e 15% de plumas de ganso. Consulte a etiqueta do produto específico para verificar as instruções de conservação."
+    },
+    {
+      "ref": "cuidados-conservacao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-peso#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram as medidas em metros por tamanho, mas não dizem explicitamente que a ordem é comprimento × largura. Além disso, só há fichas da Döhler, não de fabricantes em geral.",
+      "fix": "Nas fichas da Döhler citadas, aparecem as seguintes medidas, em metros, por tamanho: Solteiro 1,80 × 2,50 m; Casal 2,20 × 2,50 m; Queen 2,40 × 2,50 m; e King 2,80 × 2,50 m."
+    },
+    {
+      "ref": "medidas-peso#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam a composição dos enchimentos e, no modelo Soft Touch, a gramatura de 200 g/m², mas não permitem concluir que as fichas não declaram o peso total nem sustentam a recomendação de consultar a etiqueta ou ficha antes da compra.",
+      "fix": "Os trechos citados informam a composição dos enchimentos dos modelos mencionados e, no Soft Touch, a gramatura de 200 g/m²; eles não mostram o peso total dos produtos."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam “Fibra Poliéster Manta”, mas não dizem que a composição é 100% poliéster. A porcentagem foi acrescentada sem apoio explícito.",
+      "fix": "Substitua por: “Composição declarada: fibra de poliéster (Soft Touch e Summer Soft Touch da Plumasul)”."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho citado informa a composição do enchimento no documento do produto, mas não mostra que ela esteja declarada na etiqueta. A referência à etiqueta atribui ao trecho uma localização que ele não comprova.",
+      "fix": "Substitua por: “Se prefere uma mistura de penas e plumas, verifique o percentual na ficha do produto: o Kassette da Plumasul declara 85% penas e 15% plumas de ganso.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos informam a gramatura de 200 g/m² e 100 g/m², mas não dizem que essa informação permite saber o peso total do enchimento. Gramatura não equivale necessariamente ao peso total do produto ou do enchimento.",
+      "fix": "Substitua por: “Se opta por sintético, escolha um modelo cuja ficha informe fibra de poliéster, como os Soft Touch e Summer Soft Touch da Plumasul; confira a gramatura informada para comparar a quantidade de material por área.”"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos mostram apenas produtos específicos da Plumasul: um com 100% de plumas de ganso, um com 85% de penas e 15% de plumas e dois com manta de fibra de poliéster em gramaturas diferentes. Eles não sustentam generalizações sobre todos os edredons de pluma, pena ou fibra, não dizem que o poliéster é sintético nem apresentam indicação de estação pelo fabricante. A recomendação de escolher pela ficha também extrapola a evidência ao incluir a estação. Versão sustentável: Nos produtos citados pela Plumasul, há um edredom com 100% de plumas de ganso, outro com 85% de penas e 15% de plumas e modelos com manta de fibra de poliéster de 200 g/m² e 100 g/m². A composição e a gramatura declaradas na ficha podem ser usadas para comparar esses produtos."
+    },
+    {
+      "ref": "composicao-etiqueta#1",
+      "msg": "UNSUPPORTED. O trecho citado sustenta apenas que devem constar os nomes das fibras ou filamentos têxteis e seus percentuais em massa. Não sustenta as regras específicas para edredons de pluma, pena ou fibra, nem o exemplo de poliéster. Versão sustentável: A etiqueta deve informar os nomes das fibras ou filamentos têxteis e seus respectivos percentuais em massa."
+    },
+    {
+      "ref": "composicao-etiqueta#2",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja marcado como framing, ele afirma fatos sobre a etiqueta e sobre o significado da gramatura, sem qualquer trecho citado que os sustente. Versão sustentável: A seguir, veja outras informações que podem constar na etiqueta, conforme as fontes citadas."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "UNSUPPORTED. Os trechos citados informam apenas a composição de dois edredons e não mostram que as fichas consultadas não declararam temperaturas ou instruções de conservação. Portanto, a conclusão sobre a ausência dessas informações não é sustentada pelos excertos. Versão sustentável: Os trechos citados informam que um produto tem enchimento 100% de plumas de ganso e que outro tem enchimento de 85% de penas e 15% de plumas de ganso. Consulte a etiqueta do produto específico para verificar as instruções de conservação."
+    },
+    {
+      "ref": "medidas-peso#0",
+      "msg": "OVERSTATED. Os trechos mostram as medidas em metros por tamanho, mas não dizem explicitamente que a ordem é comprimento × largura. Além disso, só há fichas da Döhler, não de fabricantes em geral. Versão sustentável: Nas fichas da Döhler citadas, aparecem as seguintes medidas, em metros, por tamanho: Solteiro 1,80 × 2,50 m; Casal 2,20 × 2,50 m; Queen 2,40 × 2,50 m; e King 2,80 × 2,50 m."
+    },
+    {
+      "ref": "medidas-peso#1",
+      "msg": "UNSUPPORTED. Os trechos informam a composição dos enchimentos e, no modelo Soft Touch, a gramatura de 200 g/m², mas não permitem concluir que as fichas não declaram o peso total nem sustentam a recomendação de consultar a etiqueta ou ficha antes da compra. Versão sustentável: Os trechos citados informam a composição dos enchimentos dos modelos mencionados e, no Soft Touch, a gramatura de 200 g/m²; eles não mostram o peso total dos produtos."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "msg": "OVERSTATED. Os trechos informam “Fibra Poliéster Manta”, mas não dizem que a composição é 100% poliéster. A porcentagem foi acrescentada sem apoio explícito. Versão sustentável: Substitua por: “Composição declarada: fibra de poliéster (Soft Touch e Summer Soft Touch da Plumasul)”."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O trecho citado informa a composição do enchimento no documento do produto, mas não mostra que ela esteja declarada na etiqueta. A referência à etiqueta atribui ao trecho uma localização que ele não comprova. Versão sustentável: Substitua por: “Se prefere uma mistura de penas e plumas, verifique o percentual na ficha do produto: o Kassette da Plumasul declara 85% penas e 15% plumas de ganso.”"
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "OVERSTATED. Os trechos informam a gramatura de 200 g/m² e 100 g/m², mas não dizem que essa informação permite saber o peso total do enchimento. Gramatura não equivale necessariamente ao peso total do produto ou do enchimento. Versão sustentável: Substitua por: “Se opta por sintético, escolha um modelo cuja ficha informe fibra de poliéster, como os Soft Touch e Summer Soft Touch da Plumasul; confira a gramatura informada para comparar a quantidade de material por área.”"
+    }
+  ]
+}

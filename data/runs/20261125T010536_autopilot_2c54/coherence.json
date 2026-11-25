@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "cuidados-conservacao#0.r0",
+      "problem": "A seção promete cuidados de lavagem e secagem “por tipo”, mas os blocos trazem instruções apenas para um edredom de fibra, o Summer Soft Touch.",
+      "fix": "Mudar o título para “Cuidados de lavagem e secagem do edredom de fibra Summer Soft Touch da Plumasul”."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "como-decidir#0.r0",
+      "problem": "A tabela promete composição e gramatura do enchimento por tipo, mas as linhas de pluma e pena informam apenas a composição; não há gramatura para esses tipos.",
+      "fix": "Mudar o título para “Composição do enchimento por tipo (segundo a Plumasul)” ou tirar “e gramatura” da promessa."
+    }
+  ],
+  "usage": {
+    "input_tokens": 13203,
+    "output_tokens": 2950,
+    "calls": 3
+  }
+}
