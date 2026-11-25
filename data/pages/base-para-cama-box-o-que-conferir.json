@@ -5,7 +5,7 @@
   "title": "Altura e medidas de base cama box: o que conferir",
   "description": "Compare altura, peso suportado e espaço interno das bases box antes de comprar: confira se a medida cabe no quarto e se o modelo tem baú para guardar itens.",
   "primary_query": "base para cama box: o que conferir",
-  "updated_at": "2026-11-19",
+  "updated_at": "2026-11-25",
   "verdict": {
     "text": "Confira na ficha técnica as medidas e o suporte de peso do modelo específico. A King Koil informa 43,5 cm de altura total sem colchão para seu Box Baú; a Probel informa suporte de 150 kg por pessoa desde que haja um colchão sobre a base. Para guardar itens, procure modelos com baú; para uma altura mais baixa, compare as medidas antes de comprar.",
     "basis": "reasoning",
@@ -47,7 +47,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Procure na ficha técnica o peso máximo que a base suporta. Nas fichas citadas da Probel, a capacidade é de 150 kg por pessoa desde que haja um colchão sobre a base. Segundo a Ortobom, as fichas citadas da base Bellona informam 150 kg além do peso do colchão.",
+          "text": "Procure na ficha técnica o peso máximo que a base suporta. Na ficha da Probel, a capacidade é de 150 kg por pessoa desde que haja um colchão sobre a base. Na ficha da base Bellona, a Ortobom informa 150 kg além do peso do colchão.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0a6ef01c4834",
@@ -59,7 +59,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Na Probel, o trecho exige que haja um colchão sobre a base, mas não esclarece se o peso dele entra no limite de 150 kg por pessoa. Na Ortobom, o limite é explicitamente de 150 kg além do peso do colchão; assim, as duas fichas usam descrições diferentes, sem permitir concluir a capacidade efetiva da Probel.",
+          "text": "A Probel declara 150 kg por pessoa com colchão sobre a base; a Ortobom declara 150 kg além do peso do colchão. Como as duas marcas descrevem a capacidade de formas diferentes, confirme com o fabricante se o peso do colchão entra na conta.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0a6ef01c4834",
@@ -105,7 +105,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Os trechos mostram pés de PVC no modelo Probel Bari, pés rosqueáveis no Ortobom Bellona e pés aparafusados no Bellona Kit Completo; os tipos variam entre os modelos citados.",
+          "text": "A Probel informa pés de PVC no modelo Bari; a Ortobom informa pés rosqueáveis na Bellona e pés aparafusados na Bellona Kit Completo. O tipo de pé varia entre os modelos.",
           "basis": "evidence",
           "claim_ids": [
             "clm_5c6f130ba84e",
@@ -223,7 +223,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir+editor:correcao-queen-casal+editor:20261027T150419_base-para-cama-box-o-que-conferir-ajuste_e802+editor:20261029T010500_autopilot_296c+snippet:20261118T011530_autopilot_fb46+editor:20261119T131452_autopilot_2b04",
+    "run_id": "20261021T190700_base-para-cama-box-o-que-conferir-escalada_3bf6+editor:20261021T194016_base-para-cama-box-o-que-conferir-ajuste_aa00+editor:20261021T195029_base-para-cama-box-o-que-conferir-ajuste_60b8+editor:20261021T204136_base-para-cama-box-o-que-conferir-ajuste_153e+editor:20261021T212103_autopilot_ebf5+repeticao-removida+editor:reescrita-base-para-cama-box-o-que-conferir+editor:correcao-queen-casal+editor:20261027T150419_base-para-cama-box-o-que-conferir-ajuste_e802+editor:20261029T010500_autopilot_296c+snippet:20261118T011530_autopilot_fb46+editor:20261119T131452_autopilot_2b04+editor:20261125T131130_base-para-cama-box-o-que-conferir-editor_d965",
     "writer_model": "claude-sonnet-5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
