@@ -1,0 +1,62 @@
+{
+  "run_id": "20261125T190137_autopilot_547c-dirigida",
+  "topic": "colchao-ou-cama-box-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_1b318aed969b",
+      "question_id": "q_materiais_estrutura_base",
+      "source_id": "src_3b11e0f1dbb8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a71b66211d21",
+      "question_id": "q_etiquetagem_textil_revestimento",
+      "source_id": "src_3b11e0f1dbb8",
+      "new": false
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_3b11e0f1dbb8",
+      "question_id": "q_norma_dimensoes_colchao",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "Segundo a norma ABNT NBR 15413 - 1/2, as dimensões finais do produto podem variar em mais ou menos 1,5 cm na altura, comprimento e largura."
+    }
+  ],
+  "coverage": {
+    "q_definicao_funcao": 0,
+    "q_certificacao_inmetro": 0,
+    "q_norma_dimensoes_colchao": 0,
+    "q_materiais_estrutura_base": 1,
+    "q_etiquetagem_textil_revestimento": 1,
+    "q_tipos_cama_box_fabricante": 0
+  },
+  "unanswered": [
+    "q_definicao_funcao",
+    "q_certificacao_inmetro",
+    "q_norma_dimensoes_colchao",
+    "q_tipos_cama_box_fabricante"
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 404,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_3b11e0f1dbb8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.65
+    },
+    {
+      "source_id": "src_3b11e0f1dbb8",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.19
+    }
+  ],
+  "credits": 4.989780960000001
+}
