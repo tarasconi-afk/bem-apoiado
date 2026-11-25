@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-25T11:50:32.146Z",
+  "instruction": "Reescreva a resposta curta e o Como decidir com estas regras, que as fontes já sustentam: 1) Se o colchão mede 0,88 m por 1,88 m, escolha lençol de solteiro padrão; não o solteirão, que a Altenburg associa a colchões maiores 2) Se o colchão mede 0,96 m por 2,03 m, procure lençol identificado como Solteiro King ou solteirão e confirme essas medidas na ficha do produto 3) Se você comprar o Lençol de Elástico Solteiro King Karsten 200 Fios Ivy, confira se o colchão tem no máximo 35 cm de altura, pois essa é a altura de elástico declarada para esse modelo. Resolva também: a) A seção sobre a altura",
+  "diffs": [
+    {
+      "where": "Descrição",
+      "before": "Medidas de largura e comprimento do lençol solteirão, altura máxima de colchão que suporta e cuidados de lavagem declarados pelo fabricante.",
+      "after": "Compare as medidas do seu colchão (largura, comprimento) com as do lençol na ficha e verifique a altura de elástico suportada, que varia por marca."
+    },
+    {
+      "where": "Resposta curta",
+      "before": "O solteiro king (ou solteirão) aparece com medidas de 0,96 m × 2,03 m ou 1,00 m × 2,00 m, conforme Altenburg e Appel. Para um lençol com elástico nesse tamanho, a Karsten informa medida de 1,10 m × 2,00 m × 35 cm. O solteiro padrão atende colchões de 0,88 m × 1,88 m, segundo a Altenburg.",
+      "after": "Para um colchão de 0,88 m × 1,88 m, escolha lençol solteiro padrão; para colchões maiores, confira as medidas exatas na ficha do produto. A Altenburg indica 0,96 m × 2,03 m para o Solteiro King (solteirão), enquanto a Appel menciona geralmente 1,00 m × 2,00 m para esse tamanho. A altura do elástico varia conforme o modelo: a Plumasul informa 30 cm, a Karsten informa 35 cm em um modelo e 40 cm em outro."
+    },
+    {
+      "where": "Como escolher: medidas variam por marca · bloco 1",
+      "before": "Se o colchão mede 0,88 m × 1,88 m, a Altenburg identifica essa medida como solteiro, em oposição ao solteiro King (solteirão). A Appel informa que essas são as medidas da cama de solteiro tradicional.",
+      "after": "Se o colchão mede 0,88 m de largura por 1,88 m de comprimento, a Altenburg o classifica como Solteiro. Se mede 0,96 m por 2,03 m, a Altenburg o classifica como Solteiro King (solteirão)."
+    },
+    {
+      "where": "Como escolher: medidas variam por marca · bloco 2",
+      "before": "Para colchões de 0,96 × 2,03 m, a Altenburg usa a identificação Solteiro King (solteirão). A Appel menciona, geralmente, o tamanho de 1,00 × 2,00 m para a cama de solteiro king/solteirão.",
+      "after": "A Appel indica que o solteirão tem medidas de 1,00 m por 2,00 m, enquanto a Altenburg menciona 0,96 m por 2,03 m. Como as medidas variam por fabricante, compare a largura e o comprimento do seu colchão com os informados na ficha técnica do lençol."
+    },
+    {
+      "where": "Como escolher: medidas variam por marca · bloco 3",
+      "before": "Se comprar esse modelo, confira a compatibilidade com o colchão: a Karsten informa para o produto a medida 1,10 m × 2,00 m × 35 cm e indica altura do lençol de 35 cm.",
+      "after": "A altura do elástico varia nos produtos citados: a Plumasul declara 30 cm, a Karsten informa 35 cm em um modelo e 40 cm em outro. Confira a altura indicada para o lençol escolhido."
+    },
+    {
+      "where": "Como escolher: medidas variam por marca · tabela",
+      "before": "Antes de comprar, verifique as informações de composição, nomes genéricos das fibras e respectivos percentuais em massa, , os cuidados de conservação em texto ou símbolos e, quando aplicável, a indicação de tamanho ou dimensão.",
+      "after": "Medidas de colchão e tamanho de lençol indicado por fabricante · 0,88 m × 1,88 m | Solteiro padrão | 30 cm (Plumasul, Altenburg) / 0,96 m × 2,03 m | Solteiro King (solteirão) | 35 cm (Karsten)"
+    },
+    {
+      "where": "Informações sobre altura de colchão · bloco 1",
+      "before": "A seguir, veja informações sobre a altura do colchão.",
+      "after": "(removido)"
+    }
+  ]
+}

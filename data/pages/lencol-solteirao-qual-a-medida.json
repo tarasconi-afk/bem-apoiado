@@ -3,18 +3,19 @@
   "page_type": "explainer",
   "status": "draft",
   "title": "Lençol solteirão: qual a medida exata",
-  "description": "Medidas de largura e comprimento do lençol solteirão, altura máxima de colchão que suporta e cuidados de lavagem declarados pelo fabricante.",
+  "description": "Compare as medidas do seu colchão (largura, comprimento) com as do lençol na ficha e verifique a altura de elástico suportada, que varia por marca.",
   "primary_query": "lençol solteirão: qual a medida",
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-25",
   "verdict": {
-    "text": "O solteiro king (ou solteirão) aparece com medidas de 0,96 m × 2,03 m ou 1,00 m × 2,00 m, conforme Altenburg e Appel. Para um lençol com elástico nesse tamanho, a Karsten informa medida de 1,10 m × 2,00 m × 35 cm. O solteiro padrão atende colchões de 0,88 m × 1,88 m, segundo a Altenburg.",
-    "basis": "evidence",
+    "text": "Para um colchão de 0,88 m × 1,88 m, escolha lençol solteiro padrão; para colchões maiores, confira as medidas exatas na ficha do produto. A Altenburg indica 0,96 m × 2,03 m para o Solteiro King (solteirão), enquanto a Appel menciona geralmente 1,00 m × 2,00 m para esse tamanho. A altura do elástico varia conforme o modelo: a Plumasul informa 30 cm, a Karsten informa 35 cm em um modelo e 40 cm em outro.",
+    "basis": "reasoning",
     "claim_ids": [
+      "clm_7fe02f28578f",
       "clm_5c7508a7fa3f",
       "clm_3a10d0b8fefc",
-      "clm_1e2ff32e9aee",
+      "clm_0d63bb15ce47",
       "clm_53d8a4ea5e2b",
-      "clm_7fe02f28578f"
+      "clm_530e51543437"
     ]
   },
   "sections": [
@@ -24,32 +25,12 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O lençol solteiro atende colchões de 0,88 m de largura por 1,88 m de comprimento, segundo a Altenburg. O solteirão atende colchões de 0,96 m de largura por 2,03 m de comprimento: uma diferença de 0,08 m de largura e 0,15 m de comprimento, segundo a Altenburg.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_7fe02f28578f"
-          ]
-        },
-        {
-          "kind": "paragraph",
           "text": "O catálogo da Altenburg indica um lençol solteiro com dimensão de 88 cm x 1,88 m x 30 cm, enquanto a Karsten informa altura de 35 cm para o lençol Solteiro King.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_7ea1ff6c6742",
             "clm_53d8a4ea5e2b"
           ]
-        }
-      ]
-    },
-    {
-      "id": "altura-elastico-colchao",
-      "heading": "Informações sobre altura de colchão",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A seguir, veja informações sobre a altura do colchão.",
-          "basis": "framing",
-          "claim_ids": []
         }
       ]
     },
@@ -107,43 +88,90 @@
     },
     {
       "id": "como-decidir",
-      "heading": "Lençol solteirão: medidas do colchão e exemplo de produto",
+      "heading": "Como escolher: medidas variam por marca",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se o colchão mede 0,88 m × 1,88 m, a Altenburg identifica essa medida como solteiro, em oposição ao solteiro King (solteirão). A Appel informa que essas são as medidas da cama de solteiro tradicional.",
+          "text": "Se o colchão mede 0,88 m de largura por 1,88 m de comprimento, a Altenburg o classifica como Solteiro. Se mede 0,96 m por 2,03 m, a Altenburg o classifica como Solteiro King (solteirão).",
           "basis": "evidence",
           "claim_ids": [
             "clm_7fe02f28578f",
-            "clm_1e0279a51aff"
+            "clm_5c7508a7fa3f"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Para colchões de 0,96 × 2,03 m, a Altenburg usa a identificação Solteiro King (solteirão). A Appel menciona, geralmente, o tamanho de 1,00 × 2,00 m para a cama de solteiro king/solteirão.",
+          "text": "A Appel indica que o solteirão tem medidas de 1,00 m por 2,00 m, enquanto a Altenburg menciona 0,96 m por 2,03 m. Como as medidas variam por fabricante, compare a largura e o comprimento do seu colchão com os informados na ficha técnica do lençol.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_5c7508a7fa3f",
-            "clm_3a10d0b8fefc"
+            "clm_3a10d0b8fefc",
+            "clm_5c7508a7fa3f"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se comprar esse modelo, confira a compatibilidade com o colchão: a Karsten informa para o produto a medida 1,10 m × 2,00 m × 35 cm e indica altura do lençol de 35 cm.",
+          "text": "A altura do elástico varia nos produtos citados: a Plumasul declara 30 cm, a Karsten informa 35 cm em um modelo e 40 cm em outro. Confira a altura indicada para o lençol escolhido.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1e2ff32e9aee",
-            "clm_53d8a4ea5e2b"
+            "clm_0d63bb15ce47",
+            "clm_53d8a4ea5e2b",
+            "clm_530e51543437"
           ]
         },
         {
-          "kind": "paragraph",
-          "text": "Antes de comprar, verifique as informações de composição, nomes genéricos das fibras e respectivos percentuais em massa, , os cuidados de conservação em texto ou símbolos e, quando aplicável, a indicação de tamanho ou dimensão.",
-          "basis": "reasoning",
-          "claim_ids": [
-            "clm_14318594c448",
-            "clm_1ed51f1b07b3",
-            "clm_6b18a74c7007"
+          "kind": "table",
+          "caption": "Medidas de colchão e tamanho de lençol indicado por fabricante",
+          "columns": [
+            "Medida do colchão",
+            "Tamanho de lençol",
+            "Altura de elástico declarada"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "0,88 m × 1,88 m",
+                  "claim_ids": [
+                    "clm_7fe02f28578f"
+                  ]
+                },
+                {
+                  "text": "Solteiro padrão",
+                  "claim_ids": [
+                    "clm_7fe02f28578f"
+                  ]
+                },
+                {
+                  "text": "30 cm (Plumasul, Altenburg)",
+                  "claim_ids": [
+                    "clm_0d63bb15ce47",
+                    "clm_2b4195d983e7"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "0,96 m × 2,03 m",
+                  "claim_ids": [
+                    "clm_5c7508a7fa3f"
+                  ]
+                },
+                {
+                  "text": "Solteiro King (solteirão)",
+                  "claim_ids": [
+                    "clm_5c7508a7fa3f"
+                  ]
+                },
+                {
+                  "text": "35 cm (Karsten)",
+                  "claim_ids": [
+                    "clm_53d8a4ea5e2b"
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -151,7 +179,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261124T010937_autopilot_2087+editor:20261124T011408_lencol-solteirao-qual-a-medida-autocorrecao_164b",
+    "run_id": "20261124T010937_autopilot_2087+editor:20261124T011408_lencol-solteirao-qual-a-medida-autocorrecao_164b+editor:20261125T114848_lencol-solteirao-qual-a-medida-ajuste_27ad",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
