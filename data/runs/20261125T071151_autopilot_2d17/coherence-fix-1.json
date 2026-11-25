@@ -1,0 +1,20 @@
+{
+  "patches": [
+    {
+      "ref": "certificacao-inmetro#0",
+      "action": "replace",
+      "text": "O que o Inmetro certifica em colchões e bases",
+      "basis": "framing",
+      "claim_ids": []
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "certificacao-inmetro#0",
+    "certificacao-inmetro#1",
+    "certificacao-inmetro#2"
+  ],
+  "still": [
+    "certificacao-inmetro#0: FACT_IN_FRAMING"
+  ]
+}

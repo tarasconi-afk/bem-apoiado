@@ -1,0 +1,204 @@
+{
+  "run_id": "20261125T071151_autopilot_2d17",
+  "topic": "colchao-ou-cama-box-diferenca",
+  "queries": [
+    {
+      "q": "colchão cama box base diferença função estrutura ficha técnica",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "colchoescastor.com.br",
+        "simmons.com.br"
+      ],
+      "results": 4
+    },
+    {
+      "q": "NBR norma dimensões colchão solteiro casal queen king medidas padrão",
+      "include_domains": [
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "Inmetro certificação cama box base regulamento perguntas frequentes",
+      "include_domains": [
+        "inmetro.gov.br"
+      ],
+      "results": 1
+    },
+    {
+      "q": "cama box tipos bipartida conjugada base simples especificações",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "colchoescastor.com.br",
+        "herval.com.br"
+      ],
+      "results": 2
+    },
+    {
+      "q": "etiqueta composição fibras cuidados conservação revestimento box colchão Inmetro",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 2
+    },
+    {
+      "q": "colchão base vendidos juntos separados compatibilidade medidas estrutura",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "colchoescastor.com.br",
+        "simmons.com.br",
+        "luuna.com.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "colchão ou cama box: diferença ficha técnica especificações",
+      "include_domains": [
+        "br.tempur.com"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão ou cama box: diferença ficha técnica especificações",
+      "include_domains": [
+        "colchoesanjos.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "colchão ou cama box: diferença ficha técnica especificações",
+      "include_domains": [
+        "anjos.com.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_fe5790f61bd3",
+      "url": "http://www.inmetro.gov.br/colchao/",
+      "publisher": "Inmetro",
+      "source_class": "regulator",
+      "created": false
+    },
+    {
+      "source_id": "src_ab91825a6273",
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002070.pdf",
+      "publisher": "Inmetro",
+      "source_class": "regulator",
+      "created": true
+    },
+    {
+      "source_id": "src_e3d4ab3051fe",
+      "url": "https://simmons.com.br/blog/post/base-box-bau-ideal-colchao.html",
+      "publisher": "Simmons",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 2,
+  "suggestions": [
+    {
+      "host": "www.indianopolis.pr.gov.br",
+      "url": "https://www.indianopolis.pr.gov.br/public/admin/globalarq/licitacao/arquivo/em0gyqAH.pdf",
+      "title": "Pregão Nº 27/2016 Aos 10/05/2016, as 07:45, no"
+    }
+  ],
+  "snapshot_errors": [],
+  "tavily_credits_month": 1869,
+  "triage": [
+    {
+      "url": "https://simmons.com.br/blog/post/base-box-bau-ideal-colchao.html",
+      "p_useful": 0.9,
+      "keep": true
+    },
+    {
+      "url": "https://simmons.com.br/blog/post/camas-box.html",
+      "p_useful": 0.41,
+      "keep": false
+    },
+    {
+      "url": "https://www.colchoescastor.com.br/5-vantagens-de-ter-uma-cama-box-bau",
+      "p_useful": 0.46,
+      "keep": false
+    },
+    {
+      "url": "https://www.colchoescastor.com.br/colchao-com-eps-e-uma-boa-ideia-entenda-os-riscos-antes-de-escolher",
+      "p_useful": 0.04,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/colchao",
+      "p_useful": 0.69,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "http://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002070.pdf",
+      "p_useful": 1,
+      "keep": true
+    },
+    {
+      "url": "https://www.probel.com.br/conjunto-box/solteirao?page=3",
+      "p_useful": 0.02,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma/casal?page=3",
+      "p_useful": 0.49,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/colchao/colchao-espuma/viuva",
+      "p_useful": 0.43,
+      "keep": false
+    },
+    {
+      "url": "https://www.colchoescastor.com.br/como-o-tamanho-do-colchao-pode-influenciar-na-qualidade-do-seu-sono",
+      "p_useful": 0,
+      "keep": false
+    },
+    {
+      "url": "https://www.probel.com.br/colchao?page=16",
+      "p_useful": 0.02,
+      "keep": false
+    }
+  ],
+  "sitemaps": [
+    {
+      "host": "br.tempur.com",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "colchoesanjos.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "anjos.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "plumatex.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "kingkoil.com.br",
+      "urls": 0,
+      "picked": []
+    }
+  ],
+  "llm_credits": 3.73003236
+}

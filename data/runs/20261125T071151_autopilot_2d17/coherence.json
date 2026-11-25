@@ -1,0 +1,21 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "materiais-colchao-base#0",
+      "problem": "A seção promete diferenças de materiais entre colchão e cama box, mas os blocos só descrevem materiais de bases box; não há material do colchão para comparar.",
+      "fix": "Mudar o título da seção para algo como “Materiais descritos nas bases box consultadas”, sem prometer uma comparação com os materiais do colchão."
+    },
+    {
+      "check": "secao_nao_entrega",
+      "ref": "certificacao-inmetro#0",
+      "problem": "A seção promete explicar como o Inmetro certifica colchão e cama box, mas os trechos tratam principalmente de colchões e colchonetes de espuma e mencionam bases apenas em produtos conjugados ou auxiliares.",
+      "fix": "Mudar o título para “O que os trechos do Inmetro informam sobre a certificação de colchões de espuma e bases conjugadas”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 18627,
+    "output_tokens": 3476,
+    "calls": 3
+  }
+}
