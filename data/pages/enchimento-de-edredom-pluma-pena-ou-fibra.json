@@ -3,15 +3,13 @@
   "page_type": "decision_compare",
   "status": "draft",
   "title": "Enchimento de edredom: pluma, pena ou fibra",
-  "description": "Escolha o enchimento do edredom pela composição declarada na ficha: pluma pura, mistura de penas e plumas ou sintético.",
+  "description": "Escolha enchimento de edredom pela composição declarada na ficha: 100% plumas de ganso, mistura de penas e plumas, ou fibra sintética.",
   "primary_query": "enchimento de edredom: pluma, pena ou fibra",
   "updated_at": "2026-11-25",
   "verdict": {
-    "text": "Confira a composição declarada na ficha do produto. O Inmetro exige que toda fibra ou filamento têxtil venha acompanhado do seu percentual em massa. Nos exemplos da Plumasul, há edredons com 100% plumas de ganso, com 85% penas e 15% plumas de ganso, e com fibra de poliéster informando gramatura de 200 g/m².",
+    "text": "Escolha pela composição declarada na ficha do produto, segundo a Plumasul. Se você quer 100% plumas de ganso, procure na ficha essa exata composição, como o Edredom Summer da Plumasul; se prefere penas e plumas misturadas, confira o percentual de cada uma, como o Kassette da Plumasul que declara 85% penas e 15% plumas; se prefere sintético, escolha um modelo que informe fibra de poliéster na ficha.",
     "basis": "evidence",
     "claim_ids": [
-      "clm_055cf59ece8e",
-      "clm_14318594c448",
       "clm_0e86ea4ea87b",
       "clm_9aac49cd1b2c",
       "clm_26d4a59977f6"
@@ -191,7 +189,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você quer um edredom com 100% plumas de ganso, procure na ficha a composição exata dessa mistura, como o Summer da Plumasul declara.",
+          "text": "Se você quer um edredom com enchimento 100% plumas de ganso, procure na ficha a composição exata dessa mistura, segundo a Plumasul. O Edredom Summer da Plumasul declara essa composição.",
           "basis": "evidence",
           "claim_ids": [
             "clm_0e86ea4ea87b"
@@ -199,7 +197,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você prefere um edredom com penas e plumas misturadas, verifique o percentual de cada uma na ficha do produto: o Kassette da Plumasul declara 85% penas e 15% plumas de ganso.",
+          "text": "Se você prefere um edredom com penas e plumas de ganso misturadas, verifique o percentual de cada uma na ficha do produto, segundo a Plumasul. O Kassette da Plumasul declara 85% penas e 15% plumas de ganso.",
           "basis": "evidence",
           "claim_ids": [
             "clm_9aac49cd1b2c"
@@ -207,11 +205,10 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você prefere enchimento sintético, escolha um modelo cuja ficha informe fibra de poliéster, como o Soft Touch da Plumasul; confira também a gramatura (peso por metro quadrado) para comparar quanto de material há em cada edredom.",
+          "text": "Se você prefere enchimento sintético, confira na ficha do produto a composição de fibra de poliéster. No Edredom Soft Touch da Plumasul, o enchimento é fibra de poliéster manta com gramatura de 200 g/m².",
           "basis": "evidence",
           "claim_ids": [
-            "clm_26d4a59977f6",
-            "clm_bd249870ecdf"
+            "clm_26d4a59977f6"
           ]
         }
       ]
@@ -219,7 +216,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261125T010536_autopilot_2c54+editor:20261125T011047_enchimento-de-edredom-pluma-pena-ou-fibra-autocorrecao_2f1b",
+    "run_id": "20261125T010536_autopilot_2c54+editor:20261125T011047_enchimento-de-edredom-pluma-pena-ou-fibra-autocorrecao_2f1b+editor:20261125T115803_enchimento-de-edredom-pluma-pena-ou-fibra-ajuste_8305",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
