@@ -1,0 +1,118 @@
+{
+  "run_id": "20261125T071151_autopilot_2d17",
+  "topic": "colchao-ou-cama-box-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_7ccd5e78275e",
+      "question_id": "q_definicao_funcao",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dd5d499b3feb",
+      "question_id": "q_definicao_funcao",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9b1c2e453c8b",
+      "question_id": "q_norma_dimensoes_colchao",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_07b0cb171184",
+      "question_id": "q_norma_dimensoes_colchao",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d8e248319f74",
+      "question_id": "q_etiquetagem_textil_revestimento",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3149f28c84aa",
+      "question_id": "q_etiquetagem_textil_revestimento",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fe85034db2d8",
+      "question_id": "q_materiais_estrutura_base",
+      "source_id": "src_ab91825a6273",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6c059e565a27",
+      "question_id": "q_definicao_funcao",
+      "source_id": "src_e3d4ab3051fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5d058732c401",
+      "question_id": "q_tipos_cama_box_fabricante",
+      "source_id": "src_e3d4ab3051fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_950f5ac976ac",
+      "question_id": "q_tipos_cama_box_fabricante",
+      "source_id": "src_e3d4ab3051fe",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6c059e565a27",
+      "question_id": "q_materiais_estrutura_base",
+      "source_id": "src_e3d4ab3051fe",
+      "new": false
+    },
+    {
+      "claim_id": "clm_e07972ebc47a",
+      "question_id": "q_materiais_estrutura_base",
+      "source_id": "src_e3d4ab3051fe",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_definicao_funcao": 3,
+    "q_certificacao_inmetro": 0,
+    "q_norma_dimensoes_colchao": 2,
+    "q_materiais_estrutura_base": 3,
+    "q_etiquetagem_textil_revestimento": 2,
+    "q_tipos_cama_box_fabricante": 2
+  },
+  "unanswered": [
+    "q_certificacao_inmetro"
+  ],
+  "usage": {
+    "input_tokens": 3009,
+    "output_tokens": 1693,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_ab91825a6273",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.98
+    },
+    {
+      "source_id": "src_ab91825a6273",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0.23
+    },
+    {
+      "source_id": "src_e3d4ab3051fe",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.74
+    }
+  ],
+  "credits": 5.893113719999999
+}

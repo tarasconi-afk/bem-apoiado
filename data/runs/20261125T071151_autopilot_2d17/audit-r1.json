@@ -1,0 +1,124 @@
+{
+  "findings": [
+    {
+      "ref": "funcao-colchao-base#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-cama-box#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho do Inmetro define especificamente o colchão de molas como destinado ao repouso humano, mas o bloco generaliza essa afirmação para qualquer colchão. As demais conclusões práticas decorrem dos trechos citados, e as afirmações da Simmons estão devidamente atribuídas.",
+      "fix": "O colchão de molas é destinado ao repouso humano, e a base box serve de base para um colchão, segundo o Inmetro. A Simmons descreve camas box convencionais como estruturas de madeira e afirma que a base baú também oferece armazenamento; portanto, escolha o colchão de molas se precisa da superfície de repouso e a base box se já tem o colchão e precisa de suporte. Para uma base baú, confira na ficha o sistema de abertura."
+    },
+    {
+      "ref": "funcao-colchao-base#0",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho define especificamente o “colchão de molas”, mas o bloco generaliza a composição para “o colchão” em geral. A descrição da base tipo box é sustentada pelo trecho citado.",
+      "fix": "O colchão de molas é um bem de consumo durável destinado ao repouso humano, constituído por molejo, isolante, estofamento e revestimento. A base do tipo box é uma estrutura monobloco cuja função é servir de base a um colchão, também conhecida como box."
+    },
+    {
+      "ref": "materiais-colchao-base#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "materiais-colchao-base#1",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco repete a propriedade declarada pela fabricante de que a madeira funciona como bactericida natural, mas não informa que o Inmetro não avalia essa propriedade, como exige a regra do site.",
+      "fix": "Segundo a Probel, a madeira de eucalipto tratada da estrutura é declarada como bactericida natural; o Inmetro não avalia essa propriedade. O revestimento lateral é de tecido rústico, e o superior é de TNT."
+    },
+    {
+      "ref": "certificacao-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "certificacao-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-cama-box#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "tipos-cama-box#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Probel apenas informam dimensões de produtos; não dizem que se deve comparar as dimensões para verificar se os produtos correspondem ao conjunto pretendido. A recomendação prática pode ser uma inferência, mas não é uma orientação atribuída à Probel.",
+      "fix": "Antes de combinar um colchão e uma base box, compare as dimensões declaradas dos dois produtos para verificar se correspondem ao conjunto que você pretende montar. As fichas da Probel informam dimensões de colchões, bases e conjuntos."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. O trecho do Inmetro define especificamente o colchão de molas como destinado ao repouso humano, mas o bloco generaliza essa afirmação para qualquer colchão. As demais conclusões práticas decorrem dos trechos citados, e as afirmações da Simmons estão devidamente atribuídas. Versão sustentável: O colchão de molas é destinado ao repouso humano, e a base box serve de base para um colchão, segundo o Inmetro. A Simmons descreve camas box convencionais como estruturas de madeira e afirma que a base baú também oferece armazenamento; portanto, escolha o colchão de molas se precisa da superfície de repouso e a base box se já tem o colchão e precisa de suporte. Para uma base baú, confira na ficha o sistema de abertura."
+    },
+    {
+      "ref": "funcao-colchao-base#0",
+      "msg": "OVERSTATED. O trecho define especificamente o “colchão de molas”, mas o bloco generaliza a composição para “o colchão” em geral. A descrição da base tipo box é sustentada pelo trecho citado. Versão sustentável: O colchão de molas é um bem de consumo durável destinado ao repouso humano, constituído por molejo, isolante, estofamento e revestimento. A base do tipo box é uma estrutura monobloco cuja função é servir de base a um colchão, também conhecida como box."
+    },
+    {
+      "ref": "materiais-colchao-base#1",
+      "msg": "SAFETY_CLAIM. O bloco repete a propriedade declarada pela fabricante de que a madeira funciona como bactericida natural, mas não informa que o Inmetro não avalia essa propriedade, como exige a regra do site. Versão sustentável: Segundo a Probel, a madeira de eucalipto tratada da estrutura é declarada como bactericida natural; o Inmetro não avalia essa propriedade. O revestimento lateral é de tecido rústico, e o superior é de TNT."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. Os trechos da Probel apenas informam dimensões de produtos; não dizem que se deve comparar as dimensões para verificar se os produtos correspondem ao conjunto pretendido. A recomendação prática pode ser uma inferência, mas não é uma orientação atribuída à Probel. Versão sustentável: Antes de combinar um colchão e uma base box, compare as dimensões declaradas dos dois produtos para verificar se correspondem ao conjunto que você pretende montar. As fichas da Probel informam dimensões de colchões, bases e conjuntos."
+    }
+  ]
+}

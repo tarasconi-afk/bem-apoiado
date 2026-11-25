@@ -2,165 +2,198 @@
   "slug": "colchao-ou-cama-box-diferenca",
   "page_type": "explainer",
   "status": "draft",
-  "title": "Colchão ou cama box: qual é a diferença?",
-  "description": "Colchão e cama box são peças diferentes: descubra quando comprar cada uma ou o conjunto completo, segundo marcas como Probel, Simmons e Castor.",
+  "title": "Colchão ou cama box: qual a diferença?",
+  "description": "Entenda a função de cada um, os materiais usados, como o Inmetro certifica e o que conferir na etiqueta antes de comprar.",
   "primary_query": "colchão ou cama box: diferença",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-25",
   "verdict": {
-    "text": "Se precisa de uma base em dois volumes, considere uma opção bipartida e confirme essa característica no anúncio. Se precisa de espaço para guardar objetos, um box baú pode ser uma opção, segundo a Probel.",
+    "text": "O colchão de molas é destinado ao repouso humano, e a base box serve de base para um colchão, segundo o Inmetro. A Simmons descreve camas box convencionais como estruturas de madeira e afirma que a base baú também oferece armazenamento; portanto, escolha o colchão de molas se precisa da superfície de repouso e a base box se já tem o colchão e precisa de suporte. Para uma base baú, confira na ficha o sistema de abertura.",
     "basis": "reasoning",
     "claim_ids": [
+      "clm_dd5d499b3feb",
+      "clm_7ccd5e78275e",
+      "clm_5d058732c401",
       "clm_174acc27cb7c",
-      "clm_5ccacf0ee607"
+      "clm_38fc28ebfa60"
     ]
   },
   "sections": [
     {
-      "id": "o-que-sao",
+      "id": "funcao-colchao-base",
       "heading": "O que é colchão e o que é cama box",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Segundo a Simmons, a base box foi desenvolvida para complementar determinados colchões e proporcionar estabilidade ao conjunto. A Probel descreve o box baú como uma base com compartimento interno, e oferece modelos bipartidos, que possuem dois volumes.",
+          "text": "O colchão de molas é um bem de consumo durável destinado ao repouso humano, constituído por molejo, isolante, estofamento e revestimento. A base do tipo box é uma estrutura monobloco cuja função é servir de base a um colchão, também conhecida como box.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_8824c5b22f56",
-            "clm_174acc27cb7c",
-            "clm_5ccacf0ee607"
+            "clm_dd5d499b3feb",
+            "clm_7ccd5e78275e"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Em um conjunto box da Probel, a ficha técnica informa separadamente a altura do colchão (24 cm), da base box (26 cm), dos pés (12 cm) e a altura total do conjunto (62 cm), mostrando que colchão e base são componentes distintos que se somam na medida final.",
+          "text": "Segundo a Simmons, as camas box convencionais são estruturas de madeira que suportam o colchão de forma firme e estável. A cama box baú combina essa função de suporte com um compartimento interno para armazenamento de objetos.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_0a492db65a74"
+            "clm_5d058732c401"
           ]
         }
       ]
     },
     {
-      "id": "materiais-estrutura",
-      "heading": "Materiais e estrutura interna de cada peça",
+      "id": "materiais-colchao-base",
+      "heading": "Materiais descritos nas bases box consultadas",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "As bases box dos produtos citados possuem estrutura de madeira; a Probel informa que, em um desses produtos, trata-se de madeira de reflorestamento de eucalipto tratado, que funciona como bactericida natural.",
+          "text": "As fontes citadas descrevem bases com estrutura de madeira tratada ou de reflorestamento, em um caso, eucalipto, e revestimento lateral em tecido ou material sintético, segundo a Probel e a Ortobom.",
           "basis": "evidence",
           "claim_ids": [
             "clm_067ac0c41d3e",
-            "clm_169d2eb052cf"
+            "clm_0b7ef67545af",
+            "clm_181deaacd7b3"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Em produtos da Probel, são citados tecido rústico no revestimento lateral e TNT no revestimento superior; outro produto da Probel lista suede como tecido de revestimento. A Ortobom informa que é permitida limpeza a úmido profissional muito suave, sem que o trecho identifique uma capa ou revestimento.",
+          "text": "Segundo a Probel, a madeira de eucalipto tratada da estrutura é declarada como bactericida natural; o Inmetro não avalia essa propriedade. O revestimento lateral é de tecido rústico, e o superior é de TNT.",
           "basis": "evidence",
           "claim_ids": [
+            "clm_0bc00187743a",
             "clm_0b7ef67545af",
-            "clm_a5f72bb1f04f",
-            "clm_004a22712d67"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "tipos-cama-box",
-      "heading": "Tipos de cama box: simples e bipartida",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A Probel descreve um box baú com amplo compartimento interno, e um modelo citado utiliza sistema basculante com pistões pneumáticos (amortecedores).",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_174acc27cb7c",
-            "clm_38fc28ebfa60"
+            "clm_2cc56e363292"
           ]
         }
       ]
     },
     {
       "id": "certificacao-inmetro",
-      "heading": "Como o Inmetro certifica colchão e cama box",
+      "heading": "O que o Inmetro certifica em colchões de espuma",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Nos colchões e colchonetes de espuma, o selo do Inmetro se refere à avaliação da espuma flexível de poliuretano, do revestimento e da chapa dura; as demais propriedades e materiais declarados pelo fabricante não foram avaliados.",
+          "text": "O regulamento estabelece certificação compulsória para colchões e colchonetes de espuma, com avaliação do bloco de espuma e do revestimento, com base nas normas ABNT NBR 13579-1 e 13579-2. A NBR 15413-1 é citada como norma de requisitos e métodos de ensaio para colchões de mola.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_3b4971595042"
+            "clm_100325e3f984",
+            "clm_07b0cb171184",
+            "clm_9b1c2e453c8b"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "O Inmetro lista o colchão box conjugado como um tipo de colchão e considera a estrutura e o material da base na composição da família de colchão box conjugado e colchão auxiliar.",
+          "text": "Na certificação, a estrutura e o material da base são considerados para colchões box conjugados e colchões auxiliares; diferenças quanto a esses aspectos devem gerar famílias distintas.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_f3821f557d98",
-            "clm_cd4bcbc91825"
+            "clm_cd4bcbc91825",
+            "clm_b4ec6b16c57c"
           ]
         },
         {
-          "kind": "callout",
-          "tone": "info",
-          "text": "Quando o fornecedor declarar voluntariamente funcionalidades, como terapêuticas ou ortopédicas, em colchões mistos, o manual ou as informações ao usuário devem informar que essas características não foram avaliadas pelo processo de certificação.",
+          "kind": "paragraph",
+          "text": "O selo de conformidade do Inmetro no colchão refere-se apenas à espuma, ao revestimento e à chapa dura. Outras propriedades e materiais declarados pelo fabricante não são avaliados pelo Inmetro.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_df471e3044c7"
+            "clm_2cc56e363292"
           ]
         }
       ]
     },
     {
-      "id": "etiquetagem",
-      "heading": "Etiqueta e cuidados de conservação",
+      "id": "etiqueta-composicao",
+      "heading": "Etiqueta de composição e cuidados: o que é obrigatório",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O Inmetro lista “cuidados mínimos para conservação do produto” entre as informações obrigatórias para colchões e colchonetes. No exemplo citado, a Ortobom informa proibição de lavagem, alvejamento, secagem em tambor, passadoria e limpeza a seco, além de permitir secagem horizontal à sombra e limpeza a úmido profissional muito suave.",
+          "text": "A etiqueta do colchão deve informar a composição têxtil do revestimento e os cuidados mínimos para conservação do produto. O percentual de cada fibra deve ser informado em ordem decrescente e em destaque igual na etiqueta.",
           "basis": "evidence",
           "claim_ids": [
             "clm_06281792169b",
-            "clm_004a22712d67"
+            "clm_055cf59ece8e",
+            "clm_3149f28c84aa"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Os caracteres na etiqueta devem ter altura não inferior a 2 mm e ser fixados de forma permanente em local de fácil visualização.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_014ad425f567"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "O Inmetro exige que a etiqueta informe o tipo do colchão, espuma tradicional, box conjugado, auxiliar, misto ou colchonete, e as dimensões do produto, incluindo as respectivas tolerâncias.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_03f4e6488b5d",
+            "clm_0cd59218578e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tipos-cama-box",
+      "heading": "Tipos de cama box: estrutura e diferenças",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Segundo a Simmons, existem dois tipos principais de cama box: a convencional, que é uma estrutura de madeira com ou sem ripas destinada a suportar o colchão, e a cama box baú, que combina a função de suporte ao colchão com um compartimento interno para armazenamento.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_5d058732c401"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A Probel apresenta um modelo de base box Queen com 158 cm de largura, 198 cm de comprimento e 26 cm de altura.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_07f4c2d30269"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Segundo a Probel, o modelo citado utiliza sistema basculante com pistões pneumáticos, também descritos como amortecedores.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_38fc28ebfa60"
           ]
         }
       ]
     },
     {
       "id": "como-decidir",
-      "heading": "Como escolher: colchão, base ou cama box completa",
+      "heading": "Como decidir entre colchão e cama box",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você quer um conjunto com colchão e cama box, a Probel informa que no tamanho casal o colchão tem 24 cm de altura, a base tem 26 cm e os pés têm 12 cm, totalizando 62 cm de altura do conjunto.",
-          "basis": "evidence",
+          "text": "Se você precisa da superfície destinada ao repouso, escolha um colchão. Se já tem o colchão e precisa apenas da estrutura que o sustenta, escolha uma base do tipo box.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_0a492db65a74"
+            "clm_dd5d499b3feb",
+            "clm_7ccd5e78275e"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Os colchões variam de tamanho: segundo a Castor, o de solteiro mede 0,88 × 1,88 m, o solteiro king mede 1,00 × 2,00 m e o de casal mede 1,38 × 1,88 m.",
-          "basis": "evidence",
+          "text": "Segundo a Simmons, se você quer apenas suporte para o colchão, uma cama box convencional atende a essa função; se também precisa guardar objetos, a base baú combina suporte e compartimento interno. Confira na ficha o sistema de abertura e o compartimento do modelo.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_007a1311f7ce"
+            "clm_5d058732c401",
+            "clm_174acc27cb7c",
+            "clm_38fc28ebfa60"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Segundo a Simmons, a cama box foi desenvolvida para complementar a engenharia dos colchões e proporcionar estabilidade estrutural ao conjunto. Segundo a Probel, a cama box oferece estabilidade e suporte adequados para o colchão.",
-          "basis": "evidence",
+          "text": "As fichas da Probel listam dimensões de um conjunto e de bases. Para montar o conjunto pretendido, compare as medidas declaradas dos produtos, sem atribuir essa recomendação à Probel.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_8824c5b22f56",
-            "clm_9c243af45d10"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Segundo a descrição de um kit da Probel, a base bipartida desse produto vem em dois volumes.",
-          "basis": "evidence",
-          "claim_ids": [
-            "clm_5ccacf0ee607"
+            "clm_0a492db65a74",
+            "clm_07f4c2d30269",
+            "clm_130a08f7c1a0"
           ]
         }
       ]
@@ -168,17 +201,17 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261112T010850_autopilot_25a5+editor:20261112T011902_colchao-ou-cama-box-diferenca-autocorrecao_dce8+editor:20261112T151156_colchao-ou-cama-box-diferenca-ajuste_d3bd",
+    "run_id": "20261125T071151_autopilot_2d17+editor:20261125T071826_colchao-ou-cama-box-diferenca-autocorrecao_527a",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
     "review": {
-      "answers_primary_query": "partial",
-      "concrete_guidance": false,
-      "filler_ratio": 0.09090909090909091,
-      "criteria": 5,
+      "answers_primary_query": "yes",
+      "concrete_guidance": true,
+      "filler_ratio": 0,
+      "criteria": 7,
       "reader_fit": true,
-      "quick_answer": false,
+      "quick_answer": true,
       "rule_publishable": false
     }
   }

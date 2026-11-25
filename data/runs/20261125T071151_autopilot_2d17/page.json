@@ -1,0 +1,57 @@
+{
+  "slug": "colchao-ou-cama-box-diferenca",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 113799,
+    "output_tokens": 33796,
+    "calls": 59
+  },
+  "credits": 32.10485892,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção promete diferenças de materiais entre colchão e cama box, mas os blocos só descrevem materiais de bases box; não há material do colchão para comparar (materiais-colchao-base#0); Mudar o título da seção para algo como “Materiais descritos nas bases box ",
+      "A seção promete explicar como o Inmetro certifica colchão e cama box, mas os trechos tratam principalmente de colchões e colchonetes de espuma e mencionam bases apenas em produtos conjugados ou auxiliares (certificacao-inmetro#0); Mudar o título para “O que os"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha o colchão se precisa da superfície destinada ao repouso.",
+      "Escolha a base box se já tem o colchão e precisa apenas da estrutura de suporte.",
+      "Escolha uma base box convencional quando quer somente sustentar o colchão.",
+      "Escolha uma base box baú quando também precisa de espaço interno para guardar objetos.",
+      "Na base baú, confira na ficha técnica o sistema de abertura, como pistões pneumáticos ou amortecedores.",
+      "Compare as dimensões declaradas do colchão e da base antes de montar o conjunto.",
+      "Confira na ficha técnica os materiais da estrutura e do revestimento e, no colchão, as informações de composição, tipo e dimensões."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção promete diferenças de materiais entre colchão e cama box, mas os blocos só descrevem materiais de bases box; não há material do colchão para comparar (materiais-colchao-base#0); Mudar o título da seção para algo como “Materiais descritos nas bases box ",
+      "Para o leitor leigo: A seção promete explicar como o Inmetro certifica colchão e cama box, mas os trechos tratam principalmente de colchões e colchonetes de espuma e mencionam bases apenas em produtos conjugados ou auxiliares (certificacao-inmetro#0); Mudar o título para “O que os",
+      "Aviso explícito de que o termo “cama box” pode indicar apenas a base ou um conjunto com colchão, portanto é preciso conferir o que está incluído no anúncio.",
+      "Orientação sobre a compatibilidade entre as medidas do colchão e da base, além da comparação das dimensões individuais.",
+      "Explicação direta, em linguagem de compra, sobre se a base box é certificada pelo Inmetro da mesma forma que o colchão."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde rapidamente à diferença entre colchão e cama box e dá uma regra prática de escolha: colchão para a superfície de repouso e base box para suporte, com orientação adicional para modelos baú e conferência de medidas. Há alguma repetição entre os blocos de tipos e decisão, mas ela não impede a compra; vale apenas esclarecer que “cama box” pode significar somente a base ou um conjunto com colchão.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "secao_nao_entrega",
+        "ref": "materiais-colchao-base#0",
+        "problem": "A seção promete diferenças de materiais entre colchão e cama box, mas os blocos só descrevem materiais de bases box; não há material do colchão para comparar.",
+        "fix": "Mudar o título da seção para algo como “Materiais descritos nas bases box consultadas”, sem prometer uma comparação com os materiais do colchão."
+      },
+      {
+        "check": "secao_nao_entrega",
+        "ref": "certificacao-inmetro#0",
+        "problem": "A seção promete explicar como o Inmetro certifica colchão e cama box, mas os trechos tratam principalmente de colchões e colchonetes de espuma e mencionam bases apenas em produtos conjugados ou auxiliares.",
+        "fix": "Mudar o título para “O que os trechos do Inmetro informam sobre a certificação de colchões de espuma e bases conjugadas”."
+      }
+    ]
+  }
+}
