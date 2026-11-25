@@ -1,0 +1,29 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "normas-certificacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "saude-postura-profissional#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos são da Duoflex, mas apenas a primeira recomendação é explicitamente atribuída a ela. As afirmações sobre dormir de costas e de bruços aparecem como recomendações gerais, embora sejam posições da fabricante.",
+      "fix": "Segundo a Duoflex, quem dorme de lado pode usar um travesseiro mais alto, ajustado para preencher o espaço entre a cabeça e o colchão e formar um ângulo de 90 graus no pescoço; para dormir de costas, a altura deve ser intermediária; e, para dormir de bruços, o modelo deve ser mais baixo, embora essa posição não seja a mais recomendada pela própria Duoflex."
+    }
+  ]
+}

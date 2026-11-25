@@ -1,0 +1,47 @@
+{
+  "slug": "travesseiro-de-pena-de-ganso-ou-de-fibra",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 2,
+  "usage": {
+    "input_tokens": 79817,
+    "output_tokens": 22265,
+    "calls": 35
+  },
+  "credits": 28.912833600000003,
+  "review": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página não explica para quem o travesseiro de pena ou pluma de ganso serve em termos de conforto, sustentação, altura e calor.",
+      "Não há comparação sustentada por fontes sobre alergia, ácaros ou capa antiácaro.",
+      "A regra de escolha fica praticamente limitada à possibilidade de lavar em casa, deixando de fora critérios importantes para decidir entre os dois tipos."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha fibra siliconada se precisar lavar o travesseiro em casa, desde que a etiqueta permita lavagem; o modelo Hug citado permite lavagem suave até 40 °C.",
+      "Escolha pena ou pluma de ganso se aceitar a limpeza a seco, pois os modelos de ganso citados não permitem lavagem à água.",
+      "Confira na etiqueta o nome do enchimento e o percentual da composição para confirmar se o produto é de fibra ou de plumas de ganso.",
+      "Confira as dimensões do modelo e a compatibilidade com a fronha antes da compra.",
+      "Os modelos citados de ganso têm 100% de plumas ou penas de ganso, e o modelo de fibra Hug tem enchimento de fibra siliconada 100% poliéster."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A página não explica para quem o travesseiro de pena ou pluma de ganso serve em termos de conforto, sustentação, altura e calor.",
+      "Para o leitor leigo: Não há comparação sustentada por fontes sobre alergia, ácaros ou capa antiácaro.",
+      "Para o leitor leigo: A regra de escolha fica praticamente limitada à possibilidade de lavar em casa, deixando de fora critérios importantes para decidir entre os dois tipos.",
+      "Comparação, sustentada por fontes, de maciez, sustentação, altura e calor ao dormir para indicar para quem serve o travesseiro de pena ou pluma e para quem serve o de fibra.",
+      "Informações sustentadas por fontes sobre alergia, ácaros e eventual uso de capa antiácaro em cada tipo.",
+      "Gramatura do enchimento de pena ou pluma de ganso e de fibra siliconada.",
+      "Percentual detalhado de penas e plumas de ganso quando houver mistura entre esses materiais.",
+      "Recomendação de troca ou vida útil específica para travesseiros de fibra e de pena ou pluma, além da informação geral da Duoflex.",
+      "Regra de escolha que combine conforto, alergia e cuidados de lavagem, em vez de concentrar a decisão na lavagem."
+    ],
+    "publishable": false,
+    "summary": "A página traz critérios concretos sobre composição, dimensões e lavagem, mas responde apenas parcialmente à comparação entre pena de ganso e fibra. A resposta curta não diz para quem serve cada opção e faltam os critérios de conforto e alergia pedidos na pauta; por isso, não deve ser publicada sem completar a comparação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

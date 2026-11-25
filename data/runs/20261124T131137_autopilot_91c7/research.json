@@ -1,0 +1,215 @@
+{
+  "run_id": "20261124T131137_autopilot_91c7",
+  "topic": "como-escolher-edredom",
+  "accepted": [
+    {
+      "claim_id": "clm_ce29bca2afa0",
+      "question_id": "q_tamanho_cama_medida_edredom",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8b1670b5a580",
+      "question_id": "q_tamanho_cama_medida_edredom",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9819bc37a50f",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dd1ac19942cb",
+      "question_id": "q_dupla_face",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8c2fc273aefa",
+      "question_id": "q_dupla_face",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bae4867a247d",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_53c771701616",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_52196526587f",
+      "question_id": "q_peso_medidas_embalado",
+      "source_id": "src_c8504427728f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9b9638a39866",
+      "question_id": "q_tamanho_cama_medida_edredom",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a9ba2f43c426",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_87acb73126d6",
+      "question_id": "q_dupla_face",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a9ba2f43c426",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_e73bb621afa1",
+      "new": false
+    },
+    {
+      "claim_id": "clm_7d6baa077b09",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8db52350572a",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b0e917575cb7",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_46e74dad30f9",
+      "question_id": "q_peso_medidas_embalado",
+      "source_id": "src_e73bb621afa1",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7abecc626611",
+      "question_id": "q_tamanho_cama_medida_edredom",
+      "source_id": "src_dc90ccb360d6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_7748a6067ea7",
+      "question_id": "q_gramatura_estacao",
+      "source_id": "src_dc90ccb360d6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c91799b0a86f",
+      "question_id": "q_composicao_etiqueta",
+      "source_id": "src_dc90ccb360d6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_705bf599561e",
+      "question_id": "q_lavagem_secagem",
+      "source_id": "src_dc90ccb360d6",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4f53fc7645cf",
+      "question_id": "q_dupla_face",
+      "source_id": "src_dc90ccb360d6",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_tamanho_cama_medida_edredom": 4,
+    "q_gramatura_estacao": 2,
+    "q_composicao_etiqueta": 3,
+    "q_lavagem_secagem": 6,
+    "q_peso_medidas_embalado": 2,
+    "q_dupla_face": 4
+  },
+  "unanswered": [],
+  "usage": {
+    "input_tokens": 7604,
+    "output_tokens": 2724,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_413e744446b8",
+    "src_04893ca06b7f"
+  ],
+  "triage": [
+    {
+      "source_id": "src_413e744446b8",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_413e744446b8",
+      "chunk": 1,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_413e744446b8",
+      "chunk": 2,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_413e744446b8",
+      "chunk": 3,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_413e744446b8",
+      "chunk": 4,
+      "keep": false,
+      "p_useful": 0.32
+    },
+    {
+      "source_id": "src_413e744446b8",
+      "chunk": 5,
+      "keep": false,
+      "p_useful": 0
+    },
+    {
+      "source_id": "src_c8504427728f",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_e73bb621afa1",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_dc90ccb360d6",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_04893ca06b7f",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0
+    }
+  ],
+  "credits": 5.37737316
+}

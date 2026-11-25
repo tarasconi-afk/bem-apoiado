@@ -1,0 +1,57 @@
+{
+  "score_before": 4,
+  "score_after": 3,
+  "kept": false,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Se dorme de lado, escolha um travesseiro mais alto para preencher o espaço entre a cabeça e o colchão.",
+      "Se dorme de costas, escolha uma altura intermediária.",
+      "Se dorme de bruços, escolha um travesseiro mais baixo.",
+      "Confira se a altura escolhida preenche o espaço entre a cabeça e o colchão e mantém o pescoço alinhado, com referência de ângulo de 90 graus para quem dorme de lado."
+    ],
+    "missing": [
+      "Faixas de altura em centímetros declaradas pelos fabricantes para travesseiros altos, médios e baixos.",
+      "Informação sobre o material de enchimento e sua densidade na ficha técnica ou etiqueta.",
+      "Orientações oficiais sobre cuidados, forma de uso e vida útil.",
+      "Informações sobre certificação, selo de qualidade ou conformidade aplicáveis ao produto.",
+      "Esclarecimento mais detalhado sobre o que o Inmetro não avalia em propriedades posturais ou terapêuticas."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página responde diretamente qual altura escolher conforme a posição de dormir e oferece um critério prático de ajuste. Faltam medidas em centímetros e informações de ficha técnica para facilitar a comparação entre anúncios, mas isso não impede a decisão principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": false,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Quem dorme de lado deve escolher um travesseiro mais alto.",
+      "Quem dorme de costas deve escolher um travesseiro de altura intermediária.",
+      "Quem dorme de bruços deve escolher um travesseiro mais baixo."
+    ],
+    "missing": [
+      "O que conferir no anúncio ou na ficha para escolher a opção certa para cada caso",
+      "Alturas em centímetros, ou faixas de altura, declaradas pelos fabricantes para os modelos alto, médio e baixo.",
+      "Orientação explícita para conferir no anúncio ou na ficha técnica a altura medida do travesseiro e o material de enchimento, já que isso pode afetar a altura percebida.",
+      "Informações do fabricante sobre cuidados, ajuste da altura e vida útil, se disponíveis em fonte primária."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde diretamente à dúvida com uma regra simples baseada na posição de dormir, sem jargão e com orientação concreta. Porém, o texto não informa alturas em centímetros nem diz explicitamente o que conferir no anúncio ou na ficha técnica, o que enfraquece o caminho de compra; além disso, o bloco Como decidir repete o veredicto.",
+    "filler_ratio": 0.25,
+    "model_opinion": true
+  }
+}
