@@ -559,7 +559,7 @@ async function maintainGsc(steps: string[]): Promise<boolean> {
   }
 }
 
-// Resumo que não passa na trava (mais de 3 frases, abre com norma, "trechos citados"): reescreve a resposta
+// Resumo que não passa na trava (mais de 3 frases, abre com norma, termo do motor no Como decidir): reescreve a resposta
 // curta e o "Como decidir" de uma página no ar por ciclo, com as evidências que ela já tem (~2–3 créditos).
 // Sai como resultado para o editor aceitar; tentativa no máximo 1x por semana por página.
 export const SUMMARY_FIX = 'Reescreva a resposta curta e o "Como decidir" para quem vai comprar, em palavras simples: a resposta curta em até 3 frases, começando pela resposta prática (o que escolher ou conferir), sem abrir com norma ou regulador e sem "trechos citados".';
@@ -578,7 +578,7 @@ export function resumoJaRecusado(p: PageSpec, recusas: Record<string, RecusaResu
 async function maintainSummary(runId: string, steps: string[]): Promise<boolean> {
   const tried = readState<Record<string, string>>('summary-fix.json', {});
   const recusas = readState<Record<string, RecusaResumo>>(SUMMARY_REFUSED_FILE, {});
-  const weak = (p: PageSpec) => (p.provenance.review as { quick_answer?: boolean } | undefined)?.quick_answer === false || styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || /trechos citados/.test(i.msg));
+  const weak = (p: PageSpec) => (p.provenance.review as { quick_answer?: boolean } | undefined)?.quick_answer === false || styleIssues({ title: p.title, description: p.description, verdict: p.verdict, sections: p.sections } as never).some((i) => i.ref === 'verdict' || (/termo do motor/.test(i.msg) && (i.ref ?? '').startsWith('como-decidir')));
   // Aprovação do editor depois da última mudança vale mais que a regra: não reescreve o que ele aprovou.
   const verdicts = loadVerdicts();
   const approvedByEditor = (p: PageSpec) => verdicts.some((v) => v.slug === p.slug && v.verdict === 'approve' && v.at.slice(0, 10) >= p.updated_at);

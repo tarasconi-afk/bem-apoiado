@@ -43,7 +43,7 @@ ${editorialChecklist()}
 
 Regras do gate (o código recusa a página sem ler o conteúdo; cada uma custa uma rodada inteira quando não é obedecida de primeira):
 - Resposta curta ("verdict"): no máximo 3 frases; começa pela resposta prática (o que escolher e para quem), nunca por "Segundo…", "De acordo com…", "Conforme…", nem por norma, regulador ou anexo; a fonte entra no fim da frase ("…, segundo a Castor").
-- Nunca escreva "trechos citados" ou "nos trechos": diga quem afirma ("segundo a Ortobom") ou o que a ficha não informa.
+- Nunca escreva "trecho" em nenhuma forma ("trechos citados", "nos trechos", "o trecho menciona"), nem "fichas citadas" ou "evidência citada": diga quem afirma ("segundo a Ortobom", "na ficha da Probel"). Não afirme o que a fonte deixa de informar: ausência não se prova.
 - Título "A ou B": a resposta curta ou o "Como decidir" dizem quando escolher A e quando escolher B, com o dado da fonte.
 - Tabela: pelo menos 2 linhas; nenhuma célula "não informado" ou "confira…"; uma coluna é um modelo só; só cite "a tabela abaixo" na seção em que ela está.
 - Duas orientações "Se você…" com a mesma condição não podem coexistir: junte ou diga outra situação.

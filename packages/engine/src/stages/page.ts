@@ -154,7 +154,10 @@ export function styleIssues(draft: Draft): Issue[] {
   // ensacadas podem…" passou porque a regra só via nome próprio).
   if (/^([Ss]egundo|[Dd]e acordo com|[Cc]onforme)\s/u.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir citando a fonte ("Segundo a Ortobom...", "Segundo fabricantes..."): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar.' });
   if (/^(segundo|conforme|de acordo com|no|na|nos|nas|o|a|os|as)?\s*(inmetro|abnt|nbr|nr[- ]?\d|anvisa|portaria|norma|regulamento|regula[cç][aã]o|trecho|anexo)/i.test(v)) out.push({ ref: 'verdict', msg: 'a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir.' });
-  for (const u of blockRefs(draft)) if (/\b(nos|os|segundo os|dos) trechos? citados?\b/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trechos citados" (é termo do motor): diga quem afirma ("segundo a Ortobom") ou o que não foi informado ("a ficha não informa").' });
+  // 25/11: a regra só via "trechos citados"; 9 páginas no ar tinham "nas fichas citadas", "o trecho menciona", "os
+  // trechos consultados não mencionam D45", "Não indicado no trecho citado" (FC: o mesmo vazamento reprovou rascunhos
+  // em ciclos seguidos). "trecho" em qualquer forma e "fichas/evidências citadas" são vocabulário do motor.
+  for (const u of blockRefs(draft)) if (/\btrechos?\b|fichas? citadas?|vers[ãa]o sustent[áa]vel|evid[êe]ncias? citadas?/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trecho" (nem "trechos citados"), "fichas citadas" ou "evidência citada" (é termo do motor): diga quem afirma ("segundo a Ortobom", "na ficha da Probel"). Não escreva o que a fonte deixa de informar: ausência não se prova.' });
   for (const sec of draft.sections) {
     if (sec.blocks.some((b) => b.kind === 'table')) continue;
     sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && /tabela (abaixo|acima|a seguir|seguinte)/i.test(b.text)) out.push({ ref: `${sec.id}#${i}`, msg: 'o texto cita uma tabela que não existe nesta seção: traga a tabela ou escreva os dados no texto.' }); });
