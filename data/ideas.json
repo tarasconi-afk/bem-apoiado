@@ -762,7 +762,7 @@
       "como escolher cobertor ponderado"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Dúvida de decisão sobre tipo específico de cobertor (ponderado/pesado). Respondível por fichas de fabricante.",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
@@ -772,8 +772,8 @@
       "cobertor pesado vale a pena"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Dúvida se vale investir em cobertor ponderado. Respondível por normas, reguladores e fichas técnicas.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"como escolher cobertor ponderado\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -782,7 +782,7 @@
       "melhor cobertor para o frio"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Dúvida de decisão: qual tipo/material/peso de cobertor escolher para climas frios. Respondível por fichas.",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
@@ -792,8 +792,8 @@
       "tipos de cobertores"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Mesma intenção que pauta existente 'como escolher cobertor'.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"como escolher cobertor\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -802,7 +802,7 @@
       "cobertor ideal para alergicos"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Dúvida de decisão: qual tipo/material de cobertor escolher para quem tem alergia. Respondível por fichas e normas.",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
@@ -812,8 +812,8 @@
       "cobertor tamanho queen"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Dúvida sobre tamanho específico de cobertor. Pode responder com dimensões e o que conferir.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"cobertor tamanho king ou queen: qual é maior\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -822,7 +822,7 @@
       "cobertor muito quente"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Dúvida de decisão: qual tipo/material/peso de cobertor escolher para climas quentes. Respondível por fichas.",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
@@ -832,8 +832,8 @@
       "tipos de toalha de banho"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Dúvida de decisão sobre tipos/categorias de toalha (tecido, trama, tamanho). Respondível por fichas.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"como escolher toalha de banho\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -862,8 +862,8 @@
       "toalha de banho tamanhos"
     ],
     "score": 10,
-    "status": "nova",
-    "reason": "Mesma intenção que pauta existente sobre tamanhos de toalha.",
+    "status": "descartada",
+    "reason": "mesma intenção de \"tamanhos de toalha: banho, banhão, rosto e lavabo\"",
     "found_at": "2026-11-05T01:03:36.488Z"
   },
   {
@@ -1534,7 +1534,7 @@
       "edredom quanto mais fios melhor"
     ],
     "score": 10,
-    "status": "nova",
+    "status": "na_fila",
     "reason": "Dúvida sobre material e qualidade de edredom; coberta por pauta que trata características",
     "found_at": "2026-11-19T01:13:59.866Z"
   },
@@ -1737,5 +1737,165 @@
     "status": "nova",
     "reason": "Pauta-guia de tipos/materiais; já existe no sistema",
     "found_at": "2026-11-19T01:13:59.866Z"
+  },
+  {
+    "query": "colchão misto vale a pena",
+    "from": [
+      "colchão misto vale a pena"
+    ],
+    "score": 10,
+    "status": "nova",
+    "reason": "Mesma intenção: decidir entre tipos (misto vs espuma)",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "cadeira para manicure: qual escolher",
+    "from": [
+      "cadeira ideal para manicure"
+    ],
+    "score": 9,
+    "status": "nova",
+    "reason": "Dúvida de escolha de cadeira para profissional; responde com normas de uso profissional e fichas de fabricante",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "colchão de espuma para cama queen: qual escolher",
+    "from": [
+      "colchão de espuma para cama queen"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida sobre colchão de espuma para casal (queen é tamanho casal)",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "mesa de trabalho para duas pessoas: qual escolher",
+    "from": [
+      "mesa de trabalho para duas pessoas tamanho"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Pauta sobre dimensão/configuração específica de mesa de trabalho",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "pillow top ou colchão novo",
+    "from": [
+      "pillow top ou colchao novo"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Comparação válida entre duas decisões (adicionar pillow top vs comprar colchão novo)",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "pillow top: é lavável",
+    "from": [
+      "pillow top é lavavel"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida de manutenção/características do produto que influencia decisão de compra",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "pillow top esquenta muito: como escolher alternativa",
+    "from": [
+      "pillow top esquenta muito"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida sobre característica térmica que influencia decisão de compra/escolha",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "edredom muito grosso: como escolher alternativa",
+    "from": [
+      "edredom muito grosso"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida sobre característica (espessura) que influencia decisão de compra",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "cobertor para dormir bem: como escolher",
+    "from": [
+      "melhor cobertor para dormir"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida genérica sobre escolha de cobertor para sono; complementa pautas específicas",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "cobertor muito macio: como escolher material",
+    "from": [
+      "cobertor muito macio"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida sobre característica (maciez) que influencia decisão de compra",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "toalha de banho: é de algodão ou sintético",
+    "from": [
+      "toalha de banho é algodao ou sintetico"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Dúvida sobre material/composição que influencia decisão de compra",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "tipos de tecido de toalha de banho: qual escolher",
+    "from": [
+      "tipos de tecido para toalha de banho"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Mesma intenção e conteúdo de pauta existente",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "roupão de banho tamanho p: qual escolher",
+    "from": [
+      "roupao de banho tamanho p"
+    ],
+    "score": 8,
+    "status": "nova",
+    "reason": "Pauta sobre dimensão específica de roupão",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "como escolher colchão pela internet",
+    "from": [
+      "como escolher colchão pela internet"
+    ],
+    "score": 7,
+    "status": "nova",
+    "reason": "Pauta específica sobre contexto de compra online; complementa pauta genérica",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "colchão para acamado: qual escolher",
+    "from": [
+      "colchão para acamado"
+    ],
+    "score": 7,
+    "status": "nova",
+    "reason": "Pauta específica sobre contexto/uso (acamado); dúvida de decisão com normas",
+    "found_at": "2026-11-26T07:14:25.034Z"
+  },
+  {
+    "query": "colchão: quanto tempo para usar após compra",
+    "from": [
+      "colchão emma quanto tempo para usar"
+    ],
+    "score": 7,
+    "status": "nova",
+    "reason": "Dúvida sobre tempo de descanso/uso do colchão novo que influencia decisão",
+    "found_at": "2026-11-26T07:14:25.034Z"
   }
 ]
