@@ -1,0 +1,76 @@
+{
+  "findings": [
+    {
+      "ref": "estrutura-peso#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "estrutura-peso#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "estrutura-peso#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "uniao-modulos#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A evidência da Probel identifica o produto como Queen, mas o bloco o coloca na coluna de tamanho casal. Os trechos sustentam a base inteiriça e as dimensões, não que esse produto seja de tamanho casal.",
+      "fix": "A Probel lista uma base inteiriça (um volume) de 138 × 188 × 26 cm."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. A evidência da Probel identifica o produto como Queen, mas o bloco o coloca na coluna de tamanho casal. Os trechos sustentam a base inteiriça e as dimensões, não que esse produto seja de tamanho casal. Versão sustentável: A Probel lista uma base inteiriça (um volume) de 138 × 188 × 26 cm."
+    }
+  ]
+}

@@ -47,13 +47,27 @@
     "src_a27bad80510e",
     "src_98b4b97e9fd9",
     "src_820aeab4b9f6",
-    "src_fcceb3879827"
+    "src_fcceb3879827",
+    "src_68b80f8b1ef2",
+    "src_1dea2b8d742c",
+    "src_4bb072b877ec",
+    "src_4b773e90725b",
+    "src_cf6c440020cc",
+    "src_7454ad78b2ea",
+    "src_3e5f27ca063f",
+    "src_a59c899cbf1b",
+    "src_aaec90810ee8",
+    "src_03298f65d3fa",
+    "src_43e183ddd1b7"
   ],
   "editorial_notes": [
     "Resposta curta e Como decidir devem usar apenas o dado de medida/acesso que a fonte do fabricante declarar; não presumir que medida menor resolve problema de acesso sem a fonte afirmar.",
     "Não incluir garantia, preço, montagem incluída ou capacidade de carga, pois não foram encontrados em fonte primária para pautas anteriores.",
     "Tabela de comparação deve ter uma linha para conjugada e outra para bipartida, com colunas de medida por peça/módulo e peso por peça/módulo.",
-    "Evitar jargão técnico de estrutura; se inevitável, explicar entre parênteses."
+    "Evitar jargão técnico de estrutura; se inevitável, explicar entre parênteses.",
+    "Regra de decisão sustentada: Se o colchão for Queen, King ou Superking, confira primeiro uma base bipartida; segundo a Ortobom, esse tipo é aplicável a colchões com largura de 158 cm a 193 cm. Para colchão casal ou menor, confira uma base inteira (um volume), que a marca indica para esses tamanhos. (evidências: clm_93179d5f7deb, clm_215efc23d4aa)",
+    "Regra de decisão sustentada: Se há escadas, portas ou corredores estreitos no caminho até o quarto, escolha a base bipartida, pois a Probel informa que seus modelos em dois volumes facilitam o transporte e a instalação; se a passagem não é uma limitação e você prefere uma peça única, confira uma base conjugada/inteiriça na ficha do produto. (evidências: clm_e3014f462eb6, clm_4822bf8567fd, clm_98576b0fdce6)",
+    "Regra de decisão sustentada: Se escolher a bipartida, confira se a ficha e o manual informam a união dos dois módulos por chapa e parafusos; se escolher a conjugada/inteiriça, confira se a ficha informa “um volume”, como nas bases inteiriças da Probel. (evidências: clm_ba9ee6ae1bb9, clm_4822bf8567fd, clm_585fdfd5899b)"
   ],
   "focus_terms": [
     "bipartid",
@@ -66,7 +80,12 @@
     "passam por"
   ],
   "evidence_gaps": [
-    "Fonte primária que defina o que é cama box conjugada e compare sua montagem, transporte, compatibilidade e uso com a cama box bipartida, indicando quando escolher cada uma."
+    "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+    "Para o leitor leigo: A tabela mistura tamanhos e tipos: apresenta 138 × 188 cm como base conjugada Queen, embora essa medida não corresponda claramente ao Queen, e não informa de modo completo as medidas da base conjugada para cada tamanho.",
+    "Para o leitor leigo: O veredito explica a quantidade de módulos por tamanho, mas não diz de forma imediata que a bipartida é a melhor opção quando há dificuldade de passagem até o quarto.",
+    "Uma tabela primária completa, sem inconsistências, com largura, comprimento e altura das bases conjugada e bipartida em cada tamanho.",
+    "Uma orientação explícita do fabricante para conferir portas, escadas, corredores e elevadores antes da compra.",
+    "A identificação clara de quais medidas correspondem a casal, Queen, King e Superking, especialmente no exemplo de 138 × 188 cm."
   ],
   "researched_source_ids": [
     "src_4da175c5f195",
@@ -91,9 +110,20 @@
     "src_a27bad80510e",
     "src_98b4b97e9fd9",
     "src_820aeab4b9f6",
-    "src_fcceb3879827"
+    "src_fcceb3879827",
+    "src_68b80f8b1ef2",
+    "src_1dea2b8d742c",
+    "src_4bb072b877ec",
+    "src_4b773e90725b",
+    "src_cf6c440020cc",
+    "src_7454ad78b2ea",
+    "src_3e5f27ca063f",
+    "src_a59c899cbf1b",
+    "src_aaec90810ee8",
+    "src_03298f65d3fa",
+    "src_43e183ddd1b7"
   ],
-  "improve_attempts": 0,
+  "improve_attempts": 1,
   "product_kinds": [
     "base_box"
   ],

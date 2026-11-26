@@ -1,0 +1,285 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Para colchões Queen, King e Superking, a estrutura tem dois módulos; para casal ou menores, um módulo, segundo a Ortobom. A Probel informa que seus modelos bipartidos de base King facilitam o transporte e a instalação.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_215efc23d4aa",
+        "clm_93179d5f7deb",
+        "clm_e3014f462eb6"
+      ]
+    },
+    {
+      "ref": "estrutura-peso#0",
+      "action": "replace",
+      "text": "A Probel informa que a base box é feita em madeira de reflorestamento de eucalipto tratado, que funciona como bactericida natural e garante maior durabilidade. A Ortobom identifica a base da cama e os pés rosqueáveis como componentes da estrutura.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_850bb820e210",
+        "clm_415fbcf31541"
+      ]
+    },
+    {
+      "ref": "uniao-modulos#0",
+      "action": "replace",
+      "text": "A Ortobom informa que os dois módulos da base bipartida são unidos com uma Chapa para União, fixada com 2 parafusos, conforme as posições indicadas na Figura 7.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_ba9ee6ae1bb9"
+      ]
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Conjugada (um volume)",
+          "claim_ids": [
+            "clm_4822bf8567fd"
+          ]
+        },
+        {
+          "text": "A Probel lista uma base inteiriça de 138 × 188 × 26 cm",
+          "claim_ids": [
+            "clm_50d52d493e49",
+            "clm_4822bf8567fd"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom, Queen ou maiores têm estrutura com 2 módulos",
+          "claim_ids": [
+            "clm_215efc23d4aa"
+          ]
+        },
+        {
+          "text": "Segundo a Ortobom, Queen ou maiores têm estrutura com 2 módulos",
+          "claim_ids": [
+            "clm_215efc23d4aa"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Para as linhas Bellona, Orion ou Orthotel Boutique, a Ortobom informa base bipartida para colchões Queen, King e Superking com largura entre 158 cm e 193 cm; para casal ou menores, considera-se uma estrutura de um módulo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_93179d5f7deb",
+        "clm_215efc23d4aa"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "A Probel informa que seus modelos bipartidos facilitam o transporte e a instalação no ambiente; considere esse aspecto quando houver dificuldade de acesso.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e3014f462eb6"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Base box conjugada ou bipartida: qual escolher",
+    "description": "Entenda as diferenças entre base box inteira e em dois volumes: medidas, peso suportado e facilidade de transporte para escolher a certa.",
+    "verdict": {
+      "text": "Para colchões Queen, King e Superking, a estrutura tem dois módulos; para casal ou menores, um módulo, segundo a Ortobom. A Probel informa que seus modelos bipartidos de base King facilitam o transporte e a instalação.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_215efc23d4aa",
+        "clm_93179d5f7deb",
+        "clm_e3014f462eb6"
+      ]
+    },
+    "sections": [
+      {
+        "id": "estrutura-peso",
+        "heading": "Estrutura de madeira e peso suportado",
+        "blocks": [
+          {
+            "text": "A Probel informa que a base box é feita em madeira de reflorestamento de eucalipto tratado, que funciona como bactericida natural e garante maior durabilidade. A Ortobom identifica a base da cama e os pés rosqueáveis como componentes da estrutura.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_850bb820e210",
+              "clm_415fbcf31541"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel declara que a base box suporta 150 kg por pessoa, desde que haja um colchão sobre a base.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_043130212a0f"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Ortobom avisa que o produto tem peso elevado. Leve isso em conta ao transportar a base até o quarto.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d8d963b3237e"
+            ],
+            "kind": "callout",
+            "tone": "warning"
+          }
+        ]
+      },
+      {
+        "id": "uniao-modulos",
+        "heading": "Como as duas partes se unem na base bipartida",
+        "blocks": [
+          {
+            "text": "A Ortobom informa que os dois módulos da base bipartida são unidos com uma Chapa para União, fixada com 2 parafusos, conforme as posições indicadas na Figura 7.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ba9ee6ae1bb9"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Diferenças entre base box conjugada e bipartida por tamanho",
+            "columns": [
+              "Tipo",
+              "Tamanho casal",
+              "Tamanho queen",
+              "Tamanho king"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Conjugada (um volume)",
+                    "claim_ids": [
+                      "clm_4822bf8567fd"
+                    ]
+                  },
+                  {
+                    "text": "A Probel lista uma base inteiriça de 138 × 188 × 26 cm",
+                    "claim_ids": [
+                      "clm_50d52d493e49",
+                      "clm_4822bf8567fd"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, Queen ou maiores têm estrutura com 2 módulos",
+                    "claim_ids": [
+                      "clm_215efc23d4aa"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, Queen ou maiores têm estrutura com 2 módulos",
+                    "claim_ids": [
+                      "clm_215efc23d4aa"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Bipartida (dois volumes)",
+                    "claim_ids": [
+                      "clm_585fdfd5899b"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Ortobom, não indicada",
+                    "claim_ids": [
+                      "clm_215efc23d4aa"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, 158 × 198 × 26 cm",
+                    "claim_ids": [
+                      "clm_07f4c2d30269"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, 193 × 203 × 26 cm",
+                    "claim_ids": [
+                      "clm_4f0332359540"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Para as linhas Bellona, Orion ou Orthotel Boutique, a Ortobom informa base bipartida para colchões Queen, King e Superking com largura entre 158 cm e 193 cm; para casal ou menores, considera-se uma estrutura de um módulo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_93179d5f7deb",
+              "clm_215efc23d4aa"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel informa que seus modelos bipartidos facilitam o transporte e a instalação no ambiente; considere esse aspecto quando houver dificuldade de acesso.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e3014f462eb6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se a passagem não é uma limitação e você prefere uma peça única, confira uma base conjugada na ficha do produto, segundo a Probel.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4822bf8567fd"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Ao escolher a base bipartida, confira no manual se os dois módulos se unem com chapa e parafusos: a Ortobom informa que a chapa para união é fixada com parafusos. Se escolher a conjugada, confirme que a ficha informa um volume único.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_ba9ee6ae1bb9",
+              "clm_4822bf8567fd"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. A Probel afirma apenas que modelos bipartidos de bases King facilitam o transporte e a instalação; o trecho não sustenta atribuir essa afirmação também a Queen e Superking. Além disso, os trechos não mencionam escadas, portas estreitas ou corredores. O trecho da Ortobom sustenta dois módulos para Queen ou maiores e um módulo para casal ou menores, mas não atribui a Probel nem diz que se deve escolher ou preferir uma opção. Versão sustentável: Para colchões Queen, King e Superking, os trechos da Ortobom indicam uma estrutura com dois módulos; para casal ou menores, indicam uma estrutura com um módulo. Segundo a Probel, bases bipartidas King facilitam o transporte e a instalação."
+    },
+    {
+      "ref": "estrutura-peso#0",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom identifica a base da cama e os pés rosqueáveis, mas não afirma que a estrutura é de madeira. Essa característica aparece no trecho da Probel, não como declaração da Ortobom. Versão sustentável: A Probel informa que a base é feita de madeira de reflorestamento de eucalipto tratado, que funciona como bactericida natural e garante maior durabilidade. A Ortobom identifica a base da cama e os pés rosqueáveis."
+    },
+    {
+      "ref": "uniao-modulos#0",
+      "msg": "OVERSTATED. O trecho sustenta que os dois módulos devem ser unidos com a Chapa para União e fixados com 2 parafusos, mas não diz para conferir o manual antes de usar a base nem estabelece essa condição temporal. Versão sustentável: A Ortobom informa que os dois módulos da base bipartida são unidos com uma Chapa para União, fixada com 2 parafusos, conforme as posições indicadas na Figura 7."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "MISATTRIBUTED. A evidência da Probel sustenta um produto de um volume com dimensões de 138 × 188 × 26 cm, mas não o identifica como tamanho casal; o trecho da Ortobom diz que bases Queen ou maiores têm dois módulos e que casal ou menores têm um, sem dizer que a base conjugada não é indicada para Queen e King. Versão sustentável: Diga que a Probel lista uma base inteiriça de 138 × 188 × 26 cm e que, segundo a Ortobom, Queen ou maiores têm estrutura de dois módulos, enquanto casal ou menores têm um módulo."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "OVERSTATED. A Ortobom limita a aplicabilidade citada às linhas Bellona, Orion ou Orthotel Boutique, condição omitida no bloco. Além disso, o trecho diz que a base bipartida é aplicável e que se deve considerar um módulo para casal ou menores, não formula expressamente uma recomendação geral de escolha. Versão sustentável: Diga: “Para as linhas Bellona, Orion ou Orthotel Boutique, a Ortobom informa base bipartida para colchões Queen, King e Superking entre 158 cm e 193 cm; para casal ou menores, considera-se uma estrutura de um módulo.”"
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho afirma genericamente que modelos bipartidos facilitam o transporte e a instalação, mas não menciona escadas, portas estreitas ou corredores especificamente. Versão sustentável: Diga: “A Probel informa que seus modelos bipartidos facilitam o transporte e a instalação no ambiente; considere esse aspecto quando houver dificuldade de acesso.”"
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 916
+  }
+}

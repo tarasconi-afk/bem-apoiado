@@ -1,0 +1,43 @@
+{
+  "slug": "cama-box-conjugada-ou-bipartida-diferenca",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 3,
+  "usage": {
+    "input_tokens": 65618,
+    "output_tokens": 26600,
+    "calls": 27
+  },
+  "credits": 23.426007240000008,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela mistura tamanhos e tipos: apresenta 138 × 188 cm como base conjugada Queen, embora essa medida não corresponda claramente ao Queen, e não informa de modo completo as medidas da base conjugada para cada tamanho.",
+      "O veredito explica a quantidade de módulos por tamanho, mas não diz de forma imediata que a bipartida é a melhor opção quando há dificuldade de passagem até o quarto."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha uma base bipartida se houver dificuldade para passar a peça por portas, corredores, escadas ou elevadores, pois os módulos facilitam o transporte e a instalação.",
+      "Escolha uma base conjugada se a passagem não for uma limitação e você preferir uma peça única.",
+      "Para colchões Queen, King e Superking, confira se a ficha informa dois módulos; para casal ou menores, a Ortobom considera uma estrutura de um módulo.",
+      "Na base bipartida, confira no manual se os módulos são unidos por chapa e parafusos.",
+      "Confira no anúncio as medidas externas da base e se ela cabe no caminho até o quarto.",
+      "Considere a capacidade declarada de 150 kg por pessoa, desde que haja um colchão sobre a base."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A tabela mistura tamanhos e tipos: apresenta 138 × 188 cm como base conjugada Queen, embora essa medida não corresponda claramente ao Queen, e não informa de modo completo as medidas da base conjugada para cada tamanho.",
+      "Para o leitor leigo: O veredito explica a quantidade de módulos por tamanho, mas não diz de forma imediata que a bipartida é a melhor opção quando há dificuldade de passagem até o quarto.",
+      "Uma tabela primária completa, sem inconsistências, com largura, comprimento e altura das bases conjugada e bipartida em cada tamanho.",
+      "Uma orientação explícita do fabricante para conferir portas, escadas, corredores e elevadores antes da compra.",
+      "A identificação clara de quais medidas correspondem a casal, Queen, King e Superking, especialmente no exemplo de 138 × 188 cm."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma regra útil: a bipartida facilita o transporte, enquanto a conjugada serve para quem prefere uma peça única e tem espaço de passagem. Porém, a tabela de medidas está confusa e aparentemente mistura o tamanho Queen com 138 × 188 cm, o que pode levar o leitor a comprar a base errada; é preciso corrigir e completar essa comparação antes da publicação.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

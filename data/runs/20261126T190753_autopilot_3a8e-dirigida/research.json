@@ -1,0 +1,70 @@
+{
+  "run_id": "20261126T190753_autopilot_3a8e-dirigida",
+  "topic": "cama-box-conjugada-ou-bipartida-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_9860170134af",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_43e183ddd1b7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_f6f4981f8c6b",
+      "question_id": "q_medidas_totais",
+      "source_id": "src_43e183ddd1b7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_850bb820e210",
+      "question_id": "q_estrutura",
+      "source_id": "src_43e183ddd1b7",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8dd885f95199",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_43e183ddd1b7",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_43e183ddd1b7",
+      "question_id": "q_aviso_passagem",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "*ATENÇÃO: Verifique se as dimensões dos produtos passam por elevadores, portas, escadas e corredores. Não nos responsabilizamos pelo transporte dos produtos por escadas, guinchos, içamentos ou quaisqu"
+    },
+    {
+      "source_id": "src_43e183ddd1b7",
+      "question_id": "q_estrutura",
+      "reason": "SCHEMA: Too small: expected string to have >=12 characters",
+      "quote": "Pés: PVC"
+    }
+  ],
+  "coverage": {
+    "q_base_inteira_ou_bipartida": 1,
+    "q_medidas_totais": 1,
+    "q_aviso_passagem": 0,
+    "q_estrutura": 1,
+    "q_suporte_peso": 1
+  },
+  "unanswered": [
+    "q_aviso_passagem"
+  ],
+  "usage": {
+    "input_tokens": 1778,
+    "output_tokens": 714,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_43e183ddd1b7",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 4.975893239999999
+}

@@ -1,0 +1,72 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela chama de queen a base de 138 × 188 cm, medida que entra em conflito com a própria orientação de usar base bipartida para queen e pode confundir o leitor sobre qual tamanho está comprando.",
+      "A regra por tamanho não é apresentada de forma consistente para todos os modelos e medidas."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para colchões queen, king e superking, procurar uma base bipartida quando a ficha do fabricante indicar esse tipo, especialmente para facilitar transporte e instalação.",
+      "Para colchão casal ou menor, considerar uma base inteira ou de um módulo.",
+      "Se a passagem por portas, corredores, escadas ou elevadores for limitada, preferir uma base bipartida e conferir na ficha se ela é descrita como dois volumes.",
+      "Se preferir uma peça única e houver espaço suficiente para transportá-la, procurar os termos 'inteira' ou 'inteiriça' e confirmar que a ficha informa um volume.",
+      "Na base bipartida, conferir no manual como os módulos são unidos; o exemplo citado usa chapa de união e dois parafusos.",
+      "Conferir as medidas de largura, comprimento e altura da base antes da compra, além do peso elevado informado pelo fabricante.",
+      "Verificar a capacidade de 150 kg por pessoa declarada para a base, desde que exista um colchão sobre ela."
+    ],
+    "missing": [
+      "Para o leitor leigo: A tabela chama de queen a base de 138 × 188 cm, medida que entra em conflito com a própria orientação de usar base bipartida para queen e pode confundir o leitor sobre qual tamanho está comprando.",
+      "Para o leitor leigo: A regra por tamanho não é apresentada de forma consistente para todos os modelos e medidas.",
+      "Correção e confirmação das medidas associadas a cada tamanho, especialmente da linha de 138 × 188 cm apresentada como queen.",
+      "Tabela do fabricante relacionando, sem conflito, base inteira ou bipartida aos tamanhos casal, queen, king e superking.",
+      "Medidas máximas dos volumes bipartido e inteiro para conferir passagem por portas, escadas, corredores e elevadores.",
+      "Orientação explícita do fabricante sobre a capacidade total da base, além do limite por pessoa.",
+      "Informação mais completa sobre travamento, estrutura e pés para comparar os dois tipos de base."
+    ],
+    "publishable": true,
+    "summary": "A página dá uma regra prática de escolha e orienta o que conferir no anúncio, portanto é útil e responde à dúvida principal. Porém, não deve ser publicada como está porque a tabela apresenta 138 × 188 cm como queen, em conflito com a orientação de usar base bipartida para queen e com as demais medidas; essa inconsistência pode levar o leitor a escolher o tamanho errado.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela mistura o rótulo Queen com a medida 138 × 188 cm, o que pode confundir o leitor sobre qual tamanho procurar.",
+      "A página não informa medidas completas para todos os tamanhos e tipos, então o leitor ainda precisa conferir a ficha do modelo escolhido."
+    ],
+    "filler_refs": [
+      "estrutura-peso#2"
+    ],
+    "decision_criteria": [
+      "Se o acesso ao quarto é difícil, com portas, escadas, corredores ou elevador estreitos, prefira a base bipartida porque ela é transportada em dois volumes.",
+      "Se a passagem não é um problema e você prefere uma peça única, procure uma base conjugada ou inteiriça na ficha do produto.",
+      "Para colchões Queen, King e Superking, confira se a ficha informa dois módulos; para casal ou tamanhos menores, confira se informa um módulo.",
+      "Na base bipartida, confira no manual ou na ficha como os módulos são unidos, como por chapa e parafusos.",
+      "Confira as medidas de largura, comprimento e altura de cada volume antes da compra e compare com os acessos até o quarto.",
+      "Confira a capacidade de peso declarada pelo fabricante; a Probel informa 150 kg por pessoa quando há um colchão sobre a base.",
+      "Confira se a ficha informa um volume único quando a escolha for por uma base conjugada."
+    ],
+    "missing": [
+      "Para o leitor leigo: A tabela mistura o rótulo Queen com a medida 138 × 188 cm, o que pode confundir o leitor sobre qual tamanho procurar.",
+      "Para o leitor leigo: A página não informa medidas completas para todos os tamanhos e tipos, então o leitor ainda precisa conferir a ficha do modelo escolhido.",
+      "Tabela completa, com fonte do fabricante, relacionando cada tamanho — casal, queen, king e superking — ao tipo de base, número de volumes e medidas de cada volume.",
+      "Orientação explícita do fabricante para medir portas, corredores, escadas e elevadores antes da compra.",
+      "Medidas completas da base conjugada e da base bipartida em todos os tamanhos citados.",
+      "Especificação clara da capacidade total e por pessoa para cada modelo ou tamanho."
+    ],
+    "publishable": true,
+    "summary": "Publicável: a página explica a diferença prática entre base conjugada e bipartida e dá uma regra útil de escolha, especialmente para quem tem dificuldade de transporte até o quarto. Também orienta o leitor a conferir volumes, medidas e sistema de união na ficha do produto. Recomenda-se corrigir ou esclarecer a medida associada ao rótulo Queen e ampliar a tabela para evitar confusão na compra.",
+    "filler_ratio": 0.09090909090909091,
+    "model_opinion": true
+  }
+}

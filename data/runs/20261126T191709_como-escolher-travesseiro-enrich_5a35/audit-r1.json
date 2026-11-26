@@ -1,0 +1,216 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram especificações de modelos específicos, mas não dizem que a escolha ideal depende de altura, firmeza e material, nem sustentam a recomendação geral de comparar esses critérios. Também não afirmam que a etiqueta deve conter todas essas informações; o Inmetro apenas classifica o travesseiro como produto têxtil e exige atendimento ao regulamento aplicável. Além disso, os trechos não mostram a classificação “médio”.",
+      "fix": "O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender ao regulamento técnico aplicável. Nas páginas citadas, a Probel informa altura de 12 cm em um modelo, enchimento viscoelástico em outro e fibra siliconada em outro; a Luuna descreve uma almofada de látex Talalay."
+    },
+    {
+      "ref": "tipos-enchimento#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que a Probel identifica espuma como enchimento em modelos específicos, mas não dizem que ela é o enchimento mais comum em travesseiros. As demais descrições são sustentadas pelos trechos.",
+      "fix": "A Probel identifica a espuma como enchimento no Prosperidade; nesse modelo, descreve a composição como macia e acolhedora, e no Realizações Hiper Soft descreve uma espuma de alta resiliência que se molda delicadamente."
+    },
+    {
+      "ref": "tipos-enchimento#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Nenhum trecho citado menciona o modelo Paz nem espuma viscoelástica D30 com suporte firme. O trecho disponível sustenta apenas que o Plenitude usa viscoelástico D40 e que a Probel declara suporte firme e adaptação excelente.",
+      "fix": "No Plenitude, a Probel identifica o enchimento como viscoelástico D40 e declara que ele proporciona suporte firme e excelente adaptação."
+    },
+    {
+      "ref": "tipos-enchimento#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho identifica o enchimento do Conect Comfort como fibra siliconada, mas não afirma que ela é uma categoria distinta da espuma. A classificação como material diferente da espuma foi acrescentada pelo bloco.",
+      "fix": "A Probel identifica o enchimento do modelo Conect Comfort como fibra siliconada."
+    },
+    {
+      "ref": "tipos-enchimento#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos mostram que a Luuna oferece uma almofada de látex Talalay e descrevem o processo especializado, a textura, a durabilidade e a comparação com o látex comum. Porém, não dizem que o material é elástico nem sustentam a referência a marcas no plural.",
+      "fix": "A Luuna oferece uma almofada de látex Talalay e declara que ele é fabricado por processo especializado para obter textura mais suave e uniforme, com maior durabilidade e conforto que o látex comum."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos mostram alturas de produtos Probel de 12 cm e 14 cm, mas não dizem que etiqueta e ficha técnica devem informar a altura nem que ela é uma medida a ser comparada na escolha. Também só há exemplos da Probel, não de fabricantes em geral.",
+      "fix": "Os modelos Probel citados informam alturas de 12 cm e 14 cm em suas fichas técnicas."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos mostram rótulos de firmeza como Firme e Média, mas não estabelecem que os fabricantes classificam a firmeza em uma escala geral de níveis macio, médio e firme. Além disso, o trecho citado do Prosperidade não informa explicitamente sua firmeza como Macio.",
+      "fix": "Nos trechos citados, o Paz da Probel é indicado como Firme e o Grid Tech da Luuna como de firmeza Média."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#2",
+      "verdict": "OVERSTATED",
+      "problem": "O trecho da Probel sustenta 40 × 60 cm e que essas dimensões atendem a fronhas de 50 × 70 cm. Porém, há apenas um modelo da Probel citado nesse bloco, e o trecho do Grid Tech informa uma medida de 40 × 65 × 14 cm, sem mostrar que o produto varia de medidas.",
+      "fix": "O modelo Probel citado mede 40 × 60 cm e é declarado como adequado a fronhas de 50 × 70 cm; o Grid Tech da Luuna mede 40 × 65 × 14 cm."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel informa espuma como tipo de enchimento, não como firmeza. A tabela atribui à Probel a afirmação de que a firmeza é espuma.",
+      "fix": "Modelo e marca: Prosperidade Espuma D24 Soft da Probel | Altura: segundo a Probel, 12 cm | Material de enchimento: segundo a Probel, espuma | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel informa viscoelástico como tipo de enchimento, não como firmeza. A tabela atribui à Probel a afirmação de que a firmeza é viscoelástica.",
+      "fix": "Modelo e marca: Paz Viscoelástico D30 Firme da Probel | Altura: segundo a Probel, 12 cm | Material de enchimento: segundo a Probel, viscoelástico | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Probel informa espuma HR Gel como tipo de enchimento, não como firmeza. A tabela atribui à Probel a afirmação de que a firmeza é espuma HR Gel.",
+      "fix": "Modelo e marca: Zone Espuma HR Gel D40 Firme da Probel | Altura: segundo a Probel, 14 cm | Material de enchimento: segundo a Probel, espuma HR Gel | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r3",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Luuna menciona uma almofada de látex Talalay, mas não diz que látex Talalay é a firmeza do produto. A tabela atribui à Luuna uma classificação de firmeza que o trecho não fornece.",
+      "fix": "Modelo e marca: Grid Tech (P) da Luuna | Altura: segundo a Luuna, 14 cm | Material: segundo a Luuna, látex Talalay | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "lavagem-garantia#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos sustentam as instruções específicas do Anatomic Visco, mas não dizem que as instruções de lavagem variam conforme o material.",
+      "fix": "A Ortobom informa para o Anatomic Visco: lavagem a no máximo 40°C, sem alvejante ou limpeza a seco, secagem em tambor a no máximo 60°C e sem passadoria."
+    },
+    {
+      "ref": "lavagem-garantia#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho sustenta todas as recomendações de lavagem mencionadas, mas não informa que o Conforto Regulável é viscoelástico.",
+      "fix": "O Conforto Regulável da Ortobom tem instruções de lavagem a no máximo 40°C em processo suave, sem alvejante, com secagem em tambor a no máximo 60°C e sem passadoria ou limpeza a seco."
+    },
+    {
+      "ref": "lavagem-garantia#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos informam os prazos de garantia, mas não dizem que a garantia cobre defeitos de fabricação. Além disso, a evidência da Probel cita especificamente o modelo Zone, sem sustentar a formulação plural “modelos como Zone”.",
+      "fix": "A Probel informa garantia de 3 meses para o modelo Zone, e a Ortobom informa garantia de 90 dias para o Anatomic Visco; os trechos citados não especificam o que a garantia cobre."
+    },
+    {
+      "ref": "certificacoes#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco reproduz propriedades relacionadas à saúde, como hipoalergênico e resistência a ácaros, sem incluir a nota exigida de que o Inmetro não avalia essas propriedades.",
+      "fix": "A Dunlopillo declara que o Basic Flat tem propriedades hipoalergênicas e é resistente a ácaros, e a Luuna declara que o Grid Tech é naturalmente hipoalergênico. O Inmetro não avalia essas propriedades."
+    },
+    {
+      "ref": "certificacoes#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "O trecho da Ortobom apenas menciona “Código Inmetro”. Ele não diz que certificações internacionais não estão detalhadas nem que o Inmetro não avalia propriedades hipoalergênicas ou antiácaro; portanto, essas afirmações não podem ser atribuídas à Ortobom com base no trecho citado.",
+      "fix": "O trecho consultado da Ortobom menciona um “Código Inmetro”, mas não permite concluir, por si só, quais certificações internacionais são detalhadas nem o que o Inmetro avalia."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o Plenitude tem viscoelástica D40, suporte firme e adaptação, mas não mostram a classificação do Paz como Firme. Também não sustentam a recomendação geral de preferir viscoelástica para quem dorme de lado ou de costas.",
+      "fix": "O Plenitude da Probel usa viscoelástica D40 e é descrito pela fabricante como firme, com adaptação."
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não citam o Prosperidade D24 Soft nem sua classificação como Macio, e não sustentam a recomendação geral de escolher espuma comum ou fibra siliconada para obter maciez. O único trecho sobre fibra siliconada classifica o Conect Comfort como Firme, não macio.",
+      "fix": "A Probel descreve o Realizações Hiper Soft como Extra Macio; já o Conect Comfort com fibra siliconada é classificado como Firme."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam Prosperidade e Paz com 12 cm e Realizações com 14 cm, mas não mostram que Zone e Plenitude oferecem 14 cm. Portanto, a lista de modelos de 14 cm excede as evidências citadas.",
+      "fix": "Para comparar alturas, os trechos citados mostram Prosperidade e Paz com 12 cm e Realizações com 14 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho do Inmetro apenas diz que o travesseiro é produto têxtil e deve atender ao regulamento da Portaria Inmetro nº 118/2021. Não especifica que a etiqueta deve conter altura, firmeza, material, dimensões, instruções de lavagem e prazo de garantia.",
+      "fix": "O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender às exigências do regulamento técnico da Portaria Inmetro nº 118/2021."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos mostram especificações de modelos específicos, mas não dizem que a escolha ideal depende de altura, firmeza e material, nem sustentam a recomendação geral de comparar esses critérios. Também não afirmam que a etiqueta deve conter todas essas informações; o Inmetro apenas classifica o travesseiro como produto têxtil e exige atendimento ao regulamento aplicável. Além disso, os trechos não mostram a classificação “médio”. Versão sustentável: O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender ao regulamento técnico aplicável. Nas páginas citadas, a Probel informa altura de 12 cm em um modelo, enchimento viscoelástico em outro e fibra siliconada em outro; a Luuna descreve uma almofada de látex Talalay."
+    },
+    {
+      "ref": "tipos-enchimento#0",
+      "msg": "UNSUPPORTED. Os trechos mostram que a Probel identifica espuma como enchimento em modelos específicos, mas não dizem que ela é o enchimento mais comum em travesseiros. As demais descrições são sustentadas pelos trechos. Versão sustentável: A Probel identifica a espuma como enchimento no Prosperidade; nesse modelo, descreve a composição como macia e acolhedora, e no Realizações Hiper Soft descreve uma espuma de alta resiliência que se molda delicadamente."
+    },
+    {
+      "ref": "tipos-enchimento#1",
+      "msg": "UNSUPPORTED. Nenhum trecho citado menciona o modelo Paz nem espuma viscoelástica D30 com suporte firme. O trecho disponível sustenta apenas que o Plenitude usa viscoelástico D40 e que a Probel declara suporte firme e adaptação excelente. Versão sustentável: No Plenitude, a Probel identifica o enchimento como viscoelástico D40 e declara que ele proporciona suporte firme e excelente adaptação."
+    },
+    {
+      "ref": "tipos-enchimento#2",
+      "msg": "UNSUPPORTED. O trecho identifica o enchimento do Conect Comfort como fibra siliconada, mas não afirma que ela é uma categoria distinta da espuma. A classificação como material diferente da espuma foi acrescentada pelo bloco. Versão sustentável: A Probel identifica o enchimento do modelo Conect Comfort como fibra siliconada."
+    },
+    {
+      "ref": "tipos-enchimento#3",
+      "msg": "UNSUPPORTED. Os trechos mostram que a Luuna oferece uma almofada de látex Talalay e descrevem o processo especializado, a textura, a durabilidade e a comparação com o látex comum. Porém, não dizem que o material é elástico nem sustentam a referência a marcas no plural. Versão sustentável: A Luuna oferece uma almofada de látex Talalay e declara que ele é fabricado por processo especializado para obter textura mais suave e uniforme, com maior durabilidade e conforto que o látex comum."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#0",
+      "msg": "MISATTRIBUTED. Os trechos mostram alturas de produtos Probel de 12 cm e 14 cm, mas não dizem que etiqueta e ficha técnica devem informar a altura nem que ela é uma medida a ser comparada na escolha. Também só há exemplos da Probel, não de fabricantes em geral. Versão sustentável: Os modelos Probel citados informam alturas de 12 cm e 14 cm em suas fichas técnicas."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#1",
+      "msg": "OVERSTATED. Os trechos mostram rótulos de firmeza como Firme e Média, mas não estabelecem que os fabricantes classificam a firmeza em uma escala geral de níveis macio, médio e firme. Além disso, o trecho citado do Prosperidade não informa explicitamente sua firmeza como Macio. Versão sustentável: Nos trechos citados, o Paz da Probel é indicado como Firme e o Grid Tech da Luuna como de firmeza Média."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#2",
+      "msg": "OVERSTATED. O trecho da Probel sustenta 40 × 60 cm e que essas dimensões atendem a fronhas de 50 × 70 cm. Porém, há apenas um modelo da Probel citado nesse bloco, e o trecho do Grid Tech informa uma medida de 40 × 65 × 14 cm, sem mostrar que o produto varia de medidas. Versão sustentável: O modelo Probel citado mede 40 × 60 cm e é declarado como adequado a fronhas de 50 × 70 cm; o Grid Tech da Luuna mede 40 × 65 × 14 cm."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r0",
+      "msg": "MISATTRIBUTED. O trecho da Probel informa espuma como tipo de enchimento, não como firmeza. A tabela atribui à Probel a afirmação de que a firmeza é espuma. Versão sustentável: Modelo e marca: Prosperidade Espuma D24 Soft da Probel | Altura: segundo a Probel, 12 cm | Material de enchimento: segundo a Probel, espuma | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r1",
+      "msg": "MISATTRIBUTED. O trecho da Probel informa viscoelástico como tipo de enchimento, não como firmeza. A tabela atribui à Probel a afirmação de que a firmeza é viscoelástica. Versão sustentável: Modelo e marca: Paz Viscoelástico D30 Firme da Probel | Altura: segundo a Probel, 12 cm | Material de enchimento: segundo a Probel, viscoelástico | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r2",
+      "msg": "MISATTRIBUTED. O trecho da Probel informa espuma HR Gel como tipo de enchimento, não como firmeza. A tabela atribui à Probel a afirmação de que a firmeza é espuma HR Gel. Versão sustentável: Modelo e marca: Zone Espuma HR Gel D40 Firme da Probel | Altura: segundo a Probel, 14 cm | Material de enchimento: segundo a Probel, espuma HR Gel | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3.r3",
+      "msg": "MISATTRIBUTED. O trecho da Luuna menciona uma almofada de látex Talalay, mas não diz que látex Talalay é a firmeza do produto. A tabela atribui à Luuna uma classificação de firmeza que o trecho não fornece. Versão sustentável: Modelo e marca: Grid Tech (P) da Luuna | Altura: segundo a Luuna, 14 cm | Material: segundo a Luuna, látex Talalay | Firmeza: não informada no trecho citado."
+    },
+    {
+      "ref": "lavagem-garantia#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam as instruções específicas do Anatomic Visco, mas não dizem que as instruções de lavagem variam conforme o material. Versão sustentável: A Ortobom informa para o Anatomic Visco: lavagem a no máximo 40°C, sem alvejante ou limpeza a seco, secagem em tambor a no máximo 60°C e sem passadoria."
+    },
+    {
+      "ref": "lavagem-garantia#1",
+      "msg": "UNSUPPORTED. O trecho sustenta todas as recomendações de lavagem mencionadas, mas não informa que o Conforto Regulável é viscoelástico. Versão sustentável: O Conforto Regulável da Ortobom tem instruções de lavagem a no máximo 40°C em processo suave, sem alvejante, com secagem em tambor a no máximo 60°C e sem passadoria ou limpeza a seco."
+    },
+    {
+      "ref": "lavagem-garantia#2",
+      "msg": "UNSUPPORTED. Os trechos informam os prazos de garantia, mas não dizem que a garantia cobre defeitos de fabricação. Além disso, a evidência da Probel cita especificamente o modelo Zone, sem sustentar a formulação plural “modelos como Zone”. Versão sustentável: A Probel informa garantia de 3 meses para o modelo Zone, e a Ortobom informa garantia de 90 dias para o Anatomic Visco; os trechos citados não especificam o que a garantia cobre."
+    },
+    {
+      "ref": "certificacoes#0",
+      "msg": "SAFETY_CLAIM. O bloco reproduz propriedades relacionadas à saúde, como hipoalergênico e resistência a ácaros, sem incluir a nota exigida de que o Inmetro não avalia essas propriedades. Versão sustentável: A Dunlopillo declara que o Basic Flat tem propriedades hipoalergênicas e é resistente a ácaros, e a Luuna declara que o Grid Tech é naturalmente hipoalergênico. O Inmetro não avalia essas propriedades."
+    },
+    {
+      "ref": "certificacoes#1",
+      "msg": "MISATTRIBUTED. O trecho da Ortobom apenas menciona “Código Inmetro”. Ele não diz que certificações internacionais não estão detalhadas nem que o Inmetro não avalia propriedades hipoalergênicas ou antiácaro; portanto, essas afirmações não podem ser atribuídas à Ortobom com base no trecho citado. Versão sustentável: O trecho consultado da Ortobom menciona um “Código Inmetro”, mas não permite concluir, por si só, quais certificações internacionais são detalhadas nem o que o Inmetro avalia."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos sustentam que o Plenitude tem viscoelástica D40, suporte firme e adaptação, mas não mostram a classificação do Paz como Firme. Também não sustentam a recomendação geral de preferir viscoelástica para quem dorme de lado ou de costas. Versão sustentável: O Plenitude da Probel usa viscoelástica D40 e é descrito pela fabricante como firme, com adaptação."
+    },
+    {
+      "ref": "como-decidir#1",
+      "msg": "UNSUPPORTED. Os trechos não citam o Prosperidade D24 Soft nem sua classificação como Macio, e não sustentam a recomendação geral de escolher espuma comum ou fibra siliconada para obter maciez. O único trecho sobre fibra siliconada classifica o Conect Comfort como Firme, não macio. Versão sustentável: A Probel descreve o Realizações Hiper Soft como Extra Macio; já o Conect Comfort com fibra siliconada é classificado como Firme."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. Os trechos sustentam Prosperidade e Paz com 12 cm e Realizações com 14 cm, mas não mostram que Zone e Plenitude oferecem 14 cm. Portanto, a lista de modelos de 14 cm excede as evidências citadas. Versão sustentável: Para comparar alturas, os trechos citados mostram Prosperidade e Paz com 12 cm e Realizações com 14 cm."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. O trecho do Inmetro apenas diz que o travesseiro é produto têxtil e deve atender ao regulamento da Portaria Inmetro nº 118/2021. Não especifica que a etiqueta deve conter altura, firmeza, material, dimensões, instruções de lavagem e prazo de garantia. Versão sustentável: O Inmetro classifica o travesseiro como produto têxtil e informa que ele deve atender às exigências do regulamento técnico da Portaria Inmetro nº 118/2021."
+    }
+  ]
+}

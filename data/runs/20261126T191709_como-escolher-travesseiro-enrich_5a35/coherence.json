@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "altura-firmeza-tamanho#0",
+      "problem": "A seção promete explicar altura, firmeza e dimensões, mas os blocos apresentam apenas alturas e medidas; não trazem informações sobre firmeza.",
+      "fix": "Mudar o título da seção para “Altura e dimensões: o que conferir na ficha”."
+    }
+  ],
+  "usage": {
+    "input_tokens": 23652,
+    "output_tokens": 4119,
+    "calls": 3
+  }
+}

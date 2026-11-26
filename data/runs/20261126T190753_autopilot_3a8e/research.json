@@ -1,0 +1,144 @@
+{
+  "run_id": "20261126T190753_autopilot_3a8e",
+  "topic": "cama-box-conjugada-ou-bipartida-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_a0e56f1550e5",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_3e5f27ca063f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c007e12d0a3f",
+      "question_id": "q_medidas_totais",
+      "source_id": "src_3e5f27ca063f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8f8b61b3638c",
+      "question_id": "q_estrutura",
+      "source_id": "src_3e5f27ca063f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c8c8e12ef0d1",
+      "question_id": "q_estrutura",
+      "source_id": "src_3e5f27ca063f",
+      "new": true
+    },
+    {
+      "claim_id": "clm_63cbc75872c9",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_aaec90810ee8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d1c3984975db",
+      "question_id": "q_estrutura",
+      "source_id": "src_aaec90810ee8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d46d9bd14682",
+      "question_id": "q_estrutura",
+      "source_id": "src_aaec90810ee8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_07aaf0ea5d8f",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_aaec90810ee8",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e3014f462eb6",
+      "question_id": "q_base_inteira_ou_bipartida",
+      "source_id": "src_03298f65d3fa",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4621c85e9e06",
+      "question_id": "q_medidas_totais",
+      "source_id": "src_03298f65d3fa",
+      "new": true
+    },
+    {
+      "claim_id": "clm_9a6b46215ea3",
+      "question_id": "q_medidas_totais",
+      "source_id": "src_03298f65d3fa",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bde56b3aefef",
+      "question_id": "q_suporte_peso",
+      "source_id": "src_03298f65d3fa",
+      "new": true
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "src_3e5f27ca063f",
+      "question_id": "q_medidas_totais",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 88 cm\nComprimento: 188 cm\nAltura do Conjunto: 68 cm"
+    },
+    {
+      "source_id": "src_aaec90810ee8",
+      "question_id": "q_medidas_totais",
+      "reason": "QUOTE_NOT_IN_SOURCE",
+      "quote": "Largura: 138 cm\n\nComprimento: 188 cm\n\nAltura: 40 cm"
+    },
+    {
+      "source_id": "src_aaec90810ee8",
+      "question_id": "q_aviso_passagem",
+      "reason": "CLAIM_SOURCE_CLASS_NOT_ALLOWED",
+      "quote": "*ATENÇÃO: Verifique se as dimensões dos produtos passam por elevadores, portas, escadas e corredores. Não nos responsabilizamos pelo transporte dos produtos por escadas, guinchos, içamentos ou quaisqu"
+    }
+  ],
+  "coverage": {
+    "q_base_inteira_ou_bipartida": 2,
+    "q_medidas_totais": 3,
+    "q_aviso_passagem": 0,
+    "q_estrutura": 4,
+    "q_suporte_peso": 3
+  },
+  "unanswered": [
+    "q_aviso_passagem"
+  ],
+  "usage": {
+    "input_tokens": 6399,
+    "output_tokens": 1593,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_a59c899cbf1b"
+  ],
+  "triage": [
+    {
+      "source_id": "src_3e5f27ca063f",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.74
+    },
+    {
+      "source_id": "src_a59c899cbf1b",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.38
+    },
+    {
+      "source_id": "src_aaec90810ee8",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_03298f65d3fa",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 3.8272633199999992
+}
