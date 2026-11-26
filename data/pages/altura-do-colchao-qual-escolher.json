@@ -5,7 +5,7 @@
   "title": "Altura do colchão: qual escolher",
   "description": "Escolha a altura do colchão conforme a base, o espaço disponível e se vai usar pillow top. Confira as medidas separadamente na ficha.",
   "primary_query": "altura do colchão: qual escolher",
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-11-26",
   "verdict": {
     "text": "A altura do colchão pode ser escolhida considerando a altura total desejada para a cama. Nos exemplos da Gazin, some as alturas do colchão, da base e dos pés. Se for usar pillow top, o produto Ortobom cita uma lâmina de espuma de 5,0 cm e a Simmons adiciona uma camada de 7 cm; considere essa altura adicional e escolha um colchão mais baixo se necessário.",
     "basis": "reasoning",
@@ -25,7 +25,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "O pillow top é uma camada extra de conforto com elástico nas laterais. Segundo a Ortobom, o pillow top HR Gel tem uma lâmina de espuma de 5,0 cm. Segundo a Simmons, a capa pillow top adiciona uma camada extra de 7 cm de conforto.",
+          "text": "Segundo a Ortobom, o pillow top é uma camada extra de conforto com elástico nas laterais. A Ortobom informa que no pillow top HR Gel a lâmina de espuma mede 5,0 cm. A Simmons informa que sua capa pillow top adiciona uma camada extra de 7 cm de conforto.",
           "basis": "evidence",
           "claim_ids": [
             "clm_070d1e8dcda0",
@@ -143,7 +143,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A altura da base varia entre os modelos citados: 27 cm nos dois modelos Gazin e 26 cm no modelo Probel. Nos dois modelos Gazin, os pés medem 12 cm. A King Koil oferece um Box Baú de 37 cm mais 6,5 cm de pés, totalizando 43,5 cm sem colchão. Para a altura total da cama, some as medidas informadas no anúncio do produto.",
+          "text": "Segundo as páginas dos fabricantes, a base mede 27 cm nos dois modelos Gazin citados e 26 cm na base box da Probel. Nos modelos Gazin mencionados, os pés medem 12 cm. A King Koil informa um Box Baú com 37 cm de altura mais 6,5 cm de pés, totalizando 43,5 cm sem colchão. Para estimar a altura total da cama, some as medidas informadas no anúncio do produto.",
           "basis": "evidence",
           "claim_ids": [
             "clm_2fca2df86cfc",
@@ -292,7 +292,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261025T191432_autopilot_b82a+edit:20261025T191432_autopilot_b82a+editor:20261026T121223_altura-do-colchao-qual-escolher-ajuste_b8b3+reaudit:20261026T191217_autopilot_9411",
+    "run_id": "20261025T191432_autopilot_b82a+edit:20261025T191432_autopilot_b82a+editor:20261026T121223_altura-do-colchao-qual-escolher-ajuste_b8b3+reaudit:20261026T191217_autopilot_9411+reaudit:20261126T010631_autopilot_ee2c",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

@@ -1,0 +1,61 @@
+{
+  "score_before": 4,
+  "score_after": 4,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Some a altura do colchão, da base e dos pés para atingir a altura total desejada da cama.",
+      "Se a base e os pés já estão definidos, escolha a altura do colchão pelo espaço restante até a altura total pretendida.",
+      "Confira separadamente no anúncio as medidas do colchão, da base e dos pés.",
+      "Considere a altura adicional do pillow top: os exemplos citados acrescentam 5 cm ou 7 cm.",
+      "Use os exemplos de 69 cm e 73 cm de altura total como referência para comparar combinações de colchão, base e pés.",
+      "Considere a tolerância dimensional informada ao comparar a altura anunciada com a medida real."
+    ],
+    "missing": [
+      "Faixas de altura de colchão relacionadas ao peso corporal, caso algum fabricante as recomende.",
+      "Orientação dos fabricantes sobre a altura adequada para diferentes tipos de base ou estrado.",
+      "Profundidade recomendada do lençol com elástico para cada altura de colchão.",
+      "Mais exemplos de combinações de colchão, base e pés para diferentes alturas totais desejadas.",
+      "Relação mais ampla entre faixas de altura e as camadas ou construções do colchão, além dos dois modelos exemplificados."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde que a altura do colchão deve ser escolhida em função da altura total desejada da cama, somando colchão, base e pés, e mostra exemplos concretos para conferência no anúncio. Também alerta para a altura adicional do pillow top. Não traz recomendações de altura por peso, base ou profundidade do lençol, mas essas lacunas não impedem a resposta à dúvida principal.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Some a altura do colchão, da base e dos pés para chegar à altura total desejada da cama.",
+      "Se a base e os pés já estão definidos, escolha a altura do colchão que complete o espaço restante até a altura total desejada.",
+      "Confira separadamente no anúncio as medidas do colchão, da base e dos pés.",
+      "Considere a altura adicional de um pillow top ou de uma capa pillow top: os exemplos citados acrescentam 5 cm ou 7 cm.",
+      "Compare a altura anunciada com a tolerância dimensional informada pelo Inmetro e pelo fabricante.",
+      "Confira na ficha técnica as camadas, a densidade nominal e as espessuras das lâminas de espuma quando esses dados forem relevantes para o modelo."
+    ],
+    "missing": [
+      "Uma regra ou exemplos de altura do colchão relacionados ao peso corporal suportado.",
+      "Orientação dos fabricantes sobre a altura adequada conforme o tipo de base ou estrado utilizado.",
+      "Profundidade recomendada do lençol com elástico para cada altura de colchão.",
+      "Mais exemplos de fabricantes relacionando diferentes alturas de colchão às camadas e ao conforto oferecido.",
+      "Orientação sobre uma faixa de altura total da cama adequada para facilitar deitar e levantar."
+    ],
+    "publishable": true,
+    "summary": "A página é publicável: responde que a altura deve ser escolhida em função da altura total desejada da cama e ensina a somar colchão, base e pés. Também orienta a considerar o acréscimo do pillow top e a conferir as medidas na ficha do produto. Não traz regras por peso, base, estrado ou lençol, mas esses dados complementariam a resposta sem impedir uma decisão prática sobre a altura.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "pillow-top-altura#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A afirmação inicial apresenta como definição geral que todo pillow top é uma camada extra de conforto com elástico nas laterais, mas o trecho citado é uma descrição da Ortobom e não sustenta essa generalização. As medidas atribuídas à Ortobom e à Simmons estão apoiadas pelos respectivos trechos.",
+      "fix": "Segundo a Ortobom, o pillow top é uma camada extra de conforto com elástico nas laterais. A Ortobom informa que o pillow top HR Gel tem uma lâmina de espuma de 5,0 cm, e a Simmons informa que sua capa pillow top adiciona uma camada extra de 7 cm de conforto."
+    },
+    {
+      "ref": "medida-altura-norma#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medida-altura-norma#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "camadas-altura#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "camadas-altura#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "camadas-altura#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "base-box-altura#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "As medidas são apresentadas como fatos independentes, embora os trechos citados sejam declarações dos fabricantes Gazin, Probel e King Koil. Falta atribuir explicitamente as especificações às respectivas marcas.",
+      "fix": "Segundo as páginas dos fabricantes, a base mede 27 cm nos dois modelos Gazin e 26 cm no modelo Probel; nos dois modelos Gazin, os pés medem 12 cm. A King Koil informa um Box Baú de 37 cm mais 6,5 cm de pés, totalizando 43,5 cm sem colchão. Para estimar a altura total, some as medidas informadas no anúncio do produto."
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}

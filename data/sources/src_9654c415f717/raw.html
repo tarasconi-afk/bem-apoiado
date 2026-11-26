@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script data-divia-consent-mode="advanced-v2-20261105">
+(function (w, d) {
+    'use strict';
+    if (w.diviaGoogleAdvanced) return;
+    var productionHost = "blog.probel.com.br";
+    var host = w.location.hostname.toLowerCase().replace(/^www\./, '');
+    var production = !!productionHost && !/\.homol\./.test(productionHost) &&
+        host === productionHost.replace(/^www\./, '') &&
+        !/^\/(admin|checkout|pagamento|pix|qrcode_pix)(\/|$)/.test(w.location.pathname);
+    w.diviaGoogleAdvancedAllowed = function () { return production; };
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };
+    function cookie(name) {
+        var prefix = name + '=';
+        var entry = d.cookie.split(';').map(function (value) { return value.trim(); }).filter(function (value) { return value.indexOf(prefix) === 0; })[0];
+        if (!entry) return null;
+        try { return JSON.parse(decodeURIComponent(entry.slice(prefix.length))); } catch (_) { return null; }
+    }
+    function preferences() {
+        if (cookie('cookieConsent') !== true) return [];
+        var saved = cookie('cookieConsentPrefs');
+        return Array.isArray(saved) ? saved : [];
+    }
+    function state(values) {
+        var analytics = production && values.indexOf('analytics') !== -1;
+        var marketing = production && values.indexOf('marketing') !== -1;
+        var functional = values.indexOf('preferences') !== -1;
+        return {analytics_storage:analytics?'granted':'denied',ad_storage:marketing?'granted':'denied',ad_user_data:marketing?'granted':'denied',ad_personalization:marketing?'granted':'denied',functionality_storage:functional?'granted':'denied',personalization_storage:functional?'granted':'denied',security_storage:'granted'};
+    }
+    if (!w.diviaGoogleConsentInitialized) {
+        w.gtag('consent', 'default', {analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'denied',personalization_storage:'denied',security_storage:'granted',wait_for_update:500});
+        w.diviaGoogleConsentInitialized = true;
+    }
+    w.diviaGoogleAdvanced = {version:'20261105', enabled:production};
+    function update(values) { w.gtag('consent', 'update', state(Array.isArray(values) ? values : preferences())); }
+    if (cookie('cookieConsent') !== null) update(preferences());
+    w.addEventListener('divia:consent-updated', function (event) {
+        if (event.detail && Array.isArray(event.detail.preferences)) update(event.detail.preferences);
+    });
+    var advancedConfigured = {};
+    // Read Google destinations from this site's existing administrative snippets.
+    // No administrative JavaScript or third-party tag is evaluated here.
+    w.diviaGoogleAdvancedLoad = function (source) {
+        if (!production) return;
+        var text = typeof source === 'string' ? source : JSON.stringify(source || '');
+        var ids = text.match(/\b(?:AW-[0-9]+|G-[A-Z0-9]+)\b/g) || [];
+        if (ids.length && !d.querySelector('script[src*="googletagmanager.com/gtag/js"]')) w.gtag('js', new Date());
+        ids.forEach(function (id) {
+            if (advancedConfigured[id] || w.dataLayer.some(function (entry) { return entry && entry[0] === 'config' && entry[1] === id; })) return;
+            advancedConfigured[id] = true;
+            w.gtag('config', id);
+        });
+        if (ids.length && !d.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+            var tag = d.createElement('script'); tag.async = true;
+            tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ids[0]);
+            d.head.appendChild(tag);
+        }
+    };
+    w.diviaGoogleAdvancedConversion = function (source) {
+        if (!production || typeof source !== 'string') return;
+        // Only literal Google conversion destinations; never eval a custom callback.
+        var clean = source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+        var calls = clean.match(/gtag\s*\(\s*['"]event['"]\s*,\s*['"]conversion['"]\s*,\s*\{[^}]*\}/g) || [];
+        var sent = {};
+        calls.forEach(function (call) {
+            var destination = call.match(/['"]?send_to['"]?\s*:\s*['"](AW-[0-9]+\/[A-Za-z0-9_-]+)['"]/);
+            if (!destination || sent[destination[1]]) return;
+            sent[destination[1]] = true;
+            w.diviaGoogleAdvancedLoad(destination[1]);
+            w.gtag('set', 'user_data', {});
+            w.gtag('event', 'conversion', {send_to:destination[1]});
+        });
+    };
+    // Older DIVIA banners persist the same cookies without dispatching an event.
+    d.addEventListener('click', function (event) {
+        if (event.target && event.target.closest && event.target.closest('#cookieAccept, #cookieReject')) {
+            w.setTimeout(function () { if (cookie('cookieConsent') !== null) update(preferences()); }, 0);
+        }
+    });
+
+    function placeConsentPanel() {
+        var panel=d.getElementById('diviaGDPR');
+        if (!panel) return;
+        panel.querySelectorAll('a[href]').forEach(function (link) {
+            try {
+                var policy = new URL(link.href, w.location.href);
+                if (host !== 'divia.com.br' && policy.hostname.replace(/^www\./, '') === 'divia.com.br' && /^\/politica-de-(privacidade|cookies)\/?$/.test(policy.pathname)) {
+                    link.setAttribute('href', policy.pathname);
+                }
+            } catch (_) {}
+        });
+        if (w.getComputedStyle(panel).position !== 'fixed') return;
+        var box=panel.getBoundingClientRect();if(!box.width||!box.height)return;
+        var top=w.innerHeight;
+        d.querySelectorAll('a[href^="tel:"],a[href*="wa.me"],a[href*="whatsapp"],a[href*="Whats"],a[href*="whats"],#divia-gdpr,[data-cookie-preferences],a[data-bs-target*="modal"],a[data-target*="modal"],.d-mobile a,.mobile-contact-bar a,.whatsapp-desktop a').forEach(function(control){
+            if(panel.contains(control))return;
+            var r=control.getBoundingClientRect();if(!r.width||!r.height||r.height>140||r.top<w.innerHeight/2)return;
+            var node=control,fixed=false;
+            while(node&&node!==d.body){var position=w.getComputedStyle(node).position;if(position==='fixed'||position==='sticky'){fixed=true;break;}node=node.parentElement;}
+            if(fixed){var fixedBox=node.getBoundingClientRect();if(fixedBox.height>0&&fixedBox.height<=140)r=fixedBox;}
+            if(fixed&&r.left<box.right&&r.right>box.left&&r.top<box.bottom&&r.bottom>box.top)top=Math.min(top,r.top);
+        });
+        if(top<w.innerHeight){
+            var bottom=Math.max(0,w.innerHeight-box.bottom)+box.bottom-top+12;
+            panel.style.setProperty('bottom',bottom+'px','important');
+            panel.style.setProperty('max-height',Math.max(160,w.innerHeight-bottom-16)+'px','important');
+            panel.style.setProperty('overflow-y','auto','important');
+        }
+    }
+    var placementTimer;
+    function schedulePlacement(){w.clearTimeout(placementTimer);placementTimer=w.setTimeout(placeConsentPanel,80);}
+    function observeConsentPanel(){
+        if(!d.body)return;
+        new MutationObserver(schedulePlacement).observe(d.body,{childList:true,subtree:true});schedulePlacement();
+        d.addEventListener('click',function(event){if(event.target.closest&&event.target.closest('#cookieSettings,#cookieCustomize,#divia-gdpr,[data-cookie-preferences],a[data-bs-target*="modal"],a[data-target*="modal"],.d-mobile a,.mobile-contact-bar a,.whatsapp-desktop a')){schedulePlacement();w.setTimeout(placeConsentPanel,650);}});
+    }
+    w.addEventListener('resize',schedulePlacement);
+    if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',observeConsentPanel,{once:true});else observeConsentPanel();
+})(window, document);
+</script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="9MyGJgORA0NeofgLsJtBL9PpbJCMZwKjW596mvbk">
+    <base href="https://blog.probel.com.br/">
+        <title>Probel</title>
+    <meta name="description" content="Probel">
+        <link rel="canonical" href="https://blog.probel.com.br/blog-tag-cama-box-king-size">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:title" content="Probel">
+    <meta property="og:description" content="Probel">
+    <meta property="og:url" content="https://blog.probel.com.br/blog-tag-cama-box-king-size">
+    <meta property="og:image" content="https://blog.probel.com.br/upload/service/4vDLN7KZfYyWnGmXH5vQUXbvHLkmqUtbuRwkARmY.jpeg">    <link rel="icon" href="/themes/probel/assets/images/logo-probel-oficial.svg">
+    <link rel="stylesheet" href="/themes/probel/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/themes/probel/assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/themes/probel/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/themes/probel/assets/css/divia.css?v=20261030">
+    <link rel="stylesheet" href="/themes/probel/assets/fonts/bs_icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/themes/probel/css/all.min.css">
+    <link rel="stylesheet" href="/themes/probel/css/slick.css">
+    <link rel="stylesheet" href="/themes/probel/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/themes/probel/css/style.css?v=20261030">
+    <link rel="stylesheet" href="/themes/probel/assets/css/probel-20261030.css?v=2">
+    <script data-divia-consent-mode="advanced-v2-20261105">
+(function (w, d) {
+    'use strict';
+    if (w.diviaGoogleAdvanced) return;
+    var productionHost = "blog.probel.com.br";
+    var host = w.location.hostname.toLowerCase().replace(/^www\./, '');
+    var production = !!productionHost && !/\.homol\./.test(productionHost) &&
+        host === productionHost.replace(/^www\./, '') &&
+        !/^\/(admin|checkout|pagamento|pix|qrcode_pix)(\/|$)/.test(w.location.pathname);
+    w.diviaGoogleAdvancedAllowed = function () { return production; };
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };
+    function cookie(name) {
+        var prefix = name + '=';
+        var entry = d.cookie.split(';').map(function (value) { return value.trim(); }).filter(function (value) { return value.indexOf(prefix) === 0; })[0];
+        if (!entry) return null;
+        try { return JSON.parse(decodeURIComponent(entry.slice(prefix.length))); } catch (_) { return null; }
+    }
+    function preferences() {
+        if (cookie('cookieConsent') !== true) return [];
+        var saved = cookie('cookieConsentPrefs');
+        return Array.isArray(saved) ? saved : [];
+    }
+    function state(values) {
+        var analytics = production && values.indexOf('analytics') !== -1;
+        var marketing = production && values.indexOf('marketing') !== -1;
+        var functional = values.indexOf('preferences') !== -1;
+        return {analytics_storage:analytics?'granted':'denied',ad_storage:marketing?'granted':'denied',ad_user_data:marketing?'granted':'denied',ad_personalization:marketing?'granted':'denied',functionality_storage:functional?'granted':'denied',personalization_storage:functional?'granted':'denied',security_storage:'granted'};
+    }
+    if (!w.diviaGoogleConsentInitialized) {
+        w.gtag('consent', 'default', {analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'denied',personalization_storage:'denied',security_storage:'granted',wait_for_update:500});
+        w.diviaGoogleConsentInitialized = true;
+    }
+    w.diviaGoogleAdvanced = {version:'20261105', enabled:production};
+    function update(values) { w.gtag('consent', 'update', state(Array.isArray(values) ? values : preferences())); }
+    if (cookie('cookieConsent') !== null) update(preferences());
+    w.addEventListener('divia:consent-updated', function (event) {
+        if (event.detail && Array.isArray(event.detail.preferences)) update(event.detail.preferences);
+    });
+    var advancedConfigured = {};
+    // Read Google destinations from this site's existing administrative snippets.
+    // No administrative JavaScript or third-party tag is evaluated here.
+    w.diviaGoogleAdvancedLoad = function (source) {
+        if (!production) return;
+        var text = typeof source === 'string' ? source : JSON.stringify(source || '');
+        var ids = text.match(/\b(?:AW-[0-9]+|G-[A-Z0-9]+)\b/g) || [];
+        if (ids.length && !d.querySelector('script[src*="googletagmanager.com/gtag/js"]')) w.gtag('js', new Date());
+        ids.forEach(function (id) {
+            if (advancedConfigured[id] || w.dataLayer.some(function (entry) { return entry && entry[0] === 'config' && entry[1] === id; })) return;
+            advancedConfigured[id] = true;
+            w.gtag('config', id);
+        });
+        if (ids.length && !d.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+            var tag = d.createElement('script'); tag.async = true;
+            tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ids[0]);
+            d.head.appendChild(tag);
+        }
+    };
+    w.diviaGoogleAdvancedConversion = function (source) {
+        if (!production || typeof source !== 'string') return;
+        // Only literal Google conversion destinations; never eval a custom callback.
+        var clean = source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+        var calls = clean.match(/gtag\s*\(\s*['"]event['"]\s*,\s*['"]conversion['"]\s*,\s*\{[^}]*\}/g) || [];
+        var sent = {};
+        calls.forEach(function (call) {
+            var destination = call.match(/['"]?send_to['"]?\s*:\s*['"](AW-[0-9]+\/[A-Za-z0-9_-]+)['"]/);
+            if (!destination || sent[destination[1]]) return;
+            sent[destination[1]] = true;
+            w.diviaGoogleAdvancedLoad(destination[1]);
+            w.gtag('set', 'user_data', {});
+            w.gtag('event', 'conversion', {send_to:destination[1]});
+        });
+    };
+    // Older DIVIA banners persist the same cookies without dispatching an event.
+    d.addEventListener('click', function (event) {
+        if (event.target && event.target.closest && event.target.closest('#cookieAccept, #cookieReject')) {
+            w.setTimeout(function () { if (cookie('cookieConsent') !== null) update(preferences()); }, 0);
+        }
+    });
+
+    function placeConsentPanel() {
+        var panel=d.getElementById('diviaGDPR');
+        if (!panel) return;
+        panel.querySelectorAll('a[href]').forEach(function (link) {
+            try {
+                var policy = new URL(link.href, w.location.href);
+                if (host !== 'divia.com.br' && policy.hostname.replace(/^www\./, '') === 'divia.com.br' && /^\/politica-de-(privacidade|cookies)\/?$/.test(policy.pathname)) {
+                    link.setAttribute('href', policy.pathname);
+                }
+            } catch (_) {}
+        });
+        if (w.getComputedStyle(panel).position !== 'fixed') return;
+        var box=panel.getBoundingClientRect();if(!box.width||!box.height)return;
+        var top=w.innerHeight;
+        d.querySelectorAll('a[href^="tel:"],a[href*="wa.me"],a[href*="whatsapp"],a[href*="Whats"],a[href*="whats"],#divia-gdpr,[data-cookie-preferences],a[data-bs-target*="modal"],a[data-target*="modal"],.d-mobile a,.mobile-contact-bar a,.whatsapp-desktop a').forEach(function(control){
+            if(panel.contains(control))return;
+            var r=control.getBoundingClientRect();if(!r.width||!r.height||r.height>140||r.top<w.innerHeight/2)return;
+            var node=control,fixed=false;
+            while(node&&node!==d.body){var position=w.getComputedStyle(node).position;if(position==='fixed'||position==='sticky'){fixed=true;break;}node=node.parentElement;}
+            if(fixed){var fixedBox=node.getBoundingClientRect();if(fixedBox.height>0&&fixedBox.height<=140)r=fixedBox;}
+            if(fixed&&r.left<box.right&&r.right>box.left&&r.top<box.bottom&&r.bottom>box.top)top=Math.min(top,r.top);
+        });
+        if(top<w.innerHeight){
+            var bottom=Math.max(0,w.innerHeight-box.bottom)+box.bottom-top+12;
+            panel.style.setProperty('bottom',bottom+'px','important');
+            panel.style.setProperty('max-height',Math.max(160,w.innerHeight-bottom-16)+'px','important');
+            panel.style.setProperty('overflow-y','auto','important');
+        }
+    }
+    var placementTimer;
+    function schedulePlacement(){w.clearTimeout(placementTimer);placementTimer=w.setTimeout(placeConsentPanel,80);}
+    function observeConsentPanel(){
+        if(!d.body)return;
+        new MutationObserver(schedulePlacement).observe(d.body,{childList:true,subtree:true});schedulePlacement();
+        d.addEventListener('click',function(event){if(event.target.closest&&event.target.closest('#cookieSettings,#cookieCustomize,#divia-gdpr,[data-cookie-preferences],a[data-bs-target*="modal"],a[data-target*="modal"],.d-mobile a,.mobile-contact-bar a,.whatsapp-desktop a')){schedulePlacement();w.setTimeout(placeConsentPanel,650);}});
+    }
+    w.addEventListener('resize',schedulePlacement);
+    if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',observeConsentPanel,{once:true});else observeConsentPanel();
+})(window, document);
+</script>
+
+<script id="probel-tracking-config" type="application/json">{"analytics":"","marketing":"\n","conversions":{"formulario":"","telefone":"","whatsapp":""}}</script>
+<script>
+    window.probelTrackingEnabled = true;
+    window.probelClickTrackingEnabled = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    gtag('consent', 'default', {analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'denied',personalization_storage:'denied',security_storage:'granted',wait_for_update:500});
+    window.diviaGoogleConsentInitialized = true;
+</script>
+<script src="/themes/probel/assets/js/tracking-probel-20261030.js"></script>
+    <script src="https://divia.s3-accelerate.dualstack.amazonaws.com/leads.js" type="text/javascript"></script>
+      </head>
+<body>
+    <div class="site-wrapper">
+
+    <div class="main-overlay"></div>
+
+    
+    <header class="header-default">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-xl">
+                
+                <a class="navbar-brand" href="https://blog.probel.com.br"><img src="https://blog.probel.com.br/upload/service/4CRwwzd0Zxmue94u87pdsKT39kVYHDtF6XKikIPu.png" alt="logo" style="" /></a> 
+
+
+                <div class="collapse navbar-collapse">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://blog.probel.com.br">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://blog.probel.com.br/blog">Artigos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#">Categorias</a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a class="dropdown-item" href="https://blog.probel.com.br/durma-melhor-2">Durma Melhor</a></li>
+                                                                    <li><a class="dropdown-item" href="https://blog.probel.com.br/casa-decor-3">Casa Decor</a></li>
+                                                                    <li><a class="dropdown-item" href="https://blog.probel.com.br/saude-4">Saúde</a></li>
+                                                                    <li><a class="dropdown-item" href="https://blog.probel.com.br/colchoes-5">Colchões</a></li>
+                                                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.probel.com.br/" target="_blank">Loja Probel Oficial</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#">Institucional</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://www.probel.com.br/nossa-historia" target="_blank">Sobre</a></li>
+                                <li><a class="dropdown-item" href="https://www.probel.com.br/atendimento" target="_blank">Contato</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+
+                
+                <div class="header-right">
+                    
+                    
+                    <ul class="social-icons list-unstyled list-inline mb-0">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/probeloficial/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                      <li class="list-inline-item"><a href="https://www.instagram.com/probeloficial/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                      <li class="list-inline-item"><a href="https://br.pinterest.com/probeloficial/" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UC_rDd8BZcb_Q6WUKSNCe9xg" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                    
+                    
+                    <div class="header-buttons">
+                        
+                        <button class="burger-menu icon-button">
+                            <span class="burger-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>    <main id="main-content">
+    <section class="page-header">
+        <div class="container-xl">
+            <div class="text-center">
+                <h1 class="mt-0 mb-2">cama box king size</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="https://blog.probel.com.br">Home</a></li>
+                        <li class="breadcrumb-item"><a href="https://blog.probel.com.br/blog">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">cama box king size</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="main-content">
+        <div class="container-xl">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-8">
+
+                    <div class="row gy-4">
+                                                    <div class="col-sm-6">
+                                
+                                <div class="post post-grid rounded bordered">
+                                    <div class="thumb top-rounded">
+                                        <a href="https://blog.probel.com.br/colchoes-5" class="category-badge position-absolute">Colchões</a>
+                                        <span class="post-format">
+                                            <i class="icon-picture"></i>
+                                        </span>
+                                        <a href="https://blog.probel.com.br/cama-king-size-qual-o-tamanho-e-quanto-espaco-e-necessario-no-quarto">
+                                            <div class="inner">
+                                                <img src="https://blog.probel.com.br/upload/blog/my5P0gylTCNkF9i3GVCjk5hIXLY7Ux2wfyvqdVBT.png" alt="Cama King Size: Qual o Tamanho e Quanto Espaço é Necessário no Quarto?" />
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="details">
+                                        <ul class="meta list-inline mb-0">
+                                            <li class="list-inline-item">24/08/2026</li>
+                                        </ul>
+                                        <h5 class="post-title mb-3 mt-3"><a href="https://blog.probel.com.br/cama-king-size-qual-o-tamanho-e-quanto-espaco-e-necessario-no-quarto">Cama King Size: Qual o Tamanho e Quanto Espaço é Necessário no Quarto?</a></h5>
+                                        <p class="excerpt mb-0"> Cama King Size: Qual o Tamanho e
+Quanto Espaço é Necessário no Quarto?A cama king size mede 193 cm de
+largura por 203 cm de comprimento — a maior opção entre os tamanhos padrão
+vendidos no Brasil. Para quem busca mais espaço e conforto na hora de...</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        
+                        
+
+                    </div>
+
+                    <nav>
+                        
+                    </nav>
+
+                </div>
+                <div class="col-lg-4">
+
+                    <div class="sidebar">
+    
+    
+
+    
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Posts Recentes</h3>
+        </div>
+        <div class="widget-content">
+                            <div class="post post-list-sm circle">
+                    <div class="thumb circle">
+                        <a href="https://blog.probel.com.br/conjunto-box-casal-na-black-friday-mais-conforto-para-suas-noites-de-sono">
+                            <div class="inner">
+                                <img src="https://blog.probel.com.br/storage/sites/probel/blog/image/a6b97ea8-7599-49f8-9360-6544d8744611.png" alt="Conjunto Box Casal na Black Friday: mais conforto para suas noites de sono" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="details clearfix">
+                        <h6 class="post-title my-0"><a href="https://blog.probel.com.br/conjunto-box-casal-na-black-friday-mais-conforto-para-suas-noites-de-sono">Conjunto Box Casal na Black Friday: mais conforto para suas noites de sono</a></h6>
+                        <ul class="meta list-inline mt-1 mb-0">
+                            <li class="list-inline-item">25/11/2026</li>
+                        </ul>
+                    </div>
+                </div>
+                            <div class="post post-list-sm circle">
+                    <div class="thumb circle">
+                        <a href="https://blog.probel.com.br/black-friday-probel-encontre-o-conjunto-box-solteiro-ideal-e-aproveite-ofertas-especiais">
+                            <div class="inner">
+                                <img src="https://blog.probel.com.br/storage/sites/probel/blog/image/aae0b28e-6776-4f4e-a013-f280b04cce81.png" alt="Black Friday Probel: encontre o Conjunto Box Solteiro ideal e aproveite ofertas especiais!" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="details clearfix">
+                        <h6 class="post-title my-0"><a href="https://blog.probel.com.br/black-friday-probel-encontre-o-conjunto-box-solteiro-ideal-e-aproveite-ofertas-especiais">Black Friday Probel: encontre o Conjunto Box Solteiro ideal e aproveite ofertas especiais!</a></h6>
+                        <ul class="meta list-inline mt-1 mb-0">
+                            <li class="list-inline-item">13/11/2026</li>
+                        </ul>
+                    </div>
+                </div>
+                            <div class="post post-list-sm circle">
+                    <div class="thumb circle">
+                        <a href="https://blog.probel.com.br/colchao-de-casal-na-black-friday-probel-invista-em-conforto-e-transforme-suas-noites-de-sono">
+                            <div class="inner">
+                                <img src="https://blog.probel.com.br/upload/blog/4aCiEzkEE4sbnD3Q1JpuUPTHkrAJ1dIAESW7oXRB.png" alt="Colchão de Casal na Black Friday Probel: invista em conforto e transforme suas noites de sono!" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="details clearfix">
+                        <h6 class="post-title my-0"><a href="https://blog.probel.com.br/colchao-de-casal-na-black-friday-probel-invista-em-conforto-e-transforme-suas-noites-de-sono">Colchão de Casal na Black Friday Probel: invista em conforto e transforme suas noites de sono!</a></h6>
+                        <ul class="meta list-inline mt-1 mb-0">
+                            <li class="list-inline-item">11/11/2026</li>
+                        </ul>
+                    </div>
+                </div>
+                            <div class="post post-list-sm circle">
+                    <div class="thumb circle">
+                        <a href="https://blog.probel.com.br/cabeceira-king-dicas-para-deixar-seu-quarto-mais-confortavel-moderno-e-sofisticado">
+                            <div class="inner">
+                                <img src="https://blog.probel.com.br/storage/sites/probel/blog/image/abde4d1a-5224-4513-ac58-6eaae5823fc2.png" alt="Cabeceira King: dicas para deixar seu quarto mais confortável, moderno e sofisticado" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="details clearfix">
+                        <h6 class="post-title my-0"><a href="https://blog.probel.com.br/cabeceira-king-dicas-para-deixar-seu-quarto-mais-confortavel-moderno-e-sofisticado">Cabeceira King: dicas para deixar seu quarto mais confortável, moderno e sofisticado</a></h6>
+                        <ul class="meta list-inline mt-1 mb-0">
+                            <li class="list-inline-item">10/11/2026</li>
+                        </ul>
+                    </div>
+                </div>
+                            <div class="post post-list-sm circle">
+                    <div class="thumb circle">
+                        <a href="https://blog.probel.com.br/cabeceira-queen-como-transformar-seu-quarto-em-um-ambiente-mais-elegante-confortavel-e-aconchegante">
+                            <div class="inner">
+                                <img src="https://blog.probel.com.br/storage/sites/probel/blog/image/7578c398-55b9-4f04-957e-d42b7c92eed6.png" alt="Cabeceira Queen: como transformar seu quarto em um ambiente mais elegante, confortável e aconchegante" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="details clearfix">
+                        <h6 class="post-title my-0"><a href="https://blog.probel.com.br/cabeceira-queen-como-transformar-seu-quarto-em-um-ambiente-mais-elegante-confortavel-e-aconchegante">Cabeceira Queen: como transformar seu quarto em um ambiente mais elegante, confortável e aconchegante</a></h6>
+                        <ul class="meta list-inline mt-1 mb-0">
+                            <li class="list-inline-item">10/11/2026</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>      
+    </div>
+    
+                        
+                        <div class="widget rounded">
+                            <div class="widget-about data-bg-image text-center" data-bg-image="/themes/probel/images/map-bg.png">
+                                <img src="/themes/probel/assets/images/logo-probel-oficial.svg" alt="logo" class="mb-4" />
+                                <p class="mb-4"></p>
+                                <ul class="social-icons list-unstyled list-inline mb-0">
+                                    <li class="list-inline-item"><a href="https://www.facebook.com/probeloficial/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                      <li class="list-inline-item"><a href="https://www.instagram.com/probeloficial/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                      <li class="list-inline-item"><a href="https://br.pinterest.com/probeloficial/" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                                      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UC_rDd8BZcb_Q6WUKSNCe9xg" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+    
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Categorias</h3>
+        </div>
+        <div class="widget-content">
+            <ul class="list">
+                                    <li><a href="https://blog.probel.com.br/durma-melhor-2">Durma Melhor</a></li>
+                                    <li><a href="https://blog.probel.com.br/casa-decor-3">Casa Decor</a></li>
+                                    <li><a href="https://blog.probel.com.br/saude-4">Saúde</a></li>
+                                    <li><a href="https://blog.probel.com.br/colchoes-5">Colchões</a></li>
+                            </ul>
+        </div>
+        
+    </div>
+
+
+    
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Tags</h3>
+        </div>
+        <div class="widget-content">
+                            <a href="https://blog.probel.com.br/blog-tag-tamanhos-de-cama" class="tag">tamanhos de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-solteiro" class="tag">tamanho de cama solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-viuva" class="tag">tamanho de cama viúva</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-casal" class="tag">tamanho de cama casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-queen" class="tag">tamanho de cama queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-king" class="tag">tamanho de cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-de-cama" class="tag">medidas de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-de-colchao" class="tag">medidas de colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tipos-de-cama" class="tag">tipos de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-de-casal" class="tag">cama de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-queen-size" class="tag">cama queen size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-size" class="tag">cama king size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-de-viuva" class="tag">cama de viúva</a>
+                            <a href="https://blog.probel.com.br/blog-tag-como-escolher-o-tamanho-da-cama" class="tag">como escolher o tamanho da cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qual-tamanho-de-cama-escolher" class="tag">qual tamanho de cama escolher</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-ideal-de-cama" class="tag">tamanho ideal de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-ideal" class="tag">colchão ideal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanhos-de-cama" class="tag">tamanhos de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-solteiro" class="tag">tamanho de cama solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-viuva" class="tag">tamanho de cama viúva</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-casal" class="tag">tamanho de cama casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-queen" class="tag">tamanho de cama queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-cama-king" class="tag">tamanho de cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-de-cama" class="tag">medidas de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-de-colchao" class="tag">medidas de colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tipos-de-cama" class="tag">tipos de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-de-casal" class="tag">cama de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-queen-size" class="tag">cama queen size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-size" class="tag">cama king size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-de-viuva" class="tag">cama de viúva</a>
+                            <a href="https://blog.probel.com.br/blog-tag-como-escolher-o-tamanho-da-cama" class="tag">como escolher o tamanho da cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qual-tamanho-de-cama-escolher" class="tag">qual tamanho de cama escolher</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-ideal-de-cama" class="tag">tamanho ideal de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-ideal" class="tag">colchão ideal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-size" class="tag">cama king size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king" class="tag">cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king-size" class="tag">colchão king size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-cama-king" class="tag">tamanho cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-cama-king" class="tag">medidas cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-colchao-king" class="tag">medidas colchão king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-para-cama-king" class="tag">quarto para cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-espaco-para-cama-king" class="tag">espaço para cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-size-medidas" class="tag">cama king size medidas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-size-193x203" class="tag">cama king size 193x203</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-ou-queen" class="tag">cama king ou queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-diferenca-entre-king-e-queen" class="tag">diferença entre king e queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-para-casal" class="tag">cama para casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-grande" class="tag">cama grande</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king-probel" class="tag">colchão king Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-king-size" class="tag">cama box king size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-casal" class="tag">conforto para casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanho-de-quarto-para-cama-king" class="tag">tamanho de quarto para cama king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-grande" class="tag">quarto grande</a>
+                            <a href="https://blog.probel.com.br/blog-tag-medidas-de-cama" class="tag">medidas de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tamanhos-de-cama" class="tag">tamanhos de cama</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono" class="tag">sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-para-dormir-melhor" class="tag">quarto para dormir melhor</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ambiente-de-descanso" class="tag">ambiente de descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-higiene-do-sono" class="tag">higiene do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-iluminacao-do-quarto" class="tag">iluminação do quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-temperatura-do-quarto" class="tag">temperatura do quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ruidos-no-quarto" class="tag">ruídos no quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-organizacao-do-quarto" class="tag">organização do quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-no-quarto" class="tag">conforto no quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-rotina-do-sono" class="tag">rotina do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso" class="tag">descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-dormir-bem" class="tag">dormir bem</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-aconchegante" class="tag">quarto aconchegante</a>
+                            <a href="https://blog.probel.com.br/blog-tag-bem-estar" class="tag">bem-estar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ambiente-para-dormir" class="tag">ambiente para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-rotina-de-sono" class="tag">rotina de sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-habitos-de-sono" class="tag">hábitos de sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-horario-para-dormir" class="tag">horário para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-horario-para-acordar" class="tag">horário para acordar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ritmo-circadiano" class="tag">ritmo circadiano</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono-e-descanso" class="tag">sono e descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-higiene-do-sono" class="tag">higiene do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-dormir-melhor" class="tag">dormir melhor</a>
+                            <a href="https://blog.probel.com.br/blog-tag-regularidade-do-sono" class="tag">regularidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-habitos-saudaveis" class="tag">hábitos saudáveis</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso" class="tag">descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-bem-estar" class="tag">bem-estar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ambiente-para-dormir" class="tag">ambiente para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-descanso" class="tag">qualidade do descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-e-sono" class="tag">colchão e sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-saude-do-sono" class="tag">saúde do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-rotina-noturna" class="tag">rotina noturna</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono-reparador" class="tag">sono reparador</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono" class="tag">sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto" class="tag">conforto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-boa-noite-de-sono" class="tag">boa noite de sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso" class="tag">descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-bem-estar" class="tag">bem-estar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-apoio-corporal" class="tag">apoio corporal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao" class="tag">colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ambiente-de-descanso" class="tag">ambiente de descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-confortavel" class="tag">quarto confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-habitos-de-sono" class="tag">hábitos de sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-rotina-de-sono" class="tag">rotina de sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-saude-do-sono" class="tag">saúde do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday" class="tag">Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-casal-black-friday" class="tag">colchão casal Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-colchao-casal" class="tag">Black Friday colchão casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-casal-em-promocao" class="tag">colchão de casal em promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-colchao-casal" class="tag">promoção de colchão casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-de-colchao" class="tag">ofertas de colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-probel" class="tag">colchão Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-casal-probel" class="tag">colchão casal Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-molas-ensacadas" class="tag">molas ensacadas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-com-molas-ensacadas" class="tag">colchão com molas ensacadas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-casal" class="tag">conforto para casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-probel" class="tag">promoção Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-comprar-colchao-na-black-friday" class="tag">comprar colchão na Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-esquenta-black-friday" class="tag">Esquenta Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-esquenta-black-friday-probel" class="tag">Esquenta Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-vip" class="tag">Black Friday VIP</a>
+                            <a href="https://blog.probel.com.br/blog-tag-grupo-vip-black-friday" class="tag">Grupo VIP Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-grupo-vip-probel" class="tag">Grupo VIP Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-antecipadas-black-friday" class="tag">ofertas antecipadas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-exclusivas-probel" class="tag">ofertas exclusivas Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cupom-black-friday" class="tag">cupom Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-probel" class="tag">promoção Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-colchoes" class="tag">Black Friday colchões</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas" class="tag">ofertas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-queen" class="tag">colchão queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-queen-black-friday" class="tag">colchão queen black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-colchao-queen" class="tag">black friday colchão queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-probel" class="tag">colchão Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-queen-size" class="tag">colchão queen size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-molas-queen" class="tag">colchão de molas queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-confortavel" class="tag">colchão confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-casal" class="tag">colchão para casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-queen-probel" class="tag">colchão queen Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-colchao-queen" class="tag">promoção colchão queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel-black-friday" class="tag">Probel black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso" class="tag">descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-queen-em-promocao" class="tag">colchão queen em promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-comprar-colchao-queen" class="tag">comprar colchão queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-quarto-de-casal" class="tag">colchão para quarto de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-com-mais-espaco" class="tag">colchão com mais espaço</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-casal-queen" class="tag">colchão para casal queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king" class="tag">colchão king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king-black-friday" class="tag">colchão king black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-colchao-king" class="tag">black friday colchão king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king-probel" class="tag">colchão king Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king-size" class="tag">colchão king size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-casal" class="tag">colchão para casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-grande" class="tag">colchão grande</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-confortavel" class="tag">colchão confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-molas-king" class="tag">colchão de molas king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-colchao-king" class="tag">promoção colchão king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel-black-friday" class="tag">Probel black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso" class="tag">descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-king-em-promocao" class="tag">colchão king em promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-comprar-colchao-king" class="tag">comprar colchão king</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-quarto-de-casal" class="tag">colchão para quarto de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-com-mais-espaco" class="tag">colchão com mais espaço</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-probel" class="tag">colchão Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-solteiro" class="tag">colchão solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-solteiro-black-friday" class="tag">colchão solteiro black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-colchao" class="tag">black friday colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-probel" class="tag">colchão Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-solteiro" class="tag">colchão de solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-espuma" class="tag">colchão de espuma</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-molas" class="tag">colchão de molas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-confortavel" class="tag">colchão confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-quarto-pequeno" class="tag">colchão para quarto pequeno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-adolescente" class="tag">colchão para adolescente</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-crianca" class="tag">colchão para criança</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-para-hospedes" class="tag">colchão para hóspedes</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso" class="tag">descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-colchao" class="tag">promoção de colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel-black-friday" class="tag">Probel black friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-solteiro-probel" class="tag">colchão solteiro Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-comprar-colchao-solteiro" class="tag">comprar colchão solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-motorizada" class="tag">poltrona motorizada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel" class="tag">poltrona reclinável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-black-friday" class="tag">poltrona Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-sala" class="tag">poltrona para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-confortavel" class="tag">poltrona confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-eletrica" class="tag">poltrona elétrica</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-casa" class="tag">conforto para casa</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-sala" class="tag">móveis para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso-e-conforto" class="tag">descanso e conforto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-probel" class="tag">poltrona Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-relaxar" class="tag">poltrona para relaxar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel-motorizada" class="tag">poltrona reclinável motorizada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-descanso" class="tag">poltrona para descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-poltronas" class="tag">promoção de poltronas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel" class="tag">poltrona reclinável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel-black-friday" class="tag">poltrona reclinável Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-probel" class="tag">poltrona Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-em-promocao" class="tag">poltrona em promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-de-poltronas" class="tag">ofertas de poltronas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-sala" class="tag">poltrona para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-quarto" class="tag">poltrona para quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-leitura" class="tag">poltrona para leitura</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-em-casa" class="tag">conforto em casa</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-da-sala" class="tag">decoração da sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-momentos-de-descanso" class="tag">momentos de descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-queen" class="tag">conjunto box queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-queen-black-friday" class="tag">conjunto box queen Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-queen" class="tag">cama box queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-queen-em-promocao" class="tag">box queen em promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-queen" class="tag">conjunto queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-queen" class="tag">colchão queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-conjunto-box" class="tag">promoção conjunto box</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-probel" class="tag">conjunto box Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-queen-probel" class="tag">cama queen Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-queen" class="tag">conforto queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-king" class="tag">Cabeceira King</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-king-probel" class="tag">Cabeceira King Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-cabeceira-king" class="tag">Promoção de Cabeceira King</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-para-cama-king" class="tag">Cabeceira para Cama King</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-de-quarto" class="tag">Decoração de Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-king-size" class="tag">Cama King Size</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-estofada" class="tag">Cabeceira Estofada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-sofisticado" class="tag">Quarto Sofisticado</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">Ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-quarto" class="tag">Móveis para Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-e-elegancia" class="tag">Conforto e Elegância</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-moderna" class="tag">Decoração Moderna</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-aconchegante" class="tag">Quarto Aconchegante</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-queen" class="tag">Cabeceira Queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-queen" class="tag">Cama Queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-de-quarto" class="tag">Decoração de Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-estofada" class="tag">Cabeceira Estofada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-aconchegante" class="tag">Quarto Aconchegante</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-e-sofisticacao" class="tag">Conforto e Sofisticação</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-quarto" class="tag">Móveis para Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-de-interiores" class="tag">Decoração de Interiores</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-probel" class="tag">Ofertas Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-dos-sonhos-do-texto-sobre-a-cabeceira-queen-cabeceira-queen" class="tag">Quarto dos Sonhos   do texto sobre a cabeceira queen  Cabeceira Queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-para-cama-queen" class="tag">Cabeceira para Cama Queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-como-escolher-cabeceira-queen" class="tag">Como Escolher Cabeceira Queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-queen" class="tag">Quarto Queen</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-no-quarto" class="tag">Conforto no Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-dicas-de-decoracao" class="tag">Dicas de Decoração</a>
+                            <a href="https://blog.probel.com.br/blog-tag-como-decorar-o-quarto" class="tag">Como Decorar o Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceiras-probel" class="tag">Cabeceiras Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-solteiro" class="tag">box baú solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-probel" class="tag">box baú Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-solteiro-com-bau" class="tag">box solteiro com baú</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-com-bau" class="tag">cama box com baú</a>
+                            <a href="https://blog.probel.com.br/blog-tag-base-bau-solteiro" class="tag">base baú solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-black-friday" class="tag">box baú Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-em-oferta" class="tag">box baú em oferta</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-box-bau" class="tag">promoção box baú</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-probel" class="tag">ofertas Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-para-quarto-pequeno" class="tag">box para quarto pequeno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-organizacao-de-quarto" class="tag">organização de quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-funcionais" class="tag">móveis funcionais</a>
+                            <a href="https://blog.probel.com.br/blog-tag-aproveitamento-de-espaco" class="tag">aproveitamento de espaço</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-com-armazenamento" class="tag">box com armazenamento</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-solteiro" class="tag">cama box solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-base-para-colchao-solteiro" class="tag">base para colchão solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-pequeno" class="tag">quarto pequeno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-solteiro-probel" class="tag">box solteiro Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-solteiro-promocao" class="tag">box baú solteiro promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-solteiro-probel" class="tag">box baú solteiro Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-solteiro-barato" class="tag">box baú solteiro barato</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-solteiro-em-oferta" class="tag">box baú solteiro em oferta</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-para-quarto-pequeno" class="tag">box baú para quarto pequeno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-com-armazenamento" class="tag">box baú com armazenamento</a>
+                            <a href="https://blog.probel.com.br/blog-tag-base-bau-solteiro" class="tag">base baú solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-com-bau" class="tag">cama box com baú</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-solteiro-com-bau" class="tag">cama box solteiro com baú</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-solteiro-com-espaco-interno" class="tag">box solteiro com espaço interno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-funcionais-para-quarto" class="tag">móveis funcionais para quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-organizacao-de-quarto-pequeno" class="tag">organização de quarto pequeno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-aproveitamento-de-espaco-no-quarto" class="tag">aproveitamento de espaço no quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-base-para-colchao-solteiro" class="tag">base para colchão solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-colchoes-e-boxes" class="tag">Black Friday colchões e boxes</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-probel" class="tag">ofertas Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-probel-black-friday" class="tag">promoção Probel Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-otimizar-espaco" class="tag">móveis para otimizar espaço</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-organizado" class="tag">quarto organizado</a>
+                            <a href="https://blog.probel.com.br/blog-tag-box-bau-para-apartamento-pequeno" class="tag">box baú para apartamento pequeno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-massageadora" class="tag">poltrona massageadora</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel" class="tag">poltrona reclinável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-confortavel" class="tag">poltrona confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-relaxar" class="tag">poltrona para relaxar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-descanso" class="tag">poltrona para descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-com-massagem" class="tag">poltrona com massagem</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-de-massagem" class="tag">poltrona de massagem</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-black-friday" class="tag">poltrona Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-poltrona-massageadora" class="tag">promoção poltrona massageadora</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-probel" class="tag">poltrona Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-casa" class="tag">conforto para casa</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-sala" class="tag">móveis para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-sala" class="tag">poltrona para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-quarto" class="tag">poltrona para quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-motorizada" class="tag">poltrona motorizada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel" class="tag">poltrona reclinável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-black-friday" class="tag">poltrona Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-sala" class="tag">poltrona para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-confortavel" class="tag">poltrona confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-eletrica" class="tag">poltrona elétrica</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-casa" class="tag">conforto para casa</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-sala" class="tag">móveis para sala</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso-e-conforto" class="tag">descanso e conforto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-probel" class="tag">poltrona Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-relaxar" class="tag">poltrona para relaxar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-reclinavel-motorizada" class="tag">poltrona reclinável motorizada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-poltrona-para-descanso" class="tag">poltrona para descanso</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-poltronas" class="tag">promoção de poltronas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-para-cama-box" class="tag">cabeceira para cama box</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-decorativa" class="tag">cabeceira decorativa</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-de-quarto-de-casal" class="tag">decoração de quarto de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-moderno" class="tag">quarto moderno</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-aconchegante" class="tag">quarto aconchegante</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-quarto" class="tag">móveis para quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-tendencias-de-decoracao" class="tag">tendências de decoração</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-confortavel" class="tag">cabeceira confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-de-decoracao" class="tag">Black Friday de decoração</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-de-moveis" class="tag">ofertas de móveis</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-sofisticada" class="tag">decoração sofisticada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-e-bem-estar" class="tag">conforto e bem-estar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-renovacao-do-quarto" class="tag">renovação do quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-de-casal" class="tag">cama de casal.</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-casal" class="tag">Colchão de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-colchao" class="tag">Promoção de colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-probel" class="tag">Colchão Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-molas-ensacadas" class="tag">Colchão de molas ensacadas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-espuma" class="tag">Colchão de espuma</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">Ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-casal-promocao" class="tag">Colchão casal promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-melhor-colchao-de-casal" class="tag">Melhor colchão de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-e-qualidade-do-sono" class="tag">Conforto e qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-comprar-colchao" class="tag">Comprar colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel-black-friday" class="tag">Probel Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-renovacao-do-quarto" class="tag">Renovação do quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">Qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchoes-em-promocao" class="tag">Colchões em promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-solteiro" class="tag">Conjunto Box Solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-solteiro" class="tag">Colchão Solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-solteiro" class="tag">Cama Box Solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-probel" class="tag">Conjunto Box Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-probel" class="tag">Colchão Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-probel" class="tag">Ofertas Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-de-colchao" class="tag">Promoção de Colchão</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-com-molas-ensacadas" class="tag">Colchão com Molas Ensacadas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-e-qualidade" class="tag">Conforto e Qualidade</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">Ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-de-solteiro" class="tag">Cama de Solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-em-promocao" class="tag">Conjunto Box em Promoção</a>
+                            <a href="https://blog.probel.com.br/blog-tag-melhor-colchao-solteiro" class="tag">Melhor Colchão Solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-renovacao-do-quarto" class="tag">Renovação do Quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono-isso-tambem-pode-interessar-a-voce-patrocinado-colchao-emma-one-light-casal-tamanho-138x188-r139748-r2339-colchoes-emma" class="tag">Qualidade do Sono   Isso também pode interessar a você.  Patrocinado  Colchão Emma One Light | Casal | Tamanho 138x188 R$1,397.48 R$2,339  Colchões Emma</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-casal" class="tag">[]conjunto box casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-casal-probel" class="tag">conjunto box casal Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conjunto-box-casal-black-friday" class="tag">conjunto box casal Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-casal" class="tag">colchão casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-box-casal" class="tag">cama box casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-molas" class="tag">colchão de molas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-colchao-de-espuma" class="tag">colchão de espuma</a>
+                            <a href="https://blog.probel.com.br/blog-tag-molas-ensacadas" class="tag">molas ensacadas</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-dormir" class="tag">conforto para dormir</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-do-casal" class="tag">conforto do casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-de-casal" class="tag">quarto de casal</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cama-confortavel" class="tag">cama confortável</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono" class="tag">sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-qualidade-do-sono" class="tag">qualidade do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-fases-do-sono" class="tag">fases do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ciclo-do-sono" class="tag">ciclo do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-o-que-acontece-durante-o-sono" class="tag">o que acontece durante o sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-corpo-durante-o-sono" class="tag">corpo durante o sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-como-o-sono-funciona" class="tag">como o sono funciona</a>
+                            <a href="https://blog.probel.com.br/blog-tag-beneficios-do-sono" class="tag">benefícios do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-importancia-do-sono" class="tag">importância do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono-profundo" class="tag">sono profundo</a>
+                            <a href="https://blog.probel.com.br/blog-tag-sono-rem" class="tag">sono REM</a>
+                            <a href="https://blog.probel.com.br/blog-tag-recuperacao-do-corpo" class="tag">recuperação do corpo</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso-fisico" class="tag">descanso físico</a>
+                            <a href="https://blog.probel.com.br/blog-tag-descanso-mental" class="tag">descanso mental</a>
+                            <a href="https://blog.probel.com.br/blog-tag-saude-do-sono" class="tag">saúde do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cerebro-durante-o-sono" class="tag">cérebro durante o sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-metabolismo-durante-o-sono" class="tag">metabolismo durante o sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-memoria-e-sono" class="tag">memória e sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-hormonios-do-sono" class="tag">hormônios do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-regeneracao-celular" class="tag">regeneração celular</a>
+                            <a href="https://blog.probel.com.br/blog-tag-saude-e-bem-estar" class="tag">saúde e bem-estar</a>
+                            <a href="https://blog.probel.com.br/blog-tag-dormir-bem" class="tag">dormir bem</a>
+                            <a href="https://blog.probel.com.br/blog-tag-noite-de-sono" class="tag">noite de sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-rotina-do-sono" class="tag">rotina do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-higiene-do-sono" class="tag">higiene do sono</a>
+                            <a href="https://blog.probel.com.br/blog-tag-probel" class="tag">Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-de-solteiro" class="tag">cabeceira de solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-de-solteiro-black-friday" class="tag">cabeceira de solteiro Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-black-friday-probel" class="tag">Black Friday Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-estofada" class="tag">cabeceira estofada</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-para-cama-de-solteiro" class="tag">cabeceira para cama de solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-de-quarto" class="tag">decoração de quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-moveis-para-quarto" class="tag">móveis para quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-quarto-aconchegante" class="tag">quarto aconchegante</a>
+                            <a href="https://blog.probel.com.br/blog-tag-decoracao-de-quarto-de-solteiro" class="tag">decoração de quarto de solteiro</a>
+                            <a href="https://blog.probel.com.br/blog-tag-ofertas-black-friday" class="tag">ofertas Black Friday</a>
+                            <a href="https://blog.probel.com.br/blog-tag-promocao-probel" class="tag">promoção Probel</a>
+                            <a href="https://blog.probel.com.br/blog-tag-cabeceira-moderna" class="tag">cabeceira moderna</a>
+                            <a href="https://blog.probel.com.br/blog-tag-conforto-para-o-quarto" class="tag">conforto para o quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-renovar-o-quarto" class="tag">renovar o quarto</a>
+                            <a href="https://blog.probel.com.br/blog-tag-dicas-de-decoracao" class="tag">dicas de decoração</a>
+                    </div>      
+    </div>
+
+</div>                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+</main>
+    <footer>
+    <div class="container-xl">
+      <div class="footer-inner">
+        <div class="row d-flex align-items-center gy-4">
+          
+          <div class="col-md-4">
+            <a href="https://blog.probel.com.br/politica-de-privacidade">Política de Privacidade</a>
+          </div>
+
+          
+          <div class="col-md-4 text-center">
+            <ul class="social-icons list-unstyled list-inline mb-0">
+              <li class="list-inline-item"><a href="https://www.facebook.com/probeloficial/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/probeloficial/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="https://br.pinterest.com/probeloficial/" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.youtube.com/channel/UC_rDd8BZcb_Q6WUKSNCe9xg" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+          </div>
+
+          
+          <div class="col-md-4">
+            <a href="#" id="return-to-top" class="float-md-end"><i class="icon-arrow-up"></i>Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-xs-6">
+          <p>© Copyright 2026 DIVIA Marketing Digital. Todos os Direitos Reservados.</p>
+        </div>
+        <div class="col-md-2 col-xs-6 text-right">
+          <div class="divia">
+            <a href="https://www.divia.com.br/" title="Agência de Marketing Digital" target="_blank"><img src="/themes/probel/assets/images/logo-divia-escuro-20261004.svg" width="114" height="40" style="width:114px;height:auto" alt="DIVIA Marketing Digital"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+
+
+<div class="search-popup">
+  
+  <button type="button" class="btn-close" aria-label="Fechar"></button>
+  
+  <div class="search-content">
+    <div class="text-center">
+      <h3 class="mb-4 mt-0"></h3>
+    </div>
+    
+    <form class="d-flex search-form" method="GET" action="https://blog.probel.com.br/busca">
+      <input class="form-control me-2" type="search" name="q" placeholder="Buscar artigos..." aria-label="Buscar artigos">
+      <button class="btn btn-default btn-lg" type="submit"><i class="icon-magnifier"></i></button>
+    </form>
+  </div>
+</div>
+
+
+<div class="canvas-menu d-flex align-items-end flex-column">
+  
+  <button type="button" class="btn-close" aria-label="Fechar"></button>
+
+  
+  <div class="logo">
+    <img src="https://blog.probel.com.br/upload/service/4CRwwzd0Zxmue94u87pdsKT39kVYHDtF6XKikIPu.png" alt="Probel Colchões" />
+  </div>
+
+  
+  <nav>
+    <ul class="vertical-menu">
+      <li><a href="https://blog.probel.com.br">Home</a></li>
+      <li><a href="https://blog.probel.com.br/blog">Artigos</a></li>
+      <li>
+        <a href="#">Categorias</a>
+        <ul class="submenu">
+                      <li><a href="https://blog.probel.com.br/durma-melhor-2">Durma Melhor</a></li>
+                      <li><a href="https://blog.probel.com.br/casa-decor-3">Casa Decor</a></li>
+                      <li><a href="https://blog.probel.com.br/saude-4">Saúde</a></li>
+                      <li><a href="https://blog.probel.com.br/colchoes-5">Colchões</a></li>
+                  </ul>
+      </li>
+      <li><a href="https://www.probel.com.br/nossa-historia" target="_blank">Sobre</a></li>
+      <li><a href="https://www.probel.com.br/atendimento" target="_blank">Contato</a></li>
+    </ul>
+  </nav>
+
+  
+  <ul class="social-icons list-unstyled list-inline mb-0 mt-auto w-100">
+    <li class="list-inline-item"><a href="https://www.facebook.com/probeloficial/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+    
+    <li class="list-inline-item"><a href="https://www.instagram.com/probeloficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+    <li class="list-inline-item"><a href="https://br.pinterest.com/probeloficial/" target="_blank" rel="noopener"><i class="fab fa-pinterest"></i></a></li>
+    
+    <li class="list-inline-item"><a href="https://www.youtube.com/channel/UC_rDd8BZcb_Q6WUKSNCe9xg" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
+  </ul>
+</div>
+
+
+
+
+<div class="modal fade" id="modalPhone" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <form method="POST" action="https://blog.probel.com.br/contato-enviar" novalidate data-recaptcha-action="contact">
+<input type="hidden" name="recaptcha_token" value="">
+        <input type="hidden" name="_token" value="9MyGJgORA0NeofgLsJtBL9PpbJCMZwKjW596mvbk" />
+        <input type="hidden" name="type" value="2" />
+                <div class="modal-header" >
+          <img src="https://blog.probel.com.br/upload/service/4CRwwzd0Zxmue94u87pdsKT39kVYHDtF6XKikIPu.png"  />
+        </div>
+        <div class="modal-body">
+          <div style="">Preencha para falar pelo Telefone </div>
+          <hr >
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nome Completo" name="name" value="">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Seu Melhor E-mail" name="email" value="">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control phone" placeholder="Telefone/WhatsApp" name="phone" value="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" >FAZER LIGAÇÃO</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalWhats" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <form method="POST" action="https://blog.probel.com.br/contato-enviar" novalidate data-recaptcha-action="contact">
+<input type="hidden" name="recaptcha_token" value="">
+        <input type="hidden" name="_token" value="9MyGJgORA0NeofgLsJtBL9PpbJCMZwKjW596mvbk" />
+        <input type="hidden" name="type" value="3" />
+                <div class="modal-header" >
+          <img src="https://blog.probel.com.br/upload/service/4CRwwzd0Zxmue94u87pdsKT39kVYHDtF6XKikIPu.png" />
+        </div>
+        <div class="modal-body">
+          <div style="">Preencha para falar pelo WhatsApp </div>
+          <hr >
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nome Completo" name="name" value="">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Seu Melhor E-mail" name="email" value="">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control phone" placeholder="Telefone/WhatsApp" name="phone" value="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" style="background: #33af23; border-color: #33af23">CHAMAR NO WHATSAPP</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalPhone2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content modalPhone2">
+      <div class="modal-body">
+        <div class="t1" style=""><i class="fa fa-2x fa-phone"></i></div>
+        <div class="t2" style="">Clique para ligar</div>
+        <div class="t2" style="">(51) 33333-3333</div>
+        <div class="t3">
+          <a href="tel:051333333333" class="btn_phone">LIGAR </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <button id="divia-gdpr" type="button" aria-label="Preferências de cookies" onclick="window.diviaGDPR.reinit()"><img src="/themes/probel/assets/images/divia-gdpr.png" width="43" height="43" alt=""></button>
+    <script src="/themes/probel/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/themes/probel/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/themes/probel/assets/js/owl.carousel.min.js"></script>
+    <script src="/themes/probel/assets/js/libs-probel-20261030.js"></script>
+    <script src="/themes/probel/js/popper.min.js"></script>
+    <script src="/themes/probel/js/slick.min.js"></script>
+    <script src="/themes/probel/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="/themes/probel/js/custom.js"></script>
+    <script src="/themes/probel/assets/js/consent-20261016.js?divia_consent=20261105"></script>
+    <script>
+      config.moreInfoBtnLink = "https:\/\/blog.probel.com.br\/politica-de-privacidade";
+      window.diviaGDPR.init();
+    </script>
+    <script src="/themes/probel/assets/js/probel-20261030.js"></script>
+    <script src="/themes/probel/assets/js/recaptcha-probel-20261030.js" data-site-key="6LewLAguAAAAAOaZoKUcer7R9tMAEsNpJmKV02Z5" defer></script>
+              <style>
+.divia-captcha-panel{clear:both;width:100%;flex-basis:100%;margin:12px 0 18px;text-align:left;white-space:normal}
+.divia-captcha-panel[hidden]{display:none!important}
+.divia-captcha-panel p{margin:0 0 12px;color:#272727;background:#fff;border-radius:4px;padding:8px;font:normal 15px/1.5 sans-serif;white-space:pre-line;text-transform:none}
+.divia-captcha-panel>button{margin-top:10px;padding:8px 12px;border:1px solid currentColor;border-radius:4px;color:#272727;background:#fff;font-size:14px}
+form[aria-busy=true] button[type=submit]{opacity:.65;cursor:wait}
+</style>
+<script>
+window.diviaRecaptcha={automaticKey:"6LewLAguAAAAAOaZoKUcer7R9tMAEsNpJmKV02Z5",interactiveKey:"6LcFtSMuAAAAAP0Q06J44qgGMCXWN7sEf8Ql-nOa",previewFailure:false};
+</script>
+<script src="/divia/recaptcha-fallback.js?v=20261116-fleet-01" defer></script>
+</body>
+</html>
