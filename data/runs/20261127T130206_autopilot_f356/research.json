@@ -1,0 +1,68 @@
+{
+  "run_id": "20261127T130206_autopilot_f356",
+  "topic": "euro-pillow-e-pillow-top-diferenca",
+  "accepted": [
+    {
+      "claim_id": "clm_42db114cc2bc",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_b7083b942f1c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dfa1073f5094",
+      "question_id": "q_opcao_pillow_top",
+      "source_id": "src_b7083b942f1c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_ffb8eb67024c",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_b7083b942f1c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_63f3af4a384d",
+      "question_id": "q_sensacao_firmeza",
+      "source_id": "src_b7083b942f1c",
+      "new": true
+    },
+    {
+      "claim_id": "clm_43b4abe50d60",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_b7083b942f1c",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_construcao_altura": 0,
+    "q_opcao_pillow_top": 2,
+    "q_opcao_euro_pillow": 0,
+    "q_sensacao_firmeza": 2,
+    "q_propriedade_declarada": 0,
+    "q_cuidado_capa": 1,
+    "q_restricao_leitor": 0
+  },
+  "unanswered": [
+    "q_construcao_altura",
+    "q_opcao_euro_pillow",
+    "q_propriedade_declarada",
+    "q_restricao_leitor"
+  ],
+  "usage": {
+    "input_tokens": 2421,
+    "output_tokens": 629,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_b7083b942f1c",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    }
+  ],
+  "credits": 3.0391496399999993
+}

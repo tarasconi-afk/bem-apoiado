@@ -5,13 +5,14 @@
   "title": "Colchão para quem pesa mais: qual densidade escolher",
   "description": "Veja qual densidade de colchão é adequada conforme seu peso e o que conferir na etiqueta do produto antes de comprar.",
   "primary_query": "colchão para obeso: qual escolher",
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-27",
   "verdict": {
-    "text": "Para quem pesa acima de 100 kg, escolha densidade 45 ou maior, segundo a Castor. Confira na etiqueta do produto as densidades nominais em kg/m³ e as espessuras de cada lâmina de espuma: o regulador exige que essas informações estejam declaradas para você comparar com a recomendação de peso.",
+    "text": "Para quem pesa acima de 100 kg, a Castor recomenda densidade 45 ou maior. Confira na etiqueta as densidades nominais em kg/m³ e, no caso de colchão composto e/ou misto, as espessuras correspondentes das lâminas de espuma, informações cuja declaração é exigida pelo Inmetro.",
     "basis": "reasoning",
     "claim_ids": [
       "clm_1205fed30228",
-      "clm_29c33cfe9a2e"
+      "clm_29c33cfe9a2e",
+      "clm_0a61647d4d99"
     ]
   },
   "sections": [
@@ -266,7 +267,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261024T190447_autopilot_c8f8+editor:20261027T152601_colchao-para-obeso-qual-escolher-ajuste_e2b1+snippet:20261124T010937_autopilot_2087",
+    "run_id": "20261024T190447_autopilot_c8f8+editor:20261027T152601_colchao-para-obeso-qual-escolher-ajuste_e2b1+snippet:20261124T010937_autopilot_2087+reaudit:20261127T130206_autopilot_f356",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
