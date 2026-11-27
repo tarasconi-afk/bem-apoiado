@@ -3,17 +3,18 @@
   "page_type": "buying_guide",
   "status": "approved",
   "title": "Como escolher edredom: tamanho, gramatura e composição",
-  "description": "Como escolher edredom pelo tamanho da cama, medidas exatas, enchimento e cuidados de lavagem e secagem conforme a ficha do produto.",
+  "description": "Escolha pelo tamanho da cama e confira medidas na ficha. Compare enchimento (plumas ou sintético) e gramatura antes de comprar.",
   "primary_query": "como escolher edredom",
   "updated_at": "2026-11-26",
   "verdict": {
-    "text": "Escolha o edredom pelo tamanho da sua cama: solteiro, casal, queen ou king. Confira as medidas exatas na ficha do produto, pois variam entre marcas, e verifique também as informações de tecido e enchimento apresentadas pelo fabricante.",
+    "text": "Escolha o edredom pelo tamanho da sua cama (solteiro, casal, queen ou king) e confira as medidas exatas na ficha do produto, pois variam entre marcas. As fontes mostram exemplos de enchimento de plumas de ganso e de poliéster; um modelo declara 170 g/m² e o fabricante o indica para clima frio e temperaturas amenas.",
     "basis": "reasoning",
     "claim_ids": [
       "clm_0e4444df0771",
-      "clm_2ec25953b1d9",
-      "clm_04e2bb347daf",
-      "clm_1ae977ab120a"
+      "clm_059fb9ffbb4e",
+      "clm_028a55254d48",
+      "clm_0e86ea4ea87b",
+      "clm_0e195d1a8adf"
     ]
   },
   "sections": [
@@ -144,12 +145,11 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Se você dorme em cama de solteiro, confira as medidas na ficha: no Edredom Summer Soft Touch da Plumasul, o solteiro mede 1,60 m × 2,20 m; no Coberdrom Flannel Liso da Andreza, 1,50 m × 2,10 m; na Colcha Zafira da Kacyumara, 180 × 240 cm. As medidas variam entre marcas.",
+          "text": "Confira as medidas exatas na ficha do produto, porque variam entre marcas, segundo a Sultan e a Plumasul. No solteiro, a Plumasul declara 1,60 m × 2,20 m e a Sultan, 2,20 m × 1,50 m. No casal, Plumasul informa 2,20 m × 2,40 m e Sultan, 2,20 m × 1,80 m.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_0e4444df0771",
-            "clm_2ec25953b1d9",
-            "clm_04e2bb347daf"
+            "clm_059fb9ffbb4e",
+            "clm_0e4444df0771"
           ]
         },
         {
@@ -253,21 +253,21 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se você dorme em cama queen, verifique na ficha as medidas do modelo que quer: o Edredom Summer Soft Touch da Plumasul declara 2,40 m × 2,60 m; o Coberdrom Flannel Liso da Andreza, 2,20 m × 2,40 m; a Colcha Zafira da Kacyumara, 240 × 260 cm.",
-          "basis": "evidence",
+          "text": "Se preferir um modelo cuja ficha declare o material do enchimento, a Karsten declara enchimento de poliéster. A composição deve informar os nomes genéricos das fibras, seus percentuais em massa e esses percentuais em ordem decrescente; para produtos de cama embalados, essa informação deve constar na embalagem.",
+          "basis": "reasoning",
           "claim_ids": [
-            "clm_0e4444df0771",
-            "clm_2ec25953b1d9",
-            "clm_04e2bb347daf"
+            "clm_0e195d1a8adf",
+            "clm_055cf59ece8e",
+            "clm_186e0a4a8d35"
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Se prefere um enchimento específico, procure na ficha a composição: a Andreza informa que o Coberdrom Flannel Liso tem composição 100% poliéster, tecido de flanela com microfibra e enchimento de manta de 100 g. Segundo a Karsten, em alguns edredons o recheio de poliéster não entra em contato com a pele.",
+          "text": "Confira a gramatura e a indicação térmica na ficha do fabricante. No modelo Plush Flannel Confort da Appel, a fabricante declara 170 g/m² e o indica para clima frio e temperaturas mais amenas. Em um modelo da Döhler, a fabricante declara 130 g/m² como adequado para todas as estações.",
           "basis": "evidence",
           "claim_ids": [
-            "clm_1ae977ab120a",
-            "clm_0e195d1a8adf"
+            "clm_028a55254d48",
+            "clm_5fbf97f0fe55"
           ]
         },
         {
@@ -285,7 +285,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261122T190136_autopilot_83d1+editor:20261122T190720_como-escolher-edredom-autocorrecao_af66+editor:20261126T083242_como-escolher-edredom-ajuste_9fc4+editor:20261126T131236_autopilot_f3b3",
+    "run_id": "20261122T190136_autopilot_83d1+editor:20261122T190720_como-escolher-edredom-autocorrecao_af66+editor:20261126T083242_como-escolher-edredom-ajuste_9fc4",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
