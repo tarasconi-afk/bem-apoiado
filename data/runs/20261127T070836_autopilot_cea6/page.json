@@ -1,0 +1,68 @@
+{
+  "status": "EDITOR_ADJUST",
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#2.r4"
+    ],
+    "decision_criteria": [
+      "Para meia-estação ou como camada complementar em dias frios, procurar gramatura de 250 g/m².",
+      "Para mais aquecimento, procurar gramatura de 350 g/m², conforme as declarações da Döhler e da Buddemeyer.",
+      "Conferir na etiqueta o nome das fibras e os percentuais em massa, como 100% poliéster ou mistura.",
+      "Escolher as medidas do cobertor de acordo com o tamanho da cama e conferir as dimensões exatas na ficha do produto.",
+      "Verificar as instruções de lavagem, secagem e passagem na etiqueta do modelo escolhido.",
+      "Considerar que a gramatura e as características declaradas variam entre fabricantes e modelos."
+    ],
+    "missing": [
+      "Uma explicação breve de que gramatura é o peso do tecido por metro quadrado.",
+      "Mais referências de fabricantes relacionando diferentes gramaturas a níveis de aquecimento, para não depender principalmente da Döhler.",
+      "Uma comparação específica entre fibras e gramaturas de cobertores, já que a página informa a composição, mas não estabelece qual fibra aquece mais."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde diretamente que 250 g/m² serve para meia-estação ou como camada complementar, enquanto 350 g/m² é a opção indicada nas fontes para maior aquecimento. Também orienta o leitor a conferir composição, cuidados, medidas e tamanhos no anúncio ou na etiqueta; apenas deve remover a linha sobre edredom e a repetição sobre a composição.",
+    "filler_ratio": 0.05,
+    "model_opinion": true
+  },
+  "review_before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A página usa “gramatura” e “g/m²” como critério central sem explicar que se trata do peso do tecido por área, o que pode dificultar a decisão para leigos.",
+      "Não há uma referência clara para quem busca o cobertor mais quente para frio intenso; a comparação fica limitada a 250 g/m² e 350 g/m²."
+    ],
+    "filler_refs": [
+      "como-decidir#0",
+      "como-decidir#2",
+      "como-decidir#4"
+    ],
+    "decision_criteria": [
+      "Para meia-estação ou como camada complementar em dias frios, procurar 250 g/m², conforme a Döhler.",
+      "Para mais aquecimento sem perder leveza, procurar 350 g/m², conforme a Döhler.",
+      "Conferir na ficha ou etiqueta a gramatura declarada pelo fabricante.",
+      "Verificar os nomes das fibras e seus percentuais em massa na etiqueta de composição.",
+      "Escolher as medidas do cobertor conforme o tamanho da cama e conferir as dimensões exatas na ficha do produto.",
+      "Consultar a etiqueta de conservação para confirmar lavagem, alvejamento, secagem e passagem permitidos."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A página usa “gramatura” e “g/m²” como critério central sem explicar que se trata do peso do tecido por área, o que pode dificultar a decisão para leigos.",
+      "Para o leitor leigo: Não há uma referência clara para quem busca o cobertor mais quente para frio intenso; a comparação fica limitada a 250 g/m² e 350 g/m².",
+      "Uma explicação simples de que gramatura é o peso do tecido por metro quadrado.",
+      "Referências de fabricantes para gramaturas acima de 350 g/m² ou para uso em frio intenso.",
+      "Comparação primária entre fibras, como lã, microfibra, acrílico e algodão, indicando quando cada uma é declarada como mais quente.",
+      "Uma regra mais completa relacionando gramatura, composição e nível de aquecimento, sem depender apenas de uma descrição da Döhler."
+    ],
+    "publishable": false,
+    "summary": "Publicável porque oferece uma regra concreta: 250 g/m² para meia-estação ou como camada complementar e 350 g/m² para mais aquecimento, além de orientar o leitor a conferir gramatura, composição e medidas. No entanto, a resposta curta não explica o termo técnico “gramatura”, e há repetição entre o veredito e o bloco Como decidir; a página também não cobre opções para frio intenso ou compara claramente as fibras.",
+    "filler_ratio": 0.17647058823529413,
+    "model_opinion": true
+  }
+}
