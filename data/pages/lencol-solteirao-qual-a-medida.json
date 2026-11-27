@@ -5,12 +5,11 @@
   "title": "Lençol solteirão: qual a medida exata",
   "description": "Compare as medidas do seu colchão (largura, comprimento) com as do lençol na ficha e verifique a altura de elástico suportada, que varia por marca.",
   "primary_query": "lençol solteirão: qual a medida",
-  "updated_at": "2026-11-25",
+  "updated_at": "2026-11-26",
   "verdict": {
-    "text": "Para um colchão de 0,88 m × 1,88 m, escolha lençol solteiro padrão; para colchões maiores, confira as medidas exatas na ficha do produto. A Altenburg indica 0,96 m × 2,03 m para o Solteiro King (solteirão), enquanto a Appel menciona geralmente 1,00 m × 2,00 m para esse tamanho. A altura do elástico varia conforme o modelo: a Plumasul informa 30 cm, a Karsten informa 35 cm em um modelo e 40 cm em outro.",
+    "text": "O solteirão (solteiro king) varia em medidas conforme a marca: a Altenburg informa 0,96 m × 2,03 m, e a Appel menciona geralmente 1,00 m × 2,00 m. Para a altura do elástico, os exemplos citados trazem 30 cm, 35 cm ou 40 cm conforme o modelo e o fabricante. Confira as medidas exatas na ficha do produto antes de comprar.",
     "basis": "reasoning",
     "claim_ids": [
-      "clm_7fe02f28578f",
       "clm_5c7508a7fa3f",
       "clm_3a10d0b8fefc",
       "clm_0d63bb15ce47",
@@ -21,7 +20,7 @@
   "sections": [
     {
       "id": "diferenca-solteiro-solteirao",
-      "heading": "Diferença entre lençol solteiro e solteirão",
+      "heading": "Dimensões variam entre marcas de lençol",
       "blocks": [
         {
           "kind": "paragraph",
@@ -179,7 +178,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261124T010937_autopilot_2087+editor:20261124T011408_lencol-solteirao-qual-a-medida-autocorrecao_164b+editor:20261125T114848_lencol-solteirao-qual-a-medida-ajuste_27ad",
+    "run_id": "20261124T010937_autopilot_2087+editor:20261124T011408_lencol-solteirao-qual-a-medida-autocorrecao_164b+editor:20261125T114848_lencol-solteirao-qual-a-medida-ajuste_27ad+editor:20261126T084315_lencol-solteirao-qual-a-medida-ajuste_8a4c",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
