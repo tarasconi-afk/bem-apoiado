@@ -1,0 +1,157 @@
+{
+  "run_id": "20261125T132135_travesseiro-de-pena-de-ganso-ou-de-fibra-lacuna_1b4b",
+  "topic": "travesseiro-de-pena-de-ganso-ou-de-fibra",
+  "queries": [
+    {
+      "q": "travesseiro pena ganso fibra ficha técnica especificações gramatura enchimento percentual",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "appelhome.com.br",
+        "colchoescastor.com.br",
+        "plumatex.com.br",
+        "plumasul.com.br"
+      ],
+      "results": 6
+    },
+    {
+      "q": "etiqueta textil travesseiro pena ganso fibra composição cuidados lavagem Inmetro",
+      "include_domains": [
+        "inmetro.gov.br",
+        "gov.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "travesseiro pena ganso fibra dimensões medidas altura espessura maciez sustentação calor",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "appelhome.com.br",
+        "colchoescastor.com.br",
+        "plumatex.com.br",
+        "herval.com.br"
+      ],
+      "results": 1
+    },
+    {
+      "q": "travesseiro vida útil recomendação troca durabilidade alergia ácaros antiácaro",
+      "include_domains": [
+        "probel.com.br",
+        "ortobom.com.br",
+        "appelhome.com.br",
+        "colchoescastor.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "travesseiro de pena de ganso ou de fibra ficha técnica especificações",
+      "include_domains": [
+        "br.tempur.com"
+      ],
+      "results": 0
+    },
+    {
+      "q": "travesseiro de pena de ganso ou de fibra ficha técnica especificações",
+      "include_domains": [
+        "appelhome.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "travesseiro de pena de ganso ou de fibra ficha técnica especificações",
+      "include_domains": [
+        "buettner.com.br"
+      ],
+      "results": 0
+    },
+    {
+      "q": "travesseiro de pena de ganso ou de fibra ficha técnica especificações",
+      "include_domains": [
+        "kacyumara.com.br"
+      ],
+      "results": 0
+    }
+  ],
+  "added": [
+    {
+      "source_id": "src_6e49cb9de1fe",
+      "url": "https://www.plumasul.com.br/produtos/kit-com-2-travesseiros-100-penas-de-ganso-50x70cm",
+      "publisher": "Plumasul",
+      "source_class": "manufacturer",
+      "created": false
+    },
+    {
+      "source_id": "src_b1c047e55c8e",
+      "url": "https://www.plumasul.com.br/produtos/kit-com-1-travesseiros-100-penas-de-ganso-e-1-capa-protetora-impermeavel-180-fios-50x70cm",
+      "publisher": "Plumasul",
+      "source_class": "manufacturer",
+      "created": true
+    }
+  ],
+  "skipped_blocked": 0,
+  "skipped_learned": 2,
+  "suggestions": [],
+  "snapshot_errors": [
+    {
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-royal-pillow/6573",
+      "error": "fetch failed"
+    }
+  ],
+  "tavily_credits_month": 1900,
+  "triage": [
+    {
+      "url": "https://www.plumasul.com.br/produtos/kit-com-2-travesseiros-100-penas-de-ganso-50x70cm",
+      "p_useful": 0.99,
+      "keep": true
+    },
+    {
+      "url": "https://www.plumasul.com.br/produtos/kit-com-1-travesseiros-100-penas-de-ganso-e-1-capa-protetora-impermeavel-180-fios-50x70cm",
+      "p_useful": 0.76,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br/p/travesseiro/travesseiro-royal-pillow/6573",
+      "p_useful": 0.85,
+      "keep": true
+    },
+    {
+      "url": "https://www.ortobom.com.br/cat/travesseiros",
+      "p_useful": 0,
+      "keep": false
+    }
+  ],
+  "sitemaps": [
+    {
+      "host": "br.tempur.com",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "appelhome.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "buettner.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "kacyumara.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "lojaskacyumara.com.br",
+      "urls": 0,
+      "picked": []
+    },
+    {
+      "host": "theva.com.br",
+      "urls": 0,
+      "picked": []
+    }
+  ],
+  "llm_credits": 23.54406012000001
+}

@@ -1,0 +1,22 @@
+{
+  "patches": [
+    {
+      "ref": "molas-ensacadas-movimento#0",
+      "action": "replace",
+      "text": "Escolha um colchão de molas ensacadas individualmente, segundo fabricantes como Ortobom, Simmons e Castor. Segundo esses fabricantes, esse tipo de mola pode diminuir ou evitar a transferência de movimento entre o casal.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0522b96db922",
+        "clm_2bfe0b0f071c",
+        "clm_78163da83401",
+        "clm_96d010e677f5"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "colchoes-dupla-face#1",
+      "msg": "não escreva \"trecho\" (nem \"trechos citados\"), \"fichas citadas\" ou \"evidência citada\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\", \"na ficha da Probel\"). Não escreva o que a fonte deixa de informar: ausência não se prova."
+    }
+  ]
+}
