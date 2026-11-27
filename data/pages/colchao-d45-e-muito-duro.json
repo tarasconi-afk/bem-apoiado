@@ -5,7 +5,7 @@
   "title": "Colchão D45 é duro? Veja como escolher pela densidade",
   "description": "Entenda o que D45 significa, como densidade se relaciona com firmeza e consulte a tabela por peso para escolher o colchão certo.",
   "primary_query": "colchão D45 é muito duro",
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-19",
   "verdict": {
     "text": "A densidade tem relação direta com a firmeza do colchão, segundo a Castor. Para pessoas entre 81 e 100 kg, a Castor indica densidades de 33 a 45 conforme a preferência por firmeza; acima de 100 kg, indica densidade 45 ou maior.",
     "basis": "evidence",
@@ -44,7 +44,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "A Simmons apresenta categorias de firmeza Plush, Intermediário e Firme. Em um produto citado da Probel, há espuma D40, D28 e D20, e outro modelo é classificado como Firme.",
+          "text": "A Simmons apresenta categorias de firmeza Plush, Intermediário e Firme. Em produtos citados da Probel, há um modelo classificado como Hiper Firme com espumas D40, D28 e D20, e outro modelo classificado como Firme.",
           "basis": "evidence",
           "claim_ids": [
             "clm_04426077d722",
@@ -54,7 +54,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Um texto mais estreito seria: “Um modelo Castor combina espumas D45 e D20. Segundo a Ortobom, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza.”",
+          "text": "Um modelo Castor combina espumas D45 e D20. Segundo os fabricantes, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza.",
           "basis": "evidence",
           "claim_ids": [
             "clm_62e05c41ef9d",
@@ -68,6 +68,12 @@
       "id": "o-que-conferir",
       "heading": "O que conferir na ficha técnica antes de comprar",
       "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Na etiqueta ou na ficha do colchão, procure por:",
+          "basis": "framing",
+          "claim_ids": []
+        },
         {
           "kind": "paragraph",
           "text": "Densidade nominal das lâminas de espuma em kg/m³: a marcação informa as densidades utilizadas e, no caso de colchão composto ou misto, as respectivas espessuras.",
@@ -232,7 +238,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261027T113815_colchao-d45-e-muito-duro_3495+reaudit:20261027T122557_autopilot_c529+snippet:20261119T190336_autopilot_4c41+reaudit:20261126T190753_autopilot_3a8e",
+    "run_id": "20261027T113815_colchao-d45-e-muito-duro_3495+reaudit:20261027T122557_autopilot_c529+snippet:20261119T190336_autopilot_4c41",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",
