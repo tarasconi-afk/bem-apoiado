@@ -1,0 +1,75 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Escolha a densidade da espuma conforme o peso: D23 até 50 kg, D26 de 51 a 60 kg, D28 de 61 a 70 kg, D33 de 71 a 80 kg e D45 ou maior acima de 100 kg, segundo a Castor.",
+      "Para pessoas entre 81 e 100 kg, a Castor indica D33 a D45 conforme a preferência por firmeza.",
+      "Quem dorme de lado pode preferir uma superfície que alivie a pressão nos ombros e quadris.",
+      "Quem dorme de costas ou de bruços pode considerar uma superfície mais rígida, segundo a King Koil.",
+      "Densidades maiores tendem a oferecer mais firmeza e ajudam a reduzir o afundamento para pessoas mais pesadas.",
+      "Confira na ficha ou etiqueta a densidade nominal de cada camada de espuma e as espessuras quando o colchão for composto ou misto.",
+      "Em colchões de molas, observe o tipo de molejo e a construção das camadas, pois molas ensacadas trabalham de forma independente e podem se adaptar melhor aos pontos de pressão.",
+      "Verifique a presença do selo do Inmetro no colchão de molas."
+    ],
+    "missing": [
+      "Explicação de como cada fabricante define e mede os rótulos macio, médio, firme e extra firme, incluindo eventual escala própria.",
+      "Informação de fonte primária sobre a existência ou não de norma NBR da ABNT que padronize a classificação, os testes ou a terminologia de firmeza.",
+      "Declarações oficiais mais completas dos fabricantes relacionando firmeza e posição de dormir.",
+      "Informação oficial dos fabricantes sobre eventual período de adaptação ou amaciamento que altere a percepção inicial de firmeza.",
+      "Critérios específicos para comparar colchões de molas, molas ensacadas e modelos mistos, especialmente se esses tipos aparecem nas imagens da página.",
+      "Esclarecimento de que a densidade é um critério direto para espuma, mas não determina sozinha a sensação de firmeza em colchões de molas ou mistos."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A resposta curta e o Como decidir dão uma regra concreta por peso, densidade e posição de dormir, além de orientar o que conferir na ficha técnica. Faltam informações sobre a padronização dos rótulos de firmeza, eventual norma NBR, período de adaptação e os critérios para colchões de molas e mistos, mas essas lacunas não impedem a decisão básica de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A seção “Como decidir” usa uma tabela baseada apenas na recomendação da Castor, embora a página também cite Simmons, King Koil, Probel e Ortobom; o leitor pode interpretar a regra como universal.",
+      "A resposta curta usa “densidade” e códigos como D23 e D45 sem explicar imediatamente que são especificações da espuma relacionadas ao peso e à firmeza."
+    ],
+    "filler_refs": [
+      "como-decidir#2"
+    ],
+    "decision_criteria": [
+      "Até 50 kg: conferir densidade D23, segundo a tabela da Castor.",
+      "De 51 a 60 kg: conferir D26; de 61 a 70 kg: D28; de 71 a 80 kg: D33.",
+      "De 81 a 100 kg: a Castor indica D33 a D45 conforme a preferência por firmeza; acima de 100 kg, D45 ou maior.",
+      "Quem dorme de lado deve buscar uma superfície que reduza a pressão em ombros e quadris.",
+      "Quem dorme de costas ou de bruços pode preferir uma superfície mais rígida, segundo a King Koil.",
+      "Densidades maiores correspondem a mais espuma por metro cúbico e, nas recomendações citadas, são associadas a maior suporte e menor risco de afundamento.",
+      "Molas ensacadas trabalham de forma independente e podem se adaptar aos pontos de pressão; em um modelo citado, a espuma nas extremidades aumenta a firmeza para cabeça e pernas.",
+      "A espuma viscoelástica se adapta ao corpo, enquanto espumas macias e extra firmes têm funções diferentes de conforto e suporte.",
+      "O sistema de duplo molejo é apresentado pela Probel como uma combinação de molas ensacadas e prolastic, com resistência progressiva.",
+      "A certificação compulsória do Inmetro não deve ser usada como indicação de firmeza ou conforto; é preciso conferir a densidade, as camadas, o tipo de mola e as declarações do fabricante na ficha técnica."
+    ],
+    "missing": [
+      "Para o leitor leigo: A seção “Como decidir” usa uma tabela baseada apenas na recomendação da Castor, embora a página também cite Simmons, King Koil, Probel e Ortobom; o leitor pode interpretar a regra como universal.",
+      "Para o leitor leigo: A resposta curta usa “densidade” e códigos como D23 e D45 sem explicar imediatamente que são especificações da espuma relacionadas ao peso e à firmeza.",
+      "Uma explicação curta de que D23, D26, D33 e D45 são códigos de densidade da espuma, não uma escala universal de maciez ou firmeza.",
+      "Declarações oficiais de mais fabricantes relacionando peso corporal e posição de dormir à firmeza recomendada.",
+      "Como cada fabricante define os rótulos macio, médio, firme e extra firme, incluindo eventual escala ou método próprio.",
+      "Informação de fonte primária sobre a existência ou inexistência de norma NBR da ABNT que padronize classificação, teste ou terminologia de firmeza.",
+      "Orientação sobre colchões de molas, molas ensacadas e modelos mistos coerente com os tipos mostrados nas imagens.",
+      "Informação oficial dos fabricantes sobre eventual período de adaptação ou amaciamento do colchão novo."
+    ],
+    "publishable": false,
+    "summary": "A página responde à dúvida principal com critérios concretos de peso, densidade e posição de dormir, e permite conferir informações na ficha técnica. Porém, a regra prática fica excessivamente apoiada na tabela da Castor, sem deixar claro que não é uma escala universal, e não cobre os tipos de colchão destacados nas imagens nem explica os rótulos de firmeza. Com esses ajustes, teria potencial para publicação.",
+    "filler_ratio": 0.05555555555555555,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 3
+}

@@ -1,0 +1,83 @@
+{
+  "slug": "como-escolher-cobertor-para-o-frio",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 124062,
+    "output_tokens": 46030,
+    "calls": 50
+  },
+  "credits": 49.96656779999997,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "A tabela apresenta 170 g/m² como gramatura recomendada para temperaturas mais amenas, mas o trecho só diz que o enchimento de um edredom específico da Appel é ideal para esse clima (como-decidir-gramatura-tamanho#0.r0); Reescrever a linha como exemplo do Edred",
+      "A tabela transforma os 250 g/m² do Cobertor Queen Elise em recomendação geral para meias-estações ou dias mais frios, embora o trecho descreva apenas esse modelo (como-decidir-gramatura-tamanho#0.r1); Reescrever a linha como exemplo do Cobertor Queen Elise da ",
+      "A tabela apresenta 350 g/m² como recomendação para retenção de calor sem perder leveza, mas essa descrição vale apenas para o Cobertor Casal Eva da Döhler (como-decidir-gramatura-tamanho#0.r2); Reescrever a linha como exemplo do Cobertor Casal Eva da Döhler, c",
+      "A tabela apresenta 400 g/m² como gramatura para frio intenso ou noites muito frias, mas os trechos sustentam essa relação apenas para o Cobertor King Cetinatto da Appel (como-decidir-gramatura-tamanho#0.r3); Reescrever a linha como exemplo do Cobertor King Cet",
+      "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de"
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para temperaturas mais amenas, considerar cerca de 170 g/m², conforme o exemplo da Appel.",
+      "Para meias-estações ou para complementar a roupa de cama em dias frios, considerar cerca de 250 g/m², conforme a Döhler.",
+      "Para maior retenção de calor sem perder leveza, o exemplo da Döhler usa 350 g/m².",
+      "Para frio intenso ou noites muito frias, considerar cerca de 400 g/m², conforme o exemplo da Appel.",
+      "Conferir as medidas do cobertor na ficha técnica e compará-las com o tamanho da cama, pois elas variam entre fabricantes.",
+      "Considerar a composição: os exemplos de poliéster são associados a maior retenção de calor que o algodão, segundo a Appel.",
+      "Verificar na ficha ou etiqueta a composição, a gramatura e as instruções de lavagem e secagem antes da compra."
+    ],
+    "missing": [
+      "Para o leitor leigo: A tabela apresenta 170 g/m² como gramatura recomendada para temperaturas mais amenas, mas o trecho só diz que o enchimento de um edredom específico da Appel é ideal para esse clima (como-decidir-gramatura-tamanho#0.r0); Reescrever a linha como exemplo do Edred",
+      "Para o leitor leigo: A tabela transforma os 250 g/m² do Cobertor Queen Elise em recomendação geral para meias-estações ou dias mais frios, embora o trecho descreva apenas esse modelo (como-decidir-gramatura-tamanho#0.r1); Reescrever a linha como exemplo do Cobertor Queen Elise da ",
+      "Para o leitor leigo: A tabela apresenta 350 g/m² como recomendação para retenção de calor sem perder leveza, mas essa descrição vale apenas para o Cobertor Casal Eva da Döhler (como-decidir-gramatura-tamanho#0.r2); Reescrever a linha como exemplo do Cobertor Casal Eva da Döhler, c",
+      "Para o leitor leigo: A tabela apresenta 400 g/m² como gramatura para frio intenso ou noites muito frias, mas os trechos sustentam essa relação apenas para o Cobertor King Cetinatto da Appel (como-decidir-gramatura-tamanho#0.r3); Reescrever a linha como exemplo do Cobertor King Cet",
+      "Para o leitor leigo: a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor (verdict); comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem de",
+      "Uma tabela primária do fabricante relacionando faixas de gramatura a frio leve, moderado e intenso para cobertores, sem misturar exemplos de edredom.",
+      "Avisos de segurança do fabricante ou da etiqueta, como inflamabilidade e restrições para crianças pequenas.",
+      "Instruções completas de conservação, incluindo passar, além de lavar e secar.",
+      "Mais exemplos de composição e de como fibras como algodão, lã e microfibra influenciam o aquecimento.",
+      "Uma orientação mais direta sobre a folga necessária do cobertor em relação às medidas da cama."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde à dúvida com uma regra prática baseada em gramatura — cerca de 250 g/m² para meia-estação, 350 g/m² para maior retenção de calor e 400 g/m² para frio intenso — e ensina o leitor a conferir medidas, composição e cuidados na ficha do produto. A resposta curta é concreta e rápida, embora a faixa de 170 g/m² venha de um exemplo de edredom e faltem avisos de segurança e instruções completas de conservação.",
+    "filler_ratio": 0,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir-gramatura-tamanho#0.r0",
+        "problem": "A tabela apresenta 170 g/m² como gramatura recomendada para temperaturas mais amenas, mas o trecho só diz que o enchimento de um edredom específico da Appel é ideal para esse clima.",
+        "fix": "Reescrever a linha como exemplo do Edredom Queen Plush Flannel Confort Appel, com 170 g/m² e a descrição de uso feita pela Appel, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir-gramatura-tamanho#0.r1",
+        "problem": "A tabela transforma os 250 g/m² do Cobertor Queen Elise em recomendação geral para meias-estações ou dias mais frios, embora o trecho descreva apenas esse modelo.",
+        "fix": "Reescrever a linha como exemplo do Cobertor Queen Elise da Döhler, com 250 g/m² e o uso descrito pela fabricante, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir-gramatura-tamanho#0.r2",
+        "problem": "A tabela apresenta 350 g/m² como recomendação para retenção de calor sem perder leveza, mas essa descrição vale apenas para o Cobertor Casal Eva da Döhler.",
+        "fix": "Reescrever a linha como exemplo do Cobertor Casal Eva da Döhler, com 350 g/m² e a característica declarada pela fabricante, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+      },
+      {
+        "check": "dado_de_produto_vira_regra",
+        "ref": "como-decidir-gramatura-tamanho#0.r3",
+        "problem": "A tabela apresenta 400 g/m² como gramatura para frio intenso ou noites muito frias, mas os trechos sustentam essa relação apenas para o Cobertor King Cetinatto da Appel.",
+        "fix": "Reescrever a linha como exemplo do Cobertor King Cetinatto da Appel, com 400 g/m² e o aquecimento descrito pela fabricante, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+      },
+      {
+        "check": "resposta_abre_pela_fonte",
+        "ref": "verdict",
+        "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+        "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+      }
+    ]
+  }
+}
