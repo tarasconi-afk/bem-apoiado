@@ -1,0 +1,136 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam instruções para produtos específicos da Appel, Döhler e Karsten, não uma regra geral para todo cobertor de poliéster, poliéster com microfibra ou algodão. Além disso, os trechos não identificam explicitamente o produto da Appel como poliéster.",
+      "fix": "Apresente como instruções dos produtos citados: “Segundo a Appel, este produto deve ser lavado a no máximo 40°C; segundo a Döhler, o Cobertor Casal Eva deve ser lavado a no máximo 30°C; segundo a Karsten, este edredom de algodão deve ser lavado a 40°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "As instruções de secagem estão nos trechos, mas eles não informam que o produto da Appel é de poliéster nem que o produto da Döhler é de poliéster com microfibra. A associação dessas instruções a esses materiais não é sustentada pelos trechos citados.",
+      "fix": "Instrução: Secagem | Peça da Appel: segundo a Appel, secar pendurada e não secar em tambor | Peça da Döhler: segundo a Döhler, secar em varal, sem torcer | Algodão (Karsten): segundo a Karsten, secar em tambor a no máximo 60°C."
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os limites e proibições de passar a ferro estão nos trechos, mas eles não informam que o produto da Appel é de poliéster nem que o produto da Döhler é de poliéster com microfibra.",
+      "fix": "Instrução: Passar a ferro | Peça da Appel: segundo a Appel, máximo de 110°C; o vapor pode causar danos | Peça da Döhler: segundo a Döhler, não passar a ferro | Algodão (Karsten): segundo a Karsten, máximo de 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos trazem instruções para produtos específicos, não uma regra geral conforme o material do cobertor. Além disso, o trecho da Appel não informa que o produto é de poliéster, e o trecho da Döhler não estabelece que seja poliéster com microfibra; apenas diz que não se devem utilizar alvejantes. A instrução atribuída à Karsten e a menção a 100% algodão aparecem no título da fonte, mas ainda se referem ao edredom específico.",
+      "fix": "Apresente como instruções dos produtos citados: “No produto da Appel: não alvejar ou branquear; no cobertor da Döhler: não utilizar alvejantes; no edredom 100% algodão da Karsten: proibido alvejar”, sem generalizar por material."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam instruções para produtos específicos da Appel, Döhler e Karsten, não uma regra geral para todo cobertor de poliéster, poliéster com microfibra ou algodão. Além disso, os trechos não identificam explicitamente o produto da Appel como poliéster. Versão sustentável: Apresente como instruções dos produtos citados: “Segundo a Appel, este produto deve ser lavado a no máximo 40°C; segundo a Döhler, o Cobertor Casal Eva deve ser lavado a no máximo 30°C; segundo a Karsten, este edredom de algodão deve ser lavado a 40°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "msg": "UNSUPPORTED. As instruções de secagem estão nos trechos, mas eles não informam que o produto da Appel é de poliéster nem que o produto da Döhler é de poliéster com microfibra. A associação dessas instruções a esses materiais não é sustentada pelos trechos citados. Versão sustentável: Instrução: Secagem | Peça da Appel: segundo a Appel, secar pendurada e não secar em tambor | Peça da Döhler: segundo a Döhler, secar em varal, sem torcer | Algodão (Karsten): segundo a Karsten, secar em tambor a no máximo 60°C."
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "msg": "UNSUPPORTED. Os limites e proibições de passar a ferro estão nos trechos, mas eles não informam que o produto da Appel é de poliéster nem que o produto da Döhler é de poliéster com microfibra. Versão sustentável: Instrução: Passar a ferro | Peça da Appel: segundo a Appel, máximo de 110°C; o vapor pode causar danos | Peça da Döhler: segundo a Döhler, não passar a ferro | Algodão (Karsten): segundo a Karsten, máximo de 110°C."
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "msg": "OVERSTATED. Os trechos trazem instruções para produtos específicos, não uma regra geral conforme o material do cobertor. Além disso, o trecho da Appel não informa que o produto é de poliéster, e o trecho da Döhler não estabelece que seja poliéster com microfibra; apenas diz que não se devem utilizar alvejantes. A instrução atribuída à Karsten e a menção a 100% algodão aparecem no título da fonte, mas ainda se referem ao edredom específico. Versão sustentável: Apresente como instruções dos produtos citados: “No produto da Appel: não alvejar ou branquear; no cobertor da Döhler: não utilizar alvejantes; no edredom 100% algodão da Karsten: proibido alvejar”, sem generalizar por material."
+    }
+  ]
+}

@@ -1,0 +1,854 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Os fabricantes citados apresentam exemplos de uso: a Döhler descreve 250 g/m² para meias-estações ou para complementar a roupa de cama, e a Appel declara aquecimento eficiente em noites mais frias para um modelo de 400 g/m². Confira as medidas do modelo na ficha técnica e compare-as com as dimensões da sua cama.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_34eeeb7209d9",
+        "clm_4ca774a74655"
+      ]
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#0",
+      "action": "replace",
+      "text": "A Appel descreve o Cobertor King Cetinatto, com 400 g/m², como de alta densidade e com aquecimento eficiente nas noites mais frias. A Döhler afirma que o Cobertor Casal Eva, com 350 g/m², oferece excelente retenção de calor sem perder a leveza.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4ca774a74655",
+        "clm_dcf6d8d75a97"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Sultan, 2,20 m x 1,50 m",
+          "claim_ids": [
+            "clm_059fb9ffbb4e"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 1,80 m x 2,50 m",
+          "claim_ids": [
+            "clm_12f63e7aa23f"
+          ]
+        },
+        {
+          "text": "Segundo a Plumasul, 1,60 m x 2,20 m",
+          "claim_ids": [
+            "clm_0e4444df0771"
+          ]
+        }
+      ],
+      "caption": "Medidas em metros, conforme os fabricantes",
+      "columns": [
+        "Tamanho",
+        "Sultan",
+        "Döhler",
+        "Plumasul"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Sultan, 2,20 m x 1,80 m",
+          "claim_ids": [
+            "clm_059fb9ffbb4e"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 2,20 m x 2,50 m",
+          "claim_ids": [
+            "clm_09124b720915"
+          ]
+        },
+        {
+          "text": "Segundo a Plumasul, 2,20 m x 2,40 m",
+          "claim_ids": [
+            "clm_0e4444df0771"
+          ]
+        }
+      ],
+      "caption": "Medidas em metros, conforme os fabricantes",
+      "columns": [
+        "Tamanho",
+        "Sultan",
+        "Döhler",
+        "Plumasul"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Sultan, 2,40 m x 2,20 m",
+          "claim_ids": [
+            "clm_059fb9ffbb4e"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 2,40 m x 2,50 m",
+          "claim_ids": [
+            "clm_09124b720915"
+          ]
+        },
+        {
+          "text": "Segundo a Plumasul, 2,40 m x 2,60 m",
+          "claim_ids": [
+            "clm_0e4444df0771"
+          ]
+        }
+      ],
+      "caption": "Medidas em metros, conforme os fabricantes",
+      "columns": [
+        "Tamanho",
+        "Sultan",
+        "Döhler",
+        "Plumasul"
+      ]
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Sultan, 2,60 m x 2,40 m",
+          "claim_ids": [
+            "clm_059fb9ffbb4e"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 2,80 m x 2,50 m",
+          "claim_ids": [
+            "clm_09124b720915"
+          ]
+        },
+        {
+          "text": "Segundo a Plumasul, 2,80 m x 2,60 m",
+          "claim_ids": [
+            "clm_0e4444df0771"
+          ]
+        }
+      ],
+      "caption": "Medidas em metros, conforme os fabricantes",
+      "columns": [
+        "Tamanho",
+        "Sultan",
+        "Döhler",
+        "Plumasul"
+      ]
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "action": "replace",
+      "text": "A Andreza Enxovais informa que o Cobertor Viena Flannel 300g é 100% poliéster, e o catálogo da Sultan informa composição de 100% poliéster para os produtos citados. Confira a composição na etiqueta do cobertor antes de comprar.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_25edb77f0904",
+        "clm_80180cc12666"
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Temperatura de lavação",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Appel, máximo 40°C",
+          "claim_ids": [
+            "clm_041564064caa"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, máximo 30°C",
+          "claim_ids": [
+            "clm_0b43b404e53d"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, 40°C",
+          "claim_ids": [
+            "clm_a1ffbe788f28"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Secagem",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Appel, pendurado; não secar em tambor",
+          "claim_ids": [
+            "clm_041564064caa"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, varal, sem torcer",
+          "claim_ids": [
+            "clm_acd379840d89"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, tambor, máximo 60°C",
+          "claim_ids": [
+            "clm_a1ffbe788f28"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Passar a ferro",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Appel, máximo 110°C; vapor pode causar danos",
+          "claim_ids": [
+            "clm_041564064caa"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, não passar",
+          "claim_ids": [
+            "clm_0cd1c930b9af"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, máximo 110°C",
+          "claim_ids": [
+            "clm_a1ffbe788f28"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Alvejante",
+          "claim_ids": []
+        },
+        {
+          "text": "Segundo a Appel, não alvejar nem branquear",
+          "claim_ids": [
+            "clm_041564064caa"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, não utilizar",
+          "claim_ids": [
+            "clm_bd839428a6ad"
+          ]
+        },
+        {
+          "text": "Segundo a Karsten, proibido",
+          "claim_ids": [
+            "clm_a1ffbe788f28"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "action": "replace",
+      "text": "A Appel orienta lavar a peça antes do primeiro uso, separada das outras. Segundo a Appel, o atrito forma bolinhas em peças de poliéster e virar a peça do lado de dentro protege a face visível.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e3defbdccf5a",
+        "clm_66929d7c856b"
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Clima ameno ou temperaturas mais amenas",
+          "claim_ids": [
+            "clm_028a55254d48"
+          ]
+        },
+        {
+          "text": "Segundo a Appel, 170",
+          "claim_ids": [
+            "clm_028a55254d48"
+          ]
+        },
+        {
+          "text": "Edredom Plush Flannel Confort da Appel",
+          "claim_ids": [
+            "clm_028a55254d48"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Retenção de calor sem perder leveza",
+          "claim_ids": [
+            "clm_dcf6d8d75a97"
+          ]
+        },
+        {
+          "text": "Segundo a Döhler, 350",
+          "claim_ids": [
+            "clm_dcf6d8d75a97"
+          ]
+        },
+        {
+          "text": "Cobertor Casal Eva da Döhler",
+          "claim_ids": [
+            "clm_dcf6d8d75a97"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#2",
+      "action": "replace",
+      "text": "Se preferir poliéster, confira a composição na etiqueta. Segundo a Appel, o poliéster retém mais calor que o algodão; no inverno isso pode ser favorável, enquanto em noites quentes a peça pode servir melhor como cama posta do que como coberta. A Sultan informa composição 100% poliéster em seu catálogo.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_26952e000271",
+        "clm_80180cc12666"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher cobertor para o frio: gramatura, tamanho e cuidados",
+    "description": "Escolha o cobertor pelo peso do tecido (gramatura em g/m²), tamanho da cama e composição de fibras.",
+    "verdict": {
+      "text": "Os fabricantes citados apresentam exemplos de uso: a Döhler descreve 250 g/m² para meias-estações ou para complementar a roupa de cama, e a Appel declara aquecimento eficiente em noites mais frias para um modelo de 400 g/m². Confira as medidas do modelo na ficha técnica e compare-as com as dimensões da sua cama.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_34eeeb7209d9",
+        "clm_4ca774a74655"
+      ]
+    },
+    "sections": [
+      {
+        "id": "gramatura-e-sensacao-termica",
+        "heading": "O que a gramatura diz sobre o cobertor",
+        "blocks": [
+          {
+            "text": "A Appel descreve o Cobertor King Cetinatto, com 400 g/m², como de alta densidade e com aquecimento eficiente nas noites mais frias. A Döhler afirma que o Cobertor Casal Eva, com 350 g/m², oferece excelente retenção de calor sem perder a leveza.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_4ca774a74655",
+              "clm_dcf6d8d75a97"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Alguns fabricantes descrevem a sensação térmica além da gramatura, segundo a Döhler e a Altenburg. O Cobertor Queen Elise da Döhler, com 250 g/m², é descrito como leve e prático para o uso diário. O plush, um tecido aveludado e felpudo frequentemente usado em edredons, traz sensação de aconchego e é bastante usado para o inverno, segundo a Altenburg.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_34eeeb7209d9",
+              "clm_72a2ab669c81",
+              "clm_07ae77f65974"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "medidas-tamanhos",
+        "heading": "Tamanhos e medidas declaradas pelos fabricantes",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Medidas em metros, conforme os fabricantes",
+            "columns": [
+              "Tamanho",
+              "Sultan",
+              "Döhler",
+              "Plumasul"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Solteiro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Sultan, 2,20 m x 1,50 m",
+                    "claim_ids": [
+                      "clm_059fb9ffbb4e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 1,80 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_12f63e7aa23f"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Plumasul, 1,60 m x 2,20 m",
+                    "claim_ids": [
+                      "clm_0e4444df0771"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Casal",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Sultan, 2,20 m x 1,80 m",
+                    "claim_ids": [
+                      "clm_059fb9ffbb4e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 2,20 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Plumasul, 2,20 m x 2,40 m",
+                    "claim_ids": [
+                      "clm_0e4444df0771"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Queen",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Sultan, 2,40 m x 2,20 m",
+                    "claim_ids": [
+                      "clm_059fb9ffbb4e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 2,40 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Plumasul, 2,40 m x 2,60 m",
+                    "claim_ids": [
+                      "clm_0e4444df0771"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "King",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Sultan, 2,60 m x 2,40 m",
+                    "claim_ids": [
+                      "clm_059fb9ffbb4e"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 2,80 m x 2,50 m",
+                    "claim_ids": [
+                      "clm_09124b720915"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Plumasul, 2,80 m x 2,60 m",
+                    "claim_ids": [
+                      "clm_0e4444df0771"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "composicao-fibras",
+        "heading": "Composição de fibras: o que procurar na etiqueta",
+        "blocks": [
+          {
+            "text": "A Andreza Enxovais informa que o Cobertor Viena Flannel 300g é 100% poliéster, e o catálogo da Sultan informa composição de 100% poliéster para os produtos citados. Confira a composição na etiqueta do cobertor antes de comprar.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_25edb77f0904",
+              "clm_80180cc12666"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cuidados-conservacao",
+        "heading": "Como lavar, secar e passar: o que a etiqueta manda",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Instruções de conservação conforme o material do cobertor",
+            "columns": [
+              "Instrução",
+              "Poliéster (Appel)",
+              "Poliéster com microfibra (Döhler)",
+              "Algodão (Karsten)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Temperatura de lavação",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, máximo 40°C",
+                    "claim_ids": [
+                      "clm_041564064caa"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, máximo 30°C",
+                    "claim_ids": [
+                      "clm_0b43b404e53d"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, 40°C",
+                    "claim_ids": [
+                      "clm_a1ffbe788f28"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Secagem",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, pendurado; não secar em tambor",
+                    "claim_ids": [
+                      "clm_041564064caa"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, varal, sem torcer",
+                    "claim_ids": [
+                      "clm_acd379840d89"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, tambor, máximo 60°C",
+                    "claim_ids": [
+                      "clm_a1ffbe788f28"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Passar a ferro",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, máximo 110°C; vapor pode causar danos",
+                    "claim_ids": [
+                      "clm_041564064caa"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, não passar",
+                    "claim_ids": [
+                      "clm_0cd1c930b9af"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, máximo 110°C",
+                    "claim_ids": [
+                      "clm_a1ffbe788f28"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Alvejante",
+                    "claim_ids": []
+                  },
+                  {
+                    "text": "Segundo a Appel, não alvejar nem branquear",
+                    "claim_ids": [
+                      "clm_041564064caa"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, não utilizar",
+                    "claim_ids": [
+                      "clm_bd839428a6ad"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Karsten, proibido",
+                    "claim_ids": [
+                      "clm_a1ffbe788f28"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "A Appel orienta lavar a peça antes do primeiro uso, separada das outras. Segundo a Appel, o atrito forma bolinhas em peças de poliéster e virar a peça do lado de dentro protege a face visível.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e3defbdccf5a",
+              "clm_66929d7c856b"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir-gramatura-tamanho",
+        "heading": "Como decidir pelo peso, tamanho e composição",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "Gramatura recomendada conforme o uso e clima",
+            "columns": [
+              "Uso e clima",
+              "Gramatura (g/m²)",
+              "Exemplo"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Clima ameno ou temperaturas mais amenas",
+                    "claim_ids": [
+                      "clm_028a55254d48"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 170",
+                    "claim_ids": [
+                      "clm_028a55254d48"
+                    ]
+                  },
+                  {
+                    "text": "Edredom Plush Flannel Confort da Appel",
+                    "claim_ids": [
+                      "clm_028a55254d48"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Meias-estações ou complementar em dias mais frios",
+                    "claim_ids": [
+                      "clm_34eeeb7209d9"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 250",
+                    "claim_ids": [
+                      "clm_34eeeb7209d9"
+                    ]
+                  },
+                  {
+                    "text": "Cobertor Queen Elise da Döhler",
+                    "claim_ids": [
+                      "clm_34eeeb7209d9"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Retenção de calor sem perder leveza",
+                    "claim_ids": [
+                      "clm_dcf6d8d75a97"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Döhler, 350",
+                    "claim_ids": [
+                      "clm_dcf6d8d75a97"
+                    ]
+                  },
+                  {
+                    "text": "Cobertor Casal Eva da Döhler",
+                    "claim_ids": [
+                      "clm_dcf6d8d75a97"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Frio intenso ou noites muito frias",
+                    "claim_ids": [
+                      "clm_4ca774a74655",
+                      "clm_7db0ea68140a"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, 400",
+                    "claim_ids": [
+                      "clm_4ca774a74655"
+                    ]
+                  },
+                  {
+                    "text": "Cobertor King Cetinatto da Appel",
+                    "claim_ids": [
+                      "clm_4ca774a74655"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Se você já sabe o tamanho da cama, confira as medidas em centímetros na ficha do cobertor: a Sultan informa dimensões diferentes para solteiro (2,20 m x 1,50 m), casal (2,20 m x 1,80 m), queen (2,40 m x 2,20 m) e king (2,60 m x 2,40 m). Outros fabricantes como Döhler e Plumasul também declaram medidas específicas para cada tamanho, que podem variar entre marcas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_059fb9ffbb4e",
+              "clm_09124b720915",
+              "clm_0e4444df0771"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se preferir poliéster, confira a composição na etiqueta, segundo a Appel e a Sultan. Segundo a Appel, o poliéster retém mais calor que o algodão; no inverno isso pode ser favorável, enquanto em noites quentes a peça pode servir melhor como cama posta do que como coberta. A Sultan informa composição 100% poliéster em seu catálogo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_26952e000271",
+              "clm_80180cc12666"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que 250 g/m² pode ser indicado para meias-estações e complementar a roupa de cama, e que 400 g/m² pode aquecer em noites mais frias. Eles não sustentam a regra completa de faixas: não há evidência para “acima de 350 g/m²” como categoria geral, para “entre 250 e 350 g/m²” como faixa, nem para “até 180 g/m²” em clima ameno. O trecho de medidas mostra tamanhos de um fabricante, mas não que as medidas variam entre fabricantes. Versão sustentável: Os fabricantes citados apresentam exemplos de uso: a Döhler descreve 250 g/m² para meias-estações ou para complementar a roupa de cama, e a Appel declara aquecimento eficiente em noites mais frias para um modelo de 400 g/m². Confira as medidas do modelo na ficha técnica e compare-as com as dimensões da sua cama."
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#0",
+      "msg": "UNSUPPORTED. Os trechos não definem gramatura como peso do tecido por metro quadrado, nem sustentam a generalização de que quanto maior a gramatura, mais denso e quente é o cobertor. Eles sustentam apenas as descrições específicas dos produtos: 400 g/m² com aquecimento eficiente, segundo a Appel, e 350 g/m² com retenção de calor sem perder a leveza, segundo a Döhler. Versão sustentável: A Appel descreve o Cobertor King Cetinatto, com 400 g/m², como de alta densidade e com aquecimento eficiente nas noites mais frias. A Döhler afirma que o Cobertor Casal Eva, com 350 g/m², oferece excelente retenção de calor sem perder a leveza."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "msg": "MISATTRIBUTED. Os trechos citados apenas informam que um produto da Andreza Enxovais e produtos da Sultan têm composição de 100% poliéster. Eles não dizem que a etiqueta têxtil do Inmetro deve informar o percentual de cada fibra, não sustentam a afirmação de que cobertores em geral podem conter misturas conforme o modelo e não autorizam apresentar essas regras como posição das duas marcas. Versão sustentável: Limite o texto ao que os trechos mostram: \"A Andreza Enxovais informa que o Cobertor Viena Flannel 300g é 100% poliéster, e o catálogo da Sultan informa composição de 100% poliéster para os produtos citados.\""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam instruções para produtos específicos da Appel, Döhler e Karsten, não uma regra geral para todo cobertor de poliéster, poliéster com microfibra ou algodão. Além disso, os trechos não identificam explicitamente o produto da Appel como poliéster. Versão sustentável: Apresente como instruções dos produtos citados: “Segundo a Appel, este produto deve ser lavado a no máximo 40°C; segundo a Döhler, o Cobertor Casal Eva deve ser lavado a no máximo 30°C; segundo a Karsten, este edredom de algodão deve ser lavado a 40°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "msg": "OVERSTATED. As fontes sustentam as instruções de secagem dos produtos específicos, mas o bloco as apresenta como regras gerais para materiais. O trecho da Appel também não identifica explicitamente o produto como poliéster. Versão sustentável: Atribua cada orientação ao produto citado, sem generalizar pelo material: “Segundo a Appel, não secar em tambor e secar pendurado; segundo a Döhler, secar em varal sem torcer; segundo a Karsten, secar em tambor a no máximo 60°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "msg": "OVERSTATED. As fontes são instruções para produtos específicos, não regras gerais para cada material. Além disso, a Appel diz que o vapor pode causar danos, mas não afirma que ele é proibido; “sem vapor” é mais categórico. Versão sustentável: Use: “Segundo a Appel, passar a ferro a no máximo 110°C; o vapor pode causar danos. Segundo a Döhler, não passar a ferro. Segundo a Karsten, usar ferro a no máximo 110°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "msg": "OVERSTATED. Os trechos sustentam a proibição de alvejante nos produtos específicos citados, mas o bloco transforma essas instruções em regras gerais para todos os cobertores dos materiais indicados. Versão sustentável: Apresente como instruções dos produtos: “Segundo a Appel, não alvejar nem branquear; segundo a Döhler, não utilizar alvejantes; segundo a Karsten, é proibido alvejar.”"
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "MISATTRIBUTED. Os trechos da Appel sustentam lavar antes do primeiro uso, separadamente, e virar a peça do lado de dentro, mas não dizem para sempre ler a etiqueta nem que cada fabricante pode ter instruções diferentes. A atribuição “segundo a Appel” para essas afirmações excede o que ela disse. Versão sustentável: “A Appel orienta lavar a peça antes do primeiro uso, separada das outras, e lavá-la virada do lado de dentro; segundo a Appel, o atrito forma bolinhas em peças de poliéster e virar a peça protege a face visível.”"
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam 170 g/m² para clima frio ou ameno e a existência de um edredom Sultan de 180 gramas, mas não mostram que a Sultan recomende 180 g/m² para clima ameno ou como complemento da roupa de cama. A tabela transforma esses exemplos em uma recomendação conjunta de uso e clima. Versão sustentável: Clima ameno ou temperaturas mais amenas: segundo a Appel, 170 g/m²; exemplo: Edredom Plush Flannel Confort. A Sultan oferece um edredom de 180 gramas, sem atribuir a ele essa recomendação de clima."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "msg": "OVERSTATED. A Döhler relaciona 350 g/m² à retenção de calor sem perda de leveza. A Buddemeyer apenas informa uma boa relação entre peso e volume, sem dizer que o modelo proporciona retenção de calor com leveza. Assim, a característica de uso foi atribuída conjuntamente às duas marcas. Versão sustentável: Retenção de calor sem perder a leveza: segundo a Döhler, 350 g/m²; exemplo: Cobertor Casal Eva. A Buddemeyer informa um Cobertor Intense de 350 g/m² com boa relação entre peso e volume."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#2",
+      "msg": "MISATTRIBUTED. A comparação de retenção de calor entre poliéster e algodão, assim como a recomendação para noites quentes, aparece apenas no trecho da Appel. O trecho da Sultan informa somente que determinado produto tem composição 100% poliéster; portanto, não sustenta atribuir essa conclusão à Appel e à Sultan conjuntamente. Versão sustentável: Se preferir poliéster, confira a composição na etiqueta. Segundo a Appel, o poliéster retém mais calor que o algodão; no inverno isso pode ser favorável, enquanto em noites quentes a peça pode servir melhor como cama posta do que como coberta. A Sultan informa composição 100% poliéster em seu catálogo."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 3035
+  }
+}

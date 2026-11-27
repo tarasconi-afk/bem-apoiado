@@ -1,0 +1,39 @@
+{
+  "findings": [
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "problem": "A tabela apresenta 170 g/m² como gramatura recomendada para temperaturas mais amenas, mas o trecho só diz que o enchimento de um edredom específico da Appel é ideal para esse clima.",
+      "fix": "Reescrever a linha como exemplo do Edredom Queen Plush Flannel Confort Appel, com 170 g/m² e a descrição de uso feita pela Appel, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir-gramatura-tamanho#0.r1",
+      "problem": "A tabela transforma os 250 g/m² do Cobertor Queen Elise em recomendação geral para meias-estações ou dias mais frios, embora o trecho descreva apenas esse modelo.",
+      "fix": "Reescrever a linha como exemplo do Cobertor Queen Elise da Döhler, com 250 g/m² e o uso descrito pela fabricante, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "problem": "A tabela apresenta 350 g/m² como recomendação para retenção de calor sem perder leveza, mas essa descrição vale apenas para o Cobertor Casal Eva da Döhler.",
+      "fix": "Reescrever a linha como exemplo do Cobertor Casal Eva da Döhler, com 350 g/m² e a característica declarada pela fabricante, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+    },
+    {
+      "check": "dado_de_produto_vira_regra",
+      "ref": "como-decidir-gramatura-tamanho#0.r3",
+      "problem": "A tabela apresenta 400 g/m² como gramatura para frio intenso ou noites muito frias, mas os trechos sustentam essa relação apenas para o Cobertor King Cetinatto da Appel.",
+      "fix": "Reescrever a linha como exemplo do Cobertor King Cetinatto da Appel, com 400 g/m² e o aquecimento descrito pela fabricante, ou mudar o título da tabela para indicar que reúne exemplos declarados pelos fabricantes."
+    },
+    {
+      "check": "resposta_abre_pela_fonte",
+      "ref": "verdict",
+      "problem": "a resposta curta abre creditando a fonte (marca ou fabricante) em vez de responder a dúvida do leitor",
+      "fix": "comece pela resposta prática para quem vai comprar (o que escolher em cada caso), usando só o que os trechos sustentam; a atribuição à fonte vem depois, na mesma frase ou na seguinte"
+    }
+  ],
+  "usage": {
+    "input_tokens": 27656,
+    "output_tokens": 4861,
+    "calls": 3
+  }
+}

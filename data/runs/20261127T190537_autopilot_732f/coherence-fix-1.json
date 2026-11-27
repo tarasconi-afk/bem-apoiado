@@ -1,0 +1,125 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha pela gramatura: de 170 a 250 g/m² para temperaturas amenas ou para complementar a roupa de cama em dias mais frios; de 350 a 400 g/m² para noites frias ou frio intenso, segundo fabricantes como Appel e Döhler. Confira as medidas do modelo na ficha técnica e compare-as com as dimensões da sua cama.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_028a55254d48",
+        "clm_34eeeb7209d9",
+        "clm_dcf6d8d75a97",
+        "clm_4ca774a74655"
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Edredom Queen Plush Flannel Confort Appel Home",
+          "claim_ids": [
+            "clm_028a55254d48"
+          ]
+        },
+        {
+          "text": "170",
+          "claim_ids": [
+            "clm_028a55254d48"
+          ]
+        },
+        {
+          "text": "Clima frio e temperaturas mais amenas, segundo a Appel",
+          "claim_ids": [
+            "clm_028a55254d48"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Cobertor Queen Elise Döhler",
+          "claim_ids": [
+            "clm_34eeeb7209d9"
+          ]
+        },
+        {
+          "text": "250",
+          "claim_ids": [
+            "clm_34eeeb7209d9"
+          ]
+        },
+        {
+          "text": "Meias-estações ou para complementar a roupa de cama nos dias mais frios, segundo a Döhler",
+          "claim_ids": [
+            "clm_34eeeb7209d9"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Cobertor Casal Eva Döhler",
+          "claim_ids": [
+            "clm_dcf6d8d75a97"
+          ]
+        },
+        {
+          "text": "350",
+          "claim_ids": [
+            "clm_dcf6d8d75a97"
+          ]
+        },
+        {
+          "text": "Retenção de calor sem perder a leveza, segundo a Döhler",
+          "claim_ids": [
+            "clm_dcf6d8d75a97"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Cobertor King Cetinatto Appel",
+          "claim_ids": [
+            "clm_4ca774a74655"
+          ]
+        },
+        {
+          "text": "400",
+          "claim_ids": [
+            "clm_4ca774a74655"
+          ]
+        },
+        {
+          "text": "Aquecimento eficiente nas noites mais frias, segundo a Appel",
+          "claim_ids": [
+            "clm_4ca774a74655"
+          ]
+        }
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict",
+    "como-decidir-gramatura-tamanho#0.r0",
+    "como-decidir-gramatura-tamanho#0.r1",
+    "como-decidir-gramatura-tamanho#0.r2",
+    "como-decidir-gramatura-tamanho#0.r3",
+    "como-decidir-gramatura-tamanho#1",
+    "como-decidir-gramatura-tamanho#2"
+  ],
+  "still": [
+    "verdict: OVERSTATED"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que 250 g/m² pode ser indicado para meias-estações e complementar a roupa de cama, e que 400 g/m² pode aquecer em noites mais frias. Eles não sustentam a regra completa de faixas: não há evidência para “acima de 350 g/m²” como categoria geral, para “entre 250 e 350 g/m²” como faixa, nem para “até 180 g/m²” em clima ameno. O trecho de medidas mostra tamanhos de um fabricante, mas não que as medidas variam entre fabricantes.",
+      "fix": "Os fabricantes citados apresentam exemplos de uso: a Döhler descreve 250 g/m² para meias-estações ou para complementar a roupa de cama, e a Appel declara aquecimento eficiente em noites mais frias para um modelo de 400 g/m². Confira as medidas do modelo na ficha técnica e compare-as com as dimensões da sua cama."
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#0",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos não definem gramatura como peso do tecido por metro quadrado, nem sustentam a generalização de que quanto maior a gramatura, mais denso e quente é o cobertor. Eles sustentam apenas as descrições específicas dos produtos: 400 g/m² com aquecimento eficiente, segundo a Appel, e 350 g/m² com retenção de calor sem perder a leveza, segundo a Döhler.",
+      "fix": "A Appel descreve o Cobertor King Cetinatto, com 400 g/m², como de alta densidade e com aquecimento eficiente nas noites mais frias. A Döhler afirma que o Cobertor Casal Eva, com 350 g/m², oferece excelente retenção de calor sem perder a leveza."
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m).",
+      "fix": "Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "verdict": "UNSUPPORTED",
+      "problem": "O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m).",
+      "fix": "Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "verdict": "UNSUPPORTED",
+      "problem": "O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m).",
+      "fix": "Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "verdict": "UNSUPPORTED",
+      "problem": "O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m).",
+      "fix": "Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos citados apenas informam que um produto da Andreza Enxovais e produtos da Sultan têm composição de 100% poliéster. Eles não dizem que a etiqueta têxtil do Inmetro deve informar o percentual de cada fibra, não sustentam a afirmação de que cobertores em geral podem conter misturas conforme o modelo e não autorizam apresentar essas regras como posição das duas marcas.",
+      "fix": "Limite o texto ao que os trechos mostram: \"A Andreza Enxovais informa que o Cobertor Viena Flannel 300g é 100% poliéster, e o catálogo da Sultan informa composição de 100% poliéster para os produtos citados.\""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam instruções para produtos específicos da Appel, Döhler e Karsten, não uma regra geral para todo cobertor de poliéster, poliéster com microfibra ou algodão. Além disso, os trechos não identificam explicitamente o produto da Appel como poliéster.",
+      "fix": "Apresente como instruções dos produtos citados: “Segundo a Appel, este produto deve ser lavado a no máximo 40°C; segundo a Döhler, o Cobertor Casal Eva deve ser lavado a no máximo 30°C; segundo a Karsten, este edredom de algodão deve ser lavado a 40°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "verdict": "OVERSTATED",
+      "problem": "As fontes sustentam as instruções de secagem dos produtos específicos, mas o bloco as apresenta como regras gerais para materiais. O trecho da Appel também não identifica explicitamente o produto como poliéster.",
+      "fix": "Atribua cada orientação ao produto citado, sem generalizar pelo material: “Segundo a Appel, não secar em tambor e secar pendurado; segundo a Döhler, secar em varal sem torcer; segundo a Karsten, secar em tambor a no máximo 60°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "As fontes são instruções para produtos específicos, não regras gerais para cada material. Além disso, a Appel diz que o vapor pode causar danos, mas não afirma que ele é proibido; “sem vapor” é mais categórico.",
+      "fix": "Use: “Segundo a Appel, passar a ferro a no máximo 110°C; o vapor pode causar danos. Segundo a Döhler, não passar a ferro. Segundo a Karsten, usar ferro a no máximo 110°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam a proibição de alvejante nos produtos específicos citados, mas o bloco transforma essas instruções em regras gerais para todos os cobertores dos materiais indicados.",
+      "fix": "Apresente como instruções dos produtos: “Segundo a Appel, não alvejar nem branquear; segundo a Döhler, não utilizar alvejantes; segundo a Karsten, é proibido alvejar.”"
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos da Appel sustentam lavar antes do primeiro uso, separadamente, e virar a peça do lado de dentro, mas não dizem para sempre ler a etiqueta nem que cada fabricante pode ter instruções diferentes. A atribuição “segundo a Appel” para essas afirmações excede o que ela disse.",
+      "fix": "“A Appel orienta lavar a peça antes do primeiro uso, separada das outras, e lavá-la virada do lado de dentro; segundo a Appel, o atrito forma bolinhas em peças de poliéster e virar a peça protege a face visível.”"
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam 170 g/m² para clima frio ou ameno e a existência de um edredom Sultan de 180 gramas, mas não mostram que a Sultan recomende 180 g/m² para clima ameno ou como complemento da roupa de cama. A tabela transforma esses exemplos em uma recomendação conjunta de uso e clima.",
+      "fix": "Clima ameno ou temperaturas mais amenas: segundo a Appel, 170 g/m²; exemplo: Edredom Plush Flannel Confort. A Sultan oferece um edredom de 180 gramas, sem atribuir a ele essa recomendação de clima."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "verdict": "OVERSTATED",
+      "problem": "A Döhler relaciona 350 g/m² à retenção de calor sem perda de leveza. A Buddemeyer apenas informa uma boa relação entre peso e volume, sem dizer que o modelo proporciona retenção de calor com leveza. Assim, a característica de uso foi atribuída conjuntamente às duas marcas.",
+      "fix": "Retenção de calor sem perder a leveza: segundo a Döhler, 350 g/m²; exemplo: Cobertor Casal Eva. A Buddemeyer informa um Cobertor Intense de 350 g/m² com boa relação entre peso e volume."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#2",
+      "verdict": "MISATTRIBUTED",
+      "problem": "A comparação de retenção de calor entre poliéster e algodão, assim como a recomendação para noites quentes, aparece apenas no trecho da Appel. O trecho da Sultan informa somente que determinado produto tem composição 100% poliéster; portanto, não sustenta atribuir essa conclusão à Appel e à Sultan conjuntamente.",
+      "fix": "Se preferir poliéster, confira a composição na etiqueta. Segundo a Appel, o poliéster retém mais calor que o algodão; no inverno isso pode ser favorável, enquanto em noites quentes a peça pode servir melhor como cama posta do que como coberta. A Sultan informa composição 100% poliéster em seu catálogo."
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "OVERSTATED. Os trechos sustentam que 250 g/m² pode ser indicado para meias-estações e complementar a roupa de cama, e que 400 g/m² pode aquecer em noites mais frias. Eles não sustentam a regra completa de faixas: não há evidência para “acima de 350 g/m²” como categoria geral, para “entre 250 e 350 g/m²” como faixa, nem para “até 180 g/m²” em clima ameno. O trecho de medidas mostra tamanhos de um fabricante, mas não que as medidas variam entre fabricantes. Versão sustentável: Os fabricantes citados apresentam exemplos de uso: a Döhler descreve 250 g/m² para meias-estações ou para complementar a roupa de cama, e a Appel declara aquecimento eficiente em noites mais frias para um modelo de 400 g/m². Confira as medidas do modelo na ficha técnica e compare-as com as dimensões da sua cama."
+    },
+    {
+      "ref": "gramatura-e-sensacao-termica#0",
+      "msg": "UNSUPPORTED. Os trechos não definem gramatura como peso do tecido por metro quadrado, nem sustentam a generalização de que quanto maior a gramatura, mais denso e quente é o cobertor. Eles sustentam apenas as descrições específicas dos produtos: 400 g/m² com aquecimento eficiente, segundo a Appel, e 350 g/m² com retenção de calor sem perder a leveza, segundo a Döhler. Versão sustentável: A Appel descreve o Cobertor King Cetinatto, com 400 g/m², como de alta densidade e com aquecimento eficiente nas noites mais frias. A Döhler afirma que o Cobertor Casal Eva, com 350 g/m², oferece excelente retenção de calor sem perder a leveza."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r0",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r1",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r2",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "medidas-tamanhos#0.r3",
+      "msg": "UNSUPPORTED. O cabeçalho afirma que as medidas estão em centímetros, mas todos os trechos citados registram os valores em metros (m). Versão sustentável: Usar: \"Medidas em metros, conforme os fabricantes\" e manter os valores citados."
+    },
+    {
+      "ref": "composicao-fibras#0",
+      "msg": "MISATTRIBUTED. Os trechos citados apenas informam que um produto da Andreza Enxovais e produtos da Sultan têm composição de 100% poliéster. Eles não dizem que a etiqueta têxtil do Inmetro deve informar o percentual de cada fibra, não sustentam a afirmação de que cobertores em geral podem conter misturas conforme o modelo e não autorizam apresentar essas regras como posição das duas marcas. Versão sustentável: Limite o texto ao que os trechos mostram: \"A Andreza Enxovais informa que o Cobertor Viena Flannel 300g é 100% poliéster, e o catálogo da Sultan informa composição de 100% poliéster para os produtos citados.\""
+    },
+    {
+      "ref": "cuidados-conservacao#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam instruções para produtos específicos da Appel, Döhler e Karsten, não uma regra geral para todo cobertor de poliéster, poliéster com microfibra ou algodão. Além disso, os trechos não identificam explicitamente o produto da Appel como poliéster. Versão sustentável: Apresente como instruções dos produtos citados: “Segundo a Appel, este produto deve ser lavado a no máximo 40°C; segundo a Döhler, o Cobertor Casal Eva deve ser lavado a no máximo 30°C; segundo a Karsten, este edredom de algodão deve ser lavado a 40°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r1",
+      "msg": "OVERSTATED. As fontes sustentam as instruções de secagem dos produtos específicos, mas o bloco as apresenta como regras gerais para materiais. O trecho da Appel também não identifica explicitamente o produto como poliéster. Versão sustentável: Atribua cada orientação ao produto citado, sem generalizar pelo material: “Segundo a Appel, não secar em tambor e secar pendurado; segundo a Döhler, secar em varal sem torcer; segundo a Karsten, secar em tambor a no máximo 60°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r2",
+      "msg": "OVERSTATED. As fontes são instruções para produtos específicos, não regras gerais para cada material. Além disso, a Appel diz que o vapor pode causar danos, mas não afirma que ele é proibido; “sem vapor” é mais categórico. Versão sustentável: Use: “Segundo a Appel, passar a ferro a no máximo 110°C; o vapor pode causar danos. Segundo a Döhler, não passar a ferro. Segundo a Karsten, usar ferro a no máximo 110°C.”"
+    },
+    {
+      "ref": "cuidados-conservacao#0.r3",
+      "msg": "OVERSTATED. Os trechos sustentam a proibição de alvejante nos produtos específicos citados, mas o bloco transforma essas instruções em regras gerais para todos os cobertores dos materiais indicados. Versão sustentável: Apresente como instruções dos produtos: “Segundo a Appel, não alvejar nem branquear; segundo a Döhler, não utilizar alvejantes; segundo a Karsten, é proibido alvejar.”"
+    },
+    {
+      "ref": "cuidados-conservacao#1",
+      "msg": "MISATTRIBUTED. Os trechos da Appel sustentam lavar antes do primeiro uso, separadamente, e virar a peça do lado de dentro, mas não dizem para sempre ler a etiqueta nem que cada fabricante pode ter instruções diferentes. A atribuição “segundo a Appel” para essas afirmações excede o que ela disse. Versão sustentável: “A Appel orienta lavar a peça antes do primeiro uso, separada das outras, e lavá-la virada do lado de dentro; segundo a Appel, o atrito forma bolinhas em peças de poliéster e virar a peça protege a face visível.”"
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r0",
+      "msg": "OVERSTATED. Os trechos sustentam 170 g/m² para clima frio ou ameno e a existência de um edredom Sultan de 180 gramas, mas não mostram que a Sultan recomende 180 g/m² para clima ameno ou como complemento da roupa de cama. A tabela transforma esses exemplos em uma recomendação conjunta de uso e clima. Versão sustentável: Clima ameno ou temperaturas mais amenas: segundo a Appel, 170 g/m²; exemplo: Edredom Plush Flannel Confort. A Sultan oferece um edredom de 180 gramas, sem atribuir a ele essa recomendação de clima."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#0.r2",
+      "msg": "OVERSTATED. A Döhler relaciona 350 g/m² à retenção de calor sem perda de leveza. A Buddemeyer apenas informa uma boa relação entre peso e volume, sem dizer que o modelo proporciona retenção de calor com leveza. Assim, a característica de uso foi atribuída conjuntamente às duas marcas. Versão sustentável: Retenção de calor sem perder a leveza: segundo a Döhler, 350 g/m²; exemplo: Cobertor Casal Eva. A Buddemeyer informa um Cobertor Intense de 350 g/m² com boa relação entre peso e volume."
+    },
+    {
+      "ref": "como-decidir-gramatura-tamanho#2",
+      "msg": "MISATTRIBUTED. A comparação de retenção de calor entre poliéster e algodão, assim como a recomendação para noites quentes, aparece apenas no trecho da Appel. O trecho da Sultan informa somente que determinado produto tem composição 100% poliéster; portanto, não sustenta atribuir essa conclusão à Appel e à Sultan conjuntamente. Versão sustentável: Se preferir poliéster, confira a composição na etiqueta. Segundo a Appel, o poliéster retém mais calor que o algodão; no inverno isso pode ser favorável, enquanto em noites quentes a peça pode servir melhor como cama posta do que como coberta. A Sultan informa composição 100% poliéster em seu catálogo."
+    }
+  ]
+}
