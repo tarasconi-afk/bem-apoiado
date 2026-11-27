@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "certificacoes#0",
+      "problem": "O título da seção promete certificações, mas o bloco traz apenas declarações dos fabricantes sobre propriedades hipoalergênicas e informa que o Inmetro não as avalia.",
+      "fix": "Mudar o título para “Declarações dos fabricantes sobre propriedades hipoalergênicas” ou retirar “Certificações” da promessa."
+    }
+  ],
+  "usage": {
+    "input_tokens": 17658,
+    "output_tokens": 3424,
+    "calls": 3
+  }
+}

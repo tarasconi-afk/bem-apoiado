@@ -1,0 +1,339 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Confira na ficha técnica altura em centímetros, tipo de enchimento e firmeza: fabricantes como Probel e Luuna informam esses dados para cada modelo, e o Inmetro classifica o travesseiro como produto têxtil sob regulação técnica.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a89044e5f0d",
+        "clm_0515cc1b3841",
+        "clm_326cb93a8a41",
+        "clm_abc7525d8d39"
+      ]
+    },
+    {
+      "ref": "altura-firmeza-tamanho#1",
+      "action": "replace",
+      "text": "A Probel informa alturas de 12 cm e 14 cm em suas fichas técnicas.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_1a89044e5f0d",
+        "clm_37c35b13f8cb",
+        "clm_285b10d4fc62"
+      ]
+    },
+    {
+      "ref": "altura-firmeza-tamanho#3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Paz Viscoelástico D30 Firme da Probel | 12 | Viscoelástico",
+          "claim_ids": [
+            "clm_37c35b13f8cb",
+            "clm_a58b2169fded"
+          ]
+        },
+        {
+          "text": "Zone Espuma HR Gel D40 Firme da Probel | 14 | Espuma HR Gel",
+          "claim_ids": [
+            "clm_285b10d4fc62",
+            "clm_b5f1b45df429",
+            "clm_ab4e7d1ec673"
+          ]
+        },
+        {
+          "text": "Grid Tech (P) da Luuna | 14 | Látex Talalay",
+          "claim_ids": [
+            "clm_326cb93a8a41",
+            "clm_3961df101035"
+          ]
+        }
+      ],
+      "caption": "Altura, material de enchimento em modelos à venda",
+      "columns": [
+        "Modelo e marca",
+        "Altura (cm)",
+        "Material de enchimento"
+      ]
+    },
+    {
+      "ref": "lavagem-garantia#2",
+      "action": "replace",
+      "text": "A Probel oferece 3 meses de garantia no Zone e a Ortobom oferece 90 dias de garantia no Anatomic Visco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_35e06eb89d44",
+        "clm_5f320627cf05"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Se prefere um travesseiro mais macio, a Probel classifica o Realizações Hiper Soft como Extra Macio. Se prefere fibra siliconada, o Conect Comfort é classificado como Firme pela Probel.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_6fab0db51839",
+        "clm_59b909e3c5d4"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher travesseiro: altura, firmeza e material",
+    "description": "Escolha travesseiro pela altura em cm, firmeza (macio, médio, firme) e material do enchimento.",
+    "verdict": {
+      "text": "Confira na ficha técnica altura em centímetros, tipo de enchimento e firmeza: fabricantes como Probel e Luuna informam esses dados para cada modelo, e o Inmetro classifica o travesseiro como produto têxtil sob regulação técnica.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_1a89044e5f0d",
+        "clm_0515cc1b3841",
+        "clm_326cb93a8a41",
+        "clm_abc7525d8d39"
+      ]
+    },
+    "sections": [
+      {
+        "id": "tipos-enchimento",
+        "heading": "Quais materiais de enchimento encontrar",
+        "blocks": [
+          {
+            "text": "A Probel identifica a espuma como enchimento no Prosperidade; nesse modelo, descreve a composição como macia e acolhedora com toque suave. No Realizações Hiper Soft, descreve uma espuma de alta resiliência que se molda delicadamente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_01bb37ef97f8",
+              "clm_4114cd272b54",
+              "clm_1fe66c4066c9"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "No Plenitude, a Probel identifica o enchimento como viscoelástico D40 e declara que ele proporciona suporte firme e excelente adaptação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0515cc1b3841",
+              "clm_5da11d7e6717"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel identifica o enchimento do modelo Conect Comfort como fibra siliconada.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_8ed84aba2d9d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Luuna oferece uma almofada de látex Talalay e declara que ele é fabricado por processo especializado para obter textura mais suave e uniforme, com maior durabilidade e conforto que o látex comum.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3961df101035",
+              "clm_932b9dcae76d"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "altura-firmeza-tamanho",
+        "heading": "Altura, firmeza e dimensões: o que conferir na ficha",
+        "blocks": [
+          {
+            "text": "Os modelos Probel citados informam alturas de 12 cm e 14 cm em suas fichas técnicas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a89044e5f0d",
+              "clm_37c35b13f8cb",
+              "clm_285b10d4fc62"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel informa alturas de 12 cm e 14 cm em suas fichas técnicas.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1a89044e5f0d",
+              "clm_37c35b13f8cb",
+              "clm_285b10d4fc62"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O modelo Prosperidade da Probel mede 40 × 60 cm e é declarado como adequado a fronhas de 50 × 70 cm; o Grid Tech da Luuna mede 40 × 65 × 14 cm.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_3e6b29eb4d51",
+              "clm_326cb93a8a41"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "kind": "table",
+            "caption": "Altura, material de enchimento em modelos à venda",
+            "columns": [
+              "Modelo e marca",
+              "Altura (cm)"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Paz Viscoelástico D30 Firme da Probel",
+                    "claim_ids": [
+                      "clm_37c35b13f8cb"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, 12",
+                    "claim_ids": [
+                      "clm_37c35b13f8cb"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Zone Espuma HR Gel D40 Firme da Probel",
+                    "claim_ids": [
+                      "clm_285b10d4fc62"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Probel, 14",
+                    "claim_ids": [
+                      "clm_b5f1b45df429"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Grid Tech (P) da Luuna",
+                    "claim_ids": [
+                      "clm_326cb93a8a41"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Luuna, 14",
+                    "claim_ids": [
+                      "clm_326cb93a8a41"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lavagem-garantia",
+        "heading": "Cuidados de lavagem e garantia",
+        "blocks": [
+          {
+            "text": "A Ortobom informa para o Anatomic Visco: lavagem a no máximo 40°C, sem alvejante ou limpeza a seco, secagem em tambor a no máximo 60°C e sem passadoria.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0e61133bf32b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Conforto Regulável da Ortobom tem instruções de lavagem a no máximo 40°C em processo suave, sem alvejante, com secagem em tambor a no máximo 60°C e sem passadoria ou limpeza a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_d302c7e983e4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A Probel oferece 3 meses de garantia no Zone e a Ortobom oferece 90 dias de garantia no Anatomic Visco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_35e06eb89d44",
+              "clm_5f320627cf05"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "certificacoes",
+        "heading": "Certificações e declarações do fabricante",
+        "blocks": [
+          {
+            "text": "A Dunlopillo declara que o Basic Flat tem propriedades hipoalergênicas e é resistente a ácaros, e a Luuna declara que o Grid Tech é naturalmente hipoalergênico. O Inmetro não avalia essas propriedades.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e8085d4dfdc9",
+              "clm_89d42ec021d3"
+            ],
+            "kind": "callout",
+            "tone": "info"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir ao comprar",
+        "blocks": [
+          {
+            "text": "Se busca um travesseiro que se adapte ao corpo, o Plenitude da Probel usa viscoelástica D40, descrita pela fabricante como firme com excelente adaptação.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0515cc1b3841",
+              "clm_5da11d7e6717"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se prefere um travesseiro mais macio, a Probel descreve o Realizações Hiper Soft como Extra Macio. Se prefere fibra siliconada, o Conect Comfort com esse material é classificado como Firme.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1fe66c4066c9",
+              "clm_6fab0db51839",
+              "clm_59b909e3c5d4"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "O Inmetro classifica o travesseiro como produto têxtil e exige atendimento ao regulamento técnico da Portaria Inmetro nº 118/2021. Confira na ficha técnica e na etiqueta as informações que cada fabricante oferece: altura, tipo de enchimento, dimensões, cuidados de lavagem e prazo de garantia.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_abc7525d8d39"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "altura-firmeza-tamanho#3",
+      "msg": "a coluna \"Firmeza\" repete \"Segundo a Probel, firme\" em 2 linhas, sem dado: traga o que a fonte diz para cada linha ou tire a coluna."
+    },
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir com norma, regulador ou anexo: comece pelo que o leitor deve escolher ou conferir."
+    },
+    {
+      "ref": "altura-firmeza-tamanho#1",
+      "msg": "não escreva \"trecho\" (nem \"trechos citados\"), \"fichas citadas\" ou \"evidência citada\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\", \"na ficha da Probel\"). Não escreva o que a fonte deixa de informar: ausência não se prova."
+    },
+    {
+      "ref": "lavagem-garantia#2",
+      "msg": "não escreva \"trecho\" (nem \"trechos citados\"), \"fichas citadas\" ou \"evidência citada\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\", \"na ficha da Probel\"). Não escreva o que a fonte deixa de informar: ausência não se prova."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "não escreva \"trecho\" (nem \"trechos citados\"), \"fichas citadas\" ou \"evidência citada\" (é termo do motor): diga quem afirma (\"segundo a Ortobom\", \"na ficha da Probel\"). Não escreva o que a fonte deixa de informar: ausência não se prova."
+    }
+  ],
+  "usage": {
+    "input_tokens": 6,
+    "output_tokens": 1779
+  }
+}

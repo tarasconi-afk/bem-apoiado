@@ -1,0 +1,171 @@
+{
+  "slug": "cama-box-conjugada-ou-bipartida-diferenca",
+  "page_type": "decision_compare",
+  "status": "draft",
+  "title": "Base box conjugada ou bipartida: qual escolher",
+  "description": "Como escolher entre base bipartida e inteira pela passagem para o quarto e pelo tamanho do colchão.",
+  "primary_query": "cama box conjugada ou bipartida: diferença",
+  "updated_at": "2026-11-26",
+  "verdict": {
+    "text": "Para colchões Queen, King e Superking, a Ortobom indica base bipartida para suas linhas Bellona, Orion ou Orthotel Boutique, com larguras entre 158 cm e 193 cm; a Probel afirma que seus modelos bipartidos facilitam o transporte e a instalação. Para colchão casal ou menor, a Ortobom orienta considerar uma estrutura de um módulo.",
+    "basis": "evidence",
+    "claim_ids": [
+      "clm_93179d5f7deb",
+      "clm_215efc23d4aa",
+      "clm_e3014f462eb6",
+      "clm_dd2b5ccac7a0"
+    ]
+  },
+  "sections": [
+    {
+      "id": "estrutura-peso",
+      "heading": "Estrutura de madeira e peso suportado",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Probel informa que a base box é feita em madeira de reflorestamento de eucalipto tratado, que funciona como bactericida natural e garante maior durabilidade. A Ortobom identifica a base da cama e os pés rosqueáveis como componentes da estrutura.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_850bb820e210",
+            "clm_415fbcf31541"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A Probel declara que a base box suporta 150 kg por pessoa, desde que haja um colchão sobre a base.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_043130212a0f"
+          ]
+        },
+        {
+          "kind": "callout",
+          "tone": "warning",
+          "text": "A Ortobom avisa que o produto tem peso elevado. Leve isso em conta ao transportar a base até o quarto.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_d8d963b3237e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniao-modulos",
+      "heading": "Como as duas partes se unem na base bipartida",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Ortobom informa que os dois módulos da base bipartida são unidos com uma Chapa para União, fixada com 2 parafusos, conforme as posições indicadas na Figura 7.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_ba9ee6ae1bb9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "como-decidir",
+      "heading": "Como decidir",
+      "blocks": [
+        {
+          "kind": "table",
+          "caption": "Diferenças entre base box conjugada e bipartida por tamanho",
+          "columns": [
+            "Tipo",
+            "Tamanho queen",
+            "Tamanho king"
+          ],
+          "rows": [
+            {
+              "cells": [
+                {
+                  "text": "Conjugada (um volume)",
+                  "claim_ids": [
+                    "clm_4822bf8567fd"
+                  ]
+                },
+                {
+                  "text": "A Probel lista uma base inteiriça de 138 × 188 × 26 cm",
+                  "claim_ids": [
+                    "clm_50d52d493e49",
+                    "clm_4822bf8567fd"
+                  ]
+                },
+                {
+                  "text": "Segundo a Ortobom, Queen ou maiores têm estrutura com 2 módulos",
+                  "claim_ids": [
+                    "clm_215efc23d4aa"
+                  ]
+                }
+              ]
+            },
+            {
+              "cells": [
+                {
+                  "text": "Bipartida (dois volumes)",
+                  "claim_ids": [
+                    "clm_585fdfd5899b"
+                  ]
+                },
+                {
+                  "text": "Segundo a Probel, 158 × 198 × 26 cm",
+                  "claim_ids": [
+                    "clm_07f4c2d30269"
+                  ]
+                },
+                {
+                  "text": "Segundo a Probel, 193 × 203 × 26 cm",
+                  "claim_ids": [
+                    "clm_4f0332359540"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A Probel informa que modelos bipartidos facilitam o transporte e a instalação. Confira na ficha se o modelo é descrito como \"bipartido\".",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_e3014f462eb6"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se a passagem não é uma limitação e você prefere uma peça única, procure na ficha por uma base inteira ou \"inteiriça\" (um volume), conforme a Probel oferece em alguns modelos.",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_bc0e81b89cbe",
+            "clm_63cbc75872c9"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Se escolher a base bipartida, verifique no manual se os dois módulos se unem com chapa e parafusos: a Ortobom informa que a chapa para união é fixada com 2 parafusos. Se escolher a inteira, confirme na ficha que informa \"um volume\".",
+          "basis": "evidence",
+          "claim_ids": [
+            "clm_ba9ee6ae1bb9",
+            "clm_bc0e81b89cbe"
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [],
+  "provenance": {
+    "run_id": "20261126T190753_autopilot_3a8e+editor:20261126T191427_cama-box-conjugada-ou-bipartida-diferenca-autocorrecao_1a95",
+    "writer_model": "claude-haiku-4.5",
+    "auditor_model": "gpt-5.6-luna",
+    "audit_verdict": "pass",
+    "review": {
+      "answers_primary_query": "yes",
+      "concrete_guidance": true,
+      "filler_ratio": 0,
+      "criteria": 6,
+      "reader_fit": true,
+      "quick_answer": false,
+      "rule_publishable": false
+    }
+  }
+}

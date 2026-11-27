@@ -1,0 +1,84 @@
+{
+  "removed": [
+    "altura-firmeza-tamanho#1"
+  ],
+  "before": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta apenas manda conferir altura, enchimento e firmeza, mas não explica qual opção escolher.",
+      "O Como decidir usa termos técnicos como “viscoelástica D40” sem explicar o que significam para o comprador leigo.",
+      "Faltam regras gerais para relacionar altura e firmeza à posição de dormir, medidas do usuário ou preferência de suporte."
+    ],
+    "filler_refs": [
+      "altura-firmeza-tamanho#1"
+    ],
+    "decision_criteria": [
+      "Para buscar adaptação ao corpo, escolher um modelo de espuma viscoelástica D40 descrito pela Probel como firme e com adaptação.",
+      "Para preferir um travesseiro mais macio, considerar um modelo classificado pela fabricante como Extra Macio, como o Realizações Hiper Soft.",
+      "Para escolher fibra siliconada, conferir modelos com esse enchimento, como o Conect Comfort, observando que a Probel o classifica como firme.",
+      "Comparar a altura informada na ficha, com exemplos de 12 cm e 14 cm.",
+      "Conferir as dimensões do travesseiro e a compatibilidade com a fronha; há exemplos de 40 × 60 cm compatível com fronha de 50 × 70 cm e de 40 × 65 × 14 cm.",
+      "Verificar as instruções de lavagem e secagem específicas do modelo.",
+      "Conferir o prazo de garantia informado pelo fabricante, que nos exemplos varia de 90 dias a 3 meses.",
+      "Não tomar as declarações de hipoalergênico ou resistente a ácaros como propriedades avaliadas pelo Inmetro."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta apenas manda conferir altura, enchimento e firmeza, mas não explica qual opção escolher.",
+      "Para o leitor leigo: O Como decidir usa termos técnicos como “viscoelástica D40” sem explicar o que significam para o comprador leigo.",
+      "Para o leitor leigo: Faltam regras gerais para relacionar altura e firmeza à posição de dormir, medidas do usuário ou preferência de suporte.",
+      "Regra relacionando altura do travesseiro à posição de dormir, largura dos ombros ou preferência de suporte.",
+      "Critério geral para escolher entre firmeza macia, média e firme, além de exemplos isolados de marcas.",
+      "Tabela cruzando modelo, material, altura, firmeza, dimensões e indicação de uso em pelo menos dois fabricantes.",
+      "Explicação leiga do que significam termos como viscoelástica D40, espuma de alta resiliência e látex Talalay.",
+      "Informação comparável sobre quais modelos são laváveis e como a lavagem influencia a escolha."
+    ],
+    "publishable": false,
+    "summary": "A página reúne fichas técnicas úteis e permite comparar altura, enchimento, firmeza, medidas, lavagem e garantia, mas não responde rapidamente qual travesseiro escolher. A resposta curta é genérica, e o Como decidir oferece apenas exemplos de modelos, sem uma regra geral para relacionar altura e firmeza ao perfil do comprador; além disso, usa termos técnicos sem explicação para leigos. Deve ser revisada antes da publicação.",
+    "filler_ratio": 0.05555555555555555,
+    "model_opinion": false
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta apenas manda conferir altura, enchimento e firmeza, mas não explica qual combinação escolher para diferentes perfis de uso.",
+      "O Como decidir usa termos técnicos como “viscoelástica D40” sem explicar o que significam para o comprador leigo.",
+      "Não há orientação sobre como relacionar altura e firmeza à posição de dormir ou às características do usuário."
+    ],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Para quem busca adaptação ao corpo, o Plenitude da Probel usa espuma viscoelástica D40 e é classificado pela fabricante como firme.",
+      "Para quem prefere um travesseiro mais macio, o Realizações Hiper Soft da Probel é descrito como extra macio.",
+      "Para quem prefere fibra siliconada, o Conect Comfort da Probel usa esse enchimento, mas é classificado como firme.",
+      "Confira na ficha técnica a altura: os modelos citados têm 12 cm ou 14 cm.",
+      "Confira as medidas e a compatibilidade com a fronha: o Prosperidade mede 40 × 60 cm e é indicado para fronha de 50 × 70 cm; o Grid Tech mede 40 × 65 × 14 cm.",
+      "Verifique as instruções de lavagem específicas do modelo, como temperatura máxima de 40 °C, ausência de alvejante e limpeza a seco em alguns produtos.",
+      "Confira o prazo de garantia informado para o modelo; os exemplos citados oferecem 90 dias ou 3 meses.",
+      "Não trate as declarações de hipoalergênico e resistente a ácaros como propriedades avaliadas pelo Inmetro."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta apenas manda conferir altura, enchimento e firmeza, mas não explica qual combinação escolher para diferentes perfis de uso.",
+      "Para o leitor leigo: O Como decidir usa termos técnicos como “viscoelástica D40” sem explicar o que significam para o comprador leigo.",
+      "Para o leitor leigo: Não há orientação sobre como relacionar altura e firmeza à posição de dormir ou às características do usuário.",
+      "Uma regra relacionando altura do travesseiro à posição de dormir, largura dos ombros ou preferência do usuário.",
+      "Uma comparação clara entre os materiais de enchimento, explicando em linguagem leiga as diferenças práticas de maciez, suporte, adaptação e manutenção.",
+      "Uma orientação para escolher entre 12 cm e 14 cm, ou entre firmeza macia, média e firme.",
+      "Mais exemplos de fabricantes relacionando modelo, altura, material e firmeza em uma tabela de decisão.",
+      "Critérios para conferir a fronha compatível nos diferentes tamanhos de travesseiro.",
+      "Condições detalhadas de garantia e indicação de vida útil dos modelos."
+    ],
+    "publishable": false,
+    "summary": "A página reúne dados técnicos e oferece alguns caminhos concretos por preferência — adaptação, maciez ou fibra —, mas responde apenas parcialmente a “como escolher travesseiro”. A resposta curta é genérica, não traz uma regra de escolha com altura e firmeza, e o Como decidir usa “viscoelástica D40” sem explicação para leigos. Deve ser revisada antes da publicação com uma regra prática de decisão e linguagem mais acessível.",
+    "filler_ratio": 0,
+    "model_opinion": false
+  }
+}

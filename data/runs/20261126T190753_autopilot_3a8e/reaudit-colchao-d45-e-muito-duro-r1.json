@@ -1,0 +1,36 @@
+{
+  "patches": [
+    {
+      "ref": "densidade-vs-firmeza#0",
+      "action": "replace",
+      "text": "A Simmons apresenta categorias de firmeza Plush, Intermediário e Firme. Em um produto citado da Probel, há espuma D40, D28 e D20, e outro modelo é classificado como Firme.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_04426077d722",
+        "clm_0c4a89dd20b8",
+        "clm_111667715d3c"
+      ]
+    },
+    {
+      "ref": "densidade-vs-firmeza#1",
+      "action": "replace",
+      "text": "Um modelo Castor combina espumas D45 e D20. Segundo a Ortobom, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_62e05c41ef9d",
+        "clm_070d1e8dcda0",
+        "clm_399ab0d322be"
+      ]
+    },
+    {
+      "ref": "o-que-conferir#0",
+      "action": "remove"
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "densidade-vs-firmeza#1",
+      "msg": "SAFETY_CLAIM. O trecho atribuído à Ortobom relaciona a firmeza ao “bom alinhamento postural”, e o bloco repete essa alegação de saúde sem apenas descrevê-la como uma propriedade declarada pelo fabricante. Versão sustentável: Um texto mais estreito seria: “Um modelo Castor combina espumas D45 e D20. Segundo a Ortobom, o pillow top é uma camada extra de conforto, e o bordado em matelassê preenchido com espuma D20 oferece toque macio sem comprometer a firmeza.”"
+    }
+  ]
+}

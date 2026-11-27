@@ -1,0 +1,134 @@
+{
+  "run_id": "20261126T191709_como-escolher-travesseiro-enrich_5a35",
+  "topic": "como-escolher-travesseiro",
+  "accepted": [
+    {
+      "claim_id": "clm_44c49aa34ead",
+      "question_id": "q_etiqueta",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3ccca0a29d3b",
+      "question_id": "q_etiqueta",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_77f425837afb",
+      "question_id": "q_etiqueta",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_c2d56471da69",
+      "question_id": "q_materiais",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b44446dd126e",
+      "question_id": "q_dimensoes",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4abbadec7b12",
+      "question_id": "q_dimensoes",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_230b55cf5518",
+      "question_id": "q_firmeza",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_744b11b70c7b",
+      "question_id": "q_garantia",
+      "source_id": "src_1a91030a109b",
+      "new": true
+    },
+    {
+      "claim_id": "clm_01bb37ef97f8",
+      "question_id": "q_etiqueta",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1a89044e5f0d",
+      "question_id": "q_etiqueta",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_bad71fc7b978",
+      "question_id": "q_materiais",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_4114cd272b54",
+      "question_id": "q_materiais",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3e6b29eb4d51",
+      "question_id": "q_dimensoes",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_a69347f8c36e",
+      "question_id": "q_firmeza",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    },
+    {
+      "claim_id": "clm_8fce39cbdb89",
+      "question_id": "q_garantia",
+      "source_id": "src_e671ac9c8df2",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_etiqueta": 5,
+    "q_materiais": 3,
+    "q_dimensoes": 3,
+    "q_firmeza": 2,
+    "q_certificacao": 0,
+    "q_cuidados": 0,
+    "q_garantia": 2,
+    "q_ajuste_1c86d979": 0
+  },
+  "unanswered": [
+    "q_certificacao",
+    "q_cuidados",
+    "q_ajuste_1c86d979"
+  ],
+  "usage": {
+    "input_tokens": 4069,
+    "output_tokens": 1461,
+    "calls": 2
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_1a91030a109b",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_e671ac9c8df2",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 44.67075096000002
+}
