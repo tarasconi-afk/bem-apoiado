@@ -157,7 +157,10 @@ export function styleIssues(draft: Draft): Issue[] {
   // 25/11: a regra só via "trechos citados"; 9 páginas no ar tinham "nas fichas citadas", "o trecho menciona", "os
   // trechos consultados não mencionam D45", "Não indicado no trecho citado" (FC: o mesmo vazamento reprovou rascunhos
   // em ciclos seguidos). "trecho" em qualquer forma e "fichas/evidências citadas" são vocabulário do motor.
-  for (const u of blockRefs(draft)) if (/\btrechos?\b|fichas? citadas?|vers[ãa]o sustent[áa]vel|evid[êe]ncias? citadas?/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trecho" (nem "trechos citados"), "fichas citadas" ou "evidência citada" (é termo do motor): diga quem afirma ("segundo a Ortobom", "na ficha da Probel"). Não escreva o que a fonte deixa de informar: ausência não se prova.' });
+  // 27/11: "excerto citado" (D28 ou D33) e a proposta do auditor colada como texto ("Um texto mais estreito seria: “…”",
+  // colchão D45) chegaram a ramos de manutenção; a 2ª é a frase de reparo inteira no lugar do bloco.
+  for (const u of blockRefs(draft)) if (/texto mais estreito|vers[ãa]o que as fontes sustentam|reescrita sugerida/i.test(u.text)) out.push({ ref: u.ref, msg: 'o bloco traz a sugestão do auditor em vez do texto (termo do motor): escreva só a frase final, sem "Um texto mais estreito seria" nem aspas em volta.' });
+  for (const u of blockRefs(draft)) if (/\btrechos?\b|\bexcertos?\b|fichas? citadas?|vers[ãa]o sustent[áa]vel|evid[êe]ncias? citadas?/i.test(u.text)) out.push({ ref: u.ref, msg: 'não escreva "trecho" (nem "trechos citados"), "fichas citadas" ou "evidência citada" (é termo do motor): diga quem afirma ("segundo a Ortobom", "na ficha da Probel"). Não escreva o que a fonte deixa de informar: ausência não se prova.' });
   for (const sec of draft.sections) {
     if (sec.blocks.some((b) => b.kind === 'table')) continue;
     sec.blocks.forEach((b, i) => { if (b.kind !== 'table' && /tabela (abaixo|acima|a seguir|seguinte)/i.test(b.text)) out.push({ ref: `${sec.id}#${i}`, msg: 'o texto cita uma tabela que não existe nesta seção: traga a tabela ou escreva os dados no texto.' }); });

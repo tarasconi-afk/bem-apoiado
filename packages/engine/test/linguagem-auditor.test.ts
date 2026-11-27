@@ -17,6 +17,8 @@ describe('linguagem do auditor no texto da página', () => {
     'Os trechos consultados não mencionam D45.',
     'Nos trechos da Karsten, aparecem poliéster e algodão.',
     'Segundo os trechos citados, a Ortobom declara 80 kg.',
+    'A marca descreve uma densidade robusta, sem que o excerto citado informe qual é ela.',
+    'Um texto mais estreito seria: “Um modelo Castor combina espumas D45 e D20.”',
   ])('pega: %s', (t) => expect(vazou(t)).toHaveLength(1));
   it('não reclama de texto normal', () => {
     expect(vazou('Na ficha da Probel, a capacidade é de 150 kg por pessoa.')).toHaveLength(0);
