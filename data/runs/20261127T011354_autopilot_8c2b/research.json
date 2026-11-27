@@ -1,0 +1,52 @@
+{
+  "run_id": "20261127T011354_autopilot_8c2b",
+  "topic": "quanto-tempo-dura-um-colchao",
+  "accepted": [
+    {
+      "claim_id": "clm_b5a34c32b276",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "source_id": "src_8033fd957040",
+      "new": true
+    },
+    {
+      "claim_id": "clm_fc2d34f4ed9e",
+      "question_id": "q_garantia_cobertura_exclusao",
+      "source_id": "src_8033fd957040",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_densidade_tipo_vida_util": 0,
+    "q_vida_util_espuma": 0,
+    "q_vida_util_molas": 0,
+    "q_perda_firmeza_uso": 0,
+    "q_odor_inicial_seguranca": 0,
+    "q_cuidado_rodizio_manual": 0,
+    "q_garantia_cobertura_exclusao": 2
+  },
+  "unanswered": [
+    "q_densidade_tipo_vida_util",
+    "q_vida_util_espuma",
+    "q_vida_util_molas",
+    "q_perda_firmeza_uso",
+    "q_odor_inicial_seguranca",
+    "q_cuidado_rodizio_manual"
+  ],
+  "usage": {
+    "input_tokens": 2282,
+    "output_tokens": 224,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_8033fd957040",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.85
+    }
+  ],
+  "credits": 3.17491956
+}
