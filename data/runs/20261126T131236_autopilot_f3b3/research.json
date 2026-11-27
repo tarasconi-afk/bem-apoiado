@@ -1,0 +1,126 @@
+{
+  "run_id": "20261126T131236_autopilot_f3b3",
+  "topic": "como-escolher-colchao-de-espuma",
+  "accepted": [
+    {
+      "claim_id": "clm_0f00f78f07a1",
+      "question_id": "q_firmeza_sustentacao",
+      "source_id": "src_616e09f1fa2e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d7752c8c1a8a",
+      "question_id": "q_altura_declarada",
+      "source_id": "src_616e09f1fa2e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0488e1a1f38e",
+      "question_id": "q_altura_declarada",
+      "source_id": "src_616e09f1fa2e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_6072d436d642",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_616e09f1fa2e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_50d79685b0db",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_616e09f1fa2e",
+      "new": true
+    },
+    {
+      "claim_id": "clm_d0bcb22e605a",
+      "question_id": "q_altura_declarada",
+      "source_id": "src_09c02d5bb59d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e85aff2cb780",
+      "question_id": "q_firmeza_sustentacao",
+      "source_id": "src_09c02d5bb59d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_19a051a6b40c",
+      "question_id": "q_odor_ventilacao",
+      "source_id": "src_09c02d5bb59d",
+      "new": true
+    },
+    {
+      "claim_id": "clm_5f9c4076ea0b",
+      "question_id": "q_firmeza_sustentacao",
+      "source_id": "src_9e5b07e74f32",
+      "new": true
+    },
+    {
+      "claim_id": "clm_dade60744370",
+      "question_id": "q_firmeza_sustentacao",
+      "source_id": "src_9e5b07e74f32",
+      "new": true
+    },
+    {
+      "claim_id": "clm_51fa141c7a70",
+      "question_id": "q_peso_densidade",
+      "source_id": "src_9e5b07e74f32",
+      "new": true
+    },
+    {
+      "claim_id": "clm_1263931fb99a",
+      "question_id": "q_altura_declarada",
+      "source_id": "src_9e5b07e74f32",
+      "new": true
+    },
+    {
+      "claim_id": "clm_3ddd72c3d0ee",
+      "question_id": "q_cuidado_capa",
+      "source_id": "src_9e5b07e74f32",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_peso_densidade": 1,
+    "q_firmeza_sustentacao": 4,
+    "q_odor_ventilacao": 1,
+    "q_etiqueta_inmetro": 0,
+    "q_cuidado_capa": 3,
+    "q_altura_declarada": 4,
+    "q_norma_abnt_requisitos": 0
+  },
+  "unanswered": [
+    "q_etiqueta_inmetro",
+    "q_norma_abnt_requisitos"
+  ],
+  "usage": {
+    "input_tokens": 7684,
+    "output_tokens": 1727,
+    "calls": 3
+  },
+  "errors": [],
+  "skipped_sources": [],
+  "triage": [
+    {
+      "source_id": "src_616e09f1fa2e",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    },
+    {
+      "source_id": "src_09c02d5bb59d",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.99
+    },
+    {
+      "source_id": "src_9e5b07e74f32",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 1
+    }
+  ],
+  "credits": 4.769985239999999
+}

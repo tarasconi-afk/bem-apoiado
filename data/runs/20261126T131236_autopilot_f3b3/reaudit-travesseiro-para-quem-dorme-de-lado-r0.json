@@ -1,0 +1,89 @@
+{
+  "model": "gpt-5.6-luna",
+  "findings": [
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "alturas-fabricantes#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco recomenda uma posição do pescoço — ângulo próximo de 90 graus — relacionada à postura, o que viola a regra do site sobre alegações ou orientações de saúde. Além disso, os trechos mostram produtos específicos de 12 cm e 14 cm indicados pela Probel para quem dorme de lado, mas não estabelecem uma regra geral para todos os modelos nessa faixa.",
+      "fix": "Para dormir de lado, a Duoflex recomenda um travesseiro mais alto, com altura que se encaixe entre a cabeça e o colchão. A Probel indica produtos específicos de 12 cm e de 14 cm para quem dorme de lado. Evite afirmar como requisito uma posição do pescoço ou generalizar esses exemplos para toda a faixa."
+    },
+    {
+      "ref": "materiais-recomendados#0",
+      "verdict": "SAFETY_CLAIM",
+      "problem": "O bloco reproduz a propriedade “hipoalergênicas” atribuída pela Duoflex, mas não informa que o Inmetro não avalia essa propriedade, como exigido pela regra do site.",
+      "fix": "Manter a atribuição explícita: “A Duoflex informa que o Travesseiro Natural Látex é elástico, macio, resiliente, durável, mantém ventilação interna e possui propriedades hipoalergênicas; o Inmetro não avalia essa propriedade.”"
+    },
+    {
+      "ref": "altura-regulavel#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-regulavel#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-inmetro#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#4",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ]
+}
