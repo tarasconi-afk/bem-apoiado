@@ -1,0 +1,69 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "como-decidir#0"
+    ],
+    "decision_criteria": [
+      "Para dias quentes, escolha um modelo mais leve que o edredom de 170 g/m² citado pela Appel.",
+      "Para verão ou quarto com ar-condicionado, prefira um modelo leve.",
+      "Para usar durante todo o ano, escolha um modelo intermediário, mais versátil entre as estações.",
+      "Confira a gramatura e a composição declaradas na ficha do produto.",
+      "Verifique as instruções de lavagem e secagem, pois uma peça pode exigir secagem pendurada e outra permitir secagem em tambor até 60°C."
+    ],
+    "missing": [
+      "Uma faixa de gramatura declarada pelos fabricantes especificamente para cobertores indicados ao calor, em vez de apenas a referência de que devem ser mais leves que 170 g/m².",
+      "Comparação direta entre cobertores leves e de inverno, com modelos e gramaturas de ambas as categorias.",
+      "Dados específicos de cobertores, pois boa parte dos exemplos usa edredons; uma explicação clara sobre quando a regra também se aplica a mantas e cobertores.",
+      "Informação de fabricante sobre a diferença prática entre manta e cobertor, incluindo espessura, tipo de tecido e gramatura."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde rapidamente que, para o calor, o leitor deve escolher um modelo leve e dá a referência concreta de ficar abaixo de 170 g/m², além de orientar o uso durante o ano todo e a conferência da etiqueta. O conteúdo poderia ser mais forte com uma faixa de gramatura para clima quente e com exemplos diretamente classificados como cobertores, mas já oferece critérios práticos suficientes para a compra.",
+    "filler_ratio": 0.14285714285714285,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A palavra \"gramatura\" não é explicada como peso por metro quadrado, dificultando o uso por leitores leigos.",
+      "A página alterna cobertor e edredom, embora a dúvida seja sobre cobertor; isso pode levar o leitor a comparar produtos diferentes.",
+      "A comparação entre o modelo de 170 g/m² e o de 350 g/m² não deixa claro qual faixa deve ser escolhida para o calor."
+    ],
+    "filler_refs": [
+      "gramaturas-calor-vs-inverno#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Para dias muito quentes, escolher um modelo mais leve que o cobertor com enchimento de 170 g/m².",
+      "Para o verão ou quartos com ar-condicionado, escolher um modelo leve.",
+      "Para usar durante o ano todo, escolher um modelo intermediário, por ser mais versátil entre estações.",
+      "Comparar a gramatura informada na ficha do produto; o modelo Intense citado declara 350 g/m² e é mais pesado que a referência de 170 g/m².",
+      "Conferir a composição de fibras e as instruções de lavagem e secagem na ficha ou na etiqueta."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A palavra \"gramatura\" não é explicada como peso por metro quadrado, dificultando o uso por leitores leigos.",
+      "Para o leitor leigo: A página alterna cobertor e edredom, embora a dúvida seja sobre cobertor; isso pode levar o leitor a comparar produtos diferentes.",
+      "Para o leitor leigo: A comparação entre o modelo de 170 g/m² e o de 350 g/m² não deixa claro qual faixa deve ser escolhida para o calor.",
+      "Uma faixa ou tabela de gramatura relacionando modelos leves, intermediários e quentes, baseada em fichas de fabricantes.",
+      "Orientação específica para cobertores, separada das informações sobre edredons.",
+      "Definição simples de gramatura e explicação de como comparar valores em g/m² no anúncio.",
+      "Uma distinção clara entre manta, cobertor e edredom, com exemplos de espessura e gramatura de cada produto."
+    ],
+    "publishable": false,
+    "summary": "A página oferece uma regra útil — escolher modelos leves para o calor e intermediários para uso anual — e permite comparar a gramatura no anúncio. Porém, a resposta curta não traz um dado concreto de gramatura, usa cobertores e edredons como se fossem equivalentes e não explica termos para leigos; além disso, há repetição entre os blocos. Precisa de uma faixa objetiva de gramatura e de uma separação clara entre os tipos de peça antes da publicação.",
+    "filler_ratio": 0.2857142857142857,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 2
+}

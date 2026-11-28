@@ -5,16 +5,15 @@
   "title": "Lençol com elástico: como escolher o tamanho",
   "description": "Meça seu colchão e escolha o lençol com elástico pelas dimensões declaradas na ficha: largura, comprimento e profundidade máxima suportada.",
   "primary_query": "lençol com elástico: como escolher o tamanho",
-  "updated_at": "2026-10-29",
+  "updated_at": "2026-11-28",
   "verdict": {
-    "text": "Compare as medidas informadas para o lençol com as medidas do colchão. Confira também, na etiqueta, o nome e o percentual das fibras e as instruções de cuidado para conservação.",
-    "basis": "reasoning",
+    "text": "Confira se o produto informa seu tamanho ou dimensão, o nome das fibras têxteis e seus percentuais em massa.",
+    "basis": "evidence",
     "claim_ids": [
       "clm_4f4d6ec06dfd",
       "clm_531debf45868",
       "clm_1a9fa3a6c7bf",
-      "clm_c2551e4d77eb",
-      "clm_d4deb5834cee"
+      "clm_c2551e4d77eb"
     ]
   },
   "sections": [
@@ -114,8 +113,8 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Procure na etiqueta ou ficha técnica a indicação de tamanho ou dimensão do lençol, expressa em unidades do SI, e compare essas medidas com as do colchão.",
-          "basis": "reasoning",
+          "text": "Procure no próprio lençol a indicação de tamanho ou dimensão, em unidades do SI.",
+          "basis": "evidence",
           "claim_ids": [
             "clm_4f4d6ec06dfd",
             "clm_531debf45868"
@@ -123,11 +122,11 @@
         },
         {
           "kind": "table",
-          "caption": "Dimensões de colchão e lençol com elástico por tamanho, segundo fabricantes",
+          "caption": "Dimensões de colchão e exemplos de lençol com elástico por tamanho",
           "columns": [
             "Tamanho",
             "Dimensões típicas do colchão",
-            "Profundidade máxima do lençol (exemplos)"
+            "Exemplos de profundidade do lençol"
           ],
           "rows": [
             {
@@ -139,13 +138,13 @@
                   ]
                 },
                 {
-                  "text": "0,88 m × 1,88 m",
+                  "text": "0,88 m × 1,88 m, segundo a Appel",
                   "claim_ids": [
                     "clm_0704b22751c0"
                   ]
                 },
                 {
-                  "text": "Exemplo: 0,90 m × 30 cm × 1,90 m",
+                  "text": "30 cm",
                   "claim_ids": [
                     "clm_0bde499734b8"
                   ]
@@ -161,13 +160,13 @@
                   ]
                 },
                 {
-                  "text": "1,38 m × 1,88 m",
+                  "text": "1,38 m × 1,88 m, segundo a Appel",
                   "claim_ids": [
                     "clm_117a9fbc38fc"
                   ]
                 },
                 {
-                  "text": "Exemplos: 35 cm e 40 cm",
+                  "text": "35 cm e 40 cm",
                   "claim_ids": [
                     "clm_d389f2ae38bd",
                     "clm_862c5d9d3233"
@@ -184,13 +183,13 @@
                   ]
                 },
                 {
-                  "text": "1,58 m × 1,98 m",
+                  "text": "1,58 m × 1,98 m, segundo a Appel",
                   "claim_ids": [
                     "clm_7f0d15076a58"
                   ]
                 },
                 {
-                  "text": "Exemplos: 40 cm e 45 cm",
+                  "text": "40 cm e 45 cm",
                   "claim_ids": [
                     "clm_8286c8043c81",
                     "clm_e1f493953c53"
@@ -207,13 +206,13 @@
                   ]
                 },
                 {
-                  "text": "1,93 m × 2,03 m",
+                  "text": "1,93 m × 2,03 m, segundo a Appel",
                   "claim_ids": [
                     "clm_f414dc77acd2"
                   ]
                 },
                 {
-                  "text": "Exemplo: 40 cm",
+                  "text": "40 cm",
                   "claim_ids": [
                     "clm_cdadfc8225d9"
                   ]
@@ -224,11 +223,12 @@
         },
         {
           "kind": "paragraph",
-          "text": "Se o colchão é de solteiro, confira suas dimensões e, segundo a Appel, considere um jogo de cama com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o anúncio informa as dimensões do produto.",
+          "text": "Segundo a Appel, escolha um jogo de cama compatível, com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o próprio produto traz a indicação de tamanho ou dimensão.",
           "basis": "reasoning",
           "claim_ids": [
             "clm_a6291990ca2e",
-            "clm_4f4d6ec06dfd"
+            "clm_4f4d6ec06dfd",
+            "clm_531debf45868"
           ]
         },
         {
@@ -246,7 +246,7 @@
   ],
   "products": [],
   "provenance": {
-    "run_id": "20261029T070432_autopilot_f193+edit:20261029T070432_autopilot_f193+reaudit:20261029T111054_autopilot_2b7a",
+    "run_id": "20261029T070432_autopilot_f193+edit:20261029T070432_autopilot_f193+reaudit:20261029T111054_autopilot_2b7a+reaudit:20261128T131350_autopilot_386b",
     "writer_model": "claude-haiku-4.5",
     "auditor_model": "gpt-5.6-luna",
     "audit_verdict": "pass",

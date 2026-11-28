@@ -1,0 +1,165 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Confira se o produto informa seu tamanho ou dimensão, o nome e os percentuais das fibras têxteis e as instruções de cuidado para conservação.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_4f4d6ec06dfd",
+        "clm_531debf45868",
+        "clm_1a9fa3a6c7bf",
+        "clm_c2551e4d77eb"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Procure no próprio lençol a indicação de tamanho ou dimensão, expressa em unidades do SI, e compare essa medida com a do colchão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_4f4d6ec06dfd",
+        "clm_531debf45868"
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Solteiro",
+          "claim_ids": [
+            "clm_0704b22751c0"
+          ]
+        },
+        {
+          "text": "0,88 m × 1,88 m",
+          "claim_ids": [
+            "clm_0704b22751c0"
+          ]
+        },
+        {
+          "text": "Exemplo: 0,90 m × 30 cm × 1,90 m",
+          "claim_ids": [
+            "clm_0bde499734b8"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Casal",
+          "claim_ids": [
+            "clm_117a9fbc38fc"
+          ]
+        },
+        {
+          "text": "1,38 m × 1,88 m",
+          "claim_ids": [
+            "clm_117a9fbc38fc"
+          ]
+        },
+        {
+          "text": "Exemplos: 35 cm e 40 cm de profundidade",
+          "claim_ids": [
+            "clm_d389f2ae38bd",
+            "clm_862c5d9d3233"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Queen",
+          "claim_ids": [
+            "clm_7f0d15076a58"
+          ]
+        },
+        {
+          "text": "1,58 m × 1,98 m",
+          "claim_ids": [
+            "clm_7f0d15076a58"
+          ]
+        },
+        {
+          "text": "Exemplos: 40 cm e 45 cm de profundidade",
+          "claim_ids": [
+            "clm_8286c8043c81",
+            "clm_e1f493953c53"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#1.r3",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "King",
+          "claim_ids": [
+            "clm_f414dc77acd2"
+          ]
+        },
+        {
+          "text": "1,93 m × 2,03 m",
+          "claim_ids": [
+            "clm_f414dc77acd2"
+          ]
+        },
+        {
+          "text": "Exemplo: 40 cm de profundidade",
+          "claim_ids": [
+            "clm_cdadfc8225d9"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Segundo a Appel, para cama de solteiro considere um jogo de cama com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o próprio produto traz a indicação de tamanho ou dimensão.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_a6291990ca2e",
+        "clm_4f4d6ec06dfd",
+        "clm_531debf45868"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#1.r0",
+      "msg": "MISATTRIBUTED. A tabela é apresentada como baseada em fabricantes, mas a medida do lençol vem do Comprasnet, classificado como teste independente, não de fabricante. Além disso, o trecho só mostra uma medida de 30 cm; não sustenta que seja uma profundidade máxima. Versão sustentável: Solteiro: a Appel cita colchão de 0,88 m × 1,88 m; um edital do Comprasnet lista lençol de 0,90 m × 30 cm × 1,90 m. Trate 30 cm como exemplo, não como máximo."
+    },
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam a verificação de tamanho ou dimensão e do nome e dos percentuais das fibras têxteis, mas nenhum trecho menciona instruções de cuidado ou conservação. Versão sustentável: Confira se o produto informa seu tamanho ou dimensão, o nome das fibras têxteis e seus percentuais em massa."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "UNSUPPORTED. Os trechos sustentam procurar no produto a indicação de tamanho ou dimensão em unidades do SI, mas não dizem que essa medida deve ser comparada com a do colchão. Versão sustentável: Procure no próprio lençol a indicação de tamanho ou dimensão, em unidades do SI."
+    },
+    {
+      "ref": "como-decidir#1.r1",
+      "msg": "OVERSTATED. Os trechos mostram profundidades de lençóis específicos de 35 cm e 40 cm, mas não estabelecem que sejam profundidades máximas. Além disso, 1,40 m × 1,90 m × 40 cm é a medida de um lençol específico, não uma dimensão típica geral de colchão. Versão sustentável: Tamanho Casal: referência de cama de 1,38 m × 1,88 m, segundo a Appel; exemplos de lençóis com elástico: 35 cm e 40 cm de profundidade."
+    },
+    {
+      "ref": "como-decidir#1.r2",
+      "msg": "OVERSTATED. Os trechos mostram lençóis específicos com 40 cm e 45 cm de profundidade, mas não dizem que essas medidas representam a profundidade máxima do lençol. Versão sustentável: Tamanho Queen: referência de cama de 1,58 m × 1,98 m, segundo a Appel; exemplos de lençóis com elástico: 40 cm e 45 cm de profundidade."
+    },
+    {
+      "ref": "como-decidir#1.r3",
+      "msg": "OVERSTATED. O trecho da Döhler informa a medida de um lençol específico de 40 cm, mas não afirma que 40 cm seja a profundidade máxima. Versão sustentável: Tamanho King: referência de cama de 1,93 m × 2,03 m, segundo a Appel; exemplo de lençol com elástico: 40 cm de profundidade."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "MISATTRIBUTED. O trecho da Appel recomenda pelo menos 0,90 m por 2,00 m, mas o excerto citado não mostra que a afirmação se refere especificamente a uma cama de solteiro; apenas diz “nesse tipo de móvel”. Versão sustentável: Segundo a Appel, escolha um jogo de cama compatível, com pelo menos 0,90 m de largura e 2,00 m de comprimento. Verifique também se o próprio produto traz a indicação de tamanho ou dimensão."
+    }
+  ]
+}

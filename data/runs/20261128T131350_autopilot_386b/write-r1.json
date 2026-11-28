@@ -1,0 +1,231 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Escolha um cobertor mais leve para clima quente: a Appel informa que, em dias muito quentes, pode ser necessário um cobertor mais leve que o modelo com enchimento de 170 g/m². Edredons leves funcionam bem no verão e em quartos com ar-condicionado; para usar o ano todo, um modelo intermediário costuma ser mais versátil.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_e0c9c5ed153b",
+        "clm_c477596ec0a6"
+      ]
+    },
+    {
+      "ref": "o-que-sao-gramatura-e-composicao#0",
+      "action": "remove"
+    },
+    {
+      "ref": "composicao-fibra-etiqueta#0",
+      "action": "replace",
+      "text": "As fichas de produto informam 100% poliéster no cobertor Desert da Altenburg e no cobertor Eva da Döhler. A Karsten declara que o algodão é hipoalergênico e suave ao contato com a pele; o Inmetro não avalia essa propriedade.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_02cba728a098",
+        "clm_066765a5cdc9",
+        "clm_07da92eefe2c"
+      ]
+    },
+    {
+      "ref": "lavagem-secagem#0",
+      "action": "replace",
+      "text": "Para o edredom Plush Flannel Confort da Appel, as instruções são lavar até 40°C em processo normal, não alvejar, secar pendurado, passar até 110°C sem vapor e não lavar a seco. Para o edredom Solteiro 200 Fios 100% Algodão da Karsten, são lavar a 40°C, não alvejar, secar em tambor até 60°C, passar até 110°C e não lavar a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0060aaa8b115",
+        "clm_c1a928693c24"
+      ]
+    },
+    {
+      "ref": "manta-vs-cobertor#0",
+      "action": "replace",
+      "text": "Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, o que lhe confere volume e retenção de calor. O catálogo da Altenburg informa \"enchimento: Manta Siliconizada 120g/m\".",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0ca225e97b69",
+        "clm_0f1f97f3af40"
+      ]
+    },
+    {
+      "ref": "como-decidir#0",
+      "action": "replace",
+      "text": "Em dias muito quentes, a Appel informa que pode ser necessário usar um cobertor mais leve que o modelo com enchimento de 170 g/m².",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_e0c9c5ed153b"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "Confira a gramatura na ficha: o Intense da Buddemeyer tem 350 g/m². A Appel informa que o enchimento de 170 g/m² oferece conforto térmico equilibrado para frio e temperaturas amenas e que, em dias muito quentes, pode ser necessário um cobertor mais leve.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_02b6826043f5",
+        "clm_e0c9c5ed153b"
+      ]
+    },
+    {
+      "ref": "como-decidir#3",
+      "action": "replace",
+      "text": "Confira na etiqueta as instruções de lavagem e secagem específicas da peça: a Appel recomenda secagem pendurada, enquanto a Karsten permite secagem em tambor até 60°C.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0060aaa8b115",
+        "clm_c1a928693c24"
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Como escolher cobertor para o calor: gramatura e composição",
+    "description": "Entenda a gramatura e composição de cobertores leves para dias quentes, como conferir na etiqueta e instruções de lavagem segundo fabricantes.",
+    "verdict": {
+      "text": "Escolha um cobertor mais leve para clima quente: a Appel informa que, em dias muito quentes, pode ser necessário um cobertor mais leve que o modelo com enchimento de 170 g/m². Edredons leves funcionam bem no verão e em quartos com ar-condicionado; para usar o ano todo, um modelo intermediário costuma ser mais versátil.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_e0c9c5ed153b",
+        "clm_c477596ec0a6"
+      ]
+    },
+    "sections": [
+      {
+        "id": "gramaturas-calor-vs-inverno",
+        "heading": "Gramatura: comparação entre cobertores para calor e inverno",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, edredons leves funcionam bem no verão e em quartos com ar-condicionado, enquanto os mais encorpados retêm mais calor no inverno. Para usar o ano todo, um modelo intermediário costuma ser a escolha mais versátil.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c477596ec0a6"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-fibra-etiqueta",
+        "heading": "Composição de fibra: o que a etiqueta deve informar",
+        "blocks": [
+          {
+            "text": "As fichas de produto informam 100% poliéster no cobertor Desert da Altenburg e no cobertor Eva da Döhler. A Karsten declara que o algodão é hipoalergênico e suave ao contato com a pele; o Inmetro não avalia essa propriedade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_02cba728a098",
+              "clm_066765a5cdc9",
+              "clm_07da92eefe2c"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "lavagem-secagem",
+        "heading": "Instruções de lavagem e secagem",
+        "blocks": [
+          {
+            "text": "Para o edredom Plush Flannel Confort da Appel, as instruções são lavar até 40°C em processo normal, não alvejar, secar pendurado, passar até 110°C sem vapor e não lavar a seco. Para o edredom Solteiro 200 Fios 100% Algodão da Karsten, são lavar a 40°C, não alvejar, secar em tambor até 60°C, passar até 110°C e não lavar a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0060aaa8b115",
+              "clm_c1a928693c24"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "manta-vs-cobertor",
+        "heading": "Diferença entre manta e cobertor",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, o que lhe confere volume e retenção de calor. O catálogo da Altenburg informa \"enchimento: Manta Siliconizada 120g/m\".",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ca225e97b69",
+              "clm_0f1f97f3af40"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir qual cobertor escolher",
+        "blocks": [
+          {
+            "text": "Em dias muito quentes, a Appel informa que pode ser necessário usar um cobertor mais leve que o modelo com enchimento de 170 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e0c9c5ed153b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o uso principal será no verão ou em quarto com ar-condicionado, escolha um modelo leve, segundo a Altenburg. Se quiser usar a peça o ano todo, prefira um modelo intermediário: segundo a Altenburg, edredons intermediários são versáteis para diferentes estações.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c477596ec0a6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira a gramatura na ficha: o Intense da Buddemeyer tem 350 g/m². A Appel informa que o enchimento de 170 g/m² oferece conforto térmico equilibrado para frio e temperaturas amenas e que, em dias muito quentes, pode ser necessário um cobertor mais leve.",
+            "basis": "reasoning",
+            "claim_ids": [
+              "clm_02b6826043f5",
+              "clm_e0c9c5ed153b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na etiqueta as instruções de lavagem e secagem específicas da peça: a Appel recomenda secagem pendurada, enquanto a Karsten permite secagem em tambor até 60°C.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0060aaa8b115",
+              "clm_c1a928693c24"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "verdict",
+      "msg": "UNSUPPORTED. O trecho da Appel diz apenas que, em dias muito quentes, pode ser necessário um cobertor mais leve; não recomenda explicitamente conferir a composição da fibra na etiqueta. Além disso, a relação entre ser mais leve e ter necessariamente menos de 170 g/m² não é afirmada no trecho. Versão sustentável: Escolha um cobertor mais leve para clima quente: a Appel diz que, em dias muito quentes, pode ser necessário um cobertor mais leve que o modelo de 170 g/m². Edredons leves funcionam bem no verão e em quartos com ar-condicionado; para usar o ano todo, um modelo intermediário costuma ser mais versátil."
+    },
+    {
+      "ref": "o-que-sao-gramatura-e-composicao#0",
+      "msg": "FACT_IN_FRAMING. Embora o bloco esteja marcado como framing, ele afirma fatos sobre gramatura, composição e retenção de calor. Não há trechos citados que sustentem essas afirmações. Versão sustentável: A seguir, veja o que as fontes dizem sobre gramatura e composição."
+    },
+    {
+      "ref": "composicao-fibra-etiqueta#0",
+      "msg": "SAFETY_CLAIM. O bloco repete a alegação de que o algodão é “hipoalergênico” sem informar que essa propriedade não é avaliada pelo Inmetro, como exige a regra do site. Além disso, os trechos citados não sustentam a afirmação geral de que a etiqueta de composição “deve” descrever a porcentagem e o tipo de fibra; eles apenas mostram composições declaradas em produtos específicos. Versão sustentável: As fichas citadas informam 100% poliéster para o cobertor Desert da Altenburg e para o cobertor Eva da Döhler. A Karsten declara que o algodão é hipoalergênico e suave ao contato com a pele; o Inmetro não avalia essa propriedade."
+    },
+    {
+      "ref": "lavagem-secagem#0",
+      "msg": "OVERSTATED. Os trechos sustentam essas instruções para os produtos específicos citados — um edredom Appel e um edredom Karsten 100% algodão —, mas o bloco as apresenta como regras gerais para todos os cobertores de poliéster e de algodão. Além disso, o trecho da Appel não informa explicitamente que o produto é de poliéster. Versão sustentável: Para o edredom Plush Flannel Confort da Appel, as instruções são lavar a até 40°C em processo normal, não alvejar, secar pendurado, passar a até 110°C sem vapor e não lavar a seco. Para o edredom Solteiro 200 Fios 100% Algodão da Karsten, são lavar a 40°C, não alvejar, secar em tambor a até 60°C, passar a até 110°C e não lavar a seco."
+    },
+    {
+      "ref": "manta-vs-cobertor#0",
+      "msg": "UNSUPPORTED. Embora o trecho sustente a descrição do edredom como peça com fibras, plumas ou penas entre dois tecidos e a retenção de calor, nenhum trecho citado define manta como enchimento sem tecidos duplos, vincula a gramatura de 120 g/m² ao edredom Leve Verano, nem descreve os cobertores Intense da Buddemeyer e Eva da Döhler como peças encorpadas sem camadas duplas. Versão sustentável: Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, o que lhe confere volume e retenção de calor. O catálogo da Altenburg informa “enchimento: Manta Siliconizada 120g/m”."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "OVERSTATED. Os trechos dizem que, em dias muito quentes, pode ser necessário um cobertor mais leve, mas não especificam que ele deve ter menos de 170 g/m² nem mencionam sentir muito calor como condição. Versão sustentável: Em dias muito quentes, a Appel informa que pode ser necessário usar um cobertor mais leve que o modelo com enchimento de 170 g/m²."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "UNSUPPORTED. O trecho da Buddemeyer informa apenas a gramatura de 350 g/m² e a relação entre peso e volume; não diz que modelos com 350 g/m² ou mais tendem a reter mais calor. Além disso, o trecho da Appel diz que 170 g/m² é indicado para frio e temperaturas amenas e que em dias muito quentes pode ser necessário um cobertor mais leve, mas não afirma que o enchimento não serve para dias quentes. Versão sustentável: Confira a gramatura: o Intense da Buddemeyer tem 350 g/m². A Appel informa que o enchimento de 170 g/m² oferece conforto térmico equilibrado para frio e temperaturas amenas e que, em dias muito quentes, pode ser necessário um cobertor mais leve."
+    },
+    {
+      "ref": "como-decidir#3",
+      "msg": "UNSUPPORTED. Os trechos mostram instruções de lavagem para produtos da Appel e da Karsten, e o produto da Karsten é identificado como 100% algodão, mas não citam poliéster nem afirmam que algodão e poliéster exigem cuidados diferentes na secagem. Também não sustentam a recomendação geral de conferir a composição da fibra. Versão sustentável: Confira na etiqueta as instruções de lavagem e secagem específicas da peça: os exemplos citados mostram que a Appel recomenda secagem pendurada e a Karsten permite secagem em tambor a até 60 °C."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 1125
+  }
+}

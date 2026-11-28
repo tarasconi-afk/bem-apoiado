@@ -1,0 +1,62 @@
+{
+  "score_before": 3,
+  "score_after": 3,
+  "kept": true,
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Compare a largura e o comprimento informados para o lençol com as medidas do colchão.",
+      "Para um colchão de solteiro, considere lençol com pelo menos 0,90 m de largura e 2,00 m de comprimento, conferindo a ficha do produto.",
+      "Confira a profundidade ou altura máxima indicada para o lençol: os exemplos variam de 30 cm a 45 cm conforme o tamanho e o fabricante.",
+      "Para colchões de casal, compare a medida de 1,38 m × 1,88 m com as dimensões do anúncio e verifique se a altura indicada é de 35 cm ou 40 cm.",
+      "Consulte a etiqueta ou ficha técnica, pois os nomes solteiro, casal, queen e king não têm padronização obrigatória entre fabricantes.",
+      "Confira na etiqueta a composição das fibras e as instruções de lavagem, secagem, alvejamento e passadoria."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma tabela completa relacionando, para cada fabricante, o tamanho do lençol ao comprimento e à largura do colchão compatível.",
+      "A inclusão do tamanho solteiro king na tabela de decisão, com medidas do colchão e exemplos de dimensões do lençol.",
+      "Informação de altura mínima e máxima do colchão compatível com cada modelo, em vez de apenas exemplos de profundidade máxima.",
+      "Explicação sobre quanto da faixa elástica deve cobrir a lateral do colchão e como comparar essa medida com a altura do colchão."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque dá a regra essencial: comparar as medidas do lençol com as do colchão e conferir a profundidade informada na ficha. Há exemplos concretos para solteiro e casal e referências de profundidade para os demais tamanhos, embora a resposta curta pudesse ser mais útil se trouxesse uma medida de exemplo e a tabela incluísse o solteiro king. O bloco sobre composição e cuidados é secundário, mas não impede a decisão de compra.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [],
+    "decision_criteria": [
+      "Confira no anúncio ou na etiqueta as medidas do lençol em centímetros ou metros.",
+      "Compare a largura e o comprimento do colchão com as medidas informadas para o lençol.",
+      "Use como referência as dimensões típicas: solteiro 0,88 m × 1,88 m; casal 1,38 m × 1,88 m; queen 1,58 m × 1,98 m; king 1,93 m × 2,03 m.",
+      "Confira a profundidade indicada para o lençol: os exemplos citados variam de 30 cm a 45 cm conforme o tamanho e o fabricante.",
+      "Não escolha apenas pelo nome solteiro, casal, queen ou king, porque as medidas podem variar entre fabricantes.",
+      "Para um colchão de casal, por exemplo, compare a medida de 1,38 m × 1,88 m com as dimensões e a profundidade informadas no anúncio."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma resposta curta com uma regra direta de escolha baseada na largura, no comprimento e na altura do colchão.",
+      "Tabela de fabricante relacionando cada nome de tamanho do lençol às medidas compatíveis do colchão, incluindo solteiro king.",
+      "Informação primária sobre a altura mínima e máxima de colchão suportada por cada modelo de lençol.",
+      "Explicação do fabricante sobre como a profundidade da faixa elástica se relaciona com a altura do colchão.",
+      "Medidas exatas dos modelos citados, em vez de apenas dimensões típicas ou exemplos."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque oferece uma regra prática: medir o colchão, comparar largura e comprimento com a ficha do lençol e conferir a profundidade indicada. A tabela dá referências concretas para solteiro, casal, queen e king, e os exemplos de profundidade ajudam na compra. Porém, a resposta curta é genérica e não resolve sozinha a dúvida em até três frases; também faltam limites de altura compatíveis e uma regra clara para escolher a profundidade do elástico.",
+    "filler_ratio": 0,
+    "model_opinion": true
+  }
+}

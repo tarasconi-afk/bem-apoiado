@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "secao_nao_entrega",
+      "ref": "manta-vs-cobertor#0",
+      "problem": "A seção promete explicar a diferença entre manta e cobertor, mas o bloco descreve apenas o edredom e seu enchimento, sem definir ou comparar manta e cobertor.",
+      "fix": "Mudar o título para algo como \"O que é um edredom e como funciona o enchimento\", sem prometer uma comparação entre manta e cobertor."
+    }
+  ],
+  "usage": {
+    "input_tokens": 10725,
+    "output_tokens": 1831,
+    "calls": 3
+  }
+}
