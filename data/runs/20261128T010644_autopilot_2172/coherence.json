@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "check": "produto_como_solucao",
+      "ref": "verdict",
+      "problem": "O leitor entende que uma contagem maior de fios torna o edredom mais macio e resistente, mas o trecho citado da Karsten fala de jogo de cama, não de edredom.",
+      "fix": "Restringir essa conclusão a jogos de cama ou retirar a afirmação sobre maciez e resistência do edredom."
+    }
+  ],
+  "usage": {
+    "input_tokens": 32568,
+    "output_tokens": 7045,
+    "calls": 3
+  }
+}
