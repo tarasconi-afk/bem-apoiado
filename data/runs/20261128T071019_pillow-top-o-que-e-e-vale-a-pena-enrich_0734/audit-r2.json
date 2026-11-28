@@ -1,0 +1,102 @@
+{
+  "findings": [
+    {
+      "ref": "como-decidir#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-pillow-top#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-e-pillow-top#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-e-fixacao#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "altura-e-fixacao#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "garantia#1",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados são inexistentes e, portanto, não sustentam a recomendação de consultar a ficha do produto antes da compra.",
+      "fix": "Remova a recomendação ou apresente-a como orientação editorial sem alegar que ela é sustentada pelas evidências citadas."
+    },
+    {
+      "ref": "material-e-densidade#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-e-densidade#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "material-e-densidade#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0",
+      "verdict": "MISATTRIBUTED",
+      "problem": "Os trechos identificam um Pillow Top Avulso Queen da Americanflex e, em um título, mostram as medidas 158x198, mas não dizem que o consumidor deve conferir se as medidas correspondem às do colchão. Portanto, essa recomendação não pode ser atribuída à Americanflex com base nos trechos citados.",
+      "fix": "A Americanflex lista um Pillow Top Avulso Queen com medidas de 158x198."
+    },
+    {
+      "ref": "como-decidir#2",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora a frase esteja em um bloco de enquadramento, ela afirma uma orientação prática sobre a escolha de produtos — verificar fixação, tamanho e altura total — sem qualquer trecho citado que a sustente.",
+      "fix": "A seguir, veja informações sobre colchões com pillow top."
+    },
+    {
+      "ref": "como-decidir#3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "garantia#1",
+      "msg": "UNSUPPORTED. Os trechos citados são inexistentes e, portanto, não sustentam a recomendação de consultar a ficha do produto antes da compra. Versão sustentável: Remova a recomendação ou apresente-a como orientação editorial sem alegar que ela é sustentada pelas evidências citadas."
+    },
+    {
+      "ref": "como-decidir#0",
+      "msg": "MISATTRIBUTED. Os trechos identificam um Pillow Top Avulso Queen da Americanflex e, em um título, mostram as medidas 158x198, mas não dizem que o consumidor deve conferir se as medidas correspondem às do colchão. Portanto, essa recomendação não pode ser atribuída à Americanflex com base nos trechos citados. Versão sustentável: A Americanflex lista um Pillow Top Avulso Queen com medidas de 158x198."
+    },
+    {
+      "ref": "como-decidir#2",
+      "msg": "FACT_IN_FRAMING. Embora a frase esteja em um bloco de enquadramento, ela afirma uma orientação prática sobre a escolha de produtos — verificar fixação, tamanho e altura total — sem qualquer trecho citado que a sustente. Versão sustentável: A seguir, veja informações sobre colchões com pillow top."
+    }
+  ]
+}

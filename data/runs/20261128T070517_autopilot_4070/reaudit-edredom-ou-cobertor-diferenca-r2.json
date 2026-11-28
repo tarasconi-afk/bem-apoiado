@@ -1,0 +1,20 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "O edredom é uma peça mais volumosa com enchimento e tecido externo, enquanto o cobertor é de tecido mais grosso e sem enchimento interno. Na hora de escolher, confira na ficha do edredom o tipo de enchimento e o material do tecido externo; na do cobertor, o material e a gramatura.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c343cf271464",
+        "clm_48dd2f674dac"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "MISATTRIBUTED. O bloco apresenta como fatos gerais informações que os trechos atribuem à Karsten, sem dizer \"segundo a Karsten\". Além disso, os trechos não afirmam que o cobertor não tem enchimento interno nem sustentam a orientação sobre verificar a gramatura. Versão sustentável: Segundo a Karsten, o edredom é uma peça mais volumosa, composta por enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso, geralmente feita de lã, poliéster ou manta acrílica."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Segundo a Karsten, o edredom é uma peça mais volumosa, com enchimento e tecido externo, enquanto o cobertor é uma peça de tecido mais grosso. Ao escolher entre eles, confira na ficha do edredom o tipo de enchimento e o tecido externo; na ficha do cobertor, o material e a gramatura declarados.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_c343cf271464",
+        "clm_48dd2f674dac",
+        "clm_3b9562b062c2",
+        "clm_35ef4685e8de"
+      ]
+    },
+    {
+      "ref": "composicao-edredom#1",
+      "action": "replace",
+      "text": "Alternativas com enchimento de pluma também existem. No edredom Summer da Plumasul, o revestimento é tecido 100% algodão percal 233 fios com tratamento Downproof, que, segundo a Plumasul, impede que penas e plumas escapem entre o tecido; o enchimento é de 100% plumas de ganso.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_0e86ea4ea87b",
+        "clm_831f2572b710"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "verdict",
+      "msg": "a resposta curta não pode abrir citando a fonte (\"Segundo a Ortobom...\", \"Segundo fabricantes...\"): comece pela resposta prática (o que escolher e para quem); a fonte entra depois, se precisar."
+    }
+  ]
+}
