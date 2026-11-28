@@ -1,0 +1,75 @@
+{
+  "run_id": "20261128T131350_autopilot_386b",
+  "topic": "como-escolher-cobertor-para-o-calor",
+  "accepted": [
+    {
+      "claim_id": "clm_c6079e462348",
+      "question_id": "q_gramatura_composicao",
+      "source_id": "src_9789265583a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_e0c9c5ed153b",
+      "question_id": "q_gramatura_composicao",
+      "source_id": "src_9789265583a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_0060aaa8b115",
+      "question_id": "q_cuidado_lavagem",
+      "source_id": "src_9789265583a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_b45e542d2416",
+      "question_id": "q_propriedade_declarada",
+      "source_id": "src_9789265583a3",
+      "new": true
+    },
+    {
+      "claim_id": "clm_43cff78984cb",
+      "question_id": "q_uso_leitor",
+      "source_id": "src_9789265583a3",
+      "new": true
+    }
+  ],
+  "rejected": [],
+  "coverage": {
+    "q_gramatura_composicao": 2,
+    "q_etiqueta_composicao": 0,
+    "q_cuidado_lavagem": 1,
+    "q_tipo_manta_cobertor": 0,
+    "q_manta_algodao_vs_microfibra": 0,
+    "q_propriedade_declarada": 1,
+    "q_uso_leitor": 1
+  },
+  "unanswered": [
+    "q_etiqueta_composicao",
+    "q_tipo_manta_cobertor",
+    "q_manta_algodao_vs_microfibra"
+  ],
+  "usage": {
+    "input_tokens": 1901,
+    "output_tokens": 798,
+    "calls": 1
+  },
+  "errors": [],
+  "skipped_sources": [
+    "src_d751283f03c3"
+  ],
+  "triage": [
+    {
+      "source_id": "src_d751283f03c3",
+      "chunk": 0,
+      "keep": false,
+      "p_useful": 0.17
+    },
+    {
+      "source_id": "src_9789265583a3",
+      "chunk": 0,
+      "keep": true,
+      "p_useful": 0.94
+    }
+  ],
+  "credits": 10.543716000000003
+}

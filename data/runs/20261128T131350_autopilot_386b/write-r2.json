@@ -1,0 +1,124 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "como-decidir#2",
+      "action": "remove"
+    }
+  ],
+  "draft": {
+    "title": "Como escolher cobertor para o calor: gramatura e composição",
+    "description": "Entenda a gramatura e composição de cobertores leves para dias quentes, como conferir na etiqueta e instruções de lavagem segundo fabricantes.",
+    "verdict": {
+      "text": "Escolha um cobertor mais leve para clima quente: a Appel informa que, em dias muito quentes, pode ser necessário um cobertor mais leve que o modelo com enchimento de 170 g/m². Edredons leves funcionam bem no verão e em quartos com ar-condicionado; para usar o ano todo, um modelo intermediário costuma ser mais versátil.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_e0c9c5ed153b",
+        "clm_c477596ec0a6"
+      ]
+    },
+    "sections": [
+      {
+        "id": "gramaturas-calor-vs-inverno",
+        "heading": "Gramatura: comparação entre cobertores para calor e inverno",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, edredons leves funcionam bem no verão e em quartos com ar-condicionado, enquanto os mais encorpados retêm mais calor no inverno. Para usar o ano todo, um modelo intermediário costuma ser a escolha mais versátil.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c477596ec0a6"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "composicao-fibra-etiqueta",
+        "heading": "Composição de fibra: o que a etiqueta deve informar",
+        "blocks": [
+          {
+            "text": "As fichas de produto informam 100% poliéster no cobertor Desert da Altenburg e no cobertor Eva da Döhler. A Karsten declara que o algodão é hipoalergênico e suave ao contato com a pele; o Inmetro não avalia essa propriedade.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_02cba728a098",
+              "clm_066765a5cdc9",
+              "clm_07da92eefe2c"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "lavagem-secagem",
+        "heading": "Instruções de lavagem e secagem",
+        "blocks": [
+          {
+            "text": "Para o edredom Plush Flannel Confort da Appel, as instruções são lavar até 40°C em processo normal, não alvejar, secar pendurado, passar até 110°C sem vapor e não lavar a seco. Para o edredom Solteiro 200 Fios 100% Algodão da Karsten, são lavar a 40°C, não alvejar, secar em tambor até 60°C, passar até 110°C e não lavar a seco.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0060aaa8b115",
+              "clm_c1a928693c24"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "manta-vs-cobertor",
+        "heading": "Diferença entre manta e cobertor",
+        "blocks": [
+          {
+            "text": "Segundo a Altenburg, o edredom tem uma camada interna de fibras, plumas ou penas entre dois tecidos, o que lhe confere volume e retenção de calor. O catálogo da Altenburg informa \"enchimento: Manta Siliconizada 120g/m\".",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0ca225e97b69",
+              "clm_0f1f97f3af40"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir qual cobertor escolher",
+        "blocks": [
+          {
+            "text": "Em dias muito quentes, a Appel informa que pode ser necessário usar um cobertor mais leve que o modelo com enchimento de 170 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e0c9c5ed153b"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o uso principal será no verão ou em quarto com ar-condicionado, escolha um modelo leve, segundo a Altenburg. Se quiser usar a peça o ano todo, prefira um modelo intermediário: segundo a Altenburg, edredons intermediários são versáteis para diferentes estações.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c477596ec0a6"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Confira na etiqueta as instruções de lavagem e secagem específicas da peça: a Appel recomenda secagem pendurada, enquanto a Karsten permite secagem em tambor até 60°C.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_0060aaa8b115",
+              "clm_c1a928693c24"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "como-decidir#2",
+      "msg": "repete o bloco como-decidir#0 (82% das palavras): corte este bloco ou diga só o que ele acrescenta."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 47
+  }
+}
