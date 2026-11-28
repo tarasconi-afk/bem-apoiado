@@ -1,0 +1,294 @@
+{
+  "mode": "patch",
+  "patches": [
+    {
+      "ref": "o-que-fabricantes-declaram#1",
+      "action": "replace",
+      "text": "A etiqueta deve informar o nome genérico das fibras e seu conteúdo em percentagem em massa, além do tratamento de cuidado para conservação, segundo o Inmetro.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_52a635e97b39",
+        "clm_8f96ff30059a"
+      ]
+    },
+    {
+      "ref": "etiqueta-cuidados#2",
+      "action": "replace",
+      "text": "As etiquetas citadas apresentam cuidados diferentes: o Charm da Plumasul informa temperatura máxima de lavagem de 30°C, lavagem a seco e secagem à sombra sem torcer. O Estela da Karsten informa lavação a 40°C e secagem em tambor com temperatura máxima de 60°C.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_94082f9da502",
+        "clm_a1ffbe788f28"
+      ]
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "action": "replace",
+      "text": "Se alergia pesa na sua decisão, considere conversar com um profissional de saúde sobre as opções disponíveis.",
+      "basis": "framing",
+      "claim_ids": []
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "action": "replace",
+      "cells": [
+        {
+          "text": "Fios mais finos e trama mais fechada no tecido",
+          "claim_ids": [
+            "clm_0846c5289ec6"
+          ]
+        },
+        {
+          "text": "Segundo a Trussardi, quanto maior a contagem de fios (como 400, 600 ou 1000 fios), mais fina é a linha utilizada e mais fechada é a trama",
+          "claim_ids": [
+            "clm_0846c5289ec6"
+          ]
+        }
+      ]
+    }
+  ],
+  "draft": {
+    "title": "Contagem de fios em edredom: o que realmente importa",
+    "description": "Descubra o que fabricantes declaram junto com a contagem de fios, como o Inmetro regula essa informação e quais dados de verdade afetam sua escolha de edredom.",
+    "verdict": {
+      "text": "Alguns fabricantes informam a contagem de fios junto com dados como tipo de tecido e, em certos produtos, a gramatura do enchimento, segundo a Plumasul e a Karsten. Segundo a Karsten, geralmente uma contagem maior está associada a uma trama mais densa e a um toque mais suave, macio e resistente.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_00295a339c49",
+        "clm_3f8c1e079350",
+        "clm_12e19814db6c"
+      ]
+    },
+    "sections": [
+      {
+        "id": "o-que-fabricantes-declaram",
+        "heading": "O que fabricantes declaram junto com a contagem de fios",
+        "blocks": [
+          {
+            "text": "A Plumasul informa que o edredom Linea tem revestimento de tecido 100% algodão, cetim de 300 fios. Para o Chateau Versailles, informa revestimento 100% algodão, cetim de 500 fios, e enchimento de fibra de poliéster com gramatura de 200 g/m², segundo a Plumasul.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_00295a339c49",
+              "clm_3f8c1e079350"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "A etiqueta deve informar o nome genérico das fibras e seu conteúdo em percentagem em massa, além do tratamento de cuidado para conservação, segundo o Inmetro.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_52a635e97b39",
+              "clm_8f96ff30059a"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "fibra-tecido-e-aquecimento",
+        "heading": "Fibra, tipo de tecido e gramatura: o que realmente afeta sua escolha",
+        "blocks": [
+          {
+            "text": "Segundo a Karsten, geralmente quanto maior a contagem de fios, mais suave, macio e resistente será o jogo de cama, pois um número maior de fios cria uma trama mais densa e confortável ao toque.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_12e19814db6c"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Diferentes produtos apresentam gramaturas variadas de enchimento, segundo fabricantes como Appel, Karsten e Plumasul. A Appel descreve um enchimento de 170 g/m² como oferecendo conforto térmico equilibrado, indicado para clima frio e temperaturas mais amenas. O modelo Estela da Karsten apresenta manta de enchimento de 180 g/m² em configuração dupla face. O modelo Chateau Versailles da Plumasul traz enchimento de fibra de poliéster com 200 g/m².",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_028a55254d48",
+              "clm_036690964084",
+              "clm_3f8c1e079350"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Segundo a Altenburg, o cetim tem superfície lisa, brilho suave e toque acetinado. O plush tem toque aveludado e superfície felpuda, sendo bastante usado em edredons para o inverno.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_09767184ffcd",
+              "clm_07ae77f65974"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-composicao-fibras",
+        "heading": "O que a etiqueta de composição deve informar",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que a etiqueta informe o nome genérico de cada fibra e seu percentual em massa, em ordem decrescente de participação. A composição é expressa em relação a 100% do produto têxtil, ressalvada exceção prevista em norma, e admite-se tolerância de ±3% para cada fibra separadamente.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_52a635e97b39",
+              "clm_c6a03bad2745",
+              "clm_325c17fff43d"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Quando o produto tiver partes diferentes quanto à sua composição têxtil, devem ser indicados os símbolos ou textos adequados ou mais razoáveis para o produto como um todo.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_c46331c354fe"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "etiqueta-cuidados",
+        "heading": "O que a etiqueta de cuidados exige informar",
+        "blocks": [
+          {
+            "text": "O Inmetro exige que a etiqueta de conservação informe obrigatoriamente sobre lavagem, alvejamento, secagem, passadoria e cuidado têxtil profissional, sempre nesta sequência. Essas informações podem estar em formato de símbolos ou texto, conforme o fabricante escolha.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_1326bdf565cf",
+              "clm_bb62377cb70a",
+              "clm_a5c33e9ea06a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "Se o processo de lavagem não for permitido, deve constar na etiqueta qual tipo de limpeza profissional (seca ou úmida) é recomendado. Se a secagem em tambor não for permitida, deve-se indicar um ou mais símbolos de secagem natural adequados.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_e2567629def2",
+              "clm_1d159ab88b4a"
+            ],
+            "kind": "paragraph"
+          },
+          {
+            "text": "As etiquetas citadas apresentam cuidados diferentes: o Charm da Plumasul informa temperatura máxima de lavagem de 30°C, lavagem a seco e secagem à sombra sem torcer. O Estela da Karsten informa lavação a 40°C e secagem em tambor com temperatura máxima de 60°C.",
+            "basis": "evidence",
+            "claim_ids": [
+              "clm_94082f9da502",
+              "clm_a1ffbe788f28"
+            ],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "propriedades-declaradas",
+        "heading": "Sobre propriedades como antialérgico ou hipoalergênico",
+        "blocks": [
+          {
+            "text": "Se alergia pesa na sua decisão, considere conversar com um profissional de saúde sobre as opções disponíveis.",
+            "basis": "framing",
+            "claim_ids": [],
+            "kind": "paragraph"
+          }
+        ]
+      },
+      {
+        "id": "como-decidir",
+        "heading": "Como decidir",
+        "blocks": [
+          {
+            "kind": "table",
+            "caption": "O que conferir antes de comprar seu edredom",
+            "columns": [
+              "Sua prioridade",
+              "Confira na ficha"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Fios mais finos e trama mais fechada no tecido",
+                    "claim_ids": [
+                      "clm_0846c5289ec6"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Trussardi, quanto maior a contagem de fios (como 400, 600 ou 1000 fios), mais fina é a linha utilizada e mais fechada é a trama",
+                    "claim_ids": [
+                      "clm_0846c5289ec6"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Maciez e resistência do tecido",
+                    "claim_ids": [
+                      "clm_12e19814db6c"
+                    ]
+                  },
+                  {
+                    "text": "Contagem de fios: segundo a Karsten, quanto maior a contagem, mais densa e confortável é a trama",
+                    "claim_ids": [
+                      "clm_12e19814db6c"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Conforto térmico para clima frio e temperaturas amenas",
+                    "claim_ids": [
+                      "clm_028a55254d48"
+                    ]
+                  },
+                  {
+                    "text": "Segundo a Appel, um enchimento de 170 g/m² oferece conforto térmico equilibrado, indicado para clima frio e temperaturas mais amenas",
+                    "claim_ids": [
+                      "clm_028a55254d48"
+                    ]
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "Certeza sobre composição de fibras",
+                    "claim_ids": [
+                      "clm_52a635e97b39"
+                    ]
+                  },
+                  {
+                    "text": "Rótulo de composição: confira o nome genérico (algodão, poliéster) e o percentual em massa de cada fibra",
+                    "claim_ids": [
+                      "clm_52a635e97b39"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "issues_in": [
+    {
+      "ref": "o-que-fabricantes-declaram#1",
+      "msg": "OVERSTATED. Os trechos sustentam que o Inmetro revisará um procedimento de fiscalização e coleta de amostras para a avaliação da fidedignidade das informações, mas não afirmam diretamente que ele avalia a fidedignidade dessas informações como formulado no bloco. Versão sustentável: A etiqueta deve informar o nome genérico das fibras e seu conteúdo em percentagem em massa, além do tratamento de cuidado para conservação. O Inmetro menciona a revisão de um procedimento de fiscalização e coleta de amostras para a avaliação da fidedignidade das informações."
+    },
+    {
+      "ref": "etiqueta-cuidados#2",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam as instruções de lavagem e secagem, mas não afirmam que o Charm da Plumasul nem o Estela da Karsten são 100% algodão; essa informação aparece apenas nos títulos/identificações dos documentos, não nos trechos literais apresentados. Versão sustentável: As etiquetas citadas apresentam cuidados diferentes: o Charm da Plumasul informa temperatura máxima de lavagem de 30°C, lavagem a seco e secagem à sombra sem torcer. O Estela da Karsten informa lavação a 40°C e secagem em tambor com temperatura máxima de 60°C."
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "msg": "FACT_IN_FRAMING. Embora seja apresentado como framing, o bloco afirma fatos sobre declarações de fabricantes e sobre o que o Inmetro avalia, sem nenhum trecho citado. A orientação para conversar com um profissional de saúde é permitida, mas não sustenta essas afirmações factuais. Versão sustentável: Se alergia pesa na sua decisão, considere conversar com um profissional de saúde sobre as opções disponíveis."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta que a contagem de fios está associada a linhas mais finas e trama mais fechada no tecido, mas não diz que isso se refere especificamente ao revestimento do edredom. Versão sustentável: Sua prioridade: fios mais finos e trama mais fechada no tecido. Confira na ficha: segundo a Trussardi, quanto maior a contagem de fios (como 400, 600 ou 1000 fios), mais fina é a linha utilizada e mais fechada é a trama."
+    }
+  ],
+  "usage": {
+    "input_tokens": 3,
+    "output_tokens": 554
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "o-que-e-pillow-top#2",
+      "como-decidir#0",
+      "como-decidir#1"
+    ],
+    "decision_criteria": [
+      "Se a prioridade é ter mais maciez e conforto, o pillow top pode valer a pena.",
+      "Se há pouca folga na cama, no baú ou para o lençol, escolha um colchão sem pillow top ou confirme se os 5 cm adicionais cabem.",
+      "Se já tem um colchão e quer acrescentar uma camada de conforto, escolha um pillow top avulso e confira se as medidas correspondem às do colchão.",
+      "Confira no anúncio ou na ficha se o pillow top é avulso, se tem elásticos ou outra forma de fixação e qual é o tamanho.",
+      "Verifique a espessura informada pelo fabricante antes da compra, pois ela altera a altura total do conjunto.",
+      "Confira a composição e a densidade da espuma declaradas na ficha técnica, como 50 kg/m³ e 5 cm no modelo citado da Ortobom."
+    ],
+    "missing": [
+      "Uma comparação explícita entre fabricantes mostrando também o acréscimo de 7 cm informado pela Simmons, além dos 5 cm da Ortobom.",
+      "Uma explicação simples de que espuma de alta resiliência é uma espuma que recupera melhor o formato, e de que densidade em kg/m³ indica a quantidade de material em determinado volume.",
+      "Uma tabela ou informação de fabricante relacionando peso corporal à densidade ou espessura mais adequada do pillow top.",
+      "Uma explicação, com exemplos de fabricantes, sobre a diferença entre pillow top costurado ou fixo ao colchão e pillow top avulso/removível.",
+      "A ficha técnica de mais de um fabricante comparando materiais, espessura, fixação e tamanho para ajudar a escolher entre modelos."
+    ],
+    "publishable": false,
+    "summary": "A página é publicável porque define o pillow top e dá uma regra prática de escolha: ele serve para quem busca mais maciez, mas pode não caber quando há pouca folga de altura; também orienta quem quer um modelo avulso. A resposta curta é rápida e leva à compra, embora a página ainda devesse explicar os termos técnicos e incluir a comparação de espessura e fixação solicitada entre mais fabricantes.",
+    "filler_ratio": 0.21428571428571427,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "partial",
+    "concrete_guidance": true,
+    "reader_fit": false,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [
+      "A resposta curta não diz diretamente para quem o pillow top vale a pena ou não; concentra-se apenas na altura acrescentada.",
+      "Termos como HR Gel, espuma de alta resiliência, densidade nominal e manta sobreposta aparecem sem explicação simples para leigos.",
+      "A página mistura informações de Inmetro e garantia que não são essenciais para decidir se o pillow top vale a pena."
+    ],
+    "filler_refs": [
+      "o-que-e-pillow-top#2"
+    ],
+    "decision_criteria": [
+      "Se você quer uma superfície mais macia, o pillow top acrescenta uma camada de conforto sobre o colchão.",
+      "Se a cama, o baú ou a roupa de cama têm pouca folga, confira a altura adicional: o exemplo da Ortobom tem 5 cm e o da Simmons, 7 cm.",
+      "Se quer acrescentar conforto a um colchão que já possui, há pillow tops avulsos da Americanflex.",
+      "Confira se o produto é fixo ou avulso e verifique o tamanho antes da compra.",
+      "Quem dorme de lado pode preferir uma camada de conforto mais profunda para acomodar melhor quadril e ombros.",
+      "Quem dorme de costas ou de bruços pode preferir uma superfície sem manta extra ou com amortecimento mais firme.",
+      "Confira a densidade e a espessura das camadas de espuma na ficha do produto."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Para o leitor leigo: A resposta curta não diz diretamente para quem o pillow top vale a pena ou não; concentra-se apenas na altura acrescentada.",
+      "Para o leitor leigo: Termos como HR Gel, espuma de alta resiliência, densidade nominal e manta sobreposta aparecem sem explicação simples para leigos.",
+      "Para o leitor leigo: A página mistura informações de Inmetro e garantia que não são essenciais para decidir se o pillow top vale a pena.",
+      "Uma resposta curta, em até três frases, dizendo que o pillow top tende a valer a pena para quem quer mais maciez e não tem problema com a altura extra, mas pode não valer para quem tem pouca folga na cama, no baú ou no lençol.",
+      "Uma regra de escolha comparando claramente as opções fixas e avulsas e indicando qual serve para cada situação.",
+      "Explicação simples de espuma de alta resiliência, HR Gel e densidade em kg/m³.",
+      "Informação do fabricante sobre a fixação e a possibilidade de remoção em cada modelo citado.",
+      "Comparação mais explícita entre modelos de Ortobom, Simmons, Americanflex e Castor, incluindo tamanho e espessura quando disponíveis.",
+      "Revisão da seção de garantia para comparar apenas pillow tops e retirada da seção de Inmetro, conforme a pauta."
+    ],
+    "publishable": false,
+    "summary": "A página traz uma definição compreensível e alguns critérios práticos, como maciez, altura de 5 a 7 cm e existência de modelos avulsos. Porém, a resposta curta não resolve a parte principal de “vale a pena”: não informa claramente para quem o produto é indicado ou desaconselhado. Além disso, há jargões sem explicação e conteúdo de Inmetro que a pauta pediu para retirar; precisa de revisão antes da publicação.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": false
+  },
+  "score_before": 4,
+  "score_after": 1.5
+}

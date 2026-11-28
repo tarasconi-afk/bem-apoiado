@@ -1,0 +1,62 @@
+{
+  "patches": [
+    {
+      "ref": "cuidados-de-lavagem-por-tipo#0",
+      "action": "replace",
+      "text": "No Hug da Ortobom, a etiqueta permite lavagem suave até 40 °C, secagem em tambor até 60 °C e passadoria até 110 °C sem vapor, mas proíbe alvejamento e limpeza a seco. Já no Pluma de Ganso Plus da Ortobom, a etiqueta proíbe lavagem, alvejamento e passadoria; permite secagem na horizontal à sombra e limpeza a seco.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3fb7b71e5656",
+        "clm_d4bce71cf4c6"
+      ]
+    },
+    {
+      "ref": "composicao-declarada#0",
+      "action": "replace",
+      "text": "Na ficha da Ortobom, os modelos citados declaram enchimento de 100% de plumas de ganso.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_9ba2684f8015",
+        "clm_6228f8bb172f"
+      ]
+    },
+    {
+      "ref": "recomendacao-troca#0",
+      "action": "replace",
+      "text": "Segundo a Duoflex, a vida útil média de um travesseiro é de cerca de cinco anos, mas a fabricante recomenda trocá-lo a cada dois anos.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_baf2ba0de4d8"
+      ]
+    },
+    {
+      "ref": "como-decidir#1",
+      "action": "replace",
+      "text": "Se você quer maciez, fabricantes informam esse atributo em modelos de fibra siliconada: a Castor declara toque macio no Sleep Fibras, e a Probel declara maciez e leveza em seu modelo. Para suporte baixo, a Ortobom indica o Seis Estrelas para quem busca essa característica.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_af3514f27ebf",
+        "clm_4b33eb7f5234",
+        "clm_8849524808df"
+      ]
+    },
+    {
+      "ref": "como-decidir#2",
+      "action": "replace",
+      "text": "As instruções de cuidado variam entre os modelos: no Hug da Ortobom, a lavagem é permitida até 40 °C em processo suave e a secagem em tambor até 60 °C; a Plumasul informa lavagem a até 40 °C e lavagem a seco para seus travesseiros de penas de ganso; já os modelos de pluma de ganso citados da Ortobom e da Simmons proíbem a lavagem à água e permitem limpeza a seco e secagem natural.",
+      "basis": "evidence",
+      "claim_ids": [
+        "clm_3fb7b71e5656",
+        "clm_b04b84e830d4",
+        "clm_439eebde3cf1",
+        "clm_444f49032317"
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "como-decidir#2",
+      "msg": "OVERSTATED. O trecho citado da Plumasul se refere a um produto específico (um kit com dois travesseiros de 100% penas de ganso), mas o bloco generaliza para “seus travesseiros de penas de ganso”. Versão sustentável: A Plumasul informa, para o produto citado de penas de ganso, lavagem a até 40 °C e lavagem a seco; os modelos de pluma de ganso citados da Ortobom e da Simmons proíbem a lavagem à água e permitem limpeza a seco e secagem natural."
+    }
+  ]
+}

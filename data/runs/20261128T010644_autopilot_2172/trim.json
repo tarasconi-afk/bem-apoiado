@@ -1,0 +1,68 @@
+{
+  "removed": [
+    "fibra-tecido-e-aquecimento#0",
+    "propriedades-declaradas#0"
+  ],
+  "before": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": false,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "fibra-tecido-e-aquecimento#0",
+      "propriedades-declaradas#0"
+    ],
+    "decision_criteria": [
+      "Para priorizar fios mais finos e uma trama mais fechada, confira uma contagem maior de fios, como 400, 600 ou 1.000, conforme declarado pela Trussardi.",
+      "Para buscar maciez e resistência, compare a contagem de fios informada na ficha, pois a Karsten associa contagens maiores a tramas mais densas e confortáveis.",
+      "Para conforto térmico em clima frio ou ameno, confira a gramatura do enchimento; a Appel indica 170 g/m² como opção equilibrada.",
+      "Confira o tipo de tecido e a fibra do revestimento, como cetim de algodão, além da contagem de fios.",
+      "Confira na etiqueta o nome genérico e o percentual em massa de cada fibra.",
+      "Verifique na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Resposta curta que resolva sozinha a dúvida simples, em até 3 frases e sem jargão",
+      "Uma explicação direta de que a maior contagem de fios não deve ser usada isoladamente para definir qual edredom é melhor, considerando também tecido, fibra e gramatura.",
+      "Comparação de fabricantes sobre maciez, caimento e durabilidade de percal, cetim e tricoline com a mesma contagem de fios.",
+      "Informação primária sobre se o Inmetro certifica, audita ou define um método de medição para a contagem de fios.",
+      "A nota exigida pelo Inmetro para declarações de produto antialérgico ou hipoalergênico.",
+      "Uma regra mais objetiva para relacionar diferentes gramaturas do enchimento ao clima ou à preferência de aquecimento."
+    ],
+    "publishable": false,
+    "summary": "Publicável: a página responde à dúvida ao relacionar contagens maiores a trama mais fechada, maciez e resistência, e oferece critérios práticos para conferir fios, tecido, composição e gramatura. A resposta curta, porém, não resolve sozinha com uma regra concreta nem deixa claro que a contagem de fios não deve ser o único critério; por isso, não é uma resposta rápida perfeita. Os principais pontos da pauta sobre comparação entre tecidos, medição pelo Inmetro e alegações de hipoalergenicidade continuam ausentes, mas não impedem a utilidade para a decisão principal.",
+    "filler_ratio": 0.125,
+    "model_opinion": true
+  },
+  "after": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [],
+    "filler_refs": [
+      "propriedades-declaradas#0"
+    ],
+    "decision_criteria": [
+      "Para priorizar fios mais finos e uma trama mais fechada, confira uma contagem de fios maior, como 400, 600 ou 1000 fios, conforme declaração da Trussardi.",
+      "Para buscar maciez e resistência, confira a contagem de fios na ficha, pois a Karsten associa números maiores a uma trama mais densa e confortável.",
+      "Para conforto térmico em clima frio ou ameno, confira a gramatura do enchimento; o exemplo citado de 170 g/m² é indicado pela Appel para essas condições.",
+      "Confira o tipo de tecido e a fibra do revestimento, como cetim de algodão, e não apenas a contagem de fios.",
+      "Confira no rótulo o nome genérico e o percentual em massa de cada fibra.",
+      "Confira na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Uma explicação direta de que a maior contagem de fios não é, sozinha, garantia de que o edredom será melhor para todos os usos.",
+      "Comparação de fabricantes entre tecidos diferentes, como percal, cetim e tricoline, mantendo a mesma contagem de fios.",
+      "Informação de fonte primária sobre se o Inmetro certifica, audita ou padroniza a medição da contagem de fios.",
+      "A nota exigida para declarações de produto antialérgico ou hipoalergênico, caso aplicável.",
+      "Valores mais amplos ou uma tabela de referência relacionando contagem de fios, tipo de tecido, fibra e gramatura."
+    ],
+    "publishable": true,
+    "summary": "Publicável. A página responde que uma contagem maior costuma estar associada a trama mais fechada, maciez e resistência, e orienta o leitor a conferir contagem de fios, tecido, composição e gramatura no anúncio. Faltam comparações entre tecidos com a mesma contagem e esclarecimentos sobre a atuação do Inmetro, mas esses pontos não impedem a decisão principal de compra.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": true
+  }
+}

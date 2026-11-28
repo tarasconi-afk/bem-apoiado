@@ -1,0 +1,22 @@
+{
+  "patches": [
+    {
+      "ref": "verdict",
+      "action": "replace",
+      "text": "Alguns fabricantes informam a contagem de fios junto com dados como tipo de tecido e gramatura do enchimento, segundo a Plumasul e a Karsten. Para jogos de cama, segundo a Karsten, uma contagem maior está associada a uma trama mais densa e a um toque mais suave, macio e resistente.",
+      "basis": "reasoning",
+      "claim_ids": [
+        "clm_00295a339c49",
+        "clm_3f8c1e079350",
+        "clm_12e19814db6c"
+      ]
+    }
+  ],
+  "kept": false,
+  "audited": [
+    "verdict"
+  ],
+  "still": [
+    "verdict: MISATTRIBUTED"
+  ]
+}

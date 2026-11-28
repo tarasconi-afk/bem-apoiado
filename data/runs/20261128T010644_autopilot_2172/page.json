@@ -1,0 +1,52 @@
+{
+  "slug": "edredom-quanto-mais-fios-melhor",
+  "status": "NOT_PUBLISHABLE",
+  "rounds": 4,
+  "usage": {
+    "input_tokens": 133129,
+    "output_tokens": 43759,
+    "calls": 54
+  },
+  "credits": 47.592246240000016,
+  "review": {
+    "answers_primary_query": "yes",
+    "concrete_guidance": true,
+    "reader_fit": true,
+    "quick_answer": true,
+    "purchase_path": true,
+    "reader_problems": [
+      "O leitor entende que uma contagem maior de fios torna o edredom mais macio e resistente, mas o trecho citado da Karsten fala de jogo de cama, não de edredom (verdict); Restringir essa conclusão a jogos de cama ou retirar a afirmação sobre maciez e resistência "
+    ],
+    "filler_refs": [
+      "propriedades-declaradas#0"
+    ],
+    "decision_criteria": [
+      "Para priorizar fios mais finos e uma trama mais fechada, confira uma contagem de fios maior, como 400, 600 ou 1000 fios, conforme declaração da Trussardi.",
+      "Para buscar maciez e resistência, confira a contagem de fios na ficha, pois a Karsten associa números maiores a uma trama mais densa e confortável.",
+      "Para conforto térmico em clima frio ou ameno, confira a gramatura do enchimento; o exemplo citado de 170 g/m² é indicado pela Appel para essas condições.",
+      "Confira o tipo de tecido e a fibra do revestimento, como cetim de algodão, e não apenas a contagem de fios.",
+      "Confira no rótulo o nome genérico e o percentual em massa de cada fibra.",
+      "Confira na etiqueta os cuidados de lavagem, alvejamento, secagem, passadoria e limpeza profissional."
+    ],
+    "missing": [
+      "Para o leitor leigo: O leitor entende que uma contagem maior de fios torna o edredom mais macio e resistente, mas o trecho citado da Karsten fala de jogo de cama, não de edredom (verdict); Restringir essa conclusão a jogos de cama ou retirar a afirmação sobre maciez e resistência ",
+      "Uma explicação direta de que a maior contagem de fios não é, sozinha, garantia de que o edredom será melhor para todos os usos.",
+      "Comparação de fabricantes entre tecidos diferentes, como percal, cetim e tricoline, mantendo a mesma contagem de fios.",
+      "Informação de fonte primária sobre se o Inmetro certifica, audita ou padroniza a medição da contagem de fios.",
+      "A nota exigida para declarações de produto antialérgico ou hipoalergênico, caso aplicável.",
+      "Valores mais amplos ou uma tabela de referência relacionando contagem de fios, tipo de tecido, fibra e gramatura."
+    ],
+    "publishable": false,
+    "summary": "Publicável. A página responde que uma contagem maior costuma estar associada a trama mais fechada, maciez e resistência, e orienta o leitor a conferir contagem de fios, tecido, composição e gramatura no anúncio. Faltam comparações entre tecidos com a mesma contagem e esclarecimentos sobre a atuação do Inmetro, mas esses pontos não impedem a decisão principal de compra.",
+    "filler_ratio": 0.06666666666666667,
+    "model_opinion": true,
+    "coherence": [
+      {
+        "check": "produto_como_solucao",
+        "ref": "verdict",
+        "problem": "O leitor entende que uma contagem maior de fios torna o edredom mais macio e resistente, mas o trecho citado da Karsten fala de jogo de cama, não de edredom.",
+        "fix": "Restringir essa conclusão a jogos de cama ou retirar a afirmação sobre maciez e resistência do edredom."
+      }
+    ]
+  }
+}

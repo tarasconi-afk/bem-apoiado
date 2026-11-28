@@ -1,0 +1,118 @@
+{
+  "findings": [
+    {
+      "ref": "etiqueta-cuidados#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-cuidados#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "como-decidir#0.r3",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "verdict",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-fabricantes-declaram#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "o-que-fabricantes-declaram#1",
+      "verdict": "OVERSTATED",
+      "problem": "Os trechos sustentam que o Inmetro revisará um procedimento de fiscalização e coleta de amostras para a avaliação da fidedignidade das informações, mas não afirmam diretamente que ele avalia a fidedignidade dessas informações como formulado no bloco.",
+      "fix": "A etiqueta deve informar o nome genérico das fibras e seu conteúdo em percentagem em massa, além do tratamento de cuidado para conservação. O Inmetro menciona a revisão de um procedimento de fiscalização e coleta de amostras para a avaliação da fidedignidade das informações."
+    },
+    {
+      "ref": "fibra-tecido-e-aquecimento#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "fibra-tecido-e-aquecimento#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "fibra-tecido-e-aquecimento#2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao-fibras#0",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-composicao-fibras#1",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    },
+    {
+      "ref": "etiqueta-cuidados#2",
+      "verdict": "UNSUPPORTED",
+      "problem": "Os trechos citados sustentam as instruções de lavagem e secagem, mas não afirmam que o Charm da Plumasul nem o Estela da Karsten são 100% algodão; essa informação aparece apenas nos títulos/identificações dos documentos, não nos trechos literais apresentados.",
+      "fix": "As etiquetas citadas apresentam cuidados diferentes: o Charm da Plumasul informa temperatura máxima de lavagem de 30°C, lavagem a seco e secagem à sombra sem torcer. O Estela da Karsten informa lavação a 40°C e secagem em tambor com temperatura máxima de 60°C."
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "verdict": "FACT_IN_FRAMING",
+      "problem": "Embora seja apresentado como framing, o bloco afirma fatos sobre declarações de fabricantes e sobre o que o Inmetro avalia, sem nenhum trecho citado. A orientação para conversar com um profissional de saúde é permitida, mas não sustenta essas afirmações factuais.",
+      "fix": "Se alergia pesa na sua decisão, considere conversar com um profissional de saúde sobre as opções disponíveis."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "verdict": "UNSUPPORTED",
+      "problem": "O trecho citado sustenta que a contagem de fios está associada a linhas mais finas e trama mais fechada no tecido, mas não diz que isso se refere especificamente ao revestimento do edredom.",
+      "fix": "Sua prioridade: fios mais finos e trama mais fechada no tecido. Confira na ficha: segundo a Trussardi, quanto maior a contagem de fios (como 400, 600 ou 1000 fios), mais fina é a linha utilizada e mais fechada é a trama."
+    },
+    {
+      "ref": "como-decidir#0.r2",
+      "verdict": "SUPPORTED",
+      "problem": "",
+      "fix": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "ref": "o-que-fabricantes-declaram#1",
+      "msg": "OVERSTATED. Os trechos sustentam que o Inmetro revisará um procedimento de fiscalização e coleta de amostras para a avaliação da fidedignidade das informações, mas não afirmam diretamente que ele avalia a fidedignidade dessas informações como formulado no bloco. Versão sustentável: A etiqueta deve informar o nome genérico das fibras e seu conteúdo em percentagem em massa, além do tratamento de cuidado para conservação. O Inmetro menciona a revisão de um procedimento de fiscalização e coleta de amostras para a avaliação da fidedignidade das informações."
+    },
+    {
+      "ref": "etiqueta-cuidados#2",
+      "msg": "UNSUPPORTED. Os trechos citados sustentam as instruções de lavagem e secagem, mas não afirmam que o Charm da Plumasul nem o Estela da Karsten são 100% algodão; essa informação aparece apenas nos títulos/identificações dos documentos, não nos trechos literais apresentados. Versão sustentável: As etiquetas citadas apresentam cuidados diferentes: o Charm da Plumasul informa temperatura máxima de lavagem de 30°C, lavagem a seco e secagem à sombra sem torcer. O Estela da Karsten informa lavação a 40°C e secagem em tambor com temperatura máxima de 60°C."
+    },
+    {
+      "ref": "propriedades-declaradas#0",
+      "msg": "FACT_IN_FRAMING. Embora seja apresentado como framing, o bloco afirma fatos sobre declarações de fabricantes e sobre o que o Inmetro avalia, sem nenhum trecho citado. A orientação para conversar com um profissional de saúde é permitida, mas não sustenta essas afirmações factuais. Versão sustentável: Se alergia pesa na sua decisão, considere conversar com um profissional de saúde sobre as opções disponíveis."
+    },
+    {
+      "ref": "como-decidir#0.r0",
+      "msg": "UNSUPPORTED. O trecho citado sustenta que a contagem de fios está associada a linhas mais finas e trama mais fechada no tecido, mas não diz que isso se refere especificamente ao revestimento do edredom. Versão sustentável: Sua prioridade: fios mais finos e trama mais fechada no tecido. Confira na ficha: segundo a Trussardi, quanto maior a contagem de fios (como 400, 600 ou 1000 fios), mais fina é a linha utilizada e mais fechada é a trama."
+    }
+  ]
+}
